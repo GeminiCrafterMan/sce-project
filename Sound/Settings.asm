@@ -1,6 +1,6 @@
 ; ========SONIC 1 GIT EQUATES========
 
-Size_of_Mega_PCM_guess = $3F0
+Size_of_Mega_PCM_guess = $406
 
 ; ---FLAGS---
 SMPS_GloopSFXBehaviour	= 0
@@ -38,14 +38,14 @@ SMPS_EnablePWM	= 0
 ;	| If 1, support for four PWM tracks is added
 ;
 
-SMPS_S1DACSamples		= 0
+SMPS_S1DACSamples		= 1
 SMPS_S2DACSamples		= 0
 SMPS_S3DACSamples		= 1
 SMPS_SKDACSamples		= 1
 SMPS_S3DDACSamples	= 0
 SMPS_SCDACSamples		= 0
 
-SMPS_S1PSGEnvelopes	= 0
+SMPS_S1PSGEnvelopes	= 1
 SMPS_S2PSGEnvelopes	= 0
 SMPS_S3PSGEnvelopes	= 1
 SMPS_SKPSGEnvelopes	= 1

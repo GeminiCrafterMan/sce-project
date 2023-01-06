@@ -20,6 +20,11 @@ Offs_PLCAnimals: offsetTable
 		offsetTableEntry.w PLCAnimals_DEZ1	; DEZ3
 		offsetTableEntry.w PLCAnimals_DEZ1	; DEZ4
 
+		offsetTableEntry.w PLCAnimals_GHZ	; GHZ1
+		offsetTableEntry.w PLCAnimals_GHZ	; GHZ2
+		offsetTableEntry.w PLCAnimals_GHZ	; GHZ3
+		offsetTableEntry.w PLCAnimals_GHZ	; GHZ4
+
 		zonewarning Offs_PLCAnimals,(2*4)
 ; ---------------------------------------------------------------------------
 
@@ -27,3 +32,8 @@ PLCAnimals_DEZ1: plrlistheader
 		plreq $580, ArtKosM_BlueFlicky
 		plreq $592, ArtKosM_Chicken
 PLCAnimals_DEZ1_End
+
+PLCAnimals_GHZ: plrlistheader
+		plreq $580, ArtKosM_BlueFlicky
+		plreq $592, ArtKosM_Chicken
+PLCAnimals_GHZ_End

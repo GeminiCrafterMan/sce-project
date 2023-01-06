@@ -4,6 +4,7 @@ Map_TitleCard:
 		dc.w word_2EE9E-Map_TitleCard	; ACT
 		dc.w word_2EEAC-Map_TitleCard	; ZONE
 		dc.w word_2EEC6-Map_TitleCard	; DEATH EGG
+		dc.w TCard_GHZ-Map_TitleCard	; DEATH EGG
 word_2EE3C:
 		dc.w $10
 		dc.b  $58, 9, $84, $90, $FF, $E8
@@ -39,6 +40,19 @@ word_2EEC6:
 		dc.b	0, 6, $84, $CD, 0, $18			; A
 		dc.b	0, 6, $84, $E5, 0, $28			; T
 		dc.b	0, 6, $84, $DF, 0, $38			; H
+
 		dc.b	0, 6, $84, $9C, 0, $50			; E
 		dc.b	0, 6, $84, $D9, 0, $60			; G
 		dc.b	0, 6, $84, $D9, 0, $70			; G
+TCard_GHZ:
+		dc.w 9	; nine letters
+		dc.b	0, 6, $84, $CD, $FF, $F8		; G
+		dc.b	0, 6, $84, $D3, 0, 8			; R
+		dc.b	0, 6, $84, $9C, 0, $18			; E
+		dc.b	0, 6, $84, $9C, 0, $28			; E
+		dc.b	0, 6, $84, $A2, 0, $38			; N
+
+		dc.b	0, 6, $84, $D9, 0, $50			; H
+		dc.b	0, 6, $84, $DF, 0, $60			; I
+		dc.b	0, 6, $84, $E5, 0, $68			; L
+		dc.b	0, 6, $84, $EF, 0, $70			; L

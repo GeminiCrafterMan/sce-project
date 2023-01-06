@@ -71,6 +71,8 @@ ArtKosM_LevelSelectText:			binclude "Data/Screens/Level Select/KosinskiM Art/Tex
 
 ArtKosM_DEZTitleCard:			binclude "Objects/Title Card/KosinskiM Art/Levels/DEZ - Title Card.bin"
 	even
+ArtKosM_GHZTitleCard:			binclude "Objects/Title Card/KosinskiM Art/Levels/GHZ - Title Card.bin"
+	even
 
 ; ===========================================================================
 ; Kosinski Module compressed DEZ graphics

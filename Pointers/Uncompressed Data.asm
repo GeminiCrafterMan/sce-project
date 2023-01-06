@@ -24,3 +24,10 @@ ArtUnc_AniDEZ__5:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/5.bin"
 	even
 ArtUnc_AniDEZ__6:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/6.bin"
 	even
+
+Art_GhzWater:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Waterfall.bin"
+	even
+Art_GhzFlower1:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flower Large.bin"
+	even
+Art_GhzFlower2:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flower Small.bin"
+	even

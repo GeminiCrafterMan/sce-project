@@ -4,6 +4,7 @@
 MusicIndex:
 ; Levels
 ptr_mus_dez1:		SMPS_MUSIC_METADATA	Music_DEZ1, s3TempotoS1($FF), 0			; DEZ 1
+ptr_mus_ghz:		SMPS_MUSIC_METADATA	Music_GHZ, $FF, 0			; GHZ
 
 ; Boss
 ptr_mus_boss:		SMPS_MUSIC_METADATA	Music_Boss, s3TempotoS1($FF), 0			; Boss
@@ -21,6 +22,8 @@ ptr_musend
 ; ---------------------------------------------------------------------------
 
 Music_DEZ1:			include "Sound/Music/Mus - DEZ1.asm"
+	even
+Music_GHZ:			include "Sound/Music/Mus - GHZ.asm"
 	even
 Music_Boss:			include "Sound/Music/Mus - Miniboss.asm"
 	even

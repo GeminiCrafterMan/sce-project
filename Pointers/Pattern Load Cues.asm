@@ -13,6 +13,15 @@ Offs_PLC: offsetTable
 		offsetTableEntry.w PLC1_DEZ4_Misc
 		offsetTableEntry.w PLC2_DEZ4_Enemy
 
+		offsetTableEntry.w PLC1_GHZ_Misc
+		offsetTableEntry.w PLC2_GHZ_Enemy
+		offsetTableEntry.w PLC1_GHZ_Misc
+		offsetTableEntry.w PLC2_GHZ_Enemy
+		offsetTableEntry.w PLC1_GHZ_Misc
+		offsetTableEntry.w PLC2_GHZ_Enemy
+		offsetTableEntry.w PLC1_GHZ_Misc
+		offsetTableEntry.w PLC2_GHZ_Enemy
+
 		zonewarning Offs_PLC,(4*4)
 
 ; ===========================================================================
@@ -95,3 +104,17 @@ PLC1_DEZ4_Misc_end
 PLC2_DEZ4_Enemy: plrlistheader
 		plreq $100, ArtKosM_Spikebonker					; Spikebonker badnik
 PLC2_DEZ4_Enemy_end
+
+; ===========================================================================
+; Pattern load cues - Death Egg (Misc)
+; ===========================================================================
+
+PLC1_GHZ_Misc: plrlistheader
+PLC1_GHZ_Misc_end
+
+; ===========================================================================
+; Pattern load cues - Death Egg (Enemy)
+; ===========================================================================
+
+PLC2_GHZ_Enemy: plrlistheader
+PLC2_GHZ_Enemy_end

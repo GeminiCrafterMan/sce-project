@@ -9,6 +9,7 @@ LevelSelect_VRAM:				= $7B8
 ; Variables
 LevelSelect_ZoneCount:			= ZoneCount
 LevelSelect_ActDEZCount:			= 4	; DEZ
+LevelSelect_ActGHZCount:			= 4	; GHZ
 LevelSelect_MusicTestCount:		= 8
 LevelSelect_SoundTestCount:		= LevelSelect_MusicTestCount+1
 LevelSelect_SampleTestCount:		= LevelSelect_SoundTestCount+1
@@ -147,6 +148,7 @@ LevelSelect_LoadLevel_Return:
 
 LevelSelect_LoadMaxActs:
 		dc.w LevelSelect_ActDEZCount-1	; DEZ
+		dc.w LevelSelect_ActGHZCount-1	; GHZ
 
 		zonewarning LevelSelect_LoadMaxActs,2
 
@@ -341,6 +343,10 @@ LevelSelect_ActTextIndex: offsetTable
 		offsetTableEntry.w LevelSelect_LoadAct2		; DEZ2
 		offsetTableEntry.w LevelSelect_LoadAct3		; DEZ3
 		offsetTableEntry.w LevelSelect_LoadAct4		; DEZ4
+		offsetTableEntry.w LevelSelect_LoadAct1		; GHZ1
+		offsetTableEntry.w LevelSelect_LoadAct2		; GHZ2
+		offsetTableEntry.w LevelSelect_LoadAct3		; GHZ3
+		offsetTableEntry.w LevelSelect_LoadAct4		; GHZ4
 
 		zonewarning LevelSelect_ActTextIndex,(2*4)
 ; --------------------------------------------------------------------------
@@ -523,7 +529,7 @@ LevelSelect_MappingOffsets:
 		dc.w planeLocH28(0,26)
 LevelSelect_Text:
 		levselstr "   DEATH EGG          - ACT 1           "
-		levselstr "   UNKNOWN LEVEL      - UNKNOWN         "
+		levselstr "   GREEN HILL         - ACT 1           "
 		levselstr "   UNKNOWN LEVEL      - UNKNOWN         "
 		levselstr "   UNKNOWN LEVEL      - UNKNOWN         "
 		levselstr "   UNKNOWN LEVEL      - UNKNOWN         "
