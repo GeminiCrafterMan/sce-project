@@ -20,8 +20,6 @@ Obj_EndSignControlDoSign:
 		move.l	#Obj_EndSignControlAwaitStart,address(a0)
 		lea	Child6_EndSign(pc),a2
 		jsr	(CreateChild6_Simple).w
-		lea	PLC_EndSignStuff(pc),a5
-		jsr	(LoadPLC_Raw_KosM).w
 		jmp	AfterBoss_Cleanup(pc)
 ; ---------------------------------------------------------------------------
 
@@ -73,8 +71,7 @@ Obj_EndSignInit:
 		subi.w	#$20,d0
 		move.w	d0,y_pos(a0)								; place vertical position at top of screen
 		sfx	sfx_Signpost
-		lea	Child1_EndSignStub(pc),a2						; make the little stub at the bottom of the signpost
-		jmp	(CreateChild1_Normal).w
+		rts
 ; ---------------------------------------------------------------------------
 
 Obj_EndSignFall:
@@ -174,17 +171,6 @@ Obj_SignpostSparkleMain:
 		jsr	(Animate_RawNoSST).w
 		jsr	(Obj_Wait).w
 		jmp	(Draw_Sprite).w
-; ---------------------------------------------------------------------------
-
-Obj_SignpostStub:
-		lea	ObjDat_SignpostStub(pc),a1
-		jsr	(SetUp_ObjAttributes).w
-		move.l	#Obj_SignpostStubMain,address(a0)
-
-Obj_SignpostStubMain:
-		jsr	(Refresh_ChildPosition).w
-		jsr	(Child_GetPriority).w
-		jmp	(Child_Draw_Sprite).w
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -266,15 +252,10 @@ locret_83B02:
 
 EndSign_Range:			dc.w -$20, $40, -$18, $30
 ObjSlot_EndSigns:		subObjSlotData 0, $5CA, $C, 0, Map_EndSigns, $300, $18, $10, 0, 0
-ObjDat_SignpostStub:		subObjData Map_SignpostStub, $5E2, $300, 4, 8, 0, 0
 ObjDat_SignpostSparkle:	subObjData Map_Ring, make_art_tile(ArtTile_Ring,1,0), $280, 8, 8, 4, 0
 Child6_EndSign:
 		dc.w 1-1
 		dc.l Obj_EndSign
-Child1_EndSignStub:
-		dc.w 1-1
-		dc.l Obj_SignpostStub
-		dc.b 0, 24
 Child6_EndSignSparkle:
 		dc.w 1-1
 		dc.l Obj_SignpostSparkle
@@ -304,12 +285,7 @@ AniRaw_SignpostSparkle:
 		dc.b	2,   3
 		dc.b	4, arfEnd
 	even
-
-PLC_EndSignStuff: plrlistheader
-		plreq $5E2, ArtKosM_SignpostStub
-PLC_EndSignStuff_End
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Signpost/Object Data/DPLC - End Signs.asm"
 		include "Objects/Signpost/Object Data/Map - End Signs.asm"
-		include "Objects/Signpost/Object Data/Map - Signpost Stub.asm"

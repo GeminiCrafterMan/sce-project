@@ -655,12 +655,13 @@ Sound_PlayCDA:
 
 PlayCD_Index:
 	dc.l _MCD_PlayTrack<<24|$00000000			; $01 (DEZ)
-	dc.l _MCD_PlayTrack<<24|$00000000			; $02 (Mid Boss)
-	dc.l _MCD_PlayTrack<<24|$00000000			; $03 (Boss)
-	dc.l _MCD_PlayTrack<<24|$00000000			; $04 (Invincible)
-	dc.l _MCD_PlayTrack_Once<<24|$00000000	; $05 (Act Clear)
-	dc.l _MCD_PlayTrack_Once<<24|$00000000	; $06 (Countdown)
-	dc.l _MCD_PlayTrack<<24|$00000000			; $07 (Speedup)
+	dc.l _MCD_PlayTrack<<24|$00000000			; $02 (GHZ)
+	dc.l _MCD_PlayTrack<<24|$00000000			; $03 (Mid Boss)
+	dc.l _MCD_PlayTrack<<24|$00000000			; $04 (Boss)
+	dc.l _MCD_PlayTrack<<24|$00000000			; $05 (Invincible)
+	dc.l _MCD_PlayTrack_Once<<24|$00000000	; $06 (Act Clear)
+	dc.l _MCD_PlayTrack_Once<<24|$00000000	; $07 (Countdown)
+	dc.l _MCD_PlayTrack<<24|$00000000			; $08 (Speedup)
 	even
 
 ; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||

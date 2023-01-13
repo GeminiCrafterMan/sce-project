@@ -355,14 +355,6 @@ EndOfHeader:
 		include "Pointers/Object Pointers.asm"
 
 ; ---------------------------------------------------------------------------
-; Subroutine to load Sonic object data
-; ---------------------------------------------------------------------------
-
-		include "Objects/Sonic/Object Data/Anim - Sonic.asm"
-		include "Objects/Sonic/Object Data/Map - Sonic.asm"
-		include "Objects/Sonic/Object Data/Sonic pattern load cues.asm"
-
-; ---------------------------------------------------------------------------
 ; Subroutine to load level events
 ; ---------------------------------------------------------------------------
 

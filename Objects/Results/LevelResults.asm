@@ -109,6 +109,7 @@ Obj_LevelResultsWait:
 		cmpi.w	#$121,$2E(a0)
 		bne.s	locret_2DC9E						; Play after eh, a second or so
 		move.b	#30,(Player_1+air_left).w				; Reset air
+		clr.b	(Player_1+status_secondary).w		; reset secondary status
 		music	bgm_GotThrough,1					; Play level complete theme
 ; ---------------------------------------------------------------------------
 

@@ -21,7 +21,7 @@ Obj_Sonic:
 		beq.s	+
 		clr.w	(Debug_placement_mode).w	; Leave debug mode
 +		addq.b	#1,mapping_frame(a0)		; Next frame
-		cmpi.b	#((Map_Sonic_End-Map_Sonic)/2)-1,mapping_frame(a0)	; Have we reached the end of Sonic's frames?
+		cmpi.b	#$FB,mapping_frame(a0)	; Have we reached the end of Sonic's frames?	; blad what the fuck was this. that's so stupid. why.
 		blo.s		+
 		clr.b	mapping_frame(a0)	; If so, reset to Sonic's first frame
 +		bsr.w	Sonic_Load_PLC
@@ -2639,3 +2639,11 @@ Sonic_Load_PLC2:
 		jsr	(Add_To_DMA_Queue).w
 		dbf	d5,-
 +		rts
+; ===========================================================================
+; ---------------------------------------------------------------------------
+; Sonic animation, mapping, and PLC data
+; ---------------------------------------------------------------------------
+
+		include "Objects/Sonic/Object Data/Anim - Sonic.asm"
+		include "Objects/Sonic/Object Data/Map - Sonic.asm"
+		include "Objects/Sonic/Object Data/Sonic pattern load cues.asm"

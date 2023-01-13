@@ -1,0 +1,251 @@
+{
+    "Flex": 2,
+    "name": "",
+    "node": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
+    "objects": [
+        {
+            "uuid": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
+            "format": "Sonic 3&K Object.js",
+            "name": "Signpost",
+            "palettes": [],
+            "art": {
+                "path": "Objects/Signpost/Uncompressed Art/End Signs.bin",
+                "compression": "Uncompressed",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "Objects/Signpost/Object Data/Map - End Signs.asm",
+                "label": "Map_EndSigns"
+            },
+            "dplcs": {
+                "enabled": true,
+                "path": "Objects/Signpost/Object Data/DPLC - End Signs.asm",
+                "label": "DPLC_EndSigns"
+            }
+        },
+        {
+            "name": "General Objects",
+            "children": [
+                {
+                    "uuid": "d7af2394-e74f-494f-96cd-2617509e82d0",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Sonic",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Sonic/Palettes/Water Sonic.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Sonic/Uncompressed Art/Sonic.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Sonic/Object Data/Map - Sonic.asm",
+                        "label": "Map_Sonic"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Sonic/Object Data/Sonic pattern load cues.asm",
+                        "label": "PLC_Sonic"
+                    }
+                }
+            ],
+            "isDirectory": true,
+            "expanded": true
+        },
+        {
+            "name": "Death Egg",
+            "children": [
+                {
+                    "uuid": "e74f494f-96cd-4617-909e-82d06cd2d5a1",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Spikebonker",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/DEZ/Palettes/Death Egg Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Spikebonker/KosinskiM Art/Spikebonker.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Spikebonker/Object Data/Map - Spikebonker.asm",
+                        "label": "Map_Spikebonker"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                }
+            ],
+            "isDirectory": true,
+            "expanded": true
+        },
+        {
+            "name": "Green Hill",
+            "children": [
+                {
+                    "uuid": "4f96cd26-1750-4e82-906c-d2d5a1a6146d",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Buzz Bomber",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Buzz Bomber/KosinskiM Art/Buzz Bomber.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Buzz Bomber/Object Data/Map - Buzz Bomber.asm",
+                        "label": "Map_BuzzBomber"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "94e74f49-4f96-4d26-9750-9e82d06cd2d5",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Chopper",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Chopper/KosinskiM Art/Chopper.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Chopper/Object Data/Map - Chopper.asm",
+                        "label": "Map_Chopper"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "96cd2617-509e-42d0-acd2-d5a1a6146d96",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Crabmeat",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Crabmeat/KosinskiM Art/Crabmeat.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Crabmeat/Object Data/Map - Crabmeat.asm",
+                        "label": "Map_Crabmeat"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "2617509e-82d0-4cd2-95a1-a6146d96ef45",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Motobug",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Motobug/KosinskiM Art/Motobug.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Motobug/Object Data/Map - Motobug.asm",
+                        "label": "Map_Motobug"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "494f96cd-2617-409e-82d0-6cd2d5a1a614",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Purple Rock",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Purple Rock/KosinskiM Art/Purple Rock.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Purple Rock/Object Data/Map - Purple Rock.asm",
+                        "label": "Map_PurpleRock"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                }
+            ],
+            "isDirectory": true,
+            "expanded": true
+        }
+    ]
+}

@@ -122,6 +122,7 @@ Obj_TitleCardWait2:
 		jsr	LoadPLC_Animals(pc)
 		move.b	#1,(HUD_RAM.status).w
 		clr.b	(Ctrl_1_locked).w
+		clr.b	(Player_1+object_control).w
 +		jmp	(Delete_Current_Sprite).w
 ; ---------------------------------------------------------------------------
 

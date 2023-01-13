@@ -40,6 +40,8 @@ off_2C786: offsetTable
 		offsetTableEntry.w loc_2CB9C
 byte_2C7BA:
 		dc.b 5, 1	; DEZ
+		dc.b 5, 1	; GHZ
+	zonewarning	byte_2C7BA,2
 word_2C7EA:
 		dc.w -$200
 		dc.w -$400

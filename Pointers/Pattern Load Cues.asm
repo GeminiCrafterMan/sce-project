@@ -106,15 +106,20 @@ PLC2_DEZ4_Enemy: plrlistheader
 PLC2_DEZ4_Enemy_end
 
 ; ===========================================================================
-; Pattern load cues - Death Egg (Misc)
+; Pattern load cues - Green Hill (Misc)
 ; ===========================================================================
 
 PLC1_GHZ_Misc: plrlistheader
+		plreq $3D0, ArtKosM_PurpleRock		; Purple rock
 PLC1_GHZ_Misc_end
 
 ; ===========================================================================
-; Pattern load cues - Death Egg (Enemy)
+; Pattern load cues - Green Hill (Enemy)
 ; ===========================================================================
 
 PLC2_GHZ_Enemy: plrlistheader
+		plreq $400, ArtKosM_Crabmeat		; Crabmeat
+		plreq $444, ArtKosM_BuzzBomber		; Buzz Bomber
+		plreq $4E8, ArtKosM_Chopper			; Chopper
+		plreq $508, ArtKosM_Motobug			; Motobug
 PLC2_GHZ_Enemy_end

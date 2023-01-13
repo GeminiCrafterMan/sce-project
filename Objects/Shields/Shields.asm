@@ -461,7 +461,7 @@ Obj_Invincibility:
 .main
 		lea	(Player_1).w,a1
 		btst	#Status_Invincible,status_secondary(a1)					; should the player still have a invincible?
-		beq.w	Delete_Current_Sprite								; if not, delete
+		jeq		Delete_Current_Sprite								; if not, delete
 		move.w	x_pos(a1),d0
 		move.w	d0,x_pos(a0)
 		move.w	y_pos(a1),d1
@@ -505,7 +505,7 @@ loc_188E0:
 Obj_188E8:
 		lea	(Player_1).w,a1
 		btst	#Status_Invincible,status_secondary(a1)					; should the player still have a invincible?
-		beq.w	Delete_Current_Sprite								; if not, delete
+		jeq		Delete_Current_Sprite								; if not, delete
 		lea	(Pos_table_index).w,a5
 		lea	(Pos_table).w,a6
 		move.b	objoff_36(a0),d1

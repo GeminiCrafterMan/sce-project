@@ -57,15 +57,25 @@ DMA_queue_slot:						= *
 VDP_Command_Buffer_Slot:			ds.l 1					; Points to the next free slot on the queue
 
 Camera_RAM:						= *						; Various camera and scroll-related variables are stored here
+v_scrshiftx:
 H_scroll_amount:						ds.w 1					; Number of pixels camera scrolled horizontally in the last frame * $100
+v_scrshifty:
 V_scroll_amount:						ds.w 1					; Number of pixels camera scrolled vertically in the last frame * $100
+v_limitleft1:
 Camera_target_min_X_pos:			ds.w 1
+v_limitright1:
 Camera_target_max_X_pos:			ds.w 1
+v_limittop1:
 Camera_target_min_Y_pos:			ds.w 1
+v_limitbtm1:
 Camera_target_max_Y_pos:			ds.w 1
+v_limitleft2:
 Camera_min_X_pos:					ds.w 1
+v_limitright2:
 Camera_max_X_pos:					ds.w 1
+v_limittop2:
 Camera_min_Y_pos:					ds.w 1
+v_limitbtm2:
 Camera_max_Y_pos:					ds.w 1
 Saved_Camera_max_X_pos:			ds.w 1
 Saved_Camera_min_X_pos:			ds.w 1
@@ -82,6 +92,7 @@ Distance_from_screen_top:				ds.w 1					; The vertical scroll manager scrolls th
 Camera_max_Y_pos_changing:			ds.b 1					; Set when the maximum camera Y pos is undergoing a change
 									ds.b 1					; even
 Fast_V_scroll_flag:					ds.b 1					; If this is set vertical scroll when the player is on the ground and has a speed of less than $800 is capped at 24 pixels per frame instead of 6
+f_lockscreen:
 Scroll_lock:							ds.b 1					; If this is set scrolling routines aren't called
 v_screenposx:						= *
 Camera_X_pos:						ds.l 1

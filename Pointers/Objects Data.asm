@@ -30,7 +30,14 @@
 ; Levels objects data
 ; ===========================================================================
 
+	; DEZ
 		include "Objects/Spikebonker/Spikebonker.asm"
+	; GHZ
+		include "Objects/Buzz Bomber/Buzz Bomber.asm"
+		include "Objects/Chopper/Chopper.asm"
+		include "Objects/Crabmeat/Crabmeat.asm"
+		include "Objects/Motobug/Motobug.asm"
+		include	"Objects/Purple Rock/Purple Rock.asm"
 
 ; ===========================================================================
 ; Bosses objects data

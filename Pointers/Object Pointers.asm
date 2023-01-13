@@ -34,10 +34,10 @@ Obj_Index:
 		dc.l DeleteObject						; $1C
 		dc.l DeleteObject						; $1D
 		dc.l DeleteObject						; $1E
-		dc.l DeleteObject						; $1F
+		dc.l Obj_Crabmeat						; $1F
 		dc.l DeleteObject						; $20
 		dc.l DeleteObject						; $21
-		dc.l DeleteObject						; $22
+		dc.l Obj_BuzzBomber						; $22
 		dc.l DeleteObject						; $23
 		dc.l DeleteObject						; $24
 		dc.l DeleteObject						; $25
@@ -46,7 +46,7 @@ Obj_Index:
 		dc.l Obj_Invisible_SolidBlock			; $28
 		dc.l DeleteObject						; $29
 		dc.l DeleteObject						; $2A
-		dc.l DeleteObject						; $2B
+		dc.l Obj_Chopper						; $2B
 		dc.l DeleteObject						; $2C
 		dc.l DeleteObject						; $2D
 		dc.l DeleteObject						; $2E
@@ -62,12 +62,12 @@ Obj_Index:
 		dc.l DeleteObject						; $38
 		dc.l DeleteObject						; $39
 		dc.l DeleteObject						; $3A
-		dc.l DeleteObject						; $3B
+		dc.l Obj_PurpleRock						; $3B
 		dc.l DeleteObject						; $3C
 		dc.l DeleteObject						; $3D
 		dc.l DeleteObject						; $3E
 		dc.l DeleteObject						; $3F
-		dc.l DeleteObject						; $40
+		dc.l Obj_Motobug						; $40
 		dc.l DeleteObject						; $41
 		dc.l DeleteObject						; $42
 		dc.l DeleteObject						; $43
