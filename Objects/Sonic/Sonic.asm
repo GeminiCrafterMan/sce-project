@@ -1438,7 +1438,7 @@ Sonic_Transform:
 		move.w	#60,(Super_frame_count).w
 		move.l	#Map_SuperSonic,mappings(a0)
 		move.b	#$81,object_control(a0)
-		move.b	#$1F,anim(a0)				; enter 'transformation' animation
+		move.b	#id_Transform,anim(a0)				; enter 'transformation' animation
 		cmpi.b	#7,(Super_emerald_count).w		; does Sonic have all 7 Super Emeralds?
 		blo.s	.super					; if not, turn Super
 

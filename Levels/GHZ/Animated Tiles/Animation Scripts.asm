@@ -20,6 +20,10 @@
 ; ===========================================================================
 
 AniPLC_GHZ:	zoneanimstart
+	; flower stalk
+	zoneanimdecl 4, (Art_GhzFlowerStalk>>1), $358, 1, 4
+	dc.b	0
+	even
 	; waterfall
 	zoneanimdecl 5, (Art_GhzWater>>1), $378, 1, 8
 	dc.b	0

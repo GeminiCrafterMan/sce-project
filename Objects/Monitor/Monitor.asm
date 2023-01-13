@@ -360,7 +360,7 @@ Monitor_Give_HyperSonic:
 		move.w	#$800,(Sonic_Knux_top_speed).w
 		move.w	#$18,(Sonic_Knux_acceleration).w
 		move.w	#$C0,(Sonic_Knux_deceleration).w
-		move.b	#$1F,(Player_1+anim).w
+		move.b	#id_Transform,(Player_1+anim).w
 		cmpi.w	#2,(Player_mode).w
 		bne.s	.notTails
 

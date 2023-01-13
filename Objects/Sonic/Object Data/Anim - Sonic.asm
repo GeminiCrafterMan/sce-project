@@ -35,6 +35,7 @@ Ani_Sonic: offsetTable
 		offsetTableEntry.w SonAni_Float3		; 1C
 		offsetTableEntry.w SonAni_Float4		; 1D
 		offsetTableEntry.w SonAni_Run2		; 1E
+		offsetTableEntry.w SonAni_Transform	; 1F
 
 SonAni_Walk:		dc.b  $FF,   7,	  8,   1,   2,	 3,   4,   5,	6, $FF
 SonAni_Run:			dc.b  $FF, $21,	$22, $23, $24, $FF, $FF, $FF, $FF, $FF
@@ -75,6 +76,7 @@ SonAni_Blank:		dc.b $77,   0,	$FF
 SonAni_Float3:		dc.b 3,	$3C, $3D, $53, $3E, $54, $FF, 0
 SonAni_Float4:		dc.b 3,	$3C, $FD, 0
 SonAni_Run2:		dc.b  2, $21,	$22, $23, $24, $FF
+SonAni_Transform:	dc.b    2, $D2, $D2, $D3, $D3, $D4, $D5, $D6, $D5, $D6, $D5, $D6, $D5, $D6, $FD,   0
 	even
 
 AniSuperSonic:
@@ -110,6 +112,7 @@ Ani_SuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Float3		; 1C
 		offsetTableEntry.w SonAni_Float4		; 1D
 		offsetTableEntry.w SonAni_Run2		; 1E
+		offsetTableEntry.w SonAni_Transform	; 1F
 
 id_Walk:			equ 0
 id_Run:			equ 1
@@ -142,3 +145,4 @@ id_Null:			equ $1B
 id_Float3:		equ $1C
 id_Float4:		equ $1D
 id_Run2:		equ $1E
+id_Transform:	equ $1F

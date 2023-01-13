@@ -4,7 +4,7 @@
 MusicIndex:
 ; Levels
 ptr_mus_dez1:		SMPS_MUSIC_METADATA	Music_DEZ1, s3TempotoS1($FF), 0			; DEZ 1
-ptr_mus_ghz:		SMPS_MUSIC_METADATA	Music_GHZ, $FF, 0			; GHZ
+ptr_mus_ghz:		SMPS_MUSIC_METADATA	Music_GHZ, 8, 0			; GHZ
 
 ; Boss
 ptr_mus_boss:		SMPS_MUSIC_METADATA	Music_Boss, s3TempotoS1($FF), 0			; Boss
