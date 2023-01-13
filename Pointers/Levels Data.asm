@@ -42,17 +42,17 @@ LevelLoadPointer:
 		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
 
 ; GHZ1
-		dc.l AnPal_GHZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
+		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ											; Animate tiles main code, Animate tiles PLC scripts
 
 ; GHZ2
-		dc.l AnPal_GHZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l AnPal_GHZ, DLE_GHZ2, LevelPointer_Null, LevelPointer_Null
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
 
 ; GHZ3
-		dc.l AnPal_GHZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l AnPal_GHZ, DLE_GHZ3, LevelPointer_Null, LevelPointer_Null
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
 

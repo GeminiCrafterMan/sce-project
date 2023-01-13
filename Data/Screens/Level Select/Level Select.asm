@@ -64,6 +64,12 @@ LevelSelect_Screen:
 		lea	(Pal_LevelSelect).l,a1
 		lea	(Target_palette).w,a2
 		jsr	(PalLoad_Line32).w
+		moveq	#palid_CabaretSonic,d0
+		move.w	d0,d1
+		jsr		(LoadPalette).w
+		move.w	d1,d0
+		jsr		(LoadPalette_Immediate).w
+		move.l	#Obj_CabaretSonic,(Player_1).w
 		bsr.w	LevelSelect_LoadText
 		move.w	#palette_line_1+LevelSelect_VRAM,d3
 		bsr.w	LevelSelect_LoadMainText
@@ -93,6 +99,8 @@ LevelSelect_Screen:
 		move.w	#palette_line_1,d3
 		bsr.w	LevelSelect_MarkFields
 		enableInts
+		jsr	(Process_Sprites).w
+		jsr	(Render_Sprites).w
 		tst.b	(Ctrl_1_pressed).w
 		bpl.s	.loop
 		cmpi.w	#LevelSelect_ZoneCount,(vLevelSelect_VCount).w

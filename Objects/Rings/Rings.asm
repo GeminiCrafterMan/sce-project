@@ -156,7 +156,7 @@ loc_1A75C:
 		bne.s	loc_1A7B0
 		tst.b	render_flags(a0)
 		bpl.s	loc_1A79C
-		jsr	RingCheckFloorDist(pc)
+		jsr	RingCheckFloorDist
 		tst.w	d1
 		bpl.s	loc_1A79C
 		add.w	d1,y_pos(a0)
@@ -204,7 +204,7 @@ loc_1A7E8:
 		bne.s	loc_1A83C
 		tst.b	render_flags(a0)
 		bpl.s	loc_1A828
-		bsr.w	sub_FCA0
+		jsr		sub_FCA0
 		tst.w	d1
 		bpl.s	loc_1A828
 		sub.w	d1,y_pos(a0)

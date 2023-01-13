@@ -68,11 +68,7 @@ Level_Screen:
 		tst.b	(Water_flag).w
 		beq.s	.notwater
 		move.w	#$8014,VDP_control_port-VDP_control_port(a6)			; H-int enabled
-		moveq	#palid_WaterSonic,d0
-		move.w	d0,d1
-		jsr	(LoadPalette2).w											; load Sonic's water palette
-		move.w	d1,d0
-		jsr	(LoadPalette2_Immediate).w
+		jsr		loadWaterShift
 
 .notwater
 		move.w	(Current_zone_and_act).w,d0

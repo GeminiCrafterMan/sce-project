@@ -31,3 +31,10 @@ Art_GhzFlower1:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flow
 	even
 Art_GhzFlower2:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flower Small.bin"
 	even
+
+; ===========================================================================
+; Animated menu elements
+; ===========================================================================
+
+ArtUnc_CabaretSonic:		binclude "Objects/Cabaret Sonic/Uncompressed Art/Cabaret Sonic.bin"
+	even

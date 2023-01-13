@@ -1,33 +1,33 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
+    "node": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
     "objects": [
         {
-            "uuid": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
-            "format": "Sonic 3&K Object.js",
-            "name": "Signpost",
+            "uuid": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
+            "format": "Sonic 3&K Player.js",
+            "name": "Cabaret Sonic",
             "palettes": [],
             "art": {
-                "path": "Objects/Signpost/Uncompressed Art/End Signs.bin",
+                "path": "Objects/Cabaret Sonic/Uncompressed Art/Cabaret Sonic.bin",
                 "compression": "Uncompressed",
                 "offset": 0
             },
             "mappings": {
-                "path": "Objects/Signpost/Object Data/Map - End Signs.asm",
-                "label": "Map_EndSigns"
+                "path": "Objects/Cabaret Sonic/Object Data/Map - Cabaret Sonic.asm",
+                "label": "Map_CabaretSonic"
             },
             "dplcs": {
                 "enabled": true,
-                "path": "Objects/Signpost/Object Data/DPLC - End Signs.asm",
-                "label": "DPLC_EndSigns"
+                "path": "Objects/Cabaret Sonic/Object Data/DPLC - Cabaret Sonic.asm",
+                "label": "PLC_CabaretSonic"
             }
         },
         {
             "name": "General Objects",
             "children": [
                 {
-                    "uuid": "d7af2394-e74f-494f-96cd-2617509e82d0",
+                    "uuid": "82d06cd2-d5a1-4614-ad96-ef45cafec820",
                     "format": "Sonic 3&K Player.js",
                     "name": "Sonic",
                     "palettes": [
@@ -54,10 +54,60 @@
                         "path": "Objects/Sonic/Object Data/Sonic pattern load cues.asm",
                         "label": "PLC_Sonic"
                     }
+                },
+                {
+                    "uuid": "d7af2394-e74f-494f-96cd-2617509e82d0",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Super Sonic",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Sonic/Palettes/Water Sonic.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Sonic/Uncompressed Art/Super Sonic.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Sonic/Object Data/Map - Super Sonic.asm",
+                        "label": "Map_SuperSonic"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Sonic/Object Data/Super Sonic pattern load cues.asm",
+                        "label": "PLC_SuperSonic"
+                    }
+                },
+                {
+                    "uuid": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Signpost",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Signpost/Uncompressed Art/End Signs.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Signpost/Object Data/Map - End Signs.asm",
+                        "label": "Map_EndSigns"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Signpost/Object Data/DPLC - End Signs.asm",
+                        "label": "DPLC_EndSigns"
+                    }
                 }
             ],
             "isDirectory": true,
-            "expanded": true
+            "expanded": true,
+            "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {
             "name": "Death Egg",
@@ -93,7 +143,8 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true
+            "expanded": true,
+            "uuid": "489cf77e-de99-4fcb-8c99-a4a8b5e42471"
         },
         {
             "name": "Green Hill",
@@ -245,7 +296,8 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true
+            "expanded": true,
+            "uuid": "9cf77ede-99af-4b8c-99a4-a8b5e4247148"
         }
     ]
 }

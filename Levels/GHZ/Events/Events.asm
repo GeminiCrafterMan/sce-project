@@ -11,25 +11,17 @@ GHZ1_ScreenInit:
 ; =============== S U B R O U T I N E =======================================
 
 GHZ1_ScreenEvent:
-		moveq	#0,d0
-		move.b	(v_act).w,d0
-		add.w	d0,d0
-		move.w	DLE_GHZx(pc,d0.w),d0
-		jmp	DLE_GHZx(pc,d0.w)
-; ===========================================================================
-DLE_GHZx:	dc.w DLE_GHZ1-DLE_GHZx
-		dc.w DLE_GHZ2-DLE_GHZx
-		dc.w DLE_GHZ3-DLE_GHZx
-; ===========================================================================
+		bra.w	GHZ_Refresh
 
 DLE_GHZ1:
+;		jsr		GHZ_WaterEvent
 		move.w	#$300,(Camera_target_max_Y_pos).w ; set lower y-boundary
 		cmpi.w	#$1780,(v_screenposx).w ; has the camera reached $1780 on x-axis?
 		bcs.s	locret_6E08	; if not, branch
 		move.w	#$400,(Camera_target_max_Y_pos).w ; set lower y-boundary
 
 locret_6E08:
-		bra.w	GHZ_Refresh
+		rts
 ; ===========================================================================
 
 DLE_GHZ2:
@@ -45,7 +37,7 @@ DLE_GHZ2:
 		move.w	#$300,(Camera_target_max_Y_pos).w
 
 locret_6E3A:
-		bra.w	GHZ_Refresh
+		rts
 ; ===========================================================================
 
 DLE_GHZ3:
@@ -79,7 +71,7 @@ loc_6E8E:
 		bcc.s	loc_6E98
 
 locret_6E96:
-		bra.w	GHZ_Refresh
+		rts
 ; ===========================================================================
 
 loc_6E98:
@@ -111,22 +103,23 @@ loc_6ED0:
 ; ===========================================================================
 
 locret_6EE8:
-		bra.s	GHZ_Refresh
+		rts
 ; ===========================================================================
 
 DLE_GHZ3end:
 		move.w	(v_screenposx).w,(Camera_min_X_pos).w
 		rts	
 ; ===========================================================================
+
 GHZ_Refresh:
 		tst.b (Screen_event_flag).w
-		bne.s	GHZ1_ScreenEvent_RefreshPlane
+		bne.s	GHZ_RefreshPlane
 		move.w	(Screen_shaking_flag+2).w,d0
 		add.w	d0,(Camera_Y_pos_copy).w
 		jmp	(DrawTilesAsYouMove).w
 ; ---------------------------------------------------------------------------
 
-GHZ1_ScreenEvent_RefreshPlane:
+GHZ_RefreshPlane:
 		clr.b	(Screen_event_flag).w
 		jmp	(Refresh_PlaneScreenDirect).w
 
@@ -188,4 +181,12 @@ GHZ1_BGDeformArray:
 ; ---------------------------------------------------------------------------
 
 GHZ_Deform:
+		rts
+; ---------------------------------------------------------------------------
+
+GHZ_WaterEvent:
+		move.b	#1,(Water_flag).w
+		move.w	#$180,(Water_level).w
+		move.w	#$180,(Mean_water_level).w
+		move.w	#$180,(Target_water_level).w
 		rts

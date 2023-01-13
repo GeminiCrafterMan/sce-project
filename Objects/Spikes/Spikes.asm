@@ -64,7 +64,7 @@ loc_24090:
 		move.w	d2,d3
 		addq.w	#1,d3
 		move.w	x_pos(a0),d4
-		jsr	SolidObjectFull(pc)
+		jsr	SolidObjectFull
 		move.b	status(a0),d6
 		andi.b	#$18,d6
 		beq.s	loc_240D8
@@ -88,7 +88,7 @@ loc_240E2:
 		move.w	d2,d3
 		addq.w	#1,d3
 		move.w	x_pos(a0),d4
-		jsr	SolidObjectFull(pc)
+		jsr	SolidObjectFull
 		swap	d6
 		andi.w	#3,d6
 		beq.s	loc_24134
@@ -113,7 +113,7 @@ loc_2413E:
 		move.w	d2,d3
 		addq.w	#1,d3
 		move.w	x_pos(a0),d4
-		jsr	SolidObjectFull(pc)
+		jsr	SolidObjectFull
 		swap	d6
 		andi.w	#$C,d6
 		beq.s	loc_24184
@@ -146,7 +146,7 @@ sub_24280:
 		move.l	d3,y_pos(a1)
 		movea.w	a0,a2
 		movea.w	a1,a0
-		jsr	HurtCharacter(pc)
+		jsr	HurtCharacter
 		movea.w	a2,a0
 +		rts
 

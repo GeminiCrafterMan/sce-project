@@ -83,7 +83,7 @@ Obj_MonitorFallUpsideUp:
 		jsr	(MoveSprite).w
 		tst.w	y_vel(a0)						; Is monitor moving up?
 		bmi.s	locret_1D694						; If so, return
-		jsr	ObjCheckFloorDist(pc)
+		jsr	ObjCheckFloorDist
 		tst.w	d1								; Is monitor in the ground?
 		beq.s	.inground						; If so, branch
 		bpl.s	locret_1D694						; if not, return
@@ -99,7 +99,7 @@ Obj_MonitorFallUpsideDown:
 		jsr	(MoveSprite_ReverseGravity).w
 		tst.w	y_vel(a0)						; Is monitor moving down?
 		bmi.s	locret_1D694						; If so, return
-		jsr	ObjCheckCeilingDist(pc)
+		jsr	ObjCheckCeilingDist
 		tst.w	d1								; Is monitor in the ground (ceiling)?
 		beq.s	.inground						; If so, branch
 		bpl.s	locret_1D694						; if not, return
@@ -119,7 +119,7 @@ SolidObject_Monitor_SonicKnux:
 		bne.s	Monitor_ChkOverEdge				; If so, branch
 		cmpi.b	#id_Roll,anim(a1)					; Is Sonic/Knux in their rolling animation?
 		beq.s	locret_1D694						; If so, return
-		jmp	SolidObject_cont(pc)
+		jmp	SolidObject_cont
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -147,7 +147,7 @@ Monitor_ChkOverEdge:
 
 Monitor_CharStandOn:
 		move.w	d4,d2
-		jsr	MvSonicOnPtfm(pc)
+		jsr	MvSonicOnPtfm
 		moveq	#0,d4
 		rts
 
@@ -279,7 +279,7 @@ off_1D87C: offsetTable
 		offsetTableEntry.w Monitor_Give_Lightning_Shield	; C
 		offsetTableEntry.w Monitor_Give_Bubble_Shield		; E
 		offsetTableEntry.w Monitor_Give_Invincibility			; 10
-		offsetTableEntry.w Monitor_Give_Eggman			; 12
+		offsetTableEntry.w Monitor_Give_HyperSonic			; 12
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Eggman:
@@ -293,6 +293,8 @@ Monitor_Give_Rings:
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Super_Sneakers:
+		tst.b	(Super_Sonic_Knux_flag).w
+		bne.s	Monitor_Give_Rings
 		bset	#Status_SpeedShoes,status_secondary(a1)
 		move.b	#150,speed_shoes_timer(a1)
 		move.w	#$C00,(Sonic_Knux_top_speed).w
@@ -326,6 +328,8 @@ Monitor_Give_Bubble_Shield:
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Invincibility:
+		tst.b	(Super_Sonic_Knux_flag).w
+		bne.w	Monitor_Give_Rings
 		bset	#Status_Invincible,status_secondary(a1)
 		move.b	#150,invincibility_timer(a1)
 		tst.b	(Level_end_flag).w
@@ -346,6 +350,47 @@ loc_1DB2E:
 		bmi.w	loc_1EBB6
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
+
+Monitor_Give_HyperSonic:
+		addi.w	#50,(Ring_count).w
+		move.b	#1,(Super_palette_status).w
+		move.b	#$F,(Palette_timer).w
+		move.b	#1,(Super_Sonic_Knux_flag).w	; Super
+		move.w	#60,(Super_frame_count).w
+		move.w	#$800,(Sonic_Knux_top_speed).w
+		move.w	#$18,(Sonic_Knux_acceleration).w
+		move.w	#$C0,(Sonic_Knux_deceleration).w
+		move.b	#$1F,(Player_1+anim).w
+		cmpi.w	#2,(Player_mode).w
+		bne.s	.notTails
+
+		move.b	#$29,(Player_1+anim).w
+;		move.l	#Obj_SuperTailsBirds,(v_Invincibility_stars).w
+		bra.s	.continued
+; ---------------------------------------------------------------------------
+
+	.notTails:
+		bhs.s	.hyperKnuckles
+		move.l	#Map_SuperSonic,(Player_1+mappings).w
+		move.b	#-1,(Super_Sonic_Knux_flag).w	; Hyper
+		move.w	#$A00,(Sonic_Knux_top_speed).w
+		move.w	#$30,(Sonic_Knux_acceleration).w
+		move.w	#$100,(Sonic_Knux_deceleration).w
+;		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w
+;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
+		bra.s	.continued
+; ---------------------------------------------------------------------------
+
+	.hyperKnuckles:
+		move.b	#-1,(Super_Sonic_Knux_flag).w		; Hyper
+;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
+
+	.continued:
+		move.b	#$81,(Player_1+object_control).w
+		move.b	#0,(Player_1+invincibility_timer).w
+		bset	#Status_Invincible,status_secondary(a1)
+		sfx	sfx_SuperTransform
+		music	bgm_Invincible,1
 
 		include "Objects/Monitor/Object Data/Anim - Monitor.asm"
 		include "Objects/Monitor/Object Data/Map - Monitor.asm"

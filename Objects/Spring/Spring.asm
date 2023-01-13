@@ -94,7 +94,7 @@ Obj_Spring_Up:
 		move.w	x_pos(a0),d4
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
-		jsr	SolidObjectFull2_1P(pc)
+		jsr	SolidObjectFull2_1P
 		btst	#p1_standing_bit,status(a0)
 		beq.s	loc_22F1C
 		bsr.s	sub_22F98
@@ -166,7 +166,7 @@ Obj_Spring_Horizontal:
 		move.w	x_pos(a0),d4
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
-		jsr	SolidObjectFull2_1P(pc)
+		jsr	SolidObjectFull2_1P
 		swap	d6
 		andi.w	#1,d6
 		beq.s	loc_23092
@@ -304,7 +304,7 @@ Obj_Spring_Down:
 		move.w	x_pos(a0),d4
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
-		jsr	SolidObjectFull2_1P(pc)
+		jsr	SolidObjectFull2_1P
 		cmpi.w	#-2,d4
 		bne.s	loc_2334C
 		bsr.s	sub_233CA
@@ -381,7 +381,7 @@ Obj_Spring_UpDiag:
 		lea	ObjSpring_SlopeData_DiagUp(pc),a2
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
-		jsr	sub_1DD24(pc)
+		jsr	sub_1DD24
 		btst	#p1_standing_bit,status(a0)
 		beq.s	loc_234B8
 		bsr.s	sub_234E6
@@ -474,7 +474,7 @@ Obj_Spring_DownDiag:
 		lea	ObjSpring_SlopeData_DiagDown(pc),a2
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
-		jsr	sub_1DD24(pc)
+		jsr	sub_1DD24
 		cmpi.w	#-2,d4
 		bne.s	loc_235F8
 		bsr.s	sub_23624

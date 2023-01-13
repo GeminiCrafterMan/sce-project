@@ -19,8 +19,8 @@ Dynamic_object_RAM_end				= *
 v_Dust:								ds.b object_size
 v_Shield:							ds.b object_size
 									ds.b object_size
-v_Breathing_bubbles:					ds.b object_size
-									ds.b object_size
+v_Breathing_bubbles:				ds.b object_size
+v_Super_stars:						ds.b object_size
 									ds.b object_size
 									ds.b object_size
 									ds.b object_size
@@ -57,25 +57,25 @@ DMA_queue_slot:						= *
 VDP_Command_Buffer_Slot:			ds.l 1					; Points to the next free slot on the queue
 
 Camera_RAM:						= *						; Various camera and scroll-related variables are stored here
-v_scrshiftx:
+v_scrshiftx:						= *
 H_scroll_amount:						ds.w 1					; Number of pixels camera scrolled horizontally in the last frame * $100
-v_scrshifty:
+v_scrshifty:						= *
 V_scroll_amount:						ds.w 1					; Number of pixels camera scrolled vertically in the last frame * $100
-v_limitleft1:
+v_limitleft1:						= *
 Camera_target_min_X_pos:			ds.w 1
-v_limitright1:
+v_limitright1:						= *
 Camera_target_max_X_pos:			ds.w 1
-v_limittop1:
+v_limittop1:						= *
 Camera_target_min_Y_pos:			ds.w 1
-v_limitbtm1:
+v_limitbtm1:						= *
 Camera_target_max_Y_pos:			ds.w 1
-v_limitleft2:
+v_limitleft2:						= *
 Camera_min_X_pos:					ds.w 1
-v_limitright2:
+v_limitright2:						= *
 Camera_max_X_pos:					ds.w 1
-v_limittop2:
+v_limittop2:						= *
 Camera_min_Y_pos:					ds.w 1
-v_limitbtm2:
+v_limitbtm2:						= *
 Camera_max_Y_pos:					ds.w 1
 Saved_Camera_max_X_pos:			ds.w 1
 Saved_Camera_min_X_pos:			ds.w 1
@@ -360,6 +360,23 @@ Apparent_zone:						= *
 Apparent_zone_and_act:				ds.b 1
 a_act:								= *
 Apparent_act:						ds.b 1
+
+v_super:							= *
+Super_Sonic_flag:					= *
+Super_Tails_flag:					= *
+Super_Sonic_Knux_flag:				ds.b 1	; i'm pretty sure there won't be two players active at once.
+v_emeralds:							= *
+Emerald_count:						ds.b 1
+Super_emerald_count:				ds.b 1
+Emeralds_converted_flag:			ds.b 1
+Super_palette_status:				ds.b 1
+Palette_timer:						ds.b 1
+Super_frame_count:					ds.w 1
+Palette_frame:						ds.w 1
+Player_mode:						ds.w 1	; unnecessary word, fix later
+Palette_frame_Tails:				ds.b 1
+Palette_timer_Tails:				ds.b 1
+waterValues:						ds.l 1
 
 f_timeover:							= *
 Time_over_flag:						ds.b 1

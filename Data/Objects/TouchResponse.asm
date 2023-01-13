@@ -640,3 +640,114 @@ ShieldTouch_Height:
 		move.w	d0,y_vel(a1)
 		clr.b	collision_flags(a1)
 		rts
+; End of function ShieldTouchResponse
+
+
+; =============== S U B R O U T I N E =======================================
+
+; It seems this is used by Hyper Sonic & Hyper Knuckles for their screen-nukes
+; (Hyper Dash, and Hyper Knuckles gliding into a wall)
+
+HyperAttackTouchResponse:
+		movem.l	a2-a4,-(sp)
+		lea	(Collision_response_list).w,a4
+		move.w	(a4)+,d6			; Get number of objects queued
+		beq.s	HyperTouch_Exit			; If there are none, branch
+
+HyperTouch_Loop:
+		movea.w	(a4)+,a1			; Get address of first object's RAM
+		move.b	collision_flags(a1),d0		; Get its collision_flags
+		beq.s	HyperTouch_NextObj		; If it doesn't have collision, branch
+		bsr.s	HyperTouch_ChkValue		; Else, process object
+
+HyperTouch_NextObj:
+		subq.w	#2,d6				; Count the object as done
+		bne.s	HyperTouch_Loop			; If there are still objects left, loop
+		moveq	#0,d0
+
+HyperTouch_Exit:
+		movem.l	(sp)+,a2-a4
+		rts
+; End of function HyperAttackTouchResponse
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+HyperTouch_ChkValue:
+		tst.b	render_flags(a1)		; Is object on-screen?
+		bpl.s	.return				; If not, return (screen-nuke only affects what's on-screen)
+		andi.b	#$C0,d0				; Get collision_flags type data
+		beq.s	HyperTouch_Enemy		; If 00, enemy, branch
+		cmpi.b	#$C0,d0
+		beq.w	HyperTouch_Special		; If 11, "special thing for starpole", branch
+		tst.b	d0
+		bmi.s	HyperTouch_Harmful		; If 10, "harmful", branch
+
+	.return:
+		rts
+; ---------------------------------------------------------------------------
+
+HyperTouch_Enemy:
+		tst.b	collision_property(a1)		; Is this a special enemy?
+		beq.s	HyperTouch_DestroyEnemy		; If not, branch
+		rts
+; ---------------------------------------------------------------------------
+
+; Similar to other enemy destruction subroutines, but this one doesn't make the player bounce
+
+HyperTouch_DestroyEnemy:
+		btst	#2,status(a1)			; Should the object remember that it's been destroyed (Remember Sprite State flag)?
+		beq.s	.dontremember			; If not, branch
+		move.b	ros_bit(a1),d0
+		movea.w	ros_addr(a1),a2
+		bclr	d0,(a2)				; Mark object as destroyed
+
+	.dontremember:
+		bset	#7,status(a1)
+		moveq	#0,d0
+		move.w	(Chain_bonus_counter).w,d0	; Get copy of chain bonus counter
+		addq.w	#2,(Chain_bonus_counter).w	; Add 2 to chain bonus counter
+		cmpi.w	#6,d0				; Has the counter already surpassed 5?
+		blo.s	.notreachedlimit		; If not, branch
+		moveq	#6,d0				; Cap counter at 6
+
+	.notreachedlimit:
+		move.w	d0,objoff_3E(a1)
+		move.w	HyperEnemy_Score(pc,d0.w),d0	; Get appropriate number of points
+		cmpi.w	#16*2,(Chain_bonus_counter).w	; Have 16 enemies been destroyed?
+		blo.s	.notreachedlimit2		; If not, branch
+		move.w	#1000,d0			; Fix bonus to 10000 points
+		move.w	#$A,objoff_3E(a1)
+
+	.notreachedlimit2:
+		movea.w	a0,a3
+		bsr.w	HUD_AddToScore
+		move.l	#Obj_Explosion,(a1)		; Create enemy destruction explosion
+		move.b	#0,routine(a1)
+		rts
+; ---------------------------------------------------------------------------
+HyperEnemy_Score:	dc.w 10, 20, 50, 100
+; ---------------------------------------------------------------------------
+
+HyperTouch_Harmful:
+		move.b	shield_reaction(a1),d0
+		andi.b	#8,d0				; Should the object be bounced away by a shield?
+		bne.w	Touch_ChkHurt_Bounce_Projectile	; If so, branch
+		rts
+; ---------------------------------------------------------------------------
+
+HyperTouch_Special:
+		ori.b	#3,collision_property(a1)
+		rts
+	; There is no player 2.
+;		cmpi.w	#3,(Player_mode).w		; Are we in Knuckles Alone mode?
+;		bne.s	.sonicortails			; If not, branch
+;		move.w	x_pos(a1),(Player_2+x_pos).w	; ???
+;		move.w	y_pos(a1),(Player_2+y_pos).w	; ???
+;
+;	.sonicortails:
+;		move.b	#2,(Player_2+anim).w		; Put sidekick in his rolling animation
+;		bset	#Status_InAir,(Player_2+status).w
+;		rts
+; End of function HyperTouch_ChkValue

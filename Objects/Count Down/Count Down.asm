@@ -250,7 +250,7 @@ loc_1850A:
 		bsr.w	Player_ResetAirTimer
 		move.w	a0,-(sp)
 		movea.w	a2,a0
-		jsr	Sonic_ResetOnFloor(pc)
+		jsr	Sonic_ResetOnFloor
 		move.b	#id_Drown,anim(a0)
 		bset	#Status_InAir,status(a0)
 		bset	#7,art_tile(a0)

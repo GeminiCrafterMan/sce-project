@@ -98,15 +98,7 @@ StartLevelWater:
 LoadWaterPalette:
 		tst.b	(Water_flag).w
 		beq.s	CheckLevelForWater_Return
-		moveq	#0,d0
-		move.w	(Current_zone_and_act).w,d0
-		ror.b	#2,d0
-		lsr.w	#6,d0
-		move.b	WaterPalette_Index(pc,d0.w),d0	; water palette
-		move.w	d0,d1
-		jsr	(LoadPalette2).w
-		move.w	d1,d0
-		jmp	(LoadPalette2_Immediate).w
+		jmp		loadWaterShift
 ; ---------------------------------------------------------------------------
 
 StartingWaterHeights:
@@ -114,16 +106,9 @@ StartingWaterHeights:
 		dc.w $400	; DEZ 2
 		dc.w $400	; DEZ 3
 		dc.w $400	; DEZ 4
-		dc.w $400	; GHZ 1
-		dc.w $400	; GHZ 2
-		dc.w $400	; GHZ 3
-		dc.w $400	; GHZ 4
+		dc.w $100	; GHZ 1
+		dc.w $100	; GHZ 2
+		dc.w $100	; GHZ 3
+		dc.w $100	; GHZ 4
 
 		zonewarning StartingWaterHeights,(2*4)
-; ---------------------------------------------------------------------------
-
-WaterPalette_Index:
-		dc.b palid_WaterDEZ, palid_WaterDEZ, palid_WaterDEZ, palid_WaterDEZ		; DEZ 1,2,3,4
-		dc.b palid_WaterDEZ, palid_WaterDEZ, palid_WaterDEZ, palid_WaterDEZ		; DEZ 1,2,3,4
-
-		zonewarning WaterPalette_Index,(1*4)
