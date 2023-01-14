@@ -14,7 +14,6 @@ GHZ1_ScreenEvent:
 		bra.w	GHZ_Refresh
 
 DLE_GHZ1:
-;		jsr		GHZ_WaterEvent
 		move.w	#$300,(Camera_target_max_Y_pos).w ; set lower y-boundary
 		cmpi.w	#$1780,(v_screenposx).w ; has the camera reached $1780 on x-axis?
 		bcs.s	locret_6E08	; if not, branch
@@ -150,19 +149,11 @@ GHZ1_Transition:
 		bne.w	.ret
 		cmpi.b	#2,(Current_act).w
 		bge.w	.done
+		tst.b	(TitleCard_end_flag).w
+		beq.w	.ret
 		addq.b	#1,(Current_act).w
 		clr.b	(Screen_event_routine).w
-		move.l	#Load_Sprites_Init,(Object_load_addr_RAM).w
-		move.l	#Load_Rings_Init,(Rings_manager_addr_RAM).w
-		bsr.w	SpawnLevelMainSprites
-;		clr.b	(Object_load_routine).w
-;		clr.b	(Rings_manager_routine).w
-		clr.b	(Last_star_post_hit).w
-		clr.b	(Boss_flag).w
-		clr.b	(Respawn_table_keep).w
-		jsr		Clear_Switches
-		jsr		(Load_Level).l
-		jsr		(Load_Solids).l
+		jsr		Restart_LevelData
 		jsr	(LoadLevelPointer).w
 		jsr	(Get_LevelSizeStart).l
 		jsr	Reset_TileOffsetPositionActual
@@ -181,12 +172,4 @@ GHZ1_BGDeformArray:
 ; ---------------------------------------------------------------------------
 
 GHZ_Deform:
-		rts
-; ---------------------------------------------------------------------------
-
-GHZ_WaterEvent:
-		st	(Water_flag).w
-		move.w	#$280,(Water_level).w
-		move.w	#$280,(Mean_water_level).w
-		move.w	#$280,(Target_water_level).w
 		rts

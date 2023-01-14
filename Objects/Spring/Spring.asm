@@ -49,7 +49,6 @@ loc_22DFC:
 Spring_UpDiag:
 		move.b	#4,anim(a0)
 		move.b	#7,mapping_frame(a0)
-		move.w	#$468,art_tile(a0)	; set diagonal
 		move.l	#Obj_Spring_UpDiag,address(a0)
 		bra.s	Spring_Common
 ; ---------------------------------------------------------------------------
@@ -57,7 +56,6 @@ Spring_UpDiag:
 Spring_DownDiag:
 		move.b	#4,anim(a0)
 		move.b	#$A,mapping_frame(a0)
-		move.w	#$468,art_tile(a0)	; set diagonal
 		bset	#1,status(a0)
 		move.l	#Obj_Spring_DownDiag,address(a0)
 		bra.s	Spring_Common

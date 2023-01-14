@@ -99,9 +99,9 @@ StartingWaterHeights:
 		dc.w $400	; DEZ 2
 		dc.w $400	; DEZ 3
 		dc.w $400	; DEZ 4
-		dc.w $280	; GHZ 1
-		dc.w $280	; GHZ 2
-		dc.w $280	; GHZ 3
+		dc.w $1000	; GHZ 1
+		dc.w $1000	; GHZ 2
+		dc.w $1000	; GHZ 3
 		dc.w $1000	; GHZ 4
 
 		zonewarning StartingWaterHeights,(2*4)

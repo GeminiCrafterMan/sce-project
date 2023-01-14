@@ -454,7 +454,7 @@ Status_ObjDefeated		= 7
 
 ArtTile_Spikes				= $484
 ArtTile_Spring				= $494
-ArtTile_Monitors			= $4AC
+ArtTile_Monitors			= $4CC
 ArtTile_StarPost			= $5E4
 ArtTile_Sonic				= $680
 ArtTile_Ring				= $6BC
@@ -470,8 +470,8 @@ ArtTile_DashDust			= $7F0
 
 ArtTile_Crabmeat:			= $400
 ArtTile_BuzzBomber:			= $444
-ArtTile_Chopper:			= $4EC
-ArtTile_Motobug:			= $50C
+ArtTile_Chopper:			= $50C
+ArtTile_Motobug:			= $52C
 
 ; ---------------------------------------------------------------------------
 ; VRAM data
