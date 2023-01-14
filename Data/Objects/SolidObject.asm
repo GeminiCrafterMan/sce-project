@@ -488,7 +488,7 @@ SolidObject_TestClearPush:
 		beq.s	Solid_NotPushing
 		cmpi.b	#id_Drown,anim(a1)
 		beq.s	Solid_NotPushing
-		cmpi.b	#id_Landing,anim(a1)
+		cmpi.b	#id_Victory,anim(a1)
 		beq.s	Solid_NotPushing
 		move.w	#bytes_to_word(id_Walk,id_Run),anim(a1)
 

@@ -205,6 +205,8 @@ AirCountdown_Countdown:
 		bhs.s	locret_18464
 		btst	#Status_BublShield,status_secondary(a2)
 		bne.s	locret_18464
+		tst.b	(Super_Sonic_Knux_flag).w
+		bmi.s	locret_18464
 		btst	#Status_Underwater,status(a2)
 		beq.s	locret_18464
 		subq.w	#1,objoff_3C(a0)

@@ -3,150 +3,257 @@
 ; ---------------------------------------------------------------------------
 
 AniSonic:
-Ani_Sonic: offsetTable
-		offsetTableEntry.w SonAni_Walk		; 0
-		offsetTableEntry.w SonAni_Run			; 1
-		offsetTableEntry.w SonAni_Roll			; 2
-		offsetTableEntry.w SonAni_Roll2		; 3
-		offsetTableEntry.w SonAni_Push		; 4
-		offsetTableEntry.w SonAni_Wait		; 5
-		offsetTableEntry.w SonAni_Balance		; 6
-		offsetTableEntry.w SonAni_LookUp		; 7
-		offsetTableEntry.w SonAni_Duck		; 8
-		offsetTableEntry.w SonAni_Spin_Dash	; 9
-		offsetTableEntry.w byte_12BA8			; A
-		offsetTableEntry.w byte_12BBF			; B
-		offsetTableEntry.w SonAni_Balance2		; C
-		offsetTableEntry.w SonAni_Stop			; D
-		offsetTableEntry.w SonAni_Float1		; E
-		offsetTableEntry.w SonAni_Float2		; F
-		offsetTableEntry.w SonAni_Spring		; 10
-		offsetTableEntry.w SonAni_LZHang		; 11
-		offsetTableEntry.w SonAni_Leap1		; 12
-		offsetTableEntry.w SonAni_Landing		; 13
-		offsetTableEntry.w SonAni_Surf			; 14
-		offsetTableEntry.w SonAni_Bubble		; 15
-		offsetTableEntry.w SonAni_Death1		; 16
-		offsetTableEntry.w SonAni_Drown		; 17
-		offsetTableEntry.w SonAni_Death2		; 18
-		offsetTableEntry.w SonAni_Shrink		; 19
-		offsetTableEntry.w SonAni_Hurt			; 1A
-		offsetTableEntry.w SonAni_Blank		; 1B
-		offsetTableEntry.w SonAni_Float3		; 1C
-		offsetTableEntry.w SonAni_Float4		; 1D
-		offsetTableEntry.w SonAni_Run2		; 1E
-		offsetTableEntry.w SonAni_Transform	; 1F
+Ani_Sonic: 				offsetTable
+SonAni_Walk_ptr:		offsetTableEntry.w SonAni_Walk
+SonAni_Run_ptr:			offsetTableEntry.w SonAni_Run
+SonAni_Roll_ptr:		offsetTableEntry.w SonAni_Roll
+SonAni_Roll2_ptr:		offsetTableEntry.w SonAni_Roll2
+SonAni_Push_ptr:		offsetTableEntry.w SonAni_Push
+SonAni_Wait_ptr:		offsetTableEntry.w SonAni_Wait
+SonAni_Balance_ptr:		offsetTableEntry.w SonAni_Balance
+SonAni_LookUp_ptr:		offsetTableEntry.w SonAni_LookUp
+SonAni_Duck_ptr:		offsetTableEntry.w SonAni_Duck
+SonAni_Spindash_ptr:	offsetTableEntry.w SonAni_Spindash
+SonAni_Whistle_ptr:		offsetTableEntry.w SonAni_Whistle
+SonAni_MGZHang_ptr:		offsetTableEntry.w SonAni_MGZHang
+SonAni_Balance2_ptr:	offsetTableEntry.w SonAni_Balance2
+SonAni_Stop_ptr:		offsetTableEntry.w SonAni_Stop
+SonAni_Float1_ptr:		offsetTableEntry.w SonAni_Float1
+SonAni_Float2_ptr:		offsetTableEntry.w SonAni_Float2
+SonAni_Spring_ptr:		offsetTableEntry.w SonAni_Spring
+SonAni_LZHang_ptr:		offsetTableEntry.w SonAni_LZHang
+SonAni_Victory_ptr:		offsetTableEntry.w SonAni_Victory
+SonAni_GetAir_ptr:		offsetTableEntry.w SonAni_GetAir
+SonAni_Burnt_ptr:		offsetTableEntry.w SonAni_Burnt
+SonAni_Drown_ptr:		offsetTableEntry.w SonAni_Drown
+SonAni_Death_ptr:		offsetTableEntry.w SonAni_Death
+SonAni_Hurt_ptr:		offsetTableEntry.w SonAni_Hurt
+SonAni_Null_ptr:		offsetTableEntry.w SonAni_Null
+SonAni_Run2_ptr:		offsetTableEntry.w SonAni_Run2
+SonAni_Transform_ptr:	offsetTableEntry.w SonAni_Transform
 
-SonAni_Walk:		dc.b  $FF,   7,	  8,   1,   2,	 3,   4,   5,	6, $FF
-SonAni_Run:			dc.b  $FF, $21,	$22, $23, $24, $FF, $FF, $FF, $FF, $FF
-SonAni_Roll:			dc.b  $FE, $96,	$97, $96, $98, $96, $99, $96, $9A, $FF
-SonAni_Roll2:		dc.b  $FE, $96,	$97, $96, $98, $96, $99, $96, $9A, $FF
-SonAni_Push:		dc.b  $FD, $B6,	$B7, $B8, $B9, $FF, $FF, $FF, $FF, $FF
-SonAni_Wait:		dc.b    5, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA
-					dc.b  $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA
-					dc.b  $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BA, $BB, $BC, $BC, $BD, $BD, $BE, $BE, $BD, $BD
-					dc.b  $BE, $BE, $BD, $BD, $BE, $BE, $BD, $BD, $BE, $BE, $BD, $BD, $BE, $BE, $BD, $BD, $BE, $BE, $BD, $BD
-					dc.b  $BE, $BE, $BD, $BD, $BE, $BE, $AD, $AD, $AD, $AD, $AD, $AD, $AE, $AE, $AE, $AE, $AE, $AE, $AF, $D9
-					dc.b  $D9, $D9, $D9, $D9, $D9, $AF, $AF, $FE, $35
-SonAni_Balance:		dc.b	7, $A4,	$A5, $A6, $FF
-SonAni_LookUp:		dc.b	5, $C3,	$C4, $FE,   1
-SonAni_Duck:		dc.b	5, $9B,	$9C, $FE,   1
-SonAni_Spin_Dash:	dc.b	0, $86,	$87, $86, $88, $86, $89, $86, $8A, $86,	$8B, $FF
+SonAni_Walk:		dc.b  $FF, frS_Walk17,	frS_Walk18,   frS_Walk11,   frS_Walk12,	 frS_Walk13,   frS_Walk14,   frS_Walk15,	frS_Walk16, afEnd
+SonAni_Run:			dc.b  $FF, frS_Run11,	frS_Run12, frS_Run13, frS_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
+SonAni_Roll:		dc.b  $FE, frS_Roll1,	frS_Roll2, frS_Roll1, frS_Roll3, frS_Roll1, frS_Roll4, frS_Roll1, frS_Roll5, afEnd
+SonAni_Roll2:		dc.b  $FE, frS_Roll1,	frS_Roll2, frS_Roll1, frS_Roll3, frS_Roll1, frS_Roll4, frS_Roll1, frS_Roll5, afEnd
+SonAni_Push:		dc.b  $FD, frS_Push1,	frS_Push2, frS_Push3, frS_Push4, afEnd, afEnd, afEnd, afEnd, afEnd
+SonAni_Wait:		dc.b    5, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1
+					dc.b  frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1
+					dc.b  frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle2, frS_Idle3, frS_Idle3, frS_Idle4, frS_Idle4, frS_Idle5, frS_Idle5, frS_Idle4, frS_Idle4
+					dc.b  frS_Idle5, frS_Idle5, frS_Idle4, frS_Idle4, frS_Idle5, frS_Idle5, frS_Idle4, frS_Idle4, frS_Idle5, frS_Idle5, frS_Idle4, frS_Idle4, frS_Idle5, frS_Idle5, frS_Idle4, frS_Idle4, frS_Idle5, frS_Idle5, frS_Idle4, frS_Idle4
+					dc.b  frS_Idle5, frS_Idle5, frS_Idle4, frS_Idle4, frS_Idle5, frS_Idle5, frS_Idle6, frS_Idle6, frS_Idle6, frS_Idle6, frS_Idle6, frS_Idle6, frS_Idle7, frS_Idle7, frS_Idle7, frS_Idle7, frS_Idle7, frS_Idle7, frS_Idle8, frS_Idle9
+					dc.b  frS_Idle9, frS_Idle9, frS_Idle9, frS_Idle9, frS_Idle9, frS_Idle8, frS_Idle8, afBack, $35
+SonAni_Balance:		dc.b	7, frS_Balance21,	frS_Balance22, frS_Balance23, afEnd
+SonAni_LookUp:		dc.b	5, frS_LookUp1,	frS_LookUp2, afBack,   1
+SonAni_Duck:		dc.b	5, frS_Duck1,	frS_Duck2, afBack,   1
+SonAni_Spindash:	dc.b	0, frS_Spindash1,	frS_Spindash2, frS_Spindash1, frS_Spindash3, frS_Spindash1, frS_Spindash4, frS_Spindash1, frS_Spindash5, frS_Spindash1,	frS_Spindash6, afEnd
 
-byte_12BA8:			dc.b	9, $BA,	$C5, $C6, $C6, $C6, $C6, $C6, $C6, $C7,	$C7, $C7, $C7, $C7, $C7, $C7, $C7, $C7,	$C7, $C7
-					dc.b  $C7, $FD,   0
-byte_12BBF:			dc.b   $F, $8F,	$FF
-SonAni_Balance2:		dc.b	5, $A1,	$A2, $A3, $FF
+SonAni_Whistle:		dc.b	9, frS_Idle1,	frS_Whistle1, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle3,	frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3,	frS_Whistle3, frS_Whistle3
+					dc.b  frS_Whistle3, afChange,   id_Walk
+SonAni_MGZHang:		dc.b   $F, frS_MGZHang, afEnd
+SonAni_Balance2:	dc.b	5, frS_Balance11,	frS_Balance12, frS_Balance13, afEnd
 
-SonAni_Stop:			dc.b	3, $9D,	$9E, $9F, $A0, $FD,   0
-SonAni_Float1:		dc.b	7, $C8,	$FF
-SonAni_Float2:		dc.b	7, $C8,	$C9, $CA, $CB, $CC, $CD, $CE, $CF, $FF
-SonAni_Spring:		dc.b  $2F, $8E,	$FD,   0
-SonAni_LZHang:		dc.b	1, $AA,	$AB, $FF
-SonAni_Leap1:		dc.b   $F, $43,	$43, $43, $FE,	 1
-SonAni_Landing:		dc.b	7, $B0,	$B2, $B2, $B2, $B2, $B2, $B2, $B1, $B2,	$B3, $B2, $FE,	 4
-SonAni_Surf:			dc.b  $13, $91,	$FF
-SonAni_Bubble:		dc.b   $B, $AC,	$AC,   3,   4, $FD,   0
-SonAni_Death1:		dc.b  $20, $A8,	$FF
-SonAni_Drown:		dc.b  $20, $A7,	$FF
-SonAni_Death2:		dc.b	$20, $A7,	$FF
-SonAni_Shrink:		dc.b  $40, $8D,	$FF
-SonAni_Hurt:		dc.b 9, $8C, $8D, $FF
-SonAni_Blank:		dc.b $77,   0,	$FF
-SonAni_Float3:		dc.b 3,	$3C, $3D, $53, $3E, $54, $FF, 0
-SonAni_Float4:		dc.b 3,	$3C, $FD, 0
-SonAni_Run2:		dc.b  2, $21,	$22, $23, $24, $FF
-SonAni_Transform:	dc.b    2, $D2, $D2, $D3, $D3, $D4, $D5, $D6, $D5, $D6, $D5, $D6, $D5, $D6, $FD,   0
+SonAni_Stop:		dc.b	3, frS_Skid1,	frS_Skid2, frS_Skid3, frS_SkidT, afChange,   id_Walk
+SonAni_Float1:		dc.b	7, frS_Float1, afEnd
+SonAni_Float2:		dc.b	7, frS_Float1,	frS_Float2, frS_Float3, frS_Float4, frS_Float5, frS_Float6, frS_Float7, frS_Float8, afEnd
+SonAni_Spring:		dc.b  $2F, frS_Spring,	afChange,   id_Walk
+SonAni_LZHang:		dc.b	1, frS_LZHang1,	frS_LZHang2, afEnd
+SonAni_Victory:		dc.b	7, frS_Victory1,	frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory2, frS_Victory3,	frS_Victory4, frS_Victory3, afBack,	 4
+SonAni_GetAir:		dc.b   $B, frS_GetAir,	frS_GetAir,   frS_Walk13,   frS_Walk14, afChange,   id_Walk
+SonAni_Burnt:		dc.b  $20, frS_Burnt, afEnd
+SonAni_Drown:		dc.b  $20, frS_Drown, afEnd
+SonAni_Death:		dc.b  $20, frS_Death, afEnd
+SonAni_Hurt:		dc.b	9, frS_Hurt1, frS_Hurt2, afEnd
+SonAni_Null:		dc.b  $77,   frS_Null, afEnd
+SonAni_Run2:		dc.b	2, frS_Run11,	frS_Run12, frS_Run13, frS_Run14, afEnd
+SonAni_Transform:	dc.b	2, frS_Transform1, frS_Transform1, frS_Transform2, frS_Transform2, frS_Transform3, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, afChange,   id_Walk
 	even
 
 AniSuperSonic:
 Ani_SuperSonic: offsetTable
-		offsetTableEntry.w SonAni_Walk		; 0
-		offsetTableEntry.w SonAni_Run			; 1
-		offsetTableEntry.w SonAni_Roll			; 2
-		offsetTableEntry.w SonAni_Roll2		; 3
-		offsetTableEntry.w SonAni_Push		; 4
-		offsetTableEntry.w SupSonAni_Wait		; 5
-		offsetTableEntry.w SupSonAni_Balance		; 6
-		offsetTableEntry.w SonAni_LookUp		; 7
-		offsetTableEntry.w SonAni_Duck		; 8
-		offsetTableEntry.w SonAni_Spin_Dash	; 9
-		offsetTableEntry.w byte_12BA8			; A
-		offsetTableEntry.w byte_12BBF			; B
-		offsetTableEntry.w SonAni_Balance2		; C
-		offsetTableEntry.w SonAni_Stop			; D
-		offsetTableEntry.w SonAni_Float1		; E
-		offsetTableEntry.w SonAni_Float2		; F
-		offsetTableEntry.w SonAni_Spring		; 10
-		offsetTableEntry.w SonAni_LZHang		; 11
-		offsetTableEntry.w SonAni_Leap1		; 12
-		offsetTableEntry.w SonAni_Landing		; 13
-		offsetTableEntry.w SonAni_Surf			; 14
-		offsetTableEntry.w SonAni_Bubble		; 15
-		offsetTableEntry.w SonAni_Death1		; 16
-		offsetTableEntry.w SonAni_Drown		; 17
-		offsetTableEntry.w SonAni_Death2		; 18
-		offsetTableEntry.w SonAni_Shrink		; 19
-		offsetTableEntry.w SonAni_Hurt			; 1A
-		offsetTableEntry.w SonAni_Blank		; 1B
-		offsetTableEntry.w SonAni_Float3		; 1C
-		offsetTableEntry.w SonAni_Float4		; 1D
-		offsetTableEntry.w SonAni_Run2		; 1E
-		offsetTableEntry.w SonAni_Transform	; 1F
+		offsetTableEntry.w SonAni_Walk
+		offsetTableEntry.w SonAni_Run
+		offsetTableEntry.w SonAni_Roll
+		offsetTableEntry.w SonAni_Roll2
+		offsetTableEntry.w SonAni_Push
+		offsetTableEntry.w SupSonAni_Wait
+		offsetTableEntry.w SupSonAni_Balance
+		offsetTableEntry.w SonAni_LookUp
+		offsetTableEntry.w SonAni_Duck
+		offsetTableEntry.w SonAni_Spindash
+		offsetTableEntry.w SonAni_Whistle
+		offsetTableEntry.w SonAni_MGZHang
+		offsetTableEntry.w SonAni_Balance2
+		offsetTableEntry.w SonAni_Stop
+		offsetTableEntry.w SonAni_Float1
+		offsetTableEntry.w SonAni_Float2
+		offsetTableEntry.w SonAni_Spring
+		offsetTableEntry.w SonAni_LZHang
+		offsetTableEntry.w SonAni_Victory
+		offsetTableEntry.w SonAni_GetAir
+		offsetTableEntry.w SonAni_Burnt
+		offsetTableEntry.w SonAni_Drown
+		offsetTableEntry.w SonAni_Death
+		offsetTableEntry.w SonAni_Hurt
+		offsetTableEntry.w SonAni_Null
+		offsetTableEntry.w SonAni_Run2
+		offsetTableEntry.w SonAni_Transform
 
-SupSonAni_Wait:		dc.b    7, $BA, $BB, $BC, $BB, $FF
-SupSonAni_Balance:	dc.b    9, $A1, $A2, $A3, $FF
+SupSonAni_Wait:		dc.b    7, frS_Idle1, frS_Idle2, frS_Idle3, frS_Idle2, afEnd
+SupSonAni_Balance:	dc.b    9, frS_Balance11, frS_Balance12, frS_Balance13, afEnd
 	even
 
-id_Walk:			equ 0
-id_Run:			equ 1
-id_Roll:			equ 2
-id_Roll2:			equ 3
-id_Push:			equ 4
-id_Wait:			equ 5
-id_Balance:		equ 6
-id_LookUp:		equ 7
-id_Duck:			equ 8
-id_SpinDash:		equ 9
-id_Blink			equ $A
-id_GetUp		equ $B
-id_Balance2:		equ $C
-id_Stop:			equ $D
-id_Float1:		equ $E
-id_Float2:		equ $F
-id_Spring:		equ $10
-id_Hang:		equ $11
-id_Leap1:		equ $12
-id_Landing:		equ $13
-id_Surf:			equ $14
-id_GetAir:		equ $15
-id_Burnt:		equ $16
-id_Drown:		equ $17
-id_Death:		equ $18
-id_Shrink:		equ $19
-id_Hurt:			equ $1A
-id_Null:			equ $1B
-id_Float3:		equ $1C
-id_Float4:		equ $1D
-id_Run2:		equ $1E
-id_Transform:	equ $1F
+id_Walk:			equ (SonAni_Walk_ptr-Ani_Sonic)/2
+id_Run:				equ (SonAni_Run_ptr-Ani_Sonic)/2
+id_Roll:			equ (SonAni_Roll_ptr-Ani_Sonic)/2
+id_Roll2:			equ (SonAni_Roll2_ptr-Ani_Sonic)/2
+id_Push:			equ (SonAni_Push_ptr-Ani_Sonic)/2
+id_Wait:			equ (SonAni_Wait_ptr-Ani_Sonic)/2
+id_Balance:			equ (SonAni_Balance_ptr-Ani_Sonic)/2
+id_LookUp:			equ (SonAni_LookUp_ptr-Ani_Sonic)/2
+id_Duck:			equ (SonAni_Duck_ptr-Ani_Sonic)/2
+id_Spindash:		equ	(SonAni_Spindash_ptr-Ani_Sonic)/2
+id_Whistle:			equ	(SonAni_Whistle_ptr-Ani_Sonic)/2
+id_MGZHang:			equ	(SonAni_MGZHang_ptr-Ani_Sonic)/2
+id_Balance2:		equ	(SonAni_Balance2_ptr-Ani_Sonic)/2
+id_Stop:			equ	(SonAni_Stop_ptr-Ani_Sonic)/2
+id_Float1:			equ (SonAni_Float1_ptr-Ani_Sonic)/2
+id_Float2:			equ (SonAni_Float2_ptr-Ani_Sonic)/2
+id_Spring:			equ (SonAni_Spring_ptr-Ani_Sonic)/2
+id_LZHang:			equ (SonAni_LZHang_ptr-Ani_Sonic)/2
+id_Victory:			equ (SonAni_Victory_ptr-Ani_Sonic)/2
+id_GetAir:			equ (SonAni_GetAir_ptr-Ani_Sonic)/2
+id_Burnt:			equ (SonAni_Burnt_ptr-Ani_Sonic)/2
+id_Drown:			equ (SonAni_Drown_ptr-Ani_Sonic)/2
+id_Death:			equ (SonAni_Death_ptr-Ani_Sonic)/2
+id_Hurt:			equ (SonAni_Hurt_ptr-Ani_Sonic)/2
+id_Null:			equ (SonAni_Null_ptr-Ani_Sonic)/2
+id_Run2:			equ (SonAni_Run2_ptr-Ani_Sonic)/2
+id_Transform:		equ (SonAni_Transform_ptr-Ani_Sonic)/2
+
+; Frame IDs
+	phase 0 ; Reset ds.b value to 0
+frS_Null:		ds.b 1
+frS_Walk11:		ds.b 1
+frS_Walk12:		ds.b 1
+frS_Walk13:		ds.b 1
+frS_Walk14:		ds.b 1
+frS_Walk15:		ds.b 1
+frS_Walk16:		ds.b 1
+frS_Walk17:		ds.b 1
+frS_Walk18:		ds.b 1
+frS_Walk2X:		ds.b 8
+frS_Walk3X:		ds.b 8
+frS_Walk4X:		ds.b 8
+frS_Run11:		ds.b 1
+frS_Run12:		ds.b 1
+frS_Run13:		ds.b 1
+frS_Run14:		ds.b 1
+frS_Run2X:		ds.b 4
+frS_Run3X:		ds.b 4
+frS_Run4X:		ds.b 4
+frS_TumbleWalk1:	ds.b 1
+frS_TumbleWalkX:	ds.b 11
+frS_TumbleStand1:	ds.b 1
+frS_TumbleStandX:	ds.b 11
+frS_TumbleHCylinder1:	ds.b 1
+frS_TumbleHCylinderX:	ds.b 11
+frS_Turntable1:		ds.b 1
+frS_TurntableX:		ds.b 6
+frS_PoleSwingH1:		ds.b 1
+frS_PoleSwingHX:	ds.b 6
+frS_PoleSwingV1:	ds.b 1
+frS_PoleSwingVX:	ds.b 5
+frS_TumbleVCylinder1:	ds.b 1
+frS_TumbleVCylinderX:	ds.b 14
+frS_RopeSwing1:		ds.b 1
+frS_RopeSwingX:		ds.b 7
+frS_MonkeyBars1:	ds.b 1
+frS_MonkeyBarsX:	ds.b 5
+frS_Spindash1:		ds.b 1
+frS_Spindash2:		ds.b 1
+frS_Spindash3:		ds.b 1
+frS_Spindash4:		ds.b 1
+frS_Spindash5:		ds.b 1
+frS_Spindash6:		ds.b 1
+frS_Hurt1:			ds.b 1
+frS_Hurt2:			ds.b 1
+frS_Spring:			ds.b 1
+frS_MGZHang:		ds.b 1
+frS_Hang1:			ds.b 1
+frS_Hang2:			ds.b 1
+frS_Hang3:			ds.b 1
+frS_HangPush:		ds.b 1
+frS_Shimmy1:		ds.b 1
+frS_Shimmy2:		ds.b 1
+frS_Roll1:			ds.b 1
+frS_Roll2:			ds.b 1
+frS_Roll3:			ds.b 1
+frs_Roll4:			ds.b 1
+frS_Roll5:			ds.b 1
+frS_Duck1:			ds.b 1
+frS_Duck2:			ds.b 1
+frS_Skid1:			ds.b 1
+frS_Skid2:			ds.b 1
+frS_Skid3:			ds.b 1
+frS_SkidT:			ds.b 1
+frS_Balance11:		ds.b 1
+frS_Balance12:		ds.b 1
+frS_Balance13:		ds.b 1
+frS_Balance21:		ds.b 1
+frS_Balance22:		ds.b 1
+frS_Balance23:		ds.b 1
+frS_Death:			ds.b 1
+frS_Burnt:			ds.b 1
+frS_Drown:			ds.b 1
+frS_LZHang1:		ds.b 1
+frS_LZHang2:		ds.b 1
+frS_GetAir:			ds.b 1
+frS_Idle6:			ds.b 1
+frS_Idle7:			ds.b 1
+frS_Idle8:			ds.b 1
+frS_Victory1:		ds.b 1
+frS_Victory2:		ds.b 1
+frS_Victory3:		ds.b 1
+frS_Victory4:		ds.b 1
+frS_LZHangV1:		ds.b 1
+frS_LZHangV2:		ds.b 1
+frS_Push1:			ds.b 1
+frS_Push2:			ds.b 1
+frS_Push3:			ds.b 1
+frS_Push4:			ds.b 1
+frS_Idle1:			ds.b 1
+frS_Idle2:			ds.b 1
+frS_Idle3:			ds.b 1
+frS_Idle4:			ds.b 1
+frS_Idle5:			ds.b 1
+frS_IdleSleep1:		ds.b 1
+frS_IdleSleep2:		ds.b 1
+frS_IdleSleep3:		ds.b 1
+frS_IdleSleep4:		ds.b 1
+frS_LookUp1:		ds.b 1
+frS_LookUp2:		ds.b 1
+frS_Whistle1:		ds.b 1
+frS_Whistle2:		ds.b 1
+frS_Whistle3:		ds.b 1
+frS_Float1:			ds.b 1
+frS_Float2:			ds.b 1
+frS_Float3:			ds.b 1
+frS_Float4:			ds.b 1
+frS_Float5:			ds.b 1
+frS_Float6:			ds.b 1
+frS_Float7:			ds.b 1
+frS_Float8:			ds.b 1
+frS_Slide1:			ds.b 1
+frS_Slide2:			ds.b 1
+frS_Transform1:		ds.b 1
+frS_Transform2:		ds.b 1
+frS_Transform3:		ds.b 1
+frS_Transform4:		ds.b 1
+frS_Transform5:		ds.b 1
+frS_Fall1:			ds.b 1
+frS_Fall2:			ds.b 1
+frS_Idle9:			ds.b 1
+frS_Last:			ds.b 0
+	even
+	dephase

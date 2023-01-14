@@ -95,10 +95,10 @@ LoadWaterPalette:
 ; ---------------------------------------------------------------------------
 
 StartingWaterHeights:
-		dc.w $400	; DEZ 1
+		dc.w $380	; DEZ 1
 		dc.w $400	; DEZ 2
-		dc.w $400	; DEZ 3
-		dc.w $400	; DEZ 4
+		dc.w $480	; DEZ 3
+		dc.w $500	; DEZ 4
 		dc.w $1000	; GHZ 1
 		dc.w $1000	; GHZ 2
 		dc.w $1000	; GHZ 3

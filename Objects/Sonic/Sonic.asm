@@ -21,7 +21,7 @@ Obj_Sonic:
 		beq.s	+
 		clr.w	(Debug_placement_mode).w	; Leave debug mode
 +		addq.b	#1,mapping_frame(a0)		; Next frame
-		cmpi.b	#$FB,mapping_frame(a0)	; Have we reached the end of Sonic's frames?	; blad what the fuck was this. that's so stupid. why.
+		cmpi.b	#frS_Last,mapping_frame(a0)	; Have we reached the end of Sonic's frames?
 		blo.s		+
 		clr.b	mapping_frame(a0)	; If so, reset to Sonic's first frame
 +		bsr.w	Sonic_Load_PLC
@@ -1558,7 +1558,7 @@ SonicKnux_SuperHyper:
 		move.w	#$1E,(Palette_frame).w
 		move.b	#0,(Super_Sonic_Knux_flag).w
 		move.b	#-1,(Player_prev_frame).w
-		move.b	#1,prev_anim(a0)
+		move.b	#id_Run,prev_anim(a0)
 		move.b	#1,invincibility_timer(a0)
 		move.w	#$600,Sonic_Knux_top_speed-Sonic_Knux_top_speed(a4)
 		move.w	#$C,Sonic_Knux_acceleration-Sonic_Knux_top_speed(a4)
@@ -2526,9 +2526,9 @@ SAnim_WalkRun:
 		bne.w	loc_12A2A
 		moveq	#0,d0
 		tst.b	flip_type(a0)
-		bmi.w	loc_127C0
+		bmi.w	SAnim_Tumble
 		move.b	flip_angle(a0),d0
-		bne.w	loc_127C0
+		bne.w	SAnim_Tumble
 		moveq	#0,d1
 		move.b	angle(a0),d0
 		bmi.s	loc_126C8
@@ -2602,7 +2602,7 @@ locret_12764:
 		rts
 ; ---------------------------------------------------------------------------
 
-loc_127C0:
+SAnim_Tumble:
 		move.b	flip_type(a0),d1
 		andi.w	#$7F,d1
 		bne.w	loc_12872
@@ -2610,7 +2610,8 @@ loc_127C0:
 		moveq	#0,d1
 		move.b	status(a0),d2
 		andi.b	#1,d2
-		bne.s	loc_1281E
+		bne.s	SAnim_Tumble_Left
+	SAnim_Tumble_Right:
 		andi.b	#-4,render_flags(a0)
 		tst.b	flip_type(a0)
 		bpl.s	loc_12806
@@ -2625,19 +2626,19 @@ loc_12806:
 
 loc_1280A:
 		divu.w	#$16,d0
-		addi.b	#$31,d0
+		addi.b	#frS_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
-loc_1281E:
+SAnim_Tumble_Left:
 		andi.b	#-4,render_flags(a0)
 		ori.b	#3,render_flags(a0)
 		neg.b	d0
 		addi.b	#$8F,d0
 		divu.w	#$16,d0
-		addi.b	#$31,d0
+		addi.b	#frS_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
@@ -2645,9 +2646,9 @@ loc_1281E:
 
 byte_1286E:
 		dc.b 0
-		dc.b $3D
-		dc.b $49
-		dc.b $49
+		dc.b frS_TumbleStand1
+		dc.b frS_TumbleHCylinder1
+		dc.b frS_TumbleHCylinder1
 ; ---------------------------------------------------------------------------
 
 loc_12872:
@@ -2758,7 +2759,7 @@ loc_129A4:
 
 loc_129A8:
 		divu.w	#$16,d0
-		addi.b	#$31,d0
+		addi.b	#frS_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
@@ -2781,7 +2782,7 @@ loc_129D6:
 
 loc_129E2:
 		divu.w	#$16,d0
-		addi.b	#$31,d0
+		addi.b	#frS_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
@@ -2799,7 +2800,7 @@ loc_129F6:
 loc_12A12:
 		addi.b	#$B,d0
 		divu.w	#$16,d0
-		addi.b	#$31,d0
+		addi.b	#frS_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
