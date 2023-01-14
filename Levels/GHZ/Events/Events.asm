@@ -14,7 +14,7 @@ GHZ1_ScreenEvent:
 		bra.w	GHZ_Refresh
 
 DLE_GHZ1:
-		jsr		GHZ_WaterEvent
+;		jsr		GHZ_WaterEvent
 		move.w	#$300,(Camera_target_max_Y_pos).w ; set lower y-boundary
 		cmpi.w	#$1780,(v_screenposx).w ; has the camera reached $1780 on x-axis?
 		bcs.s	locret_6E08	; if not, branch

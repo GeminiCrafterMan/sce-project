@@ -61,7 +61,7 @@ Level_Screen:
 		jsr	(LoadPalette_Immediate).w
 		lea	(PLC_Main).l,a5
 		jsr	(LoadPLC_Raw_KosM).w									; load hud and ring art
-		jsr	(CheckLevelForWater).l
+		jsr	(StartLevelWater).l
 		clearRAM Water_palette_line_2, Normal_palette
 		tst.b	(Water_flag).w
 		beq.s	.notwater

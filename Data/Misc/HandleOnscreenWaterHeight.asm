@@ -65,19 +65,6 @@ DynamicWaterHeight:
 No_WaterResize:
 		rts
 
-; =============== S U B R O U T I N E =======================================
-
-CheckLevelForWater:
-		move.w	#$1000,d0
-		move.w	d0,(Water_level).w
-		move.w	d0,(Mean_water_level).w
-		move.w	d0,(Target_water_level).w
-		clr.b	(Water_flag).w
-
-CheckLevelForWater_Return:
-		rts
-; ---------------------------------------------------------------------------
-
 StartLevelWater:
 		st	(Water_flag).w
 
@@ -88,6 +75,10 @@ StartLevelWater:
 		ror.b	#2,d0
 		lsr.w	#5,d0
 		move.w	StartingWaterHeights(pc,d0.w),d0
+		cmpi.w	#$1000,d0
+		bne.s	.keepWaterOn
+		clr.b	(Water_flag).w
+	.keepWaterOn:
 		move.w	d0,(Water_level).w
 		move.w	d0,(Mean_water_level).w
 		move.w	d0,(Target_water_level).w
@@ -97,8 +88,10 @@ StartLevelWater:
 
 LoadWaterPalette:
 		tst.b	(Water_flag).w
-		beq.s	CheckLevelForWater_Return
+		beq.s	.ret
 		jmp		loadWaterShift
+	.ret:
+		rts
 ; ---------------------------------------------------------------------------
 
 StartingWaterHeights:
@@ -106,9 +99,9 @@ StartingWaterHeights:
 		dc.w $400	; DEZ 2
 		dc.w $400	; DEZ 3
 		dc.w $400	; DEZ 4
-		dc.w $100	; GHZ 1
-		dc.w $100	; GHZ 2
-		dc.w $100	; GHZ 3
-		dc.w $100	; GHZ 4
+		dc.w $280	; GHZ 1
+		dc.w $280	; GHZ 2
+		dc.w $280	; GHZ 3
+		dc.w $1000	; GHZ 4
 
 		zonewarning StartingWaterHeights,(2*4)

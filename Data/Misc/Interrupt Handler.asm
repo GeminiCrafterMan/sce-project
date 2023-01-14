@@ -309,7 +309,7 @@ Do_Updates:
 ; =============== S U B R O U T I N E =======================================
 
 HInt:
-		illegal
+;		illegal
 		disableInts
 		tst.b	(H_int_flag).w
 		beq.w	HInt_Done
