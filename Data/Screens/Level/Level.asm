@@ -23,8 +23,6 @@ Level_Screen:
 		jsr	(Clear_Kos_Module_Queue).w								; clear KosM PLCs
 		jsr	(Pal_FadeToBlack).w
 		disableInts
-		move.l	#VInt,(V_int_addr).w
-		move.l	#HInt,(H_int_addr).w
 		jsr	(Clear_DisplayData).w
 		enableInts
 		tst.b	(Last_star_post_hit).w
@@ -68,7 +66,7 @@ Level_Screen:
 		tst.b	(Water_flag).w
 		beq.s	.notwater
 		move.w	#$8014,VDP_control_port-VDP_control_port(a6)			; H-int enabled
-		jsr		loadWaterShift
+;		jsr		loadWaterShift
 
 .notwater
 		move.w	(Current_zone_and_act).w,d0
@@ -117,6 +115,9 @@ Level_Screen:
 
 .starpost
 		move.b	d0,(Time_over_flag).w
+		move.b	d0,(Super_Sonic_Knux_flag).w
+		move.l	d0,(Super_palette_status).w				; hits Super_palette_status, Palette_timer, and Super_frame_count
+		move.l	d0,(Palette_frame).w					; hits Palette_frame, Palette_frame_Tails, and Palette_timer_Tails
 		jsr	(OscillateNumInit).w
 		moveq	#1,d0
 		move.b	d0,(Ctrl_1_locked).w

@@ -18,7 +18,7 @@ buzz_buzzstatus = $34
 Buzz_Main:	; Routine 0
 		addq.b	#2,obRoutine(a0)
 		move.l	#Map_BuzzBomber,obMap(a0)
-		move.w	#$444,obGfx(a0)
+		move.w	#make_art_tile(ArtTile_BuzzBomber,0,0),obGfx(a0)
 		move.b	#4,obRender(a0)
 		move.w	#3*$80,obPriority(a0)
 		move.b	#8,obColType(a0)
@@ -145,7 +145,7 @@ Msl_Main:	; Routine 0
 		move.b	#3,obAnim(a0)
 		addq.b	#2,obRoutine(a0)
 		move.l	#Map_BuzzBomber,obMap(a0)
-		move.w	#$444,obGfx(a0)
+		move.w	#make_art_tile(ArtTile_BuzzBomber,0,0),obGfx(a0)
 		move.b	#4,obRender(a0)
 		move.w	#3*$80,obPriority(a0)
 		move.b	#8,width_pixels(a0)

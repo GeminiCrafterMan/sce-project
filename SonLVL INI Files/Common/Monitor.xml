@@ -41,9 +41,13 @@
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
       <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="10" startpal="0" />
     </ImageFromMappings>
-    <ImageFromMappings id="broken">
+    <ImageFromMappings id="h">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
       <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="11" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="broken">
+      <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
+      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="12" startpal="0" />
     </ImageFromMappings>
   </Images>
   <Subtypes>
@@ -57,7 +61,8 @@
     <Subtype id="07" name="Water Shield" image="water" />
     <Subtype id="08" name="Invincibility" image="invincibility" />
     <Subtype id="09" name="S" image="s" />
-    <Subtype id="0A" name="Broken" image="broken" />
+    <Subtype id="0A" name="H" image="h" />
+    <Subtype id="0B" name="Broken" image="broken" />
   </Subtypes>
   <Properties>
     <BitsProperty name="Contents" type="MonitorType" startbit="0" length="4" />
@@ -74,6 +79,7 @@
       <EnumMember name="Water Shield" />
       <EnumMember name="Invincibility" />
       <EnumMember name="S" />
+      <EnumMember name="H" />
       <EnumMember name="Broken" />
     </Enum>
   </Enums>

@@ -86,8 +86,8 @@ Ani_SuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Roll			; 2
 		offsetTableEntry.w SonAni_Roll2		; 3
 		offsetTableEntry.w SonAni_Push		; 4
-		offsetTableEntry.w SonAni_Wait		; 5
-		offsetTableEntry.w SonAni_Balance		; 6
+		offsetTableEntry.w SupSonAni_Wait		; 5
+		offsetTableEntry.w SupSonAni_Balance		; 6
 		offsetTableEntry.w SonAni_LookUp		; 7
 		offsetTableEntry.w SonAni_Duck		; 8
 		offsetTableEntry.w SonAni_Spin_Dash	; 9
@@ -113,6 +113,10 @@ Ani_SuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Float4		; 1D
 		offsetTableEntry.w SonAni_Run2		; 1E
 		offsetTableEntry.w SonAni_Transform	; 1F
+
+SupSonAni_Wait:		dc.b    7, $BA, $BB, $BC, $BB, $FF
+SupSonAni_Balance:	dc.b    9, $A1, $A2, $A3, $FF
+	even
 
 id_Walk:			equ 0
 id_Run:			equ 1

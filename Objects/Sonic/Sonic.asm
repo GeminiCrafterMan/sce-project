@@ -1436,7 +1436,6 @@ Sonic_Transform:
 		move.b	#1,(Super_palette_status).w	; set Super/Hyper palette status to 'fading'
 		move.b	#$F,(Palette_timer).w
 		move.w	#60,(Super_frame_count).w
-		move.l	#Map_SuperSonic,mappings(a0)
 		move.b	#$81,object_control(a0)
 		move.b	#id_Transform,anim(a0)				; enter 'transformation' animation
 		cmpi.b	#7,(Super_emerald_count).w		; does Sonic have all 7 Super Emeralds?
@@ -1469,6 +1468,7 @@ Sonic_HyperDash:
 		move.b	#1,double_jump_flag(a0)
 		move.b	#1,(v_Invincibility_stars+anim).w	; This causes the screen flash, and sparks to come out of Sonic
 		sfx	sfx_Dash
+		move.b	#8,(Negative_flash_timer).w
 		move.b	(Ctrl_1_logical).w,d0
 		andi.w	#button_up_mask|button_down_mask|button_left_mask|button_right_mask,d0	; Get D-pad input
 		beq.s	.noInput
@@ -1531,7 +1531,7 @@ SonicKnux_SuperHyper:
 		tst.b	(Update_HUD_timer).w	; Level over?
 		beq.s	.revertToNormal
 		subq.w	#1,(Super_frame_count).w
-		bpl.w	.return			; This should be a 'bhi'; currently counts down 61 frames
+		bhi.w	.return
 		move.w	#60,(Super_frame_count).w
 		tst.w	(Ring_count).w
 		beq.s	.revertToNormal	; If rings depleted, return to normal
@@ -1558,11 +1558,6 @@ SonicKnux_SuperHyper:
 		move.w	#$1E,(Palette_frame).w
 		move.b	#0,(Super_Sonic_Knux_flag).w
 		move.b	#-1,(Player_prev_frame).w
-		tst.b	character_id(a0)	; Is this Sonic?
-		bne.s	.notSonic
-		move.l	#Map_Sonic,mappings(a0)	; If so, load Sonic's normal mappings (was using Super/Hyper mappings)
-
-	.notSonic:
 		move.b	#1,prev_anim(a0)
 		move.b	#1,invincibility_timer(a0)
 		move.w	#$600,Sonic_Knux_top_speed-Sonic_Knux_top_speed(a4)
@@ -2870,6 +2865,10 @@ Sonic_Load_PLC2:
 		beq.s	+
 		move.b	d0,(Player_prev_frame).w
 		lea	(PLC_Sonic).l,a2
+		tst.b	(Super_Sonic_Knux_flag).w
+		beq.s	.notSuper1
+		lea	(PLC_SuperSonic).l,a2
+	.notSuper1:
 		add.w	d0,d0
 		adda.w	(a2,d0.w),a2
 		move.w	(a2)+,d5
@@ -2877,6 +2876,10 @@ Sonic_Load_PLC2:
 		bmi.s	+
 		move.w	#tiles_to_bytes(ArtTile_Sonic),d4
 		move.l	#ArtUnc_Sonic>>1,d6
+		tst.b	(Super_Sonic_Knux_flag).w
+		beq.s	.notSuper2
+		move.l	#ArtUnc_SuperSonic>>1,d6
+	.notSuper2:
 
 -		moveq	#0,d1
 		move.w	(a2)+,d1

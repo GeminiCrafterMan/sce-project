@@ -4,7 +4,7 @@ Map_TitleCard:
 		dc.w word_2EE9E-Map_TitleCard	; ACT
 		dc.w word_2EEAC-Map_TitleCard	; ZONE
 		dc.w word_2EEC6-Map_TitleCard	; DEATH EGG
-		dc.w TCard_GHZ-Map_TitleCard	; DEATH EGG
+		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
 word_2EE3C:
 		dc.w $10
 		dc.b  $58, 9, $84, $90, $FF, $E8
@@ -55,4 +55,4 @@ TCard_GHZ:
 		dc.b	0, 6, $84, $D9, 0, $50			; H
 		dc.b	0, 6, $84, $DF, 0, $60			; I
 		dc.b	0, 6, $84, $E5, 0, $68			; L
-		dc.b	0, 6, $84, $EF, 0, $70			; L
+		dc.b	0, 6, $84, $E5, 0, $70			; L

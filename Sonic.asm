@@ -6,7 +6,7 @@
 ZoneCount:				= 2	; discrete zones are: DEZ
 GameDebug:				= 1	; if 1, enable debug mode for Sonic
 GameDebugAlt:			= 0	; if 1, enable alt debug mode for Sonic
-Lagometer:				= 1	; if 1, enable debug lagometer
+Lagometer:				= 0	; if 1, enable debug lagometer
 ExtendedCamera:			= 0	; if 1, enable extended camera
 RollInAir:				= 1	; if 1, enable roll in air for Sonic
 OptimiseSound:	  		= 1	; change to 1 to optimise sound queuing

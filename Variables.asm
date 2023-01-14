@@ -195,6 +195,7 @@ Palette_fade_count:					ds.b 1					; The number of colours to fade
 Lag_frame_count:						ds.w 1					; More specifically, the number of times V-int routine 0 has run. Reset at the end of a normal frame
 v_spritecount:						= *
 Sprites_drawn:						ds.w 1					; Used to ensure the sprite limit isn't exceeded
+Water_palette_data_addr:			ds.l 1			; points to the water palette data for the current level
 v_vdp_buffer2:						= *
 DMA_data_thunk:					= *						; Used as a RAM holder for the final DMA command word. Data will NOT be preserved across V-INTs, so consider this space reserved
 DMA_trigger_word:					ds.w 1					; Transferred from RAM to avoid crashing the Mega Drive
@@ -373,9 +374,9 @@ Super_palette_status:				ds.b 1
 Palette_timer:						ds.b 1
 Super_frame_count:					ds.w 1
 Palette_frame:						ds.w 1
-Player_mode:						ds.w 1	; unnecessary word, fix later
 Palette_frame_Tails:				ds.b 1
 Palette_timer_Tails:				ds.b 1
+Player_mode:						ds.w 1	; unnecessary word, fix later
 waterValues:						ds.l 1
 
 f_timeover:							= *

@@ -8,7 +8,9 @@ ArtKosM_Hud:				binclude "Objects/HUD/KosinskiM Art/HUD.bin"
 	even
 ArtKosM_Monitors:			binclude "Objects/Monitor/KosinskiM Art/Monitors.bin"
 	even
-ArtKosM_SpikesSprings:		binclude "Objects/Spikes/KosinskiM Art/SpikesSprings.bin"
+ArtKosM_Spikes:				binclude "Objects/Spikes/KosinskiM Art/Spikes.bin"
+	even
+ArtKosM_Spring:				binclude "Objects/Spring/KosinskiM Art/Spring.bin"
 	even
 ArtKosM_RobotnikShip:		binclude "Objects/Robotnik/KosinskiM Art/Robotnik Ship.bin"
 	even
@@ -19,8 +21,6 @@ ArtKosM_Explosion:			binclude "Objects/Explosion/KosinskiM Art/Explosion.bin"
 ArtKosM_EnemyPtsStarPost:	binclude "Objects/StarPost/KosinskiM Art/Enemy points.bin"
 	even
 ArtKosM_GrayButton:			binclude "Objects/Button/KosinskiM Art/Gray Button.bin"
-	even
-ArtKosM_DiagonalSpring:		binclude "Objects/Spring/KosinskiM Art/Diagonal Spring.bin"
 	even
 ArtKosM_Bubbles:			binclude "Objects/Bubbler/KosinskiM Art/Bubbles.bin"
 	even

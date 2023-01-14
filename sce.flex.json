@@ -1,13 +1,18 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "82d06cd2-d5a1-4614-ad96-ef45cafec820",
+    "node": "7c2720fa-5835-4a9b-9310-b4cfaee97b15",
     "objects": [
         {
             "uuid": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
             "format": "Sonic 3&K Player.js",
             "name": "Cabaret Sonic",
-            "palettes": [],
+            "palettes": [
+                {
+                    "path": "Objects/Sonic/Palettes/Sonic.bin",
+                    "length": 1
+                }
+            ],
             "art": {
                 "path": "Objects/Cabaret Sonic/Uncompressed Art/Cabaret Sonic.bin",
                 "compression": "Uncompressed",
@@ -36,7 +41,7 @@
                             "length": 1
                         },
                         {
-                            "path": "Objects/Sonic/Palettes/Water Sonic.bin",
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
                             "length": 1
                         }
                     ],
@@ -65,7 +70,7 @@
                             "length": 1
                         },
                         {
-                            "path": "Objects/Sonic/Palettes/Water Sonic.bin",
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
                             "length": 1
                         }
                     ],
@@ -88,7 +93,16 @@
                     "uuid": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
                     "format": "Sonic 3&K Object.js",
                     "name": "Signpost",
-                    "palettes": [],
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
                     "art": {
                         "path": "Objects/Signpost/Uncompressed Art/End Signs.bin",
                         "compression": "Uncompressed",
@@ -102,6 +116,122 @@
                         "enabled": true,
                         "path": "Objects/Signpost/Object Data/DPLC - End Signs.asm",
                         "label": "DPLC_EndSigns"
+                    }
+                },
+                {
+                    "uuid": "a9306459-c030-4be8-8e4c-84aeb79928f4",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Monitors",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Monitor/KosinskiM Art/Monitors.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Monitor/Object Data/Map - Monitor.asm",
+                        "label": "Map_Monitor"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "2720fa58-358a-4b93-90b4-cfaee97b15b0",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Spikes",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Spikes/KosinskiM Art/Spikes.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Spikes/Object Data/Map - Spikes.asm",
+                        "label": "Map_Spikes"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "7c2720fa-5835-4a9b-9310-b4cfaee97b15",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Springs (Red)",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Spring/KosinskiM Art/Spring.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Spring/Object Data/Map - Spring(Red).asm",
+                        "label": "Map_RedSpring"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "af8fc8f3-2976-4ab1-a4ce-1bfe66741fdb",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Springs (Yellow)",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Spring/KosinskiM Art/Spring.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Spring/Object Data/Map - Spring(Yellow).asm",
+                        "label": "Map_YellowSpring"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
                     }
                 }
             ],

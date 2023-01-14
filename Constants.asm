@@ -452,7 +452,8 @@ Status_ObjDefeated		= 7
 ; Universal (used on all standard levels)
 ; ---------------------------------------------------------------------------
 
-ArtTile_SpikesSprings		= $484
+ArtTile_Spikes				= $484
+ArtTile_Spring				= $494
 ArtTile_Monitors			= $4AC
 ArtTile_StarPost			= $5E4
 ArtTile_Sonic				= $680
@@ -462,6 +463,15 @@ ArtTile_HUD				= $6C4
 ArtTile_Shield			= $79C
 ArtTile_Shield_Sparks		= ArtTile_Shield+$1F
 ArtTile_DashDust			= $7F0
+
+; ---------------------------------------------------------------------------
+; Green Hill Zone
+; ---------------------------------------------------------------------------
+
+ArtTile_Crabmeat:			= $400
+ArtTile_BuzzBomber:			= $444
+ArtTile_Chopper:			= $4EC
+ArtTile_Motobug:			= $50C
 
 ; ---------------------------------------------------------------------------
 ; VRAM data

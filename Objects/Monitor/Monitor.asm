@@ -32,7 +32,7 @@ Obj_MonitorInit:
 		movea.w	d0,a2							; Load address into a2
 		btst	#0,(a2)								; Is this monitor broken?
 		beq.s	.notbroken						; If not, branch
-		move.b	#$B,mapping_frame(a0)			; Use 'broken monitor' frame
+		move.b	#$C,mapping_frame(a0)			; Use 'broken monitor' frame
 		move.l	#Sprite_OnScreen_Test,address(a0)
 		rts
 ; ---------------------------------------------------------------------------
@@ -62,7 +62,7 @@ loc_1D61A:
 ; ---------------------------------------------------------------------------
 
 Obj_MonitorAnimate:
-		cmpi.b	#$B,mapping_frame(a0)			; Is monitor broken?
+		cmpi.b	#$C,mapping_frame(a0)			; Is monitor broken?
 		bne.s	.notbroken						; If not, branch
 		move.l	#loc_1D61A,address(a0)
 
@@ -190,7 +190,7 @@ Obj_MonitorSpawnIcon:
 		bset	#0,(a2)								; Mark monitor as destroyed
 
 .notremembered:
-		move.b	#$A,anim(a0)					; Display 'broken' animation
+		move.b	#$B,anim(a0)					; Display 'broken' animation
 		move.l	#Obj_MonitorAnimate,address(a0)
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
@@ -279,7 +279,8 @@ off_1D87C: offsetTable
 		offsetTableEntry.w Monitor_Give_Lightning_Shield	; C
 		offsetTableEntry.w Monitor_Give_Bubble_Shield		; E
 		offsetTableEntry.w Monitor_Give_Invincibility			; 10
-		offsetTableEntry.w Monitor_Give_HyperSonic			; 12
+		offsetTableEntry.w Monitor_Give_SuperSonic			; 12
+		offsetTableEntry.w Monitor_Give_HyperSonic			; 14
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Eggman:
@@ -351,11 +352,20 @@ loc_1DB2E:
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
+Monitor_Give_SuperSonic:
+		move.b	#1,(Super_Sonic_Knux_flag).w		; Super
+		bra.s	Monitor_Give_SuperHyper
+; ---------------------------------------------------------------------------
+
 Monitor_Give_HyperSonic:
+		move.b	#-1,(Super_Sonic_Knux_flag).w		; Hyper
+;		bra.s	Monitor_Give_SuperHyper				; runs right into it
+; ---------------------------------------------------------------------------
+
+Monitor_Give_SuperHyper:
 		addi.w	#50,(Ring_count).w
 		move.b	#1,(Super_palette_status).w
 		move.b	#$F,(Palette_timer).w
-		move.b	#1,(Super_Sonic_Knux_flag).w	; Super
 		move.w	#60,(Super_frame_count).w
 		move.w	#$800,(Sonic_Knux_top_speed).w
 		move.w	#$18,(Sonic_Knux_acceleration).w
@@ -370,20 +380,13 @@ Monitor_Give_HyperSonic:
 ; ---------------------------------------------------------------------------
 
 	.notTails:
-		bhs.s	.hyperKnuckles
+;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
+		bhs.s	.continued
 		move.l	#Map_SuperSonic,(Player_1+mappings).w
-		move.b	#-1,(Super_Sonic_Knux_flag).w	; Hyper
 		move.w	#$A00,(Sonic_Knux_top_speed).w
 		move.w	#$30,(Sonic_Knux_acceleration).w
 		move.w	#$100,(Sonic_Knux_deceleration).w
 ;		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w
-;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
-		bra.s	.continued
-; ---------------------------------------------------------------------------
-
-	.hyperKnuckles:
-		move.b	#-1,(Super_Sonic_Knux_flag).w		; Hyper
-;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
 
 	.continued:
 		move.b	#$81,(Player_1+object_control).w

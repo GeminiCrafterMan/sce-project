@@ -5,8 +5,8 @@
 ; =============== S U B R O U T I N E =======================================
 
 Obj_Spring:
-		move.l	#Map_Spring,mappings(a0)
-		move.w	#make_art_tile(ArtTile_SpikesSprings+$10,0,0),art_tile(a0)	; set red
+		move.l	#Map_RedSpring,mappings(a0)
+		move.w	#make_art_tile(ArtTile_Spring,0,0),art_tile(a0)
 		ori.b	#4,render_flags(a0)
 		move.w	#bytes_to_word(32/2,32/2),height_pixels(a0)		; set height and width
 		move.w	#$200,priority(a0)
@@ -30,7 +30,6 @@ Spring_Index: offsetTable
 Spring_Horizontal:
 		move.b	#2,anim(a0)
 		move.b	#3,mapping_frame(a0)
-		move.w	#make_art_tile(ArtTile_SpikesSprings+$1C,0,0),art_tile(a0)	; set yellow
 		move.b	#16/2,width_pixels(a0)
 		move.l	#Obj_Spring_Horizontal,address(a0)
 		bra.s	Spring_Common
@@ -77,7 +76,7 @@ Spring_Common:
 		move.w	word_22EF0(pc,d0.w),objoff_30(a0)
 		btst	#1,d0
 		beq.s	locret_22EEE
-		move.l	#Map_Spring2,mappings(a0)	; set yellow
+		move.l	#Map_YellowSpring,mappings(a0)	; set yellow
 
 locret_22EEE:
 		rts
