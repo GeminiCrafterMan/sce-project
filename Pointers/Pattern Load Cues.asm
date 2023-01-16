@@ -22,6 +22,15 @@ Offs_PLC: offsetTable
 		offsetTableEntry.w PLC1_GHZ_Misc
 		offsetTableEntry.w PLC2_GHZ_Enemy
 
+		offsetTableEntry.w PLC1_SSLZ_Misc
+		offsetTableEntry.w PLC2_SSLZ_Enemy
+		offsetTableEntry.w PLC1_SSLZ_Misc
+		offsetTableEntry.w PLC2_SSLZ_Enemy
+		offsetTableEntry.w PLC1_SSLZ_Misc
+		offsetTableEntry.w PLC2_SSLZ_Enemy
+		offsetTableEntry.w PLC1_SSLZ_Misc
+		offsetTableEntry.w PLC2_SSLZ_Enemy
+
 		zonewarning Offs_PLC,(4*4)
 
 ; ===========================================================================
@@ -83,3 +92,24 @@ PLC2_GHZ_Enemy: plrlistheader
 		plreq ArtTile_Chopper, ArtKosM_Chopper			; Chopper
 		plreq ArtTile_Motobug, ArtKosM_Motobug			; Motobug
 PLC2_GHZ_Enemy_end
+
+; ===========================================================================
+; Pattern load cues - Seaside Land (Misc)
+; ===========================================================================
+
+PLC1_SSLZ_Misc: plrlistheader
+		plreq $3D0, ArtKosM_PurpleRock		; Purple rock
+		plreq $570, ArtKosM_Bubbles
+		plreq $7C0, ArtKosM_WaterWave
+PLC1_SSLZ_Misc_end
+
+; ===========================================================================
+; Pattern load cues - Seaside Land (Enemy)
+; ===========================================================================
+
+PLC2_SSLZ_Enemy: plrlistheader
+		plreq ArtTile_Crabmeat, ArtKosM_Crabmeat		; Crabmeat
+		plreq ArtTile_BuzzBomber, ArtKosM_BuzzBomber		; Buzz Bomber
+		plreq ArtTile_Chopper, ArtKosM_Chopper			; Chopper
+		plreq ArtTile_Motobug, ArtKosM_Motobug			; Motobug
+PLC2_SSLZ_Enemy_end

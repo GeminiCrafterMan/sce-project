@@ -11,3 +11,6 @@
 		include "Levels/GHZ/Animated Tiles/Animation Scripts.asm"
 		include "Levels/GHZ/Events/Animate Palette.asm"
 		include "Levels/GHZ/Events/Events.asm"
+
+; SSLZ
+		include "Levels/SSLZ/Events/Events.asm"

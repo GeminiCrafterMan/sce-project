@@ -11,6 +11,7 @@ bgm__First = idstart
 ; Levels
 bgm_DEZ1 =			SMPS_id(ptr_mus_dez1)
 bgm_GHZ =			SMPS_id(ptr_mus_ghz)
+bgm_EHZ =			SMPS_id(ptr_mus_ehz)
 
 ; Bosses
 bgm_MidBoss =		SMPS_id(ptr_mus_boss)

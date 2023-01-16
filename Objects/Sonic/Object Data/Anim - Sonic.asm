@@ -56,14 +56,14 @@ SonAni_Balance2:	dc.b	5, frS_Balance11,	frS_Balance12, frS_Balance13, afEnd
 SonAni_Stop:		dc.b	3, frS_Skid1,	frS_Skid2, frS_Skid3, frS_SkidT, afChange,   id_Walk
 SonAni_Float1:		dc.b	7, frS_Float1, afEnd
 SonAni_Float2:		dc.b	7, frS_Float1,	frS_Float2, frS_Float3, frS_Float4, frS_Float5, frS_Float6, frS_Float7, frS_Float8, afEnd
-SonAni_Spring:		dc.b  $2F, frS_Spring,	afChange,   id_Walk
+SonAni_Spring:		dc.b  	2, frS_Spring1,	frS_Spring2, afEnd
 SonAni_LZHang:		dc.b	1, frS_LZHang1,	frS_LZHang2, afEnd
 SonAni_Victory:		dc.b	7, frS_Victory1,	frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory2, frS_Victory3,	frS_Victory4, frS_Victory3, afBack,	 4
 SonAni_GetAir:		dc.b   $B, frS_GetAir,	frS_GetAir,   frS_Walk13,   frS_Walk14, afChange,   id_Walk
 SonAni_Burnt:		dc.b  $20, frS_Burnt, afEnd
 SonAni_Drown:		dc.b  $20, frS_Drown, afEnd
 SonAni_Death:		dc.b  $20, frS_Death, afEnd
-SonAni_Hurt:		dc.b	9, frS_Hurt1, frS_Hurt2, afEnd
+SonAni_Hurt:		dc.b	9, frS_Hurt1, frS_Hurt2, afBack, 1
 SonAni_Null:		dc.b  $77,   frS_Null, afEnd
 SonAni_Run2:		dc.b	2, frS_Run11,	frS_Run12, frS_Run13, frS_Run14, afEnd
 SonAni_Transform:	dc.b	2, frS_Transform1, frS_Transform1, frS_Transform2, frS_Transform2, frS_Transform3, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, afChange,   id_Walk
@@ -178,7 +178,8 @@ frS_Spindash5:		ds.b 1
 frS_Spindash6:		ds.b 1
 frS_Hurt1:			ds.b 1
 frS_Hurt2:			ds.b 1
-frS_Spring:			ds.b 1
+frS_Spring1:		ds.b 1
+frS_Spring2:		ds.b 1
 frS_MGZHang:		ds.b 1
 frS_Hang1:			ds.b 1
 frS_Hang2:			ds.b 1

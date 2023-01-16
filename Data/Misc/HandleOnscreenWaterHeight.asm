@@ -103,5 +103,9 @@ StartingWaterHeights:
 		dc.w $1000	; GHZ 2
 		dc.w $1000	; GHZ 3
 		dc.w $1000	; GHZ 4
+		dc.w $1000	; SSLZ 1
+		dc.w $1000	; SSLZ 2
+		dc.w $1000	; SSLZ 3
+		dc.w $1000	; SSLZ 4
 
 		zonewarning StartingWaterHeights,(2*4)

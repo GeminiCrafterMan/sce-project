@@ -71,6 +71,8 @@ ArtKosM_DEZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/DEZ - T
 	even
 ArtKosM_GHZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/GHZ - Title Card.bin"
 	even
+ArtKosM_SSLZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/SSLZ - Title Card.bin"
+	even
 
 ; ===========================================================================
 ; Kosinski Module compressed DEZ graphics

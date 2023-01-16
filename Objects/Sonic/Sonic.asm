@@ -372,6 +372,12 @@ Sonic_MdAir:
 	if RollInAir
 		bsr.w	Sonic_ChgFallAnim
 	endif
+		tst.w	y_vel(a0)
+		ble.s	.dontSet
+		cmpi.b	#id_Spring,anim(a0)
+		bne.s	.dontSet
+		move.b	#id_Walk,anim(a0)	; change to something like id_Fall if/when you add a falling animation
+	.dontSet:
 		bsr.w	Sonic_JumpHeight
 		bsr.w	Sonic_ChgJumpDir
 		bsr.w	Player_LevelBound

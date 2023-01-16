@@ -5,6 +5,18 @@ Map_TitleCard:
 		dc.w word_2EEAC-Map_TitleCard	; ZONE
 		dc.w word_2EEC6-Map_TitleCard	; DEATH EGG
 		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
+		dc.w TCard_SSLZ-Map_TitleCard	; SEASIDE LAND
+; Some instructions for title card letters.
+;
+; First value: Always zero.
+;
+; Second value: Letter size. 2 for short letters like I and L, 6 for medium letters like A, B, C, D.
+;
+; Third value: Always $84.
+;
+; Fourth value: Tile. Start at $CD for the first letter, unless E, N, O, or Z,
+; add tile counts for the next, i.e. if letter 1 is A, letter 2 would be $CD + 6.
+
 word_2EE3C:
 		dc.w $10
 		dc.b  $58, 9, $84, $90, $FF, $E8
@@ -46,13 +58,28 @@ word_2EEC6:
 		dc.b	0, 6, $84, $D9, 0, $70			; G
 TCard_GHZ:
 		dc.w 9	; nine letters
-		dc.b	0, 6, $84, $CD, $FF, $F8		; G
-		dc.b	0, 6, $84, $D3, 0, 8			; R
-		dc.b	0, 6, $84, $9C, 0, $18			; E
-		dc.b	0, 6, $84, $9C, 0, $28			; E
-		dc.b	0, 6, $84, $A2, 0, $38			; N
+		dc.b $0, $6, $84, $CD, $FF, $F8			; G
+		dc.b $0, $6, $84, $D3, $0, $8			; R
+		dc.b $0, $6, $84, $9C, $0, $18			; E
+		dc.b $0, $6, $84, $9C, $0, $28			; E
+		dc.b $0, $6, $84, $A2, $0, $38			; N
+	
+		dc.b $0, $6, $84, $D9, $0, $50			; H
+		dc.b $0, $2, $84, $DF, $0, $60			; I
+		dc.b $0, $2, $84, $E2, $0, $68			; L
+		dc.b $0, $2, $84, $E2, $0, $70			; L
+TCard_SSLZ:	; i know it's fucked up right now, shush
+		dc.w 11	; eleven letters
+		dc.b $0, $6, $84, $CD, $FF, $E8			; S
+		dc.b $0, $6, $84, $9C, $FF, $F8			; E
+		dc.b $0, $6, $84, $D3, $0, $8			; A
+		dc.b $0, $6, $84, $CD, $0, $18			; S
+		dc.b $0, $2, $84, $D9, $0, $28			; I
+		dc.b $0, $6, $84, $DC, $0, $30			; D
+		dc.b $0, $6, $84, $9C, $0, $40			; E
 
-		dc.b	0, 6, $84, $D9, 0, $50			; H
-		dc.b	0, 6, $84, $DF, 0, $60			; I
-		dc.b	0, 6, $84, $E5, 0, $68			; L
-		dc.b	0, 6, $84, $E5, 0, $70			; L
+		dc.b $0, $2, $84, $E2, $0, $58			; L
+		dc.b $0, $6, $84, $D3, $0, $60			; A
+		dc.b $0, $6, $84, $A2, $0, $70			; N
+		dc.b $0, $6, $84, $DC, $0, $80			; D
+		even

@@ -113,6 +113,80 @@ PalLoad_Line16:
 		rts
 
 ; ---------------------------------------------------------------------------
+; Add and subtract shades from the palette
+; and cap each parameter to prevent overflow
+; ---------------------------------------------------------------------------
+
+; =============== S U B R O U T I N E =======================================
+
+ShiftPaletteUp:
+	.loop:
+
+	.redblack:
+		move.w	(a1),d4
+		andi.w	#$E,d4
+		add.b	d0,d4
+		cmpi.b	#$E,d4
+		bls.s	.greenblack
+		moveq	#$E,d4
+
+	.greenblack:
+		move.w	(a1),d5
+		andi.w	#$E0,d5
+		add.w	d1,d5
+		cmpi.w	#$E0,d5
+		bls.s	.blueblack
+		move.w	#$E0,d5
+
+	.blueblack:
+		add.b	d5,d4
+		move.w	(a1),d5
+		andi.w	#$E00,d5
+		add.w	d2,d5
+		cmpi.w	#$E00,d5
+		bls.s	.gtfo
+		move.w	#$E00,d5
+
+	.gtfo:
+		add.w	d5,d4
+		move.w	d4,(a1)
+		adda.w	#2,a1   ; Advance in the address
+		dbf		d3,.loop ; Loop
+		rts
+
+ShiftPaletteDown:
+	.loop:
+
+	.redblack:
+		move.w	(a1),d4
+		andi.w	#$E,d4
+		sub.b	d0,d4 ; Add the desired color shift to the palette
+		bcc.s	.greenblack
+		moveq	#0,d4
+
+	.greenblack:
+		move.w	(a1),d5
+		andi.w	#$E0,d5
+		sub.w	d1,d5 ; Add the desired color shift to the palette
+		bcc.s	.blueblack
+		moveq	#0,d5
+
+	.blueblack:
+		add.b	d5,d4
+		move.w	(a1),d5
+		andi.w	#$E00,d5
+		sub.w	d2,d5 ; Add the desired color shift to the palette
+		bcc.s	.gtfo
+		moveq	#0,d5
+
+	.gtfo:
+		add.w	d5,d4
+		move.w	d4,(a1)
+		adda.w	#2,a1   ; Advance in the address
+		dbf		d3,.loop ; Loop
+		rts
+
+; ---------------------------------------------------------------------------
 ; Clear palette
 ; ---------------------------------------------------------------------------
 

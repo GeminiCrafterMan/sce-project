@@ -14,4 +14,9 @@ LevelSizes:
 		dc.w 0, $2960, 0, $300				; GHZ 3
 		dc.w 0, $2ABF, 0, $300				; GHZ 4
 
+		dc.w 0, $29A0, 0, $320				; SSLZ 1
+		dc.w 0, $29A0, 0, $320				; SSLZ 2
+		dc.w 0, $29A0, 0, $320				; SSLZ 3
+		dc.w 0, $29A0, 0, $320				; SSLZ 4
+
 		zonewarning LevelSizes,(8*4)
