@@ -4,6 +4,86 @@
     "node": "82d06cd2-d5a1-4614-ad96-ef45cafec820",
     "objects": [
         {
+            "uuid": "3cb2d57e-c288-49a1-9731-7315087652c1",
+            "format": "Sonic 3&K Object.js",
+            "name": "Explosion",
+            "palettes": [],
+            "art": {
+                "path": "Objects/Explosion/KosinskiM Art/Explosion.bin",
+                "compression": "Kosinski-M",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "Objects/Explosion/Object Data/Map - Explosion.asm",
+                "label": "Map_Explosion"
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "label": ""
+            }
+        },
+        {
+            "uuid": "7b467e40-2019-44f8-b066-1da179eea748",
+            "format": "Sonic 3&K Player.js",
+            "name": "Bubble Shield",
+            "palettes": [],
+            "art": {
+                "path": "Objects/Shields/Uncompressed Art/Bubble Shield.bin",
+                "compression": "Uncompressed",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "Objects/Shields/Object Data/Map - Bubble Shield.asm",
+                "label": "Map_BubbleShield"
+            },
+            "dplcs": {
+                "enabled": true,
+                "path": "Objects/Shields/Object Data/DPLC - Bubble Shield.asm",
+                "label": "PLC_BubbleShield"
+            }
+        },
+        {
+            "uuid": "467e4020-19b4-48f0-a61d-a179eea7481f",
+            "format": "Sonic 3&K Player.js",
+            "name": "Fire Shield",
+            "palettes": [],
+            "art": {
+                "path": "Objects/Shields/Uncompressed Art/Fire Shield.bin",
+                "compression": "Uncompressed",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "Objects/Shields/Object Data/Map - Fire Shield.asm",
+                "label": "Map_FireShield"
+            },
+            "dplcs": {
+                "enabled": true,
+                "path": "Objects/Shields/Object Data/DPLC - Fire Shield.asm",
+                "label": "PLC_FireShield"
+            }
+        },
+        {
+            "uuid": "ac697b46-7e40-4019-b4f8-f0661da179ee",
+            "format": "Sonic 3&K Player.js",
+            "name": "Lightning Shield",
+            "palettes": [],
+            "art": {
+                "path": "Objects/Shields/Uncompressed Art/Lightning Shield.bin",
+                "compression": "Uncompressed",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "Objects/Shields/Object Data/Map - Lightning Shield.asm",
+                "label": "Map_LightningShield"
+            },
+            "dplcs": {
+                "enabled": true,
+                "path": "Objects/Shields/Object Data/DPLC - Lightning Shield.asm",
+                "label": "PLC_LightningShield"
+            }
+        },
+        {
             "uuid": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
             "format": "Sonic 3&K Player.js",
             "name": "Cabaret Sonic",
