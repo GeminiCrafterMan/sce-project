@@ -9,22 +9,22 @@ DisplaySprite:
 		lea	(Sprite_table_input).w,a1
 		adda.w	priority(a0),a1
 
-loc_1ABCE:
+.loop:
 		cmpi.w	#$80-2,(a1)
-		bhs.s	loc_1ABDC
+		bhs.s	.readSprTable
 		addq.w	#2,(a1)
 		adda.w	(a1),a1
 		move.w	a0,(a1)
 
-locret_1ABDA:
+.ret:
 		rts
 ; ---------------------------------------------------------------------------
 
-loc_1ABDC:
+.readSprTable:
 		cmpa.w	#(Sprite_table_input_End-$80),a1
-		beq.s	locret_1ABDA
+		beq.s	.ret
 		lea	$80(a1),a1
-		bra.s	loc_1ABCE
+		bra.s	.loop
 
 ; =============== S U B R O U T I N E =======================================
 

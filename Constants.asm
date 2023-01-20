@@ -114,8 +114,18 @@ id_SonicDrown =					id(ptr_Sonic_Drown)		; C
 ; Levels
 ; ---------------------------------------------------------------------------
 
-id_DEZ:							equ 0
-id_LNull:						equ $FF
+z_DEZ:							equ 0
+z_GHZ:							equ 1
+z_SSLZ:							equ 2
+z_LNull:						equ $FF
+
+; ---------------------------------------------------------------------------
+; Characters
+; ---------------------------------------------------------------------------
+
+c_Sonic:	equ	0
+c_Tails:	equ	1
+c_Knuckles:	equ	2
 
 ; ---------------------------------------------------------------------------
 ; Buttons bit numbers
@@ -455,12 +465,13 @@ Status_ObjDefeated		= 7
 ArtTile_Spikes				= $484
 ArtTile_Spring				= $494
 ArtTile_Monitors			= $4CC
+ArtTile_Bubbles				= $54B
 ArtTile_StarPost			= $5E4
 ArtTile_Sonic				= $680
 ArtTile_Ring				= $6BC
-ArtTile_Ring_Sparks		= ArtTile_Ring+4
-ArtTile_HUD				= $6C4
-ArtTile_Shield			= $79C
+ArtTile_Ring_Sparks			= ArtTile_Ring+4
+ArtTile_HUD					= $6C4
+ArtTile_Shield				= $79C
 ArtTile_Shield_Sparks		= ArtTile_Shield+$1F
 ArtTile_DashDust			= $7F0
 
@@ -468,6 +479,9 @@ ArtTile_DashDust			= $7F0
 ; Green Hill Zone
 ; ---------------------------------------------------------------------------
 
+ArtTile_EdgeWalls:			= $34C
+ArtTile_SmashableWalls:		= $3B0
+ArtTile_PurpleRock:			= $3D0
 ArtTile_Crabmeat:			= $400
 ArtTile_BuzzBomber:			= $444
 ArtTile_Chopper:			= $50C

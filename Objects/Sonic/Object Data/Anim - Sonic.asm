@@ -31,6 +31,7 @@ SonAni_Hurt_ptr:		offsetTableEntry.w SonAni_Hurt
 SonAni_Null_ptr:		offsetTableEntry.w SonAni_Null
 SonAni_Run2_ptr:		offsetTableEntry.w SonAni_Run2
 SonAni_Transform_ptr:	offsetTableEntry.w SonAni_Transform
+SonAni_Mach_ptr:		offsetTableEntry.w SonAni_Mach
 
 SonAni_Walk:		dc.b  $FF, frS_Walk17,	frS_Walk18,   frS_Walk11,   frS_Walk12,	 frS_Walk13,   frS_Walk14,   frS_Walk15,	frS_Walk16, afEnd
 SonAni_Run:			dc.b  $FF, frS_Run11,	frS_Run12, frS_Run13, frS_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
@@ -67,6 +68,7 @@ SonAni_Hurt:		dc.b	9, frS_Hurt1, frS_Hurt2, afBack, 1
 SonAni_Null:		dc.b  $77,   frS_Null, afEnd
 SonAni_Run2:		dc.b	2, frS_Run11,	frS_Run12, frS_Run13, frS_Run14, afEnd
 SonAni_Transform:	dc.b	2, frS_Transform1, frS_Transform1, frS_Transform2, frS_Transform2, frS_Transform3, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, afChange,   id_Walk
+SonAni_Mach:		dc.b  $FF, frS_Mach11,	frS_Mach12,	frS_Mach13,	frS_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 	even
 
 AniSuperSonic:
@@ -98,38 +100,40 @@ Ani_SuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Null
 		offsetTableEntry.w SonAni_Run2
 		offsetTableEntry.w SonAni_Transform
+		offsetTableEntry.w SonAni_Mach
 
 SupSonAni_Wait:		dc.b    7, frS_Idle1, frS_Idle2, frS_Idle3, frS_Idle2, afEnd
-SupSonAni_Balance:	dc.b    9, frS_Balance11, frS_Balance12, frS_Balance13, afEnd
+SupSonAni_Balance:	dc.b    9, frS_Balance11, frS_Balance12, frS_Balance13, frS_Balance12, afEnd
 	even
 
-id_Walk:			equ (SonAni_Walk_ptr-Ani_Sonic)/2
-id_Run:				equ (SonAni_Run_ptr-Ani_Sonic)/2
-id_Roll:			equ (SonAni_Roll_ptr-Ani_Sonic)/2
-id_Roll2:			equ (SonAni_Roll2_ptr-Ani_Sonic)/2
-id_Push:			equ (SonAni_Push_ptr-Ani_Sonic)/2
-id_Wait:			equ (SonAni_Wait_ptr-Ani_Sonic)/2
-id_Balance:			equ (SonAni_Balance_ptr-Ani_Sonic)/2
-id_LookUp:			equ (SonAni_LookUp_ptr-Ani_Sonic)/2
-id_Duck:			equ (SonAni_Duck_ptr-Ani_Sonic)/2
+id_Walk:			equ	(SonAni_Walk_ptr-Ani_Sonic)/2
+id_Run:				equ	(SonAni_Run_ptr-Ani_Sonic)/2
+id_Roll:			equ	(SonAni_Roll_ptr-Ani_Sonic)/2
+id_Roll2:			equ	(SonAni_Roll2_ptr-Ani_Sonic)/2
+id_Push:			equ	(SonAni_Push_ptr-Ani_Sonic)/2
+id_Wait:			equ	(SonAni_Wait_ptr-Ani_Sonic)/2
+id_Balance:			equ	(SonAni_Balance_ptr-Ani_Sonic)/2
+id_LookUp:			equ	(SonAni_LookUp_ptr-Ani_Sonic)/2
+id_Duck:			equ	(SonAni_Duck_ptr-Ani_Sonic)/2
 id_Spindash:		equ	(SonAni_Spindash_ptr-Ani_Sonic)/2
 id_Whistle:			equ	(SonAni_Whistle_ptr-Ani_Sonic)/2
 id_MGZHang:			equ	(SonAni_MGZHang_ptr-Ani_Sonic)/2
 id_Balance2:		equ	(SonAni_Balance2_ptr-Ani_Sonic)/2
 id_Stop:			equ	(SonAni_Stop_ptr-Ani_Sonic)/2
-id_Float1:			equ (SonAni_Float1_ptr-Ani_Sonic)/2
-id_Float2:			equ (SonAni_Float2_ptr-Ani_Sonic)/2
-id_Spring:			equ (SonAni_Spring_ptr-Ani_Sonic)/2
-id_LZHang:			equ (SonAni_LZHang_ptr-Ani_Sonic)/2
-id_Victory:			equ (SonAni_Victory_ptr-Ani_Sonic)/2
-id_GetAir:			equ (SonAni_GetAir_ptr-Ani_Sonic)/2
-id_Burnt:			equ (SonAni_Burnt_ptr-Ani_Sonic)/2
-id_Drown:			equ (SonAni_Drown_ptr-Ani_Sonic)/2
-id_Death:			equ (SonAni_Death_ptr-Ani_Sonic)/2
-id_Hurt:			equ (SonAni_Hurt_ptr-Ani_Sonic)/2
-id_Null:			equ (SonAni_Null_ptr-Ani_Sonic)/2
-id_Run2:			equ (SonAni_Run2_ptr-Ani_Sonic)/2
-id_Transform:		equ (SonAni_Transform_ptr-Ani_Sonic)/2
+id_Float1:			equ	(SonAni_Float1_ptr-Ani_Sonic)/2
+id_Float2:			equ	(SonAni_Float2_ptr-Ani_Sonic)/2
+id_Spring:			equ	(SonAni_Spring_ptr-Ani_Sonic)/2
+id_LZHang:			equ	(SonAni_LZHang_ptr-Ani_Sonic)/2
+id_Victory:			equ	(SonAni_Victory_ptr-Ani_Sonic)/2
+id_GetAir:			equ	(SonAni_GetAir_ptr-Ani_Sonic)/2
+id_Burnt:			equ	(SonAni_Burnt_ptr-Ani_Sonic)/2
+id_Drown:			equ	(SonAni_Drown_ptr-Ani_Sonic)/2
+id_Death:			equ	(SonAni_Death_ptr-Ani_Sonic)/2
+id_Hurt:			equ	(SonAni_Hurt_ptr-Ani_Sonic)/2
+id_Null:			equ	(SonAni_Null_ptr-Ani_Sonic)/2
+id_Run2:			equ	(SonAni_Run2_ptr-Ani_Sonic)/2
+id_Transform:		equ	(SonAni_Transform_ptr-Ani_Sonic)/2
+id_Mach:			equ	(SonAni_Mach_ptr-Ani_Sonic)/2
 
 ; Frame IDs
 	phase 0 ; Reset ds.b value to 0
@@ -255,6 +259,13 @@ frS_Transform5:		ds.b 1
 frS_Fall1:			ds.b 1
 frS_Fall2:			ds.b 1
 frS_Idle9:			ds.b 1
+frS_Mach11:			ds.b 1
+frS_Mach12:			ds.b 1
+frS_Mach13:			ds.b 1
+frS_Mach14:			ds.b 1
+frS_Mach2X:			ds.b 4
+frS_Mach3X:			ds.b 4
+frS_Mach4X:			ds.b 4
 frS_Last:			ds.b 0
 	even
 	dephase

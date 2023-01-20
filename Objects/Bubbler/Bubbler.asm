@@ -23,7 +23,7 @@ off_2F946: offsetTable
 loc_2F952:
 		addq.b	#2,routine(a0)
 		move.l	#Map_Bubbler,mappings(a0)
-		move.w	#$570,art_tile(a0)
+		move.w	#make_art_tile(ArtTile_Bubbles,0,0),art_tile(a0)
 		move.b	#$84,render_flags(a0)
 		move.b	#32/2,width_pixels(a0)
 		move.w	#$80,priority(a0)

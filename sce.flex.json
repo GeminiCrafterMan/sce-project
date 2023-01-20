@@ -4,83 +4,23 @@
     "node": "82d06cd2-d5a1-4614-ad96-ef45cafec820",
     "objects": [
         {
-            "uuid": "3cb2d57e-c288-49a1-9731-7315087652c1",
+            "uuid": "9ddb730a-67d4-4789-83ad-e67e499c1a33",
             "format": "Sonic 3&K Object.js",
-            "name": "Explosion",
+            "name": "Bubbles",
             "palettes": [],
             "art": {
-                "path": "Objects/Explosion/KosinskiM Art/Explosion.bin",
+                "path": "Objects/Bubbler/KosinskiM Art/Bubbles.bin",
                 "compression": "Kosinski-M",
                 "offset": 0
             },
             "mappings": {
-                "path": "Objects/Explosion/Object Data/Map - Explosion.asm",
-                "label": "Map_Explosion"
+                "path": "Objects/Bubbler/Object Data/Map - Bubbler.asm",
+                "label": "Map_Bubbler"
             },
             "dplcs": {
                 "enabled": false,
                 "path": "",
                 "label": ""
-            }
-        },
-        {
-            "uuid": "7b467e40-2019-44f8-b066-1da179eea748",
-            "format": "Sonic 3&K Player.js",
-            "name": "Bubble Shield",
-            "palettes": [],
-            "art": {
-                "path": "Objects/Shields/Uncompressed Art/Bubble Shield.bin",
-                "compression": "Uncompressed",
-                "offset": 0
-            },
-            "mappings": {
-                "path": "Objects/Shields/Object Data/Map - Bubble Shield.asm",
-                "label": "Map_BubbleShield"
-            },
-            "dplcs": {
-                "enabled": true,
-                "path": "Objects/Shields/Object Data/DPLC - Bubble Shield.asm",
-                "label": "PLC_BubbleShield"
-            }
-        },
-        {
-            "uuid": "467e4020-19b4-48f0-a61d-a179eea7481f",
-            "format": "Sonic 3&K Player.js",
-            "name": "Fire Shield",
-            "palettes": [],
-            "art": {
-                "path": "Objects/Shields/Uncompressed Art/Fire Shield.bin",
-                "compression": "Uncompressed",
-                "offset": 0
-            },
-            "mappings": {
-                "path": "Objects/Shields/Object Data/Map - Fire Shield.asm",
-                "label": "Map_FireShield"
-            },
-            "dplcs": {
-                "enabled": true,
-                "path": "Objects/Shields/Object Data/DPLC - Fire Shield.asm",
-                "label": "PLC_FireShield"
-            }
-        },
-        {
-            "uuid": "ac697b46-7e40-4019-b4f8-f0661da179ee",
-            "format": "Sonic 3&K Player.js",
-            "name": "Lightning Shield",
-            "palettes": [],
-            "art": {
-                "path": "Objects/Shields/Uncompressed Art/Lightning Shield.bin",
-                "compression": "Uncompressed",
-                "offset": 0
-            },
-            "mappings": {
-                "path": "Objects/Shields/Object Data/Map - Lightning Shield.asm",
-                "label": "Map_LightningShield"
-            },
-            "dplcs": {
-                "enabled": true,
-                "path": "Objects/Shields/Object Data/DPLC - Lightning Shield.asm",
-                "label": "PLC_LightningShield"
             }
         },
         {
@@ -313,6 +253,106 @@
                         "path": "",
                         "label": ""
                     }
+                },
+                {
+                    "uuid": "30a1cc33-7cf8-4062-a1bc-b954eaae15db",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Explosion",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Explosion/KosinskiM Art/Explosion.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Explosion/Object Data/Map - Explosion.asm",
+                        "label": "Map_Explosion"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "3cb2d57e-c288-49a1-9731-7315087652c1",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Boss Explosion",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Explosion/KosinskiM Art/Boss Explosion.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Explosion/Object Data/Map - Boss Explosion.asm",
+                        "label": "Map_BossExplosion"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "7b467e40-2019-44f8-b066-1da179eea748",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Bubble Shield",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Shields/Uncompressed Art/Bubble Shield.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Shields/Object Data/Map - Bubble Shield.asm",
+                        "label": "Map_BubbleShield"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Shields/Object Data/DPLC - Bubble Shield.asm",
+                        "label": "PLC_BubbleShield"
+                    }
+                },
+                {
+                    "uuid": "467e4020-19b4-48f0-a61d-a179eea7481f",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Fire Shield",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Shields/Uncompressed Art/Fire Shield.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Shields/Object Data/Map - Fire Shield.asm",
+                        "label": "Map_FireShield"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Shields/Object Data/DPLC - Fire Shield.asm",
+                        "label": "PLC_FireShield"
+                    }
+                },
+                {
+                    "uuid": "ac697b46-7e40-4019-b4f8-f0661da179ee",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Lightning Shield",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Shields/Uncompressed Art/Lightning Shield.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Shields/Object Data/Map - Lightning Shield.asm",
+                        "label": "Map_LightningShield"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Shields/Object Data/DPLC - Lightning Shield.asm",
+                        "label": "PLC_LightningShield"
+                    }
                 }
             ],
             "isDirectory": true,
@@ -344,6 +384,26 @@
                     "mappings": {
                         "path": "Objects/Spikebonker/Object Data/Map - Spikebonker.asm",
                         "label": "Map_Spikebonker"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "a1cc337c-f860-4261-bcb9-54eaae15db17",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Bata-pyon",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Bata-pyon/KosinskiM Art/Bata-pyon.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Bata-pyon/Object Data/Map - Bata-pyon.asm",
+                        "label": "Map_BataPyon"
                     },
                     "dplcs": {
                         "enabled": false,
@@ -497,6 +557,46 @@
                     "mappings": {
                         "path": "Objects/Purple Rock/Object Data/Map - Purple Rock.asm",
                         "label": "Map_PurpleRock"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "bfc29ddb-730a-47d4-a789-03ade67e499c",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Smashable Walls",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Smashable Walls/KosinskiM Art/GHZ Breakable Wall.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Smashable Walls/Object Data/Map - Smashable Walls.asm",
+                        "label": "Map_SmashWall"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "c29ddb73-0a67-44e7-8903-ade67e499c1a",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Edge Walls",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Edge Walls/Object Data/Map - Edge Walls.asm",
+                        "label": "Map_EdgeWalls"
                     },
                     "dplcs": {
                         "enabled": false,

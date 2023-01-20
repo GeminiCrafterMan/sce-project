@@ -2572,6 +2572,9 @@ loc_12700:
 
 loc_1270A:
 		; there WAS a super check here, but i don't care...
+		lea	SonAni_Mach(pc),a1	; use mach speed animation
+		cmpi.w	#$A00,d2
+		bcc.s	loc_12724
 		lea	SonAni_Run(pc),a1 	; use running	animation
 		cmpi.w	#$600,d2
 		bcc.s	loc_12724

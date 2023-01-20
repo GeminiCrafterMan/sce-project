@@ -60,7 +60,7 @@ PLC_Main2_end
 ; ===========================================================================
 
 PLC1_DEZ_Misc: plrlistheader
-		plreq $570, ArtKosM_Bubbles
+		plreq ArtTile_Bubbles, ArtKosM_Bubbles
 		plreq $7C0, ArtKosM_WaterWave
 PLC1_DEZ_Misc_end
 
@@ -70,6 +70,7 @@ PLC1_DEZ_Misc_end
 
 PLC2_DEZ_Enemy: plrlistheader
 		plreq $100, ArtKosM_Spikebonker					; Spikebonker badnik
+		plreq $438, ArtKosM_BataPyon
 PLC2_DEZ_Enemy_end
 
 ; ===========================================================================
@@ -77,8 +78,10 @@ PLC2_DEZ_Enemy_end
 ; ===========================================================================
 
 PLC1_GHZ_Misc: plrlistheader
-		plreq $3D0, ArtKosM_PurpleRock		; Purple rock
-		plreq $570, ArtKosM_Bubbles
+		plreq ArtTile_EdgeWalls, ArtKosM_EdgeWalls
+		plreq ArtTile_PurpleRock, ArtKosM_PurpleRock		; Purple rock
+		plreq ArtTile_SmashableWalls, ArtKosM_SmashableWalls
+		plreq ArtTile_Bubbles, ArtKosM_Bubbles
 		plreq $7C0, ArtKosM_WaterWave
 PLC1_GHZ_Misc_end
 
@@ -98,8 +101,8 @@ PLC2_GHZ_Enemy_end
 ; ===========================================================================
 
 PLC1_SSLZ_Misc: plrlistheader
-		plreq $3D0, ArtKosM_PurpleRock		; Purple rock
-		plreq $570, ArtKosM_Bubbles
+		plreq ArtTile_PurpleRock, ArtKosM_PurpleRock		; Purple rock
+		plreq ArtTile_Bubbles, ArtKosM_Bubbles
 		plreq $7C0, ArtKosM_WaterWave
 PLC1_SSLZ_Misc_end
 

@@ -246,6 +246,7 @@ EndOfHeader:
 ; ---------------------------------------------------------------------------
 
 		include "Data/Objects/FindFloor.asm"
+		include	"Data/Objects/SmashObject.asm"
 		include "Data/Objects/SolidObject.asm"
 		include "Data/Objects/TouchResponse.asm"
 

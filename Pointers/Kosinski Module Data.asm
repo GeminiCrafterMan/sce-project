@@ -80,6 +80,8 @@ ArtKosM_SSLZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/SSLZ -
 
 ArtKosM_Spikebonker:		binclude "Objects/Spikebonker/KosinskiM Art/Spikebonker.bin"
 	even
+ArtKosM_BataPyon:			binclude "Objects/Bata-pyon/KosinskiM Art/Bata-pyon.bin"
+	even
 
 ; ===========================================================================
 ; Kosinski Module compressed GHZ graphics
@@ -94,4 +96,8 @@ ArtKosM_Crabmeat:			binclude "Objects/Crabmeat/KosinskiM Art/Crabmeat.bin"
 ArtKosM_Motobug:			binclude "Objects/Motobug/KosinskiM Art/Motobug.bin"
 	even
 ArtKosM_PurpleRock:			binclude "Objects/Purple Rock/KosinskiM Art/Purple Rock.bin"
+	even
+ArtKosM_EdgeWalls:			binclude "Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin"
+	even
+ArtKosM_SmashableWalls:		binclude "Objects/Smashable Walls/KosinskiM Art/GHZ Breakable Wall.bin"
 	even

@@ -32,12 +32,16 @@
 
 	; DEZ
 		include "Objects/Spikebonker/Spikebonker.asm"
+		include "Objects/Bata-pyon/Bata-pyon.asm"
+
 	; GHZ
 		include "Objects/Buzz Bomber/Buzz Bomber.asm"
 		include "Objects/Chopper/Chopper.asm"
 		include "Objects/Crabmeat/Crabmeat.asm"
 		include "Objects/Motobug/Motobug.asm"
 		include	"Objects/Purple Rock/Purple Rock.asm"
+		include	"Objects/Smashable Walls/Smashable Walls.asm"
+		include	"Objects/Edge Walls/Edge Walls.asm"
 
 ; ===========================================================================
 ; Bosses objects data

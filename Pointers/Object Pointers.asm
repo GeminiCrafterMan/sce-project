@@ -35,8 +35,8 @@ Obj_Index:
 		dc.l DeleteObject						; $1D
 		dc.l DeleteObject						; $1E
 		dc.l Obj_Crabmeat						; $1F
-		dc.l DeleteObject						; $20
-		dc.l DeleteObject						; $21
+		dc.l Obj_Spikebonker					; $20
+		dc.l Obj_BataPyon						; $21
 		dc.l Obj_BuzzBomber						; $22
 		dc.l DeleteObject						; $23
 		dc.l DeleteObject						; $24
@@ -63,7 +63,7 @@ Obj_Index:
 		dc.l DeleteObject						; $39
 		dc.l DeleteObject						; $3A
 		dc.l Obj_PurpleRock						; $3B
-		dc.l DeleteObject						; $3C
+		dc.l Obj_SmashWall						; $3C
 		dc.l DeleteObject						; $3D
 		dc.l DeleteObject						; $3E
 		dc.l DeleteObject						; $3F
@@ -71,7 +71,7 @@ Obj_Index:
 		dc.l DeleteObject						; $41
 		dc.l DeleteObject						; $42
 		dc.l DeleteObject						; $43
-		dc.l DeleteObject						; $44
+		dc.l Obj_EdgeWalls						; $44
 		dc.l DeleteObject						; $45
 		dc.l DeleteObject						; $46
 		dc.l DeleteObject						; $47
