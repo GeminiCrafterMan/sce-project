@@ -1,8 +1,28 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "82d06cd2-d5a1-4614-ad96-ef45cafec820",
+    "node": "9ddb730a-67d4-4789-83ad-e67e499c1a33",
     "objects": [
+        {
+            "format": "Sonic 3&K Object.js",
+            "name": "Rings",
+            "palettes": [],
+            "art": {
+                "path": "Objects/Rings/Uncompressed Art/Rings.bin",
+                "compression": "Uncompressed",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "Objects/Rings/Object Data/Map - Rings.asm",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "label": ""
+            },
+            "uuid": "959cc888-7de0-4060-a3ad-fb35fe0c6303"
+        },
         {
             "uuid": "9ddb730a-67d4-4789-83ad-e67e499c1a33",
             "format": "Sonic 3&K Object.js",
