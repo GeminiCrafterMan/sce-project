@@ -3,7 +3,7 @@
 ; ---------------------------------------------------------------------------
 
 Obj_CabaretSonic:
-		move.w	#$198,x_pos(a0)
+		move.w	#$1AC,x_pos(a0)
 		move.w	#$F0,y_pos(a0)
 		move.l	#Map_CabaretSonic,mappings(a0)
 		move.w	#$100,priority(a0)
@@ -20,7 +20,21 @@ Obj_CabaretSonic:
 		jsr		AnimateSprite
 		bsr.w	CabaretSonic_Load_PLC
 		jmp		DisplaySprite
-	
+
+Obj_CabaretTails:
+		move.w	#$18C,x_pos(a0)
+		move.w	#$F0,y_pos(a0)
+		move.l	#Map_CabaretSonic,mappings(a0)
+		move.w	#$100,priority(a0)
+		move.w	#make_art_tile(ArtTile_Tails,2,0),art_tile(a0)
+		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
+		beq.s	.noMusic
+		move.b	#3,anim(a0)	; Waving
+		bra.s	Obj_CabaretSonic.display
+	.noMusic:
+		move.b	#2,anim(a0)	; Waiting
+		bra.s	Obj_CabaretSonic.display
+
 CabaretSonic_Load_PLC:
 		moveq	#0,d0
 		move.b	mapping_frame(a0),d0
@@ -35,7 +49,9 @@ CabaretSonic_Load_PLC2:
 		move.w	(a2)+,d5
 		subq.w	#1,d5
 		bmi.s	+
-		move.w	#tiles_to_bytes(ArtTile_Sonic),d4
+		move.w	art_tile(a0),d4	; get art tile
+		andi.w	#$7FF,d4		; get rid of art flags
+		lsl.w	#5,d4			; get vram address
 		move.l	#ArtUnc_CabaretSonic>>1,d6
 
 -		moveq	#0,d1

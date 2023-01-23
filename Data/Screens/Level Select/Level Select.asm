@@ -4,7 +4,7 @@
 
 ; Constants
 LevelSelect_Offset:				= *
-LevelSelect_VRAM:				= $7B8
+LevelSelect_VRAM:				= 480
 
 ; Variables
 LevelSelect_ZoneCount:			= ZoneCount
@@ -60,7 +60,7 @@ LevelSelect_Screen:
 		move.b	d0,(Level_started_flag).w
 		ResetDMAQueue
 		lea	(ArtKosM_LevelSelectText).l,a1
-		move.w	#tiles_to_bytes($7C0),d2
+		move.w	#tiles_to_bytes(LevelSelect_VRAM+8),d2
 		jsr	(Queue_Kos_Module).w
 		lea	(Pal_LevelSelect).l,a1
 		lea	(Target_palette).w,a2
@@ -71,6 +71,7 @@ LevelSelect_Screen:
 		move.w	d1,d0
 		jsr		(LoadPalette_Immediate).w
 		move.l	#Obj_CabaretSonic,(Player_1).w
+		move.l	#Obj_CabaretTails,(Player_2).w
 		bsr.w	LevelSelect_LoadText
 		move.w	#palette_line_1+LevelSelect_VRAM,d3
 		bsr.w	LevelSelect_LoadMainText

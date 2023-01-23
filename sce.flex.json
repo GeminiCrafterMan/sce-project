@@ -1,12 +1,12 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "ecd4e911-3b71-4bb8-b23d-01feff5d393e",
+    "node": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
     "objects": [
         {
             "uuid": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
             "format": "Sonic 3&K Player.js",
-            "name": "Cabaret Sonic",
+            "name": "Cabaret Sonic & Tails",
             "palettes": [
                 {
                     "path": "Objects/Sonic/Palettes/Sonic.bin",
