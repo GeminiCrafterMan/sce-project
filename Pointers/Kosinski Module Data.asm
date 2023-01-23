@@ -89,7 +89,7 @@ ArtKosM_BataPyon:			binclude "Objects/Bata-pyon/KosinskiM Art/Bata-pyon.bin"
 
 ArtKosM_BuzzBomber:			binclude "Objects/Buzz Bomber/KosinskiM Art/Buzz Bomber.bin"
 	even
-ArtKosM_Chopper:			binclude "Objects/Chopper/KosinskiM Art/Chopper.bin"
+ArtKosM_GHZChopper:			binclude "Objects/Chopper/KosinskiM Art/GHZ Chopper.bin"
 	even
 ArtKosM_Crabmeat:			binclude "Objects/Crabmeat/KosinskiM Art/Crabmeat.bin"
 	even
@@ -100,4 +100,15 @@ ArtKosM_PurpleRock:			binclude "Objects/Purple Rock/KosinskiM Art/Purple Rock.bi
 ArtKosM_EdgeWalls:			binclude "Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin"
 	even
 ArtKosM_SmashableWalls:		binclude "Objects/Smashable Walls/KosinskiM Art/GHZ Breakable Wall.bin"
+	even
+ArtKosM_GHZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.bin"
+	even
+
+; ===========================================================================
+; Kosinski Module compressed GHZ graphics
+; ===========================================================================
+
+ArtKosM_SSLZChopper:		binclude "Objects/Chopper/KosinskiM Art/SSLZ Chopper.bin"
+	even
+ArtKosM_SSLZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge.bin"
 	even

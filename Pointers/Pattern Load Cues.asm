@@ -78,7 +78,9 @@ PLC2_DEZ_Enemy_end
 ; ===========================================================================
 
 PLC1_GHZ_Misc: plrlistheader
+	; put the bridge in here somewhere
 		plreq ArtTile_EdgeWalls, ArtKosM_EdgeWalls
+		plreq ArtTile_Bridge,	ArtKosM_GHZBridge
 		plreq ArtTile_PurpleRock, ArtKosM_PurpleRock		; Purple rock
 		plreq ArtTile_SmashableWalls, ArtKosM_SmashableWalls
 		plreq ArtTile_Bubbles, ArtKosM_Bubbles
@@ -92,7 +94,7 @@ PLC1_GHZ_Misc_end
 PLC2_GHZ_Enemy: plrlistheader
 		plreq ArtTile_Crabmeat, ArtKosM_Crabmeat		; Crabmeat
 		plreq ArtTile_BuzzBomber, ArtKosM_BuzzBomber		; Buzz Bomber
-		plreq ArtTile_Chopper, ArtKosM_Chopper			; Chopper
+		plreq ArtTile_Chopper, ArtKosM_GHZChopper			; Chopper
 		plreq ArtTile_Motobug, ArtKosM_Motobug			; Motobug
 PLC2_GHZ_Enemy_end
 
@@ -101,6 +103,7 @@ PLC2_GHZ_Enemy_end
 ; ===========================================================================
 
 PLC1_SSLZ_Misc: plrlistheader
+		plreq ArtTile_Bridge,	ArtKosM_SSLZBridge
 		plreq ArtTile_PurpleRock, ArtKosM_PurpleRock		; Purple rock
 		plreq ArtTile_Bubbles, ArtKosM_Bubbles
 		plreq $7C0, ArtKosM_WaterWave
@@ -113,6 +116,6 @@ PLC1_SSLZ_Misc_end
 PLC2_SSLZ_Enemy: plrlistheader
 		plreq ArtTile_Crabmeat, ArtKosM_Crabmeat		; Crabmeat
 		plreq ArtTile_BuzzBomber, ArtKosM_BuzzBomber		; Buzz Bomber
-		plreq ArtTile_Chopper, ArtKosM_Chopper			; Chopper
+		plreq ArtTile_Chopper, ArtKosM_SSLZChopper			; Chopper
 		plreq ArtTile_Motobug, ArtKosM_Motobug			; Motobug
 PLC2_SSLZ_Enemy_end

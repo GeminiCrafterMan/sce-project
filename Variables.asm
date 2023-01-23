@@ -11,7 +11,7 @@ Chunk_table_end						= *
 Player_1:								= *						; Main character in 1 player mode
 v_player:								= *
 Object_RAM:							ds.b object_size
-									ds.b object_size
+Player_2:							ds.b object_size
 Reserved_object_3:					ds.b object_size			; During a level, an object whose sole purpose is to clear the collision response list is stored here
 Dynamic_object_RAM:				ds.b object_size*90		; 90 objects
 Dynamic_object_RAM_end				= *

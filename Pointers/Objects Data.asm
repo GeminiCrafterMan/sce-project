@@ -24,6 +24,7 @@
 		include "Objects/Button/Button.asm"
 		include "Objects/Animals/Animals.asm"
 		include "Objects/Egg Capsule/EggCapsule.asm"
+		include	"Objects/Tension Bridge/Tension Bridge.asm"
 		include "Objects/Smooth Palette/Smooth Palette.asm"
 
 ; ===========================================================================
@@ -42,6 +43,9 @@
 		include	"Objects/Purple Rock/Purple Rock.asm"
 		include	"Objects/Smashable Walls/Smashable Walls.asm"
 		include	"Objects/Edge Walls/Edge Walls.asm"
+
+	; SSLZ
+		include	"Objects/Corkscrew/Corkscrew.asm"
 
 ; ===========================================================================
 ; Bosses objects data
