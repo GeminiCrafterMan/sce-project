@@ -17,36 +17,29 @@ Phantom_Ensemble_Header:
 ; DAC Data
 Phantom_Ensemble_DAC:
 	smpsPan             panCenter, $00
-	dc.b	dKick
+	dc.b	dKickS3
 
 Phantom_Ensemble_Loop00:
-	dc.b	$10, $9A, $08, dKick, $10, $08, $9A, dKick
+	dc.b	$10, dClapS3, $08, dKickS3, $10, $08, dClapS3, dKickS3
 	smpsLoop            $00, $03, Phantom_Ensemble_Loop00
-	dc.b	dKick, $10, $9A, $08, dKick, $10, $08, $9A, dKick, $04, $04
+	dc.b	dKickS3, $10, dClapS3, $08, dKickS3, $10, $08, dClapS3, dKickS3, $04, $04
 
 Phantom_Ensemble_Loop01:
-	dc.b	$10, $9A, $08, dKick, $10, $08, $9A, dKick
+	dc.b	$10, dClapS3, $08, dKickS3, $10, $08, dClapS3, dKickS3
 	smpsLoop            $00, $03, Phantom_Ensemble_Loop01
-	dc.b	dKick, $10, $9A, $08, dKick, $9A, $04, $04, dKick, $08, $9A, $04
-	dc.b	$04, $04, $04, dKick
+	dc.b	dKickS3, $10, dClapS3, $08, dKickS3, dClapS3, $04, $04, dKickS3, $08, dClapS3, $04
+	dc.b	$04, $04, $04, dKickS3
 
 Phantom_Ensemble_Loop02:
-	dc.b	$10, $9A, $08, dKick, $10, $08, $9A, dKick
+	dc.b	$10, dClapS3, $08, dKickS3, $10, $08, dClapS3, dKickS3
 	smpsLoop            $00, $03, Phantom_Ensemble_Loop02
-	dc.b	dKick, $10, $9A, $08, dKick, $10, $08, $9A, dKick, $04, $04
+	dc.b	dKickS3, $10, dClapS3, $08, dKickS3, $10, $08, dClapS3, dKickS3, $04, $04
 
 Phantom_Ensemble_Loop03:
-	dc.b	$10, $9A, $08, dKick, $10, $08, $9A, dKick
+	dc.b	$10, dClapS3, $08, dKickS3, $10, $08, dClapS3, dKickS3
 	smpsLoop            $00, $03, Phantom_Ensemble_Loop03
-	dc.b	dKick, $10, $9A, $08, dKick, $9A, $04, $04, dKick, $08, dMidTimpani, $04
-	dc.b	dLowTimpani, dVLowTimpani, dVLowTimpani, dKick, $08, $08, $9B, $76
-
-Phantom_Ensemble_Loop04:
-	dc.b	nRst
-	smpsLoop            $00, $59, Phantom_Ensemble_Loop04
-	smpsPan             panCenter, $00
-	dc.b	$01
-	smpsPan             panCenter, $00
+	dc.b	dKickS3, $10, dClapS3, $08, dKickS3, dClapS3, $04, $04, dKickS3, $08, dHiTimpaniS3, $04
+	dc.b	dMidTimpaniS3, dLowTimpaniS3, dLowTimpaniS3, dKickS3, $08, $08, dCrashCymbal, $76
 	smpsStop
 
 ; FM1 Data
@@ -62,17 +55,7 @@ Phantom_Ensemble_Loop0D:
 	dc.b	nE5, $08, nCs6, $10, nAb4, $08, nE5, nFs5, nEb5, $04, nB4, nAb4
 	dc.b	nFs4, nE4, $08, nFs4
 	smpsLoop            $00, $02, Phantom_Ensemble_Loop0D
-	dc.b	nRst, $10, nCs5, $20, nRst
-
-Phantom_Ensemble_Loop0E:
-	dc.b	$4F
-	smpsLoop            $00, $86, Phantom_Ensemble_Loop0E
-	dc.b	$02
-	smpsPan             panCenter, $00
-	smpsSetvoice        $00
-	dc.b	$01
-	smpsPan             panCenter, $00
-	smpsSetvoice        $00
+	dc.b	nRst, $10, nCs5, $20
 	smpsStop
 
 ; FM2 Data
@@ -85,17 +68,6 @@ Phantom_Ensemble_Loop0B:
 	dc.b	nE3, $38, nEb3, $40, nCs3, nCs3, $28, nEb3, $18, nE3, $40, nEb3
 	dc.b	nCs3, nCs3, $28, nEb3, $20
 	smpsLoop            $00, $02, Phantom_Ensemble_Loop0B
-	dc.b	nRst
-
-Phantom_Ensemble_Loop0C:
-	dc.b	$4D
-	smpsLoop            $00, $8A, Phantom_Ensemble_Loop0C
-	dc.b	$0A
-	smpsPan             panCenter, $00
-	smpsSetvoice        $01
-	dc.b	$01
-	smpsPan             panCenter, $00
-	smpsSetvoice        $01
 	smpsStop
 
 ; FM3 Data
@@ -108,16 +80,7 @@ Phantom_Ensemble_Loop09:
 	dc.b	nCs3, $38, nB2, $40, nA2, $48, $20, nB2, $18, nCs3, $40, nB2
 	dc.b	nRst, $48, nA2, $20, nB2
 	smpsLoop            $00, $02, Phantom_Ensemble_Loop09
-	dc.b	nRst, $10, nCs3, $40, nRst
-
-Phantom_Ensemble_Loop0A:
-	dc.b	$74
-	smpsLoop            $00, $5B, Phantom_Ensemble_Loop0A
-	smpsPan             panCenter, $00
-	smpsSetvoice        $03
-	dc.b	$01
-	smpsPan             panCenter, $00
-	smpsSetvoice        $03
+	dc.b	nRst, $10, nCs3, $40
 	smpsStop
 
 ; FM4 Data
@@ -130,17 +93,6 @@ Phantom_Ensemble_Loop07:
 	dc.b	nAb3, $38, nFs3, $40, nE3, nE3, $28, nFs3, $18, nAb3, $40, nFs3
 	dc.b	nE3, nE3, $28, nFs3, $20
 	smpsLoop            $00, $02, Phantom_Ensemble_Loop07
-	dc.b	nRst
-
-Phantom_Ensemble_Loop08:
-	dc.b	$4D
-	smpsLoop            $00, $8A, Phantom_Ensemble_Loop08
-	dc.b	$0A
-	smpsPan             panCenter, $00
-	smpsSetvoice        $01
-	dc.b	$01
-	smpsPan             panCenter, $00
-	smpsSetvoice        $01
 	smpsStop
 
 ; FM5 Data
@@ -153,17 +105,6 @@ Phantom_Ensemble_Loop05:
 	dc.b	nE2, $38, nEb2, $40, nCs2, nCs2, $28, nEb2, $18, nE2, $40, nEb2
 	dc.b	nCs2, nCs2, $28, nEb2, $20
 	smpsLoop            $00, $02, Phantom_Ensemble_Loop05
-	dc.b	nRst
-
-Phantom_Ensemble_Loop06:
-	dc.b	$4D
-	smpsLoop            $00, $8A, Phantom_Ensemble_Loop06
-	dc.b	$0A
-	smpsPan             panCenter, $00
-	smpsSetvoice        $02
-	dc.b	$01
-	smpsPan             panCenter, $00
-	smpsSetvoice        $02
 	smpsStop
 
 ; PSG1 Data
@@ -174,15 +115,6 @@ Phantom_Ensemble_Loop14:
 	dc.b	nCs3, $04, nB2, nAb2, nFs2, nE2, nEb2, nFs2, nAb2, nB2, nCs3, nB2
 	dc.b	nAb2, nFs2, nE2, nEb2, nE2
 	smpsLoop            $00, $10, Phantom_Ensemble_Loop14
-	dc.b	nRst
-
-Phantom_Ensemble_Loop15:
-	dc.b	$4D
-	smpsLoop            $00, $8A, Phantom_Ensemble_Loop15
-	dc.b	$0A
-	smpsPSGvoice        fTone_01
-	dc.b	$01
-	smpsPSGvoice        fTone_01
 	smpsStop
 
 ; PSG2 Data
@@ -193,15 +125,6 @@ Phantom_Ensemble_Loop12:
 	dc.b	nE2, $04, nCs3, nB2, nAb2, nFs2, nE2, nEb2, nFs2, nAb2, nB2, nCs3
 	dc.b	nB2, nAb2, nFs2, nE2, nEb2
 	smpsLoop            $00, $10, Phantom_Ensemble_Loop12
-	dc.b	nRst
-
-Phantom_Ensemble_Loop13:
-	dc.b	$4D
-	smpsLoop            $00, $8A, Phantom_Ensemble_Loop13
-	dc.b	$0A
-	smpsPSGvoice        fTone_04
-	dc.b	$01
-	smpsPSGvoice        fTone_04
 	smpsStop
 
 ; PSG3 Data

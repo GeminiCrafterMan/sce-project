@@ -112,3 +112,5 @@ ArtKosM_SSLZChopper:		binclude "Objects/Chopper/KosinskiM Art/SSLZ Chopper.bin"
 	even
 ArtKosM_SSLZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge.bin"
 	even
+ArtKosM_SSLZPurpleRock:		binclude "Objects/Purple Rock/KosinskiM Art/Purple Rock (SSLZ).bin"
+	even

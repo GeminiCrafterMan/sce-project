@@ -104,7 +104,7 @@ PLC2_GHZ_Enemy_end
 
 PLC1_SSLZ_Misc: plrlistheader
 		plreq ArtTile_Bridge,	ArtKosM_SSLZBridge
-		plreq ArtTile_PurpleRock, ArtKosM_PurpleRock		; Purple rock
+		plreq ArtTile_PurpleRock, ArtKosM_SSLZPurpleRock		; Purple rock
 		plreq ArtTile_Bubbles, ArtKosM_Bubbles
 		plreq $7C0, ArtKosM_WaterWave
 PLC1_SSLZ_Misc_end

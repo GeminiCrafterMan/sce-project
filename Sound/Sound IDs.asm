@@ -18,7 +18,9 @@ bgm_MidBoss =		SMPS_id(ptr_mus_boss)
 bgm_ZoneBoss =		SMPS_id(ptr_mus_boss2)
 
 ; Misc
-bgm_Invincible =		SMPS_id(ptr_mus_invin)
+bgm_Invincible =	SMPS_id(ptr_mus_invin)
+bgm_S3Invincible =	SMPS_id(ptr_mus_s3invin)
+bgm_SKInvincible =	SMPS_id(ptr_mus_skinvin)
 bgm_GotThrough =	SMPS_id(ptr_mus_through)
 bgm_Drowning =		SMPS_id(ptr_mus_drowning)
 

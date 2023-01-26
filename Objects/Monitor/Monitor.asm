@@ -354,11 +354,13 @@ loc_1DB2E:
 
 Monitor_Give_SuperSonic:
 		move.b	#1,(Super_Sonic_Knux_flag).w		; Super
+		music	bgm_S3Invincible
 		bra.s	Monitor_Give_SuperHyper
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_HyperSonic:
 		move.b	#-1,(Super_Sonic_Knux_flag).w		; Hyper
+		music	bgm_SKInvincible
 ;		bra.s	Monitor_Give_SuperHyper				; runs right into it
 ; ---------------------------------------------------------------------------
 
@@ -392,8 +394,7 @@ Monitor_Give_SuperHyper:
 		move.b	#$81,(Player_1+object_control).w
 		move.b	#0,(Player_1+invincibility_timer).w
 		bset	#Status_Invincible,status_secondary(a1)
-		sfx	sfx_SuperTransform
-		music	bgm_Invincible,1
+		sfx	sfx_SuperTransform, 1
 
 		include "Objects/Monitor/Object Data/Anim - Monitor.asm"
 		include "Objects/Monitor/Object Data/Map - Monitor.asm"

@@ -1448,6 +1448,7 @@ Sonic_Transform:
 		blo.s	.super					; if not, turn Super
 
 		move.b	#-1,(Super_Sonic_Knux_flag).w		; set flag to Hyper Sonic
+		music	bgm_SKInvincible					; if invincible, play invincibility music
 ;		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w	; load Hyper Stars object
 ;		move.l	#Obj_HyperSonicKnux_Trail,(Super_stars).w	; load After-Images object
 		bra.s	.continued
@@ -1455,6 +1456,7 @@ Sonic_Transform:
 
 	.super:
 		move.b	#1,(Super_Sonic_Knux_flag).w		; set flag to Super Sonic
+		music	bgm_S3Invincible					; if invincible, play invincibility music
 ;		move.l	#Obj_SuperSonicKnux_Stars,(Super_stars).w	; load Super Stars object
 
 	.continued:
@@ -1463,8 +1465,7 @@ Sonic_Transform:
 		move.w	#$100,Sonic_Knux_deceleration-Sonic_Knux_top_speed(a4)
 		move.b	#0,invincibility_timer(a0)
 		bset	#Status_Invincible,status_secondary(a0)
-		sfx	sfx_SuperTransform
-		music	bgm_Invincible					; if invincible, play invincibility music
+		sfx	sfx_SuperTransform, 1
 ; ---------------------------------------------------------------------------
 
 Sonic_HyperDash:
