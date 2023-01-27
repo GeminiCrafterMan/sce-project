@@ -373,7 +373,7 @@ Monitor_Give_SuperHyper:
 		move.w	#$18,(Sonic_Knux_acceleration).w
 		move.w	#$C0,(Sonic_Knux_deceleration).w
 		move.b	#id_Transform,(Player_1+anim).w
-		cmpi.w	#2,(Player_mode).w
+		cmpi.w	#c_Tails,(Player_mode).w
 		bne.s	.notTails
 
 		move.b	#$29,(Player_1+anim).w
