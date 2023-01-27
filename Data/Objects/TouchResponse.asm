@@ -259,7 +259,7 @@ Touch_Enemy:
 		beq.s	.checkhurtenemy						; if yes, branch
 		cmpi.b	#id_Roll,anim(a0)						; is Sonic rolling/jumping?
 		beq.s	.checkhurtenemy						; if not, branch
-		cmpi.b	#2,character_id(a0)					; is player Knuckles?
+		cmpi.b	#c_Knuckles,character_id(a0)					; is player Knuckles?
 		bne.s	.notknuckles							; if not, branch
 		cmpi.b	#1,double_jump_flag(a0)				; is Knuckles gliding?
 		beq.s	.checkhurtenemy						; if so, branch
@@ -269,7 +269,7 @@ Touch_Enemy:
 ; ---------------------------------------------------------------------------
 
 .notknuckles:
-		cmpi.b	#1,character_id(a0)					; is player Tails
+		cmpi.b	#c_Tails,character_id(a0)					; is player Tails
 		bne.w	Touch_ChkHurt						; if not, branch
 		tst.b	double_jump_flag(a0)						; is Tails flying ("gravity-affected")
 		beq.w	Touch_ChkHurt						; if not, branch
@@ -741,7 +741,7 @@ HyperTouch_Special:
 		ori.b	#3,collision_property(a1)
 		rts
 	; There is no player 2.
-;		cmpi.w	#3,(Player_mode).w		; Are we in Knuckles Alone mode?
+;		cmpi.b	#c_Knuckles,character_id(a0)		; Are we in Knuckles Alone mode?
 ;		bne.s	.sonicortails			; If not, branch
 ;		move.w	x_pos(a1),(Player_2+x_pos).w	; ???
 ;		move.w	y_pos(a1),(Player_2+y_pos).w	; ???

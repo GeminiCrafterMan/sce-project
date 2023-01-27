@@ -40,7 +40,7 @@ Smash_Solid:	; Routine 2
 ; ===========================================================================
 
 .chkroll:
-		cmpi.w	#c_Knuckles,(Player_mode).w
+		cmpi.b	#c_Knuckles,character_id(a1)
 		beq.s	.smashAnyway
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	.smashAnyway
@@ -52,7 +52,7 @@ Smash_Solid:	; Routine 2
 		neg.w	d0
 
 .chkspeed:
-		cmpi.w	#c_Knuckles,(Player_mode).w
+		cmpi.b	#c_Knuckles,character_id(a1)
 		beq.s	.bitchISaidSmashAnyway
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	.bitchISaidSmashAnyway

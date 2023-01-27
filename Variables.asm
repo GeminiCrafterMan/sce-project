@@ -376,7 +376,7 @@ Super_frame_count:					ds.w 1
 Palette_frame:						ds.w 1
 Palette_frame_Tails:				ds.b 1
 Palette_timer_Tails:				ds.b 1
-Player_mode:						ds.w 1	; unnecessary word, fix later
+;Player_mode:						ds.w 1	; unnecessary word, fix later
 waterValues:						ds.l 1
 
 f_timeover:							= *

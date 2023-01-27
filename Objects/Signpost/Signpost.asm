@@ -109,7 +109,7 @@ Obj_EndSignLanded:
 ; ---------------------------------------------------------------------------
 +		move.b	#6,routine(a0)
 		clr.l	x_vel(a0)						; clear velocity
-		clr.b	mapping_frame(a0)
+		move.b	(Player_1+character_id).w,mapping_frame(a0)
 		rts
 ; ---------------------------------------------------------------------------
 

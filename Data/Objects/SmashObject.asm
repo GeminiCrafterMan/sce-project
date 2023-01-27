@@ -19,9 +19,9 @@ BreakObjectToPieces:	; splits up one object into its current mapping frame piece
 ; ===========================================================================
 ; loc_15E3E:
 BreakObjectToPieces_Loop:
-	bsr.w	SingleObjLoad2
+	jsr		(Create_New_Sprite3).l
 	bne.s	loc_15E82
-	addq.w	#8,a3	; next mapping piece
+	addq.w	#6,a3	; next mapping piece
 ; loc_15E46:
 BreakObjectToPieces_InitObject:
 	move.b	#4,routine(a1)

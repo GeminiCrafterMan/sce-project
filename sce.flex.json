@@ -1,38 +1,38 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "82d06cd2-d5a1-4614-ad96-ef45cafec820",
+    "node": "e1d36fe4-d3d6-4b48-b0a7-f363566afa1e",
     "objects": [
         {
-            "uuid": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
-            "format": "Sonic 3&K Player.js",
-            "name": "Cabaret Sonic & Tails",
-            "palettes": [
-                {
-                    "path": "Objects/Sonic/Palettes/Sonic.bin",
-                    "length": 1
-                }
-            ],
-            "art": {
-                "path": "Objects/Cabaret Sonic/Uncompressed Art/Cabaret Sonic.bin",
-                "compression": "Uncompressed",
-                "offset": 0
-            },
-            "mappings": {
-                "path": "Objects/Cabaret Sonic/Object Data/Map - Cabaret Sonic.asm",
-                "label": "Map_CabaretSonic"
-            },
-            "dplcs": {
-                "enabled": true,
-                "path": "Objects/Cabaret Sonic/Object Data/DPLC - Cabaret Sonic.asm",
-                "label": "PLC_CabaretSonic"
-            }
-        },
-        {
-            "name": "General Objects",
+            "name": "Players",
             "children": [
                 {
-                    "uuid": "82d06cd2-d5a1-4614-ad96-ef45cafec820",
+                    "uuid": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Cabaret Sonic & Tails",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Cabaret Sonic/Uncompressed Art/Cabaret Sonic.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Cabaret Sonic/Object Data/Map - Cabaret Sonic.asm",
+                        "label": "Map_CabaretSonic"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Cabaret Sonic/Object Data/DPLC - Cabaret Sonic.asm",
+                        "label": "PLC_CabaretSonic"
+                    }
+                },
+                {
+                    "uuid": "002ae1d3-6fe4-43d6-9b48-70a7f363566a",
                     "format": "Sonic 3&K Player.js",
                     "name": "Sonic",
                     "palettes": [
@@ -89,6 +89,101 @@
                         "label": "PLC_SuperSonic"
                     }
                 },
+                {
+                    "uuid": "2ae1d36f-e4d3-465b-8870-a7f363566afa",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Tails",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Tails/Uncompressed Art/Tails.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Tails/Object Data/Map - Tails.asm",
+                        "label": "Map_Tails"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Tails/Object Data/Tails pattern load cues.asm",
+                        "label": "PLC_Tails"
+                    }
+                },
+                {
+                    "uuid": "82d06cd2-d5a1-4614-ad96-ef45cafec820",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Tails's Tails",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Tails/Uncompressed Art/Tails tails.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Tails/Object Data/Map - Tails tails.asm",
+                        "label": "Map_TailsTails"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Tails/Object Data/Tails tails pattern load cues.asm",
+                        "label": "PLC_TailsTails"
+                    }
+                },
+                {
+                    "uuid": "e1d36fe4-d3d6-4b48-b0a7-f363566afa1e",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Knuckles",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Knuckles/Uncompressed Art/Knuckles.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Knuckles/Object Data/Map - Knuckles.asm",
+                        "label": "Map_Knuckles"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Knuckles/Object Data/Knuckles pattern load cues.asm",
+                        "label": "PLC_Knuckles"
+                    }
+                }
+            ],
+            "isDirectory": true,
+            "expanded": true,
+            "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
+        },
+        {
+            "name": "General Objects",
+            "children": [
                 {
                     "uuid": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
                     "format": "Sonic 3&K Object.js",
@@ -452,7 +547,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "489cf77e-de99-4fcb-8c99-a4a8b5e42471"
         },
         {
@@ -791,7 +886,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "d3d95b3c-8175-4835-b97c-8859b145c346"
         }
     ]

@@ -2,9 +2,15 @@
 ; Uncompressed player graphics
 ; ===========================================================================
 
-ArtUnc_Sonic:			binclude "Objects/Sonic/Uncompressed Art/Sonic.bin"
+ArtUnc_Sonic:				binclude "Objects/Sonic/Uncompressed Art/Sonic.bin"
 	even
 ArtUnc_SuperSonic:			binclude "Objects/Sonic/Uncompressed Art/Super Sonic.bin"
+	even
+ArtUnc_Tails:				binclude "Objects/Tails/Uncompressed Art/Tails.bin"
+	even
+ArtUnc_TailsTails:			binclude "Objects/Tails/Uncompressed Art/Tails tails.bin"
+	even
+ArtUnc_Knuckles:			binclude "Objects/Knuckles/Uncompressed Art/Knuckles.bin"
 	even
 ArtUnc_DashDust:		binclude "Objects/Spin Dust/Uncompressed Art/Dash Dust.bin"
 	even

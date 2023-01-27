@@ -53,7 +53,7 @@ Obj_MonitorMain:
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
 		bsr.s	SolidObject_Monitor_SonicKnux
-		jsr	Add_SpriteToCollisionResponseList(pc)
+		jsr	Add_SpriteToCollisionResponseList
 		lea	Ani_Monitor(pc),a1
 		jsr	(Animate_Sprite).w
 
@@ -373,7 +373,7 @@ Monitor_Give_SuperHyper:
 		move.w	#$18,(Sonic_Knux_acceleration).w
 		move.w	#$C0,(Sonic_Knux_deceleration).w
 		move.b	#id_Transform,(Player_1+anim).w
-		cmpi.w	#c_Tails,(Player_mode).w
+		cmpi.b	#c_Tails,(Player_1+character_id).w
 		bne.s	.notTails
 
 		move.b	#$29,(Player_1+anim).w
@@ -384,7 +384,6 @@ Monitor_Give_SuperHyper:
 	.notTails:
 ;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
 		bhs.s	.continued
-		move.l	#Map_SuperSonic,(Player_1+mappings).w
 		move.w	#$A00,(Sonic_Knux_top_speed).w
 		move.w	#$30,(Sonic_Knux_acceleration).w
 		move.w	#$100,(Sonic_Knux_deceleration).w

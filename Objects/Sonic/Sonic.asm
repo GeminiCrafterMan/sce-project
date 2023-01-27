@@ -24,7 +24,7 @@ Obj_Sonic:
 		cmpi.b	#frS_Last,mapping_frame(a0)	; Have we reached the end of Sonic's frames?
 		blo.s		+
 		clr.b	mapping_frame(a0)	; If so, reset to Sonic's first frame
-+		bsr.w	Sonic_Load_PLC
++		bsr.w	Player_Load_PLC
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
@@ -149,7 +149,7 @@ loc_10C26:
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	+
 		eori.b	#2,render_flags(a0)
-+		bsr.w	Sonic_Load_PLC
++		bsr.w	Player_Load_PLC
 +		move.b	object_control(a0),d0
 		andi.b	#$A0,d0
 		bne.s	+
@@ -2453,7 +2453,7 @@ sub_125E0:
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	+
 		eori.b	#2,render_flags(a0)
-+		bra.w	Sonic_Load_PLC
++		bra.w	Player_Load_PLC
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -2865,34 +2865,34 @@ loc_12A8A:
 		bra.w	SAnim_Do2
 
 ; =============== S U B R O U T I N E =======================================
+; ---------------------------------------------------------------------------
+; Player graphics loading subroutine
+; ---------------------------------------------------------------------------
 
-Sonic_Load_PLC:	; huge thanks to AngelKOR64.
+
+
+Player_Load_PLC:	; huge thanks to AngelKOR64.
+		bsr.w	ReloadPlayerMaps
 		moveq	#0,d0
 		move.b	mapping_frame(a0),d0
 
-Sonic_Load_PLC2:
-		bsr.w	Set_Sonic_Map
+Player_Load_PLC2:
 		cmp.b	(Player_prev_frame).w,d0
-		beq.s	+
+		beq.s	.noChange
 		move.b	d0,(Player_prev_frame).w
-		lea	(PLC_Sonic).l,a2
-		tst.b	(Super_Sonic_Knux_flag).w
-		beq.s	.notSuper1
-		lea	(PLC_SuperSonic).l,a2
-	.notSuper1:
+		bsr.w	PlayerDPLCToA2
 		add.w	d0,d0
 		adda.w	(a2,d0.w),a2
 		move.w	(a2)+,d5
 		subq.w	#1,d5
-		bmi.s	+
-		move.w	#tiles_to_bytes(ArtTile_Sonic),d4
-		move.l	#ArtUnc_Sonic>>1,d6
-		tst.b	(Super_Sonic_Knux_flag).w
-		beq.s	.notSuper2
-		move.l	#ArtUnc_SuperSonic>>1,d6
-	.notSuper2:
+		bmi.s	.noChange
+		move.w	art_tile(a0),d4	; get art tile
+		andi.w	#$7FF,d4		; clear art flags
+		lsl.w	#5,d4			; get VRAM address
+		bsr.w	PlayerArtToD6
 
--		moveq	#0,d1
+	.readEntry:
+		moveq	#0,d1
 		move.w	(a2)+,d1
 		move.w	d1,d3
 		lsr.w	#8,d3
@@ -2905,23 +2905,61 @@ Sonic_Load_PLC2:
 		add.w	d3,d4
 		add.w	d3,d4
 		jsr	(Add_To_DMA_Queue).w
-		dbf	d5,-
-+		rts
-; End of function Sonic_Load_PLC
-
-Set_Sonic_Map:
-		tst.b	(Super_Sonic_Knux_flag).w
-		bne.s	.SetSuperMap
-		cmpi.l	#Map_Sonic,(Player_1+mappings).w
-		beq.s	.Skip
-		move.l	#Map_Sonic,(Player_1+mappings).w
-		bra.s	.Skip
-	.SetSuperMap:
-		cmpi.l	#Map_SuperSonic,(Player_1+mappings).w
-		beq.s	.Skip
-		move.l	#Map_SuperSonic,(Player_1+mappings).w
-	.Skip:
+		dbf	d5,.readEntry
+	.noChange:
 		rts
+; End of function Player_Load_PLC
+
+ReloadPlayerMaps:
+		moveq	#0,d0
+		move.b	character_id(a0),d0
+		lsl.w	#2,d0
+		tst.b	(Super_Sonic_Knux_flag).w
+		bne.s	.super
+		move.l	.mapLUT(pc,d0.w),(Player_1+mappings).w
+		rts
+	.super:
+		move.l	.superMapLUT(pc,d0.w),(Player_1+mappings).w
+		rts
+
+	.mapLUT:
+		dc.l	Map_Sonic, Map_Tails, Map_Knuckles
+	.superMapLUT:
+		dc.l	Map_SuperSonic, Map_Tails, Map_Knuckles
+
+PlayerDPLCToA2:
+		moveq	#0,d1
+		move.b	character_id(a0),d1
+		lsl.w	#2,d1
+		tst.b	(Super_Sonic_Knux_flag).w
+		bne.s	.super
+		movea.l	.plcLUT(pc,d1.w),a2
+		rts
+	.super:
+		movea.l	.superplcLUT(pc,d1.w),a2
+		rts
+
+	.plcLUT:
+		dc.l	PLC_Sonic, PLC_Tails, PLC_Knuckles
+	.superplcLUT:
+		dc.l	PLC_SuperSonic, PLC_Tails, PLC_Knuckles
+
+PlayerArtToD6:
+		moveq	#0,d6
+		move.b	character_id(a0),d6
+		lsl.w	#2,d6
+		tst.b	(Super_Sonic_Knux_flag).w
+		bne.s	.super
+		move.l	.artLUT(pc,d6.w),d6
+		rts
+	.super:
+		move.l	.superartLUT(pc,d6.w),d6
+		rts
+
+	.artLUT:
+		dc.l	ArtUnc_Sonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1
+	.superartLUT:
+		dc.l	ArtUnc_SuperSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Sonic animation, mapping, and PLC data

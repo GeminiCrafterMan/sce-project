@@ -299,15 +299,17 @@ EndOfHeader:
 		include "Data/Misc/Interrupt Handler.asm"
 
 ; ---------------------------------------------------------------------------
-; Subroutine to load Sonic object
+; Subroutine to load player object
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Sonic/Sonic.asm"
+		include "Objects/Tails/Tails.asm"
+		include "Objects/Knuckles/Knuckles.asm"
 		include "Objects/Spin Dust/SpinDust.asm"
 		include "Objects/Shields/Shields.asm"
 
 ; ---------------------------------------------------------------------------
-; Subroutine to load a objects
+; Subroutine to load an object
 ; ---------------------------------------------------------------------------
 
 		include "Pointers/Objects Data.asm"
