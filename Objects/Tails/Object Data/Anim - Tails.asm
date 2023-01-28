@@ -1,110 +1,226 @@
-AniTails:
-		dc.w AniTails00-AniTails
-		dc.w AniTails01-AniTails
-		dc.w AniTails02-AniTails
-		dc.w AniTails03-AniTails
-		dc.w AniTails04-AniTails
-		dc.w AniTails05-AniTails
-		dc.w AniTails06-AniTails
-		dc.w AniTails07-AniTails
-		dc.w AniTails08-AniTails
-		dc.w AniTails09-AniTails
-		dc.w AniTails0A-AniTails
-		dc.w AniTails0B-AniTails
-		dc.w AniTails0C-AniTails
-		dc.w AniTails0D-AniTails
-		dc.w AniTails0E-AniTails
-		dc.w AniTails0F-AniTails
-		dc.w AniTails10-AniTails
-		dc.w AniTails11-AniTails
-		dc.w AniTails12-AniTails
-		dc.w AniTails13-AniTails
-		dc.w AniTails14-AniTails
-		dc.w AniTails15-AniTails
-		dc.w AniTails16-AniTails
-		dc.w AniTails17-AniTails
-		dc.w AniTails18-AniTails
-		dc.w AniTails19-AniTails
-		dc.w AniTails1A-AniTails
-		dc.w AniTails1B-AniTails
-		dc.w AniTails1C-AniTails
-		dc.w AniTails1D-AniTails
-		dc.w AniTails1E-AniTails
-		dc.w AniTails1F-AniTails
-		dc.w AniTails20-AniTails
-		dc.w AniTails21-AniTails
-		dc.w AniTails22-AniTails
-		dc.w AniTails23-AniTails
-		dc.w AniTails24-AniTails
-		dc.w AniTails25-AniTails
-		dc.w AniTails26-AniTails
-		dc.w AniTails27-AniTails
-		dc.w AniTails28-AniTails
-		dc.w AniTails29-AniTails
-AniTails00:	dc.b  $FF,   7,   8,   1,   2,   3,   4,   5,   6, afEnd
-AniTails01:	dc.b  $FF, $21, $22, $23, $24, afEnd, afEnd, afEnd, afEnd, afEnd
-AniTails02:	dc.b    1, $96, $97, $98, afEnd
-AniTails03:	dc.b    0, $96, $97, $98, afEnd
-AniTails04:	dc.b  $FD, $A9, $AA, $AB, $AC, afEnd, afEnd, afEnd, afEnd, afEnd
-AniTails05:	dc.b    7, $AD, $AD, $AD, $AD, $AD, $AD, $AD, $AD, $AD, $AD, $AF, $AE, $AD, $AD, $AD
-		dc.b  $AD, $AD, $AD, $AD, $AD, $AF, $AE, $AD, $AD, $AD, $AD, $AD, $AD, $AD, $AD, $AD
-		dc.b  $B1, $B1, $B1, $B1, $B1, $B1, $B1, $B1, $B1, $B1, $B1, $B1, $B1, $B1, $B1, $B1
-		dc.b  $B2, $B3, $B4, $B3, $B4, $B3, $B4, $B3, $B4, $B3, $B4, $B2, afBack, $1C
-AniTails06:	dc.b    9, $9A, $9A, $9B, $9B, $9A, $9A, $9B, $9B, $9A, $9A, $9B, $9B, $9A, $9A, $9B
-		dc.b  $9B, $9A, $9A, $9B, $9B, $9A, $9B, afEnd
-AniTails07:	dc.b  $3F, $B0, afEnd
-AniTails08:	dc.b  $3F, $99, afEnd
-AniTails09:	dc.b    0, $86, $87, $88, afEnd
+AniTails:	offsetTable
+		offsetTableEntry.w TailsAni_Walk
+		offsetTableEntry.w TailsAni_Run
+		offsetTableEntry.w TailsAni_Roll
+		offsetTableEntry.w TailsAni_Roll2
+		offsetTableEntry.w TailsAni_Push
+		offsetTableEntry.w TailsAni_Wait
+		offsetTableEntry.w TailsAni_Balance
+		offsetTableEntry.w TailsAni_LookUp
+		offsetTableEntry.w TailsAni_Duck
+		offsetTableEntry.w TailsAni_Spindash
+		offsetTableEntry.w AniTails0A
+		offsetTableEntry.w TailsAni_MGZHang
+		offsetTableEntry.w AniTails0C
+		offsetTableEntry.w TailsAni_Stop
+		offsetTableEntry.w TailsAni_Float1
+		offsetTableEntry.w TailsAni_Float2
+		offsetTableEntry.w TailsAni_Spring
+		offsetTableEntry.w TailsAni_LZHang
+		offsetTableEntry.w AniTails12
+		offsetTableEntry.w TailsAni_Victory
+		offsetTableEntry.w AniTails14
+		offsetTableEntry.w TailsAni_GetAir
+		offsetTableEntry.w TailsAni_Burnt
+		offsetTableEntry.w TailsAni_Drown
+		offsetTableEntry.w TailsAni_Death
+		offsetTableEntry.w AniTails19
+		offsetTableEntry.w AniTails1A
+		offsetTableEntry.w AniTails1B
+		offsetTableEntry.w AniTails1C
+		offsetTableEntry.w AniTails1D
+		offsetTableEntry.w AniTails1E
+		offsetTableEntry.w TailsAni_Mach
+		offsetTableEntry.w TailsAni_Fly
+		offsetTableEntry.w TailsAni_FlyFast
+		offsetTableEntry.w TailsAni_FlyHold
+		offsetTableEntry.w TailsAni_FlyHoldUp
+		offsetTableEntry.w TailsAni_FlyTired
+		offsetTableEntry.w TailsAni_Swim
+		offsetTableEntry.w TailsAni_SwimFast
+		offsetTableEntry.w TailsAni_SwimHoldTired
+		offsetTableEntry.w TailsAni_SwimTired
+		offsetTableEntry.w TailsAni_Transform
+TailsAni_Walk:	dc.b  $FF,   frT_Walk17,   frT_Walk18,   frT_Walk11,   frT_Walk12,   frT_Walk13,   frT_Walk14,   frT_Walk15,   frT_Walk16, afEnd
+TailsAni_Run:	dc.b  $FF, frT_Run11, frT_Run12, frT_Run13, frT_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
+TailsAni_Roll:	dc.b    1, frT_Roll1, frT_Roll2, frT_Roll3, afEnd
+TailsAni_Roll2:	dc.b    0, frT_Roll1, frT_Roll2, frT_Roll3, afEnd
+TailsAni_Push:	dc.b  $FD, frT_Push1, frT_Push2, frT_Push3, frT_Push4, afEnd, afEnd, afEnd, afEnd, afEnd
+TailsAni_Wait:	dc.b    7, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle3, frT_Idle2, frT_Idle1, frT_Idle1, frT_Idle1
+		dc.b  frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle3, frT_Idle2, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1
+		dc.b  frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4, frT_Idle4
+		dc.b  frT_Idle5, frT_Idle6, frT_Idle7, frT_Idle6, frT_Idle7, frT_Idle6, frT_Idle7, frT_Idle6, frT_Idle7, frT_Idle6, frT_Idle7, frT_Idle5, afBack, $1C
+TailsAni_Balance:	dc.b    9, frT_Balance1, frT_Balance1, frT_Balance2, frT_Balance2, frT_Balance1, frT_Balance1, frT_Balance2, frT_Balance2, frT_Balance1, frT_Balance1, frT_Balance2, frT_Balance2, frT_Balance1, frT_Balance1, frT_Balance2
+		dc.b  frT_Balance2, frT_Balance1, frT_Balance1, frT_Balance2, frT_Balance2, frT_Balance1, frT_Balance2, afEnd
+TailsAni_LookUp:	dc.b  $3F, frT_LookUp, afEnd
+TailsAni_Duck:	dc.b  $3F, frT_Duck, afEnd
+TailsAni_Spindash:	dc.b    0, frT_Spindash1, frT_Spindash2, frT_Spindash3, afEnd
 AniTails0A:	dc.b  $3F, $82, afEnd
-AniTails0B:	dc.b   $F, $8D, afEnd
-AniTails0C:	dc.b    9, $A4, $9B, afEnd
-AniTails0D:	dc.b    3, $8E, $8F, $8E, $8F, afChange,   id_Walk
-AniTails0E:	dc.b    9, $B5, afEnd
-AniTails0F:	dc.b    9, $B5, $B6, $B7, $B8, $B9, $BA, $BB, $BC, afEnd
-AniTails10:	dc.b    3, $8B, $8C, $8B, $8C, $8B, $8C, $8B, $8C, $8B, $8C, $8B, $8C, afChange,   id_Walk
-AniTails11:	dc.b    1, $9D, $9E, afEnd
-AniTails12:	dc.b   $F,   1,   2,   3, afBack,   1
-AniTails13:	dc.b   $F, $A5, $A6, afBack,   1
-AniTails14:	dc.b  $13, $91, afEnd
-AniTails15:	dc.b   $B, $9F, $9F,   3,   4, afChange,   id_Walk
-AniTails16:	dc.b  $20, $9C, afEnd
-AniTails17:	dc.b  $2F, $9C, afEnd
-AniTails18:	dc.b    3, $9C, afEnd
-AniTails19:	dc.b    9, $CB, $CC, afEnd
-AniTails1A:	dc.b  $40, $8A, afEnd
-AniTails1B:	dc.b    9, $89, $8A, afEnd
-AniTails1C:	dc.b  $77,   0, afEnd
-AniTails1D:	dc.b    3,   1,   2,   3,   4,   5,   6,   7,   8, afEnd
-AniTails1E:	dc.b    3,   1,   2,   3,   4,   5,   6,   7,   8, afEnd
-AniTails1F:	dc.b  afEnd, $C3, $C4, afEnd, afEnd, afEnd, afEnd, afEnd, afEnd, afEnd
-AniTails20:	dc.b  $1F, $A0, afEnd
-AniTails21:	dc.b  $1F, $A0, afEnd
-AniTails22:	dc.b  $1F, $A2, afEnd
-AniTails23:	dc.b  $1F, $A1, afEnd
-AniTails24:	dc.b   $B, $A3, $A4, afEnd
-AniTails25:	dc.b    7, $BD, $BE, $BF, $C0, $C1, afEnd
-AniTails26:	dc.b    3, $BD, $BE, $BF, $C0, $C1, afEnd
-AniTails27:	dc.b    4, $CF, $D0, afEnd
-AniTails28:	dc.b   $B, $C2, $CD, $CE, afEnd
-AniTails29:	dc.b    2, $EB, $EB, $EC, $ED, $EC, $ED, $EC, $ED, $EC, $ED, $EC, $ED, afChange,   id_Walk
+TailsAni_MGZHang:	dc.b   $F, frT_MGZHang, afEnd
+AniTails0C:	dc.b    9, frT_FlyTired2, frT_Balance2, afEnd
+TailsAni_Stop:	dc.b    3, frT_Skid1, frT_Skid2, frT_Skid1, frT_Skid2, afChange,   id_Walk
+TailsAni_Float1:	dc.b    9, frT_Float1, afEnd
+TailsAni_Float2:	dc.b    9, frT_Float1, frT_Float2, frT_Float3, frT_Float4, frT_Float5, frT_Float6, frT_Float7, frT_Float8, afEnd
+TailsAni_Spring:	dc.b    3, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, afChange,   id_Walk
+TailsAni_LZHang:	dc.b    1, frT_LZHang1, frT_LZHang2, afEnd
+AniTails12:	dc.b   $F,   frT_Walk11,   frT_Walk12,   frT_Walk13, afBack,   1
+TailsAni_Victory:	dc.b   $F, frT_Victory1, frT_Victory2, afBack,   1
+AniTails14:	dc.b  $13, frT_Hang2, afEnd
+TailsAni_GetAir:	dc.b   $B, frT_GetAir, frT_GetAir,   frT_Walk13,   frT_Walk14, afChange,   id_Walk
+TailsAni_Burnt:	dc.b  $20, frT_Death, afEnd
+TailsAni_Drown:	dc.b  $2F, frT_Death, afEnd
+TailsAni_Death:	dc.b    3, frT_Death, afEnd
+AniTails19:	dc.b    9, frT_Slide1, frT_Slide2, afEnd
+AniTails1A:	dc.b  $40, frT_Hurt2, afEnd
+AniTails1B:	dc.b    9, frT_Hurt1, frT_Hurt2, afEnd
+AniTails1C:	dc.b  $77,   frT_Null, afEnd
+AniTails1D:	dc.b    3,   frT_Walk11,   frT_Walk12,   frT_Walk13,   frT_Walk14,   frT_Walk15,   frT_Walk16,   frT_Walk17,   frT_Walk18, afEnd
+AniTails1E:	dc.b    3,   frT_Walk11,   frT_Walk12,   frT_Walk13,   frT_Walk14,   frT_Walk15,   frT_Walk16,   frT_Walk17,   frT_Walk18, afEnd
+TailsAni_Mach:	dc.b  $FF, frT_Mach11, frT_Mach12, afEnd, afEnd, afEnd, afEnd, afEnd, afEnd, afEnd
+TailsAni_Fly:	dc.b  $1F, frT_Fly, afEnd
+TailsAni_FlyFast:	dc.b  $1F, frT_Fly, afEnd
+TailsAni_FlyHold:	dc.b  $1F, frT_FlyHold, afEnd
+TailsAni_FlyHoldUp:	dc.b  $1F, frT_FlyHoldUp, afEnd
+TailsAni_FlyTired:	dc.b   $B, frT_FlyTired1, frT_FlyTired2, afEnd
+TailsAni_Swim:	dc.b    7, frT_Swim1, frT_Swim2, frT_Swim3, frT_Swim4, frT_Swim5, afEnd
+TailsAni_SwimFast:	dc.b    3, frT_Swim1, frT_Swim2, frT_Swim3, frT_Swim4, frT_Swim5, afEnd
+TailsAni_SwimHoldTired:	dc.b    4, frT_SwimHoldTired1, frT_SwimHoldTired2, afEnd
+TailsAni_SwimTired:	dc.b   $B, frT_SwimTired1, frT_SwimTired2, frT_SwimTired3, afEnd
+TailsAni_Transform:	dc.b    2, frT_Transform1, frT_Transform1, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, afChange,   id_Walk
 		even
 
+; Frame IDs
+	phase 0 ; Reset ds.b value to 0
+frT_Null:		ds.b 1
+frT_Walk11:		ds.b 1
+frT_Walk12:		ds.b 1
+frT_Walk13:		ds.b 1
+frT_Walk14:		ds.b 1
+frT_Walk15:		ds.b 1
+frT_Walk16:		ds.b 1
+frT_Walk17:		ds.b 1
+frT_Walk18:		ds.b 1
+frT_Walk2X:		ds.b 8
+frT_Walk3X:		ds.b 8
+frT_Walk4X:		ds.b 8
+frT_Run11:		ds.b 1
+frT_Run12:		ds.b 1
+frT_Run13:		ds.b 1
+frT_Run14:		ds.b 1
+frT_Run2X:		ds.b 4
+frT_Run3X:		ds.b 4
+frT_Run4X:		ds.b 4
+frT_TumbleWalk1:	ds.b 1
+frT_TumbleWalkX:	ds.b 11
+frT_TumbleStand1:	ds.b 1
+frT_TumbleStandX:	ds.b 11
+frT_TumbleHCylinder1:	ds.b 1
+frT_TumbleHCylinderX:	ds.b 11
+frT_Turntable1:		ds.b 1
+frT_TurntableX:		ds.b 6
+frT_PoleSwingH1:		ds.b 1
+frT_PoleSwingHX:	ds.b 6
+frT_PoleSwingV1:	ds.b 1
+frT_PoleSwingVX:	ds.b 5
+frT_TumbleVCylinder1:	ds.b 1
+frT_TumbleVCylinderX:	ds.b 14
+frT_RopeSwing1:		ds.b 1
+frT_RopeSwingX:		ds.b 7
+frT_MonkeyBars1:	ds.b 1
+frT_MonkeyBarsX:	ds.b 5
+frT_Spindash1:		ds.b 1
+frT_Spindash2:		ds.b 1
+frT_Spindash3:		ds.b 1
+frT_Hurt1:			ds.b 1
+frT_Hurt2:			ds.b 1
+frT_Spring1:		ds.b 1
+frT_Spring2:		ds.b 1
+frT_MGZHang:		ds.b 1
+frT_Skid1:			ds.b 1
+frT_Skid2:			ds.b 1
+frT_Hang1:			ds.b 1
+frT_Hang2:			ds.b 1
+frT_Hang3:			ds.b 1
+frT_HangPush:		ds.b 1
+frT_Shimmy1:		ds.b 1
+frT_Shimmy2:		ds.b 1
+frT_Roll1:			ds.b 1
+frT_Roll2:			ds.b 1
+frT_Roll3:			ds.b 1
+frT_Duck:			ds.b 1
+frT_Balance1:		ds.b 1
+frT_Balance2:		ds.b 1
+frT_Death:			ds.b 1
+frT_LZHang1:		ds.b 1
+frT_LZHang2:		ds.b 1
+frT_GetAir:			ds.b 1
+frT_Fly:			ds.b 1
+frT_FlyHoldUp:		ds.b 1
+frT_FlyHold:		ds.b 1
+frT_FlyTired1:		ds.b 1
+frT_FlyTired2:		ds.b 1
+frT_Victory1:		ds.b 1
+frT_Victory2:		ds.b 1
+frT_LZHangV1:		ds.b 1
+frT_LZHangV2:		ds.b 1
+frT_Push1:			ds.b 1
+frT_Push2:			ds.b 1
+frT_Push3:			ds.b 1
+frT_Push4:			ds.b 1
+frT_Idle1:			ds.b 1
+frT_Idle2:			ds.b 1
+frT_Idle3:			ds.b 1
+frT_LookUp:			ds.b 1
+frT_Idle4:			ds.b 1
+frT_Idle5:			ds.b 1
+frT_Idle6:			ds.b 1
+frT_Idle7:			ds.b 1
+frT_Float1:			ds.b 1
+frT_Float2:			ds.b 1
+frT_Float3:			ds.b 1
+frT_Float4:			ds.b 1
+frT_Float5:			ds.b 1
+frT_Float6:			ds.b 1
+frT_Float7:			ds.b 1
+frT_Float8:			ds.b 1
+frT_Swim1:			ds.b 1
+frT_Swim2:			ds.b 1
+frT_Swim3:			ds.b 1
+frT_Swim4:			ds.b 1
+frT_Swim5:			ds.b 1
+frT_SwimTired1:		ds.b 1
+frT_Mach11:			ds.b 1
+frT_Mach12:			ds.b 1
+frT_Mach2X:			ds.b 2
+frT_Mach3X:			ds.b 2
+frT_Mach4X:			ds.b 2
+frT_Slide1:			ds.b 1
+frT_Slide2:			ds.b 1
+frT_SwimTired2:		ds.b 1
+frT_SwimTired3:		ds.b 1
+frT_SwimHoldTired1:	ds.b 1
+frT_SwimHoldTired2:	ds.b 1
+frT_Transform1:		ds.b 1
+frT_Transform2:		ds.b 1
+frT_Transform3:		ds.b 1
+frT_Last:			ds.b 0
+	even
+	dephase
 
-
-AniTails_Tail:
-		dc.w AniTails_Tail00-AniTails_Tail
-		dc.w AniTails_Tail01-AniTails_Tail
-		dc.w AniTails_Tail02-AniTails_Tail
-		dc.w AniTails_Tail03-AniTails_Tail
-		dc.w AniTails_Tail04-AniTails_Tail
-		dc.w AniTails_Tail05-AniTails_Tail
-		dc.w AniTails_Tail06-AniTails_Tail
-		dc.w AniTails_Tail07-AniTails_Tail
-		dc.w AniTails_Tail08-AniTails_Tail
-		dc.w AniTails_Tail09-AniTails_Tail
-		dc.w AniTails_Tail0A-AniTails_Tail
-		dc.w AniTails_Tail0B-AniTails_Tail
-		dc.w AniTails_Tail0C-AniTails_Tail
+AniTails_Tail:	offsetTable
+		offsetTableEntry.w AniTails_Tail00
+		offsetTableEntry.w AniTails_Tail01
+		offsetTableEntry.w AniTails_Tail02
+		offsetTableEntry.w AniTails_Tail03
+		offsetTableEntry.w AniTails_Tail04
+		offsetTableEntry.w AniTails_Tail05
+		offsetTableEntry.w AniTails_Tail06
+		offsetTableEntry.w AniTails_Tail07
+		offsetTableEntry.w AniTails_Tail08
+		offsetTableEntry.w AniTails_Tail09
+		offsetTableEntry.w AniTails_Tail0A
+		offsetTableEntry.w AniTails_Tail0B
+		offsetTableEntry.w AniTails_Tail0C
 AniTails_Tail00:dc.b  $20,   0, afEnd
 AniTails_Tail01:dc.b    7, $22, $23, $24, $25, $26, afEnd
 AniTails_Tail02:dc.b    3, $22, $23, $24, $25, $26, afChange,   1

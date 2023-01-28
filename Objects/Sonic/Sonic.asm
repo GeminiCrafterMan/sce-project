@@ -145,7 +145,7 @@ loc_10C26:
 		move.b	prev_anim(a0),anim(a0)
 +		btst	#1,object_control(a0)
 		bne.s	++
-		bsr.w	Animate_Sonic
+		bsr.w	Animate_Player
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	+
 		eori.b	#2,render_flags(a0)
@@ -2449,13 +2449,23 @@ Sonic_Drown:
 ; =============== S U B R O U T I N E =======================================
 
 sub_125E0:
-		bsr.s	Animate_Sonic
+		bsr.s	Animate_Player
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	+
 		eori.b	#2,render_flags(a0)
 +		bra.w	Player_Load_PLC
 
 ; =============== S U B R O U T I N E =======================================
+
+Animate_Player:
+		moveq	#0,d0
+		move.b	character_id(a0),d0
+		lsl.w	#2,d0
+		move.l	.aniRoutLUT(pc,d0.w),a1
+		jmp		(a1)
+
+	.aniRoutLUT:
+		dc.l	Animate_Sonic, Animate_Tails, Animate_Knuckles
 
 Animate_Sonic:
 		lea	AniSonic(pc),a1
@@ -2655,7 +2665,7 @@ SAnim_Tumble_Left:
 ; ---------------------------------------------------------------------------
 
 byte_1286E:
-		dc.b 0
+		dc.b frS_Null
 		dc.b frS_TumbleStand1
 		dc.b frS_TumbleHCylinder1
 		dc.b frS_TumbleHCylinder1
