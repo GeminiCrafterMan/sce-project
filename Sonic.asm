@@ -299,16 +299,6 @@ EndOfHeader:
 		include "Data/Misc/Interrupt Handler.asm"
 
 ; ---------------------------------------------------------------------------
-; Subroutine to load player object
-; ---------------------------------------------------------------------------
-
-		include "Objects/Sonic/Sonic.asm"
-		include "Objects/Tails/Tails.asm"
-		include "Objects/Knuckles/Knuckles.asm"
-		include "Objects/Spin Dust/SpinDust.asm"
-		include "Objects/Shields/Shields.asm"
-
-; ---------------------------------------------------------------------------
 ; Subroutine to load an object
 ; ---------------------------------------------------------------------------
 
@@ -350,9 +340,9 @@ EndOfHeader:
 ; ---------------------------------------------------------------------------
 
 		if GameDebugAlt
-			include "Objects/Sonic/DebugMode(Crackers).asm"
+			include "Objects/Player Characters/DebugMode(Crackers).asm"
 		else
-			include "Objects/Sonic/DebugMode.asm"
+			include "Objects/Player Characters/DebugMode.asm"
 		endif
 
 	endif

@@ -1,4 +1,15 @@
 ; ===========================================================================
+; Player objects data
+; ===========================================================================
+
+		include "Objects/Player Characters/Sonic.asm"
+		include "Objects/Player Characters/Tails.asm"
+		include "Objects/Player Characters/Knuckles.asm"
+		include "Objects/Player Characters/Mighty.asm"
+		include "Objects/Spin Dust/SpinDust.asm"
+		include "Objects/Shields/Shields.asm"
+
+; ===========================================================================
 ; Main objects data
 ; ===========================================================================
 
@@ -57,4 +68,4 @@
 ; Menu objects data
 ; ===========================================================================
 
-		include	"Objects/Cabaret Sonic/Cabaret Sonic.asm"
+		include	"Objects/Cabaret Characters/Cabaret Characters.asm"

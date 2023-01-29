@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "82d06cd2-d5a1-4614-ad96-ef45cafec820",
+    "node": "e1d36fe4-d3d6-4b48-b0a7-f363566afa1e",
     "objects": [
         {
             "name": "Players",
@@ -9,35 +9,43 @@
                 {
                     "uuid": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
                     "format": "Sonic 3&K Player.js",
-                    "name": "Cabaret Sonic & Tails",
+                    "name": "Cabaret Characters",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Player Characters/Palettes/Knuckles.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Player Characters/Palettes/Mighty.bin",
                             "length": 1
                         }
                     ],
                     "art": {
-                        "path": "Objects/Cabaret Sonic/Uncompressed Art/Cabaret Sonic.bin",
+                        "path": "Objects/Cabaret Characters/Uncompressed Art/Cabaret Sonic.bin",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Cabaret Sonic/Object Data/Map - Cabaret Sonic.asm",
+                        "path": "Objects/Cabaret Characters/Object Data/Map - Cabaret Sonic.asm",
                         "label": "Map_CabaretSonic"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Cabaret Sonic/Object Data/DPLC - Cabaret Sonic.asm",
+                        "path": "Objects/Cabaret Characters/Object Data/DPLC - Cabaret Sonic.asm",
                         "label": "PLC_CabaretSonic"
                     }
                 },
                 {
-                    "uuid": "002ae1d3-6fe4-43d6-9b48-70a7f363566a",
+                    "uuid": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
                     "format": "Sonic 3&K Player.js",
                     "name": "Sonic",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -46,17 +54,17 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Sonic/Uncompressed Art/Sonic.bin",
+                        "path": "Objects/Player Characters/Uncompressed Art/Sonic.bin",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Sonic/Object Data/Map - Sonic.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Sonic.asm",
                         "label": "Map_Sonic"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Sonic/Object Data/Sonic pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Sonic pattern load cues.asm",
                         "label": "PLC_Sonic"
                     }
                 },
@@ -66,7 +74,7 @@
                     "name": "Super Sonic",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -75,17 +83,17 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Sonic/Uncompressed Art/Super Sonic.bin",
+                        "path": "Objects/Player Characters/Uncompressed Art/Super Sonic.bin",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Sonic/Object Data/Map - Super Sonic.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Super Sonic.asm",
                         "label": "Map_SuperSonic"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Sonic/Object Data/Super Sonic pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Super Sonic pattern load cues.asm",
                         "label": "PLC_SuperSonic"
                     }
                 },
@@ -95,7 +103,7 @@
                     "name": "Tails",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -104,17 +112,17 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Tails/Uncompressed Art/Tails.bin",
+                        "path": "Objects/Player Characters/Uncompressed Art/Tails.bin",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Tails/Object Data/Map - Tails.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Tails.asm",
                         "label": "Map_Tails"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Tails/Object Data/Tails pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Tails pattern load cues.asm",
                         "label": "PLC_Tails"
                     }
                 },
@@ -124,7 +132,7 @@
                     "name": "Tails's Tails",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -133,17 +141,17 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Tails/Uncompressed Art/Tails tails.bin",
+                        "path": "Objects/Player Characters/Uncompressed Art/Tails tails.bin",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Tails/Object Data/Map - Tails tails.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Tails tails.asm",
                         "label": "Map_TailsTails"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Tails/Object Data/Tails tails pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Tails tails pattern load cues.asm",
                         "label": "PLC_TailsTails"
                     }
                 },
@@ -153,7 +161,7 @@
                     "name": "Knuckles",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Knuckles.bin",
                             "length": 1
                         },
                         {
@@ -162,18 +170,47 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Knuckles/Uncompressed Art/Knuckles.bin",
+                        "path": "Objects/Player Characters/Uncompressed Art/Knuckles.bin",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Knuckles/Object Data/Map - Knuckles.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Knuckles.asm",
                         "label": "Map_Knuckles"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Knuckles/Object Data/Knuckles pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Knuckles pattern load cues.asm",
                         "label": "PLC_Knuckles"
+                    }
+                },
+                {
+                    "uuid": "002ae1d3-6fe4-43d6-9b48-70a7f363566a",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Mighty",
+                    "palettes": [
+                        {
+                            "path": "Objects/Player Characters/Palettes/Mighty.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Player Characters/Uncompressed Art/Mighty.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Player Characters/Object Data/Map - Mighty.asm",
+                        "label": "Map_Mighty"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Player Characters/Object Data/Mighty pattern load cues.asm",
+                        "label": "PLC_Mighty"
                     }
                 }
             ],
@@ -190,7 +227,7 @@
                     "name": "Signpost",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -219,7 +256,7 @@
                     "name": "Monitors",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -248,7 +285,7 @@
                     "name": "Monitor contents",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -277,7 +314,7 @@
                     "name": "Spikes",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -306,7 +343,7 @@
                     "name": "Springs (Red)",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -335,7 +372,7 @@
                     "name": "Springs (Yellow)",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -489,7 +526,7 @@
                     "name": "Bubbles",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         }
                     ],
@@ -562,7 +599,7 @@
                     "name": "Spikebonker",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -591,7 +628,7 @@
                     "name": "Bata-pyon",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -628,7 +665,7 @@
                     "name": "Buzz Bomber",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -657,7 +694,7 @@
                     "name": "Chopper",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -686,7 +723,7 @@
                     "name": "Crabmeat",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -715,7 +752,7 @@
                     "name": "Motobug",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -744,7 +781,7 @@
                     "name": "Purple Rock",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -773,7 +810,7 @@
                     "name": "Smashable Walls",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -803,7 +840,7 @@
                     "name": "Edge Walls",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -832,7 +869,7 @@
                     "name": "Bridge",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -871,7 +908,7 @@
                     "name": "Purple Rock",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -900,7 +937,7 @@
                     "name": "Chopper",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {
@@ -928,7 +965,7 @@
                     "name": "Bridge",
                     "palettes": [
                         {
-                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
                             "length": 1
                         },
                         {

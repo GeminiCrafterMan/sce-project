@@ -6,19 +6,21 @@ PalPointers:				; palette address, RAM address, colours
 
 ; Main
 ptr_Pal_Sonic:			palp	Pal_Sonic, Normal_palette_line_1, 16		; 0 - Sonic
-ptr_Pal_CabaretSonic:	palp	Pal_Sonic, Normal_palette_line_3, 16		; 1 - Sonic
+ptr_Pal_Knuckles:		palp	Pal_Knuckles, Normal_palette_line_1, 16		; 1 - Knuckles
+ptr_Pal_Mighty:			palp	Pal_Mighty, Normal_palette_line_1, 16		; 2 - Mighty
 
 ; Levels
-ptr_Pal_DEZ:			palp	Pal_DEZ, Normal_palette_line_2, 48			; 2 - DEZ1
-ptr_Pal_GHZ:			palp	Pal_GHZ, Normal_palette_line_2, 48			; 3 - GHZ
-ptr_Pal_SSLZ:			palp	Pal_SSLZ, Normal_palette_line_2, 48			; 4 - SSLZ
+ptr_Pal_DEZ:			palp	Pal_DEZ, Normal_palette_line_2, 48			; 3 - DEZ
+ptr_Pal_GHZ:			palp	Pal_GHZ, Normal_palette_line_2, 48			; 4 - GHZ
+ptr_Pal_SSLZ:			palp	Pal_SSLZ, Normal_palette_line_2, 48			; 5 - SSLZ
 ; ---------------------------------------------------------------------------
 
 ; Main
-palid_Sonic:			equ (ptr_Pal_Sonic-PalPointers)/8				; 0 - Sonic
-palid_CabaretSonic:		equ	(ptr_Pal_CabaretSonic-PalPointers)/8		; 1 - Cabaret Sonic
+palid_Sonic:			equ (ptr_Pal_Sonic-PalPointers)/8		; 0 - Sonic
+palid_Knuckles:			equ (ptr_Pal_Knuckles-PalPointers)/8	; 1 - Knuckles
+palid_Mighty:			equ (ptr_Pal_Mighty-PalPointers)/8		; 2 - Mighty
 
 ; Levels
-palid_DEZ:				equ (ptr_Pal_DEZ-PalPointers)/8				; 2 - DEZ1
-palid_GHZ:				equ (ptr_Pal_GHZ-PalPointers)/8				; 3 - GHZ
-palid_SSLZ:				equ (ptr_Pal_SSLZ-PalPointers)/8
+palid_DEZ:				equ (ptr_Pal_DEZ-PalPointers)/8			; 3 - DEZ
+palid_GHZ:				equ (ptr_Pal_GHZ-PalPointers)/8			; 4 - GHZ
+palid_SSLZ:				equ (ptr_Pal_SSLZ-PalPointers)/8		; 5 - SSLZ

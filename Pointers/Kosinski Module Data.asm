@@ -44,6 +44,12 @@ ArtKosM_ResultsGeneral:		binclude "Objects/Results/KosinskiM Art/Results General
 	even
 ArtKosM_ResultsSONIC:		binclude "Objects/Results/KosinskiM Art/Results SONIC.bin"
 	even
+ArtKosM_ResultsTAILS:		binclude "Objects/Results/KosinskiM Art/Results TAILS.bin"
+	even
+ArtKosM_ResultsKNUCKLES:	binclude "Objects/Results/KosinskiM Art/Results KNUCKLES.bin"
+	even
+ArtKosM_ResultsMIGHTY:		binclude "Objects/Results/KosinskiM Art/Results MIGHTY.bin"
+	even
 ArtKosM_TitleCardNum1:		binclude "Objects/Title Card/KosinskiM Art/Title Card Number 1.bin"
 	even
 ArtKosM_TitleCardNum2:		binclude "Objects/Title Card/KosinskiM Art/Title Card Number 2.bin"

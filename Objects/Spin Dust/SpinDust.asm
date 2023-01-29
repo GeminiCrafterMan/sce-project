@@ -181,9 +181,9 @@ DashDust_Load_DPLC:
 SplashDrown_Load_DPLC:
 		moveq	#0,d0
 		move.b	mapping_frame(a0),d0
-		cmp.b	$34(a0),d0
+		cmp.b	previous_frame(a0),d0
 		beq.s	+
-		move.b	d0,$34(a0)
+		move.b	d0,previous_frame(a0)
 		lea	DPLC_DashSplashDrown(pc),a2
 		add.w	d0,d0
 		adda.w	(a2,d0.w),a2

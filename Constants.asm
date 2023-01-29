@@ -123,9 +123,26 @@ z_LNull:						equ $FF
 ; Characters
 ; ---------------------------------------------------------------------------
 
-c_Sonic:	equ	0
-c_Tails:	equ	1
-c_Knuckles:	equ	2
+; character IDs
+	phase 0 ; Reset ds.b value to 0
+c_Sonic:	ds.b 1
+c_Tails:	ds.b 1
+c_Knuckles:	ds.b 1
+c_Last:				= *
+c_Mighty:	ds.b 1
+	dephase
+
+; player option IDs
+	phase 0 ; Reset ds.b value to 0
+po_SonicAndTails:		ds.b 1
+po_SonicAlone:			ds.b 1
+po_TailsAlone:			ds.b 1
+po_KnucklesAlone:		ds.b 1
+po_KnucklesAndTails:	ds.b 1
+po_MightyAlone:			ds.b 1
+po_Last:				= *
+po_MightyAndTails:		ds.b 1
+	dephase
 
 ; ---------------------------------------------------------------------------
 ; Buttons bit numbers

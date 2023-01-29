@@ -2,9 +2,13 @@
 ; Normal palette
 ; ===========================================================================
 
-Pal_Sonic:			binclude "Objects/Sonic/Palettes/Sonic.bin"
+Pal_Sonic:			binclude "Objects/Player Characters/Palettes/Sonic.bin"
 	even
-Pal_LevelSelect:		binclude "Data/Screens/Level Select/Palettes/1.bin"
+Pal_Knuckles:		binclude "Objects/Player Characters/Palettes/Knuckles.bin"
+	even
+Pal_Mighty:			binclude "Objects/Player Characters/Palettes/Mighty.bin"
+	even
+Pal_LevelSelect:	binclude "Data/Screens/Level Select/Palettes/1.bin"
 	even
 
 Pal_DEZ:			binclude "Levels/DEZ/Palettes/Death Egg Zone.bin"

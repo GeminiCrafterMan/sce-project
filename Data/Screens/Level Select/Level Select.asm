@@ -65,13 +65,7 @@ LevelSelect_Screen:
 		lea	(Pal_LevelSelect).l,a1
 		lea	(Target_palette).w,a2
 		jsr	(PalLoad_Line32).w
-		moveq	#palid_CabaretSonic,d0
-		move.w	d0,d1
-		jsr		(LoadPalette).w
-		move.w	d1,d0
-		jsr		(LoadPalette_Immediate).w
-		move.l	#Obj_CabaretSonic,(Player_1).w
-		move.l	#Obj_CabaretTails,(Player_2).w
+		jsr		LevelSelect_LoadLevel_CharacterSwitcher.update
 		bsr.w	LevelSelect_LoadText
 		move.w	#palette_line_1+LevelSelect_VRAM,d3
 		bsr.w	LevelSelect_LoadMainText
@@ -155,25 +149,6 @@ LevelSelect_Controls:
 
 LevelSelect_LoadLevel_Return:
 		rts
-
-LevelSelect_LoadLevel_CharacterSwitcher:
-		btst	#button_C,(Ctrl_1_pressed).w
-		beq.s	.b
-		addq.b	#1,(Player_mode).w
-		sfx		sfx_Switch
-		cmpi.b	#4,(Player_mode).w
-		ble.s	.ret
-		clr.b	(Player_mode).w
-	.b:
-		btst	#button_B,(Ctrl_1_pressed).w
-		beq.s	.ret
-		subq.b	#1,(Player_mode).w
-		sfx		sfx_Switch
-		tst.b	(Player_mode).w
-		bge.s	.ret
-		move.b	#4,(Player_mode).w
-	.ret:
-		rts
 ; ---------------------------------------------------------------------------
 
 LevelSelect_LoadMaxActs:
@@ -182,6 +157,65 @@ LevelSelect_LoadMaxActs:
 		dc.w LevelSelect_ActSSLZCount-1	; SSLZ
 
 		zonewarning LevelSelect_LoadMaxActs,2
+
+; ---------------------------------------------------------------------------
+; Load Characters
+; ---------------------------------------------------------------------------
+
+LevelSelect_LoadLevel_CharacterSwitcher:
+		btst	#button_C,(Ctrl_1_pressed).w
+		beq.s	.b
+		addq.b	#1,(Player_mode).w
+		sfx		sfx_Switch
+		cmpi.b	#po_Last,(Player_mode).w
+		ble.s	.update
+		clr.b	(Player_mode).w
+		bra.s	.update
+	.b:
+		btst	#button_B,(Ctrl_1_pressed).w
+		beq.w	.ret
+		subq.b	#1,(Player_mode).w
+		sfx		sfx_Switch
+		tst.b	(Player_mode).w
+		bge.s	.update
+		move.b	#po_Last,(Player_mode).w
+	.update:	; this part sucks a lot
+		moveq	#0,d0
+		move.b	(Player_mode).w,d0
+		lsl.w	#2,d0	; if 1, should equal... 4, 8, 12?
+		move.w	d0,d1
+		add.w	d0,d0
+		add.w	d1,d0
+		move.l	.plrIDs(pc,d0.w),(Player_1).w
+		move.w	#$1B0,(Player_1+x_pos).w
+		move.w	#$F0,(Player_1+y_pos).w
+		bset	#0,(Player_1+status).w
+		add.w	#4,d0
+		move.l	.plrIDs(pc,d0.w),d1
+		cmpi.l	#DeleteObject,d1
+		bne.s	.2p
+		move.w	#$19D,(Player_1+x_pos).w
+	.2p:
+		move.l	.plrIDs(pc,d0.w),(Player_2).w
+		move.w	#$18A,(Player_2+x_pos).w
+		move.w	#$F0,(Player_2+y_pos).w
+		add.w	#4,d0
+		move.l	.plrIDs(pc,d0.w),a1
+		lea	(Target_palette_line_3).w,a2
+		jsr	(PalLoad_Line16).w
+		move.l	.plrIDs(pc,d0.w),a1
+		lea	(Normal_palette_line_3).w,a2
+		jmp	(PalLoad_Line16).w
+.plrIDs:
+		dc.l	Obj_CabaretSonic,	Obj_CabaretTails,	Pal_Sonic	; S&T	; 0, 4, 8
+		dc.l	Obj_CabaretSonic,	DeleteObject,		Pal_Sonic	; SA	; 12, 16, 20
+		dc.l	Obj_CabaretTails,	DeleteObject,		Pal_Sonic	; TA	; 24, 28, 32
+		dc.l	Obj_CabaretKnuckles,DeleteObject,		Pal_Knuckles; KA	; 36, 40, 44
+		dc.l	Obj_CabaretKnuckles,Obj_CabaretTails,	Pal_Knuckles; K&T	; 48, 52, 56
+		dc.l	Obj_CabaretMighty,	DeleteObject,		Pal_Mighty	; MA	; 60, 64, 68
+		dc.l	Obj_CabaretMighty,	Obj_CabaretTails,	Pal_Mighty	; M&T	; 72, 76, 80
+	.ret:
+		rts
 
 ; ---------------------------------------------------------------------------
 ; Load Music
@@ -195,7 +229,7 @@ LevelSelect_LoadMusicNumber:
 		move.w	d3,(vLevelSelect_MusicCount).w
 		move.b	(Ctrl_1_pressed).w,d1
 		andi.b	#btnABC,d1
-		beq.s	LevelSelect_LoadLevel_Return
+		beq.w	LevelSelect_LoadLevel_Return
 		move.w	d3,d0
 		addq.w	#bgm__First,d0		; $00 is reserved for silence
 		jmp	(SMPS_QueueSound1).w	; play music

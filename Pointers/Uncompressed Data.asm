@@ -40,5 +40,5 @@ Art_GhzFlower2:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flow
 ; Animated menu elements
 ; ===========================================================================
 
-ArtUnc_CabaretSonic:		binclude "Objects/Cabaret Sonic/Uncompressed Art/Cabaret Sonic.bin"
+ArtUnc_CabaretSonic:		binclude "Objects/Cabaret Characters/Uncompressed Art/Cabaret Sonic.bin"
 	even

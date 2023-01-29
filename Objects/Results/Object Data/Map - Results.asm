@@ -18,8 +18,10 @@ Map_Results:
 		dc.w word_2F378-Map_Results		; 10
 		dc.w word_2F39E-Map_Results		; 11
 		dc.w word_2F3B2-Map_Results		; 12 (Null?)
-		dc.w word_2F3C6-Map_Results		; 13
-		dc.w word_2F3DA-Map_Results		; 14
+		dc.w Results_Sonic-Map_Results		; 13	; Sonic
+		dc.w Results_Tails-Map_Results		; 14	; Tails
+		dc.w Results_Knuckles-Map_Results	; 15	; Knuckles
+		dc.w Results_Mighty-Map_Results		; 16	; Sonic
 word_2F2E0:
 		dc.w 0
 word_2F2E2:
@@ -90,12 +92,21 @@ word_2F3B2:
 		dc.b	0,  $D,	$84,  $6F,   0,	 0
 		dc.b	0,  $D,	$84, $77,   0, $20
 		dc.b	0,   5,	$84, $7F,   0, $40
-word_2F3C6:
+Results_Sonic:
 		dc.w 3
 		dc.b	0,  $D,	$84, $D8,   0,	 1
 		dc.b	0,  $D,	$84, $E0,   0, $21
 		dc.b	0,   1,	$84, $E8,   0, $41
-word_2F3DA:
-		dc.w 2
-		dc.b 0, $D, $86, $E4, 0, 0
-		dc.b 0, 9, $86, $EC, 0,$20
+Results_Tails:	dc.w 2			
+		dc.b	0,  $D,	$84, $D8,   0,	 1
+		dc.b	0,  $D,	$84, $E0,   0, $21
+Results_Knuckles:	dc.w 4			
+		dc.b	0,  $D,	$84, $D8,   0,	 4
+		dc.b	0,  $D,	$84, $E0,   0, $24
+		dc.b	0,  $D,	$84, $E8,   0, $44
+		dc.b	0,   9,	$84, $F0,   0, $64
+Results_Mighty:
+		dc.w 3
+		dc.b	0,  $D,	$84, $D8,   0,	 1
+		dc.b	0,  $D,	$84, $E0,   0, $21
+		dc.b	0,   9,	$84, $E8,   0, $41

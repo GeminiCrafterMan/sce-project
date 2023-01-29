@@ -30,7 +30,19 @@ Obj_LevelResultsInit:
 		movea.l	(a1,d0.w),a1
 		move.w	#tiles_to_bytes($4C8),d2
 		jsr	(Queue_Kos_Module).w
-		lea	(ArtKosM_ResultsSONIC).l,a1				; Select character name to use based on character of course
+	.pickArt:
+		moveq	#0,d0
+		move.b	(Player_1+character_id).w,d0
+		lsl.w	#2,d0
+		movea.l	.playerLUT(pc,d0.w),a1
+		bra.s	.cont
+	.playerLUT:
+		dc.l	ArtKosM_ResultsSONIC
+		dc.l	ArtKosM_ResultsTAILS
+		dc.l	ArtKosM_ResultsKNUCKLES
+		dc.l	ArtKosM_ResultsMIGHTY
+
+	.cont:
 		move.w	#tiles_to_bytes($4D8),d2
 		jsr	(Queue_Kos_Module).w					; Load character name graphics
 		clr.b	(Update_HUD_timer).w					; Ensure timer isn't being updated currently
@@ -174,7 +186,20 @@ loc_2DCE2:
 ; ---------------------------------------------------------------------------
 
 Obj_LevResultsCharName:
+		moveq	#0,d0
+		move.b	(Player_1+character_id).w,d0
+		add.b	d0,mapping_frame(a0)
+		move.b	.posLUT(pc,d0.w),d0
+		add.b	d0,x_pos+1(a0)
+		add.b	d0,$46+1(a0)
+		sub.b	d0,width_pixels(a0)
 		move.l	#Obj_LevResultsGeneral,address(a0)
+		rts
+	.posLUT:
+		dc.b	0
+		dc.b	8
+		dc.b	-48
+		dc.b	-8
 
 Obj_LevResultsGeneral:
 		bsr.s	LevelResults_MoveElement

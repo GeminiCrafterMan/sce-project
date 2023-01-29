@@ -266,20 +266,20 @@ PLCPtr_EndSigns:
 		dc.l ArtUnc_EndSigns>>1, DPLC_EndSigns
 AniRaw_EndSigns1:
 		dc.b	1,   0
-		dc.b	4,   5
-		dc.b	6,   1
-		dc.b	4,   5
-		dc.b	6,   3
-		dc.b	4,   5
-		dc.b	6, arfEnd
+		dc.b	5,   6
+		dc.b	7,   1
+		dc.b	5,   6
+		dc.b	7,   4
+		dc.b	5,   6
+		dc.b	7, arfEnd
 AniRaw_EndSigns2:
 		dc.b	1,   1
-		dc.b	4,   5
-		dc.b	6,   2
-		dc.b	4,   5
-		dc.b	6,   3
-		dc.b	4,   5
-		dc.b	6, arfEnd
+		dc.b	5,   6
+		dc.b	7,   2
+		dc.b	5,   6
+		dc.b	7,   4
+		dc.b	5,   6
+		dc.b	7, arfEnd
 AniRaw_SignpostSparkle:
 		dc.b	1,   1
 		dc.b	2,   3
