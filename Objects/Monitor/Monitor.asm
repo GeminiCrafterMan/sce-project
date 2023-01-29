@@ -380,6 +380,8 @@ Monitor_Give_SuperSonic:
 Monitor_Give_HyperSonic:
 		move.b	#-1,(Super_Sonic_Knux_flag).w		; Hyper
 		music	bgm_SKInvincible
+;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
+;		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w
 ;		bra.s	Monitor_Give_SuperHyper				; runs right into it
 ; ---------------------------------------------------------------------------
 
@@ -388,28 +390,13 @@ Monitor_Give_SuperHyper:
 		move.b	#1,(Super_palette_status).w
 		move.b	#$F,(Palette_timer).w
 		move.w	#60,(Super_frame_count).w
-		move.w	#$800,(Top_speed_P1).w
-		move.w	#$18,(Acceleration_P1).w
-		move.w	#$C0,(Deceleration_P1).w
+		move.b	#$81,(Player_1+object_control).w
 		move.b	#id_Transform,(Player_1+anim).w
-		cmpi.b	#c_Tails,(Player_1+character_id).w
-		bne.s	.notTails
 
-		move.b	#$29,(Player_1+anim).w
-;		move.l	#Obj_SuperTailsBirds,(v_Invincibility_stars).w
-		bra.s	.continued
-; ---------------------------------------------------------------------------
-
-	.notTails:
-;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
-		bhs.s	.continued
+	.continued:
 		move.w	#$A00,(Top_speed_P1).w
 		move.w	#$30,(Acceleration_P1).w
 		move.w	#$100,(Deceleration_P1).w
-;		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w
-
-	.continued:
-		move.b	#$81,(Player_1+object_control).w
 		move.b	#0,(Player_1+invincibility_timer).w
 		bset	#Status_Invincible,status_secondary(a1)
 		sfx	sfx_SuperTransform, 1

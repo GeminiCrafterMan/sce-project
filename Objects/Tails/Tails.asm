@@ -606,36 +606,30 @@ loc_1615A:
 
 Obj_Tails_Tail_AniSelection:
 		dc.b 0,0	; TailsAni_Walk,Run	->
-		dc.b 3		; TailsAni_Roll		-> Directional
-		dc.b 3		; TailsAni_Roll2	-> Directional
+		dc.b 3,3	; TailsAni_Roll,Roll2	-> Directional
 		dc.b 9		; TailsAni_Push		-> Pushing
 		dc.b 1		; TailsAni_Wait		-> Swish
 		dc.b 0		; TailsAni_Balance	-> Blank
 		dc.b 2		; TailsAni_LookUp	-> Flick
 		dc.b 1		; TailsAni_Duck		-> Swish
 		dc.b 7		; TailsAni_Spindash	-> Spindash
-		dc.b 0,0,0	; TailsAni_Dummy1,2,3	->
+		dc.b 0		; TailsAni_MGZHang	->
+		dc.b 0		; TailsAni_Balance2	-> Blank
 		dc.b 8		; TailsAni_Stop		-> Skidding
 		dc.b 0,0	; TailsAni_Float,2	->
 		dc.b 0		; TailsAni_Spring	->
-		dc.b 0		; TailsAni_Hang		->
-		dc.b 0		;
+		dc.b 0		; TailsAni_LZHang	->
 		dc.b 0		; TailsAni_Victory	->
-		dc.b $A		; TailsAni_Hang2	-> Hanging
-		dc.b 0		; TailsAni_Bubble	->
-		dc.b 0,0,0	; TailsAni_Death,2,3	->
-		dc.b 0		; TailsAni_Slide2?	->
-		dc.b 0,0	; TailsAni_Hurt,Slide	->
-		dc.b 0		; TailsAni_Blank	->
-		dc.b 0,0	; TailsAni_Dummy4,5	->
-		dc.b 0		; TailsAni_HaulAss	->
-		dc.b $B,$C	; TailsAni_Fly,2	-> Fly1,2
-		dc.b $B		; TailsAni_Carry	-> Fly1
-		dc.b $C		; TailsAni_Ascend	-> Fly2
-		dc.b $B		; TailsAni_Tired	-> Fly1
-		dc.b 0,0	; TailsAni_Swim,2	->
-		dc.b 0		; TailsAni_Tired2	->
-		dc.b 0		; TailsAni_Tired3	->
+		dc.b $A		; TailsAni_Hang		-> Hanging
+		dc.b 0,0,0,0,0,0,0,0,0		; TailsAni_GetAir,Burnt,Drown,Death,Slide,Hurt,Null	->
+		dc.b $B,$C	; TailsAni_Fly,FlyFast	-> Fly1,2
+		dc.b $B		; TailsAni_FlyHold	-> Fly1
+		dc.b $C		; TailsAni_FlyHoldUp	-> Fly2
+		dc.b $B		; TailsAni_FlyTired	-> Fly1
+		dc.b 0,0	; TailsAni_Swim,SwimFast	->
+		dc.b 0		; TailsAni_SwimHoldTired	->
+		dc.b 0		; TailsAni_SwimTired	->
+	; and a bunch of blanks for good measure
 		dc.b 0
 		dc.b 0
 		dc.b 0
@@ -643,8 +637,7 @@ Obj_Tails_Tail_AniSelection:
 		dc.b 0
 		dc.b 0
 		dc.b 0
-		dc.b 0
-		dc.b 0
+		even
 
 Tails_Tail_Load_PLC:
 		moveq	#0,d0
