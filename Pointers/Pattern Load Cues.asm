@@ -38,7 +38,8 @@ Offs_PLC: offsetTable
 ; ===========================================================================
 
 PLC_Main: plrlistheader
-		plreq ArtTile_StarPost, ArtKosM_EnemyPtsStarPost	; StarPost
+		plreq ArtTile_EnemyScore, ArtKosM_EnemyScore	; Enemy score
+		plreq ArtTile_StarPost, ArtKosM_StarPost	; StarPost
 		plreq ArtTile_Ring_Sparks, ArtKosM_Ring_Sparks	; Rings
 		plreq ArtTile_HUD, ArtKosM_Hud					; HUD
 PLC_Main_end
@@ -61,7 +62,6 @@ PLC_Main2_end
 
 PLC1_DEZ_Misc: plrlistheader
 		plreq ArtTile_Bubbles, ArtKosM_Bubbles
-		plreq $7C0, ArtKosM_WaterWave
 PLC1_DEZ_Misc_end
 
 ; ===========================================================================
@@ -84,7 +84,6 @@ PLC1_GHZ_Misc: plrlistheader
 		plreq ArtTile_PurpleRock, ArtKosM_PurpleRock		; Purple rock
 		plreq ArtTile_SmashableWalls, ArtKosM_SmashableWalls
 		plreq ArtTile_Bubbles, ArtKosM_Bubbles
-		plreq $7C0, ArtKosM_WaterWave
 PLC1_GHZ_Misc_end
 
 ; ===========================================================================
@@ -106,7 +105,6 @@ PLC1_SSLZ_Misc: plrlistheader
 		plreq ArtTile_Bridge,	ArtKosM_SSLZBridge
 		plreq ArtTile_PurpleRock, ArtKosM_SSLZPurpleRock		; Purple rock
 		plreq ArtTile_Bubbles, ArtKosM_Bubbles
-		plreq $7C0, ArtKosM_WaterWave
 PLC1_SSLZ_Misc_end
 
 ; ===========================================================================

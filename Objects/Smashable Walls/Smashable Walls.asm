@@ -32,7 +32,7 @@ Smash_Solid:	; Routine 2
 		move.w	#$20,d3
 		move.w	obX(a0),d4
 		jsr		SolidObject
-		btst	#5,obStatus(a0)	; is Sonic pushing against the wall?
+		btst	#p1_pushing_bit,obStatus(a0)	; is Sonic pushing against the wall?
 		bne.s	.chkroll	; if yes, branch
 
 .donothing:
@@ -40,25 +40,24 @@ Smash_Solid:	; Routine 2
 ; ===========================================================================
 
 .chkroll:
+		lea		(Player_1).w,a1	; a1 = character
 		cmpi.b	#c_Knuckles,character_id(a1)
 		beq.s	.smashAnyway
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	.smashAnyway
 		cmpi.b	#id_Roll,obAnim(a1) ; is Sonic rolling?
+		beq.s	.rolling	; if not, branch
+		cmpi.b	#id_Roll2,obAnim(a1) ; is Sonic rolling?
 		bne.s	.donothing	; if not, branch
-	.smashAnyway:
+	.rolling:
 		move.w	smash_speed(a0),d0
 		bpl.s	.chkspeed
 		neg.w	d0
 
 .chkspeed:
-		cmpi.b	#c_Knuckles,character_id(a1)
-		beq.s	.bitchISaidSmashAnyway
-		tst.b	(Super_Sonic_Knux_flag).w
-		bne.s	.bitchISaidSmashAnyway
 		cmpi.w	#$480,d0	; is Sonic's speed $480 or higher?
 		bcs.w	.donothing	; if not, branch
-	.bitchISaidSmashAnyway:
+	.smashAnyway:
 		move.w	smash_speed(a0),obVelX(a1)
 		addq.w	#4,obX(a1)
 		lea	(Smash_FragSpd1).l,a4 ;	use fragments that move	right

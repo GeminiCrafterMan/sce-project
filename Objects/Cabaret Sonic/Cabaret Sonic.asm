@@ -3,7 +3,7 @@
 ; ---------------------------------------------------------------------------
 
 Obj_CabaretSonic:
-		move.w	#$1AC,x_pos(a0)
+		move.w	#$1B0,x_pos(a0)
 		move.w	#$F0,y_pos(a0)
 		move.l	#Map_CabaretSonic,mappings(a0)
 		move.w	#$100,priority(a0)
@@ -22,27 +22,39 @@ Obj_CabaretSonic:
 		jmp		DisplaySprite
 
 Obj_CabaretTails:
-		move.w	#$18C,x_pos(a0)
+		move.l	#Obj_CabaretTails_Tail,(v_FollowObject_P2).w
+		move.w	a0,(v_FollowObject_P2+parent).w
+		move.w	#$18A,x_pos(a0)
 		move.w	#$F0,y_pos(a0)
 		move.l	#Map_CabaretSonic,mappings(a0)
 		move.w	#$100,priority(a0)
 		move.w	#make_art_tile(ArtTile_Tails,2,0),art_tile(a0)
-		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
-		beq.s	.noMusic
-		move.b	#3,anim(a0)	; Waving
+		move.b	#2,anim(a0)	; Waving
 		bra.s	Obj_CabaretSonic.display
-	.noMusic:
-		move.b	#2,anim(a0)	; Waiting
-		bra.s	Obj_CabaretSonic.display
+
+Obj_CabaretTails_Tail:
+		move.l	#Map_TailsTails,mappings(a0)
+		move.w	#make_art_tile(ArtTile_FollowObject_P2,2,0),art_tile(a0)
+		lea	(Player_2).w,a2	; Is Parent in S2
+		move.w	x_pos(a2),x_pos(a0)
+		subq.w	#2,x_pos(a0)
+		move.w	y_pos(a2),y_pos(a0)
+		addq.w	#4,y_pos(a0)
+		move.w	priority(a2),priority(a0)
+		move.b	#1,anim(a0)
+		lea		(AniTails_Tail).l,a1
+		jsr		AnimateSprite
+		jsr		Tails_Tail_Load_PLC
+		jmp		DisplaySprite
 
 CabaretSonic_Load_PLC:
 		moveq	#0,d0
 		move.b	mapping_frame(a0),d0
 
 CabaretSonic_Load_PLC2:
-		cmp.b	(Player_prev_frame).w,d0
+		cmp.b	previous_frame(a0),d0
 		beq.s	+
-		move.b	d0,(Player_prev_frame).w
+		move.b	d0,previous_frame(a0)
 		lea	(PLC_CabaretSonic).l,a2
 		add.w	d0,d0
 		adda.w	(a2,d0.w),a2

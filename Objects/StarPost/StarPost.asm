@@ -22,7 +22,7 @@ off_2CFB6: offsetTable
 loc_2CFC0:
 		addq.b	#2,routine(a0)
 		move.l	#Map_StarPost,mappings(a0)
-		move.w	#make_art_tile(ArtTile_StarPost+8,0,0),art_tile(a0)
+		move.w	#make_art_tile(ArtTile_StarPost,0,0),art_tile(a0)
 		move.b	#4,render_flags(a0)
 		move.w	#bytes_to_word(80/2,16/2),height_pixels(a0)		; set height and width
 		move.w	#$280,priority(a0)
@@ -208,7 +208,7 @@ sub_2D3C8:
 		bne.s	+
 		move.l	address(a0),address(a1)
 		move.l	#Map_StarpostStars,mappings(a1)
-		move.w	#make_art_tile(ArtTile_StarPost+8,0,0),art_tile(a1)
+		move.w	#make_art_tile(ArtTile_StarPost,0,0),art_tile(a1)
 		move.b	#4,render_flags(a1)
 		move.b	#8,routine(a1)
 		move.w	x_pos(a0),d0
@@ -351,4 +351,3 @@ loc_2D5C0:
 		include "Objects/StarPost/Object Data/Anim - Starpost.asm"
 		include "Objects/StarPost/Object Data/Map - Starpost.asm"
 		include "Objects/StarPost/Object Data/Map - Starpost Stars.asm"
-		include "Objects/StarPost/Object Data/Map - Enemy Points.asm"

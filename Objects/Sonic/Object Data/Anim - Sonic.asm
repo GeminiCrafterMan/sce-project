@@ -2,8 +2,8 @@
 ; Sonic Animation Script
 ; ---------------------------------------------------------------------------
 
-AniSonic:
-Ani_Sonic: 				offsetTable
+Ani_Sonic:
+AniSonic: 				offsetTable
 SonAni_Walk_ptr:		offsetTableEntry.w SonAni_Walk
 SonAni_Run_ptr:			offsetTableEntry.w SonAni_Run
 SonAni_Roll_ptr:		offsetTableEntry.w SonAni_Roll
@@ -14,7 +14,6 @@ SonAni_Balance_ptr:		offsetTableEntry.w SonAni_Balance
 SonAni_LookUp_ptr:		offsetTableEntry.w SonAni_LookUp
 SonAni_Duck_ptr:		offsetTableEntry.w SonAni_Duck
 SonAni_Spindash_ptr:	offsetTableEntry.w SonAni_Spindash
-SonAni_Whistle_ptr:		offsetTableEntry.w SonAni_Whistle
 SonAni_MGZHang_ptr:		offsetTableEntry.w SonAni_MGZHang
 SonAni_Balance2_ptr:	offsetTableEntry.w SonAni_Balance2
 SonAni_Stop_ptr:		offsetTableEntry.w SonAni_Stop
@@ -23,15 +22,25 @@ SonAni_Float2_ptr:		offsetTableEntry.w SonAni_Float2
 SonAni_Spring_ptr:		offsetTableEntry.w SonAni_Spring
 SonAni_LZHang_ptr:		offsetTableEntry.w SonAni_LZHang
 SonAni_Victory_ptr:		offsetTableEntry.w SonAni_Victory
+SonAni_Hang_ptr:		offsetTableEntry.w SonAni_Hang
 SonAni_GetAir_ptr:		offsetTableEntry.w SonAni_GetAir
 SonAni_Burnt_ptr:		offsetTableEntry.w SonAni_Burnt
 SonAni_Drown_ptr:		offsetTableEntry.w SonAni_Drown
 SonAni_Death_ptr:		offsetTableEntry.w SonAni_Death
+SonAni_Slide_ptr:		offsetTableEntry.w SonAni_Slide
 SonAni_Hurt_ptr:		offsetTableEntry.w SonAni_Hurt
 SonAni_Null_ptr:		offsetTableEntry.w SonAni_Null
-SonAni_Run2_ptr:		offsetTableEntry.w SonAni_Run2
-SonAni_Transform_ptr:	offsetTableEntry.w SonAni_Transform
 SonAni_Mach_ptr:		offsetTableEntry.w SonAni_Mach
+SonAni_Transform_ptr:	offsetTableEntry.w SonAni_Transform
+SonAni_Ability1_ptr:	offsetTableEntry.w SonAni_Whistle
+SonAni_Ability2_ptr:	offsetTableEntry.w SonAni_Null
+SonAni_Ability3_ptr:	offsetTableEntry.w SonAni_Null
+SonAni_Ability4_ptr:	offsetTableEntry.w SonAni_Null
+SonAni_Ability5_ptr:	offsetTableEntry.w SonAni_Null
+SonAni_Ability6_ptr:	offsetTableEntry.w SonAni_Null
+SonAni_Ability7_ptr:	offsetTableEntry.w SonAni_Null
+SonAni_Ability8_ptr:	offsetTableEntry.w SonAni_Null
+SonAni_Ability9_ptr:	offsetTableEntry.w SonAni_Null
 
 SonAni_Walk:		dc.b  $FF, frS_Walk17,	frS_Walk18,   frS_Walk11,   frS_Walk12,	 frS_Walk13,   frS_Walk14,   frS_Walk15,	frS_Walk16, afEnd
 SonAni_Run:			dc.b  $FF, frS_Run11,	frS_Run12, frS_Run13, frS_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
@@ -48,9 +57,6 @@ SonAni_Balance:		dc.b	7, frS_Balance21,	frS_Balance22, frS_Balance23, afEnd
 SonAni_LookUp:		dc.b	5, frS_LookUp1,	frS_LookUp2, afBack,   1
 SonAni_Duck:		dc.b	5, frS_Duck1,	frS_Duck2, afBack,   1
 SonAni_Spindash:	dc.b	0, frS_Spindash1,	frS_Spindash2, frS_Spindash1, frS_Spindash3, frS_Spindash1, frS_Spindash4, frS_Spindash1, frS_Spindash5, frS_Spindash1,	frS_Spindash6, afEnd
-
-SonAni_Whistle:		dc.b	9, frS_Idle1,	frS_Whistle1, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle3,	frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3,	frS_Whistle3, frS_Whistle3
-					dc.b  frS_Whistle3, afChange,   id_Walk
 SonAni_MGZHang:		dc.b   $F, frS_MGZHang, afEnd
 SonAni_Balance2:	dc.b	5, frS_Balance11,	frS_Balance12, frS_Balance13, afEnd
 
@@ -60,19 +66,22 @@ SonAni_Float2:		dc.b	7, frS_Float1,	frS_Float2, frS_Float3, frS_Float4, frS_Floa
 SonAni_Spring:		dc.b  	2, frS_Spring1,	frS_Spring2, afEnd
 SonAni_LZHang:		dc.b	1, frS_LZHang1,	frS_LZHang2, afEnd
 SonAni_Victory:		dc.b	7, frS_Victory1,	frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory2, frS_Victory3,	frS_Victory4, frS_Victory3, afBack,	 4
+SonAni_Hang:		dc.b  $13, frS_Hang1,	frS_Hang2,	frS_Hang3,	frS_Hang2,	afEnd
 SonAni_GetAir:		dc.b   $B, frS_GetAir,	frS_GetAir,   frS_Walk13,   frS_Walk14, afChange,   id_Walk
 SonAni_Burnt:		dc.b  $20, frS_Burnt, afEnd
 SonAni_Drown:		dc.b  $20, frS_Drown, afEnd
 SonAni_Death:		dc.b  $20, frS_Death, afEnd
+SonAni_Slide:		dc.b	9, frS_Slide1, frS_Slide2, afBack, 1
 SonAni_Hurt:		dc.b	9, frS_Hurt1, frS_Hurt2, afBack, 1
 SonAni_Null:		dc.b  $77,   frS_Null, afEnd
-SonAni_Run2:		dc.b	2, frS_Run11,	frS_Run12, frS_Run13, frS_Run14, afEnd
-SonAni_Transform:	dc.b	2, frS_Transform1, frS_Transform1, frS_Transform2, frS_Transform2, frS_Transform3, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, afChange,   id_Walk
 SonAni_Mach:		dc.b  $FF, frS_Mach11,	frS_Mach12,	frS_Mach13,	frS_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
+SonAni_Transform:	dc.b	2, frS_Transform1, frS_Transform1, frS_Transform2, frS_Transform2, frS_Transform3, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, afChange,   id_Walk
+SonAni_Whistle:		dc.b	9, frS_Idle1,	frS_Whistle1, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle3,	frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3,	frS_Whistle3, frS_Whistle3
+					dc.b  frS_Whistle3, afChange,   id_Walk
 	even
 
-AniSuperSonic:
-Ani_SuperSonic: offsetTable
+Ani_SuperSonic:
+AniSuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Walk
 		offsetTableEntry.w SonAni_Run
 		offsetTableEntry.w SonAni_Roll
@@ -83,7 +92,6 @@ Ani_SuperSonic: offsetTable
 		offsetTableEntry.w SonAni_LookUp
 		offsetTableEntry.w SonAni_Duck
 		offsetTableEntry.w SonAni_Spindash
-		offsetTableEntry.w SonAni_Whistle
 		offsetTableEntry.w SonAni_MGZHang
 		offsetTableEntry.w SonAni_Balance2
 		offsetTableEntry.w SonAni_Stop
@@ -92,48 +100,67 @@ Ani_SuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Spring
 		offsetTableEntry.w SonAni_LZHang
 		offsetTableEntry.w SonAni_Victory
+		offsetTableEntry.w SonAni_Hang
 		offsetTableEntry.w SonAni_GetAir
 		offsetTableEntry.w SonAni_Burnt
 		offsetTableEntry.w SonAni_Drown
 		offsetTableEntry.w SonAni_Death
+		offsetTableEntry.w SonAni_Slide
 		offsetTableEntry.w SonAni_Hurt
 		offsetTableEntry.w SonAni_Null
-		offsetTableEntry.w SonAni_Run2
-		offsetTableEntry.w SonAni_Transform
 		offsetTableEntry.w SonAni_Mach
+		offsetTableEntry.w SonAni_Transform
+		offsetTableEntry.w SonAni_Whistle
+		offsetTableEntry.w SonAni_Null
+		offsetTableEntry.w SonAni_Null
+		offsetTableEntry.w SonAni_Null
+		offsetTableEntry.w SonAni_Null
+		offsetTableEntry.w SonAni_Null
+		offsetTableEntry.w SonAni_Null
+		offsetTableEntry.w SonAni_Null
+		offsetTableEntry.w SonAni_Null
 
 SupSonAni_Wait:		dc.b    7, frS_Idle1, frS_Idle2, frS_Idle3, frS_Idle2, afEnd
 SupSonAni_Balance:	dc.b    9, frS_Balance11, frS_Balance12, frS_Balance13, frS_Balance12, afEnd
 	even
 
-id_Walk:			equ	(SonAni_Walk_ptr-Ani_Sonic)/2
-id_Run:				equ	(SonAni_Run_ptr-Ani_Sonic)/2
-id_Roll:			equ	(SonAni_Roll_ptr-Ani_Sonic)/2
-id_Roll2:			equ	(SonAni_Roll2_ptr-Ani_Sonic)/2
-id_Push:			equ	(SonAni_Push_ptr-Ani_Sonic)/2
-id_Wait:			equ	(SonAni_Wait_ptr-Ani_Sonic)/2
-id_Balance:			equ	(SonAni_Balance_ptr-Ani_Sonic)/2
-id_LookUp:			equ	(SonAni_LookUp_ptr-Ani_Sonic)/2
-id_Duck:			equ	(SonAni_Duck_ptr-Ani_Sonic)/2
-id_Spindash:		equ	(SonAni_Spindash_ptr-Ani_Sonic)/2
-id_Whistle:			equ	(SonAni_Whistle_ptr-Ani_Sonic)/2
-id_MGZHang:			equ	(SonAni_MGZHang_ptr-Ani_Sonic)/2
-id_Balance2:		equ	(SonAni_Balance2_ptr-Ani_Sonic)/2
-id_Stop:			equ	(SonAni_Stop_ptr-Ani_Sonic)/2
-id_Float1:			equ	(SonAni_Float1_ptr-Ani_Sonic)/2
-id_Float2:			equ	(SonAni_Float2_ptr-Ani_Sonic)/2
-id_Spring:			equ	(SonAni_Spring_ptr-Ani_Sonic)/2
-id_LZHang:			equ	(SonAni_LZHang_ptr-Ani_Sonic)/2
-id_Victory:			equ	(SonAni_Victory_ptr-Ani_Sonic)/2
-id_GetAir:			equ	(SonAni_GetAir_ptr-Ani_Sonic)/2
-id_Burnt:			equ	(SonAni_Burnt_ptr-Ani_Sonic)/2
-id_Drown:			equ	(SonAni_Drown_ptr-Ani_Sonic)/2
-id_Death:			equ	(SonAni_Death_ptr-Ani_Sonic)/2
-id_Hurt:			equ	(SonAni_Hurt_ptr-Ani_Sonic)/2
-id_Null:			equ	(SonAni_Null_ptr-Ani_Sonic)/2
-id_Run2:			equ	(SonAni_Run2_ptr-Ani_Sonic)/2
-id_Transform:		equ	(SonAni_Transform_ptr-Ani_Sonic)/2
-id_Mach:			equ	(SonAni_Mach_ptr-Ani_Sonic)/2
+id_Walk:			equ	(SonAni_Walk_ptr-AniSonic)/2
+id_Run:				equ	(SonAni_Run_ptr-AniSonic)/2
+id_Roll:			equ	(SonAni_Roll_ptr-AniSonic)/2
+id_Roll2:			equ	(SonAni_Roll2_ptr-AniSonic)/2
+id_Push:			equ	(SonAni_Push_ptr-AniSonic)/2
+id_Wait:			equ	(SonAni_Wait_ptr-AniSonic)/2
+id_Balance:			equ	(SonAni_Balance_ptr-AniSonic)/2
+id_LookUp:			equ	(SonAni_LookUp_ptr-AniSonic)/2
+id_Duck:			equ	(SonAni_Duck_ptr-AniSonic)/2
+id_Spindash:		equ	(SonAni_Spindash_ptr-AniSonic)/2
+id_MGZHang:			equ	(SonAni_MGZHang_ptr-AniSonic)/2
+id_Balance2:		equ	(SonAni_Balance2_ptr-AniSonic)/2
+id_Stop:			equ	(SonAni_Stop_ptr-AniSonic)/2
+id_Float1:			equ	(SonAni_Float1_ptr-AniSonic)/2
+id_Float2:			equ	(SonAni_Float2_ptr-AniSonic)/2
+id_Spring:			equ	(SonAni_Spring_ptr-AniSonic)/2
+id_LZHang:			equ	(SonAni_LZHang_ptr-AniSonic)/2
+id_Victory:			equ	(SonAni_Victory_ptr-AniSonic)/2
+id_Hang:			equ	(SonAni_Hang_ptr-AniSonic)/2
+id_GetAir:			equ	(SonAni_GetAir_ptr-AniSonic)/2
+id_Burnt:			equ	(SonAni_Burnt_ptr-AniSonic)/2
+id_Drown:			equ	(SonAni_Drown_ptr-AniSonic)/2
+id_Death:			equ	(SonAni_Death_ptr-AniSonic)/2
+id_Slide:			equ	(SonAni_Slide_ptr-AniSonic)/2
+id_Hurt:			equ	(SonAni_Hurt_ptr-AniSonic)/2
+id_Null:			equ	(SonAni_Null_ptr-AniSonic)/2
+id_Mach:			equ	(SonAni_Mach_ptr-AniSonic)/2
+id_Transform:		equ	(SonAni_Transform_ptr-AniSonic)/2
+id_Ability1:		equ	(SonAni_Ability1_ptr-AniSonic)/2
+id_Ability2:		equ	(SonAni_Ability2_ptr-AniSonic)/2
+id_Ability3:		equ	(SonAni_Ability3_ptr-AniSonic)/2
+id_Ability4:		equ	(SonAni_Ability4_ptr-AniSonic)/2
+id_Ability5:		equ	(SonAni_Ability5_ptr-AniSonic)/2
+id_Ability6:		equ	(SonAni_Ability6_ptr-AniSonic)/2
+id_Ability7:		equ	(SonAni_Ability7_ptr-AniSonic)/2
+id_Ability8:		equ	(SonAni_Ability8_ptr-AniSonic)/2
+id_Ability9:		equ	(SonAni_Ability9_ptr-AniSonic)/2
 
 ; Frame IDs
 	phase 0 ; Reset ds.b value to 0

@@ -52,7 +52,12 @@ Obj_MonitorMain:
 		move.w	x_pos(a0),d4
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
-		bsr.s	SolidObject_Monitor_SonicKnux
+		movem.l	d1-d4,-(sp)
+		bsr.w	SolidObject_Monitor_SonicKnux
+		movem.l	(sp)+,d1-d4
+		lea	(Player_2).w,a1
+		moveq	#p2_standing_bit,d6
+		bsr.w	SolidObject_Monitor_Tails
 		jsr	Add_SpriteToCollisionResponseList
 		lea	Ani_Monitor(pc),a1
 		jsr	(Animate_Sprite).w
@@ -114,14 +119,32 @@ locret_1D694:
 
 ; =============== S U B R O U T I N E =======================================
 
+
 SolidObject_Monitor_SonicKnux:
-		btst	d6,status(a0)							; Is Sonic/Knux standing on the monitor?
-		bne.s	Monitor_ChkOverEdge				; If so, branch
-		cmpi.b	#id_Roll,anim(a1)					; Is Sonic/Knux in their rolling animation?
-		beq.s	locret_1D694						; If so, return
-		jmp	SolidObject_cont
+		btst	d6,status(a0)		; Is Sonic/Knux standing on the monitor?
+		bne.s	Monitor_ChkOverEdge	; If so, branch
+		cmpi.b	#id_Roll,anim(a1)		; Is Sonic/Knux in their rolling animation?
+		beq.s	.ret		; If so, return
+		cmpi.b	#c_Knuckles,character_id(a1)	; Is character Knuckles?
+		jne		SolidObject_cont		; If not, branch
+		cmpi.b	#1,double_jump_flag(a1)	; Is Knuckles gliding?
+		beq.s	.ret		; If so, return
+		cmpi.b	#3,double_jump_flag(a1)	; Is Knuckles sliding after gliding?
+		jne		SolidObject_cont		; If not, branch
+
+	.ret:
+		rts
+; End of function SolidObject_Monitor_SonicKnux
+
 
 ; =============== S U B R O U T I N E =======================================
+
+
+SolidObject_Monitor_Tails:
+		btst	d6,status(a0)		; Is Tails standing on the monitor?
+		bne.s	Monitor_ChkOverEdge	; If so, branch
+		jmp		SolidObject_cont
+; ---------------------------------------------------------------------------
 
 Monitor_ChkOverEdge:
 		move.w	d1,d2
@@ -214,8 +237,9 @@ off_1D7C8: offsetTable
 
 loc_1D7CE:
 		addq.b	#2,routine(a0)
-		move.w	#make_art_tile(ArtTile_Monitors,0,0),art_tile(a0)
-		ori.b	#$24,render_flags(a0)
+		move.l	#Map_MonitorContents,mappings(a0)
+		move.w	#make_art_tile(ArtTile_Monitors,0,1),art_tile(a0)
+		ori.b	#4,render_flags(a0)
 		move.w	#$180,priority(a0)
 		move.b	#16/2,width_pixels(a0)
 		move.w	#-$300,y_vel(a0)
@@ -228,11 +252,6 @@ loc_1D7FC:
 		move.b	anim(a0),d0
 		addq.b	#1,d0
 		move.b	d0,mapping_frame(a0)
-		lea	Map_Monitor(pc),a1
-		add.b	d0,d0
-		adda.w	(a1,d0.w),a1
-		addq.w	#2,a1
-		move.l	a1,mappings(a0)
 
 loc_1D81A:
 		bsr.s	sub_1D820
@@ -298,9 +317,9 @@ Monitor_Give_Super_Sneakers:
 		bne.s	Monitor_Give_Rings
 		bset	#Status_SpeedShoes,status_secondary(a1)
 		move.b	#150,speed_shoes_timer(a1)
-		move.w	#$C00,(Sonic_Knux_top_speed).w
-		move.w	#$18,(Sonic_Knux_acceleration).w
-		move.w	#$80,(Sonic_Knux_deceleration).w
+		move.w	#$C00,(Top_speed_P1).w
+		move.w	#$18,(Acceleration_P1).w
+		move.w	#$80,(Deceleration_P1).w
 		music	bgm_Speedup,1						; speed up the music
 ; ---------------------------------------------------------------------------
 
@@ -369,9 +388,9 @@ Monitor_Give_SuperHyper:
 		move.b	#1,(Super_palette_status).w
 		move.b	#$F,(Palette_timer).w
 		move.w	#60,(Super_frame_count).w
-		move.w	#$800,(Sonic_Knux_top_speed).w
-		move.w	#$18,(Sonic_Knux_acceleration).w
-		move.w	#$C0,(Sonic_Knux_deceleration).w
+		move.w	#$800,(Top_speed_P1).w
+		move.w	#$18,(Acceleration_P1).w
+		move.w	#$C0,(Deceleration_P1).w
 		move.b	#id_Transform,(Player_1+anim).w
 		cmpi.b	#c_Tails,(Player_1+character_id).w
 		bne.s	.notTails
@@ -384,9 +403,9 @@ Monitor_Give_SuperHyper:
 	.notTails:
 ;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
 		bhs.s	.continued
-		move.w	#$A00,(Sonic_Knux_top_speed).w
-		move.w	#$30,(Sonic_Knux_acceleration).w
-		move.w	#$100,(Sonic_Knux_deceleration).w
+		move.w	#$A00,(Top_speed_P1).w
+		move.w	#$30,(Acceleration_P1).w
+		move.w	#$100,(Deceleration_P1).w
 ;		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w
 
 	.continued:
@@ -397,3 +416,4 @@ Monitor_Give_SuperHyper:
 
 		include "Objects/Monitor/Object Data/Anim - Monitor.asm"
 		include "Objects/Monitor/Object Data/Map - Monitor.asm"
+		include "Objects/Monitor/Object Data/Map - Monitor Contents.asm"

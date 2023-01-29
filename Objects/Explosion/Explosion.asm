@@ -116,7 +116,7 @@ loc_1E758:
 
 Obj_EnemyScore:
 		move.l	#Map_EnemyScore,mappings(a0)
-		move.w	#make_art_tile(ArtTile_StarPost,0,1),art_tile(a0)
+		move.w	#make_art_tile(ArtTile_EnemyScore,0,1),art_tile(a0)
 		move.b	#4,render_flags(a0)
 		move.w	#$80,priority(a0)
 		move.b	#16/2,width_pixels(a0)
@@ -131,3 +131,4 @@ Obj_EnemyScore:
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Explosion/Object Data/Map - Explosion.asm"
+		include "Objects/Explosion/Object Data/Map - Enemy Score.asm"

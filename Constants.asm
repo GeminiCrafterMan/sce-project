@@ -199,96 +199,97 @@ next_object =				object_size
 ; Universally followed object conventions:
 ; ---------------------------------------------------------------------------
 
-id =						  0 ; long
-address =				  id ; long
-render_flags =		 	  4 ; bitfield ; refer to SCHG for details
-height_pixels =			  6 ; byte
-width_pixels =		 	  7 ; byte
-priority =		 	 	  8 ; word ; in units of $80
-art_tile =		 		$A ; word ; PCCVH AAAAAAAAAAA ; P = priority, CC = palette line, V = y-flip; H = x-flip, A = starting cell index of art
-mappings =				$C ; long
-x_pos =					$10 ; word, or long when extra precision is required
-x_sub =					x_pos+2 ; word
-y_pos =					$14 ; word, or long when extra precision is required
-y_sub =					y_pos+2 ; word
-mapping_frame =			$22 ; byte
+id =						0 ; long
+address =					id ; long
+render_flags =				4 ; bitfield ; refer to SCHG for details
+height_pixels =				6 ; byte
+width_pixels =				7 ; byte
+priority =					8 ; word ; in units of $80
+art_tile =					$A ; word ; PCCVH AAAAAAAAAAA ; P = priority, CC = palette line, V = y-flip; H = x-flip, A = starting cell index of art
+mappings =					$C ; long
+x_pos =						$10 ; word, or long when extra precision is required
+x_sub =						x_pos+2 ; word
+y_pos =						$14 ; word, or long when extra precision is required
+y_sub =						y_pos+2 ; word
+mapping_frame =				$22 ; byte
+previous_frame =			$48	; byte
 
 ; ---------------------------------------------------------------------------
 ; Conventions followed by most objects:
 ; ---------------------------------------------------------------------------
 
-routine =		 	 	    	    5 ; byte
-x_vel =					$18 ; word
-y_vel =					$1A ; word
-y_radius =				$1E ; byte ; collision height / 2
-x_radius =				$1F ; byte ; collision width / 2
-anim =					$20 ; byte
-next_anim =				$21 ; byte ; when this isn't equal to anim the animation restarts
-prev_anim =				$21 ; byte ; when this isn't equal to anim the animation restarts
-anim_frame =			$23 ; byte
-anim_frame_timer =		$24 ; byte
-angle =					$26 ; byte ; angle about axis into plane of the screen (00 = vertical, 360 degrees = 256)
+routine =					5 ; byte
+x_vel =						$18 ; word
+y_vel =						$1A ; word
+y_radius =					$1E ; byte ; collision height / 2
+x_radius =					$1F ; byte ; collision width / 2
+anim =						$20 ; byte
+next_anim =					$21 ; byte ; when this isn't equal to anim the animation restarts
+prev_anim =					$21 ; byte ; when this isn't equal to anim the animation restarts
+anim_frame =				$23 ; byte
+anim_frame_timer =			$24 ; byte
+angle =						$26 ; byte ; angle about axis into plane of the screen (00 = vertical, 360 degrees = 256)
 status =					$2A ; bitfield ; refer to SCHG for details
 
 ; ---------------------------------------------------------------------------
 ; Conventions followed by many objects but not Sonic/Tails/Knuckles:
 ; ---------------------------------------------------------------------------
 
-x_pixel =				x_pos ; word ; x-coordinate for objects using screen positioning
+x_pixel =					x_pos ; word ; x-coordinate for objects using screen positioning
 y_pixel =					y_pos ; word ; y-coordinate for objects using screen positioning
 collision_flags =			$28 ; byte ; TT SSSSSS ; TT = collision type, SSSSSS = size
 collision_property =		$29 ; byte ; usage varies, bosses use it as a hit counter
 shield_reaction =			$2B ; byte ; bit 3 = bounces off shield, bit 4 = negated by fire shield, bit 5 = negated by lightning shield, bit 6 = negated by bubble shield
-subtype =				$2C ; byte
-wait =					$2E ; word
+subtype =					$2C ; byte
+wait =						$2E ; word
 aniraw =					$30 ; long
-jump =					$34 ; long
-count =					$39 ; byte
+jump =						$34 ; long
+count =						$39 ; byte
 ros_bit =					$3B ; byte ; the bit to be cleared when an object is destroyed if the ROS flag is set
-ros_addr =				$3C ; word ; the RAM address whose bit to clear when an object is destroyed if the ROS flag is set
-routine_secondary =		$3C ; byte ; used by monitors for this purpose at least
+ros_addr =					$3C ; word ; the RAM address whose bit to clear when an object is destroyed if the ROS flag is set
+routine_secondary =			$3C ; byte ; used by monitors for this purpose at least
 vram_art =   				$40 ; word ; address of art in VRAM (same as art_tile * $20)
 parent =					$42 ; word ; address of the object that owns or spawned this one, if applicable
-child_dx = 				$42 ; byte ; X offset of child relative to parent
-child_dy = 				$43 ; byte ; Y offset of child relative to parent
-parent4 = 				$44 ; word
-parent3 = 				$46 ; word ; parent of child objects
-parent2 =				$48 ; word ; several objects use this instead
-respawn_addr =			$48 ; word ; the address of this object's entry in the respawn table
+child_dx = 					$42 ; byte ; X offset of child relative to parent
+child_dy = 					$43 ; byte ; Y offset of child relative to parent
+parent4 = 					$44 ; word
+parent3 = 					$46 ; word ; parent of child objects
+parent2 =					$48 ; word ; several objects use this instead
+respawn_addr =				$48 ; word ; the address of this object's entry in the respawn table
 
 ; ---------------------------------------------------------------------------
 ; Conventions specific to Sonic/Tails/Knuckles:
 ; ---------------------------------------------------------------------------
 
 ground_vel =				$1C ; word ; overall velocity along ground, not updated when in the air
-double_jump_property =	$25 ; byte ; remaining frames of flight / 2 for Tails, gliding-related for Knuckles
+double_jump_property =		$25 ; byte ; remaining frames of flight / 2 for Tails, gliding-related for Knuckles
 flip_angle =				$27 ; byte ; angle about horizontal axis (360 degrees = 256)
-status_secondary =		$2B ; byte ; see SCHG for details
-air_left =				$2C ; byte
-flip_type =				$2D ; byte ; bit 7 set means flipping is inverted, lower bits control flipping type
+status_secondary =			$2B ; byte ; see SCHG for details
+air_left =					$2C ; byte
+flip_type =					$2D ; byte ; bit 7 set means flipping is inverted, lower bits control flipping type
 object_control =			$2E ; byte ; bit 0 set means character can jump out, bit 7 set means he can't
-double_jump_flag =		$2F ; byte ; meaning depends on current character, see SCHG for details
+double_jump_flag =			$2F ; byte ; meaning depends on current character, see SCHG for details
 flips_remaining =			$30 ; byte
 flip_speed =				$31 ; byte
-move_lock =				$32 ; word ; horizontal control lock, counts down to 0
-invulnerability_timer =	$34 ; byte ; decremented every frame
+move_lock =					$32 ; word ; horizontal control lock, counts down to 0
+invulnerability_timer =		$34 ; byte ; decremented every frame
 invincibility_timer =		$35 ; byte ; decremented every 8 frames
-speed_shoes_timer =		$36 ; byte ; decremented every 8 frames
+speed_shoes_timer =			$36 ; byte ; decremented every 8 frames
 status_tertiary =			$37 ; byte ; see SCHG for details
-character_id =			$38 ; byte ; 0 for Sonic, 1 for Tails, 2 for Knuckles
+character_id =				$38 ; byte ; 0 for Sonic, 1 for Tails, 2 for Knuckles
 scroll_delay_counter =		$39 ; byte ; incremented each frame the character is looking up/down, camera starts scrolling when this reaches 120
-next_tilt =				$3A ; byte ; angle on ground in front of character
-tilt =					$3B ; byte ; angle on ground
+next_tilt =					$3A ; byte ; angle on ground in front of character
+tilt =						$3B ; byte ; angle on ground
 stick_to_convex =			$3C ; byte ; used to make character stick to convex surfaces such as the rotating discs in CNZ
 spin_dash_flag =			$3D ; byte ; bit 1 indicates spin dash, bit 7 indicates forced roll
-spin_dash_counter =		$3E ; word
-restart_timer =			$3E ; word
-jumping =				$40 ; byte
-interact =				$42 ; word ; RAM address of the last object the character stood on
-default_y_radius =		$44 ; byte ; default value of y_radius
-default_x_radius =		$45 ; byte ; default value of x_radius
-top_solid_bit =			$46 ; byte ; the bit to check for top solidity (either $C or $E)
-lrb_solid_bit =			$47 ; byte ; the bit to check for left/right/bottom solidity (either $D or $F)
+spin_dash_counter =			$3E ; word
+restart_timer =				$3E ; word
+jumping =					$40 ; byte
+interact =					$42 ; word ; RAM address of the last object the character stood on
+default_y_radius =			$44 ; byte ; default value of y_radius
+default_x_radius =			$45 ; byte ; default value of x_radius
+top_solid_bit =				$46 ; byte ; the bit to check for top solidity (either $C or $E)
+lrb_solid_bit =				$47 ; byte ; the bit to check for left/right/bottom solidity (either $D or $F)
 
 ; ---------------------------------------------------------------------------
 ; Conventions followed by some/most bosses:
@@ -466,15 +467,18 @@ ArtTile_Spikes				= $484
 ArtTile_Spring				= $494
 ArtTile_Monitors			= $4CC
 ArtTile_Bubbles				= $54B
-ArtTile_StarPost			= $5E4
+ArtTile_EnemyScore			= $5E8
+ArtTile_StarPost			= $5EC
 ArtTile_Sonic				= $680
-ArtTile_Tails				= $7D0	; reeeeally not built for this...
-ArtTile_Tails_Tails			= $7E0
+ArtTile_FollowObject_P1		= $690
+ArtTile_WaterWave			= $6B4
 ArtTile_Ring				= $6BC
 ArtTile_Ring_Sparks			= ArtTile_Ring+4
 ArtTile_HUD					= $6C4
 ArtTile_Shield				= $79C
 ArtTile_Shield_Sparks		= ArtTile_Shield+$1F
+ArtTile_Tails				= $7C0	; reeeeally not built for this...
+ArtTile_FollowObject_P2		= $7D0
 ArtTile_DashDust			= $7F0
 
 ; ---------------------------------------------------------------------------

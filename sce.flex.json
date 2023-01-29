@@ -214,7 +214,7 @@
                     }
                 },
                 {
-                    "uuid": "a9306459-c030-4be8-8e4c-84aeb79928f4",
+                    "uuid": "a73f423b-ff73-4803-8c2d-1a3c06ba764a",
                     "format": "Sonic 3&K Object.js",
                     "name": "Monitors",
                     "palettes": [
@@ -235,6 +235,35 @@
                     "mappings": {
                         "path": "Objects/Monitor/Object Data/Map - Monitor.asm",
                         "label": "Map_Monitor"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "a9306459-c030-4be8-8e4c-84aeb79928f4",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Monitor contents",
+                    "palettes": [
+                        {
+                            "path": "Objects/Sonic/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Monitor/KosinskiM Art/Monitors.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Monitor/Object Data/Map - Monitor Contents.asm",
+                        "label": "Map_MonitorContents"
                     },
                     "dplcs": {
                         "enabled": false,
@@ -478,6 +507,46 @@
                         "path": "",
                         "label": ""
                     }
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Water Wave",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Water Wave/Uncompressed Art/Water Wave.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Water Wave/Object Data/Map - Water Wave.asm",
+                        "label": "Map_WaterWave"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Water Wave/Object Data/DPLC - Water Wave.asm",
+                        "label": "DPLC_WaterWave"
+                    },
+                    "uuid": "4ca73f42-3bff-4328-838c-2d1a3c06ba76"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Points text",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Explosion/KosinskiM Art/Enemy score.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Explosion/Object Data/Map - Enemy Score.asm",
+                        "label": "Map_EnemyScore"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "da4ca73f-423b-4f73-a803-8c2d1a3c06ba"
                 }
             ],
             "isDirectory": true,
@@ -790,7 +859,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "9cf77ede-99af-4b8c-99a4-a8b5e4247148"
         },
         {

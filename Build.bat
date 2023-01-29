@@ -1,8 +1,15 @@
 @ECHO OFF
 
 REM // delete some intermediate assembler output just in case
-IF EXIST Sonic.gen del Sonic.gen
+
+IF NOT EXIST Sonic.gen goto LABLNOCOPY
+IF EXIST Sonic.prev.gen del Sonic.prev.gen
+IF EXIST Sonic.prev.gen goto LABLNOCOPY
+move /Y Sonic.gen Sonic.prev.gen > NUL
 IF EXIST Sonic.gen goto LABLERROR3
+
+:LABLNOCOPY
+REM // delete some intermediate assembler output just in case
 IF EXIST Sonic.p del Sonic.p
 IF EXIST Sonic.p goto LABLERROR2
 IF EXIST Sonic.h del Sonic.h

@@ -69,8 +69,14 @@ loc_24090:
 		beq.s	loc_240D8
 		move.b	d6,d0
 		andi.b	#8,d0
-		beq.s	loc_240D8
+		beq.s	loc_240CA
 		lea	(Player_1).w,a1
+		bsr.w	sub_24280
+
+loc_240CA:
+		andi.b	#$10,d6
+		beq.s	loc_240D8
+		lea	(Player_2).w,a1
 		bsr.w	sub_24280
 
 loc_240D8:
@@ -93,10 +99,17 @@ loc_240E2:
 		beq.s	loc_24134
 		move.b	d6,d0
 		andi.b	#1,d0
-		beq.s	loc_24134
+		beq.s	loc_24120
 		lea	(Player_1).w,a1
-		bsr.s	sub_24280
+		bsr.w	sub_24280
 		bclr	#5,status(a0)
+
+loc_24120:
+		andi.b	#2,d6
+		beq.s	loc_24134
+		lea	(Player_2).w,a1
+		bsr.w	sub_24280
+		bclr	#6,status(a0)
 
 loc_24134:
 		move.w	$30(a0),d0
@@ -118,8 +131,14 @@ loc_2413E:
 		beq.s	loc_24184
 		move.b	d6,d0
 		andi.b	#4,d0
-		beq.s	loc_24184
+		beq.s	loc_24176
 		lea	(Player_1).w,a1
+		bsr.s	sub_24280
+
+loc_24176:
+		andi.b	#8,d6
+		beq.s	loc_24184
+		lea	(Player_2).w,a1
 		bsr.s	sub_24280
 
 loc_24184:
@@ -228,9 +247,14 @@ loc_24356:
 		move.b	$3E(a0),d0
 		moveq	#5,d6
 		bsr.s	sub_2438A
+		lea	(Player_2).w,a1
+		move.b	$3F(a0),d0
+		moveq	#6,d6
+		bsr.s	sub_2438A
 
 loc_2437C:
 		move.b	(Player_1+status).w,$3E(a0)
+		move.b	(Player_2+status).w,$3F(a0)
 		rts
 
 ; =============== S U B R O U T I N E =======================================

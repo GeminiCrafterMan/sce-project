@@ -2,6 +2,8 @@
 ; Dash Dust (Object)
 ; ---------------------------------------------------------------------------
 
+; todo: Make Spindash dust work with different player RAM slots
+
 ; =============== S U B R O U T I N E =======================================
 
 Obj_DashDust:
@@ -27,9 +29,9 @@ loc_18B54:
 		move.w	#ArtTile_DashDust,art_tile(a0)
 		move.w	#tiles_to_bytes(ArtTile_DashDust),vram_art(a0)
 		lea	(Player_1).w,a1
-		cmpi.b	#1,character_id(a1)
+		cmpi.b	#c_Tails,character_id(a1)
 		bne.s	loc_18BAA
-		move.b	#1,character_id(a0)
+		move.b	#c_Tails,character_id(a0)
 
 loc_18BAA:
 		lea	(Player_1).w,a2
@@ -128,7 +130,7 @@ loc_18CB6:
 		moveq	#$10,d1
 		cmpi.b	#id_Stop,anim(a2)
 		beq.s	loc_18CE4
-		cmpi.b	#2,character_id(a2)
+		cmpi.b	#c_Knuckles,character_id(a2)
 		bne.s	loc_18CD6
 		moveq	#6,d1
 		cmpi.b	#3,double_jump_flag(a2)

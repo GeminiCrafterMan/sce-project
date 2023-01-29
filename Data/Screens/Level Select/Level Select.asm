@@ -129,9 +129,10 @@ LevelSelect_Controls:
 		cmpi.w	#LevelSelect_SampleTestCount,d3
 		beq.w	LevelSelect_LoadSampleNumber
 		cmpi.w	#LevelSelect_SoundTestCount,d3
-		beq.s	LevelSelect_LoadSoundNumber
+		beq.w	LevelSelect_LoadSoundNumber
 		cmpi.w	#LevelSelect_MusicTestCount,d3
-		beq.s	LevelSelect_LoadMusicNumber
+		beq.w	LevelSelect_LoadMusicNumber
+		bsr.s	LevelSelect_LoadLevel_CharacterSwitcher
 		cmpi.w	#LevelSelect_ZoneCount,d3
 		bhs.s	LevelSelect_LoadLevel_Return
 
@@ -153,6 +154,25 @@ LevelSelect_Controls:
 		move.w	d3,(Apparent_zone_and_act).w
 
 LevelSelect_LoadLevel_Return:
+		rts
+
+LevelSelect_LoadLevel_CharacterSwitcher:
+		btst	#button_C,(Ctrl_1_pressed).w
+		beq.s	.b
+		addq.b	#1,(Player_mode).w
+		sfx		sfx_Switch
+		cmpi.b	#4,(Player_mode).w
+		ble.s	.ret
+		clr.b	(Player_mode).w
+	.b:
+		btst	#button_B,(Ctrl_1_pressed).w
+		beq.s	.ret
+		subq.b	#1,(Player_mode).w
+		sfx		sfx_Switch
+		tst.b	(Player_mode).w
+		bge.s	.ret
+		move.b	#4,(Player_mode).w
+	.ret:
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -192,7 +212,7 @@ LevelSelect_LoadSoundNumber:
 		move.w	d3,(vLevelSelect_SoundCount).w
 		move.b	(Ctrl_1_pressed).w,d1
 		andi.b	#btnABC,d1
-		beq.s	LevelSelect_LoadLevel_Return
+		beq.w	LevelSelect_LoadLevel_Return
 		move.w	d3,d0
 		addi.w	#sfx__First,d0
 		jmp	(SMPS_QueueSound2).w	; play sfx
@@ -209,7 +229,7 @@ LevelSelect_LoadSampleNumber:
 		move.w	d3,(vLevelSelect_SampleCount).w
 		move.b	(Ctrl_1_pressed).w,d1
 		andi.b	#btnABC,d1
-		beq.s	LevelSelect_LoadLevel_Return
+		beq.w	LevelSelect_LoadLevel_Return
 		move.w	d3,d0
 		addi.w	#dac__First,d0
 		jmp	(SMPS_PlayDACSample).w	; play sample
@@ -305,7 +325,7 @@ LevelSelect_FindLeftRightControls:
 ; =============== S U B R O U T I N E =======================================
 
 LevelSelect_LoadAct:
-		locVRAM	$C2B0,d2
+		locVRAM	$C2AE,d2
 		lea	(vLevelSelect_HCount).w,a0
 		move.w	(vLevelSelect_VCount).w,d0
 		move.w	d0,d1
@@ -433,19 +453,19 @@ LevelSelect_MarkFields:
 		bne.s	.return
 
 		; draw music
-		locVRAM	$CB30,VDP_control_port-VDP_control_port(a5)
+		locVRAM	$CB2E,VDP_control_port-VDP_control_port(a5)
 		move.w	(vLevelSelect_MusicCount).w,d0
 		bra.s	.drawnumbers
 ; ---------------------------------------------------------------------------
 
 .drawsound
-		locVRAM	$CC30,VDP_control_port-VDP_control_port(a5)
+		locVRAM	$CC2E,VDP_control_port-VDP_control_port(a5)
 		move.w	(vLevelSelect_SoundCount).w,d0
 		bra.s	.drawnumbers
 ; ---------------------------------------------------------------------------
 
 .drawsample
-		locVRAM	$CD30,VDP_control_port-VDP_control_port(a5)
+		locVRAM	$CD2E,VDP_control_port-VDP_control_port(a5)
 		move.w	(vLevelSelect_SampleCount).w,d0
 
 .drawnumbers
@@ -543,15 +563,15 @@ LevelSelect_MappingOffsets:
 		dc.w planeLocH28(0,24)
 		dc.w planeLocH28(0,26)
 LevelSelect_Text:
-		levselstr "   DEATH EGG          - ACT 1           "
-		levselstr "   GREEN HILL         - ACT 1           "
-		levselstr "   SEASIDE LAND       - ACT 1           "
-		levselstr "   UNKNOWN LEVEL      - UNKNOWN         "
-		levselstr "   UNKNOWN LEVEL      - UNKNOWN         "
-		levselstr "   UNKNOWN LEVEL      - UNKNOWN         "
-		levselstr "   UNKNOWN LEVEL      - UNKNOWN         "
-		levselstr "   UNKNOWN LEVEL      - UNKNOWN         "
-		levselstr "   MUSIC TEST:        - 000             "
-		levselstr "   SOUND TEST:        - 000             "
-		levselstr "   SAMPLE TEST:       - 000             "
+		levselstr "  DEATH EGG          - ACT 1            "
+		levselstr "  GREEN HILL         - ACT 1            "
+		levselstr "  SEASIDE LAND       - ACT 1            "
+		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
+		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
+		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
+		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
+		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
+		levselstr "  MUSIC TEST:        - 000              "
+		levselstr "  SOUND TEST:        - 000              "
+		levselstr "  SAMPLE TEST:       - 000              "
 	even

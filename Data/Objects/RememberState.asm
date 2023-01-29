@@ -31,7 +31,7 @@ Sprite_OnScreen_Test_Collision:
 
 .skipxpos
 		out_of_xrange2.s	.offscreen
-		jsr	(Add_SpriteToCollisionResponseList).w
+		jsr	(Add_SpriteToCollisionResponseList).l
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
@@ -148,14 +148,14 @@ Obj_FlickerMove:
 
 Sprite_CheckDeleteTouch:
 		out_of_xrange.w	Sprite_CheckDelete.offscreen
-		jsr	(Add_SpriteToCollisionResponseList).w
+		jsr	(Add_SpriteToCollisionResponseList).l
 		jmp	(Draw_Sprite).w
 
 ; =============== S U B R O U T I N E =======================================
 
 Sprite_CheckDeleteTouch2:
 		out_of_xrange.w	Sprite_CheckDelete2.offscreen
-		jsr	(Add_SpriteToCollisionResponseList).w
+		jsr	(Add_SpriteToCollisionResponseList).l
 		jmp	(Draw_Sprite).w
 
 ; =============== S U B R O U T I N E =======================================
@@ -163,7 +163,7 @@ Sprite_CheckDeleteTouch2:
 Sprite_CheckDeleteTouchXY:
 		out_of_xrange.w	Go_Delete_Sprite
 		out_of_yrange.w	Go_Delete_Sprite
-		jsr	(Add_SpriteToCollisionResponseList).w
+		jsr	(Add_SpriteToCollisionResponseList).l
 		jmp	(Draw_Sprite).w
 
 ; =============== S U B R O U T I N E =======================================
@@ -176,7 +176,7 @@ Sprite_ChildCheckDeleteTouchY:
 		movea.w	parent3(a0),a1
 		btst	#7,status(a1)
 		bne.w	Go_Delete_Sprite
-		jsr	(Add_SpriteToCollisionResponseList).w
+		jsr	(Add_SpriteToCollisionResponseList).l
 		jmp	(Draw_Sprite).w
 
 ; =============== S U B R O U T I N E =======================================
@@ -209,7 +209,7 @@ Sprite_CheckDeleteTouchSlotted:
 		tst.b	status(a0)
 		bmi.s	Go_Delete_SpriteSlotted3
 		out_of_xrange.s	Go_Delete_SpriteSlotted
-		jsr	(Add_SpriteToCollisionResponseList).w
+		jsr	(Add_SpriteToCollisionResponseList).l
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 

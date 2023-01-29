@@ -23,9 +23,9 @@ DebugMode:
 		beq.s	.select
 		movea.w	a0,a1
 		jsr	Player_ResetAirTimer(pc)
-		move.w	#$600,(Sonic_Knux_top_speed).w
-		move.w	#$C,(Sonic_Knux_acceleration).w
-		move.w	#$80,(Sonic_Knux_deceleration).w
+		move.w	#$600,(Top_speed_P1).w
+		move.w	#$C,(Acceleration_P1).w
+		move.w	#$80,(Deceleration_P1).w
 
 .select
 		moveq	#0,d0

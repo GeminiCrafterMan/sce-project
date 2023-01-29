@@ -174,7 +174,7 @@ loc_1A79C:
 		blo.s		loc_1A7E4
 
 loc_1A7B0:
-		jsr	(Add_SpriteToCollisionResponseList).w
+		jsr	(Add_SpriteToCollisionResponseList).l
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
@@ -222,7 +222,7 @@ loc_1A828:
 		blo.s		loc_1A7E4
 
 loc_1A83C:
-		jsr	(Add_SpriteToCollisionResponseList).w
+		jsr	(Add_SpriteToCollisionResponseList).l
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 ; Attracted ring (Object)
@@ -253,7 +253,7 @@ loc_1A88C:
 
 loc_1A8C6:
 		out_of_xrange.s	loc_1A8E4
-		jsr	(Add_SpriteToCollisionResponseList).w
+		jsr	(Add_SpriteToCollisionResponseList).l
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 

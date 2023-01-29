@@ -5,18 +5,20 @@
 ; RAM variables - General
 	phase	ramaddr($FFFF0000)	; Pretend we're in the RAM
 RAM_start:							= *
-Chunk_table:							ds.b $8000				; Chunk (128x128) definitions, $80 bytes per definition
+Chunk_table:						ds.b $8000				; Chunk (128x128) definitions, $80 bytes per definition
 Chunk_table_end						= *
 
-Player_1:								= *						; Main character in 1 player mode
-v_player:								= *
+Player_1:							= *						; Main character in 1 player mode
+v_player:							= *
 Object_RAM:							ds.b object_size
 Player_2:							ds.b object_size
 Reserved_object_3:					ds.b object_size			; During a level, an object whose sole purpose is to clear the collision response list is stored here
-Dynamic_object_RAM:				ds.b object_size*90		; 90 objects
+Dynamic_object_RAM:					ds.b object_size*90		; 90 objects
 Dynamic_object_RAM_end				= *
-									ds.b object_size
-v_Dust:								ds.b object_size
+v_Dust_P1:							ds.b object_size
+v_Dust_P2:							ds.b object_size
+v_FollowObject_P1:					ds.b object_size
+v_FollowObject_P2:					ds.b object_size
 v_Shield:							ds.b object_size
 									ds.b object_size
 v_Breathing_bubbles:				ds.b object_size
@@ -26,41 +28,41 @@ v_Super_stars:						ds.b object_size
 									ds.b object_size
 									ds.b object_size
 									ds.b object_size
-									ds.b object_size
-v_WaterWave:						ds.b object_size
-v_Invincibility_stars:					ds.b object_size*4			; 4 objects
+v_WaterWave1:						ds.b object_size
+v_WaterWave2:						ds.b object_size
+v_Invincibility_stars:				ds.b object_size*4			; 4 objects
 									ds.b $34					; null
 Object_RAM_end						= *
 
 Kos_decomp_buffer:					ds.b $1000				; Each module in a KosM archive is decompressed here and then DMAed to VRAM
 
-H_scroll_buffer:						ds.l 224					; Horizontal scroll table is built up here and then DMAed to VRAM
+H_scroll_buffer:					ds.l 224					; Horizontal scroll table is built up here and then DMAed to VRAM
 H_scroll_table:						ds.b 512					; offsets for background scroll positions, used by ApplyDeformation
 H_scroll_buffer_end					= *
-V_scroll_buffer:						ds.l 320/16				; vertical scroll buffer used in various levels(320 pixels for MD1, 512 pixels for MD2)
+V_scroll_buffer:					ds.l 320/16				; vertical scroll buffer used in various levels(320 pixels for MD1, 512 pixels for MD2)
 V_scroll_buffer_end					= *
 
-Collision_response_list:				ds.b 128					; Only objects in this list are processed by the collision response routines
+Collision_response_list:			ds.b 128					; Only objects in this list are processed by the collision response routines
 Pos_table:							ds.l 64					; Recorded player XY position buffer
 Ring_status_table:					ds.w RingTable_Count		; Ring status table(1 word)
 Ring_status_table_end				= *
-Object_respawn_table:					ds.b ObjectTable_Count	; Object respawn table(1 byte)
-Object_respawn_table_end				= *
-Sprite_table_buffer:					ds.b 80*8
+Object_respawn_table:				ds.b ObjectTable_Count	; Object respawn table(1 byte)
+Object_respawn_table_end			= *
+Sprite_table_buffer:				ds.b 80*8
 Sprite_table_buffer_end				= *
 Sprite_table_input:					ds.b $80*8				; Sprite table input buffer
 Sprite_table_input_end				= *
 
 DMA_queue:							= *
-VDP_Command_Buffer:				ds.w $12*7				; Stores all the VDP commands necessary to initiate a DMA transfer
+VDP_Command_Buffer:					ds.w $12*7				; Stores all the VDP commands necessary to initiate a DMA transfer
 DMA_queue_slot:						= *
 VDP_Command_Buffer_Slot:			ds.l 1					; Points to the next free slot on the queue
 
-Camera_RAM:						= *						; Various camera and scroll-related variables are stored here
+Camera_RAM:							= *						; Various camera and scroll-related variables are stored here
 v_scrshiftx:						= *
-H_scroll_amount:						ds.w 1					; Number of pixels camera scrolled horizontally in the last frame * $100
+H_scroll_amount:					ds.w 1					; Number of pixels camera scrolled horizontally in the last frame * $100
 v_scrshifty:						= *
-V_scroll_amount:						ds.w 1					; Number of pixels camera scrolled vertically in the last frame * $100
+V_scroll_amount:					ds.w 1					; Number of pixels camera scrolled vertically in the last frame * $100
 v_limitleft1:						= *
 Camera_target_min_X_pos:			ds.w 1
 v_limitright1:						= *
@@ -153,6 +155,12 @@ v_jpadhold2:							= *
 Ctrl_1_held_logical:					ds.b 1
 v_jpadpress2:						= *
 Ctrl_1_pressed_logical:				ds.b 1
+TailsControl:							= *
+Ctrl_2_logical:						= *
+v_jpad2hold2:							= *
+Ctrl_2_held_logical:					ds.b 1
+v_jpad2press2:						= *
+Ctrl_2_pressed_logical:				ds.b 1
 Joypad:								= *
 Ctrl_1:								= *
 Ctrl_1_held:							= *
@@ -208,15 +216,18 @@ Ctrl_1_locked:						ds.b 1
 v_framecount:						= *
 Level_frame_counter:					ds.b 1					; The number of frames which have elapsed since the level started
 v_framebyte							ds.b 1
+Ctrl_2_locked:						ds.b 1
 Level_started_flag:					ds.b 1
 f_pause:								= *
 Game_paused:						ds.b 1
 f_restart:							= *
 Restart_level_flag:					ds.b 1
-									ds.b 1					; even
-Sonic_Knux_top_speed:				ds.w 1
-Sonic_Knux_acceleration:				ds.w 1
-Sonic_Knux_deceleration:				ds.w 1
+Top_speed_P1:						ds.w 1
+Acceleration_P1:					ds.w 1
+Deceleration_P1:					ds.w 1
+Top_speed_P2:						ds.w 1
+Acceleration_P2:					ds.w 1
+Deceleration_P2:					ds.w 1
 Object_load_addr_front:				ds.l 1					; The address inside the object placement data of the first object whose X pos is >= Camera_X_pos_coarse + $280
 Object_load_addr_back:				ds.l 1					; The address inside the object placement data of the first object whose X pos is >= Camera_X_pos_coarse - $80
 Object_respawn_index_front:			ds.w 1					; The object respawn table index for the object at Obj_load_addr_front
@@ -224,7 +235,7 @@ Object_respawn_index_back:			ds.w 1					; The object respawn table index for the
 Collision_addr:						ds.l 1					; Points to the primary or secondary collision data as appropriate
 Primary_collision_addr:				ds.l 1
 Secondary_collision_addr:				ds.l 1
-Player_prev_frame:					ds.b 1
+									ds.b 1	; used to be Player_prev_frame
 Reverse_gravity_flag:					ds.b 1
 Primary_Angle:						ds.b 1
 Secondary_Angle:						ds.b 1
@@ -376,7 +387,8 @@ Super_frame_count:					ds.w 1
 Palette_frame:						ds.w 1
 Palette_frame_Tails:				ds.b 1
 Palette_timer_Tails:				ds.b 1
-;Player_mode:						ds.w 1	; unnecessary word, fix later
+Player_mode:						ds.b 1
+									ds.b 1	; even
 waterValues:						ds.l 1
 
 f_timeover:							= *

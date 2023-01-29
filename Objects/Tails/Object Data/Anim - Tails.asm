@@ -1,3 +1,8 @@
+; ---------------------------------------------------------------------------
+; Tails Animation Script
+; ---------------------------------------------------------------------------
+
+Ani_Tails:
 AniTails:	offsetTable
 		offsetTableEntry.w TailsAni_Walk
 		offsetTableEntry.w TailsAni_Run
@@ -9,28 +14,24 @@ AniTails:	offsetTable
 		offsetTableEntry.w TailsAni_LookUp
 		offsetTableEntry.w TailsAni_Duck
 		offsetTableEntry.w TailsAni_Spindash
-		offsetTableEntry.w AniTails0A
 		offsetTableEntry.w TailsAni_MGZHang
-		offsetTableEntry.w AniTails0C
+		offsetTableEntry.w TailsAni_Balance2
 		offsetTableEntry.w TailsAni_Stop
 		offsetTableEntry.w TailsAni_Float1
 		offsetTableEntry.w TailsAni_Float2
 		offsetTableEntry.w TailsAni_Spring
 		offsetTableEntry.w TailsAni_LZHang
-		offsetTableEntry.w AniTails12
 		offsetTableEntry.w TailsAni_Victory
-		offsetTableEntry.w AniTails14
+		offsetTableEntry.w TailsAni_Hang
 		offsetTableEntry.w TailsAni_GetAir
 		offsetTableEntry.w TailsAni_Burnt
 		offsetTableEntry.w TailsAni_Drown
 		offsetTableEntry.w TailsAni_Death
-		offsetTableEntry.w AniTails19
-		offsetTableEntry.w AniTails1A
-		offsetTableEntry.w AniTails1B
-		offsetTableEntry.w AniTails1C
-		offsetTableEntry.w AniTails1D
-		offsetTableEntry.w AniTails1E
+		offsetTableEntry.w TailsAni_Slide
+		offsetTableEntry.w TailsAni_Hurt
+		offsetTableEntry.w TailsAni_Null
 		offsetTableEntry.w TailsAni_Mach
+		offsetTableEntry.w TailsAni_Transform
 		offsetTableEntry.w TailsAni_Fly
 		offsetTableEntry.w TailsAni_FlyFast
 		offsetTableEntry.w TailsAni_FlyHold
@@ -40,11 +41,11 @@ AniTails:	offsetTable
 		offsetTableEntry.w TailsAni_SwimFast
 		offsetTableEntry.w TailsAni_SwimHoldTired
 		offsetTableEntry.w TailsAni_SwimTired
-		offsetTableEntry.w TailsAni_Transform
+
 TailsAni_Walk:	dc.b  $FF,   frT_Walk17,   frT_Walk18,   frT_Walk11,   frT_Walk12,   frT_Walk13,   frT_Walk14,   frT_Walk15,   frT_Walk16, afEnd
 TailsAni_Run:	dc.b  $FF, frT_Run11, frT_Run12, frT_Run13, frT_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
-TailsAni_Roll:	dc.b    1, frT_Roll1, frT_Roll2, frT_Roll3, afEnd
-TailsAni_Roll2:	dc.b    0, frT_Roll1, frT_Roll2, frT_Roll3, afEnd
+TailsAni_Roll:	dc.b  $FE, frT_Roll1, frT_Roll2, frT_Roll3, afEnd
+TailsAni_Roll2:	dc.b  $FE, frT_Roll1, frT_Roll2, frT_Roll3, afEnd
 TailsAni_Push:	dc.b  $FD, frT_Push1, frT_Push2, frT_Push3, frT_Push4, afEnd, afEnd, afEnd, afEnd, afEnd
 TailsAni_Wait:	dc.b    7, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle3, frT_Idle2, frT_Idle1, frT_Idle1, frT_Idle1
 		dc.b  frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle3, frT_Idle2, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1, frT_Idle1
@@ -55,28 +56,24 @@ TailsAni_Balance:	dc.b    9, frT_Balance1, frT_Balance1, frT_Balance2, frT_Balan
 TailsAni_LookUp:	dc.b  $3F, frT_LookUp, afEnd
 TailsAni_Duck:	dc.b  $3F, frT_Duck, afEnd
 TailsAni_Spindash:	dc.b    0, frT_Spindash1, frT_Spindash2, frT_Spindash3, afEnd
-AniTails0A:	dc.b  $3F, $82, afEnd
 TailsAni_MGZHang:	dc.b   $F, frT_MGZHang, afEnd
-AniTails0C:	dc.b    9, frT_FlyTired2, frT_Balance2, afEnd
+TailsAni_Balance2:	dc.b    9, frT_Balance1, frT_Balance2, afEnd
 TailsAni_Stop:	dc.b    3, frT_Skid1, frT_Skid2, frT_Skid1, frT_Skid2, afChange,   id_Walk
 TailsAni_Float1:	dc.b    9, frT_Float1, afEnd
 TailsAni_Float2:	dc.b    9, frT_Float1, frT_Float2, frT_Float3, frT_Float4, frT_Float5, frT_Float6, frT_Float7, frT_Float8, afEnd
 TailsAni_Spring:	dc.b    3, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, frT_Spring1, frT_Spring2, afChange,   id_Walk
 TailsAni_LZHang:	dc.b    1, frT_LZHang1, frT_LZHang2, afEnd
-AniTails12:	dc.b   $F,   frT_Walk11,   frT_Walk12,   frT_Walk13, afBack,   1
 TailsAni_Victory:	dc.b   $F, frT_Victory1, frT_Victory2, afBack,   1
-AniTails14:	dc.b  $13, frT_Hang2, afEnd
+TailsAni_Hang:		dc.b  $13, frT_Hang1,	frT_Hang2,	frT_Hang3,	frT_Hang2,	afEnd
 TailsAni_GetAir:	dc.b   $B, frT_GetAir, frT_GetAir,   frT_Walk13,   frT_Walk14, afChange,   id_Walk
 TailsAni_Burnt:	dc.b  $20, frT_Death, afEnd
 TailsAni_Drown:	dc.b  $2F, frT_Death, afEnd
 TailsAni_Death:	dc.b    3, frT_Death, afEnd
-AniTails19:	dc.b    9, frT_Slide1, frT_Slide2, afEnd
-AniTails1A:	dc.b  $40, frT_Hurt2, afEnd
-AniTails1B:	dc.b    9, frT_Hurt1, frT_Hurt2, afEnd
-AniTails1C:	dc.b  $77,   frT_Null, afEnd
-AniTails1D:	dc.b    3,   frT_Walk11,   frT_Walk12,   frT_Walk13,   frT_Walk14,   frT_Walk15,   frT_Walk16,   frT_Walk17,   frT_Walk18, afEnd
-AniTails1E:	dc.b    3,   frT_Walk11,   frT_Walk12,   frT_Walk13,   frT_Walk14,   frT_Walk15,   frT_Walk16,   frT_Walk17,   frT_Walk18, afEnd
-TailsAni_Mach:	dc.b  $FF, frT_Mach11, frT_Mach12, afEnd, afEnd, afEnd, afEnd, afEnd, afEnd, afEnd
+TailsAni_Slide:	dc.b    9, frT_Slide1, frT_Slide2, afEnd
+TailsAni_Hurt:	dc.b  $40, frT_Hurt2, afEnd
+TailsAni_Null:	dc.b  $77,   frT_Null, afEnd
+TailsAni_Mach:	dc.b  $FF, frT_Mach11, frT_Mach12, frT_Mach13, frT_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
+TailsAni_Transform:	dc.b    2, frT_Transform1, frT_Transform1, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, afChange,   id_Walk
 TailsAni_Fly:	dc.b  $1F, frT_Fly, afEnd
 TailsAni_FlyFast:	dc.b  $1F, frT_Fly, afEnd
 TailsAni_FlyHold:	dc.b  $1F, frT_FlyHold, afEnd
@@ -86,7 +83,6 @@ TailsAni_Swim:	dc.b    7, frT_Swim1, frT_Swim2, frT_Swim3, frT_Swim4, frT_Swim5,
 TailsAni_SwimFast:	dc.b    3, frT_Swim1, frT_Swim2, frT_Swim3, frT_Swim4, frT_Swim5, afEnd
 TailsAni_SwimHoldTired:	dc.b    4, frT_SwimHoldTired1, frT_SwimHoldTired2, afEnd
 TailsAni_SwimTired:	dc.b   $B, frT_SwimTired1, frT_SwimTired2, frT_SwimTired3, afEnd
-TailsAni_Transform:	dc.b    2, frT_Transform1, frT_Transform1, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, frT_Transform2, frT_Transform3, afChange,   id_Walk
 		even
 
 ; Frame IDs
@@ -159,6 +155,16 @@ frT_FlyHoldUp:		ds.b 1
 frT_FlyHold:		ds.b 1
 frT_FlyTired1:		ds.b 1
 frT_FlyTired2:		ds.b 1
+frT_Swim1:			ds.b 1
+frT_Swim2:			ds.b 1
+frT_Swim3:			ds.b 1
+frT_Swim4:			ds.b 1
+frT_Swim5:			ds.b 1
+frT_SwimTired1:		ds.b 1
+frT_SwimTired2:		ds.b 1
+frT_SwimTired3:		ds.b 1
+frT_SwimHoldTired1:	ds.b 1
+frT_SwimHoldTired2:	ds.b 1
 frT_Victory1:		ds.b 1
 frT_Victory2:		ds.b 1
 frT_LZHangV1:		ds.b 1
@@ -183,23 +189,15 @@ frT_Float5:			ds.b 1
 frT_Float6:			ds.b 1
 frT_Float7:			ds.b 1
 frT_Float8:			ds.b 1
-frT_Swim1:			ds.b 1
-frT_Swim2:			ds.b 1
-frT_Swim3:			ds.b 1
-frT_Swim4:			ds.b 1
-frT_Swim5:			ds.b 1
-frT_SwimTired1:		ds.b 1
 frT_Mach11:			ds.b 1
 frT_Mach12:			ds.b 1
-frT_Mach2X:			ds.b 2
-frT_Mach3X:			ds.b 2
-frT_Mach4X:			ds.b 2
+frT_Mach13:			ds.b 1
+frT_Mach14:			ds.b 1
+frT_Mach2X:			ds.b 4
+frT_Mach3X:			ds.b 4
+frT_Mach4X:			ds.b 4
 frT_Slide1:			ds.b 1
 frT_Slide2:			ds.b 1
-frT_SwimTired2:		ds.b 1
-frT_SwimTired3:		ds.b 1
-frT_SwimHoldTired1:	ds.b 1
-frT_SwimHoldTired2:	ds.b 1
 frT_Transform1:		ds.b 1
 frT_Transform2:		ds.b 1
 frT_Transform3:		ds.b 1

@@ -91,12 +91,22 @@ Obj_Spring_Up:
 		move.w	x_pos(a0),d4
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
 		jsr	SolidObjectFull2_1P
 		btst	#p1_standing_bit,status(a0)
 		beq.s	loc_22F1C
 		bsr.s	sub_22F98
 
 loc_22F1C:
+		movem.l	(sp)+,d1-d4
+		lea	(Player_2).w,a1
+		moveq	#p2_standing_bit,d6
+		jsr		SolidObjectFull2_1P
+		btst	#p2_standing_bit,status(a0)
+		beq.s	loc_22F34
+		bsr.s	sub_22F98
+
+loc_22F34:
 		lea	Ani_Spring(pc),a1
 		jsr	(Animate_Sprite).w
 		jmp	(Sprite_OnScreen_Test).w
@@ -163,6 +173,7 @@ Obj_Spring_Horizontal:
 		move.w	x_pos(a0),d4
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
 		jsr	SolidObjectFull2_1P
 		swap	d6
 		andi.w	#1,d6
@@ -176,9 +187,28 @@ Obj_Spring_Horizontal:
 loc_23088:
 		andi.b	#1,d1
 		bne.s	loc_23092
-		bsr.s	sub_23190
+		bsr.w	sub_23190
 
 loc_23092:
+		movem.l	(sp)+,d1-d4
+		lea	(Player_2).w,a1
+		moveq	#p2_standing_bit,d6
+		jsr		SolidObjectFull2_1P
+		swap	d6
+		andi.w	#2,d6
+		beq.s	loc_230C4
+		move.b	status(a0),d1
+		move.w	x_pos(a0),d0
+		sub.w	x_pos(a1),d0
+		bcs.s	loc_230BA
+		eori.b	#1,d1
+
+loc_230BA:
+		andi.b	#1,d1
+		bne.s	loc_230C4
+		bsr.s	sub_23190
+
+loc_230C4:
 		bsr.w	sub_2326C
 		lea	Ani_Spring(pc),a1
 		jsr	(Animate_Sprite).w
@@ -252,7 +282,7 @@ loc_2324C:
 
 sub_2326C:
 		cmpi.b	#3,anim(a0)
-		beq.s	locret_23324
+		beq.w	locret_23324
 		move.w	x_pos(a0),d0
 		move.w	d0,d1
 		addi.w	#$28,d1
@@ -268,7 +298,7 @@ loc_2328E:
 		addi.w	#$18,d3
 		lea	(Player_1).w,a1
 		btst	#Status_InAir,status(a1)
-		bne.s	locret_23324
+		bne.s	loc_232E2
 		move.w	ground_vel(a1),d4
 		btst	#0,status(a0)
 		beq.s	loc_232B6
@@ -276,15 +306,41 @@ loc_2328E:
 
 loc_232B6:
 		tst.w	d4
+		bmi.s	loc_232E2
+		move.w	x_pos(a1),d4
+		cmp.w	d0,d4
+		blo.s	loc_232E2
+		cmp.w	d1,d4
+		bhs.s	loc_232E2
+		move.w	y_pos(a1),d4
+		cmp.w	d2,d4
+		blo.s	loc_232E2
+		cmp.w	d3,d4
+		bhs.s	loc_232E2
+		move.w	d0,-(sp)
+		bsr.w	sub_23190
+		move.w	(sp)+,d0
+
+loc_232E2:
+		lea	(Player_2).w,a1
+		btst	#Status_InAir,status(a1)
+		bne.s	locret_23324
+		move.w	ground_vel(a1),d4
+		btst	#0,status(a0)
+		beq.s	loc_232FC
+		neg.w	d4
+
+loc_232FC:
+		tst.w	d4
 		bmi.s	locret_23324
 		move.w	x_pos(a1),d4
 		cmp.w	d0,d4
-		blo.s		locret_23324
+		blo.s	locret_23324
 		cmp.w	d1,d4
 		bhs.s	locret_23324
 		move.w	y_pos(a1),d4
 		cmp.w	d2,d4
-		blo.s		locret_23324
+		blo.s	locret_23324
 		cmp.w	d3,d4
 		bhs.s	locret_23324
 		bsr.w	sub_23190
@@ -301,12 +357,22 @@ Obj_Spring_Down:
 		move.w	x_pos(a0),d4
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
-		jsr	SolidObjectFull2_1P
+		movem.l	d1-d4,-(sp)
+		jsr		SolidObjectFull2_1P
 		cmpi.w	#-2,d4
 		bne.s	loc_2334C
 		bsr.s	sub_233CA
 
 loc_2334C:
+		movem.l	(sp)+,d1-d4
+		lea	(Player_2).w,a1
+		moveq	#p2_standing_bit,d6
+		jsr		SolidObjectFull2_1P
+		cmpi.w	#-2,d4
+		bne.s	loc_23362
+		bsr.s	sub_233CA
+
+loc_23362:
 		lea	Ani_Spring(pc),a1
 		jsr	(Animate_Sprite).w
 		jmp	(Sprite_OnScreen_Test).w
@@ -378,12 +444,22 @@ Obj_Spring_UpDiag:
 		lea	ObjSpring_SlopeData_DiagUp(pc),a2
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
 		jsr	sub_1DD24
 		btst	#p1_standing_bit,status(a0)
 		beq.s	loc_234B8
 		bsr.s	sub_234E6
 
 loc_234B8:
+		movem.l	(sp)+,d1-d4
+		lea	(Player_2).w,a1
+		moveq	#p2_standing_bit,d6
+		jsr		sub_1DD24
+		btst	#p2_standing_bit,status(a0)
+		beq.s	loc_234D0
+		bsr.s	sub_234E6
+
+loc_234D0:
 		lea	Ani_Spring(pc),a1
 		jsr	(Animate_Sprite).w
 		move.w	objoff_32(a0),d0
@@ -471,12 +547,22 @@ Obj_Spring_DownDiag:
 		lea	ObjSpring_SlopeData_DiagDown(pc),a2
 		lea	(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
 		jsr	sub_1DD24
 		cmpi.w	#-2,d4
 		bne.s	loc_235F8
 		bsr.s	sub_23624
 
 loc_235F8:
+		movem.l	(sp)+,d1-d4
+		lea	(Player_2).w,a1
+		moveq	#p2_standing_bit,d6
+		jsr		sub_1DD24
+		cmpi.w	#-2,d4
+		bne.s	loc_2360E
+		bsr.s	sub_23624
+
+loc_2360E:
 		lea	Ani_Spring(pc),a1
 		jsr	(Animate_Sprite).w
 		move.w	objoff_32(a0),d0

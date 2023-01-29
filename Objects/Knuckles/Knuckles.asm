@@ -1,13 +1,101 @@
+; TODO: fix dis shit
 Obj_Knuckles:
+		; Load some addresses into registers
+		; This is done to allow some subroutines to be
+		; shared with Sonic/Knuckles.
+		lea	(Distance_from_screen_top).w,a5
+		cmpa.l	#Player_1,a0
+		bne.s	.p2
+		lea	(Top_speed_P1).w,a4
+		lea	(v_Dust_P1).w,a6
+		bra.s	.cont
+	.p2:
+		lea	(Top_speed_P2).w,a4
+		lea	(v_Dust_P2).w,a6
+	.cont:
+
+	if GameDebug
+		cmpa.l	#Player_1,a0
+		bne.s	Knuckles_Normal
+		tst.w	(Debug_placement_mode).w
+		beq.s	Knuckles_Normal
+
+; Debug only code
+		cmpi.b	#1,(Debug_placement_type).w	; Are Sonic in debug object placement mode?
+		jeq		DebugMode			; If so, skip to debug mode routine
+		; By this point, we're assuming you're in frame cycling mode
+		btst	#button_B,(Ctrl_1_pressed).w
+		beq.s	+
+		clr.w	(Debug_placement_mode).w	; Leave debug mode
++		addq.b	#1,mapping_frame(a0)		; Next frame
+		cmpi.b	#frK_Last,mapping_frame(a0)	; Have we reached the end of Sonic's frames?
+		blo.s		+
+		clr.b	mapping_frame(a0)	; If so, reset to Sonic's first frame
++		bsr.w	Player_Load_PLC
+		jmp	(Draw_Sprite).w
+; ---------------------------------------------------------------------------
+
+Knuckles_Normal:
+	endif
+		moveq	#0,d0
+		move.b	routine(a0),d0
+		move.w	Knuckles_Index(pc,d0.w),d1
+		jmp	Knuckles_Index(pc,d1.w)
+; ---------------------------------------------------------------------------
+
+Knuckles_Index: offsetTable
+ptr_Knuckles_Init:		offsetTableEntry.w Knuckles_Init		; 0
+ptr_Knuckles_Control:	offsetTableEntry.w Sonic_Control	; 2
+ptr_Knuckles_Hurt:		offsetTableEntry.w Sonic_Hurt		; 4
+ptr_Knuckles_Death:	offsetTableEntry.w Sonic_Death		; 6
+ptr_Knuckles_Restart:	offsetTableEntry.w Sonic_Restart	; 8
+					offsetTableEntry.w loc_12590		; A
+ptr_Knuckles_Drown:	offsetTableEntry.w Sonic_Drown		; C
+; ---------------------------------------------------------------------------
+
+Knuckles_Init:	; Routine 0
+		addq.b	#2,routine(a0)				; => Obj01_Control
+		move.w	#bytes_to_word(38/2,18/2),y_radius(a0)	; set y_radius and x_radius	; this sets Knuckles's collision height (2*pixels)
+		move.w	#bytes_to_word(38/2,18/2),default_y_radius(a0)	; set default_y_radius and default_x_radius
+		move.l	#Map_Knuckles,mappings(a0)
+		move.w	#$100,priority(a0)
+		move.w	#bytes_to_word(48/2,48/2),height_pixels(a0)		; set height and width
+		move.b	#4,render_flags(a0)
+		move.b	#c_Knuckles,character_id(a0)
+		move.w	#$600,Top_speed_P1-Top_speed_P1(a4)
+		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
+		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
+		tst.b	(Last_star_post_hit).w
+		bne.s	Knuckles_Init_Continued
+		; only happens when not starting at a checkpoint:
+		cmpa.l	#Player_1,a0
+		bne.s	.p2
+		move.w	#make_art_tile(ArtTile_Sonic,0,0),art_tile(a0)
+		bra.s	.cont
+	.p2:
+		move.w	#make_art_tile(ArtTile_Tails,0,0),art_tile(a0)
+	.cont:
+		move.w	#bytes_to_word($C,$D),top_solid_bit(a0)
+
+Knuckles_Init_Continued:
+		clr.b	flips_remaining(a0)
+		move.b	#4,flip_speed(a0)
+		clr.b	(Super_Sonic_Knux_flag).w
+		move.b	#30,air_left(a0)
+		subi.w	#$20,x_pos(a0)
+		addi.w	#4,y_pos(a0)
+		bsr.w	Reset_Player_Position_Array
+		addi.w	#$20,x_pos(a0)
+		subi.w	#4,y_pos(a0)
 		rts
 
 Animate_Knuckles:
 		lea	AniKnuckles(pc),a1
 ;		tst.b	(Super_Sonic_Knux_flag).w
-;		beq.s	.loc_12612
+;		beq.s	Animate_Knuckles_Part2
 ;		lea	(AniSuperKnuckles).l,a1
 ;
-;.loc_12612:
+;Animate_Knuckles_Part2:
 		moveq	#0,d0
 		move.b	anim(a0),d0
 		cmp.b	prev_anim(a0),d0

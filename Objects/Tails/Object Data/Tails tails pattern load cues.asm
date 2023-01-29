@@ -62,21 +62,21 @@ PLC_TailsTails_74: 	dc.b $0, $1
 PLC_TailsTails_78: 	dc.b $0, $1
 	dc.b $50, $12
 PLC_TailsTails_7C: 	dc.b $0, $1
-	dc.b $50, $30
-PLC_TailsTails_80: 	dc.b $0, $1
-	dc.b $50, $36
-PLC_TailsTails_84: 	dc.b $0, $1
-	dc.b $50, $3C
-PLC_TailsTails_88: 	dc.b $0, $1
-	dc.b $50, $42
-PLC_TailsTails_8C: 	dc.b $0, $1
 	dc.b $50, $18
-PLC_TailsTails_90: 	dc.b $0, $1
+PLC_TailsTails_80: 	dc.b $0, $1
 	dc.b $50, $1E
-PLC_TailsTails_94: 	dc.b $0, $1
+PLC_TailsTails_84: 	dc.b $0, $1
 	dc.b $50, $24
-PLC_TailsTails_98: 	dc.b $0, $1
+PLC_TailsTails_88: 	dc.b $0, $1
 	dc.b $50, $2A
+PLC_TailsTails_8C: 	dc.b $0, $1
+	dc.b $50, $30
+PLC_TailsTails_90: 	dc.b $0, $1
+	dc.b $50, $36
+PLC_TailsTails_94: 	dc.b $0, $1
+	dc.b $50, $3C
+PLC_TailsTails_98: 	dc.b $0, $1
+	dc.b $50, $42
 PLC_TailsTails_9C: 	dc.b $0, $1
 	dc.b $50, $48
 PLC_TailsTails_A0: 	dc.b $0, $1

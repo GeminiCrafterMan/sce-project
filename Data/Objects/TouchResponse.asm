@@ -245,6 +245,9 @@ Touch_Monitor:
 ; ---------------------------------------------------------------------------
 
 .checkdestroy:
+		cmpa.w	#Player_1,a0				; Is this the main character?
+		bne.s	.locret						; If not, branch
+
 		cmpi.b	#id_Roll,anim(a0)						; is Sonic rolling/jumping?
 		bne.s	.locret
 		neg.w	y_vel(a0)
@@ -420,6 +423,8 @@ Touch_Hurt:
 HurtSonic:
 HurtCharacter:
 		move.w	(Ring_count).w,d0
+		cmpa.w	#Player_1,a0
+		bne.s	.bounce
 		btst	#Status_Shield,status_secondary(a0)		; does Sonic have shield?
 		bne.s	.hasshield							; if yes, branch
 		tst.b	status_tertiary(a0)

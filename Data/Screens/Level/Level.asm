@@ -129,7 +129,10 @@ Level_Screen:
 		move.l	#Load_Rings_Init,(Rings_manager_addr_RAM).w
 		tst.b	(Water_flag).w
 		beq.s	.notwater2
-		move.l	#Obj_WaterWave,(v_WaterWave).w
+		move.l	#Obj_WaterWave,(v_WaterWave1).w
+		move.w	#$60,(v_WaterWave1+x_pos).w
+		move.l	#Obj_WaterWave,(v_WaterWave2).w
+		move.w	#$120,(v_WaterWave2+x_pos).w
 
 .notwater2
 		bsr.w	SpawnLevelMainSprites
@@ -176,10 +179,31 @@ Level_Screen:
 ; =============== S U B R O U T I N E =======================================
 
 SpawnLevelMainSprites:
+		moveq	#0,d0
+		move.b	(Player_mode).w,d0
+		lsl.w	#3,d0
+		move.l	.plrIDs(pc,d0.w),(Player_1).w
+		add.w	#4,d0
+		move.l	.plrIDs(pc,d0.w),(Player_2).w
+		bra.s	.cont
+
+.plrIDs:
+		dc.l	Obj_Sonic,		Obj_Tails	; S&T
+		dc.l	Obj_Sonic,		DeleteObject; SA
+		dc.l	Obj_Tails,		DeleteObject; TA
+		dc.l	Obj_Knuckles,	DeleteObject; KA
+		dc.l	Obj_Knuckles,	Obj_Tails	; K&T
+
+.cont:
 		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3).w
-		move.l	#Obj_Sonic,(Player_1).w
-		move.l	#Obj_DashDust,(v_Dust).w
-		move.l	#Obj_Insta_Shield,(v_Shield).w
+		move.l	#Obj_DashDust,(v_Dust_P1).w
+		move.l	(Player_1).w,(v_Dust_P1+parent).w
+		move.w	(Player_1+x_pos).w,(Player_2+x_pos).w
+		move.w	(Player_1+y_pos).w,(Player_2+y_pos).w
+		subi.w	#$20,(Player_2+x_pos).w
+		addi.w	#4,(Player_2+y_pos).w
+		move.l	#Obj_DashDust,(v_Dust_P2).w
+		move.l	(Player_2).w,(v_Dust_P2+parent).w
 		rts
 
 ; =============== S U B R O U T I N E =======================================

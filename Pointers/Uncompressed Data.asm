@@ -11,6 +11,8 @@ ArtUnc_DebugText:	binclude "Objects/HUD/Uncompressed Art/Debug Numbers.bin"
 	even
 ArtUnc_EndSigns:	binclude "Objects/Signpost/Uncompressed Art/End Signs.bin"
 	even
+ArtUnc_WaterWave:	binclude "Objects/Water Wave/Uncompressed Art/Water Wave.bin"
+	even
 
 ; ===========================================================================
 ; Animated uncompressed graphics

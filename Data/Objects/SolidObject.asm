@@ -17,8 +17,15 @@
 
 SolidObject:
 SolidObjectFull:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	SolidObjectFull_1P
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		tst.b	render_flags(a1)
+		bpl.w	locret_1DCB4
+		addq.b	#1,d6
 
 SolidObjectFull_1P:
 		btst	d6,status(a0)
@@ -33,15 +40,21 @@ SolidObjectFull_1P:
 		bmi.s	+
 		cmp.w	d2,d0
 		blo.s		++
-+		bclr	#Status_OnObj,status(a1)
+
++
+		bclr	#Status_OnObj,status(a1)
 		bset	#Status_InAir,status(a1)
 		bclr	d6,status(a0)
 		moveq	#0,d4
 		rts
 ; ---------------------------------------------------------------------------
-+		move.w	d4,d2
+
++
+		move.w	d4,d2
 		bsr.w	MvSonicOnPtfm
 		moveq	#0,d4
+
+locret_1DCB4:
 		rts
 
 ; ---------------------------------------------------------------------------
@@ -51,8 +64,13 @@ SolidObjectFull_1P:
 ; =============== S U B R O U T I N E =======================================
 
 SolidObjectFull2:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	SolidObjectFull2_1P
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		addq.b	#1,d6
 
 SolidObjectFull2_1P:
 		btst	d6,status(a0)
@@ -101,8 +119,13 @@ loc_1DD04:
 
 sub_1DD0E:
 SolidObjectFullSloped_Spring:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	SolidObjectFullSloped_Spring_1P
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		addq.b	#1,d6
 
 sub_1DD24:
 SolidObjectFullSloped_Spring_1P:
@@ -139,8 +162,13 @@ loc_1DD5C:
 ; =============== S U B R O U T I N E =======================================
 
 sub_1DD6E:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	sub_1DD84
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		addq.b	#1,d6
 
 sub_1DD84:
 		btst	d6,status(a0)
@@ -174,8 +202,13 @@ loc_1DDBC:
 
 sub_1DDC6:
 SolidObjectFullSloped:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	SolidObjectFullSloped_1P
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		addq.b	#1,d6
 
 sub_1DDDC:
 SolidObjectFullSloped_1P:
@@ -211,8 +244,13 @@ loc_1DE0E:
 ; =============== S U B R O U T I N E =======================================
 
 SolidObjectFull_Offset:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	SolidObjectFull_Offset_1P
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		addq.b	#1,d6
 
 sub_1DE36:
 SolidObjectFull_Offset_1P:
@@ -717,8 +755,13 @@ loc_1E2A0:
 ; =============== S U B R O U T I N E =======================================
 
 SolidObjectTop:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	SolidObjectTop_1P
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		addq.b	#1,d6
 
 sub_1E2BC:
 SolidObjectTop_1P:
@@ -752,8 +795,13 @@ loc_1E2F4:
 ; =============== S U B R O U T I N E =======================================
 
 SolidObjectTopSloped2:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	SolidObjectTopSloped2_1P
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		addq.b	#1,d6
 
 sub_1E314:
 SolidObjectTopSloped2_1P:
@@ -787,8 +835,13 @@ loc_1E34C:
 ; =============== S U B R O U T I N E =======================================
 
 SolidObjectTopSloped:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	SolidObjectTopSloped_1P
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		addq.b	#1,d6
 
 sub_1E36C:
 SolidObjectTopSloped_1P:
@@ -822,8 +875,13 @@ loc_1E3A4:
 ; =============== S U B R O U T I N E =======================================
 
 sub_1E3AE:
-		lea	(Player_1).w,a1
+		lea		(Player_1).w,a1
 		moveq	#p1_standing_bit,d6
+		movem.l	d1-d4,-(sp)
+		bsr.s	sub_1E3C4
+		movem.l	(sp)+,d1-d4
+		lea		(Player_2).w,a1
+		addq.b	#1,d6
 
 sub_1E3C4:
 		btst	d6,status(a0)
@@ -985,14 +1043,14 @@ loc_1E534:
 
 SolidObjCheckSloped:
 		tst.w	y_vel(a1)
-		bmi.s	locret_1E5DE
+		bmi.s	.ret
 		move.w	x_pos(a1),d0
 		sub.w	x_pos(a0),d0
 		add.w	d1,d0
-		bmi.s	locret_1E5DE
+		bmi.s	.ret
 		add.w	d1,d1
 		cmp.w	d1,d0
-		bhs.s	locret_1E5DE
+		bhs.s	.ret
 		btst	#0,render_flags(a0)
 		beq.s	+
 		not.w	d0
@@ -1002,22 +1060,43 @@ SolidObjCheckSloped:
 		move.w	y_pos(a0),d0
 		sub.w	d3,d0
 		bra.w	loc_1E45A
+	.ret:
+		rts
 
 ; =============== S U B R O U T I N E =======================================
 
 CheckPlayerReleaseFromObj:
 		lea	(Player_1).w,a1
 		btst	#Status_OnObj,status(a0)
-		beq.s	++
+		beq.s	loc_1E5AE
 		jsr	SonicOnObjHitFloor(pc)
 		tst.w	d1
-		beq.s	+
-		bpl.s	++
-+		lea	(Player_1).w,a1
+		beq.s	loc_1E598
+		bpl.s	loc_1E5AE
+
+loc_1E598:
+		lea	(Player_1).w,a1
 		bclr	#Status_OnObj,status(a1)
 		bset	#Status_InAir,status(a1)
 		bclr	#Status_OnObj,status(a0)
-+		moveq	#0,d4
+
+loc_1E5AE:
+		lea	(Player_2).w,a1
+		btst	#Status_RollJump,status(a0)
+		beq.s	loc_1E5DC
+		jsr	(SonicOnObjHitFloor).l
+		tst.w	d1
+		beq.s	loc_1E5C6
+		bpl.s	loc_1E5DC
+
+loc_1E5C6:
+		lea	(Player_2).w,a1
+		bclr	#Status_OnObj,status(a1)
+		bset	#Status_InAir,status(a1)
+		bclr	#Status_RollJump,status(a0)
+
+loc_1E5DC:
+		moveq	#0,d4
 
 locret_1E5DE:
 		rts
