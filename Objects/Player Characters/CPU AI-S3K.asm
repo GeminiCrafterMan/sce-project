@@ -331,12 +331,12 @@ loc_13E50:
 		bset	#0,status(a0)
 
 loc_13E64:
-		tst.b	(Tails_CPU_auto_jump_flag).w
+		tst.b	(Tails_CPU_jumping).w
 		beq.s	loc_13E7C
 		ori.w	#$7000,d1
 		btst	#1,status(a0)
 		bne.s	loc_13EB8
-		move.b	#0,(Tails_CPU_auto_jump_flag).w
+		move.b	#0,(Tails_CPU_jumping).w
 
 loc_13E7C:
 		move.w	(Level_frame_counter).w,d0
@@ -360,7 +360,7 @@ loc_13E9C:
 		cmpi.b	#8,anim(a0)
 		beq.s	loc_13EB8
 		ori.w	#$7070,d1
-		move.b	#1,(Tails_CPU_auto_jump_flag).w
+		move.b	#1,(Tails_CPU_jumping).w
 
 loc_13EB8:
 		move.w	d1,(Ctrl_2_logical).w
@@ -401,7 +401,7 @@ sub_13EFC:
 		beq.s	loc_13F18
 		moveq	#0,d0
 		movea.w	interact(a0),a3
-		move.w	(Tails_CPU_interact).w,d0
+		move.w	(Tails_interact_ID).w,d0
 		cmp.w	(a3),d0
 		bne.s	loc_13F24
 
@@ -421,7 +421,7 @@ loc_13F2E:
 		btst	#3,status(a0)
 		beq.s	locret_13F3E
 		movea.w	interact(a0),a3
-		move.w	(a3),(Tails_CPU_interact).w
+		move.w	(a3),(Tails_interact_ID).w
 
 locret_13F3E:
 		rts
@@ -609,10 +609,10 @@ loc_14164:
 		clr.b	(_unkFAAC).w
 		btst	#1,(Ctrl_1).w
 		beq.s	loc_14198
-		addq.b	#1,(Tails_CPU_auto_fly_timer).w
-		cmpi.b	#$C0,(Tails_CPU_auto_fly_timer).w
+		addq.b	#1,(Tails_CPU_flight_timer).w
+		cmpi.b	#$C0,(Tails_CPU_flight_timer).w
 		blo.s	loc_141D2
-		move.b	#0,(Tails_CPU_auto_fly_timer).w
+		move.b	#0,(Tails_CPU_flight_timer).w
 		ori.w	#$7070,(Ctrl_2_logical).w
 		bra.s	loc_141D2
 ; ---------------------------------------------------------------------------
@@ -620,19 +620,19 @@ loc_14164:
 loc_14198:
 		btst	#0,(Ctrl_1).w
 		beq.s	loc_141BA
-		addq.b	#1,(Tails_CPU_auto_fly_timer).w
-		cmpi.b	#$20,(Tails_CPU_auto_fly_timer).w
+		addq.b	#1,(Tails_CPU_flight_timer).w
+		cmpi.b	#$20,(Tails_CPU_flight_timer).w
 		blo.s	loc_141D2
-		move.b	#0,(Tails_CPU_auto_fly_timer).w
+		move.b	#0,(Tails_CPU_flight_timer).w
 		ori.w	#$7070,(Ctrl_2_logical).w
 		bra.s	loc_141D2
 ; ---------------------------------------------------------------------------
 
 loc_141BA:
-		addq.b	#1,(Tails_CPU_auto_fly_timer).w
-		cmpi.b	#$58,(Tails_CPU_auto_fly_timer).w
+		addq.b	#1,(Tails_CPU_flight_timer).w
+		cmpi.b	#$58,(Tails_CPU_flight_timer).w
 		blo.s	loc_141D2
-		move.b	#0,(Tails_CPU_auto_fly_timer).w
+		move.b	#0,(Tails_CPU_flight_timer).w
 		ori.w	#$7070,(Ctrl_2_logical).w
 
 loc_141D2:
@@ -730,10 +730,10 @@ loc_142E2:
 		move.w	#0,(Ctrl_2_logical).w
 		cmpi.w	#$200,y_vel(a0)
 		bge.s	loc_14328
-		addq.b	#1,(Tails_CPU_auto_fly_timer).w
-		cmpi.b	#$58,(Tails_CPU_auto_fly_timer).w
+		addq.b	#1,(Tails_CPU_flight_timer).w
+		cmpi.b	#$58,(Tails_CPU_flight_timer).w
 		blo.s	loc_1432E
-		move.b	#0,(Tails_CPU_auto_fly_timer).w
+		move.b	#0,(Tails_CPU_flight_timer).w
 
 loc_14328:
 		ori.w	#$7070,(Ctrl_2_logical).w
@@ -807,10 +807,10 @@ Tails_Carry_Sonic:
 		bhs.w	loc_14466
 		btst	#1,status(a1)
 		beq.w	loc_1445A
-		move.w	(_unkF744).w,d1
+		move.w	(Carried_character_x_vel).w,d1
 		cmp.w	x_vel(a1),d1
 		bne.s	loc_1445A
-		move.w	(_unkF74C).w,d1
+		move.w	(Carried_character_y_vel).w,d1
 		cmp.w	y_vel(a1),d1
 		bne.s	loc_14460
 		tst.b	object_control(a1)
@@ -898,17 +898,17 @@ loc_144E4:
 		moveq	#0,d0
 		move.b	mapping_frame(a1),d0
 		move.l	a2,-(sp)
-		jsr	(Perform_Player_DPLC).l
+		jsr	(Player_Load_PLC).l
 		movea.l	(sp)+,a2
 
 loc_144F8:
 		move.w	x_vel(a0),(Player_1+x_vel).w
-		move.w	x_vel(a0),(_unkF744).w
+		move.w	x_vel(a0),(Carried_character_x_vel).w
 		move.w	y_vel(a0),(Player_1+y_vel).w
-		move.w	y_vel(a0),(_unkF74C).w
+		move.w	y_vel(a0),(Carried_character_y_vel).w
 		movem.l	d0-a6,-(sp)
 		lea	(Player_1).w,a0
-		bsr.w	SonicKnux_DoLevelCollision
+		bsr.w	Player_DoLevelCollision
 		movem.l	(sp)+,d0-a6
 		rts
 ; ---------------------------------------------------------------------------
@@ -981,9 +981,9 @@ sub_1459E:
 		andi.b	#1,d0
 		or.b	d0,render_flags(a1)
 		or.b	d0,status(a1)
-		move.w	x_vel(a0),(_unkF744).w
+		move.w	x_vel(a0),(Carried_character_x_vel).w
 		move.w	x_vel(a0),x_vel(a1)
-		move.w	y_vel(a0),(_unkF74C).w
+		move.w	y_vel(a0),(Carried_character_y_vel).w
 		move.w	y_vel(a0),y_vel(a1)
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	locret_14630

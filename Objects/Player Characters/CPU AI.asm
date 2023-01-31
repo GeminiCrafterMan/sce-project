@@ -6,7 +6,7 @@
 
 ; loc_1BAD4:
 CPU_Control: ; a0=Tails
-	move.b	(Ctrl_2_Held).w,d0	; did the real player 2 hit something?
+	move.b	(Ctrl_2_logical).w,d0	; did the real player 2 hit something?
 	andi.b	#button_up_mask|button_down_mask|button_left_mask|button_right_mask|button_B_mask|button_C_mask|button_A_mask,d0
 	beq.s	+			; if not, branch
 	move.w	#600,(Tails_CPU_idle_timer).w ; give player 2 control for 10 seconds (minimum)
@@ -218,7 +218,7 @@ loc_13CD2:
 	bhs.s	loc_13D42
 	move.b	#6,(Tails_CPU_routine).w	; => TailsCPU_Normal
 	clr.b	object_control(a0)
-	move.b	#id_Roll,anim(a0)
+	move.b	#id_Walk,anim(a0)
 	clr.w	x_vel(a0)
 	clr.w	y_vel(a0)
 	clr.w	ground_vel(a0)
@@ -267,14 +267,14 @@ TailsCPU_Normal_SonicOK:
 	tst.w	ground_vel(a0)			; and Tails is stopped, then...
 	bne.s	+					; (if not, branch)
 	move.b	#8,(Tails_CPU_routine).w	; => TailsCPU_Panic
-+
-	lea	(Pos_table).w,a1
++; loc_13DA6
+	lea	(Pos_table).w,a2
 	move.w	#$10,d1
 	lsl.b	#2,d1
 	addq.b	#4,d1
 	move.w	(Pos_table_index).w,d0
 	sub.b	d1,d0
-	move.w	(a1,d0.w),d2	; d2 = earlier x position of Sonic
+	move.w	(a2,d0.w),d2	; d2 = earlier x position of Sonic
 	btst	#3,status(a1)
 	bne.s	loc_13DD0
 	cmpi.w	#$400,ground_vel(a1)
@@ -282,10 +282,10 @@ TailsCPU_Normal_SonicOK:
 	subi.w	#$20,d2
 
 loc_13DD0:
-	move.w	2(a1,d0.w),d3	; d3 = earlier y position of Sonic
-	lea	(Stat_table).w,a1
-	move.w	(a1,d0.w),d1	; d1 = earlier input of Sonic
-	move.b	2(a1,d0.w),d4	; d4 = earlier status of Sonic
+	move.w	2(a2,d0.w),d3	; d3 = earlier y position of Sonic
+	lea	(Stat_table).w,a2
+	move.w	(a2,d0.w),d1	; d1 = earlier input of Sonic
+	move.b	2(a2,d0.w),d4	; d4 = earlier status of Sonic
 	move.w	d1,d0
 	btst	#5,status(a0)	; is Tails pushing against something?
 	beq.s	+		; if not, branch
@@ -410,22 +410,25 @@ TailsCPU_CheckDespawn:
 	beq.s	TailsCPU_TickRespawnTimer
 
 	moveq	#0,d0
-	move.b	interact(a0),d0
-    if object_size=$40
-	lsl.w	#6,d0
-    else
-	mulu.w	#object_size,d0
-    endif
-	addi.l	#Object_RAM,d0
-	movea.l	d0,a3	; a3=object
-	move.b	(Tails_interact_ID).w,d0
-	cmp.b	(a3),d0
+	movea.w	interact(a0),a3
+	move.w	(Tails_interact_ID).w,d0
+	cmp.w	(a3),d0
+;	move.b	interact(a0),d0
+;	if object_size=$40
+;	lsl.w	#6,d0
+;	else
+;	mulu.w	#object_size,d0
+;	endif
+;	addi.l	#Object_RAM,d0
+;	movea.l	d0,a3	; a3=object
+;	move.b	(Tails_interact_ID).w,d0
+;	cmp.b	(a3),d0
 	bne.s	BranchTo_TailsCPU_Despawn
 
 ; loc_1BE8C:
 TailsCPU_TickRespawnTimer:
 	addq.w	#1,(Tails_respawn_counter).w
-	cmpi.w	#$300,(Tails_respawn_counter).w
+	cmpi.w	#300,(Tails_respawn_counter).w
 	blo.s	TailsCPU_UpdateObjInteract
 
 BranchTo_TailsCPU_Despawn
@@ -438,16 +441,20 @@ TailsCPU_ResetRespawnTimer:
 TailsCPU_UpdateObjInteract:
 	btst	#3,status(a0)
 	beq.s	locret_13F3E
+
 ;	moveq	#0,d0
-	move.b	interact(a0),d0
-    if object_size=$40
-	lsl.w	#6,d0
-    else
-	mulu.w	#object_size,d0
-    endif
-	addi.l	#Object_RAM,d0
-	movea.l	d0,a3	; a3=object
-	move.b	(a3),(Tails_interact_ID).w
+;	move.b	interact(a0),d0
+;	if object_size=$40
+;	lsl.w	#6,d0
+;	else
+;	mulu.w	#object_size,d0
+;	endif
+;	addi.l	#Object_RAM,d0
+;	movea.l	d0,a3	; a3=object
+;	move.b	(a3),(Tails_interact_ID).w
+
+	movea.w	interact(a0),a3
+	move.w	(a3),(Tails_interact_ID).w
 locret_13F3E:
 	rts
 
@@ -826,7 +833,7 @@ loc_14466:
 	clr.b	object_control(a1)
 
 loc_1446A:
-	clr.b	(a2)
+	clr.b	(a2)	; drop the player
 	move.b	#$3C,1(a2)
 	rts
 ; ---------------------------------------------------------------------------
@@ -888,7 +895,7 @@ loc_1456C:
 	bne.s	locret_1459C
 	cmpi.b	#4,routine(a1)
 	bhs.s	locret_1459C
-	tst.b	(Debug_placement_mode).w
+	tst.w	(Debug_placement_mode).w
 	bne.s	locret_1459C
 	tst.b	spin_dash_flag(a1)
 	bne.s	locret_1459C

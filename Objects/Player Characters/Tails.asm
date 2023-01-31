@@ -151,9 +151,9 @@ Tails_FlyingSwimming:
 		movem.l	a4-a6,-(sp)
 		bsr.w	Player_DoLevelCollision
 		movem.l	(sp)+,a4-a6
+		lea	(Flying_carrying_Sonic_flag).w,a2
 		cmpa.w	#Player_1,a0
 		bne.s	.p2
-		lea	(Flying_carrying_Sonic_flag).w,a2
 		lea	(Player_2).w,a1
 		bra.s	.cont
 	.p2:

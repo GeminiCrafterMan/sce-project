@@ -397,7 +397,8 @@ Tails_CPU_flight_timer:				ds.w 1
 Flying_carrying_Sonic_flag:			ds.b 1
 Flying_picking_Sonic_timer:			ds.b 1
 Tails_CPU_jumping:					ds.b 1
-Tails_interact_ID:					ds.b 1
+									ds.b 1	; even
+Tails_interact_ID:					ds.w 1
 Tails_respawn_counter:				ds.w 1
 Tails_CPU_target_x:					ds.w 1
 Tails_CPU_target_y:					ds.w 1
