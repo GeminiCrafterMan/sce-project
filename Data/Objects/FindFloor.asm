@@ -845,7 +845,7 @@ CalcRoomOverHead:
 		cmpi.b	#$40,d0
 		beq.w	CheckLeftCeilingDist
 		cmpi.b	#$80,d0
-		beq.w	Sonic_CheckCeiling
+		beq.w	Player_CheckCeiling
 		cmpi.b	#$C0,d0
 		beq.w	CheckRightCeilingDist
 
@@ -855,14 +855,14 @@ CalcRoomOverHead:
 
 ; =============== S U B R O U T I N E =======================================
 
-Sonic_CheckFloor:
+Player_CheckFloor:
 		move.l	(Primary_collision_addr).w,(Collision_addr).w
 		cmpi.b	#$C,top_solid_bit(a0)
 		beq.s	+
 		move.l	(Secondary_collision_addr).w,(Collision_addr).w
 +		move.b	top_solid_bit(a0),d5
 
-Sonic_CheckFloor2:
+Player_CheckFloor2:
 		move.w	y_pos(a0),d2
 		move.w	x_pos(a0),d3
 		moveq	#0,d0
@@ -1170,7 +1170,7 @@ ObjCheckRightWallDist:
 
 ; =============== S U B R O U T I N E =======================================
 
-Sonic_CheckCeiling:
+Player_CheckCeiling:
 		move.w	y_pos(a0),d2
 		move.w	x_pos(a0),d3
 		moveq	#0,d0

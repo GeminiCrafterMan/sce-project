@@ -443,7 +443,7 @@ HurtCharacter:
 
 .bounce:
 		move.b	#id_SonicHurt,routine(a0)
-		bsr.w	Sonic_ResetOnFloor
+		bsr.w	Player_ResetOnFloor
 		bset	#Status_InAir,status(a0)
 		move.w	#-$400,y_vel(a0)						; make Sonic bounce away from the object
 		move.w	#-$200,x_vel(a0)
@@ -498,7 +498,7 @@ loc_1036E:
 		clr.b	status_tertiary(a0)
 		move.b	#id_SonicDeath,routine(a0)
 		move.w	d0,-(sp)
-		bsr.w	Sonic_ResetOnFloor
+		bsr.w	Player_ResetOnFloor
 		move.w	(sp)+,d0
 		bset	#Status_InAir,status(a0)
 		move.w	#-$700,y_vel(a0)

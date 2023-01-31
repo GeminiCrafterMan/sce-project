@@ -216,24 +216,24 @@ Map_Sonic_1AA: 	dc.w Map_Sonic_131C-Map_Sonic
 Map_Sonic_1AC: 	dc.w Map_Sonic_1336-Map_Sonic
 Map_Sonic_1AE: 	dc.w Map_Sonic_1350-Map_Sonic
 Map_Sonic_1B0: 	dc.w Map_Sonic_136A-Map_Sonic
-Map_Sonic_1B2: 	dc.w Map_Sonic_137E-Map_Sonic
-Map_Sonic_1B4: 	dc.w Map_Sonic_1392-Map_Sonic
-Map_Sonic_1B6: 	dc.w Map_Sonic_13AC-Map_Sonic
-Map_Sonic_1B8: 	dc.w Map_Sonic_13BA-Map_Sonic
-Map_Sonic_1BA: 	dc.w Map_Sonic_13C8-Map_Sonic
-Map_Sonic_1BC: 	dc.w Map_Sonic_13DC-Map_Sonic
-Map_Sonic_1BE: 	dc.w Map_Sonic_13EA-Map_Sonic
-Map_Sonic_1C0: 	dc.w Map_Sonic_1404-Map_Sonic
-Map_Sonic_1C2: 	dc.w Map_Sonic_1424-Map_Sonic
-Map_Sonic_1C4: 	dc.w Map_Sonic_143E-Map_Sonic
-Map_Sonic_1C6: 	dc.w Map_Sonic_145E-Map_Sonic
-Map_Sonic_1C8: 	dc.w Map_Sonic_1472-Map_Sonic
-Map_Sonic_1CA: 	dc.w Map_Sonic_1486-Map_Sonic
-Map_Sonic_1CC: 	dc.w Map_Sonic_14A0-Map_Sonic
-Map_Sonic_1CE: 	dc.w Map_Sonic_14B4-Map_Sonic
-Map_Sonic_1D0: 	dc.w Map_Sonic_14D4-Map_Sonic
-Map_Sonic_1D2: 	dc.w Map_Sonic_14EE-Map_Sonic
-Map_Sonic_1D4: 	dc.w Map_Sonic_1508-Map_Sonic
+Map_Sonic_1B2: 	dc.w Map_Sonic_1390-Map_Sonic
+Map_Sonic_1B4: 	dc.w Map_Sonic_13B0-Map_Sonic
+Map_Sonic_1B6: 	dc.w Map_Sonic_13CA-Map_Sonic
+Map_Sonic_1B8: 	dc.w Map_Sonic_13D8-Map_Sonic
+Map_Sonic_1BA: 	dc.w Map_Sonic_13E6-Map_Sonic
+Map_Sonic_1BC: 	dc.w Map_Sonic_13FA-Map_Sonic
+Map_Sonic_1BE: 	dc.w Map_Sonic_1408-Map_Sonic
+Map_Sonic_1C0: 	dc.w Map_Sonic_1422-Map_Sonic
+Map_Sonic_1C2: 	dc.w Map_Sonic_1442-Map_Sonic
+Map_Sonic_1C4: 	dc.w Map_Sonic_145C-Map_Sonic
+Map_Sonic_1C6: 	dc.w Map_Sonic_147C-Map_Sonic
+Map_Sonic_1C8: 	dc.w Map_Sonic_1490-Map_Sonic
+Map_Sonic_1CA: 	dc.w Map_Sonic_14A4-Map_Sonic
+Map_Sonic_1CC: 	dc.w Map_Sonic_14BE-Map_Sonic
+Map_Sonic_1CE: 	dc.w Map_Sonic_14D2-Map_Sonic
+Map_Sonic_1D0: 	dc.w Map_Sonic_14F2-Map_Sonic
+Map_Sonic_1D2: 	dc.w Map_Sonic_150C-Map_Sonic
+Map_Sonic_1D4: 	dc.w Map_Sonic_1526-Map_Sonic
 Map_Sonic_1D6: 	dc.b $0, $0
 Map_Sonic_1D8: 	dc.b $0, $4
 	dc.b $C, $4, $0, $0, $FF, $E7
@@ -1128,88 +1128,93 @@ Map_Sonic_1350: 	dc.b $0, $4
 	dc.b $E8, $A, $0, $8, $FF, $F2
 	dc.b $10, $8, $0, $11, $FF, $F2
 	dc.b $0, $0, $0, $14, $0, $A
-Map_Sonic_136A: 	dc.b $0, $3
-	dc.b $F4, $E, $0, $0, $FF, $E9
-	dc.b $C, $8, $0, $C, $FF, $F1
-	dc.b $F4, $2, $0, $F, $0, $9
-Map_Sonic_137E: 	dc.b $0, $3
-	dc.b $F4, $E, $0, $0, $FF, $E9
-	dc.b $C, $8, $0, $C, $FF, $F1
-	dc.b $F4, $2, $0, $F, $0, $9
-Map_Sonic_1392: 	dc.b $0, $4
+Map_Sonic_136A: 	dc.b $0, $6
+	dc.b $F2, $D, $0, $0, $FF, $EC
+	dc.b $EA, $8, $0, $8, $FF, $F4
+	dc.b $2, $5, $0, $B, $FF, $F4
+	dc.b $12, $0, $0, $F, $FF, $F4
+	dc.b $A, $0, $0, $10, $0, $4
+	dc.b $FA, $0, $0, $11, $0, $C
+Map_Sonic_1390: 	dc.b $0, $5
+	dc.b $ED, $D, $0, $0, $FF, $EF
+	dc.b $FD, $9, $0, $8, $FF, $F7
+	dc.b $D, $4, $0, $E, $FF, $F7
+	dc.b $E5, $4, $0, $10, $FF, $FF
+	dc.b $ED, $1, $0, $12, $0, $F
+Map_Sonic_13B0: 	dc.b $0, $4
 	dc.b $EE, $A, $0, $0, $FF, $EE
 	dc.b $F6, $0, $0, $9, $FF, $E6
 	dc.b $FE, $4, $0, $A, $0, $6
 	dc.b $6, $9, $0, $C, $FF, $F6
-Map_Sonic_13AC: 	dc.b $0, $2
+Map_Sonic_13CA: 	dc.b $0, $2
 	dc.b $F4, $F, $0, $0, $FF, $EF
 	dc.b $EC, $8, $0, $10, $FF, $F7
-Map_Sonic_13BA: 	dc.b $0, $2
+Map_Sonic_13D8: 	dc.b $0, $2
 	dc.b $F7, $F, $0, $0, $FF, $EF
 	dc.b $EF, $8, $0, $10, $FF, $F7
-Map_Sonic_13C8: 	dc.b $0, $3
+Map_Sonic_13E6: 	dc.b $0, $3
 	dc.b $7, $D, $0, $0, $FF, $ED
 	dc.b $EF, $A, $0, $8, $FF, $F5
 	dc.b $F7, $0, $0, $11, $0, $D
-Map_Sonic_13DC: 	dc.b $0, $2
+Map_Sonic_13FA: 	dc.b $0, $2
 	dc.b $F7, $F, $0, $0, $FF, $EF
 	dc.b $EF, $8, $0, $10, $FF, $F7
-Map_Sonic_13EA: 	dc.b $0, $4
+Map_Sonic_1408: 	dc.b $0, $4
 	dc.b $EF, $E, $0, $0, $FF, $EE
 	dc.b $F7, $0, $0, $C, $FF, $E6
 	dc.b $FF, $1, $0, $D, $0, $E
 	dc.b $7, $9, $0, $F, $FF, $F6
-Map_Sonic_1404: 	dc.b $0, $5
+Map_Sonic_1422: 	dc.b $0, $5
 	dc.b $F6, $C, $0, $0, $FF, $E9
 	dc.b $EE, $8, $0, $4, $FF, $F1
 	dc.b $FE, $E, $0, $7, $FF, $F1
 	dc.b $16, $0, $0, $13, $FF, $F9
 	dc.b $F6, $0, $0, $14, $0, $9
-Map_Sonic_1424: 	dc.b $0, $4
+Map_Sonic_1442: 	dc.b $0, $4
 	dc.b $EF, $B, $0, $0, $FF, $F1
 	dc.b $F7, $1, $0, $C, $FF, $E9
 	dc.b $F7, $3, $0, $E, $0, $9
 	dc.b $F, $4, $0, $12, $FF, $F9
-Map_Sonic_143E: 	dc.b $0, $5
+Map_Sonic_145C: 	dc.b $0, $5
 	dc.b $F6, $C, $0, $0, $FF, $E9
 	dc.b $EE, $8, $0, $4, $FF, $F1
 	dc.b $FE, $E, $0, $7, $FF, $F1
 	dc.b $16, $0, $0, $13, $FF, $F9
 	dc.b $F6, $0, $0, $14, $0, $9
-Map_Sonic_145E: 	dc.b $0, $3
+Map_Sonic_147C: 	dc.b $0, $3
 	dc.b $EB, $3, $0, $0, $FF, $F7
 	dc.b $F3, $2, $0, $4, $FF, $EF
 	dc.b $F3, $B, $0, $7, $FF, $FF
-Map_Sonic_1472: 	dc.b $0, $3
+Map_Sonic_1490: 	dc.b $0, $3
 	dc.b $F1, $E, $0, $0, $FF, $EF
 	dc.b $9, $C, $0, $C, $FF, $F7
 	dc.b $F1, $2, $0, $10, $0, $F
-Map_Sonic_1486: 	dc.b $0, $4
+Map_Sonic_14A4: 	dc.b $0, $4
 	dc.b $F1, $E, $0, $0, $FF, $EF
 	dc.b $9, $0, $0, $C, $FF, $EF
 	dc.b $9, $4, $0, $D, $0, $7
 	dc.b $F1, $2, $0, $F, $0, $F
-Map_Sonic_14A0: 	dc.b $0, $3
+Map_Sonic_14BE: 	dc.b $0, $3
 	dc.b $F1, $E, $0, $0, $FF, $EF
 	dc.b $9, $C, $0, $C, $FF, $F7
 	dc.b $F1, $2, $0, $10, $0, $F
-Map_Sonic_14B4: 	dc.b $0, $5
+Map_Sonic_14D2: 	dc.b $0, $5
 	dc.b $F0, $E, $0, $0, $FF, $EE
 	dc.b $8, $8, $0, $C, $FF, $EE
 	dc.b $10, $0, $0, $F, $FF, $F6
 	dc.b $E8, $4, $0, $10, $FF, $FE
 	dc.b $F0, $2, $0, $12, $0, $E
-Map_Sonic_14D4: 	dc.b $0, $4
+Map_Sonic_14F2: 	dc.b $0, $4
 	dc.b $EE, $F, $0, $0, $FF, $F5
 	dc.b $F6, $2, $0, $10, $FF, $ED
 	dc.b $FE, $0, $0, $13, $0, $15
 	dc.b $E, $0, $0, $14, $FF, $F5
-Map_Sonic_14EE: 	dc.b $0, $4
+Map_Sonic_150C: 	dc.b $0, $4
 	dc.b $F6, $E, $0, $0, $FF, $EE
 	dc.b $EE, $C, $0, $C, $FF, $F6
 	dc.b $E, $4, $0, $10, $FF, $F6
 	dc.b $F6, $1, $0, $12, $0, $E
-Map_Sonic_1508: 	dc.b $0, $4
+Map_Sonic_1526: 	dc.b $0, $4
 	dc.b $EE, $F, $0, $0, $FF, $F5
 	dc.b $F6, $2, $0, $10, $FF, $ED
 	dc.b $FE, $0, $0, $13, $0, $15

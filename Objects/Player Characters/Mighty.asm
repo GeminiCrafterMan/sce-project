@@ -51,12 +51,12 @@ Mighty_Index: offsetTable
 		offsetTableEntry.w .restart	; 8
 		offsetTableEntry.w .loc_12590		; A
 		offsetTableEntry.w .drown		; C
-.control:	jmp	Sonic_Control
-.hurt:		jmp	Sonic_Hurt
-.death:		jmp	Sonic_Death
-.restart:	jmp	Sonic_Restart
+.control:	jmp	Player_Control
+.hurt:		jmp	Player_Hurt
+.death:		jmp	Player_Death
+.restart:	jmp	Player_Restart
 .loc_12590:	jmp	loc_12590
-.drown:		jmp	Sonic_Drown
+.drown:		jmp	Player_Drown
 ; ---------------------------------------------------------------------------
 
 Mighty_Init:	; Routine 0
@@ -72,7 +72,7 @@ Mighty_Init:	; Routine 0
 		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
 		tst.b	(Last_star_post_hit).w
-		bne.s	Mighty_Init_Continued
+		jne		Player_Init_Continued
 		; only happens when not starting at a checkpoint:
 		cmpa.l	#Player_1,a0
 		bne.s	.p2
@@ -82,18 +82,30 @@ Mighty_Init:	; Routine 0
 		move.w	#make_art_tile(ArtTile_Tails,0,0),art_tile(a0)
 	.cont:
 		move.w	#bytes_to_word($C,$D),top_solid_bit(a0)
+		jmp		Player_Init_Continued
 
-Mighty_Init_Continued:
-		clr.b	flips_remaining(a0)
-		move.b	#4,flip_speed(a0)
-		clr.b	(Super_Sonic_Knux_flag).w
-		move.b	#30,air_left(a0)
-		subi.w	#$20,x_pos(a0)
-		addi.w	#4,y_pos(a0)
-		jsr		Reset_Player_Position_Array
-		addi.w	#$20,x_pos(a0)
-		subi.w	#4,y_pos(a0)
-		rts
+Mighty_Control:
+		movem.l	a4-a6,-(sp)
+		moveq	#0,d0
+		move.b	status(a0),d0
+		andi.w	#6,d0
+		move.w	Mighty_Modes(pc,d0.w),d1
+		jsr	Mighty_Modes(pc,d1.w)	; run Mighty's movement control code
+		movem.l	(sp)+,a4-a6
+		jmp		loc_10C26
+
+; ---------------------------------------------------------------------------
+; secondary states under state Player_Control
+Mighty_Modes: offsetTable
+		offsetTableEntry.w Mighty_MdNormal		; 0
+		offsetTableEntry.w Mighty_MdAir			; 2
+		offsetTableEntry.w Mighty_MdRoll		; 4
+		offsetTableEntry.w Mighty_MdJump		; 6
+; ---------------------------------------------------------------------------
+Mighty_MdNormal:	jmp	Sonic_MdNormal
+Mighty_MdAir:		jmp	Sonic_MdAir
+Mighty_MdRoll:		jmp	Sonic_MdRoll
+Mighty_MdJump:		jmp	Sonic_MdJump
 
 Animate_Mighty:
 		lea	AniMighty(pc),a1

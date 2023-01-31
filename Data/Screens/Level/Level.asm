@@ -191,6 +191,7 @@ SpawnLevelMainSprites:
 		dc.l	Obj_Knuckles,	Obj_Tails	; K&T
 		dc.l	Obj_Mighty,		DeleteObject; MA
 		dc.l	Obj_Mighty,		Obj_Tails	; M&T
+		dc.l	Obj_Tails,		Obj_Tails	; T&T
 
 .cont:
 		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3).w
@@ -223,6 +224,7 @@ LoadPlayerPal:
 		dc.w	palid_Knuckles	; K&T
 		dc.w	palid_Mighty	; MA
 		dc.w	palid_Mighty	; M&T
+		dc.w	palid_Sonic		; T&T
 		even
 
 ; =============== S U B R O U T I N E =======================================

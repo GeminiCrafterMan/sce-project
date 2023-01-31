@@ -51,12 +51,12 @@ Tails_Index: offsetTable
 		offsetTableEntry.w .restart	; 8
 		offsetTableEntry.w .loc_12590		; A
 		offsetTableEntry.w .drown		; C
-.control:	jmp	Sonic_Control
-.hurt:		jmp	Sonic_Hurt
-.death:		jmp	Sonic_Death
-.restart:	jmp	Sonic_Restart
+.control:	jmp	Player_Control
+.hurt:		jmp	Player_Hurt
+.death:		jmp	Player_Death
+.restart:	jmp	Player_Restart
 .loc_12590:	jmp	loc_12590
-.drown:		jmp	Sonic_Drown
+.drown:		jmp	Player_Drown
 ; ---------------------------------------------------------------------------
 
 Tails_Init:	; Routine 0
@@ -71,40 +71,328 @@ Tails_Init:	; Routine 0
 		move.w	#$600,Top_speed_P1-Top_speed_P1(a4)
 		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
-		tst.b	(Last_star_post_hit).w
-		bne.s	Tails_Init_Continued
-		; only happens when not starting at a checkpoint:
-		cmpa.l	#Player_1,a0
-		bne.s	.p2
-		move.w	#make_art_tile(ArtTile_Sonic,0,0),art_tile(a0)
-		bra.s	.cont
-	.p2:
-		move.w	#make_art_tile(ArtTile_Tails,0,0),art_tile(a0)
-	.cont:
-		move.w	#bytes_to_word($C,$D),top_solid_bit(a0)
-
-Tails_Init_Continued:
-		clr.b	flips_remaining(a0)
-		move.b	#4,flip_speed(a0)
-		clr.b	(Super_Sonic_Knux_flag).w
-		move.b	#30,air_left(a0)
-		subi.w	#$20,x_pos(a0)
-		addi.w	#4,y_pos(a0)
-		bsr.w	Reset_Player_Position_Array
-		addi.w	#$20,x_pos(a0)
-		subi.w	#4,y_pos(a0)
 		cmpa.l	#Player_1,a0
 		bne.s	.p2
 		move.l	#Obj_Tails_Tail,(v_FollowObject_P1).w
 		move.w	#ArtTile_FollowObject_P1,(v_FollowObject_P1+art_tile).w
 		move.w	a0,(v_FollowObject_P1+parent).w
-		rts
+		bra.s	.cont
 	.p2:
 		move.l	#Obj_Tails_Tail,(v_FollowObject_P2).w
 		move.w	#ArtTile_FollowObject_P2,(v_FollowObject_P2+art_tile).w
 		move.w	a0,(v_FollowObject_P2+parent).w
+	.cont:
+		tst.b	(Last_star_post_hit).w
+		jne		Player_Init_Continued
+		; only happens when not starting at a checkpoint:
+		cmpa.l	#Player_1,a0
+		bne.s	.p2A
+		move.w	#make_art_tile(ArtTile_Sonic,0,0),art_tile(a0)
+		bra.s	.contA
+	.p2A:
+		move.w	#make_art_tile(ArtTile_Tails,0,0),art_tile(a0)
+	.contA:
+		move.w	#bytes_to_word($C,$D),top_solid_bit(a0)
+		jmp		Player_Init_Continued
+
+Tails_Control:
+		movem.l	a4-a6,-(sp)
+		moveq	#0,d0
+		move.b	status(a0),d0
+		andi.w	#6,d0
+		move.w	Tails_Modes(pc,d0.w),d1
+		jsr	Tails_Modes(pc,d1.w)	; run Tails's movement control code
+		movem.l	(sp)+,a4-a6
+		jmp		loc_10C26
+
+; ---------------------------------------------------------------------------
+; secondary states under state Player_Control
+Tails_Modes: offsetTable
+		offsetTableEntry.w Tails_MdNormal		; 0
+		offsetTableEntry.w Tails_MdAir			; 2
+		offsetTableEntry.w Tails_MdRoll		; 4
+		offsetTableEntry.w Tails_MdJump		; 6
+
+; ---------------------------------------------------------------------------
+; Start of subroutine Tails_MdNormal
+; Called if Tails is neither airborne nor rolling this frame
+; ---------------------------------------------------------------------------
+; loc_1C00A:
+Tails_MdNormal:
+		tst.b	(Flying_carrying_Sonic_flag).w
+		jeq		Sonic_MdNormal
+		cmpa.w	#Player_1,a0
+		bne.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
+		clr.b	object_control(a1)
+		bset	#1,status(a1)
+		clr.w	(Flying_carrying_Sonic_flag).w
+		jmp		Sonic_MdNormal
+
+; ---------------------------------------------------------------------------
+; Start of subroutine Obj_Tails_MdAir
+; Called if Tails is airborne, but not in a ball (thus, probably not jumping)
+; loc_1C032: Obj_Tails_MdJump
+Tails_MdAir:
+	tst.b	double_jump_flag(a0)
+	bne.s	Tails_FlyingSwimming
+	jmp		Sonic_MdAir	; change this to MdAir.cont and put the Player_SetFallingAnimation branch at the start if it fucks up
+
+Tails_FlyingSwimming:
+		bsr.w	Tails_Move_FlySwim
+		bsr.w	Player_ChgJumpDir
+		bsr.w	Player_LevelBound
+		jsr	(MoveSprite2_TestGravity).l
+		bsr.w	Player_JumpAngle
+		movem.l	a4-a6,-(sp)
+		bsr.w	Player_DoLevelCollision
+		movem.l	(sp)+,a4-a6
+		cmpa.w	#Player_1,a0
+		bne.s	.p2
+		lea	(Flying_carrying_Sonic_flag).w,a2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
+		jsr		GetCtrlHeldLogical
+		bsr.w	Tails_Carry_Sonic
+
+locret_14820:
 		rts
 
+; =============== S U B R O U T I N E =======================================
+
+
+Tails_Move_FlySwim:
+		move.b	(Level_frame_byte).w,d0
+		andi.b	#1,d0
+		beq.s	.spamBlock
+		tst.b	double_jump_property(a0)
+		beq.s	.spamBlock
+		subq.b	#1,double_jump_property(a0)
+
+.spamBlock:
+		cmpi.b	#1,double_jump_flag(a0)
+		beq.s	.control
+		cmpi.w	#-$100,y_vel(a0)
+		blt.s	.velCap
+		subi.w	#$20,y_vel(a0)
+		addq.b	#1,double_jump_flag(a0)
+		cmpi.b	#$20,double_jump_flag(a0)
+		bne.s	.blockTopBranch
+
+.velCap:
+		move.b	#1,double_jump_flag(a0)
+
+.blockTopBranch:
+		bra.s	.blockTop
+; ---------------------------------------------------------------------------
+
+.control:  ; Come back to this one
+		cmpa.w	#Player_1,a0
+		beq.s	.p1
+		tst.w	(Tails_CPU_idle_timer).w
+		bne.s	.p2
+		tst.b	(Flying_carrying_Sonic_flag).w
+		bne.s	.p1
+	.p2:
+		move.b	(Ctrl_2_pressed_logical).w,d0
+		bra.s	.done
+	.p1:
+		move.b	(Ctrl_1_pressed_logical).w,d0
+	.done:
+		andi.b	#button_B_mask|button_C_mask|button_A_mask,d0
+		beq.s	.carrying
+		cmpa.w	#Player_1,a0
+		bne.s	.cont
+	; expanded version of the flight cancel I wrote for SHIMA
+		jsr		GetCtrlHeldLogical	; unnecessary ; guess not
+		andi.b	#button_down_mask,d0
+		beq.s	.cont
+		clr.b	(Flying_carrying_Sonic_flag).w
+		jmp		Player_AirRoll
+	.cont:
+	; old SNI, but genuinely a good idea
+		cmpi.w	#-$100,y_vel(a0)
+		blt.s	.carrying
+
+		tst.b	double_jump_property(a0)
+		beq.s	.carrying
+		btst	#6,status(a0)
+		beq.s	.underwater
+		tst.b	(Flying_carrying_Sonic_flag).w
+		bne.s	.carrying
+
+	.underwater:
+		move.b	#2,double_jump_flag(a0)
+
+	.carrying:
+		addi.w	#8,y_vel(a0)
+
+	.blockTop:
+		move.w	(Camera_Min_Y_pos).w,d0
+		addi.w	#$10,d0
+		cmp.w	y_pos(a0),d0
+		blt.s	Tails_Set_Flying_Animation
+		tst.w	y_vel(a0)
+		bpl.s	Tails_Set_Flying_Animation
+		move.w	#0,y_vel(a0)
+; End of function Tails_Move_FlySwim
+
+
+; =============== S U B R O U T I N E =======================================
+
+Tails_Set_Flying_Animation:
+		btst	#6,status(a0)
+		bne.s	loc_14914
+		moveq	#id_Ability1,d0	; Fly
+		tst.w	y_vel(a0)
+		bpl.s	loc_148C4
+		moveq	#id_Ability2,d0	; FlyFast
+
+loc_148C4:
+		tst.b	(Flying_carrying_Sonic_flag).w
+		beq.s	loc_148CC
+		addq.b	#2,d0	; set to holding versions
+
+loc_148CC:
+		tst.b	double_jump_property(a0)
+		bne.s	loc_148F4
+		moveq	#id_Ability5,d0
+	; An animation for this doesn't exist yet.
+;		tst.b	(Flying_carrying_Sonic_flag).w
+;		beq.s	+
+;		moveq	#AniIDTailsAni_CarryTired,d0		
+;	+
+		move.b	d0,anim(a0)
+		tst.b	render_flags(a0)
+		bpl.s	locret_148F2
+		move.b	(Level_frame_byte).w,d0
+		addq.b	#8,d0
+		andi.b	#$F,d0
+		bne.s	locret_148F2
+		sfx		sfx_FlyTired
+
+locret_148F2:
+	rts
+; ---------------------------------------------------------------------------
+
+loc_148F4:
+		move.b	d0,anim(a0)
+		tst.b	render_flags(a0)
+		bpl.s	locret_14912
+		move.b	(Level_frame_byte).w,d0
+		addq.b	#8,d0
+		andi.b	#$F,d0
+		bne.s	locret_14912
+		sfx		sfx_Fly
+	
+locret_14912:
+		rts
+; ---------------------------------------------------------------------------
+
+loc_14914:
+		moveq	#id_Ability6,d0
+		tst.w	y_vel(a0)
+		bpl.s	loc_1491E
+		moveq	#id_Ability7,d0
+
+loc_1491E:
+		tst.b	(Flying_carrying_Sonic_flag).w
+		beq.s	loc_14926
+		moveq	#id_Ability8,d0
+
+loc_14926:
+		tst.b	double_jump_property(a0)
+		bne.s	loc_1492E
+		moveq	#id_Ability9,d0
+loc_1492E:
+		move.b	d0,anim(a0)
+		rts
+; End of function Tails_Set_Flying_Animation
+
+Tails_Test_For_Flight:
+		cmpa.w	#Player_1,a0
+		beq.s	loc_1515C
+		move.b	(Ctrl_1_Logical).w,d0
+		andi.b	#button_up_mask,d0
+		bne.w	loc_1515C
+		tst.w	(Tails_CPU_idle_timer).w
+		beq.s	locret_151A2
+
+loc_1515C:
+		btst	#2,status(a0)
+		beq.s	loc_1518C
+		bclr	#2,status(a0)
+		move.b	y_radius(a0),d1
+		move.b	default_x_radius(a0),x_radius(a0)
+		move.b	default_y_radius(a0),y_radius(a0)
+		sub.b	default_y_radius(a0),d1
+		ext.w	d1
+		tst.b	(Reverse_gravity_flag).w
+		beq.s	loc_15188
+		neg.w	d0
+
+loc_15188:
+		add.w	d1,y_pos(a0)
+
+loc_1518C:
+		bclr	#4,status(a0)
+		move.b	#1,double_jump_flag(a0)
+		move.b	#-$10,double_jump_property(a0)
+		bsr.w	Tails_Set_Flying_Animation
+
+locret_151A2:
+		rts
+
+; ===========================================================================
+; Start of subroutine Tails_MdRoll
+; Called if Tails is in a ball, but not airborne (thus, probably rolling)
+; loc_1C05C:
+Tails_MdRoll:
+		tst.b	(Flying_carrying_Sonic_flag).w
+		jeq		Sonic_MdRoll
+		cmpa.w	#Player_1,a0
+		bne.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
+		clr.b	object_control(a1)
+		bset	#1,status(a1)
+		clr.w	(Flying_carrying_Sonic_flag).w
+		jmp		Sonic_MdRoll
+; End of subroutine Tails_MdRoll
+; ===========================================================================
+; Start of subroutine Tails_MdJump
+; Called if Tails is in a ball and airborne (he could be jumping but not necessarily)
+; Notes: This is identical to Tails_MdAir, at least at this outer level.
+;        Why they gave it a separate copy of the code, I don't know.
+; loc_1C082: Obj_Tails_MdJump2:
+Tails_MdJump:
+		tst.b	(Flying_carrying_Sonic_flag).w
+		jeq		Sonic_MdJump
+		cmpa.w	#Player_1,a0
+		bne.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
+		clr.b	object_control(a1)
+		bset	#1,status(a1)
+		clr.w	(Flying_carrying_Sonic_flag).w
+		jmp		Sonic_MdJump
+; End of subroutine Tails_MdJump
+
+; ---------------------------------------------------------------------------
+; Animate Tails
 Animate_Tails:
 		lea	AniTails(pc),a1
 ;		tst.b	(Super_Sonic_Knux_flag).w
@@ -627,7 +915,7 @@ Obj_Tails_Tail_AniSelection:
 		dc.b 0		; TailsAni_LZHang	->
 		dc.b 0		; TailsAni_Victory	->
 		dc.b $A		; TailsAni_Hang		-> Hanging
-		dc.b 0,0,0,0,0,0,0,0,0		; TailsAni_GetAir,Burnt,Drown,Death,Slide,Hurt,Null	->
+		dc.b 0,0,0,0,0,0,0,0,0,0		; TailsAni_GetAir,Burnt,Drown,Death,Slide,Hurt,Null,Mach,Transform,Fall	->
 		dc.b $B,$C	; TailsAni_Fly,FlyFast	-> Fly1,2
 		dc.b $B		; TailsAni_FlyHold	-> Fly1
 		dc.b $C		; TailsAni_FlyHoldUp	-> Fly2

@@ -44,6 +44,7 @@ V_scroll_buffer_end					= *
 
 Collision_response_list:			ds.b 128					; Only objects in this list are processed by the collision response routines
 Pos_table:							ds.l 64					; Recorded player XY position buffer
+Stat_table:							ds.l 64					; Recorded player status buffer, mostly used in P2 AI.
 Ring_status_table:					ds.w RingTable_Count		; Ring status table(1 word)
 Ring_status_table_end				= *
 Object_respawn_table:				ds.b ObjectTable_Count	; Object respawn table(1 byte)
@@ -214,8 +215,10 @@ WindTunnel_flag:						ds.b 1
 f_lockctrl:							= *
 Ctrl_1_locked:						ds.b 1
 v_framecount:						= *
-Level_frame_counter:					ds.b 1					; The number of frames which have elapsed since the level started
-v_framebyte							ds.b 1
+Timer_frames:						= *
+Level_frame_counter:				ds.b 1					; The number of frames which have elapsed since the level started
+v_framebyte:						= *
+Level_frame_byte:					ds.b 1
 Ctrl_2_locked:						ds.b 1
 Level_started_flag:					ds.b 1
 f_pause:								= *
@@ -376,7 +379,7 @@ Apparent_act:						ds.b 1
 v_super:							= *
 Super_Sonic_flag:					= *
 Super_Tails_flag:					= *
-Super_Sonic_Knux_flag:				ds.b 1	; i'm pretty sure there won't be two players active at once.
+Super_Sonic_Knux_flag:				ds.b 1	; i'm pretty sure there won't be two players going Super at once..
 v_emeralds:							= *
 Emerald_count:						ds.b 1
 Super_emerald_count:				ds.b 1
@@ -388,7 +391,18 @@ Palette_frame:						ds.w 1
 Palette_frame_Tails:				ds.b 1
 Palette_timer_Tails:				ds.b 1
 Player_mode:						ds.b 1
-									ds.b 1	; even
+Tails_CPU_routine:					ds.b 1
+Tails_CPU_idle_timer:				ds.w 1
+Tails_CPU_flight_timer:				ds.w 1
+Flying_carrying_Sonic_flag:			ds.b 1
+Flying_picking_Sonic_timer:			ds.b 1
+Tails_CPU_jumping:					ds.b 1
+Tails_interact_ID:					ds.b 1
+Tails_respawn_counter:				ds.w 1
+Tails_CPU_target_x:					ds.w 1
+Tails_CPU_target_y:					ds.w 1
+Carried_character_x_vel:			ds.w 1
+Carried_character_y_vel:			ds.w 1
 waterValues:						ds.l 1
 
 f_timeover:							= *

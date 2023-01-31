@@ -140,8 +140,9 @@ po_TailsAlone:			ds.b 1
 po_KnucklesAlone:		ds.b 1
 po_KnucklesAndTails:	ds.b 1
 po_MightyAlone:			ds.b 1
-po_Last:				= *
 po_MightyAndTails:		ds.b 1
+po_Last:				= *
+po_TailsAndTails:		ds.b 1
 	dephase
 
 ; ---------------------------------------------------------------------------
@@ -249,7 +250,7 @@ angle =						$26 ; byte ; angle about axis into plane of the screen (00 = vertic
 status =					$2A ; bitfield ; refer to SCHG for details
 
 ; ---------------------------------------------------------------------------
-; Conventions followed by many objects but not Sonic/Tails/Knuckles:
+; Conventions followed by many objects but not player characters:
 ; ---------------------------------------------------------------------------
 
 x_pixel =					x_pos ; word ; x-coordinate for objects using screen positioning
@@ -275,7 +276,7 @@ parent2 =					$48 ; word ; several objects use this instead
 respawn_addr =				$48 ; word ; the address of this object's entry in the respawn table
 
 ; ---------------------------------------------------------------------------
-; Conventions specific to Sonic/Tails/Knuckles:
+; Conventions specific to player characters:
 ; ---------------------------------------------------------------------------
 
 ground_vel =				$1C ; word ; overall velocity along ground, not updated when in the air

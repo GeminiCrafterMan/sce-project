@@ -32,6 +32,7 @@ SonAni_Hurt_ptr:		offsetTableEntry.w SonAni_Hurt
 SonAni_Null_ptr:		offsetTableEntry.w SonAni_Null
 SonAni_Mach_ptr:		offsetTableEntry.w SonAni_Mach
 SonAni_Transform_ptr:	offsetTableEntry.w SonAni_Transform
+SonAni_Fall_ptr:		offsetTableEntry.w SonAni_Fall
 SonAni_Ability1_ptr:	offsetTableEntry.w SonAni_Whistle
 SonAni_Ability2_ptr:	offsetTableEntry.w SonAni_Null
 SonAni_Ability3_ptr:	offsetTableEntry.w SonAni_Null
@@ -76,6 +77,7 @@ SonAni_Hurt:		dc.b	9, frS_Hurt1, frS_Hurt2, afBack, 1
 SonAni_Null:		dc.b  $77,   frS_Null, afEnd
 SonAni_Mach:		dc.b  $FF, frS_Mach11,	frS_Mach12,	frS_Mach13,	frS_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 SonAni_Transform:	dc.b	2, frS_Transform1, frS_Transform1, frS_Transform2, frS_Transform2, frS_Transform3, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, afChange,   id_Walk
+SonAni_Fall:		dc.b	3, frS_Fall1, frS_Fall2, afBack, 1
 SonAni_Whistle:		dc.b	9, frS_Idle1,	frS_Whistle1, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle2, frS_Whistle3,	frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3, frS_Whistle3,	frS_Whistle3, frS_Whistle3
 					dc.b  frS_Whistle3, afChange,   id_Walk
 	even
@@ -110,6 +112,7 @@ AniSuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Null
 		offsetTableEntry.w SonAni_Mach
 		offsetTableEntry.w SonAni_Transform
+		offsetTableEntry.w SonAni_Fall
 		offsetTableEntry.w SonAni_Whistle
 		offsetTableEntry.w SonAni_Null
 		offsetTableEntry.w SonAni_Null
@@ -152,6 +155,7 @@ id_Hurt:			equ	(SonAni_Hurt_ptr-AniSonic)/2
 id_Null:			equ	(SonAni_Null_ptr-AniSonic)/2
 id_Mach:			equ	(SonAni_Mach_ptr-AniSonic)/2
 id_Transform:		equ	(SonAni_Transform_ptr-AniSonic)/2
+id_Fall:			equ	(SonAni_Fall_ptr-AniSonic)/2
 id_Ability1:		equ	(SonAni_Ability1_ptr-AniSonic)/2
 id_Ability2:		equ	(SonAni_Ability2_ptr-AniSonic)/2
 id_Ability3:		equ	(SonAni_Ability3_ptr-AniSonic)/2

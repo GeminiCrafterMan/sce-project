@@ -32,6 +32,7 @@ AniTails:	offsetTable
 		offsetTableEntry.w TailsAni_Null
 		offsetTableEntry.w TailsAni_Mach
 		offsetTableEntry.w TailsAni_Transform
+		offsetTableEntry.w TailsAni_Fall
 		offsetTableEntry.w TailsAni_Fly
 		offsetTableEntry.w TailsAni_FlyFast
 		offsetTableEntry.w TailsAni_FlyHold
@@ -74,6 +75,7 @@ TailsAni_Hurt:	dc.b  $40, frT_Hurt2, afEnd
 TailsAni_Null:	dc.b  $77,   frT_Null, afEnd
 TailsAni_Mach:	dc.b  $FF, frT_Mach11, frT_Mach12, frT_Mach13, frT_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 TailsAni_Transform:	dc.b	2, frT_Transform1, frT_Transform1, frT_Transform2, frT_Transform2, frT_Transform3, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, afChange,   id_Walk
+TailsAni_Fall:	dc.b	3, frT_Fall1, frT_Fall2, afEnd
 TailsAni_Fly:	dc.b  $1F, frT_Fly, afEnd
 TailsAni_FlyFast:	dc.b  $1F, frT_Fly, afEnd
 TailsAni_FlyHold:	dc.b  $1F, frT_FlyHold, afEnd
@@ -209,6 +211,8 @@ frT_Transform1:		ds.b 1
 frT_Transform2:		ds.b 1
 frT_Transform3:		ds.b 1
 frT_Transform4:		ds.b 1
+frT_Fall1:			ds.b 1
+frT_Fall2:			ds.b 1
 frT_Last:			ds.b 0
 	even
 	dephase

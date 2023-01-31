@@ -51,12 +51,12 @@ Knuckles_Index: offsetTable
 		offsetTableEntry.w .restart	; 8
 		offsetTableEntry.w .loc_12590		; A
 		offsetTableEntry.w .drown		; C
-.control:	jmp	Sonic_Control
-.hurt:		jmp	Sonic_Hurt
-.death:		jmp	Sonic_Death
-.restart:	jmp	Sonic_Restart
+.control:	jmp	Player_Control
+.hurt:		jmp	Player_Hurt
+.death:		jmp	Player_Death
+.restart:	jmp	Player_Restart
 .loc_12590:	jmp	loc_12590
-.drown:		jmp	Sonic_Drown
+.drown:		jmp	Player_Drown
 ; ---------------------------------------------------------------------------
 
 Knuckles_Init:	; Routine 0
@@ -72,7 +72,7 @@ Knuckles_Init:	; Routine 0
 		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
 		tst.b	(Last_star_post_hit).w
-		bne.s	Knuckles_Init_Continued
+		jne		Player_Init_Continued
 		; only happens when not starting at a checkpoint:
 		cmpa.l	#Player_1,a0
 		bne.s	.p2
@@ -82,18 +82,30 @@ Knuckles_Init:	; Routine 0
 		move.w	#make_art_tile(ArtTile_Tails,0,0),art_tile(a0)
 	.cont:
 		move.w	#bytes_to_word($C,$D),top_solid_bit(a0)
+		jmp		Player_Init_Continued
 
-Knuckles_Init_Continued:
-		clr.b	flips_remaining(a0)
-		move.b	#4,flip_speed(a0)
-		clr.b	(Super_Sonic_Knux_flag).w
-		move.b	#30,air_left(a0)
-		subi.w	#$20,x_pos(a0)
-		addi.w	#4,y_pos(a0)
-		bsr.w	Reset_Player_Position_Array
-		addi.w	#$20,x_pos(a0)
-		subi.w	#4,y_pos(a0)
-		rts
+Knuckles_Control:
+		movem.l	a4-a6,-(sp)
+		moveq	#0,d0
+		move.b	status(a0),d0
+		andi.w	#6,d0
+		move.w	Knuckles_Modes(pc,d0.w),d1
+		jsr	Knuckles_Modes(pc,d1.w)	; run Knuckles's movement control code
+		movem.l	(sp)+,a4-a6
+		jmp		loc_10C26
+
+; ---------------------------------------------------------------------------
+; secondary states under state Player_Control
+Knuckles_Modes: offsetTable
+		offsetTableEntry.w Knuckles_MdNormal		; 0
+		offsetTableEntry.w Knuckles_MdAir			; 2
+		offsetTableEntry.w Knuckles_MdRoll		; 4
+		offsetTableEntry.w Knuckles_MdJump		; 6
+; ---------------------------------------------------------------------------
+Knuckles_MdNormal:	jmp	Sonic_MdNormal
+Knuckles_MdAir:		jmp	Sonic_MdAir
+Knuckles_MdRoll:	jmp	Sonic_MdRoll
+Knuckles_MdJump:	jmp	Sonic_MdJump
 
 Animate_Knuckles:
 		lea	AniKnuckles(pc),a1

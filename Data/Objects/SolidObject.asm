@@ -987,7 +987,7 @@ loc_1E4A0:
 		beq.s	locret_1E4D4
 		move.w	a0,-(sp)
 		movea.w	a1,a0
-		jsr	Sonic_ResetOnFloor(pc)
+		jsr	Player_ResetOnFloor(pc)
 		movea.w	(sp)+,a0
 
 locret_1E4D4:

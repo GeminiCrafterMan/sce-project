@@ -32,6 +32,7 @@ AniKnuckles:	offsetTable
 		offsetTableEntry.w KnuxAni_Null
 		offsetTableEntry.w KnuxAni_Mach
 		offsetTableEntry.w KnuxAni_Transform
+		offsetTableEntry.w KnuxAni_Fall
 		offsetTableEntry.w KnuxAni_Glide
 		offsetTableEntry.w KnuxAni_GlideFall
 		offsetTableEntry.w KnuxAni_GetUp
@@ -80,6 +81,7 @@ KnuxAni_Hurt:	dc.b  $40, frK_Hurt,	afEnd
 KnuxAni_Null:	dc.b  $77,   frK_Null,	afEnd
 KnuxAni_Mach:	dc.b  $FF, frK_Run11,	frK_Run12, frK_Run13, frK_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
 KnuxAni_Transform:	dc.b	2, frK_Transform1,	frK_Transform1, frK_Transform2, frK_Transform3, frK_Transform2, frK_Transform3, frK_Transform2, frK_Transform3, frK_Transform2,	frK_Transform3, frK_Transform2, frK_Transform3, afChange,   id_Walk
+KnuxAni_Fall:	dc.b	7, frK_GlideFall2, afEnd
 KnuxAni_Glide:	dc.b  $1F, frK_Float1,	afEnd
 KnuxAni_GlideFall:	dc.b	7, frK_GlideFall1,	frK_GlideFall2, afBack,   1
 KnuxAni_GetUp:	dc.b   $F, frK_GlideSlide2,	afChange,   id_Walk

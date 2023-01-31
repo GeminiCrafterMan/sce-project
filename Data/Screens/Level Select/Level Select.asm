@@ -214,6 +214,7 @@ LevelSelect_LoadLevel_CharacterSwitcher:
 		dc.l	Obj_CabaretKnuckles,Obj_CabaretTails,	Pal_Knuckles; K&T	; 48, 52, 56
 		dc.l	Obj_CabaretMighty,	DeleteObject,		Pal_Mighty	; MA	; 60, 64, 68
 		dc.l	Obj_CabaretMighty,	Obj_CabaretTails,	Pal_Mighty	; M&T	; 72, 76, 80
+		dc.l	Obj_CabaretTails,	Obj_CabaretTails,	Pal_Sonic	; T&T
 	.ret:
 		rts
 

@@ -66,6 +66,11 @@ sfx_SuperTransform =	SMPS_id(ptr_snd5E)
 sfx_BatapyonSpring =	SMPS_id(ptr_snd5F)
 sfx_WallSmash =			SMPS_id(ptr_snd60)
 sfx_BridgeCollapse =	SMPS_id(ptr_snd61)
+sfx_Fly =				SMPS_id(ptr_snd62)
+sfx_FlyTired =			SMPS_id(ptr_snd63)
+sfx_Grab =				SMPS_id(ptr_snd64)
+sfx_Land =				SMPS_id(ptr_snd65)
+sfx_Slide =				SMPS_id(ptr_snd66)
 
 sfx__Last =			SMPS_id(ptr_sndend)-1
 
