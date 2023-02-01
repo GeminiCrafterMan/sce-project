@@ -404,6 +404,7 @@ Tails_CPU_target_x:					ds.w 1
 Tails_CPU_target_y:					ds.w 1
 Carried_character_x_vel:			ds.w 1
 Carried_character_y_vel:			ds.w 1
+Carried_character:					ds.w 1
 waterValues:						ds.l 1
 
 f_timeover:							= *

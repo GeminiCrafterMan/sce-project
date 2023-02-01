@@ -529,7 +529,7 @@ loc_13FC2:
 	.cont:
 	bsr.w	sub_1459E
 	move.b	#1,(Flying_carrying_Sonic_flag).w
-	raiseError "13FC2"
+;	raiseError "13FC2"
 	move.b	#$E,(Tails_CPU_routine).w
 
 loc_13FFA:
@@ -568,7 +568,6 @@ loc_14068:
 	move.b	top_solid_bit(a1),top_solid_bit(a0)
 	move.b	lrb_solid_bit(a1),lrb_solid_bit(a0)
 loc_14082:
-	move.w	(Ctrl_1).w,d0
 	bra.w	Tails_Carry_Sonic
 ; ---------------------------------------------------------------------------
 
@@ -614,7 +613,7 @@ loc_140CET:
 	.cont:
 	bsr.w	sub_1459E
 	move.b	#1,(Flying_carrying_Sonic_flag).w
-	raiseError "140CET"
+;	raiseError "140CET"
 	move.b	#$16,(Tails_CPU_routine).w
 
 loc_14106:
@@ -642,7 +641,6 @@ loc_1413C:
 	.p2:
 		lea	(Player_1).w,a1
 	.cont:
-	move.w	(Ctrl_1).w,d0
 	bra.w	Tails_Carry_Sonic
 ; ---------------------------------------------------------------------------
 
@@ -702,7 +700,6 @@ loc_141E2:
 	.p2:
 		lea	(Player_1).w,a1
 	.cont:
-	move.w	(Ctrl_1).w,d0
 	bra.w	Tails_Carry_Sonic
 ; ---------------------------------------------------------------------------
 
@@ -809,7 +806,6 @@ loc_143AA:
 	.p2:
 		lea	(Player_1).w,a1
 	.cont:
-	move.w	(Ctrl_1).w,d0
 	bra.w	Tails_Carry_Sonic
 
 ; =============== S U B R O U T I N E =======================================
@@ -833,13 +829,22 @@ Tails_Carry_Sonic:
 	tst.b	object_control(a1)
 	bmi.w	loc_1446A	;  this also makes him drop you
 	; but if you comment both this and the one in Sonic.asm/Player_Control.carryingCont out, it gets weird...
-	btst	#button_down,(Ctrl_1_Logical).w	; is down being pressed?
+		cmpa.w	#Player_1,a0
+		bne.s	.p2
+		move.b	(Ctrl_2).w,d0
+		move.b	(Ctrl_2_pressed).w,d1
+		bra.s	.cont
+	.p2:
+		move.b	(Ctrl_1).w,d0
+		move.b	(Ctrl_1_pressed).w,d1
+	.cont:
+	btst	#button_down,d0	; is down being pressed?
 	beq.w	loc_14474
-	andi.b	#button_B_mask|button_C_mask|button_A_mask,d0
+	andi.b	#button_B_mask|button_C_mask|button_A_mask,d1
 	beq.w	loc_14474
 	clr.b	object_control(a1)
 	clr.b	(a2)
-	raiseError "Tails_Carry_Sonic"
+;	raiseError "Tails_Carry_Sonic"
 	move.b	#$12,1(a2)
 	andi.w	#$F00,d0
 	beq.w	loc_14410
@@ -903,12 +908,12 @@ loc_14492:
 	eori.b	#2,render_flags(a1)
 
 loc_144F8:
-	move.w	x_vel(a0),(Player_1+x_vel).w
+	move.w	x_vel(a0),x_vel(a1)
 	move.w	x_vel(a0),(Carried_character_x_vel).w
-	move.w	y_vel(a0),(Player_1+y_vel).w
+	move.w	y_vel(a0),y_vel(a1)
 	move.w	y_vel(a0),(Carried_character_y_vel).w
 	movem.l	d0-a6,-(sp)
-	lea	(Player_1).w,a0
+	move.w	a1,a0
 	bsr.w	Player_DoLevelCollision
 	movem.l	(sp)+,d0-a6
 	rts
@@ -946,6 +951,7 @@ loc_1456C:
 	bne.s	locret_1459C
 	bsr.s	sub_1459E
 	sfx		sfx_Grab
+	move.w	(a1),(Carried_character).w
 	move.b	#1,(a2)
 
 locret_1459C:
@@ -965,8 +971,8 @@ sub_1459E:
 	move.w	y_pos(a0),y_pos(a1)
 	addi.w	#$1C,y_pos(a1)
 	move.w	#bytes_to_word(id_Hang,0),anim(a1)
-;	clr.b	anim_frame_timer(a1)
-;	clr.b	anim_frame(a1)
+	clr.b	anim_frame_timer(a1)
+	clr.b	anim_frame(a1)
 	move.b	#3,object_control(a1)
 	bset	#1,status(a1)
 	bclr	#4,status(a1)

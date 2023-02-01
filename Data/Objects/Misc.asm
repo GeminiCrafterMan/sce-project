@@ -386,6 +386,8 @@ Load_LevelResults:
 		cmpi.b	#id_SonicDeath,routine(a1)
 		bcc.s	+
 		bsr.s	Set_PlayerEndingPose
+		lea	(Player_2).w,a1
+		bsr.s	Set_PlayerEndingPose
 		clr.b	(TitleCard_end_flag).w
 		bsr.w	Create_New_Sprite
 		bne.s	+

@@ -137,7 +137,7 @@ Player_Init_Continued:
 loc_137A4:
 		clr.w	(Tails_CPU_idle_timer).w
 		clr.w	(Tails_CPU_flight_timer).w
-		rts
+;		rts
 
 ; ---------------------------------------------------------------------------
 ; Normal state for Sonic
@@ -190,7 +190,13 @@ loc_10BF0:
 
 .doneController:
 		btst	#0,object_control(a0)				; is Sonic interacting with another object that holds him in place or controls his movement somehow?
-		beq.s	loc_10C0C					; if yes, branch to skip Sonic's control
+		bne.s	loc_10C26					; if yes, branch to skip Sonic's control
+		tst.w	(Carried_character).w
+		beq.s	loc_10C0C
+		cmpa.w	#Carried_character,a0
+		beq.s	loc_10C26
+;		bra.s	loc_10C0C
+; Change this to only be for the player carrying the other.
 		clr.b	double_jump_flag(a0)				; enable double jump
 		tst.b	(Flying_carrying_Sonic_flag).w
 		beq.s	loc_10C26
@@ -207,7 +213,7 @@ loc_10BF0:
 		clr.w	(Flying_carrying_Sonic_flag).w	; this makes him drop you
 		bra.s	loc_10C26
 ; ---------------------------------------------------------------------------
-
+; carrying player goes here
 loc_10C0C:
 		moveq	#0,d0
 		move.b	character_id(a0),d0
@@ -228,7 +234,7 @@ loc_10C0C:
 		move.w	Sonic_Modes(pc,d0.w),d1
 		jsr	Sonic_Modes(pc,d1.w)	; run Sonic's movement control code
 		movem.l	(sp)+,a4-a6
-
+; carried player goes here
 loc_10C26:
 		cmpi.w	#-$100,(Camera_min_Y_pos).w		; is vertical wrapping enabled?
 		bne.s	+								; if not, branch
@@ -245,8 +251,8 @@ loc_10C26:
 		tst.b	anim(a0)
 		bne.s	+
 		move.b	prev_anim(a0),anim(a0)
-+		btst	#1,object_control(a0)
-		bne.s	++
++;		btst	#1,object_control(a0)
+;		bne.s	++
 		bsr.w	Animate_Player
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	+
@@ -1435,7 +1441,7 @@ loc_117FC:
 		move.w	#$380,d2
 
 loc_1182E:
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.s	.notSuper
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	.notSuper
@@ -1698,7 +1704,7 @@ Sonic_HyperDash_Velocities:
 
 
 SonicKnux_SuperHyper:
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.w	.return
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.w	.return		; If not Super/Hyper, return
@@ -1793,7 +1799,7 @@ Player_UpdateSpindash:
 		move.b	spin_dash_counter(a0),d0
 		add.w	d0,d0
 		move.w	SpindashSpeeds(pc,d0.w),ground_vel(a0)
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.s	.notSuper
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	.notSuper
@@ -3107,7 +3113,7 @@ ReloadPlayerMaps:
 		moveq	#0,d0
 		move.b	character_id(a0),d0
 		lsl.w	#2,d0
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.s	.notSuper
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	.super
@@ -3127,7 +3133,7 @@ PlayerDPLCToA2:
 		moveq	#0,d1
 		move.b	character_id(a0),d1
 		lsl.w	#2,d1
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.s	.notSuper
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	.super
@@ -3147,7 +3153,7 @@ PlayerArtToD6:
 		moveq	#0,d6
 		move.b	character_id(a0),d6
 		lsl.w	#2,d6
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.s	.notSuper
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	.super

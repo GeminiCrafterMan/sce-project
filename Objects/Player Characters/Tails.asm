@@ -4,7 +4,7 @@ Obj_Tails:
 		; This is done to allow some subroutines to be
 		; shared with Sonic/Knuckles.
 		lea	(Distance_from_screen_top).w,a5
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.s	.p2
 		lea	(Top_speed_P1).w,a4
 		lea	(v_Dust_P1).w,a6
@@ -15,7 +15,7 @@ Obj_Tails:
 	.cont:
 
 	if GameDebug
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.s	Tails_Normal
 		tst.w	(Debug_placement_mode).w
 		beq.s	Tails_Normal
@@ -71,7 +71,7 @@ Tails_Init:	; Routine 0
 		move.w	#$600,Top_speed_P1-Top_speed_P1(a4)
 		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.s	.p2
 		move.l	#Obj_Tails_Tail,(v_FollowObject_P1).w
 		move.w	#ArtTile_FollowObject_P1,(v_FollowObject_P1+art_tile).w
@@ -85,7 +85,7 @@ Tails_Init:	; Routine 0
 		tst.b	(Last_star_post_hit).w
 		jne		Player_Init_Continued
 		; only happens when not starting at a checkpoint:
-		cmpa.l	#Player_1,a0
+		cmpa.w	#Player_1,a0
 		bne.s	.p2A
 		move.w	#make_art_tile(ArtTile_Sonic,0,0),art_tile(a0)
 		bra.s	.contA
@@ -131,6 +131,7 @@ Tails_MdNormal:
 		clr.b	object_control(a1)
 		bset	#1,status(a1)
 		clr.w	(Flying_carrying_Sonic_flag).w
+		clr.w	(Carried_character).w
 		jmp		Sonic_MdNormal
 
 ; ---------------------------------------------------------------------------
@@ -155,11 +156,15 @@ Tails_FlyingSwimming:
 		cmpa.w	#Player_1,a0
 		bne.s	.p2
 		lea	(Player_2).w,a1
+		move.w	(Ctrl_1).w,d0
 		bra.s	.cont
 	.p2:
 		lea	(Player_1).w,a1
+		move.w	(Ctrl_2).w,d0
+		tst.w	(Tails_CPU_idle_timer).w
+		beq.s	.cont
+		move.w	(Ctrl_1).w,d0
 	.cont:
-		jsr		GetCtrlHeldLogical
 		bsr.w	Tails_Carry_Sonic
 
 locret_14820:
@@ -208,14 +213,17 @@ Tails_Move_FlySwim:
 	.done:
 		andi.b	#button_B_mask|button_C_mask|button_A_mask,d0
 		beq.s	.carrying
-		cmpa.w	#Player_1,a0
+		tst.b	(Flying_carrying_Sonic_flag).w
 		bne.s	.cont
 	; expanded version of the flight cancel I wrote for SHIMA
 		jsr		GetCtrlHeldLogical	; unnecessary ; guess not
 		andi.b	#button_down_mask,d0
 		beq.s	.cont
-		clr.b	(Flying_carrying_Sonic_flag).w
-		jmp		Player_AirRoll
+		jsr		Player_AirRoll
+		bset	#2,status(a0)
+		move.b	#1,jumping(a0)
+		move.b	#1,double_jump_property(a0)
+		rts
 	.cont:
 	; old SNI, but genuinely a good idea
 		cmpi.w	#-$100,y_vel(a0)
@@ -367,6 +375,7 @@ Tails_MdRoll:
 		clr.b	object_control(a1)
 		bset	#1,status(a1)
 		clr.w	(Flying_carrying_Sonic_flag).w
+		clr.w	(Carried_character).w
 		jmp		Sonic_MdRoll
 ; End of subroutine Tails_MdRoll
 ; ===========================================================================
@@ -388,6 +397,7 @@ Tails_MdJump:
 		clr.b	object_control(a1)
 		bset	#1,status(a1)
 		clr.w	(Flying_carrying_Sonic_flag).w
+		clr.w	(Carried_character).w
 		jmp		Sonic_MdJump
 ; End of subroutine Tails_MdJump
 
