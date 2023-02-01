@@ -466,7 +466,7 @@ Sonic_MdNormal:
 		bsr.w	Player_Jump
 		bsr.w	Player_SlopeResist
 		bsr.w	Player_Move
-		bsr.w	SonicKnux_Roll
+		bsr.w	Player_Roll
 		bsr.w	Player_LevelBound
 		jsr	(MoveSprite2_TestGravity).w
 		bsr.s	Call_Player_AnglePos
@@ -1355,7 +1355,7 @@ loc_11732:
 
 ; =============== S U B R O U T I N E =======================================
 
-SonicKnux_Roll:
+Player_Roll:
 		tst.b	status_secondary(a0)
 		bmi.s	locret_1177E
 		tst.w	(HScroll_Shift).w
@@ -2399,6 +2399,17 @@ loc_121D8:
 		bclr	#Status_InAir,status(a0)
 		bclr	#Status_Push,status(a0)
 		bclr	#Status_RollJump,status(a0)
+		tst.w	(Carried_character).w
+		beq.s	+
+		cmpa.w	#Carried_character,a0
+		beq.s	+
+		tst.b	(Flying_carrying_Sonic_flag).w
+		beq.s	+
+		move.w	(Carried_character).w,(a1)
+		clr.b	object_control(a1)
+		bset	#1,status(a1)
+		clr.w	(Flying_carrying_Sonic_flag).w
++
 		moveq	#0,d0
 		move.b	d0,jumping(a0)
 		move.w	d0,(Chain_bonus_counter).w
@@ -2473,6 +2484,17 @@ Player_Hurt:
 ; ---------------------------------------------------------------------------
 +
 	endif
+		tst.w	(Carried_character).w
+		beq.s	+
+		cmpa.w	#Carried_character,a0
+		beq.s	+
+		tst.b	(Flying_carrying_Sonic_flag).w
+		beq.s	+
+		move.w	(Carried_character).w,(a1)
+		clr.b	object_control(a1)
+		bset	#1,status(a1)
+		clr.w	(Flying_carrying_Sonic_flag).w
++
 		jsr	(MoveSprite2_TestGravity).w
 		addi.w	#$30,y_vel(a0)
 		btst	#Status_Underwater,status(a0)

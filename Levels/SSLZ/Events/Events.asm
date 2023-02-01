@@ -69,6 +69,10 @@ SSLZ1_Transition:
 		jsr		Restart_LevelData
 		jsr	(LoadLevelPointer).w
 		jsr	(Get_LevelSizeStart).l
+		move.w	(Player_1+x_pos).w,(Player_2+x_pos).w
+		move.w	(Player_1+y_pos).w,(Player_2+y_pos).w
+		subi.w	#$20,(Player_2+x_pos).w
+		addi.w	#4,(Player_2+y_pos).w
 		jsr	Reset_TileOffsetPositionActual
 
 	.done:

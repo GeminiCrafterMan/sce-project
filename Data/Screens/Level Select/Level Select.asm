@@ -186,18 +186,22 @@ LevelSelect_LoadLevel_CharacterSwitcher:
 		move.w	d0,d1
 		add.w	d0,d0
 		add.w	d1,d0
+		move.w	#make_art_tile(ArtTile_Sonic,2,0),(Player_1+art_tile).w
+		move.w	#tiles_to_bytes(ArtTile_Sonic),(Player_1+vram_art).w
 		move.l	.plrIDs(pc,d0.w),(Player_1).w
-		move.w	#$1B0,(Player_1+x_pos).w
+		move.w	#$1A7,(Player_1+x_pos).w
 		move.w	#$F0,(Player_1+y_pos).w
 		bset	#0,(Player_1+status).w
 		add.w	#4,d0
 		move.l	.plrIDs(pc,d0.w),d1
 		cmpi.l	#DeleteObject,d1
 		bne.s	.2p
-		move.w	#$19D,(Player_1+x_pos).w
+		move.w	#$194,(Player_1+x_pos).w
 	.2p:
+		move.w	#make_art_tile(ArtTile_Tails,2,0),(Player_2+art_tile).w
+		move.w	#tiles_to_bytes(ArtTile_Tails),(Player_2+vram_art).w
 		move.l	.plrIDs(pc,d0.w),(Player_2).w
-		move.w	#$18A,(Player_2+x_pos).w
+		move.w	#$181,(Player_2+x_pos).w
 		move.w	#$F0,(Player_2+y_pos).w
 		add.w	#4,d0
 		move.l	.plrIDs(pc,d0.w),a1
@@ -360,7 +364,7 @@ LevelSelect_FindLeftRightControls:
 ; =============== S U B R O U T I N E =======================================
 
 LevelSelect_LoadAct:
-		locVRAM	$C2AE,d2
+		locVRAM	$C2AC,d2
 		lea	(vLevelSelect_HCount).w,a0
 		move.w	(vLevelSelect_VCount).w,d0
 		move.w	d0,d1
@@ -488,19 +492,19 @@ LevelSelect_MarkFields:
 		bne.s	.return
 
 		; draw music
-		locVRAM	$CB2E,VDP_control_port-VDP_control_port(a5)
+		locVRAM	$CB2C,VDP_control_port-VDP_control_port(a5)
 		move.w	(vLevelSelect_MusicCount).w,d0
 		bra.s	.drawnumbers
 ; ---------------------------------------------------------------------------
 
 .drawsound
-		locVRAM	$CC2E,VDP_control_port-VDP_control_port(a5)
+		locVRAM	$CC2C,VDP_control_port-VDP_control_port(a5)
 		move.w	(vLevelSelect_SoundCount).w,d0
 		bra.s	.drawnumbers
 ; ---------------------------------------------------------------------------
 
 .drawsample
-		locVRAM	$CD2E,VDP_control_port-VDP_control_port(a5)
+		locVRAM	$CD2C,VDP_control_port-VDP_control_port(a5)
 		move.w	(vLevelSelect_SampleCount).w,d0
 
 .drawnumbers
@@ -598,15 +602,15 @@ LevelSelect_MappingOffsets:
 		dc.w planeLocH28(0,24)
 		dc.w planeLocH28(0,26)
 LevelSelect_Text:
-		levselstr "  DEATH EGG          - ACT 1            "
-		levselstr "  GREEN HILL         - ACT 1            "
-		levselstr "  SEASIDE LAND       - ACT 1            "
-		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
-		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
-		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
-		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
-		levselstr "  UNKNOWN LEVEL      - UNKNOWN          "
-		levselstr "  MUSIC TEST:        - 000              "
-		levselstr "  SOUND TEST:        - 000              "
-		levselstr "  SAMPLE TEST:       - 000              "
+		levselstr " DEATH EGG          - ACT 1             "
+		levselstr " GREEN HILL         - ACT 1             "
+		levselstr " SEASIDE LAND       - ACT 1             "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " MUSIC TEST:        - 000               "
+		levselstr " SOUND TEST:        - 000               "
+		levselstr " SAMPLE TEST:       - 000               "
 	even

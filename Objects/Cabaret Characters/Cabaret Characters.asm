@@ -5,8 +5,6 @@
 Obj_CabaretSonic:
 		move.l	#Map_CabaretSonic,mappings(a0)
 		move.w	#$100,priority(a0)
-		move.w	#make_art_tile(ArtTile_Sonic,2,0),art_tile(a0)
-		move.w	#tiles_to_bytes(ArtTile_Sonic),vram_art(a0)
 		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
 		beq.s	.noMusic
 		move.b	#1,anim(a0)	; Snapping
@@ -57,18 +55,25 @@ CabaretSonic_Load_PLC:
 ; ---------------------------------------------------------------------------
 
 Obj_CabaretTails:
+		cmpa.w	#Player_1,a0
+		bne.s	.p2
+	.p1:
+		move.l	#Obj_CabaretTails_Tail,(v_FollowObject_P1).w
+		move.w	a0,(v_FollowObject_P1+parent).w
+		move.w	#make_art_tile(ArtTile_FollowObject_P1,2,0),(v_FollowObject_P1+art_tile).w
+		bra.s	.cont
+	.p2:
 		move.l	#Obj_CabaretTails_Tail,(v_FollowObject_P2).w
 		move.w	a0,(v_FollowObject_P2+parent).w
+		move.w	#make_art_tile(ArtTile_FollowObject_P2,2,0),(v_FollowObject_P2+art_tile).w
+	.cont:
 		move.l	#Map_CabaretSonic,mappings(a0)
 		move.w	#$100,priority(a0)
-		move.w	#make_art_tile(ArtTile_Tails,2,0),art_tile(a0)
-		move.w	#tiles_to_bytes(ArtTile_Tails),vram_art(a0)
 		move.b	#2,anim(a0)	; Sleeping
 		bra.w	Obj_CabaretSonic.display
 
 Obj_CabaretTails_Tail:
 		move.l	#Map_TailsTails,mappings(a0)
-		move.w	#make_art_tile(ArtTile_FollowObject_P2,2,0),art_tile(a0)
 		movea.w	parent(a0),a2	; Is Parent in S2
 		cmpi.l	#Obj_CabaretTails,address(a2)
 		jne		DeleteObject
@@ -90,8 +95,6 @@ Obj_CabaretTails_Tail:
 Obj_CabaretKnuckles:
 		move.l	#Map_CabaretSonic,mappings(a0)
 		move.w	#$100,priority(a0)
-		move.w	#make_art_tile(ArtTile_Sonic,2,0),art_tile(a0)
-		move.w	#tiles_to_bytes(ArtTile_Sonic),vram_art(a0)
 		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
 		beq.s	.noMusic
 		move.b	#4,anim(a0)	; Boxing
@@ -107,8 +110,6 @@ Obj_CabaretKnuckles:
 Obj_CabaretMighty:
 		move.l	#Map_CabaretSonic,mappings(a0)
 		move.w	#$100,priority(a0)
-		move.w	#make_art_tile(ArtTile_Sonic,2,0),art_tile(a0)
-		move.w	#tiles_to_bytes(ArtTile_Sonic),vram_art(a0)
 		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
 		beq.s	.noMusic
 		move.b	#1,anim(a0)	; Snapping
