@@ -195,7 +195,7 @@ loc_10BF0:
 		tst.b	(Flying_carrying_Sonic_flag).w
 		beq.s	loc_10C26
 		cmpa.w	#Player_1,a0
-		beq.s	.carryingp2
+		bne.s	.carryingp2
 	.carryingp1:
 		lea		(Player_1).w,a1
 		bra.s	.carryingCont
@@ -204,7 +204,7 @@ loc_10BF0:
 	.carryingCont:
 		clr.b	object_control(a1)
 		bset	#Status_InAir,status(a1)
-		clr.w	(Flying_carrying_Sonic_flag).w
+		clr.w	(Flying_carrying_Sonic_flag).w	; this makes him drop you
 		bra.s	loc_10C26
 ; ---------------------------------------------------------------------------
 

@@ -11,7 +11,7 @@ CPU_Control: ; a0=Tails
 	beq.s	+			; if not, branch
 	move.w	#600,(Tails_CPU_idle_timer).w ; give player 2 control for 10 seconds (minimum)
 +
-	lea	(Player_1).w,a1 ; a1=character ; a1=Sonic
+	lea	(Player_1).w,a1	; P1 won't be using this anyway
 	move.b	(Tails_CPU_routine).w,d0
 	move.w	TailsCPU_States(pc,d0.w),d0
 	jmp	TailsCPU_States(pc,d0.w)
@@ -520,7 +520,13 @@ loc_13FC2:
 	move.w	#$100,x_vel(a0)
 	clr.w	y_vel(a0)
 	clr.w	ground_vel(a0)
-	lea	(Player_1).w,a1
+		cmpa.w	#Player_1,a0
+		beq.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
 	bsr.w	sub_1459E
 	move.b	#1,(Flying_carrying_Sonic_flag).w
 	raiseError "13FC2"
@@ -536,7 +542,13 @@ loc_13FFA:
 
 loc_14016:
 	lea	(Flying_carrying_Sonic_flag).w,a2
-	lea	(Player_1).w,a1
+		cmpa.w	#Player_1,a0
+		beq.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
 	btst	#1,status(a1)
 	bne.s	loc_14082
 	move.b	#6,(Tails_CPU_routine).w
@@ -593,7 +605,13 @@ loc_140CET:
 	clr.w	x_vel(a0)
 	clr.w	y_vel(a0)
 	clr.w	ground_vel(a0)
-	lea	(Player_1).w,a1
+		cmpa.w	#Player_1,a0
+		beq.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
 	bsr.w	sub_1459E
 	move.b	#1,(Flying_carrying_Sonic_flag).w
 	raiseError "140CET"
@@ -617,7 +635,13 @@ loc_14128:
 
 loc_1413C:
 	lea	(Flying_carrying_Sonic_flag).w,a2
-	lea	(Player_1).w,a1
+		cmpa.w	#Player_1,a0
+		beq.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
 	move.w	(Ctrl_1).w,d0
 	bra.w	Tails_Carry_Sonic
 ; ---------------------------------------------------------------------------
@@ -671,7 +695,13 @@ loc_141D2:
 
 loc_141E2:
 	lea	(Flying_carrying_Sonic_flag).w,a2
-	lea	(Player_1).w,a1
+		cmpa.w	#Player_1,a0
+		beq.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
 	move.w	(Ctrl_1).w,d0
 	bra.w	Tails_Carry_Sonic
 ; ---------------------------------------------------------------------------
@@ -745,7 +775,13 @@ locret_142E0:
 ; ---------------------------------------------------------------------------
 
 loc_142E2T:
-	lea	(Player_1).w,a1
+		cmpa.w	#Player_1,a0
+		beq.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
 	tst.b	render_flags(a1)
 	bpl.s	loc_143AA
 	tst.w	(Tails_CPU_idle_timer).w
@@ -766,7 +802,13 @@ loc_14328:
 
 loc_143AA:
 	lea	(Flying_carrying_Sonic_flag).w,a2
-	lea	(Player_1).w,a1
+		cmpa.w	#Player_1,a0
+		beq.s	.p2
+		lea	(Player_2).w,a1
+		bra.s	.cont
+	.p2:
+		lea	(Player_1).w,a1
+	.cont:
 	move.w	(Ctrl_1).w,d0
 	bra.w	Tails_Carry_Sonic
 
@@ -789,13 +831,15 @@ Tails_Carry_Sonic:
 	bne.w	loc_14460
 
 	tst.b	object_control(a1)
-	bmi.w	loc_1446A
+	bmi.w	loc_1446A	;  this also makes him drop you
+	; but if you comment both this and the one in Sonic.asm/Player_Control.carryingCont out, it gets weird...
 	btst	#button_down,(Ctrl_1_Logical).w	; is down being pressed?
 	beq.w	loc_14474
 	andi.b	#button_B_mask|button_C_mask|button_A_mask,d0
 	beq.w	loc_14474
 	clr.b	object_control(a1)
 	clr.b	(a2)
+	raiseError "Tails_Carry_Sonic"
 	move.b	#$12,1(a2)
 	andi.w	#$F00,d0
 	beq.w	loc_14410
@@ -834,6 +878,7 @@ loc_14466:
 
 loc_1446A:
 	clr.b	(a2)	; drop the player
+;	raiseError "1446A"
 	move.b	#$3C,1(a2)
 	rts
 ; ---------------------------------------------------------------------------

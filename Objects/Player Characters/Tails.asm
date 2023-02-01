@@ -122,7 +122,7 @@ Tails_MdNormal:
 		tst.b	(Flying_carrying_Sonic_flag).w
 		jeq		Sonic_MdNormal
 		cmpa.w	#Player_1,a0
-		bne.s	.p2
+		beq.s	.p2
 		lea	(Player_2).w,a1
 		bra.s	.cont
 	.p2:
@@ -358,7 +358,7 @@ Tails_MdRoll:
 		tst.b	(Flying_carrying_Sonic_flag).w
 		jeq		Sonic_MdRoll
 		cmpa.w	#Player_1,a0
-		bne.s	.p2
+		beq.s	.p2
 		lea	(Player_2).w,a1
 		bra.s	.cont
 	.p2:
@@ -379,7 +379,7 @@ Tails_MdJump:
 		tst.b	(Flying_carrying_Sonic_flag).w
 		jeq		Sonic_MdJump
 		cmpa.w	#Player_1,a0
-		bne.s	.p2
+		beq.s	.p2
 		lea	(Player_2).w,a1
 		bra.s	.cont
 	.p2:
