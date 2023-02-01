@@ -68,9 +68,6 @@ Tails_Init:	; Routine 0
 		move.w	#bytes_to_word(48/2,48/2),height_pixels(a0)		; set height and width
 		move.b	#4,render_flags(a0)
 		move.b	#c_Tails,character_id(a0)
-		move.w	#$600,Top_speed_P1-Top_speed_P1(a4)
-		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
-		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
 		cmpa.w	#Player_1,a0
 		bne.s	.p2
 		move.l	#Obj_Tails_Tail,(v_FollowObject_P1).w
@@ -82,18 +79,7 @@ Tails_Init:	; Routine 0
 		move.w	#ArtTile_FollowObject_P2,(v_FollowObject_P2+art_tile).w
 		move.w	a0,(v_FollowObject_P2+parent).w
 	.cont:
-		tst.b	(Last_star_post_hit).w
-		jne		Player_Init_Continued
-		; only happens when not starting at a checkpoint:
-		cmpa.w	#Player_1,a0
-		bne.s	.p2A
-		move.w	#make_art_tile(ArtTile_Sonic,0,0),art_tile(a0)
-		bra.s	.contA
-	.p2A:
-		move.w	#make_art_tile(ArtTile_Tails,0,0),art_tile(a0)
-	.contA:
-		move.w	#bytes_to_word($C,$D),top_solid_bit(a0)
-		jmp		Player_Init_Continued
+		jmp		Sonic_Init.branchPoint
 
 Tails_Control:
 		movem.l	a4-a6,-(sp)

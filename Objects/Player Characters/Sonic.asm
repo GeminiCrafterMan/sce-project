@@ -101,10 +101,11 @@ Sonic_Init:	; Routine 0
 		move.w	#bytes_to_word(48/2,48/2),height_pixels(a0)		; set height and width
 		move.b	#4,render_flags(a0)
 		clr.b	character_id(a0)
+		move.l	#Obj_Insta_Shield,(v_Shield).w
+	.branchPoint:
 		move.w	#$600,Top_speed_P1-Top_speed_P1(a4)
 		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
-		move.l	#Obj_Insta_Shield,(v_Shield).w
 		tst.b	(Last_star_post_hit).w
 		bne.s	Player_Init_Continued
 		; only happens when not starting at a checkpoint:
@@ -2405,7 +2406,7 @@ loc_121D8:
 		beq.s	+
 		tst.b	(Flying_carrying_Sonic_flag).w
 		beq.s	+
-		move.w	(Carried_character).w,(a1)
+		move.w	#Carried_character,a1
 		clr.b	object_control(a1)
 		bset	#1,status(a1)
 		clr.w	(Flying_carrying_Sonic_flag).w
@@ -2490,7 +2491,7 @@ Player_Hurt:
 		beq.s	+
 		tst.b	(Flying_carrying_Sonic_flag).w
 		beq.s	+
-		move.w	(Carried_character).w,(a1)
+		move.w	#Carried_character,a1
 		clr.b	object_control(a1)
 		bset	#1,status(a1)
 		clr.w	(Flying_carrying_Sonic_flag).w

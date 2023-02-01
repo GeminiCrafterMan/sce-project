@@ -203,6 +203,12 @@ SpawnLevelMainSprites:
 		addi.w	#4,(Player_2+y_pos).w
 		move.l	#Obj_DashDust,(v_Dust_P2).w
 		move.l	(Player_2).w,(v_Dust_P2+parent).w
+		clr.b	(Tails_CPU_routine).w
+		clr.l	(Tails_CPU_idle_timer).w
+		clr.b	(Tails_CPU_jumping).w
+		clr.l	(Tails_interact_ID).w
+		clr.l	(Carried_character_x_vel).w
+		clr.w	(Carried_character).w
 		rts
 
 LoadPlayerPal:
