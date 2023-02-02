@@ -249,7 +249,14 @@ Touch_Monitor:
 		bne.s	.locret						; If not, branch
 
 		cmpi.b	#id_Roll,anim(a0)						; is Sonic rolling/jumping?
-		bne.s	.locret
+		beq.s	.break
+		cmpi.b	#c_Knuckles,character_id(a0)					; is player Knuckles?
+		bne.s	.locret								; if not, branch
+		cmpi.b	#1,double_jump_flag(a0)				; is Knuckles gliding?
+		beq.s	.break						; if so, branch
+		cmpi.b	#3,double_jump_flag(a0)				; is Knuckles sliding across the ground after gliding?
+		bne.s	.locret						; if so, branch
+	.break:
 		neg.w	y_vel(a0)
 		move.b	#4,routine(a1)
 		rts

@@ -217,13 +217,12 @@ frK_Idle9:				ds.b 1
 frK_IdleA:				ds.b 1
 frK_IdleB:				ds.b 1
 frK_IdleC:				ds.b 1
-frK_Fuck:				ds.b 5
-frK_Fuck2:				ds.b 7
 frK_Transform1:			ds.b 1
 frK_Transform2:			ds.b 1
 frK_Transform3:			ds.b 1
 frK_Transform4:			ds.b 1
-frK_Fuck3:				ds.b 12
+frK_ClimbD1:			ds.b 1
+frK_ClimbD2:			ds.b 1
 frK_Last:				ds.b 0
 	even
 	dephase

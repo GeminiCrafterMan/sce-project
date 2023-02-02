@@ -1534,7 +1534,7 @@ Player_JumpHeight:
 		jmp		(a1)
 
 	.playerLUT:
-		dc.l	Sonic_InstaAndShieldMoves, Tails_Test_For_Flight, Sonic_InstaAndShieldMoves, Sonic_InstaAndShieldMoves
+		dc.l	Sonic_InstaAndShieldMoves, Tails_Test_For_Flight, Knuckles_CheckGlide, Sonic_InstaAndShieldMoves
 
 locret_118E8:
 		rts

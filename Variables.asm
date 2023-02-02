@@ -405,6 +405,8 @@ Tails_CPU_target_y:					ds.w 1
 Carried_character_x_vel:			ds.w 1
 Carried_character_y_vel:			ds.w 1
 Carried_character:					ds.w 1
+Disable_wall_grab:					ds.b 1
+Gliding_collision_flags:			ds.b 1
 waterValues:						ds.l 1
 
 f_timeover:							= *
