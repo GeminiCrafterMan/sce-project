@@ -751,15 +751,13 @@ HyperTouch_Harmful:
 
 HyperTouch_Special:
 		ori.b	#3,collision_property(a1)
+		cmpi.b	#c_Knuckles,character_id(a0)		; Are we in Knuckles Alone mode?
+		bne.s	.sonicortails			; If not, branch
+		move.w	x_pos(a1),(Player_2+x_pos).w	; ???
+		move.w	y_pos(a1),(Player_2+y_pos).w	; ???
+
+	.sonicortails:
+		move.b	#id_Roll,(Player_2+anim).w		; Put sidekick in his rolling animation
+		bset	#Status_InAir,(Player_2+status).w
 		rts
-	; There is no player 2.
-;		cmpi.b	#c_Knuckles,character_id(a0)		; Are we in Knuckles Alone mode?
-;		bne.s	.sonicortails			; If not, branch
-;		move.w	x_pos(a1),(Player_2+x_pos).w	; ???
-;		move.w	y_pos(a1),(Player_2+y_pos).w	; ???
-;
-;	.sonicortails:
-;		move.b	#2,(Player_2+anim).w		; Put sidekick in his rolling animation
-;		bset	#Status_InAir,(Player_2+status).w
-;		rts
 ; End of function HyperTouch_ChkValue

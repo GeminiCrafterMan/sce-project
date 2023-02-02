@@ -325,7 +325,7 @@ HurtCharacter_WithoutDamage:
 ; =============== S U B R O U T I N E =======================================
 
 Check_PlayerAttack:
-		lea	(Player_1).w,a1
+;		lea	(Player_1).w,a1
 		btst	#Status_Invincible,status_secondary(a1)
 		bne.s	loc_85822
 		cmpi.b	#id_SpinDash,anim(a1)
@@ -341,8 +341,9 @@ Check_PlayerAttack:
 
 off_857EA: offsetTable
 		offsetTableEntry.w Check_SonicAttack	; 0 - Sonic
-		offsetTableEntry.w Check_SonicAttack	; 1 - Tails
-		offsetTableEntry.w Check_SonicAttack	; 2 - Knuckles
+		offsetTableEntry.w Check_TailsAttack	; 1 - Tails
+		offsetTableEntry.w Check_KnuxAttack		; 2 - Knuckles
+		offsetTableEntry.w Check_MightyAttack	; 3 - Mighty
 ; ---------------------------------------------------------------------------
 
 Check_SonicAttack:
@@ -350,9 +351,37 @@ Check_SonicAttack:
 		rts
 ; ---------------------------------------------------------------------------
 
+Check_TailsAttack:
+		tst.b	double_jump_flag(a1)
+		beq.s	Check_SonicAttack		; If Tails is not flying, branch
+		btst	#6,status(a1)
+		bne.s	Check_SonicAttack		; If Tails is underwater, branch
+		move.w	x_pos(a1),d1
+		move.w	y_pos(a1),d2
+		sub.w	x_pos(a0),d1
+		sub.w	y_pos(a0),d2
+		jsr	(GetArcTan).l		; Get angle between Tails and object
+		subi.b	#$20,d0
+		cmpi.b	#$40,d0
+		bhs.s	Check_SonicAttack		; If Tails is between 20-60 degrees off object (directly below), then he is attacking
+
 loc_85822:
 		moveq	#1,d0
 		rts
+; ---------------------------------------------------------------------------
+
+Check_KnuxAttack:
+		cmpi.b	#1,double_jump_flag(a1)
+		beq.s	loc_85822
+		cmpi.b	#3,double_jump_flag(a1)
+		beq.s	loc_85822				; If Knux is gliding or sliding, then he's attacking
+		bra.s	Check_SonicAttack
+; ---------------------------------------------------------------------------
+
+Check_MightyAttack:
+		bra.s	Check_SonicAttack
+
+; End of function Check_PlayerAttack
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -372,13 +401,21 @@ Check_PlayerCollision:
 word_85890:
 		dc.w Player_1
 		dc.w Player_1
-		dc.w Player_1
-		dc.w Player_1
+		dc.w Player_2
+		dc.w Player_2
 
 ; =============== S U B R O U T I N E =======================================
 
 Load_LevelResults:
 		lea	(Player_1).w,a1
+		btst	#7,status(a1)
+		bne.s	.ret
+		btst	#Status_InAir,status(a1)
+		bne.s	.ret
+		cmpi.b	#id_SonicDeath,routine(a1)
+		bcc.s	.ret
+		bsr.s	Set_PlayerEndingPose
+		lea	(Player_2).w,a1
 		btst	#7,status(a1)
 		bne.s	+
 		btst	#Status_InAir,status(a1)
@@ -386,13 +423,13 @@ Load_LevelResults:
 		cmpi.b	#id_SonicDeath,routine(a1)
 		bcc.s	+
 		bsr.s	Set_PlayerEndingPose
-		lea	(Player_2).w,a1
-		bsr.s	Set_PlayerEndingPose
++
 		clr.b	(TitleCard_end_flag).w
 		bsr.w	Create_New_Sprite
-		bne.s	+
+		bne.s	.ret
 		move.l	#Obj_LevelResults,address(a1)
-+		rts
+.ret:
+		rts
 
 ; =============== S U B R O U T I N E =======================================
 

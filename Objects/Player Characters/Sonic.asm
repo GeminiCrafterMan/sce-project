@@ -2574,6 +2574,13 @@ Player_Death:
 ; ---------------------------------------------------------------------------
 +
 	endif
+		tst.b	(Flying_carrying_Sonic_flag).w
+		beq.s	+
+		move.w	(Carried_character).w,a1
+		clr.b	object_control(a1)
+		bset	#1,status(a1)
+		clr.w	(Flying_carrying_Sonic_flag).w
++
 		bsr.s	sub_123C2
 		jsr	(MoveSprite_TestGravity).w
 		bsr.w	Player_RecordPos
