@@ -951,7 +951,7 @@ loc_1456C:
 	bne.s	locret_1459C
 	bsr.s	sub_1459E
 	sfx		sfx_Grab
-	move.w	(a1),(Carried_character).w
+	move.w	a1,(Carried_character).w	; move address of a1 (carried character) to contents of address
 	move.b	#1,(a2)
 
 locret_1459C:

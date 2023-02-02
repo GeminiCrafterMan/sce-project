@@ -191,11 +191,11 @@ loc_10BF0:
 
 .doneController:
 		btst	#0,object_control(a0)				; is Sonic interacting with another object that holds him in place or controls his movement somehow?
-		bne.s	loc_10C26					; if yes, branch to skip Sonic's control
-		tst.w	(Carried_character).w
-		beq.s	loc_10C0C
-		cmpa.w	#Carried_character,a0
-		beq.s	loc_10C26
+		beq.s	loc_10C0C					; if yes, branch to skip Sonic's control
+		tst.w	(Carried_character).w	; test address's contents
+		beq.s	loc_10C0C				; if it's empty, just go ahead
+		cmpa.w	(Carried_character).w,a0	; compare to a0 (current address)
+		beq.s	loc_10C26					; if it's equal, we can't control the character
 ;		bra.s	loc_10C0C
 ; Change this to only be for the player carrying the other.
 		clr.b	double_jump_flag(a0)				; enable double jump
@@ -214,7 +214,7 @@ loc_10BF0:
 		clr.w	(Flying_carrying_Sonic_flag).w	; this makes him drop you
 		bra.s	loc_10C26
 ; ---------------------------------------------------------------------------
-; carrying player goes here
+; carrying/grounded player goes here
 loc_10C0C:
 		moveq	#0,d0
 		move.b	character_id(a0),d0
@@ -2402,11 +2402,11 @@ loc_121D8:
 		bclr	#Status_RollJump,status(a0)
 		tst.w	(Carried_character).w
 		beq.s	+
-		cmpa.w	#Carried_character,a0
+		cmpa.w	(Carried_character).w,a0
 		beq.s	+
 		tst.b	(Flying_carrying_Sonic_flag).w
 		beq.s	+
-		move.w	#Carried_character,a1
+		move.w	(Carried_character).w,a1
 		clr.b	object_control(a1)
 		bset	#1,status(a1)
 		clr.w	(Flying_carrying_Sonic_flag).w
@@ -2487,11 +2487,11 @@ Player_Hurt:
 	endif
 		tst.w	(Carried_character).w
 		beq.s	+
-		cmpa.w	#Carried_character,a0
+		cmpa.w	(Carried_character).w,a0
 		beq.s	+
 		tst.b	(Flying_carrying_Sonic_flag).w
 		beq.s	+
-		move.w	#Carried_character,a1
+		move.w	(Carried_character).w,a1
 		clr.b	object_control(a1)
 		bset	#1,status(a1)
 		clr.w	(Flying_carrying_Sonic_flag).w
