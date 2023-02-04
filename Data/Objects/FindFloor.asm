@@ -424,7 +424,7 @@ loc_F282:
 		move.b	(a2,d0.w),d0
 		andi.w	#$FF,d0
 		beq.s	loc_F274
-		lea	(AngleArray).l,a2
+		bsr.w	GetAngleArray
 		move.b	(a2,d0.w),(a4)
 		lsl.w	#4,d0
 		move.w	d3,d1
@@ -443,7 +443,7 @@ loc_F2AA:
 loc_F2BA:
 		andi.w	#$F,d1
 		add.w	d0,d1
-		lea	(HeightMaps).l,a2
+		bsr.w	GetHeightMaps
 		move.b	(a2,d1.w),d0
 		ext.w	d0
 		eor.w	d6,d4
@@ -503,7 +503,7 @@ loc_F32A:
 		move.b	(a2,d0.w),d0
 		andi.w	#$FF,d0
 		beq.s	loc_F31C
-		lea	(AngleArray).l,a2
+		bsr.w	GetAngleArray
 		move.b	(a2,d0.w),(a4)
 		lsl.w	#4,d0
 		move.w	d3,d1
@@ -522,7 +522,7 @@ loc_F352:
 loc_F362:
 		andi.w	#$F,d1
 		add.w	d0,d1
-		lea	(HeightMaps).l,a2
+		bsr.w	GetHeightMaps
 		move.b	(a2,d1.w),d0
 		ext.w	d0
 		eor.w	d6,d4
@@ -571,7 +571,7 @@ loc_F3F4:
 		move.b	(a2,d0.w),d0
 		andi.w	#$FF,d0
 		beq.s	loc_F3EE
-		lea	(AngleArray).l,a2
+		bsr.w	GetAngleArray
 		move.b	(a2,d0.w),(a4)
 		lsl.w	#4,d0
 		move.w	d3,d1
@@ -590,7 +590,7 @@ loc_F41C:
 loc_F42C:
 		andi.w	#$F,d1
 		add.w	d0,d1
-		lea	(HeightMaps).l,a2
+		bsr.w	GetHeightMaps
 		move.b	(a2,d1.w),d0
 		ext.w	d0
 		eor.w	d6,d4
@@ -650,7 +650,7 @@ loc_F4FA:
 		move.b	(a2,d0.w),d0
 		andi.w	#$FF,d0
 		beq.s	loc_F4EC
-		lea	(AngleArray).l,a2
+		bsr.w	GetAngleArray
 		move.b	(a2,d0.w),(a4)
 		lsl.w	#4,d0
 		move.w	d2,d1
@@ -669,7 +669,7 @@ loc_F52A:
 loc_F532:
 		andi.w	#$F,d1
 		add.w	d0,d1
-		lea	(HeightMapsRot).l,a2
+		bsr.w	GetHeightMapsRot
 		move.b	(a2,d1.w),d0
 		ext.w	d0
 		eor.w	d6,d4
@@ -729,7 +729,7 @@ loc_F5A2:
 		move.b	(a2,d0.w),d0
 		andi.w	#$FF,d0
 		beq.s	loc_F594
-		lea	(AngleArray).l,a2
+		bsr.w	GetAngleArray
 		move.b	(a2,d0.w),(a4)
 		lsl.w	#4,d0
 		move.w	d2,d1
@@ -748,7 +748,7 @@ loc_F5D2:
 loc_F5DA:
 		andi.w	#$F,d1
 		add.w	d0,d1
-		lea	(HeightMapsRot).l,a2
+		bsr.w	GetHeightMapsRot
 		move.b	(a2,d1.w),d0
 		ext.w	d0
 		eor.w	d6,d4
@@ -1477,3 +1477,72 @@ ObjCheckLeftWallDist_Part2:
 		beq.s	+
 		move.b	#$40,d3
 +		rts
+
+GetAngleArray:
+		moveq	#0,d1
+		move.w	(Current_zone_and_act).w,d1
+		ror.b	#2,d1
+		lsr.w	#4,d1
+		lea	(ZoneAngleArrays).l,a2
+		movea.l	(a2,d1.w),a2
+		rts
+	ZoneAngleArrays:
+	rept 4
+		dc.l	S1AngleArray	; DEZ
+	endr
+	rept 4
+		dc.l	S1AngleArray	; GHZ
+	endr
+	rept 4
+		dc.l	S1AngleArray	; SSLZ
+	endr
+	rept 4
+		dc.l	S3KAngleArray	; WZ
+	endr
+	zonewarning ZoneAngleArrays,(4*4)
+
+GetHeightMaps:
+		moveq	#0,d0
+		move.w	(Current_zone_and_act).w,d0
+		ror.b	#2,d0
+		lsr.w	#4,d0
+		lea	(ZoneHeightMaps).l,a2
+		movea.l	(a2,d0.w),a2
+		rts
+	ZoneHeightMaps:
+	rept 4
+		dc.l	S1HeightMaps	; DEZ
+	endr
+	rept 4
+		dc.l	S1HeightMaps	; GHZ
+	endr
+	rept 4
+		dc.l	S1HeightMaps	; SSLZ
+	endr
+	rept 4
+		dc.l	S3KHeightMaps	; WZ
+	endr
+	zonewarning ZoneHeightMaps,(4*4)
+
+GetHeightMapsRot:
+		moveq	#0,d0
+		move.w	(Current_zone_and_act).w,d0
+		ror.b	#2,d0
+		lsr.w	#4,d0
+		lea	(ZoneHeightMapsRot).l,a2
+		movea.l	(a2,d0.w),a2
+		rts
+	ZoneHeightMapsRot:
+	rept 4
+		dc.l	S1HeightMapsRot	; DEZ
+	endr
+	rept 4
+		dc.l	S1HeightMapsRot	; GHZ
+	endr
+	rept 4
+		dc.l	S1HeightMapsRot	; SSLZ
+	endr
+	rept 4
+		dc.l	S3KHeightMapsRot	; WZ
+	endr
+	zonewarning ZoneHeightMapsRot,(4*4)

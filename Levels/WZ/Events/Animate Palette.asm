@@ -5,7 +5,7 @@
 ; =============== S U B R O U T I N E =======================================
 
 AnPal_WZ:
-		lea		(Normal_palette_line_4+$6).w,a0
+		lea		(Normal_palette_line_4+$2).w,a0
 
 	.cont:
 		subq.w	#1,(Palette_cycle_counters).w ; decrement timer

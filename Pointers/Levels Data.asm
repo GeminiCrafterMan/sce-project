@@ -243,11 +243,23 @@ WZ_128x128_Kos:	binclude "Levels/WZ/Chunks/Primary.bin"
 ; Collision data
 ; ===========================================================================
 
-AngleArray:			binclude "Misc Data/Angle Map.bin"
+S1AngleArray:			binclude "Misc Data/Collision/S1 Angle Map.bin"
 	even
-HeightMaps:			binclude "Misc Data/Height Maps.bin"
+S1HeightMaps:			binclude "Misc Data/Collision/S1 Height Maps.bin"
 	even
-HeightMapsRot:		binclude "Misc Data/Height Maps Rotated.bin"
+S1HeightMapsRot:		binclude "Misc Data/Collision/S1 Height Maps Rotated.bin"
+	even
+S2AngleArray:			binclude "Misc Data/Collision/S2 Angle Map.bin"
+	even
+S2HeightMaps:			binclude "Misc Data/Collision/S2 Height Maps.bin"
+	even
+S2HeightMapsRot:		binclude "Misc Data/Collision/S2 Height Maps Rotated.bin"
+	even
+S3KAngleArray:			binclude "Misc Data/Collision/S3K Angle Map.bin"
+	even
+S3KHeightMaps:			binclude "Misc Data/Collision/S3K Height Maps.bin"
+	even
+S3KHeightMapsRot:		binclude "Misc Data/Collision/S3K Height Maps Rotated.bin"
 	even
 
 ; ===========================================================================
