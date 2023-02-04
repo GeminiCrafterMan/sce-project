@@ -56,7 +56,7 @@
 		include	"Objects/Edge Walls/Edge Walls.asm"
 
 	; SSLZ
-		include	"Objects/Corkscrew/Corkscrew.asm"
+		include	"Objects/Spiral/Spiral.asm"
 
 ; ===========================================================================
 ; Bosses objects data

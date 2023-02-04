@@ -18,4 +18,9 @@ StartLocArray:
 		binclude "Levels/SSLZ/Start Location/1.bin"	; SSLZ 3
 		binclude "Levels/SSLZ/Start Location/1.bin"	; SSLZ 4
 
+		binclude "Levels/WZ/Start Location/1.bin"	; WZ 1
+		binclude "Levels/WZ/Start Location/1.bin"	; WZ 2
+		binclude "Levels/WZ/Start Location/1.bin"	; WZ 3
+		binclude "Levels/WZ/Start Location/1.bin"	; WZ 4
+
 		zonewarning StartLocArray,(4*4)

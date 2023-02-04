@@ -10,7 +10,8 @@ LevelSelect_VRAM:				= 480
 LevelSelect_ZoneCount:			= ZoneCount
 LevelSelect_ActDEZCount:			= 4	; DEZ
 LevelSelect_ActGHZCount:			= 3	; GHZ
-LevelSelect_ActSSLZCount:			= 2	; GHZ
+LevelSelect_ActSSLZCount:			= 2	; SSLZ
+LevelSelect_ActWZCount:			= 1	; WZ
 LevelSelect_MusicTestCount:		= 8
 LevelSelect_SoundTestCount:		= LevelSelect_MusicTestCount+1
 LevelSelect_SampleTestCount:		= LevelSelect_SoundTestCount+1
@@ -155,6 +156,7 @@ LevelSelect_LoadMaxActs:
 		dc.w LevelSelect_ActDEZCount-1	; DEZ
 		dc.w LevelSelect_ActGHZCount-1	; GHZ
 		dc.w LevelSelect_ActSSLZCount-1	; SSLZ
+		dc.w LevelSelect_ActWZCount-1	; WZ
 
 		zonewarning LevelSelect_LoadMaxActs,2
 
@@ -219,6 +221,7 @@ LevelSelect_LoadLevel_CharacterSwitcher:
 		dc.l	Obj_CabaretMighty,	DeleteObject,		Pal_Mighty	; MA	; 60, 64, 68
 		dc.l	Obj_CabaretMighty,	Obj_CabaretTails,	Pal_Mighty	; M&T	; 72, 76, 80
 		dc.l	Obj_CabaretTails,	Obj_CabaretTails,	Pal_Sonic	; T&T
+		dc.l	Obj_CabaretSonic,	Obj_CabaretSonic,	Pal_Sonic	; S&S
 	.ret:
 		rts
 
@@ -421,6 +424,10 @@ LevelSelect_ActTextIndex: offsetTable
 		offsetTableEntry.w LevelSelect_LoadAct2		; SSLZ2
 		offsetTableEntry.w LevelSelect_LoadAct3		; SSLZ3
 		offsetTableEntry.w LevelSelect_LoadAct4		; SSLZ4
+		offsetTableEntry.w LevelSelect_LoadAct1		; WZ1
+		offsetTableEntry.w LevelSelect_LoadAct2		; WZ2
+		offsetTableEntry.w LevelSelect_LoadAct3		; WZ3
+		offsetTableEntry.w LevelSelect_LoadAct4		; WZ4
 
 		zonewarning LevelSelect_ActTextIndex,(2*4)
 ; --------------------------------------------------------------------------
@@ -605,7 +612,7 @@ LevelSelect_Text:
 		levselstr " DEATH EGG          - ACT 1             "
 		levselstr " GREEN HILL         - ACT 1             "
 		levselstr " SEASIDE LAND       - ACT 1             "
-		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " WOOD               - ACT 1             "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "

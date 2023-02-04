@@ -26,15 +26,22 @@ loc_18B54:
 		ori.b	#4,render_flags(a0)
 		move.w	#$80,priority(a0)
 		move.b	#32/2,width_pixels(a0)
-		move.w	#ArtTile_DashDust,art_tile(a0)
-		move.w	#tiles_to_bytes(ArtTile_DashDust),vram_art(a0)
-		lea	(Player_1).w,a1
+		movea.w	parent(a0),a1
+		cmpa.w	#Player_1,a1
+		bne.s	.p2
+		move.w	#ArtTile_DashDust_P1,art_tile(a0)
+		move.w	#tiles_to_bytes(ArtTile_DashDust_P1),vram_art(a0)
+		bra.s	.cont
+	.p2:
+		move.w	#ArtTile_DashDust_P2,art_tile(a0)
+		move.w	#tiles_to_bytes(ArtTile_DashDust_P2),vram_art(a0)
+	.cont:
 		cmpi.b	#c_Tails,character_id(a1)
 		bne.s	loc_18BAA
 		move.b	#c_Tails,character_id(a0)
 
 loc_18BAA:
-		lea	(Player_1).w,a2
+		movea.w	parent(a0),a2
 		moveq	#0,d0
 		move.b	anim(a0),d0
 		add.w	d0,d0
@@ -91,8 +98,8 @@ loc_18C20:
 		neg.w	d1
 
 loc_18C60:
-		tst.b	$38(a0)
-		beq.s	+
+		cmpi.b	#c_Tails,character_id(a0)
+		bne.s	+
 		sub.w	d1,y_pos(a0)
 +		tst.b	$21(a0)
 		bne.s	loc_18C94
@@ -126,7 +133,7 @@ loc_18CB2:
 ; ---------------------------------------------------------------------------
 
 loc_18CB6:
-		lea	(Player_1).w,a2
+		movea.w	parent(a0),a2
 		moveq	#$10,d1
 		cmpi.b	#id_Stop,anim(a2)
 		beq.s	loc_18CE4
@@ -142,7 +149,7 @@ loc_18CD6:
 		rts
 ; ---------------------------------------------------------------------------
 
-loc_18CE4:
+loc_18CE4:	; Skid dust doesn't load at the moment.
 		subq.b	#1,$36(a0)
 		bpl.s	DashDust_Load_DPLC
 		move.b	#3,$36(a0)
@@ -153,8 +160,8 @@ loc_18CE4:
 		move.l	address(a0),address(a1)
 		move.w	x_pos(a2),x_pos(a1)
 		move.w	y_pos(a2),y_pos(a1)
-		tst.b	$38(a0)
-		beq.s	+
+		cmpi.b	#c_Tails,character_id(a0)
+		bne.s	+
 		subq.w	#4,d1
 +		tst.b	(Reverse_gravity_flag).w
 		beq.s	+

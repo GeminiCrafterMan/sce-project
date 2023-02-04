@@ -12,19 +12,24 @@ Obj_AutoSpin:
 		move.w	#bytes_to_word(256/2,256/2),height_pixels(a0)		; set height and width
 		move.b	subtype(a0),d0
 		btst	#2,d0
-		beq.s	loc_1E85C
+		beq.s	Obj_AutoSpin_Init_CheckX
 		andi.w	#7,d0
 		move.b	d0,mapping_frame(a0)
 		andi.w	#3,d0
 		add.w	d0,d0
 		move.w	word_1E854(pc,d0.w),$32(a0)
 		move.w	y_pos(a0),d1
-		lea	(Player_1).w,a1
+		lea	(Player_1).w,a1 ; a1=character
 		cmp.w	y_pos(a1),d1
-		bcc.s	+
+		bhs.s	+
 		move.b	#1,$34(a0)
-+		move.l	#loc_1E9E6,address(a0)
-		bra.w	loc_1E9E6
++
+		lea	(Player_2).w,a1 ; a1=character
+		cmp.w	y_pos(a1),d1
+		bhs.s	+
+		move.b	#1,$35(a0)
++		move.l	#Obj_AutoSpin_MainY,address(a0)
+		bra.w	Obj_AutoSpin_MainY
 ; ---------------------------------------------------------------------------
 
 word_1E854:
@@ -34,7 +39,7 @@ word_1E854:
 		dc.w $100
 ; ---------------------------------------------------------------------------
 
-loc_1E85C:
+Obj_AutoSpin_Init_CheckX:
 		andi.w	#3,d0
 		move.b	d0,mapping_frame(a0)
 		add.w	d0,d0
@@ -42,19 +47,27 @@ loc_1E85C:
 		move.w	x_pos(a0),d1
 		lea	(Player_1).w,a1
 		cmp.w	x_pos(a1),d1
-		bcc.s	loc_1E890
+		bhs.s	+
 		move.b	#1,$34(a0)
++
+		lea	(Player_2).w,a1
+		cmp.w	x_pos(a1),d1
+		bhs.s	loc_1E890
+		move.b	#1,$35(a0)
 
 loc_1E890:
-		move.l	#loc_1E896,address(a0)
+		move.l	#Obj_AutoSpin_MainX,address(a0)
 
-loc_1E896:
+Obj_AutoSpin_MainX:
 		tst.w	(Debug_placement_mode).w
 		bne.s	loc_1E8C0
 		move.w	x_pos(a0),d1
 		lea	$34(a0),a2
 		lea	(Player_1).w,a1
 		bsr.s	sub_1E8C6
+		lea	(Player_2).w,a1
+		cmpi.b	#4,(Tails_CPU_routine).w	; TailsCPU_Flying
+		beq.s	loc_1E8C0
 		jmp	(Delete_Sprite_If_Not_In_Range).w
 ; ---------------------------------------------------------------------------
 
@@ -151,24 +164,23 @@ locret_1E9B4:
 
 loc_1E9B6:
 		btst	#Status_Roll,status(a1)
-		beq.s	loc_1E9C0
+		beq.s	+
 		rts
-; ---------------------------------------------------------------------------
-
-loc_1E9C0:
-		bset	#Status_Roll,status(a1)
++		bset	#Status_Roll,status(a1)
 		move.w	#bytes_to_word(28/2,14/2),y_radius(a1)	; set y_radius and x_radius
 		move.b	#id_Roll,anim(a1)
 		addq.w	#5,y_pos(a1)
 		sfx	sfx_Roll,1
 ; ---------------------------------------------------------------------------
 
-loc_1E9E6:
+Obj_AutoSpin_MainY:
 		tst.w	(Debug_placement_mode).w
 		bne.s	loc_1EA0E
 		move.w	y_pos(a0),d1
 		lea	$34(a0),a2
 		lea	(Player_1).w,a1
+		bsr.s	sub_1EA14
+		lea	(Player_2).w,a1
 		bsr.s	sub_1EA14
 		jmp	(Delete_Sprite_If_Not_In_Range).w
 ; ---------------------------------------------------------------------------

@@ -17,6 +17,8 @@ Pal_GHZ:			binclude "Levels/GHZ/Palettes/Green Hill Zone.bin"
 	even
 Pal_SSLZ:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone.bin"
 	even
+Pal_WZ:			binclude "Levels/WZ/Palettes/Wood Zone.bin"
+	even
 ; ===========================================================================
 ; Dynamic palette
 ; ===========================================================================

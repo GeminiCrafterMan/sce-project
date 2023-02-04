@@ -103,12 +103,6 @@ Sonic_Init:	; Routine 0
 		clr.b	character_id(a0)
 		move.l	#Obj_Insta_Shield,(v_Shield).w
 	.branchPoint:
-		move.w	#$600,Top_speed_P1-Top_speed_P1(a4)
-		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
-		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
-		tst.b	(Last_star_post_hit).w
-		bne.s	Player_Init_Continued
-		; only happens when not starting at a checkpoint:
 		cmpa.w	#Player_1,a0
 		bne.s	.p2
 		move.w	#make_art_tile(ArtTile_Sonic,0,0),art_tile(a0)
@@ -117,6 +111,9 @@ Sonic_Init:	; Routine 0
 		move.w	#make_art_tile(ArtTile_Tails,0,0),art_tile(a0)
 	.cont:
 		move.w	#bytes_to_word($C,$D),top_solid_bit(a0)
+		move.w	#$600,Top_speed_P1-Top_speed_P1(a4)
+		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
+		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
 
 Player_Init_Continued:
 		clr.b	flips_remaining(a0)
@@ -191,7 +188,7 @@ loc_10BF0:
 
 .doneController:
 		btst	#0,object_control(a0)				; is Sonic interacting with another object that holds him in place or controls his movement somehow?
-		beq.s	loc_10C0C					; if yes, branch to skip Sonic's control
+		beq.s	loc_10C0C					; if not, branch to skip Sonic's control
 		tst.w	(Carried_character).w	; test address's contents
 		beq.s	loc_10C0C				; if it's empty, just go ahead
 		cmpa.w	(Carried_character).w,a0	; compare to a0 (current address)
@@ -252,9 +249,9 @@ loc_10C26:
 		tst.b	anim(a0)
 		bne.s	+
 		move.b	prev_anim(a0),anim(a0)
-+;		btst	#1,object_control(a0)
-;		bne.s	++
-		bsr.w	Animate_Player
++		bsr.w	Animate_Player
+		btst	#1,object_control(a0)
+		bne.s	+
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	+
 		eori.b	#2,render_flags(a0)
@@ -393,14 +390,23 @@ locret_10E2C:
 Player_InWater:
 		move.w	(Water_level).w,d0
 		cmp.w	y_pos(a0),d0									; is Sonic above the water?
-		bge.s	Player_OutWater								; if yes, branch
+		bge.w	Player_OutWater								; if yes, branch
 		bset	#Status_Underwater,status(a0)						; set underwater flag
 		bne.s	locret_10E2C									; if already underwater, branch
 		addq.b	#1,(Water_entered_counter).w
 		movea.w	a0,a1
 		jsr		Player_ResetAirTimer
-		move.l	#Obj_Air_CountDown,(v_Breathing_bubbles).w		; load Sonic's breathing bubbles
-		move.b	#$81,(v_Breathing_bubbles+subtype).w
+		cmpa.w	#Player_1,a0
+		bne.s	.p2
+		move.l	#Obj_Air_CountDown,(v_Breathing_bubbles_P1).w		; load Sonic's breathing bubbles
+		move.w	a0,(v_Breathing_bubbles_P1+parent).w
+		move.b	#$81,(v_Breathing_bubbles_P1+subtype).w
+		bra.s	.cont
+	.p2:
+		move.l	#Obj_Air_CountDown,(v_Breathing_bubbles_P2).w		; load Sonic's breathing bubbles
+		move.w	a0,(v_Breathing_bubbles_P2+parent).w
+		move.b	#$81,(v_Breathing_bubbles_P2+subtype).w
+	.cont:
 		move.w	#$300,Top_speed_P1-Top_speed_P1(a4)
 		move.w	#6,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$40,Deceleration_P1-Top_speed_P1(a4)
@@ -416,14 +422,14 @@ loc_10E82:
 		asr	x_vel(a0)
 		asr	y_vel(a0)				; memory operands can only be shifted one bit at a time
 		asr	y_vel(a0)
-		beq.s	locret_10E2C
+		beq.w	locret_10E2C
 		move.w	#bytes_to_word(1,0),anim(a6)	; splash animation, write 1 to anim and clear prev_anim
 		sfx	sfx_Splash,1				; splash sound
 ; ---------------------------------------------------------------------------
 
 Player_OutWater:
 		bclr	#Status_Underwater,status(a0)	; unset underwater flag
-		beq.s	locret_10E2C				; if already above water, branch
+		beq.w	locret_10E2C				; if already above water, branch
 		addq.b	#1,(Water_entered_counter).w
 
 		movea.w	a0,a1
@@ -1552,6 +1558,8 @@ locret_118FE:
 ; ---------------------------------------------------------------------------
 
 Sonic_InstaAndShieldMoves:
+		cmpa.w	#Player_1,a0
+		bne.s	locret_118FE
 		tst.b	double_jump_flag(a0)						; is Sonic currently performing a double jump?
 		bne.s	locret_118FE							; if yes, branch
 		jsr		GetCtrlPressLogical
@@ -2589,30 +2597,46 @@ Player_Death:
 
 ; =============== S U B R O U T I N E =======================================
 
-sub_123C2:
+sub_123C2:	; CheckGameOver equivalent
 		cmpa.w	#Player_1,a0
-		bne.s	.notP1
+		beq.s	.p1
+	.p2:
 		move.w	(Camera_Y_pos).w,d0
-		st	(Scroll_lock).w
-	.notP1:
 		clr.b	spin_dash_flag(a0)
 		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_123FA
+		beq.s	.notReversed
+	; gravity has been reversed
 		subi.w	#$10,d0
 		cmp.w	y_pos(a0),d0
-		bge.s	loc_12410
+		bge.s	.respawn	; respawn
 		rts
-; ---------------------------------------------------------------------------
-
-loc_123FA:
+	.notReversed:	; gravity has not been reversed
 		addi.w	#$100,d0
 		cmp.w	y_pos(a0),d0
 		bge.s	locret_124C6
+	.respawn:
+		move.b	#2,routine(a0)
+		bra.w	TailsCPU_Despawn
+	.p1:
+		move.w	(Camera_Y_pos).w,d0
+		st	(Scroll_lock).w
+		clr.b	spin_dash_flag(a0)
+		tst.b	(Reverse_gravity_flag).w
+		beq.s	loc_123FA
+	; gravity has been reversed
+		subi.w	#$10,d0
+		cmp.w	y_pos(a0),d0
+		bge.s	loc_12410	; respawn
+		rts
+; ---------------------------------------------------------------------------
 
-loc_12410:
+loc_123FA:	; gravity has not been reversed
+		addi.w	#$100,d0
+		cmp.w	y_pos(a0),d0
+		bge.s	locret_124C6
+	; falls into respawn
+loc_12410:	; respawn
 		move.b	#id_SonicRestart,routine(a0)
-		cmpa.w	#Player_1,a0
-		bne.s	locret_124C6
 		move.w	#1*60,restart_timer(a0)
 		clr.b	(Respawn_table_keep).w
 

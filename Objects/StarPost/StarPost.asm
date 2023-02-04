@@ -155,8 +155,6 @@ Save_Level_Data:
 		move.b	(Last_star_post_hit).w,(Saved_last_star_post_hit).w
 		move.w	(Current_zone_and_act).w,(Saved_zone_and_act).w
 		move.w	(Apparent_zone_and_act).w,(Saved_apparent_zone_and_act).w
-		move.w	(Player_1+art_tile).w,(Saved_art_tile).w
-		move.w	(Player_1+top_solid_bit).w,(Saved_solid_bits).w
 		move.w	(Ring_count).w,(Saved_ring_count).w
 		move.l	(Timer).w,(Saved_timer).w
 		move.l	(Level_data_addr_RAM.Resize).w,(Saved_dynamic_resize).w
@@ -185,8 +183,6 @@ Load_Starpost_Settings:
 		move.l	(Saved_timer).w,(Timer).w
 		move.b	#59,(Timer_frame).w
 		subq.b	#1,(Timer_second).w
-		move.w	(Saved_art_tile).w,(Player_1+art_tile).w
-		move.w	(Saved_solid_bits).w,(Player_1+top_solid_bit).w
 		move.l	(Saved_dynamic_resize).w,(Level_data_addr_RAM.Resize).w
 		move.w	(Saved_camera_max_Y_pos).w,(Camera_max_Y_pos).w
 		move.w	(Saved_camera_max_Y_pos).w,(Camera_target_max_Y_pos).w

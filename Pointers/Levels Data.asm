@@ -16,6 +16,10 @@ LevelLoadBlock:
 		levartptrs SSLZ_8x8_KosM, SSLZ_16x16_Unc, SSLZ_128x128_Kos, palid_SSLZ		; SSLZ2
 		levartptrs SSLZ_8x8_KosM, SSLZ_16x16_Unc, SSLZ_128x128_Kos, palid_SSLZ		; SSLZ3
 		levartptrs SSLZ_8x8_KosM, SSLZ_16x16_Unc, SSLZ_128x128_Kos, palid_SSLZ		; SSLZ4
+		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ1
+		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ2
+		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ3
+		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ4
 
 		zonewarning LevelLoadBlock,(12*4)
 
@@ -85,6 +89,26 @@ LevelLoadPointer:
 		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
 
+; WZ1
+		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
+		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null											; Animate tiles main code, Animate tiles PLC scripts
+
+; WZ2
+		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
+		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null
+
+; WZ3
+		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
+		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null
+
+; WZ4
+		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
+		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null
+
 		zonewarning LevelLoadPointer,(40*4)
 
 ; ===========================================================================
@@ -104,6 +128,10 @@ SolidIndexes:
 		dc.l SSLZ1_Solid		; SSLZ2
 		dc.l SSLZ1_Solid		; SSLZ3
 		dc.l SSLZ1_Solid		; SSLZ4
+		dc.l WZ1_Solid		; WZ1
+		dc.l WZ1_Solid		; WZ2
+		dc.l WZ1_Solid		; WZ3
+		dc.l WZ1_Solid		; WZ4
 
 		zonewarning SolidIndexes,(4*4)
 
@@ -124,6 +152,10 @@ LevelPtrs:
 		dc.l SSLZ1_Layout		; SSLZ2
 		dc.l SSLZ1_Layout		; SSLZ3
 		dc.l SSLZ1_Layout		; SSLZ4
+		dc.l WZ1_Layout		; WZ1
+		dc.l WZ1_Layout		; WZ2
+		dc.l WZ1_Layout		; WZ3
+		dc.l WZ1_Layout		; WZ4
 
 		zonewarning LevelPtrs,(4*4)
 
@@ -144,6 +176,10 @@ SpriteLocPtrs:
 		dc.l SSLZ1_Sprites		; SSLZ2
 		dc.l SSLZ1_Sprites		; SSLZ3
 		dc.l SSLZ1_Sprites		; SSLZ4
+		dc.l WZ1_Sprites		; WZ1
+		dc.l WZ1_Sprites		; WZ2
+		dc.l WZ1_Sprites		; WZ3
+		dc.l WZ1_Sprites		; WZ4
 
 		zonewarning SpriteLocPtrs,(4*4)
 
@@ -164,6 +200,10 @@ RingLocPtrs:
 		dc.l SSLZ1_Rings		; SSLZ2
 		dc.l SSLZ1_Rings		; SSLZ3
 		dc.l SSLZ1_Rings		; SSLZ4
+		dc.l WZ1_Rings		; WZ1
+		dc.l WZ1_Rings		; WZ2
+		dc.l WZ1_Rings		; WZ3
+		dc.l WZ1_Rings		; WZ4
 
 		zonewarning RingLocPtrs,(4*4)
 
@@ -192,6 +232,13 @@ SSLZ_16x16_Unc:		binclude "Levels/SSLZ/Blocks/Primary.bin"
 SSLZ_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Primary.bin"
 	even
 
+WZ_8x8_KosM:		binclude "Levels/WZ/Tiles/Primary.bin"
+	even
+WZ_16x16_Unc:		binclude "Levels/WZ/Blocks/Primary.bin"
+	even
+WZ_128x128_Kos:	binclude "Levels/WZ/Chunks/Primary.bin"
+	even
+
 ; ===========================================================================
 ; Collision data
 ; ===========================================================================
@@ -213,6 +260,8 @@ GHZ1_Solid:			binclude "Levels/GHZ/Collision/1.bin"
 	even
 SSLZ1_Solid:			binclude "Levels/SSLZ/Collision/1.bin"
 	even
+WZ1_Solid:			binclude "Levels/WZ/Collision/1.bin"
+	even
 
 ; ===========================================================================
 ; Level layout data
@@ -230,6 +279,8 @@ GHZ3_Layout:		binclude "Levels/GHZ/Layout/3.bin"
 	even
 SSLZ1_Layout:		binclude "Levels/SSLZ/Layout/1.bin"
 	even
+WZ1_Layout:		binclude "Levels/WZ/Layout/1.bin"
+	even
 
 ; ===========================================================================
 ; Level object data
@@ -245,6 +296,8 @@ GHZ2_Sprites:		binclude "Levels/GHZ/Object Pos/2.bin"
 GHZ3_Sprites:		binclude "Levels/GHZ/Object Pos/3.bin"
 	ObjectLayoutBoundary
 SSLZ1_Sprites:		binclude "Levels/SSLZ/Object Pos/1.bin"
+	ObjectLayoutBoundary
+WZ1_Sprites:		binclude "Levels/WZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 	even
 
@@ -262,5 +315,7 @@ GHZ2_Rings:			binclude "Levels/GHZ/Ring Pos/2.bin"
 GHZ3_Rings:			binclude "Levels/GHZ/Ring Pos/3.bin"
 	RingLayoutBoundary
 SSLZ1_Rings:		binclude "Levels/SSLZ/Ring Pos/1.bin"
+	RingLayoutBoundary
+WZ1_Rings:		binclude "Levels/WZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 	even

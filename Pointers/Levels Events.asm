@@ -14,3 +14,7 @@
 
 ; SSLZ
 		include "Levels/SSLZ/Events/Events.asm"
+
+; WZ
+		include "Levels/WZ/Events/Animate Palette.asm"
+		include "Levels/WZ/Events/Events.asm"

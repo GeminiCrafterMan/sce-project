@@ -1,7 +1,51 @@
-Obj_Corkscrew:
+; ----------------------------------------------------------------------------
+; Object 06 - Rotating cylinder in MTZ, twisting spiral pathway in EHZ
+; ----------------------------------------------------------------------------
+; Sprite_214C4:
+Obj_Spiral:
 	moveq	#0,d0
-	lea	(Player_1).w,a1 ; a1=character
+	move.b	routine(a0),d0
+	move.w	Obj_Spiral_Index(pc,d0.w),d1
+	jsr	Obj_Spiral_Index(pc,d1.w)
+	jmp	(Delete_Sprite_If_Not_In_Range).w
+;	out_of_xrange.s	Obj_Spiral_Delete
+;	move.w	x_pos(a0),d0
+;	andi.w	#$FF80,d0
+;	sub.w	(Camera_X_pos_coarse).w,d0
+;	cmpi.w	#$280,d0
+;	jhi		DeleteObject
+;	rts
+; ---------------------------------------------------------------------------
+; delete because whee bhi.l is apparently still too short wheeeeee
+; ---------------------------------------------------------------------------
+;Obj_Spiral_Delete:
+;	jmp		DeleteObject
+; ===========================================================================
+; off_214F4:
+Obj_Spiral_Index:	offsetTable
+		offsetTableEntry.w Obj_Spiral_Init		; 0
+		offsetTableEntry.w Obj_Spiral_Spiral		; 2
+		offsetTableEntry.w Obj_Spiral_Cylinder	; 4
+; ===========================================================================
+; loc_214FA:
+Obj_Spiral_Init:
+	addq.b	#2,routine(a0) ; => Obj_Spiral_Spiral
 	move.b	#$D0,width_pixels(a0)
+	tst.b	subtype(a0)
+	bpl.s	Obj_Spiral_Spiral
+	addq.b	#2,routine(a0) ; => Obj_Spiral_Cylinder
+	bra.w	Obj_Spiral_Cylinder
+
+; ===========================================================================
+; spiral pathway from EHZ
+; loc_21512:
+Obj_Spiral_Spiral:
+	lea	(Player_1).w,a1 ; a1=character
+	moveq	#p1_standing_bit,d6
+	bsr.s	+
+	lea	(Player_2).w,a1 ; a1=character
+	addq.b	#1,d6
++
 	btst	d6,status(a0)
 	bne.w	loc_215C0
 	btst	#1,status(a1)
@@ -33,7 +77,7 @@ loc_21562:
 	bhs.s	return_215BE
 	tst.b	object_control(a1)
 	bne.s	return_215BE
-	jsr	RideObject_SetRide
+	jsr	(RideObject_SetRide).l
 	rts
 ; ---------------------------------------------------------------------------
 
@@ -61,7 +105,7 @@ loc_215A8:
 	subi.w	#$10,d1
 	cmpi.w	#$30,d1
 	bhs.s	return_215BE
-	jsr	RideObject_SetRide
+	jsr	(RideObject_SetRide).l
 
 return_215BE:
 	rts
@@ -70,18 +114,18 @@ return_215BE:
 loc_215C0:
 	mvabs.w	ground_vel(a1),d0
 	cmpi.w	#$600,d0
-	blo.s	Obj_Corkscrew_CharacterFallsOff
+	blo.s	Obj_Spiral_Spiral_CharacterFallsOff
 	btst	#1,status(a1)
-	bne.s	Obj_Corkscrew_CharacterFallsOff
+	bne.s	Obj_Spiral_Spiral_CharacterFallsOff
 	move.w	x_pos(a1),d0
 	sub.w	x_pos(a0),d0
 	addi.w	#$D0,d0
-	bmi.s	Obj_Corkscrew_CharacterFallsOff
+	bmi.s	Obj_Spiral_Spiral_CharacterFallsOff
 	cmpi.w	#$1A0,d0
-	blo.s	Obj_Corkscrew_MoveCharacter
+	blo.s	Obj_Spiral_Spiral_MoveCharacter
 
 ; loc_215EA:
-Obj_Corkscrew_CharacterFallsOff:
+Obj_Spiral_Spiral_CharacterFallsOff:
 	bclr	#3,status(a1)
 	bclr	d6,status(a0)
 	move.b	#0,flips_remaining(a1)
@@ -90,10 +134,10 @@ Obj_Corkscrew_CharacterFallsOff:
 
 ; ---------------------------------------------------------------------------
 ; loc_21602:
-Obj_Corkscrew_MoveCharacter:
+Obj_Spiral_Spiral_MoveCharacter:
 	btst	#3,status(a1)
 	beq.s	return_215BE
-	move.b	Obj_Corkscrew_CosineTable(pc,d0.w),d1
+	move.b	Obj_Spiral_CosineTable(pc,d0.w),d1
 	ext.w	d1
 	move.w	y_pos(a0),d2
 	add.w	d1,d2
@@ -104,7 +148,7 @@ Obj_Corkscrew_MoveCharacter:
 	move.w	d2,y_pos(a1)
 	lsr.w	#3,d0
 	andi.w	#$3F,d0
-	move.b	Obj_Corkscrew_FlipAngleTable(pc,d0.w),flip_angle(a1)
+	move.b	Obj_Spiral_FlipAngleTable(pc,d0.w),flip_angle(a1)
 	rts
 
 ; ===========================================================================
@@ -112,7 +156,7 @@ Obj_Corkscrew_MoveCharacter:
 ; for these tables: https://patents.google.com/patent/US5411272
 ; byte_21634:
 ; sloopdirtbl:
-Obj_Corkscrew_FlipAngleTable:
+Obj_Spiral_FlipAngleTable:
 	dc.b	$00,$00
 	dc.b	$01,$01,$16,$16,$16,$16,$2C,$2C
 	dc.b	$2C,$2C,$42,$42,$42,$42,$58,$58
@@ -123,7 +167,7 @@ Obj_Corkscrew_FlipAngleTable:
 	dc.b	$00,$00
 ; byte_21668:
 ; slooptbl:
-Obj_Corkscrew_CosineTable:
+Obj_Spiral_CosineTable:
 	dc.b	 32, 32, 32, 32, 32, 32, 32, 32
 	dc.b	 32, 32, 32, 32, 32, 32, 32, 32
 
@@ -189,3 +233,105 @@ Obj_Corkscrew_CosineTable:
 
 	dc.b	 32, 32, 32, 32, 32, 32, 32, 32
 	dc.b	 32, 32, 32, 32, 32, 32, 32, 32
+
+; ===========================================================================
+; rotating meshed cage from MTZ
+; loc_21808:
+Obj_Spiral_Cylinder:
+	lea	(Player_1).w,a1 ; a1=character
+	lea	(MTZCylinder_Angle_Sonic).w,a2
+	moveq	#p1_standing_bit,d6
+	bsr.s	+
+	lea	(Player_2).w,a1 ; a1=character
+	lea	(MTZCylinder_Angle_Tails).w,a2
+	addq.b	#1,d6
++
+	btst	d6,status(a0)
+	bne.w	loc_2188C
+	move.w	x_pos(a1),d0
+	sub.w	x_pos(a0),d0
+	cmpi.w	#-$C0,d0
+	blt.s	return_2188A
+	cmpi.w	#$C0,d0
+	bge.s	return_2188A
+	move.w	y_pos(a0),d0
+	addi.w	#$3C,d0
+	move.w	y_pos(a1),d2
+	move.b	y_radius(a1),d1
+	ext.w	d1
+	add.w	d2,d1
+	addq.w	#4,d1
+	sub.w	d1,d0
+	bhi.s	return_2188A
+	cmpi.w	#-$10,d0
+	blo.s	return_2188A
+	cmpi.b	#6,routine(a1)
+	bhs.s	return_2188A
+	add.w	d0,d2
+	addq.w	#3,d2
+	move.w	d2,y_pos(a1)
+	bset	#7,flip_type(a1) ; face the other way
+	jsr	(RideObject_SetRide).l
+	move.w	#id_Run,anim(a1)
+	move.b	#0,(a2)
+	tst.w	ground_vel(a1)
+	bne.s	return_2188A
+	move.w	#1,ground_vel(a1)
+
+return_2188A:
+	rts
+; ===========================================================================
+
+loc_2188C:
+	btst	#1,status(a1)
+	bne.s	loc_218C6
+	move.w	x_pos(a1),d0
+	sub.w	x_pos(a0),d0
+	addi.w	#$C0,d0
+	bmi.s	loc_218A8
+	cmpi.w	#$180,d0
+	blo.s	loc_218E0
+
+loc_218A8:
+	bclr	#3,status(a1)
+	bclr	d6,status(a0)
+	move.b	#0,flips_remaining(a1)
+	move.b	#4,flip_speed(a1)
+	bset	#1,status(a1)
+	rts
+; ---------------------------------------------------------------------------
+loc_218C6:
+	move.b	(a2),d0
+	addi.b	#$20,d0
+	cmpi.b	#$40,d0
+	bhs.s	+
+	asr	y_vel(a1)
+	bra.s	loc_218A8
+; ---------------------------------------------------------------------------
++	move.w	#0,y_vel(a1)
+	bra.s	loc_218A8
+; ===========================================================================
+
+loc_218E0:
+	btst	#3,status(a1)
+	beq.s	return_2188A
+	move.b	(a2),d0
+	jsr	(CalcSine).l
+	muls.w	#$2800,d1
+	swap	d1
+	move.w	y_pos(a0),d2
+	add.w	d1,d2
+	moveq	#0,d1
+	move.b	y_radius(a1),d1
+	subi.w	#$13,d1
+	sub.w	d1,d2
+	move.w	d2,y_pos(a1)
+	move.b	(a2),d0
+	move.b	d0,flip_angle(a1)
+	addq.b	#4,(a2)
+	tst.w	ground_vel(a1)
+	bne.s	return_2191E
+	move.w	#1,ground_vel(a1)
+
+return_2191E:
+	rts

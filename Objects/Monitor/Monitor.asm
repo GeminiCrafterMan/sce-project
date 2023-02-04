@@ -181,10 +181,15 @@ Obj_MonitorBreak:
 		andi.b	#standing_mask|pushing_mask,d0	; Is someone touching the monitor?
 		beq.s	Obj_MonitorSpawnIcon			; If not, branch
 		move.b	d0,d1
-		andi.b	#p1_standing|p1_pushing,d1		; Is it the main character?
-		beq.s	Obj_MonitorSpawnIcon			; If not, branch
+		andi.b	#p1_standing|p1_pushing,d1	; is it the main character?
+		beq.s	+		; if not, branch
 		andi.b	#$D7,(Player_1+status).w
-		ori.b	#2,(Player_1+status).w				; Prevent main character from walking in the air
+		ori.b	#2,(Player_1+status).w	; prevent Sonic from walking in the air
++
+		andi.b	#p2_standing|p2_pushing,d0	; is it the sidekick?
+		beq.s	Obj_MonitorSpawnIcon	; if not, branch
+		andi.b	#$D7,(Player_2+status).w
+		ori.b	#2,(Player_2+status).w	; prevent Tails from walking in the air
 
 Obj_MonitorSpawnIcon:
 		andi.b	#3,status(a0)
@@ -230,12 +235,12 @@ Obj_MonitorContents:
 ; ---------------------------------------------------------------------------
 
 off_1D7C8: offsetTable
-		offsetTableEntry.w loc_1D7CE	; 0
-		offsetTableEntry.w loc_1D81A	; 2
-		offsetTableEntry.w loc_1DB2E	; 4
+		offsetTableEntry.w Obj_MonitorContents_Init	; 0
+		offsetTableEntry.w Obj_MonitorContents_Raise	; 2
+		offsetTableEntry.w Obj_MonitorContents_Wait	; 4
 ; ---------------------------------------------------------------------------
 
-loc_1D7CE:
+Obj_MonitorContents_Init:
 		addq.b	#2,routine(a0)
 		move.l	#Map_MonitorContents,mappings(a0)
 		move.w	#make_art_tile(ArtTile_Monitors,0,1),art_tile(a0)
@@ -253,7 +258,7 @@ loc_1D7FC:
 		addq.b	#1,d0
 		move.b	d0,mapping_frame(a0)
 
-loc_1D81A:
+Obj_MonitorContents_Raise:
 		bsr.s	sub_1D820
 		jmp	(Draw_Sprite).w
 
@@ -284,11 +289,11 @@ loc_1D850:
 		moveq	#0,d0
 		move.b	anim(a0),d0
 		add.w	d0,d0
-		move.w	off_1D87C(pc,d0.w),d0
-		jmp	off_1D87C(pc,d0.w)
+		move.w	Obj_MonitorContents_Types(pc,d0.w),d0
+		jmp	Obj_MonitorContents_Types(pc,d0.w)
 ; ---------------------------------------------------------------------------
 
-off_1D87C: offsetTable
+Obj_MonitorContents_Types: offsetTable
 		offsetTableEntry.w Monitor_Give_Eggman			; 0
 		offsetTableEntry.w Monitor_Give_Eggman			; 2
 		offsetTableEntry.w Monitor_Give_Eggman			; 4
@@ -365,7 +370,7 @@ Monitor_Give_Invincibility:
 		rts
 ; ---------------------------------------------------------------------------
 
-loc_1DB2E:
+Obj_MonitorContents_Wait:
 		subq.w	#1,anim_frame_timer(a0)
 		bmi.w	loc_1EBB6
 		jmp	(Draw_Sprite).w

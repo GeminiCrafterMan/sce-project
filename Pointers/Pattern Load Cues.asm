@@ -31,6 +31,15 @@ Offs_PLC: offsetTable
 		offsetTableEntry.w PLC1_SSLZ_Misc
 		offsetTableEntry.w PLC2_SSLZ_Enemy
 
+		offsetTableEntry.w PLC1_WZ_Misc
+		offsetTableEntry.w PLC2_WZ_Enemy
+		offsetTableEntry.w PLC1_WZ_Misc
+		offsetTableEntry.w PLC2_WZ_Enemy
+		offsetTableEntry.w PLC1_WZ_Misc
+		offsetTableEntry.w PLC2_WZ_Enemy
+		offsetTableEntry.w PLC1_WZ_Misc
+		offsetTableEntry.w PLC2_WZ_Enemy
+
 		zonewarning Offs_PLC,(4*4)
 
 ; ===========================================================================
@@ -117,3 +126,18 @@ PLC2_SSLZ_Enemy: plrlistheader
 		plreq ArtTile_Chopper, ArtKosM_SSLZChopper			; Chopper
 		plreq ArtTile_Motobug, ArtKosM_Motobug			; Motobug
 PLC2_SSLZ_Enemy_end
+
+; ===========================================================================
+; Pattern load cues - Wood (Misc)
+; ===========================================================================
+
+PLC1_WZ_Misc: plrlistheader
+		plreq ArtTile_Bubbles, ArtKosM_Bubbles
+PLC1_WZ_Misc_end
+
+; ===========================================================================
+; Pattern load cues - Wood (Enemy)
+; ===========================================================================
+
+PLC2_WZ_Enemy: plrlistheader
+PLC2_WZ_Enemy_end

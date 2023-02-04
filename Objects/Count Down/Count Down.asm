@@ -102,7 +102,7 @@ AirCountdown_Delete:
 ; ---------------------------------------------------------------------------
 
 AirCountdown_AirLeft:
-		lea	(Player_1).w,a2
+		movea.w	parent(a0),a2
 		cmpi.b	#12,air_left(a2)
 		bhi.s	loc_182AC
 		subq.w	#1,objoff_3C(a0)
@@ -126,7 +126,7 @@ loc_182AC:
 ; ---------------------------------------------------------------------------
 
 AirCountdown_DisplayNumber:
-		lea	(Player_1).w,a2
+		movea.w	parent(a0),a2
 		cmpi.b	#12,air_left(a2)
 		bhi.s	AirCountdown_Delete
 		bsr.s	AirCountdown_ShowNumber
@@ -188,7 +188,14 @@ AirCountdown_Load_Art:
 		add.w	d0,d1
 		lsl.w	#5,d1
 		addi.l	#ArtUnc_AirCountDown>>1,d1
-		move.w	#tiles_to_bytes(ArtTile_DashDust),d2
+		movea.w	parent(a0),a2
+		cmpa.w	#Player_1,a2
+		bne.s	.p2
+		move.w	#tiles_to_bytes(ArtTile_DashDust_P1),d2
+		bra.s	.cont
+	.p2:
+		move.w	#tiles_to_bytes(ArtTile_DashDust_P2),d2
+	.cont:
 		move.w	#$C0/2,d3
 		jmp	(Add_To_DMA_Queue).w
 ; ---------------------------------------------------------------------------
@@ -198,7 +205,7 @@ locret_18464:
 ; ---------------------------------------------------------------------------
 
 AirCountdown_Countdown:
-		lea	(Player_1).w,a2
+		movea.w	parent(a0),a2
 		tst.w	objoff_30(a0)
 		bne.w	loc_1857C
 		cmpi.b	#id_SonicDeath,routine(a2)

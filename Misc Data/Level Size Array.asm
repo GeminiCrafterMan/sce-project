@@ -19,4 +19,9 @@ LevelSizes:
 		dc.w 0, $29A0, 0, $320				; SSLZ 3
 		dc.w 0, $29A0, 0, $320				; SSLZ 4
 
+		dc.w 0, $3FFF, 0, $800				; WZ 1
+		dc.w 0, $3FFF, 0, $800				; WZ 2
+		dc.w 0, $3FFF, 0, $800				; WZ 3
+		dc.w 0, $3FFF, 0, $800				; WZ 4
+
 		zonewarning LevelSizes,(8*4)

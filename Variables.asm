@@ -21,7 +21,8 @@ v_FollowObject_P1:					ds.b object_size
 v_FollowObject_P2:					ds.b object_size
 v_Shield:							ds.b object_size
 									ds.b object_size
-v_Breathing_bubbles:				ds.b object_size
+v_Breathing_bubbles_P1:				ds.b object_size
+v_Breathing_bubbles_P2:				ds.b object_size
 v_Super_stars:						ds.b object_size
 									ds.b object_size
 									ds.b object_size
@@ -407,6 +408,8 @@ Carried_character_y_vel:			ds.w 1
 Carried_character:					ds.w 1
 Disable_wall_grab:					ds.b 1
 Gliding_collision_flags:			ds.b 1
+MTZCylinder_Angle_Sonic:			ds.b 1
+MTZCylinder_Angle_Tails:			ds.b 1
 waterValues:						ds.l 1
 
 f_timeover:							= *
@@ -448,8 +451,7 @@ Saved_Y_pos:						ds.w 1
 Saved_ring_count:					ds.w 1
 Saved_timer:							ds.l 1
 Saved_mappings:						ds.l 1
-Saved_art_tile:						ds.w 1
-Saved_solid_bits:						ds.w 1					; Copy of Player 1's top_solid_bit and lrb_solid_bit
+Saved_art_tile:						ds.w 1	; used exclusively by debug mode now
 Saved_camera_X_pos:					ds.w 1
 Saved_camera_Y_pos:					ds.w 1
 Saved_mean_water_level:				ds.w 1

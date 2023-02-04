@@ -141,8 +141,9 @@ po_KnucklesAlone:		ds.b 1
 po_KnucklesAndTails:	ds.b 1
 po_MightyAlone:			ds.b 1
 po_MightyAndTails:		ds.b 1
-po_Last:				= *
 po_TailsAndTails:		ds.b 1
+po_Last:				= *
+po_SonicAndSonic:		ds.b 1
 	dephase
 
 ; ---------------------------------------------------------------------------
@@ -497,7 +498,8 @@ ArtTile_Shield				= $79C
 ArtTile_Shield_Sparks		= ArtTile_Shield+$1F
 ArtTile_Tails				= $7C0	; reeeeally not built for this...
 ArtTile_FollowObject_P2		= $7D0
-ArtTile_DashDust			= $7F0
+ArtTile_DashDust_P1			= $7E0
+ArtTile_DashDust_P2			= $7F0
 
 ; ---------------------------------------------------------------------------
 ; Common

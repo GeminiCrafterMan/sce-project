@@ -272,6 +272,7 @@ TitleCard_LevelGfx:
 		dc.l ArtKosM_DEZTitleCard	; DEZ
 		dc.l ArtKosM_GHZTitleCard	; GHZ
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
+		dc.l ArtKosM_WZTitleCard	; WZ
 
 		zonewarning TitleCard_LevelGfx,4
 ; ---------------------------------------------------------------------------

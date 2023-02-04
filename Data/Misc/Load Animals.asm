@@ -30,6 +30,11 @@ Offs_PLCAnimals: offsetTable
 		offsetTableEntry.w PLCAnimals_SSLZ	; SSLZ3
 		offsetTableEntry.w PLCAnimals_SSLZ	; SSLZ4
 
+		offsetTableEntry.w PLCAnimals_WZ	; WZ1
+		offsetTableEntry.w PLCAnimals_WZ	; WZ2
+		offsetTableEntry.w PLCAnimals_WZ	; WZ3
+		offsetTableEntry.w PLCAnimals_WZ	; WZ4
+
 		zonewarning Offs_PLCAnimals,(2*4)
 ; ---------------------------------------------------------------------------
 
@@ -47,3 +52,8 @@ PLCAnimals_SSLZ: plrlistheader
 		plreq $580, ArtKosM_BlueFlicky
 		plreq $592, ArtKosM_Chicken
 PLCAnimals_SSLZ_End
+
+PLCAnimals_WZ: plrlistheader
+		plreq $580, ArtKosM_Squirrel
+		plreq $592, ArtKosM_BlueFlicky
+PLCAnimals_WZ_End

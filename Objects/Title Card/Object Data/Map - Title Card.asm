@@ -1,16 +1,17 @@
 Map_TitleCard:
 		dc.w 0							; Null
 		dc.w word_2EE3C-Map_TitleCard	; Red ACT
-		dc.w word_2EE9E-Map_TitleCard	; ACT
-		dc.w word_2EEAC-Map_TitleCard	; ZONE
-		dc.w word_2EEC6-Map_TitleCard	; DEATH EGG
+		dc.w TCard_ACT-Map_TitleCard	; ACT
+		dc.w TCard_ZONE-Map_TitleCard	; ZONE
+		dc.w TCard_DEZ-Map_TitleCard	; DEATH EGG
 		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
 		dc.w TCard_SSLZ-Map_TitleCard	; SEASIDE LAND
+		dc.w TCard_WZ-Map_TitleCard		; WOOD
 ; Some instructions for title card letters.
 ;
 ; First value: Always zero.
 ;
-; Second value: Letter size. 2 for short letters like I and L, 6 for medium letters like A, B, C, D.
+; Second value: Letter size. 2 for short letters like I and L, 6 for medium letters like A, B, C, D, $A for long letters like W, O.
 ;
 ; Third value: Always $84.
 ;
@@ -35,17 +36,17 @@ word_2EE3C:
 		dc.b  $30,  $F, $84, $80, 0, 0
 		dc.b  $50,  $F, $84, $80, $FF, $E0
 		dc.b  $50,  $F, $84, $80, 0, 0
-word_2EE9E:
+TCard_ACT:
 		dc.w 2
 		dc.b  $10, 9, $84, $B7, $FF, $E4
 		dc.b	0,  $F, $84, $BD, $FF, $F5
-word_2EEAC:
+TCard_ZONE:
 		dc.w 4
 		dc.b	0, 6, $84, $B1, $FF, $DC		; Z
 		dc.b	0,  $A, $84, $A8, $FF, $EC		; O
 		dc.b	0, 6, $84, $A2, 0, 4			; N
 		dc.b	0, 6, $84, $9C, 0, $14			; E
-word_2EEC6:
+TCard_DEZ:
 		dc.w 8
 		dc.b	0, 6, $84, $D3, $FF, $F8		; D
 		dc.b	0, 6, $84, $9C, 0, 8			; E
@@ -68,7 +69,7 @@ TCard_GHZ:
 		dc.b $0, $2, $84, $DF, $0, $60			; I
 		dc.b $0, $2, $84, $E2, $0, $68			; L
 		dc.b $0, $2, $84, $E2, $0, $70			; L
-TCard_SSLZ:	; i know it's fucked up right now, shush
+TCard_SSLZ:
 		dc.w 11	; eleven letters
 		dc.b $0, $6, $84, $CD, $FF, $E8			; S
 		dc.b $0, $6, $84, $9C, $FF, $F8			; E
@@ -82,4 +83,10 @@ TCard_SSLZ:	; i know it's fucked up right now, shush
 		dc.b $0, $6, $84, $D3, $0, $60			; A
 		dc.b $0, $6, $84, $A2, $0, $70			; N
 		dc.b $0, $6, $84, $DC, $0, $80			; D
+TCard_WZ:
+		dc.w 4 ; four letters
+		dc.b $0, $A, $84, $CD, $0, $8			; W
+		dc.b $0, $A, $84, $A8, $0, $20			; O
+		dc.b $0, $A, $84, $A8, $0, $38			; O
+		dc.b $0, $6, $84, $D6, $0, $50			; D
 		even

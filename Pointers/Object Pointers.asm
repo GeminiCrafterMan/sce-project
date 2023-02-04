@@ -9,7 +9,7 @@ Obj_Index:
 		dc.l DeleteObject						; $03
 		dc.l DeleteObject						; $04
 		dc.l DeleteObject						; $05
-		dc.l Obj_Corkscrew						; $06
+		dc.l Obj_Spiral						; $06
 		dc.l Obj_Spring						; $07
 		dc.l Obj_Spikes						; $08
 		dc.l DeleteObject						; $09

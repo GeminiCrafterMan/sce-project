@@ -13,6 +13,7 @@ ptr_Pal_Mighty:			palp	Pal_Mighty, Normal_palette_line_1, 16		; 2 - Mighty
 ptr_Pal_DEZ:			palp	Pal_DEZ, Normal_palette_line_2, 48			; 3 - DEZ
 ptr_Pal_GHZ:			palp	Pal_GHZ, Normal_palette_line_2, 48			; 4 - GHZ
 ptr_Pal_SSLZ:			palp	Pal_SSLZ, Normal_palette_line_2, 48			; 5 - SSLZ
+ptr_Pal_WZ:			palp	Pal_WZ, Normal_palette_line_2, 48			; 6 - WZ
 ; ---------------------------------------------------------------------------
 
 ; Main
@@ -24,3 +25,4 @@ palid_Mighty:			equ (ptr_Pal_Mighty-PalPointers)/8		; 2 - Mighty
 palid_DEZ:				equ (ptr_Pal_DEZ-PalPointers)/8			; 3 - DEZ
 palid_GHZ:				equ (ptr_Pal_GHZ-PalPointers)/8			; 4 - GHZ
 palid_SSLZ:				equ (ptr_Pal_SSLZ-PalPointers)/8		; 5 - SSLZ
+palid_WZ:				equ (ptr_Pal_WZ-PalPointers)/8		; 6 - WZ

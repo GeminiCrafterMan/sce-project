@@ -192,17 +192,18 @@ SpawnLevelMainSprites:
 		dc.l	Obj_Mighty,		DeleteObject; MA
 		dc.l	Obj_Mighty,		Obj_Tails	; M&T
 		dc.l	Obj_Tails,		Obj_Tails	; T&T
+		dc.l	Obj_Sonic,		Obj_Sonic	; S&S
 
 .cont:
 		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3).w
 		move.l	#Obj_DashDust,(v_Dust_P1).w
-		move.l	(Player_1).w,(v_Dust_P1+parent).w
+		move.w	#Player_1,(v_Dust_P1+parent).w
 		move.w	(Player_1+x_pos).w,(Player_2+x_pos).w
 		move.w	(Player_1+y_pos).w,(Player_2+y_pos).w
 		subi.w	#$20,(Player_2+x_pos).w
 		addi.w	#4,(Player_2+y_pos).w
 		move.l	#Obj_DashDust,(v_Dust_P2).w
-		move.l	(Player_2).w,(v_Dust_P2+parent).w
+		move.w	#Player_2,(v_Dust_P2+parent).w
 		clr.b	(Tails_CPU_routine).w
 		clr.l	(Tails_CPU_idle_timer).w
 		clr.b	(Tails_CPU_jumping).w
@@ -231,6 +232,7 @@ LoadPlayerPal:
 		dc.w	palid_Mighty	; MA
 		dc.w	palid_Mighty	; M&T
 		dc.w	palid_Sonic		; T&T
+		dc.w	palid_Sonic		; S&S
 		even
 
 ; =============== S U B R O U T I N E =======================================
