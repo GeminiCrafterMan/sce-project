@@ -14,13 +14,13 @@ Obj_DashDust:
 ; ---------------------------------------------------------------------------
 
 off_18B4C: offsetTable
-		offsetTableEntry.w loc_18B54
-		offsetTableEntry.w loc_18BAA
-		offsetTableEntry.w loc_18CB2
+		offsetTableEntry.w Obj_DashDust_Init
+		offsetTableEntry.w Obj_DashDust_Secondary
+		offsetTableEntry.w Obj_DashDust_Delete
 		offsetTableEntry.w loc_18CB6
 ; ---------------------------------------------------------------------------
 
-loc_18B54:
+Obj_DashDust_Init:
 		addq.b	#2,routine(a0)
 		move.l	#Map_DashDust,mappings(a0)
 		ori.b	#4,render_flags(a0)
@@ -37,10 +37,10 @@ loc_18B54:
 		move.w	#tiles_to_bytes(ArtTile_DashDust_P2),vram_art(a0)
 	.cont:
 		cmpi.b	#c_Tails,character_id(a1)
-		bne.s	loc_18BAA
+		bne.s	Obj_DashDust_Secondary
 		move.b	#c_Tails,character_id(a0)
 
-loc_18BAA:
+Obj_DashDust_Secondary:
 		movea.w	parent(a0),a2
 		moveq	#0,d0
 		move.b	anim(a0),d0
@@ -128,7 +128,7 @@ loc_18CAA:
 		rts
 ; ---------------------------------------------------------------------------
 
-loc_18CB2:
+Obj_DashDust_Delete:
 		jmp	(Delete_Current_Sprite).w
 ; ---------------------------------------------------------------------------
 
@@ -149,7 +149,7 @@ loc_18CD6:
 		rts
 ; ---------------------------------------------------------------------------
 
-loc_18CE4:	; Skid dust doesn't load at the moment.
+loc_18CE4:
 		subq.b	#1,$36(a0)
 		bpl.s	DashDust_Load_DPLC
 		move.b	#3,$36(a0)
@@ -160,21 +160,22 @@ loc_18CE4:	; Skid dust doesn't load at the moment.
 		move.l	address(a0),address(a1)
 		move.w	x_pos(a2),x_pos(a1)
 		move.w	y_pos(a2),y_pos(a1)
-		cmpi.b	#c_Tails,character_id(a0)
-		bne.s	+
+		tst.b	character_id(a0)	; will only ever be 0 or 1, since nobody sets it to anything else
+		beq.s	+
 		subq.w	#4,d1
 +		tst.b	(Reverse_gravity_flag).w
 		beq.s	+
 		neg.w	d1
 +		add.w	d1,y_pos(a1)
 		clr.b	status(a1)
-		move.b	#id_Roll2,anim(a1)
+		move.b	#3,anim(a1)	; a1 is not referring to the player character
 		addq.b	#2,routine(a1)
 		move.l	mappings(a0),mappings(a1)
 		move.b	render_flags(a0),render_flags(a1)
 		move.w	#$80,priority(a1)
 		move.b	#8/2,width_pixels(a1)
 		move.w	art_tile(a0),art_tile(a1)
+		move.w	parent(a0),parent(a1)
 		andi.w	#$7FFF,art_tile(a1)
 		tst.w	art_tile(a2)
 		bpl.s	DashDust_Load_DPLC

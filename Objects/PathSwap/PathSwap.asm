@@ -21,9 +21,17 @@ Obj_PathSwap:
 		move.w	y_pos(a0),d1
 		lea	(Player_1).w,a1
 		cmp.w	y_pos(a1),d1
-		bcc.s	+
+		bhs.s	loc_1CD06
 		move.b	#1,objoff_34(a0)
-+		move.l	#loc_1CEF2,address(a0)
+
+loc_1CD06:
+		lea	(Player_2).w,a1
+		cmp.w	y_pos(a1),d1
+		bhs.s	loc_1CD16
+		move.b	#1,objoff_35(a0)
+
+loc_1CD16:
+		move.l	#loc_1CEF2,address(a0)
 		bra.w	loc_1CEF2
 ; ---------------------------------------------------------------------------
 
@@ -42,18 +50,30 @@ loc_1CD3C:
 		move.w	x_pos(a0),d1
 		lea	(Player_1).w,a1
 		cmp.w	x_pos(a1),d1
-		bcc.s	+
+		bhs.s	loc_1CD60
 		move.b	#1,objoff_34(a0)
-+		move.l	#+,address(a0)
-+		tst.w	(Debug_placement_mode).w
-		bne.s	+
+
+loc_1CD60:
+		lea	(Player_2).w,a1
+		cmp.w	x_pos(a1),d1
+		bhs.s	loc_1CD70
+		move.b	#1,objoff_35(a0)
+
+loc_1CD70:
+		move.l	#loc_1CD8A,address(a0)
+loc_1CD8A:
+		tst.w	(Debug_placement_mode).w
+		bne.s	loc_1CDAC
 		move.w	x_pos(a0),d1
 		lea	objoff_34(a0),a2
 		lea	(Player_1).w,a1
 		bsr.s	sub_1CDDA
+		lea	(Player_2).w,a1
+		bsr.s	sub_1CDDA
 		jmp	(Delete_Sprite_If_Not_In_Range).w
 ; ---------------------------------------------------------------------------
-+		jmp	(Sprite_OnScreen_Test).w
+loc_1CDAC:
+		jmp	(Sprite_OnScreen_Test).w
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -159,6 +179,8 @@ loc_1CEF2:
 		move.w	y_pos(a0),d1
 		lea	objoff_34(a0),a2
 		lea	(Player_1).w,a1
+		bsr.s	sub_1CF42
+		lea	(Player_2).w,a1
 		bsr.s	sub_1CF42
 		jmp	(Delete_Sprite_If_Not_In_Range).w
 ; ---------------------------------------------------------------------------

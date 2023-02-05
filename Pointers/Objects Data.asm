@@ -36,6 +36,7 @@
 		include "Objects/Animals/Animals.asm"
 		include "Objects/Egg Capsule/EggCapsule.asm"
 		include	"Objects/Tension Bridge/Tension Bridge.asm"
+		include	"Objects/Conveyor Belt/Conveyor Belt.asm"
 		include "Objects/Smooth Palette/Smooth Palette.asm"
 
 ; ===========================================================================

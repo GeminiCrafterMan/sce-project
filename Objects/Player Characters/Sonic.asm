@@ -785,6 +785,8 @@ Player_Duck:
 		btst	#button_down,d0
 		beq.s	Player_LookUp
 		move.b	#id_Duck,anim(a0)
+		cmpa.w	#Player_1,a0
+		bne.w	Player_UpdateSpeedOnGround
 		addq.b	#1,scroll_delay_counter(a0)
 		cmpi.b	#2*60,scroll_delay_counter(a0)
 		bcs.s	Player_ResetScr_Part2
@@ -807,6 +809,8 @@ Player_LookUp:
 		btst	#button_up,d0
 		beq.s	Player_ResetScr
 		move.b	#id_LookUp,anim(a0)
+		cmpa.w	#Player_1,a0
+		bne.s	Player_UpdateSpeedOnGround
 		addq.b	#1,scroll_delay_counter(a0)
 		cmpi.b	#2*60,scroll_delay_counter(a0)
 		bcs.s	Player_ResetScr_Part2
@@ -828,6 +832,8 @@ Player_ResetScr:
 		clr.b	scroll_delay_counter(a0)
 
 Player_ResetScr_Part2:
+		cmpa.w	#Player_1,a0
+		bne.s	Player_UpdateSpeedOnGround
 		cmpi.w	#(224/2)-16,(a5)
 		beq.s	Player_UpdateSpeedOnGround
 		bcc.s	+

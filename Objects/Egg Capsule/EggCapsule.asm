@@ -423,6 +423,12 @@ sub_86984:
 		bhs.s	locret_869C4
 		tst.b	render_flags(a1)
 		bpl.s	locret_869C4
+		cmpi.b	#c_Tails,character_id(a1)	; for what...?
+		beq.s	loc_869AA
+		tst.b	(Flying_carrying_Sonic_flag).w
+		beq.s	locret_869C4
+
+loc_869AA:
 		move.w	#-$100,x_vel(a0)
 		move.b	d0,routine(a0)
 		jsr	(Create_New_Sprite).w

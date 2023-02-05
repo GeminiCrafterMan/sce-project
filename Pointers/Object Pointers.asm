@@ -117,7 +117,7 @@ Obj_Index:
 		dc.l DeleteObject						; $6F
 		dc.l DeleteObject						; $70
 		dc.l DeleteObject						; $71
-		dc.l DeleteObject						; $72
+		dc.l Obj_ConveyorBelt					; $72
 		dc.l DeleteObject						; $73
 		dc.l DeleteObject						; $74
 		dc.l DeleteObject						; $75

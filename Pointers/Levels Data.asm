@@ -92,22 +92,22 @@ LevelLoadPointer:
 ; WZ1
 		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
 		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null											; Animate tiles main code, Animate tiles PLC scripts
+		dc.l WZ_DoAniPLC, AniPLC_WZ											; Animate tiles main code, Animate tiles PLC scripts
 
 ; WZ2
 		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
 		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null
+		dc.l WZ_DoAniPLC, AniPLC_WZ
 
 ; WZ3
 		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
 		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null
+		dc.l WZ_DoAniPLC, AniPLC_WZ
 
 ; WZ4
 		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
 		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null
+		dc.l WZ_DoAniPLC, AniPLC_WZ
 
 		zonewarning LevelLoadPointer,(40*4)
 

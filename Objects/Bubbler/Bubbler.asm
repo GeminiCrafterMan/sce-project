@@ -204,6 +204,12 @@ Bub_BblTypes:	dc.b 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0
 
 sub_2FBA8:
 		lea	(Player_1).w,a1
+		bsr.s	loc_2FBB2
+		lea	(Player_2).w,a1
+; End of function sub_2FBA8
+
+
+loc_2FBB2:
 		tst.b	object_control(a1)
 		bmi.w	locret_2FC7C
 		move.w	x_pos(a1),d0

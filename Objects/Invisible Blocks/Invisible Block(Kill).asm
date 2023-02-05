@@ -54,8 +54,14 @@ loc_1F606:
 		beq.s	loc_1F64A
 		move.b	d6,d0
 		andi.b	#8,d0
-		beq.s	loc_1F64A
+		beq.s	loc_1F63C
 		lea	(Player_1).w,a1
+		bsr.w	sub_1F734
+
+loc_1F63C:
+		andi.b	#$10,d6
+		beq.s	loc_1F64A
+		lea	(Player_2).w,a1
 		bsr.w	sub_1F734
 
 loc_1F64A:
@@ -79,9 +85,15 @@ loc_1F66C:
 		beq.s	loc_1F6AE
 		move.b	d6,d0
 		andi.b	#1,d0
-		beq.s	loc_1F6AE
+		beq.s	loc_1F6A0
 		lea	(Player_1).w,a1
-		bsr.s	sub_1F734
+		bsr.w	sub_1F734
+
+loc_1F6A0:
+		andi.b	#2,d6
+		beq.s	loc_1F6AE
+		lea	(Player_2).w,a1
+		bsr.w	sub_1F734
 
 loc_1F6AE:
 		out_of_xrange.w	loc_1EBAA
@@ -104,9 +116,15 @@ loc_1F6D0:
 		beq.s	loc_1F712
 		move.b	d6,d0
 		andi.b	#4,d0
-		beq.s	loc_1F712
+		beq.s	loc_1F704
 		lea	(Player_1).w,a1
-		bsr.s	sub_1F734
+		bsr.w	sub_1F734
+
+loc_1F704:
+		andi.b	#8,d6
+		beq.s	loc_1F712
+		lea	(Player_2).w,a1
+		bsr.w	sub_1F734
 
 loc_1F712:
 		out_of_xrange.w	loc_1EBAA

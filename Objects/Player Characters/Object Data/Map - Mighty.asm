@@ -33,9 +33,9 @@ Map_Mighty_3C: 	dc.w Map_Mighty_504-Map_Mighty
 Map_Mighty_3E: 	dc.w Map_Mighty_51E-Map_Mighty
 Map_Mighty_40: 	dc.w Map_Mighty_538-Map_Mighty
 Map_Mighty_42: 	dc.w Map_Mighty_55E-Map_Mighty
-Map_Mighty_44: 	dc.w Map_Mighty_56C-Map_Mighty
+Map_Mighty_44: 	dc.w Map_Mighty_572-Map_Mighty
 Map_Mighty_46: 	dc.w Map_Mighty_586-Map_Mighty
-Map_Mighty_48: 	dc.w Map_Mighty_594-Map_Mighty
+Map_Mighty_48: 	dc.w Map_Mighty_59A-Map_Mighty
 Map_Mighty_4A: 	dc.w Map_Mighty_5AE-Map_Mighty
 Map_Mighty_4C: 	dc.w Map_Mighty_5C2-Map_Mighty
 Map_Mighty_4E: 	dc.w Map_Mighty_5DC-Map_Mighty
@@ -404,22 +404,22 @@ Map_Mighty_538: 	dc.b $0, $6
 	dc.b $EA, $4, $0, $E, $0, $4
 	dc.b $FA, $4, $0, $10, $0, $C
 	dc.b $2, $0, $0, $12, $0, $C
-Map_Mighty_55E: 	dc.b $0, $2
-	dc.b $F4, $F, $0, $0, $FF, $F0
-	dc.b $EC, $8, $0, $10, $FF, $F8
-Map_Mighty_56C: 	dc.b $0, $4
-	dc.b $0, $D, $0, $0, $FF, $EE
-	dc.b $F0, $9, $0, $8, $FF, $F6
-	dc.b $10, $8, $0, $E, $FF, $F6
-	dc.b $F8, $0, $0, $11, $0, $E
-Map_Mighty_586: 	dc.b $0, $2
-	dc.b $F0, $F, $0, $0, $FF, $F1
-	dc.b $10, $8, $0, $10, $FF, $F1
-Map_Mighty_594: 	dc.b $0, $4
-	dc.b $0, $D, $0, $0, $FF, $EE
-	dc.b $F0, $9, $0, $8, $FF, $F6
-	dc.b $10, $8, $0, $E, $FF, $F6
-	dc.b $F8, $0, $0, $11, $0, $E
+Map_Mighty_55E: 	dc.b $0, $3
+	dc.b $F5, $E, $0, $0, $FF, $F5
+	dc.b $FD, $1, $0, $C, $FF, $ED
+	dc.b $D, $8, $0, $E, $FF, $F5
+Map_Mighty_572: 	dc.b $0, $3
+	dc.b $F5, $E, $0, $0, $FF, $F3
+	dc.b $FD, $0, $0, $C, $FF, $EB
+	dc.b $D, $C, $0, $D, $FF, $EB
+Map_Mighty_586: 	dc.b $0, $3
+	dc.b $FD, $E, $0, $0, $FF, $ED
+	dc.b $F5, $C, $0, $C, $FF, $F5
+	dc.b $FD, $1, $0, $10, $0, $D
+Map_Mighty_59A: 	dc.b $0, $3
+	dc.b $4, $D, $0, $0, $FF, $EC
+	dc.b $F4, $D, $0, $8, $FF, $F4
+	dc.b $4, $0, $0, $10, $0, $C
 Map_Mighty_5AE: 	dc.b $0, $3
 	dc.b $F0, $E, $0, $0, $FF, $EE
 	dc.b $8, $9, $0, $C, $FF, $F6

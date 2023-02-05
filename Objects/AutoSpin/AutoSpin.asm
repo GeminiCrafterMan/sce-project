@@ -17,18 +17,21 @@ Obj_AutoSpin:
 		move.b	d0,mapping_frame(a0)
 		andi.w	#3,d0
 		add.w	d0,d0
-		move.w	word_1E854(pc,d0.w),$32(a0)
+		move.w	word_1E854(pc,d0.w),objoff_32(a0)
 		move.w	y_pos(a0),d1
 		lea	(Player_1).w,a1 ; a1=character
 		cmp.w	y_pos(a1),d1
-		bhs.s	+
-		move.b	#1,$34(a0)
-+
+		bhs.s	loc_1E83A
+		move.b	#1,objoff_34(a0)
+
+loc_1E83A:
 		lea	(Player_2).w,a1 ; a1=character
 		cmp.w	y_pos(a1),d1
-		bhs.s	+
-		move.b	#1,$35(a0)
-+		move.l	#Obj_AutoSpin_MainY,address(a0)
+		bhs.s	loc_1E84A
+		move.b	#1,objoff_35(a0)
+
+loc_1E84A:
+		move.l	#Obj_AutoSpin_MainY,address(a0)
 		bra.w	Obj_AutoSpin_MainY
 ; ---------------------------------------------------------------------------
 
@@ -43,17 +46,18 @@ Obj_AutoSpin_Init_CheckX:
 		andi.w	#3,d0
 		move.b	d0,mapping_frame(a0)
 		add.w	d0,d0
-		move.w	word_1E854(pc,d0.w),$32(a0)
+		move.w	word_1E854(pc,d0.w),objoff_32(a0)
 		move.w	x_pos(a0),d1
 		lea	(Player_1).w,a1
 		cmp.w	x_pos(a1),d1
-		bhs.s	+
-		move.b	#1,$34(a0)
-+
+		bhs.s	loc_1E880
+		move.b	#1,objoff_34(a0)
+
+loc_1E880:
 		lea	(Player_2).w,a1
 		cmp.w	x_pos(a1),d1
 		bhs.s	loc_1E890
-		move.b	#1,$35(a0)
+		move.b	#1,objoff_35(a0)
 
 loc_1E890:
 		move.l	#Obj_AutoSpin_MainX,address(a0)
@@ -62,13 +66,16 @@ Obj_AutoSpin_MainX:
 		tst.w	(Debug_placement_mode).w
 		bne.s	loc_1E8C0
 		move.w	x_pos(a0),d1
-		lea	$34(a0),a2
+		lea	objoff_34(a0),a2
 		lea	(Player_1).w,a1
 		bsr.s	sub_1E8C6
 		lea	(Player_2).w,a1
 		cmpi.b	#4,(Tails_CPU_routine).w	; TailsCPU_Flying
-		beq.s	loc_1E8C0
-		jmp	(Delete_Sprite_If_Not_In_Range).w
+		beq.w	loc_1E8BA
+		bsr.s	sub_1E8C6
+
+loc_1E8BA:
+		jmp	(Delete_Sprite_If_Not_In_Range).l
 ; ---------------------------------------------------------------------------
 
 loc_1E8C0:
@@ -84,7 +91,7 @@ sub_1E8C6:
 		move.b	#1,-1(a2)
 		move.w	y_pos(a0),d2
 		move.w	d2,d3
-		move.w	$32(a0),d4
+		move.w	objoff_32(a0),d4
 		sub.w	d4,d2
 		add.w	d4,d3
 		move.w	y_pos(a1),d4
@@ -125,7 +132,7 @@ loc_1E944:
 		clr.b	-1(a2)
 		move.w	y_pos(a0),d2
 		move.w	d2,d3
-		move.w	$32(a0),d4
+		move.w	objoff_32(a0),d4
 		sub.w	d4,d2
 		add.w	d4,d3
 		move.w	y_pos(a1),d4
@@ -177,11 +184,15 @@ Obj_AutoSpin_MainY:
 		tst.w	(Debug_placement_mode).w
 		bne.s	loc_1EA0E
 		move.w	y_pos(a0),d1
-		lea	$34(a0),a2
+		lea	objoff_34(a0),a2
 		lea	(Player_1).w,a1
 		bsr.s	sub_1EA14
 		lea	(Player_2).w,a1
+		cmpi.b	#4,(Tails_CPU_routine).w
+		beq.s	loc_1EA08
 		bsr.s	sub_1EA14
+
+loc_1EA08:
 		jmp	(Delete_Sprite_If_Not_In_Range).w
 ; ---------------------------------------------------------------------------
 
@@ -198,7 +209,7 @@ sub_1EA14:
 		move.b	#1,-1(a2)
 		move.w	x_pos(a0),d2
 		move.w	d2,d3
-		move.w	$32(a0),d4
+		move.w	objoff_32(a0),d4
 		sub.w	d4,d2
 		add.w	d4,d3
 		move.w	x_pos(a1),d4
@@ -246,7 +257,7 @@ loc_1EAB0:
 		clr.b	-1(a2)
 		move.w	x_pos(a0),d2
 		move.w	d2,d3
-		move.w	$32(a0),d4
+		move.w	objoff_32(a0),d4
 		sub.w	d4,d2
 		add.w	d4,d3
 		move.w	x_pos(a1),d4
