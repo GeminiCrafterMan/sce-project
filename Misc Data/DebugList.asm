@@ -29,6 +29,7 @@ DebugList: offsetTable
 				; Object Mappings Subtype Frame VRAM
 .DEZ1: dbglistheader
 	dbglistobj Obj_Ring, Map_Ring, 0, 0, make_art_tile(ArtTile_Ring,1,1)
+	dbglistobj Obj_Coin, Map_Ring, 0, 0, make_art_tile(ArtTile_Coin,1,1)
 	dbglistobj Obj_Monitor, Map_Monitor, 2, 3, make_art_tile(ArtTile_Monitors,0,0)
 	dbglistobj Obj_Monitor, Map_Monitor, 3, 4, make_art_tile(ArtTile_Monitors,0,0)
 	dbglistobj Obj_Monitor, Map_Monitor, 4, 5, make_art_tile(ArtTile_Monitors,0,0)
@@ -61,6 +62,7 @@ DebugList: offsetTable
 
 .GHZ1: dbglistheader
 	dbglistobj Obj_Ring, Map_Ring, 0, 0, make_art_tile(ArtTile_Ring,1,1)
+	dbglistobj Obj_Coin, Map_Ring, 0, 0, make_art_tile(ArtTile_Coin,1,1)
 	dbglistobj Obj_Monitor, Map_Monitor, 2, 3, make_art_tile(ArtTile_Monitors,0,0)
 	dbglistobj Obj_Monitor, Map_Monitor, 3, 4, make_art_tile(ArtTile_Monitors,0,0)
 	dbglistobj Obj_Monitor, Map_Monitor, 4, 5, make_art_tile(ArtTile_Monitors,0,0)
@@ -95,6 +97,7 @@ DebugList: offsetTable
 
 .SSLZ1: dbglistheader
 	dbglistobj Obj_Ring, Map_Ring, 0, 0, make_art_tile(ArtTile_Ring,1,1)
+	dbglistobj Obj_Coin, Map_Ring, 0, 0, make_art_tile(ArtTile_Coin,1,1)
 	dbglistobj Obj_Monitor, Map_Monitor, 2, 3, make_art_tile(ArtTile_Monitors,0,0)
 	dbglistobj Obj_Monitor, Map_Monitor, 3, 4, make_art_tile(ArtTile_Monitors,0,0)
 	dbglistobj Obj_Monitor, Map_Monitor, 4, 5, make_art_tile(ArtTile_Monitors,0,0)
@@ -129,6 +132,7 @@ DebugList: offsetTable
 
 .WZ1: dbglistheader
 	dbglistobj Obj_Ring, Map_Ring, 0, 0, make_art_tile(ArtTile_Ring,1,1)
+	dbglistobj Obj_Coin, Map_Ring, 0, 0, make_art_tile(ArtTile_Coin,1,1)
 	dbglistobj Obj_Monitor, Map_Monitor, 2, 3, make_art_tile(ArtTile_Monitors,0,0)
 	dbglistobj Obj_Monitor, Map_Monitor, 3, 4, make_art_tile(ArtTile_Monitors,0,0)
 	dbglistobj Obj_Monitor, Map_Monitor, 4, 5, make_art_tile(ArtTile_Monitors,0,0)

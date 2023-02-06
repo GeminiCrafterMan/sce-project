@@ -11,6 +11,7 @@ ptr_mus_mcz2p:		SMPS_MUSIC_METADATA Music_MCZ2P, 8, 0		; WZ
 ; Boss
 ptr_mus_boss:		SMPS_MUSIC_METADATA	Music_Boss, s3TempotoS1($FF), 0			; Boss
 ptr_mus_boss2:		SMPS_MUSIC_METADATA	Music_Boss2, s3TempotoS1($FF), 0			; Boss 2
+ptr_mus_metalsquad:	SMPS_MUSIC_METADATA Music_MetalSquad, 8, 0
 
 ; Misc
 ptr_mus_invin:		SMPS_MUSIC_METADATA	Music_Invin, 8, 0			; Invincible
@@ -36,6 +37,8 @@ Music_MCZ2P:		include	"Sound/Music/Mus - MCZ2P.asm"
 Music_Boss:			include "Sound/Music/Mus - Miniboss.asm"
 	even
 Music_Boss2:		include "Sound/Music/Mus - Zone Boss.asm"
+	even
+Music_MetalSquad:	include	"Sound/Music/Mus - Metal Squad.asm"
 	even
 Music_Invin:		include "Sound/Music/Mus - Invincibility.asm"
 	even

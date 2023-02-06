@@ -487,6 +487,7 @@ ArtTile_Spikes				= $484
 ArtTile_Spring				= $494
 ArtTile_Monitors			= $4CC
 ArtTile_Bubbles				= $54B
+ArtTile_Coin				= $5E4
 ArtTile_EnemyScore			= $5E8
 ArtTile_StarPost			= $5EC
 ArtTile_Sonic				= $680

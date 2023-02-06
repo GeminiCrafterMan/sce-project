@@ -5,6 +5,9 @@
 ArtUnc_Ring:		binclude "Objects/Rings/Uncompressed Art/Rings.bin"
 ArtUnc_Ring_end
 	even
+ArtUnc_Coin:		binclude "Objects/Coins/Uncompressed Art/Coins.bin"
+ArtUnc_Coin_end
+	even
 ArtUnc_Hud:			binclude "Objects/HUD/Uncompressed Art/HUD Numbers.bin"
 	even
 ArtUnc_DebugText:	binclude "Objects/HUD/Uncompressed Art/Debug Numbers.bin"

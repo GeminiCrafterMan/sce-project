@@ -29,6 +29,7 @@ AniTails:	offsetTable
 		offsetTableEntry.w TailsAni_Death
 		offsetTableEntry.w TailsAni_Slide
 		offsetTableEntry.w TailsAni_Hurt
+		offsetTableEntry.w TailsAni_Zapped
 		offsetTableEntry.w TailsAni_Null
 		offsetTableEntry.w TailsAni_Mach
 		offsetTableEntry.w TailsAni_Transform
@@ -71,7 +72,8 @@ TailsAni_Burnt:	dc.b  $20, frT_Burnt, afEnd
 TailsAni_Drown:	dc.b  $2F, frT_Drown, afEnd
 TailsAni_Death:	dc.b    3, frT_Death, afEnd
 TailsAni_Slide:	dc.b    9, frT_Slide1, frT_Slide2, afEnd
-TailsAni_Hurt:	dc.b  $40, frT_Hurt2, afEnd
+TailsAni_Hurt:	dc.b  9, frT_Hurt1, frT_Hurt2, afEnd
+TailsAni_Zapped:	dc.b  3, frT_Zapped1, frT_Zapped2, afEnd
 TailsAni_Null:	dc.b  $77,   frT_Null, afEnd
 TailsAni_Mach:	dc.b  $FF, frT_Mach11, frT_Mach12, frT_Mach13, frT_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 TailsAni_Transform:	dc.b	2, frT_Transform1, frT_Transform1, frT_Transform2, frT_Transform2, frT_Transform3, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, frT_Transform4, afChange,   id_Walk
@@ -131,6 +133,8 @@ frT_Spindash2:		ds.b 1
 frT_Spindash3:		ds.b 1
 frT_Hurt1:			ds.b 1
 frT_Hurt2:			ds.b 1
+frT_Zapped1:		ds.b 1
+frT_Zapped2:		ds.b 1
 frT_Spring1:		ds.b 1
 frT_Spring2:		ds.b 1
 frT_MGZHang:		ds.b 1

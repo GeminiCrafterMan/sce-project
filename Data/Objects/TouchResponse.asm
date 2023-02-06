@@ -468,6 +468,14 @@ HurtCharacter:
 .isleft:
 		clr.w	ground_vel(a0)
 		move.b	#id_Hurt,anim(a0)
+		btst	#Status_LtngShield,shield_reaction(a2)
+		beq.s	.notLightning
+		move.b	#id_Zapped,anim(a0)
+	.notLightning:
+		btst	#Status_FireShield,shield_reaction(a2)
+		beq.s	.doneanim
+		move.b	#id_Hurt,anim(a0)
+	.doneanim:
 		move.b	#2*60,invulnerability_timer(a0)			; set temp invincible time to 2 seconds
 		moveq	#signextendB(sfx_Death),d0			; load normal damage sound
 		cmpi.l	#Obj_Spikes,address(a2)				; was damage caused by spikes?

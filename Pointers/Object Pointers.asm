@@ -6,7 +6,7 @@ Obj_Index:
 		dc.l Obj_Ring							; $00
 		dc.l Obj_Monitor						; $01
 		dc.l Obj_PathSwap					; $02
-		dc.l DeleteObject						; $03
+		dc.l Obj_Coin						; $03
 		dc.l DeleteObject						; $04
 		dc.l DeleteObject						; $05
 		dc.l Obj_Spiral						; $06

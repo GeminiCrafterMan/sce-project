@@ -29,6 +29,7 @@ AniKnuckles:	offsetTable
 		offsetTableEntry.w KnuxAni_Death
 		offsetTableEntry.w KnuxAni_Slide
 		offsetTableEntry.w KnuxAni_Hurt
+		offsetTableEntry.w KnuxAni_Zapped
 		offsetTableEntry.w KnuxAni_Null
 		offsetTableEntry.w KnuxAni_Mach
 		offsetTableEntry.w KnuxAni_Transform
@@ -78,6 +79,7 @@ KnuxAni_Drown:	dc.b  $20, frK_Drown,	afEnd
 KnuxAni_Death:	dc.b  $20, frK_Death,	afEnd
 KnuxAni_Slide:	dc.b	9, frK_Slide,	afEnd
 KnuxAni_Hurt:	dc.b  $40, frK_Hurt,	afEnd
+KnuxAni_Zapped:	dc.b  $40, frK_Hurt,	afEnd
 KnuxAni_Null:	dc.b  $77,   frK_Null,	afEnd
 KnuxAni_Mach:	dc.b  $FF, frK_Run11,	frK_Run12, frK_Run13, frK_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
 KnuxAni_Transform:	dc.b	2, frK_Transform1,	frK_Transform1, frK_Transform2, frK_Transform3, frK_Transform2, frK_Transform3, frK_Transform2, frK_Transform3, frK_Transform2,	frK_Transform3, frK_Transform2, frK_Transform3, afChange,   id_Walk

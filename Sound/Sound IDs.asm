@@ -17,6 +17,7 @@ bgm_MCZ2P =			SMPS_id(ptr_mus_mcz2p)
 ; Bosses
 bgm_MidBoss =		SMPS_id(ptr_mus_boss)
 bgm_ZoneBoss =		SMPS_id(ptr_mus_boss2)
+bgm_MetalSquad =	SMPS_id(ptr_mus_metalsquad)
 
 ; Misc
 bgm_Invincible =	SMPS_id(ptr_mus_invin)

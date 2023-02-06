@@ -14,6 +14,7 @@
 ; ===========================================================================
 
 		include "Objects/Rings/Rings.asm"
+		include "Objects/Coins/Coins.asm"
 		include "Objects/PathSwap/PathSwap.asm"
 		include "Objects/Monitor/Monitor.asm"
 		include "Objects/Hidden Monitor/Hidden Monitor.asm"

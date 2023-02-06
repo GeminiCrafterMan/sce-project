@@ -29,6 +29,7 @@ AniMighty:				offsetTable
 		offsetTableEntry.w MtyAni_Death
 		offsetTableEntry.w MtyAni_Slide
 		offsetTableEntry.w MtyAni_Hurt
+		offsetTableEntry.w MtyAni_Zapped
 		offsetTableEntry.w MtyAni_Null
 		offsetTableEntry.w MtyAni_Mach
 		offsetTableEntry.w MtyAni_Transform
@@ -74,6 +75,7 @@ MtyAni_Drown:		dc.b  $20, frM_Drown, afEnd
 MtyAni_Death:		dc.b  $20, frM_Death, afEnd
 MtyAni_Slide:		dc.b	9, frM_Slide1, frM_Slide2, afEnd
 MtyAni_Hurt:		dc.b	9, frM_Hurt1, frM_Hurt2, afEnd
+MtyAni_Zapped:		dc.b	9, frM_Hurt1, frM_Hurt2, afEnd
 MtyAni_Null:		dc.b  $77, frM_Null, afEnd
 MtyAni_Mach:		dc.b  $FF, frM_Mach11, frM_Mach12, frM_Mach13, frM_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 MtyAni_Transform:	dc.b	2, frM_Transform1, frM_Transform1, frM_Transform2, frM_Transform2, frM_Transform3, frM_Transform4, frM_Transform5, frM_Transform4, frM_Transform5, frM_Transform4, frM_Transform5, frM_Transform4, frM_Transform5, afChange,   id_Walk

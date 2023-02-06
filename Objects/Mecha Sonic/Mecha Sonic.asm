@@ -1,8 +1,8 @@
 Obj_SSZEndBoss:
 		moveq	#0,d0
 		move.b	routine(a0),d0
-		move.w	off_7B2B2(pc,d0.w),d1
-		jsr	off_7B2B2(pc,d1.w)
+		move.w	Obj_SSZEndBoss_Index(pc,d0.w),d1
+		jsr	Obj_SSZEndBoss_Index(pc,d1.w)
 		lea	sub_7D35A(pc),a4
 		bsr.w	sub_7D312
 		bsr.w	sub_7D2D8
@@ -10,8 +10,9 @@ Obj_SSZEndBoss:
 		jsr	(Perform_DPLC).l
 		jmp	(Draw_And_Touch_Sprite).l
 ; ---------------------------------------------------------------------------
-off_7B2B2:	offsetTable
-		offsetTableEntry.w loc_7B2DC
+; off_7B2B2
+Obj_SSZEndBoss_Index:	offsetTable
+		offsetTableEntry.w Obj_SSZEndBoss_Init
 		offsetTableEntry.w loc_7B3AC
 		offsetTableEntry.w loc_7B3E6
 		offsetTableEntry.w loc_7B416
@@ -33,8 +34,8 @@ off_7B2B2:	offsetTable
 		offsetTableEntry.w loc_7B748
 		offsetTableEntry.w loc_7B804
 ; ---------------------------------------------------------------------------
-
-loc_7B2DC:
+; loc_7B2DC
+Obj_SSZEndBoss_Init:
 		lea	ObjDat4_7D3EA(pc),a1
 		jsr	(SetUp_ObjAttributesSlotted).l
 		move.b	#8,boss_hitcount2(a0)
@@ -94,7 +95,7 @@ loc_7B35A:
 ;		bne.s	loc_7B39C
 ;		move.l	#Obj_Song_Fade_Transition,(a1)
 ;		move.b	#bgm_ZoneBoss,subtype(a1)
-		music	bgm_ZoneBoss
+		music	bgm_MetalSquad
 
 loc_7B39C:
 		lea	ChildObjDat_7D474(pc),a2
@@ -145,7 +146,7 @@ loc_7B41C:
 		move.w	d0,y_pos(a0)
 		move.w	#$400,x_vel(a0)
 		move.b	#3,mapping_frame(a0)
-		move.l	#byte_7D523,aniraw(a0)
+		move.l	#AniRaw_MechaSonic_RollFast,aniraw(a0)
 
 locret_7B448:
 		rts
@@ -185,13 +186,13 @@ loc_7B484:
 		bmi.s	loc_7B4CA
 		bclr	#4,(_unkFAB8).w
 		bne.s	loc_7B4CA
-		move.l	#byte_7D4DE,aniraw(a0)
+		move.l	#AniRaw_MechaSonic_Uncurl,aniraw(a0)
 		bclr	#3,objoff_38(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
 loc_7B4CA:
-		move.l	#byte_7D4EF,aniraw(a0)
+		move.l	#AniRaw_MechaSonic_UncurlAndTurn,aniraw(a0)
 		bset	#3,objoff_38(a0)
 		rts
 ; ---------------------------------------------------------------------------
@@ -549,7 +550,8 @@ ChildObjDat_7D48C:
 DPLCPtr_MechaSonic:
 		dc.l ArtUnc_MechaSonic>>1
 		dc.l PLC_MechaSonic
-byte_7D4DE:	dc.b    3,   0
+; byte_7D4DE
+AniRaw_MechaSonic_Uncurl:	dc.b    3,   0
 		dc.b    4,   1
 		dc.b    5,   2
 		dc.b    6,   3
@@ -558,7 +560,8 @@ byte_7D4DE:	dc.b    3,   0
 		dc.b  $F8,  $E
 		dc.b    8, $7F
 		dc.b  $FC
-byte_7D4EF:	dc.b    3,   0
+; byte_7D4EF
+AniRaw_MechaSonic_UncurlAndTurn:	dc.b    3,   0
 		dc.b    4,   1
 		dc.b    5,   2
 		dc.b    6,   3
@@ -580,23 +583,27 @@ byte_7D510:	dc.b    1,   5
 		dc.b    2,   9
 		dc.b    1,   5
 		dc.b  $F4
-byte_7D519:	dc.b    3,   1
+; byte_7D519
+AniRaw_MechaSonic_Roll:	dc.b    3,   1
 		dc.b    3,   1
 		dc.b    4,   1
 		dc.b    5,   1
 		dc.b  $F8,  $A
-byte_7D523:	dc.b    3,   0
+; byte_7D523
+AniRaw_MechaSonic_RollFast:	dc.b    3,   0
 		dc.b    4,   0
 		dc.b    5,   0
 		dc.b  $FC
-byte_7D52A:	dc.b    8,   0
+; byte_7D52A
+AniRaw_MechaSonic_AirCurl:	dc.b    8,   0
 		dc.b    7,   3
 		dc.b    6,   3
 		dc.b    3,   1
 		dc.b    4,   1
 		dc.b    5,   1
 		dc.b  $F8, $F9
-byte_7D538:	dc.b    6,   3
+; byte_7D538
+AniRaw_MechaSonic_AirUncurl:	dc.b    6,   3
 		dc.b    6,   3
 		dc.b    7,   3
 		dc.b    8, $1F
@@ -618,13 +625,15 @@ byte_7D556:	dc.b  $12,   0
 		dc.b    8,   5
 		dc.b    1,   1
 		dc.b  $F4
-byte_7D561:	dc.b    1,   3
+; byte_7D561
+AniRaw_MechaSonic_Jump:	dc.b    1,   3
 		dc.b    1,   7
 		dc.b    2,   7
 		dc.b    1,   3
 		dc.b    8,   0
 		dc.b  $F4
-byte_7D56C:	dc.b    8,   5
+; byte_7D56C
+AniRaw_MechaSonic_Turn:	dc.b    8,   5
 		dc.b    8,   5
 		dc.b    9,   3
 		dc.b   $A,   3
@@ -753,7 +762,8 @@ byte_7D652:	dc.b    8,   1
 		dc.b  $F8,  $A
 		dc.b  $12, $7F
 		dc.b  $FC
-byte_7D65F:	dc.b    1,   1	; I think this is the spark for his spindash.
+; byte_7D65F
+AniRaw_MechaSonic_SpindashSparks:	dc.b    1,   1	; I think this is the spark for his spindash.
 		dc.b    2,   1
 		dc.b    3,   1
 		dc.b    0,   0
@@ -944,7 +954,7 @@ loc_7C902:
 		sfx		sfx_Roll
 
 loc_7C91C:
-		lea	byte_7D65F(pc),a1
+		lea	AniRaw_MechaSonic_SpindashSparks(pc),a1
 		jsr	Animate_RawNoSSTMultiDelay
 		jsr	Refresh_ChildPositionAdjusted
 		movea.w	parent3(a0),a1
@@ -1108,9 +1118,10 @@ loc_7B81A:
 		jsr	(Perform_DPLC).l
 		jmp	(Draw_Sprite).l
 ; ---------------------------------------------------------------------------
-off_7B838:	dc.w loc_7B852-off_7B838
-		dc.w loc_7B87C-off_7B838
-		dc.w loc_7B93E-off_7B838
+off_7B838:	offsetTable
+		offsetTableEntry.w loc_7B852
+		offsetTableEntry.w loc_7B87C
+		offsetTableEntry.w loc_7B93E
 ; ---------------------------------------------------------------------------
 
 loc_7B852:
