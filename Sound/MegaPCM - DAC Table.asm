@@ -127,3 +127,4 @@ ptr_dacDF:	DAC_Entry	13610, Hey,				MegaPCM_pcm	; $DF	- "Hey!"	; Clownacy | X_X 
 	endif
 
 ptr_dacE0:	DAC_Entry2	0Bh, SegaPCM,			MegaPCM_pcm|MegaPCM_panLR	; $E0	- Sega!
+ptr_dacE1:	DAC_Entry2	0Bh, MechaPCM,			MegaPCM_pcm|MegaPCM_panLR	; $E0	- "I've let you live long enough...!"

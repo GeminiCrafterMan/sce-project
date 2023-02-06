@@ -4,6 +4,7 @@
 
 ;			| Filename	| Extension	| Folder (if any)
 	IncludeDAC	SegaPCM,	snd
+	IncludeDAC	MechaPCM,	snd
 
     if SMPS_S1DACSamples||SMPS_S2DACSamples
 	IncludeDAC	Kick,		snd,		Sonic 1 & 2

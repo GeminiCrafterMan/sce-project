@@ -63,6 +63,7 @@
 ; Bosses objects data
 ; ===========================================================================
 
+		include	"Objects/Mecha Sonic/Mecha Sonic.asm"
 		include "Objects/Robotnik/Robotnik.asm"
 
 ; ===========================================================================

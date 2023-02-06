@@ -27,3 +27,10 @@ AnPal_PalDEZ12_1:	binclude "Levels/DEZ/Palettes/Animate/1.bin"
 	even
 AnPal_PalDEZ12_2:	binclude "Levels/DEZ/Palettes/Animate/2.bin"
 	even
+
+; ===========================================================================
+; Boss palette
+; ===========================================================================
+
+Pal_MechaSonic:		binclude "Objects/Mecha Sonic/Palettes/Main.bin"
+	even

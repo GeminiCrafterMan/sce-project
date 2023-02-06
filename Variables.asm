@@ -477,6 +477,14 @@ Ring_spill_anim_accum:				ds.b 1
 									ds.b 1					; even
 Oscillating_variables_end				= *
 
+
+_unkFAB0:			ds.w 1
+_unkFAB2:			ds.w 1
+_unkFAB4:			ds.w 1
+_unkFAB6:			ds.w 1
+_unkFAB8:			ds.b 1
+_unkFAA8:			ds.b 1
+
 System_stack_size					ds.b $100				; ~$100 bytes ; this is the top of the stack, it grows downwards
 System_stack:						= *
 Checksum_string:						ds.l 1					; set to 'INIT' once the checksum routine has run

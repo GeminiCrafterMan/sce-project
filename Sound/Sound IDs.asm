@@ -72,6 +72,9 @@ sfx_FlyTired =			SMPS_id(ptr_snd63)
 sfx_Grab =				SMPS_id(ptr_snd64)
 sfx_Land =				SMPS_id(ptr_snd65)
 sfx_Slide =				SMPS_id(ptr_snd66)
+sfx_Thump =				SMPS_id(ptr_snd67)
+sfx_MechaLand =			SMPS_id(ptr_snd68)
+sfx_MechaSpark =		SMPS_id(ptr_snd69)
 
 sfx__Last =			SMPS_id(ptr_sndend)-1
 

@@ -47,3 +47,10 @@ Art_WzPoison2:				binclude "Levels/WZ/Animated Tiles/Uncompressed Art/WZ Poison.
 
 ArtUnc_CabaretSonic:		binclude "Objects/Cabaret Characters/Uncompressed Art/Cabaret Sonic.bin"
 	even
+
+; ===========================================================================
+; Bosses
+; ===========================================================================
+
+ArtUnc_MechaSonic:			binclude "Objects/Mecha Sonic/Uncompressed Art/Mecha Sonic.bin"
+	even

@@ -122,3 +122,16 @@ ArtKosM_SSLZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge
 	even
 ArtKosM_SSLZPurpleRock:		binclude "Objects/Purple Rock/KosinskiM Art/Purple Rock (SSLZ).bin"
 	even
+
+; ===========================================================================
+; Kosinski Module compressed WZ graphics
+; ===========================================================================
+
+; shit goes here
+
+; ===========================================================================
+; Kosinski Module compressed boss graphics
+; ===========================================================================
+
+ArtKosM_MechaSonicExtra:	binclude "Objects/Mecha Sonic/KosinskiM Art/Mecha Sonic Extra Art.bin"
+	even

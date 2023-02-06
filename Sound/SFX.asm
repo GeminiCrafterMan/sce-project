@@ -51,6 +51,9 @@ ptr_snd63:	SMPS_SFX_METADATA	Sound63, $70, 0
 ptr_snd64:	SMPS_SFX_METADATA	Sound64, $70, 0
 ptr_snd65:	SMPS_SFX_METADATA	Sound65, $70, 0
 ptr_snd66:	SMPS_SFX_METADATA	Sound66, $70, 0
+ptr_snd67:	SMPS_SFX_METADATA	Sound67, $70, 0
+ptr_snd68:	SMPS_SFX_METADATA	Sound68, $70, 0
+ptr_snd69:	SMPS_SFX_METADATA	Sound69, $70, 0	; Nice
 
 ptr_sndend
 ; ---------------------------------------------------------------------------
@@ -59,7 +62,7 @@ ptr_sndend
 
 Sound40:	include	"Sound/SFX/Snd - Ring.asm"
 	even
-Sound41:		include	"Sound/SFX/Snd - Ring Left Speaker.asm"
+Sound41:	include	"Sound/SFX/Snd - Ring Left Speaker.asm"
 	even
 Sound42:	include	"Sound/SFX/Snd - Ring Loss.asm"
 	even
@@ -91,7 +94,7 @@ Sound4F:	include	"Sound/SFX/Snd - Electric Attack.asm"
 	even
 Sound50:	include	"Sound/SFX/Snd - Spike Hit.asm"
 	even
-Sound51:		include	"Sound/SFX/Snd - Spike Move.asm"
+Sound51:	include	"Sound/SFX/Snd - Spike Move.asm"
 	even
 Sound52:	include	"Sound/SFX/Snd - Drown.asm"
 	even
@@ -134,4 +137,10 @@ Sound64:	include	"Sound/SFX/Snd - Grab.asm"
 Sound65:	include	"Sound/SFX/Snd - Land.asm"
 	even
 Sound66:	include	"Sound/SFX/Snd - Slide.asm"
+	even
+Sound67:	include	"Sound/SFX/Snd - Thump.asm"
+	even
+Sound68:	include	"Sound/SFX/Snd - Mecha Land.asm"
+	even
+Sound69:	include	"Sound/SFX/Snd - Mecha Spark.asm"
 	even

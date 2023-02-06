@@ -87,14 +87,13 @@ DLE_GHZ3boss:
 loc_6EB0:
 		cmpi.w	#$2960,(v_screenposx).w
 		bcs.s	locret_6EE8
-;		jsr		FindFreeObj
-;		bne.s	loc_6ED0
-;		move.l	#Obj_RobotnikShipFlame,address(a1) ; load GHZ boss	object	; unfortunately this does not exist
-;		move.w	#$2A60,obX(a1)
-;		move.w	#$280,obY(a1)
+		jsr		FindFreeObj
+		bne.s	loc_6ED0
+		move.l	#Obj_SSZEndBoss,address(a1) ; load GHZ boss	object	; unfortunately this does not exist
+		move.w	#$2A60,obX(a1)
+		move.w	#$280,obY(a1)
 
 loc_6ED0:
-		music	bgm_ZoneBoss
 		move.b	#1,(f_lockscreen).w ; lock screen
 		addq.b	#2,(Screen_event_routine).w
 ;		moveq	#plcid_Boss,d0

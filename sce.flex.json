@@ -5,10 +5,47 @@
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
+            "name": "Mecha Sonic Extras",
+            "palettes": [
+                {
+                    "path": "Objects/Mecha Sonic/Palettes/Main.bin",
+                    "length": 1
+                }
+            ],
+            "art": {
+                "path": "Objects/Mecha Sonic/KosinskiM Art/Mecha Sonic Extra Art.bin",
+                "compression": "Kosinski-M",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "Objects/Mecha Sonic/Object Data/Map - Mecha Sonic Extra.asm",
+                "label": "Map_MechaSonicExtra"
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "label": ""
+            },
+            "uuid": "4e1ad385-fe4a-4188-b29d-a6b9b9cad642"
+        },
+        {
+            "format": "Sonic 3&K Object.js",
             "name": "Mecha Sonic",
             "palettes": [
                 {
-                    "path": "Objects/Mecha Sonic/Palettes/new.bin",
+                    "path": "Objects/Mecha Sonic/Palettes/Main.bin",
+                    "length": 1
+                },
+                {
+                    "path": "Objects/Mecha Sonic/Palettes/Flash 1.bin",
+                    "length": 1
+                },
+                {
+                    "path": "Objects/Mecha Sonic/Palettes/Flash 2.bin",
+                    "length": 1
+                },
+                {
+                    "path": "Objects/Mecha Sonic/Palettes/Flash 3.bin",
                     "length": 1
                 }
             ],

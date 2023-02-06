@@ -136,5 +136,6 @@ dHey =						SMPS_id(ptr_dacDF)
 
 ; Sonic 2
 dSega_S2 =					SMPS_id(ptr_dacE0)
+dMechaThreat =					SMPS_id(ptr_dacE1)
 
-dac__Last = dSega_S2
+dac__Last = dMechaThreat
