@@ -117,6 +117,7 @@ id_SonicDrown =					id(ptr_Sonic_Drown)		; C
 z_DEZ:							equ 0
 z_GHZ:							equ 1
 z_SSLZ:							equ 2
+z_WZ:							equ 3
 z_LNull:						equ $FF
 
 ; ---------------------------------------------------------------------------

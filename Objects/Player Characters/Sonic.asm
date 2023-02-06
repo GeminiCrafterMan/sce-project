@@ -549,6 +549,7 @@ loc_10FEA:
 ; Why they gave it a separate copy of the code, I don't know.
 ; Sonic_Spin_Freespace:
 Sonic_MdJump:
+		bsr.s	Player_SetFallingAnimation
 		bsr.w	Player_JumpHeight
 		bsr.w	Player_ChgJumpDir
 		bsr.w	Player_LevelBound

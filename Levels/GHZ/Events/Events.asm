@@ -147,8 +147,6 @@ GHZ1_Transition:
 		st		(LastAct_end_flag).w
 		tst.b	(LevResults_end_flag).w
 		beq.w	.ret
-		cmpi.b	#2,(Current_act).w
-		bge.w	.done
 	; a replication of S1's Sign_SonicRun & loc_EC70, without giant ring checks
 		move.b	#1,(Ctrl_1_locked).w ; lock player's controls
 		move.b	#1,(Ctrl_2_locked).w ; lock player's controls
@@ -162,6 +160,8 @@ GHZ1_Transition:
 		move.w	2(a1),d0
 		addi.w	#128,d0
 		move.w	d0,(Camera_max_X_pos).w
+		clr.b	(Player_1+object_control).w
+		clr.b	(Player_2+object_control).w
 		move.w	#(button_right_mask<<8),(Ctrl_1_held_logical).w ; move Sonic to the right
 		move.w	#(button_right_mask<<8),(Ctrl_2_held_logical).w ; move Tails to the right
 		move.w	(Player_1+x_pos).w,d0
@@ -169,17 +169,23 @@ GHZ1_Transition:
 		addi.w	#$128,d1
 		cmp.w	d1,d0
 		bcs.s	.ret
+		tst.l	(Player_2).w
+		beq.s	.skipP2
 		move.w	(Player_2+x_pos).w,d0	; make sure both are off-screen
 		move.w	(Camera_max_X_pos).w,d1
 		addi.w	#$128,d1
 		cmp.w	d1,d0
 		bcs.s	.ret
+	.skipP2:
+		cmpi.b	#2,(Current_act).w
+		bge.w	.act3
 		move.w	(Current_zone_and_act).w,d0
 		addq.b	#1,d0
-		jsr		(StartNewLevel).l
+		jmp		(StartNewLevel).l
 
-	.done:
-		clr.b	(Background_event_flag).w
+	.act3:
+		move.w	#bytes_to_word(z_SSLZ, 0),d0
+		jmp		(StartNewLevel).l
 	.ret:
 		rts
 ; ---------------------------------------------------------------------------

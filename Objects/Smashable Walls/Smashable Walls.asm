@@ -45,6 +45,12 @@ Smash_Solid:	; Routine 2
 		beq.s	.smashAnyway
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	.smashAnyway
+	; when you figure out a way to check if the player is in the air but also touching the wall, uncomment this
+;		btst	#Status_FireShield,status_secondary(a1)
+;		beq.s	.noFireShield
+;		cmpi.b	#1,(v_Shield+anim).w
+;		beq.s	.smashAnyway
+;	.noFireShield:
 		cmpi.b	#id_Roll,obAnim(a1) ; is Sonic rolling?
 		beq.s	.rolling	; if not, branch
 		cmpi.b	#id_Roll2,obAnim(a1) ; is Sonic rolling?

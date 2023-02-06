@@ -45,7 +45,7 @@ loc_7B2DC:
 		move.l	#Obj_Wait,address(a0)
 		rts
 +
-		sample	dMechaThreat
+		sample	dMechaThreat	; "I've let you live long enough...!", aka your cue to fuckin jump
 		move.w	#2*60,wait(a0)
 		move.l	#+,jump(a0)
 		move.l	#Obj_Wait,address(a0)
@@ -63,7 +63,7 @@ loc_7B308:
 		move.b	#4,routine(a0)
 		move.b	#2,mapping_frame(a0)
 		move.w	#-$800,x_vel(a0)
-		bset	#2,$38(a0)
+		bset	#2,objoff_38(a0)
 		lea	ChildObjDat_7D47A(pc),a2
 		jsr	(CreateChild6_Simple).l
 		move.w	(Camera_X_pos).w,d0
@@ -106,7 +106,7 @@ loc_7B3AC:
 		btst	#4,(_unkFAB8).w
 		beq.w	locret_7B448
 		move.b	#$14,routine(a0)
-		move.b	#2,$3B(a0)
+		move.b	#2,objoff_3B(a0)
 		move.w	(Camera_X_pos).w,d0
 		addi.w	#$20,d0
 		move.w	d0,(_unkFAB4).w
@@ -125,7 +125,7 @@ loc_7B3E6:
 		cmp.w	x_pos(a0),d0
 		blo.s	locret_7B414
 		move.b	#6,routine(a0)
-		bclr	#2,$38(a0)
+		bclr	#2,objoff_38(a0)
 		move.w	#$3F,wait(a0)
 		move.l	#loc_7B41C,jump(a0)
 
@@ -186,13 +186,13 @@ loc_7B484:
 		bclr	#4,(_unkFAB8).w
 		bne.s	loc_7B4CA
 		move.l	#byte_7D4DE,aniraw(a0)
-		bclr	#3,$38(a0)
+		bclr	#3,objoff_38(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
 loc_7B4CA:
 		move.l	#byte_7D4EF,aniraw(a0)
-		bset	#3,$38(a0)
+		bset	#3,objoff_38(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -208,7 +208,7 @@ loc_7B4EC:
 		clr.b	anim_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		sfx		sfx_MechaLand
-		btst	#3,$38(a0)
+		btst	#3,objoff_38(a0)
 		bne.s	loc_7B520
 		move.l	#byte_7D596,aniraw(a0)
 		move.l	#loc_7B544,jump(a0)
@@ -240,7 +240,7 @@ loc_7B55E:
 		move.w	d0,x_vel(a0)
 		move.w	d1,$40(a0)
 		clr.w	y_vel(a0)
-		bset	#2,$38(a0)
+		bset	#2,objoff_38(a0)
 		lea	ChildObjDat_7D486(pc),a2
 		jmp	(CreateChild6_Simple).l
 ; ---------------------------------------------------------------------------
@@ -272,7 +272,7 @@ loc_7B5C2:
 		move.b	#$12,routine(a0)
 		move.w	d0,x_pos(a0)
 		clr.w	x_sub(a0)
-		bclr	#2,$38(a0)
+		bclr	#2,objoff_38(a0)
 		move.l	#byte_7D59B,aniraw(a0)
 		move.l	#loc_7B57A,jump(a0)
 		rts
@@ -290,8 +290,8 @@ loc_7B5E8:
 loc_7B606:
 		move.w	d0,x_vel(a0)
 		move.w	#-$600,y_vel(a0)
-		move.b	$3B(a0),d0
-		addq.b	#1,$3B(a0)
+		move.b	objoff_3B(a0),d0
+		addq.b	#1,objoff_3B(a0)
 		andi.w	#7,d0
 		moveq	#0,d1
 		move.b	byte_7B62E(pc,d0.w),d1
@@ -400,7 +400,7 @@ loc_7B70E:
 		move.b	#$20,routine(a0)
 		move.w	#$F,wait(a0)
 		move.l	#loc_7B754,jump(a0)
-		bset	#2,$38(a0)
+		bset	#2,objoff_38(a0)
 		sfx		sfx_MechaLand
 		lea	ChildObjDat_7D480(pc),a2
 		jsr	(CreateChild6_Simple).l
@@ -469,7 +469,7 @@ loc_7B7D6:
 
 loc_7B7EC:
 		move.b	#$28,routine(a0)
-		bclr	#2,$38(a0)
+		bclr	#2,objoff_38(a0)
 		clr.w	x_vel(a0)
 		move.w	#-$640,y_vel(a0)
 		rts
@@ -753,7 +753,7 @@ byte_7D652:	dc.b    8,   1
 		dc.b  $F8,  $A
 		dc.b  $12, $7F
 		dc.b  $FC
-byte_7D65F:	dc.b    1,   1
+byte_7D65F:	dc.b    1,   1	; I think this is the spark for his spindash.
 		dc.b    2,   1
 		dc.b    3,   1
 		dc.b    0,   0
@@ -800,7 +800,7 @@ byte_7D6B3:	dc.b    0,  $B,  $B,  $D
 ; ---------------------------------------------------------------------------
 
 loc_7D216:
-		tst.w	$18(a0)
+		tst.w	x_vel(a0)
 		bmi.s	loc_7D228
 		move.w	(_unkFAB6).w,d0
 		cmp.w	$10(a0),d0
@@ -822,17 +822,17 @@ loc_7D234:
 
 
 sub_7D2D8:
-		btst	#6,$2A(a0)
+		btst	#6,status(a0)
 		bne.s	locret_7D2FA
 		moveq	#0,d0
-		move.b	$22(a0),d0
+		move.b	mapping_frame(a0),d0
 		move.b	byte_7D2FC(pc,d0.w),d0
-		btst	#7,$38(a0)
+		btst	#7,objoff_38(a0)
 		beq.s	loc_7D2F6
 		ori.b	#-$80,d0
 
 loc_7D2F6:
-		move.b	d0,$28(a0)
+		move.b	d0,collision_flags(a0)
 
 locret_7D2FA:
 		rts
@@ -866,28 +866,27 @@ byte_7D2FC:	dc.b $23
 
 
 sub_7D312:
-		tst.b	$28(a0)
+		tst.b	collision_flags(a0)
 		bne.s	locret_7D356
-		move.b	$29(a0),d0
+		move.b	boss_hitcount2(a0),d0
 		beq.s	loc_7D358
-		tst.b	$20(a0)
+		tst.b	anim(a0)
 		bne.s	loc_7D338
-		move.b	#$20,$20(a0)
-		moveq	#signextendB(sfx_BossHit),d0
-		jsr	(Play_SFX).l
-		bset	#6,$2A(a0)
+		move.b	#$20,anim(a0)
+		sfx		sfx_BossHit
+		bset	#6,status(a0)
 
 loc_7D338:
 		moveq	#0,d0
-		btst	#0,$20(a0)
+		btst	#0,anim(a0)
 		bne.s	loc_7D346
 		addi.w	#8,d0
 
 loc_7D346:
 		bsr.w	sub_7D3BE
-		subq.b	#1,$20(a0)
+		subq.b	#1,anim(a0)
 		bne.s	locret_7D356
-		bclr	#6,$2A(a0)
+		bclr	#6,status(a0)
 
 locret_7D356:
 		rts
@@ -928,8 +927,8 @@ loc_7C9BA:
 loc_7C9C8:
 		bsr.w	sub_7D260
 		jsr	Refresh_ChildPositionAdjusted
-		movea.w	$46(a0),a1
-		btst	#7,$2A(a1)
+		movea.w	parent3(a0),a1
+		btst	#7,status(a1)
 		jne		Go_Delete_Sprite
 		jmp	(Add_SpriteToCollisionResponseList).l
 ; ---------------------------------------------------------------------------
@@ -942,18 +941,17 @@ loc_7C902:
 		jsr	SetUp_ObjAttributes
 		move.l	#loc_7C91C,(a0)
 		bsr.w	sub_7D236
-		moveq	#signextendB(sfx_Roll),d0
-		jsr	(Play_SFX).l
+		sfx		sfx_Roll
 
 loc_7C91C:
 		lea	byte_7D65F(pc),a1
 		jsr	Animate_RawNoSSTMultiDelay
 		jsr	Refresh_ChildPositionAdjusted
-		movea.w	$46(a0),a1
-		btst	#7,$2A(a1)
+		movea.w	parent3(a0),a1
+		btst	#7,status(a1)
 		jne		Go_Delete_Sprite
-		btst	#2,$38(a1)
-		jne		Go_Delete_Sprite
+		btst	#2,objoff_38(a1)
+		jeq		Go_Delete_Sprite
 		jmp	(Draw_Sprite).l
 ; ---------------------------------------------------------------------------
 
@@ -961,28 +959,27 @@ Obj_MechaSonic_Sparks:
 		lea	ObjDat3_7D40E(pc),a1
 		jsr	SetUp_ObjAttributes
 		move.l	#loc_7C964,(a0)
-		bclr	#7,$2C(a0)
+		bclr	#7,subtype(a0)
 		beq.s	loc_7C964
-		bclr	#2,4(a0)
+		bclr	#2,render_flags(a0)
 
 loc_7C964:
-		movea.w	$46(a0),a1
-		btst	#6,$38(a1)
+		movea.w	parent3(a0),a1
+		btst	#6,objoff_38(a1)
 		jne		Delete_Current_Sprite
 		cmpi.w	#$E88,(Normal_palette_line_2+$8).w	; yes, it does check for a color. yes, it's dumb. no, i don't care.
 		bne.w	locret_7B448
-		moveq	#signextendB(sfx_MechaSpark),d0
-		jsr	(Play_SFX).l
+		sfx		sfx_MechaSpark
 		moveq	#0,d0
-		bchg	#0,$39(a0)
+		bchg	#0,count(a0)
 		bne.s	loc_7C990
 		moveq	#4,d0
 
 loc_7C990:
-		add.b	$2C(a0),d0
+		add.b	subtype(a0),d0
 		lea	word_7C9AA(pc,d0.w),a2
-		move.w	(a2)+,$42(a0)
-		move.b	(a2)+,$22(a0)
+		move.w	(a2)+,parent(a0)
+		move.b	(a2)+,mapping_frame(a0)
 		jsr	Refresh_ChildPositionAdjusted
 		jmp	(Draw_Sprite).l
 ; ---------------------------------------------------------------------------
@@ -1003,10 +1000,10 @@ word_7C9AA:	dc.w $FC0C
 
 sub_7D236:
 		moveq	#0,d0
-		move.b	$2C(a0),d0
+		move.b	subtype(a0),d0
 		add.w	d0,d0
 		lea	word_7D24C(pc,d0.w),a1
-		move.w	(a1)+,$42(a0)
+		move.w	(a1)+,parent(a0)
 		move.w	(a1)+,8(a0)
 		rts
 ; End of function sub_7D236
@@ -1023,14 +1020,14 @@ word_7D24C:	dc.w  $FC1C,  $300
 
 sub_7D260:
 		lea	word_7D280(pc),a1
-		movea.w	$46(a0),a2
+		movea.w	parent3(a0),a2
 		moveq	#0,d0
-		move.b	$22(a2),d0
+		move.b	mapping_frame(a2),d0
 		lsl.w	#2,d0
 		adda.w	d0,a1
-		move.w	(a1)+,$42(a0)
-		move.b	(a1)+,$28(a0)
-		move.b	(a1)+,$22(a0)
+		move.w	(a1)+,parent(a0)
+		move.b	(a1)+,collision_flags(a0)
+		move.b	(a1)+,mapping_frame(a0)
 		rts
 ; End of function sub_7D260
 
@@ -1122,10 +1119,10 @@ loc_7B852:
 
 loc_7B858:
 		move.b	#2,5(a0)	; loc_7B87C
-		move.b	#$E,$22(a0)
-		move.b	#$1F,$1E(a0)
-		clr.w	$18(a0)
-		clr.w	$1A(a0)
+		move.b	#$E,mapping_frame(a0)
+		move.b	#$1F,y_radius(a0)
+		clr.w	x_vel(a0)
+		clr.w	y_vel(a0)
 		move.l	#loc_7B888,jump(a0)
 		rts
 ; ---------------------------------------------------------------------------
@@ -1136,20 +1133,19 @@ loc_7B87C:
 ; ---------------------------------------------------------------------------
 
 loc_7B888:
-		move.b	#$23,$1E(a0)
+		move.b	#$23,y_radius(a0)
 		lea	byte_7D5E4(pc),a1
 		jsr	(Set_Raw_Animation).l
 		lea	(word_7D842).l,a1
 		bsr.w	sub_7C678
 		lea	ChildObjDat_7D48C(pc),a2
 		jsr	(CreateChild6_Simple).l
-		moveq	#signextendB(sfx_MechaLand),d0
-		jsr	(Play_SFX).l
+		sfx		sfx_MechaLand
 		move.b	#4,5(a0)
 		st	(_unkFAA8).w
-		bset	#5,$38(a0)
-		bclr	#3,$38(a0)
-		move.w	#$77,$2E(a0)
+		bset	#5,objoff_38(a0)
+		bclr	#3,objoff_38(a0)
+		move.w	#$77,wait(a0)
 		jsr	(Create_New_Sprite).l
 		bne.s	locret_7B8E4
 		move.l	#loc_7D056,(a1)
@@ -1176,7 +1172,7 @@ sub_7C678:
 
 loc_7D056:
 		move.l	#loc_7D062,(a0)
-		move.w	#$77,$2E(a0)
+		move.w	#$77,wait(a0)
 
 loc_7D062:
 		moveq	#2,d0
