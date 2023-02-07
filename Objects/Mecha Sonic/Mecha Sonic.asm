@@ -3,7 +3,7 @@ Obj_SSZEndBoss:
 		move.b	routine(a0),d0
 		move.w	Obj_SSZEndBoss_Index(pc,d0.w),d1
 		jsr	Obj_SSZEndBoss_Index(pc,d1.w)
-		lea	sub_7D35A(pc),a4
+		lea	Obj_SSZEndBoss_Explode(pc),a4
 		bsr.w	sub_7D312
 		bsr.w	sub_7D2D8
 		lea	DPLCPtr_MechaSonic(pc),a2
@@ -890,7 +890,7 @@ loc_7D338:
 		moveq	#0,d0
 		btst	#0,anim(a0)
 		bne.s	loc_7D346
-		addi.w	#8,d0
+		addi.w	#10,d0	; skip first 5 colors of set
 
 loc_7D346:
 		bsr.w	sub_7D3BE
@@ -909,8 +909,8 @@ loc_7D358:
 
 ; =============== S U B R O U T I N E =======================================
 
-
-sub_7D35A:
+; sub_7D35A
+Obj_SSZEndBoss_Explode:
 		move.l	#loc_7B81A,(a0)
 		clr.b	routine(a0)
 		move.l	#loc_7B858,jump(a0)
@@ -927,7 +927,7 @@ sub_7D35A:
 
 locret_7D39C:
 		rts
-; End of function sub_7D35A
+; End of function Obj_SSZEndBoss_Explode
 
 loc_7C9BA:
 		lea	word_7D3FC(pc),a1

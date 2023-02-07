@@ -120,7 +120,7 @@ SuperHyper_PalCycle_SuperSonic:	; Tails' code falls back here so the Super Flick
 		lea	(PalCycle_SuperSonic).l,a0
 		move.w	(Palette_frame).w,d0
 		addq.w	#6,(Palette_frame).w	; next frame
-		cmpi.w	#$36,(Palette_frame).w	; is it the last frame?
+		cmpi.w	#$3C,(Palette_frame).w	; is it the last frame?
 		blo.s	loc_3898		; if not, branch
 		move.w	#$24,(Palette_frame).w	; reset frame counter (Super Sonic's normal palette cycle starts at $24. Everything before that is for the palette fade)
 
@@ -210,10 +210,10 @@ PalCycle_SuperSonic:
 		dc.w $ECC,$EAA,$C88
 		dc.w $EEE,$ECC,$EAA
 		dc.w $EEE,$EEE,$EEE
-		dc.w $CEE,$CEE,$AEE
-		dc.w $AEE,$8EE,$6CC
-		dc.w $8EE,$0EE,$0AA
-		dc.w $AEE,$8EE,$6CC
+		dc.w $CEE,$CEE,$AEE	; $24
+		dc.w $AEE,$8EE,$6CC	; $2A
+		dc.w $8EE,$0EE,$0AA	; $30
+		dc.w $AEE,$8EE,$6CC	; $36
 
 PalCycle_HyperSonic:
 		dc.w $EEC,$ECA,$EA8
