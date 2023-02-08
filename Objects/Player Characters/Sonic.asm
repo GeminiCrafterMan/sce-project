@@ -1552,7 +1552,7 @@ Player_JumpHeight:
 		jmp		(a1)
 
 	.playerLUT:
-		dc.l	Sonic_InstaAndShieldMoves, Tails_Test_For_Flight, Knuckles_CheckGlide, Sonic_InstaAndShieldMoves
+		dc.l	Sonic_InstaAndShieldMoves, Tails_Test_For_Flight, Knux_Test_For_Glide, Sonic_InstaAndShieldMoves
 
 locret_118E8:
 		rts
@@ -1647,15 +1647,16 @@ Player_Transform:
 
 		move.b	#-1,(Super_Sonic_Knux_flag).w		; set flag to Hyper Sonic
 		music	bgm_SKInvincible					; if invincible, play invincibility music
-;		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w	; load Hyper Stars object
-;		move.l	#Obj_HyperSonicKnux_Trail,(Super_stars).w	; load After-Images object
+		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w	; load Hyper Stars object
+		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w	; load After-Images object
+		move.w	a0,(v_Super_stars+parent).w
 		bra.s	.continued
 ; ---------------------------------------------------------------------------
 
 	.super:
 		move.b	#1,(Super_Sonic_Knux_flag).w		; set flag to Super Sonic
 		music	bgm_S3Invincible					; if invincible, play invincibility music
-;		move.l	#Obj_SuperSonicKnux_Stars,(Super_stars).w	; load Super Stars object
+;		move.l	#Obj_SuperSonicKnux_Stars,(v_Super_stars).w	; load Super Stars object
 
 	.continued:
 		move.w	#$A00,Top_speed_P1-Top_speed_P1(a4)
@@ -1673,7 +1674,6 @@ Sonic_HyperDash:
 		move.b	#1,double_jump_flag(a0)
 		move.b	#1,(v_Invincibility_stars+anim).w	; This causes the screen flash, and sparks to come out of Sonic
 		sfx	sfx_Dash
-		move.b	#8,(Negative_flash_timer).w
 		jsr		GetCtrlHeldLogical
 		andi.w	#button_up_mask|button_down_mask|button_left_mask|button_right_mask,d0	; Get D-pad input
 		beq.s	.noInput
@@ -2723,6 +2723,8 @@ Animate_Player:
 
 Animate_Sonic:
 		lea	AniSonic(pc),a1
+		cmpa.w	#Player_1,a0
+		bne.s	loc_12612
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	loc_12612
 		lea	(AniSuperSonic).l,a1

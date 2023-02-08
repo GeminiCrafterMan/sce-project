@@ -25,6 +25,24 @@ ShakeScreen_Setup:
 		move.b	ScreenShakeArray2(pc,d0.w),d1
 +		move.w	d1,(Screen_shaking_offset).w
 		rts
+; End of function ShakeScreen_Setup
+
+
+; =============== S U B R O U T I N E =======================================
+
+
+ShakeScreen_BG:
+		move.w	(Glide_screen_shake).w,d0
+		beq.s	locret_4F422
+		subq.w	#1,d0
+		move.w	d0,(Glide_screen_shake).w
+		move.b	ScreenShakeArray(pc,d0.w),d0
+		ext.w	d0
+		add.w	d0,(Camera_X_pos_copy).w
+
+locret_4F422:
+		rts
+; End of function ShakeScreen_BG
 
 ; =============== S U B R O U T I N E =======================================
 

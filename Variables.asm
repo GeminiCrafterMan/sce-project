@@ -26,7 +26,7 @@ v_Breathing_bubbles_P2:				ds.b object_size
 v_Super_stars:						ds.b object_size
 									ds.b object_size
 									ds.b object_size
-									ds.b object_size
+v_Super_stars_2:					ds.b object_size
 									ds.b object_size
 									ds.b object_size
 v_WaterWave1:						ds.b object_size
@@ -410,6 +410,7 @@ Disable_wall_grab:					ds.b 1
 Gliding_collision_flags:			ds.b 1
 MTZCylinder_Angle_Sonic:			ds.b 1
 MTZCylinder_Angle_Tails:			ds.b 1
+Glide_screen_shake:					ds.l 1
 waterValues:						ds.l 1
 
 f_timeover:							= *

@@ -321,6 +321,8 @@ Monitor_Give_Super_Sneakers:
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	Monitor_Give_Rings
 		bset	#Status_SpeedShoes,status_secondary(a1)
+		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
+		move.w	#Player_1,(v_Super_stars+parent).w
 		move.b	#150,speed_shoes_timer(a1)
 		move.w	#$C00,(Top_speed_P1).w
 		move.w	#$18,(Acceleration_P1).w
@@ -385,8 +387,9 @@ Monitor_Give_SuperSonic:
 Monitor_Give_HyperSonic:
 		move.b	#-1,(Super_Sonic_Knux_flag).w		; Hyper
 		music	bgm_SKInvincible
-;		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
-;		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w
+		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w
+		move.w	#Player_1,(v_Super_stars+parent).w
+		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w
 ;		bra.s	Monitor_Give_SuperHyper				; runs right into it
 ; ---------------------------------------------------------------------------
 
