@@ -187,13 +187,18 @@ loc_10BF0:
 		bsr.w	CPU_Control
 
 .doneController:
+		tst.w	(Carried_character).w	; test address's contents
+		beq.s	.cont				; if it's empty, just go ahead
+		cmpa.w	(Carried_character).w,a0	; compare to a0 (current address)
+		bne.s	.contcarrier					; if it's equal, we can't control the character
+	.cont:
+		btst	#0,object_control(a0)				; is Sonic interacting with another object that holds him in place or controls his movement somehow?
+		bne.w	loc_10C26					; if not, branch to skip Sonic's control
+		bra.s	loc_10C0C
+	.contcarrier:
 		btst	#0,object_control(a0)				; is Sonic interacting with another object that holds him in place or controls his movement somehow?
 		beq.s	loc_10C0C					; if not, branch to skip Sonic's control
-		tst.w	(Carried_character).w	; test address's contents
-		beq.s	loc_10C0C				; if it's empty, just go ahead
-		cmpa.w	(Carried_character).w,a0	; compare to a0 (current address)
-		beq.s	loc_10C26					; if it's equal, we can't control the character
-;		bra.s	loc_10C0C
+
 ; Change this to only be for the player carrying the other.
 		clr.b	double_jump_flag(a0)				; enable double jump
 		tst.b	(Flying_carrying_Sonic_flag).w

@@ -107,13 +107,7 @@ Tails_Modes: offsetTable
 Tails_MdNormal:
 		tst.b	(Flying_carrying_Sonic_flag).w
 		jeq		Sonic_MdNormal
-		cmpa.w	#Player_1,a0
-		beq.s	.p2
-		lea	(Player_2).w,a1
-		bra.s	.cont
-	.p2:
-		lea	(Player_1).w,a1
-	.cont:
+		move.w	(Carried_character).w,a1
 		clr.b	object_control(a1)
 		bset	#1,status(a1)
 		clr.w	(Flying_carrying_Sonic_flag).w

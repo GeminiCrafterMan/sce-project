@@ -448,6 +448,7 @@ Snd_GHZ_Jump05:
 
 ; DAC Data
 Snd_GHZ_DAC:
+	smpsPan             panCenter, $00
 	dc.b	nRst, $08, dKick, dSnare, dKick, dKick, dSnare, dSnare, dSnare
 
 Snd_GHZ_Loop00:

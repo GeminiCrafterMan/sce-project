@@ -42,13 +42,13 @@ TailsCPU_States: offsetTable
 ; ---------------------------------------------------------------------------
 ; loc_1BAFE:
 TailsCPU_Init:
-	move.b	#6,(Tails_CPU_routine).w	; => TailsCPU_Normal
 	clr.b	object_control(a0)
 	move.b	#id_Walk,anim(a0)
 	clr.w	x_vel(a0)
 	clr.w	y_vel(a0)
 	clr.w	ground_vel(a0)
 	clr.b	status(a0)
+	move.b	#6,(Tails_CPU_routine).w	; => TailsCPU_Normal
 	clr.w	(Tails_respawn_counter).w
 	rts
 
@@ -110,7 +110,6 @@ loc_13B78:
 	move.b	d0,jumping+1(a0)	; Uh... The hell is this?
 	move.b	#-$10,double_jump_property(a0)
 	bsr.w	Tails_Set_Flying_Animation
-	rts
 
 return_1BB88:
 	rts
