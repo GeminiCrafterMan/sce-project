@@ -5,14 +5,14 @@
 ; =============== S U B R O U T I N E =======================================
 
 Obj_Wait:
-		tst.w	objoff_2E(a0)
+		tst.w	wait(a0)
 		beq.s	Obj_Jump
-		subq.w	#1,objoff_2E(a0)
+		subq.w	#1,wait(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
 Obj_Jump:
-		movea.l	objoff_34(a0),a1
+		movea.l	jump(a0),a1
 		jmp	(a1)
 
 ; =============== S U B R O U T I N E =======================================
@@ -29,7 +29,7 @@ ObjHitFloor_DoRoutine_Return:
 		rts
 ; ---------------------------------------------------------------------------
 +		add.w	d1,y_pos(a0)
-		movea.l	objoff_34(a0),a1
+		movea.l	jump(a0),a1
 		jmp	(a1)
 
 ; =============== S U B R O U T I N E =======================================
@@ -46,7 +46,7 @@ ObjHitCeiling_DoRoutine_Return:
 		rts
 ; ---------------------------------------------------------------------------
 +		sub.w	d1,y_pos(a0)
-		movea.l	objoff_34(a0),a1
+		movea.l	jump(a0),a1
 		jmp	(a1)
 
 ; =============== S U B R O U T I N E =======================================
@@ -66,7 +66,7 @@ ObjHitFloor2_DoRoutine:
 		moveq	#0,d0
 		rts
 ; ---------------------------------------------------------------------------
-+		movea.l	objoff_34(a0),a1
++		movea.l	jump(a0),a1
 		jsr	(a1)
 		moveq	#1,d0
 		rts
@@ -78,7 +78,7 @@ ObjHitWall_DoRoutine:
 		tst.w	d1
 		bpl.s	ObjHitFloor_DoRoutine_Return
 		add.w	d1,x_pos(a0)
-		movea.l	objoff_34(a0),a1
+		movea.l	jump(a0),a1
 		jmp	(a1)
 
 ; =============== S U B R O U T I N E =======================================
@@ -88,5 +88,5 @@ ObjHitWall2_DoRoutine:
 		tst.w	d1
 		bpl.s	ObjHitFloor_DoRoutine_Return
 		add.w	d1,x_pos(a0)
-		movea.l	objoff_34(a0),a1
+		movea.l	jump(a0),a1
 		jmp	(a1)

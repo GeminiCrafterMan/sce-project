@@ -478,11 +478,11 @@ Ring_spill_anim_accum:				ds.b 1
 									ds.b 1					; even
 Oscillating_variables_end				= *
 
-
+; these are used by mecha sonic
 _unkFAB0:			ds.w 1
 _unkFAB2:			ds.w 1
-_unkFAB4:			ds.w 1
-_unkFAB6:			ds.w 1
+_unkFAB4:			ds.w 1	; seems to be the left side of the screen
+_unkFAB6:			ds.w 1	; seems to be the right side of the screen
 _unkFAB8:			ds.b 1
 _unkFAA8:			ds.b 1
 
