@@ -4,6 +4,7 @@ Obj_SSZEndBoss:
 		move.w	Obj_SSZEndBoss_Index(pc,d0.w),d1
 		jsr	Obj_SSZEndBoss_Index(pc,d1.w)
 		lea	Obj_SSZEndBoss_Explode(pc),a4
+		bsr.w	Obj_SSZEndBoss_AttemptBlock
 		bsr.w	Obj_SSZEndBoss_HandleDamage
 		bsr.w	Obj_SSZEndBoss_SetCollisionType
 		lea	DPLCPtr_MechaSonic(pc),a2
@@ -39,6 +40,7 @@ Obj_SSZEndBoss_Init:
 		lea	ObjDat4_7D3EA(pc),a1
 		jsr	(SetUp_ObjAttributesSlotted).l
 		move.b	#8,boss_hitcount2(a0)
+		move.b	#8*3,x_radius(a0)
 		move.l	(V_int_run_count).w,(RNG_seed).w
 		sfx	bgm_Fade
 		move.w	#3*60,wait(a0)
@@ -471,22 +473,27 @@ loc_7B7D6:
 ; ---------------------------------------------------------------------------
 Obj_SSZEndBoss_AttemptBlock:
 ; Originally a copy of Obj_SSZEndBoss_AnimateAndWait,
-; this is broken: It repeats the animation and fake-damaged Mecha,
+; this is broken: It repeats the animation and fake-damages Mecha,
 ; while the object that hurts you if you hit the back of his head
 ; becomes killable. He also gets frozen in place and can rarely escape.
-		jsr	(Find_SonicTails).l
-		bset	#0,render_flags(a0)
-		tst.w	d0
+;		move.b	#$20,routine(a0)
+		tst.b	mapping_frame(a0)	; standing still?
 		beq.s	.cont
-		bclr	#0,render_flags(a0)
-
+		cmpi.b	#$16,mapping_frame(a0)
+		beq.s	.cont
+		cmpi.b	#$17,mapping_frame(a0)
+		beq.s	.cont
+		rts
 	.cont:
-		cmpi.w	#$10,d3
-		bhs.s	.block
-		cmpi.w	#$20,d2
-		bhs.s	.block
+		jsr	(Find_SonicTails).l
+;		tst.w	d1	; check if player is above
+;		jeq		.ret	; if so, get outta here
 		cmpi.b	#id_Roll,anim(a1)
-		bne.w	.ret
+		bne.s	.ret
+		cmpi.w	#$2C,d3	; Y distance	; to be fair mecha's pretty damn tall
+		bhi.s	.ret	; if he's above you, return
+		cmpi.w	#$1E,d2	; X distance
+		bhi.s	.justAnimate
 	.block:
 		move.w	x_vel(a1),d0
 		move.w	#$100,d1
@@ -507,10 +514,15 @@ Obj_SSZEndBoss_AttemptBlock:
 		move.w	d0,x_vel(a1)
 		neg.w	y_vel(a1)
 		neg.w	ground_vel(a1)
+		sfx		sfx_Thump
+	.justAnimate:
 		lea	AniRaw_MechaSonic_Block(pc),a1
 		jmp	(Set_Raw_Animation).l
+;		tst.b	boss_invulnerable_time(a0)
+;		beq.s	.ret
+;		jmp		loc_7D338
 	.ret:
-		jmp	(Animate_RawMultiDelay).l
+		rts
 ; ---------------------------------------------------------------------------
 
 loc_7B7EC:
@@ -852,11 +864,10 @@ byte_7D6B3:	dc.b    0,  $B,  $B,  $D
 		dc.b  $F4
 ; this is new.
 AniRaw_MechaSonic_Block:
-		dc.b 0, 5	; Standing
-		dc.b $16, 5
+		dc.b $16, 2
 		dc.b $17, 5
-		dc.b $16, 5
-		dc.b    0, $3F
+		dc.b $16, 2
+		dc.b 0,   5
 ;		dc.b $FF, $F4
 		dc.b $F4	; all of his other animations do this instead...
 	even
@@ -935,8 +946,8 @@ Obj_SSZEndBoss_CollisionTypes:
 		dc.b $23
 		dc.b $23
 	; block
-		dc.b 0
-		dc.b 0
+		dc.b 6
+		dc.b 6
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -1001,7 +1012,7 @@ loc_7C9BA:
 		move.l	#loc_7C9C8,(a0)
 
 loc_7C9C8:
-		bsr.w	sub_7D260
+		bsr.w	Obj_MechaSonic_Spines_SetCollision
 		jsr	Refresh_ChildPositionAdjusted
 		movea.w	parent3(a0),a1
 		btst	#7,status(a1)
@@ -1093,8 +1104,8 @@ word_7D24C:	dc.w  $FC1C,  $300
 
 ; =============== S U B R O U T I N E =======================================
 
-
-sub_7D260:
+; sub_7D260
+Obj_MechaSonic_Spines_SetCollision:
 		lea	word_7D280(pc),a1
 		movea.w	parent3(a0),a2
 		moveq	#0,d0
@@ -1105,10 +1116,11 @@ sub_7D260:
 		move.b	(a1)+,collision_flags(a0)
 		move.b	(a1)+,mapping_frame(a0)
 		rts
-; End of function sub_7D260
+; End of function Obj_MechaSonic_Spines_SetCollision
 
 ; ---------------------------------------------------------------------------
-word_7D280:	dc.w $10F4
+word_7D280:
+		dc.w $10F4
 		dc.b $B4
 		dc.b 2
 		dc.w $10FC
@@ -1174,10 +1186,17 @@ word_7D280:	dc.w $10F4
 		dc.w $10F4
 		dc.b $B4
 		dc.b 2
+	; blocking frames
+		dc.w $10F5
+		dc.b $B4
+		dc.b 2
+		dc.w $10F6
+		dc.b $B4
+		dc.b 2
 
 loc_7B81A:
 		moveq	#0,d0
-		move.b	5(a0),d0
+		move.b	routine(a0),d0
 		move.w	off_7B838(pc,d0.w),d1
 		jsr	off_7B838(pc,d1.w)
 		lea	DPLCPtr_MechaSonic(pc),a2
@@ -1195,7 +1214,7 @@ loc_7B852:
 ; ---------------------------------------------------------------------------
 
 loc_7B858:
-		move.b	#2,5(a0)	; loc_7B87C
+		move.b	#2,routine(a0)	; loc_7B87C
 		move.b	#$E,mapping_frame(a0)
 		move.b	#$1F,y_radius(a0)
 		clr.w	x_vel(a0)
@@ -1218,7 +1237,7 @@ loc_7B888:
 		lea	ChildObjDat_7D48C(pc),a2
 		jsr	(CreateChild6_Simple).l
 		sfx		sfx_MechaLand
-		move.b	#4,5(a0)
+		move.b	#4,routine(a0)
 		st	(_unkFAA8).w
 		bset	#5,objoff_38(a0)
 		bclr	#3,objoff_38(a0)
@@ -1254,7 +1273,7 @@ loc_7D056:
 loc_7D062:
 		moveq	#2,d0
 		jsr	(sub_868F8).l
-		tst.b	5(a0)
+		tst.b	routine(a0)
 		beq.s	locret_7D076
 		move.l	#loc_7D078,(a0)
 
