@@ -18,39 +18,35 @@ DLE_GHZ1:
 		cmpi.w	#$1780,(v_screenposx).w ; has the camera reached $1780 on x-axis?
 		bcs.s	locret_6E08	; if not, branch
 		move.w	#$400,(Camera_target_max_Y_pos).w ; set lower y-boundary
+		cmpi.w	#$2500,(v_screenposx).w	; has camera reached the start of act 2?
+		bcs.s	locret_6E08
+		move.w	#$500,(Camera_target_max_Y_pos).w
+		cmpi.w	#$33D0,(v_screenposx).w
+		bcs.s	locret_6E08
+		move.w	#$400,(Camera_target_max_Y_pos).w
+		cmpi.w	#$3B00,(v_screenposx).w
+		bcs.s	locret_6E08
+		move.w	#$600,(Camera_target_max_Y_pos).w
+		cmpi.w	#$4260,(v_screenposx).w
+		bcs.s	locret_6E08
+		move.w	#$500,(Camera_target_max_Y_pos).w
 
 locret_6E08:
 		rts
 ; ===========================================================================
 
 DLE_GHZ2:
-		move.w	#$300,(Camera_target_max_Y_pos).w
-		cmpi.w	#$ED0,(v_screenposx).w
-		bcs.s	locret_6E3A
-		move.w	#$200,(Camera_target_max_Y_pos).w
-		cmpi.w	#$1600,(v_screenposx).w
-		bcs.s	locret_6E3A
-		move.w	#$400,(Camera_target_max_Y_pos).w
-		cmpi.w	#$1D60,(v_screenposx).w
-		bcs.s	locret_6E3A
-		move.w	#$300,(Camera_target_max_Y_pos).w
-
-locret_6E3A:
-		rts
-; ===========================================================================
-
-DLE_GHZ3:
 		moveq	#0,d0
 		move.b	(Screen_event_routine).w,d0
 		move.w	off_6E4A(pc,d0.w),d0
 		jmp	off_6E4A(pc,d0.w)
 ; ===========================================================================
-off_6E4A:	dc.w DLE_GHZ3main-off_6E4A
-		dc.w DLE_GHZ3boss-off_6E4A
-		dc.w DLE_GHZ3end-off_6E4A
+off_6E4A:	dc.w DLE_GHZ2main-off_6E4A
+		dc.w DLE_GHZ2boss-off_6E4A
+		dc.w DLE_GHZ2end-off_6E4A
 ; ===========================================================================
 
-DLE_GHZ3main:
+DLE_GHZ2main:
 		move.w	#$300,(Camera_target_max_Y_pos).w
 		cmpi.w	#$380,(v_screenposx).w
 		bcs.s	locret_6E96
@@ -79,7 +75,7 @@ loc_6E98:
 		rts	
 ; ===========================================================================
 
-DLE_GHZ3boss:
+DLE_GHZ2boss:
 		cmpi.w	#$960,(v_screenposx).w
 		bcc.s	loc_6EB0
 		subq.b	#2,(Screen_event_routine).w
@@ -90,6 +86,7 @@ loc_6EB0:
 		jsr		FindFreeObj
 		bne.s	loc_6ED0
 		move.l	#Obj_SSZEndBoss,address(a1) ; load GHZ boss	object	; unfortunately this does not exist
+		st		(Boss_flag).w
 		move.w	#$2A60,obX(a1)
 		move.w	#$280,obY(a1)
 
@@ -104,7 +101,7 @@ locret_6EE8:
 		rts
 ; ===========================================================================
 
-DLE_GHZ3end:
+DLE_GHZ2end:
 		move.w	(v_screenposx).w,(Camera_min_X_pos).w
 		rts	
 ; ===========================================================================
@@ -177,13 +174,13 @@ GHZ1_Transition:
 		cmp.w	d1,d0
 		bcs.s	.ret
 	.skipP2:
-		cmpi.b	#2,(Current_act).w
-		bge.w	.act3
+		cmpi.b	#1,(Current_act).w
+		bge.w	.act2
 		move.w	(Current_zone_and_act).w,d0
 		addq.b	#1,d0
 		jmp		(StartNewLevel).l
 
-	.act3:
+	.act2:
 		move.w	#bytes_to_word(z_SSLZ, 0),d0
 		jmp		(StartNewLevel).l
 	.ret:

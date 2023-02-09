@@ -1,6 +1,6 @@
 ; ========SONIC 1 GIT EQUATES========
 
-Size_of_Mega_PCM_guess = $442
+Size_of_Mega_PCM_guess = $444	; Why the fuck do I have to increase this so often??
 
 ; ---FLAGS---
 SMPS_GloopSFXBehaviour	= 0

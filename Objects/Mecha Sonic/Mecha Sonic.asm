@@ -1028,7 +1028,7 @@ loc_7C902:
 		jsr	SetUp_ObjAttributes
 		move.l	#loc_7C91C,(a0)
 		bsr.w	sub_7D236
-		sfx		sfx_Roll
+		sfx		sfx_MechaRoll
 
 loc_7C91C:
 		lea	AniRaw_MechaSonic_SpindashSparks(pc),a1

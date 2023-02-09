@@ -60,7 +60,7 @@ LevelLoadPointer:
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
 
 ; GHZ3
-		dc.l AnPal_GHZ, DLE_GHZ3, LevelPointer_Null, LevelPointer_Null
+		dc.l AnPal_GHZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
 
@@ -146,7 +146,7 @@ LevelPtrs:
 		dc.l DEZ1_Layout		; DEZ4
 		dc.l GHZ1_Layout		; GHZ1
 		dc.l GHZ2_Layout		; GHZ2
-		dc.l GHZ3_Layout		; GHZ3
+		dc.l GHZ1_Layout		; GHZ3
 		dc.l GHZ1_Layout		; GHZ4
 		dc.l SSLZ1_Layout		; SSLZ1
 		dc.l SSLZ1_Layout		; SSLZ2
@@ -170,7 +170,7 @@ SpriteLocPtrs:
 		dc.l DEZ1_Sprites		; DEZ4
 		dc.l GHZ1_Sprites		; GHZ1
 		dc.l GHZ2_Sprites		; GHZ2
-		dc.l GHZ3_Sprites		; GHZ3
+		dc.l GHZ1_Sprites		; GHZ3
 		dc.l GHZ1_Sprites		; GHZ4
 		dc.l SSLZ1_Sprites		; SSLZ1
 		dc.l SSLZ1_Sprites		; SSLZ2
@@ -194,7 +194,7 @@ RingLocPtrs:
 		dc.l DEZ1_Rings		; DEZ4
 		dc.l GHZ1_Rings		; GHZ1
 		dc.l GHZ2_Rings		; GHZ2
-		dc.l GHZ3_Rings		; GHZ3
+		dc.l GHZ1_Rings		; GHZ3
 		dc.l GHZ1_Rings		; GHZ4
 		dc.l SSLZ1_Rings		; SSLZ1
 		dc.l SSLZ1_Rings		; SSLZ2
@@ -287,8 +287,6 @@ GHZ1_Layout:		binclude "Levels/GHZ/Layout/1.bin"
 	even
 GHZ2_Layout:		binclude "Levels/GHZ/Layout/2.bin"
 	even
-GHZ3_Layout:		binclude "Levels/GHZ/Layout/3.bin"
-	even
 SSLZ1_Layout:		binclude "Levels/SSLZ/Layout/1.bin"
 	even
 WZ1_Layout:		binclude "Levels/WZ/Layout/1.bin"
@@ -304,8 +302,6 @@ DEZ1_Sprites:		binclude "Levels/DEZ/Object Pos/1.bin"
 GHZ1_Sprites:		binclude "Levels/GHZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 GHZ2_Sprites:		binclude "Levels/GHZ/Object Pos/2.bin"
-	ObjectLayoutBoundary
-GHZ3_Sprites:		binclude "Levels/GHZ/Object Pos/3.bin"
 	ObjectLayoutBoundary
 SSLZ1_Sprites:		binclude "Levels/SSLZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
@@ -323,8 +319,6 @@ DEZ1_Rings:			binclude "Levels/DEZ/Ring Pos/1.bin"
 GHZ1_Rings:			binclude "Levels/GHZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 GHZ2_Rings:			binclude "Levels/GHZ/Ring Pos/2.bin"
-	RingLayoutBoundary
-GHZ3_Rings:			binclude "Levels/GHZ/Ring Pos/3.bin"
 	RingLayoutBoundary
 SSLZ1_Rings:		binclude "Levels/SSLZ/Ring Pos/1.bin"
 	RingLayoutBoundary
