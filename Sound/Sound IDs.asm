@@ -77,6 +77,7 @@ sfx_Thump =				SMPS_id(ptr_snd67)
 sfx_MechaLand =			SMPS_id(ptr_snd68)
 sfx_MechaSpark =		SMPS_id(ptr_snd69)
 sfx_MechaRoll =			SMPS_id(ptr_snd6A)
+sfx_MechaDash =			SMPS_id(ptr_snd6B)
 
 sfx__Last =			SMPS_id(ptr_sndend)-1
 

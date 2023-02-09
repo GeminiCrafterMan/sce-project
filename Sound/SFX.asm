@@ -55,6 +55,7 @@ ptr_snd67:	SMPS_SFX_METADATA	Sound67, $70, 0
 ptr_snd68:	SMPS_SFX_METADATA	Sound68, $70, 0
 ptr_snd69:	SMPS_SFX_METADATA	Sound69, $70, 0	; Nice
 ptr_snd6A:	SMPS_SFX_METADATA	Sound6A, $70, 0
+ptr_snd6B:	SMPS_SFX_METADATA	Sound6B, $70, 0
 
 ptr_sndend
 ; ---------------------------------------------------------------------------
@@ -146,4 +147,6 @@ Sound68:	include	"Sound/SFX/Snd - Mecha Land.asm"
 Sound69:	include	"Sound/SFX/Snd - Mecha Spark.asm"
 	even
 Sound6A:	include	"Sound/SFX/Snd - Mecha Roll.asm"
+	even
+Sound6B:	include	"Sound/SFX/Snd - Mecha Dash.asm"
 	even

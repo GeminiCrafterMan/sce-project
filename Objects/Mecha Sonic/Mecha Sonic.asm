@@ -339,7 +339,7 @@ Obj_SSZEndBoss_AirDash:
 		move.w	d0,x_vel(a0)
 		move.w	d1,vram_art(a0)
 		clr.w	y_vel(a0)
-		sfx		sfx_Dash
+		sfx		sfx_MechaDash
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -452,7 +452,7 @@ loc_7B790:
 loc_7B7A8:
 		move.w	d0,x_vel(a0)
 		move.w	d1,vram_art(a0)
-		sfx		sfx_Dash
+		sfx		sfx_MechaDash
 		rts
 ; ---------------------------------------------------------------------------
 
