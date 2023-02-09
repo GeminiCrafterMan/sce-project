@@ -9,10 +9,10 @@ LevelSizes:
 		dc.w 0, $A20, 0, $4A0				; DEZ 3
 		dc.w 0, $A20, 0, $4A0				; DEZ 4
 
-		dc.w 0, $43BF, 0, $300				; GHZ 1	; acts 1 and 2 combined directly
-		dc.w 0, $2960, 0, $300				; GHZ 2	; old act 3
-		dc.w 0, $2ABF, 0, $300				; GHZ 3
-		dc.w 0, $2ABF, 0, $300				; GHZ 4
+		dc.w 0, $6D60, 0, $300				; GHZ 1	; acts 1 and 2 combined directly
+		dc.w 0, $3FFF, 0, $300				; GHZ 2	; old act 3
+		dc.w 0, $3FFF, 0, $300				; GHZ 3
+		dc.w 0, $3FFF, 0, $300				; GHZ 4
 
 		dc.w 0, $29A0, 0, $320				; SSLZ 1
 		dc.w 0, $29A0, 0, $320				; SSLZ 2
