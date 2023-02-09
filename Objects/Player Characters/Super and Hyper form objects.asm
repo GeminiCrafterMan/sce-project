@@ -210,7 +210,11 @@ Obj_HyperSonic_Stars_Main:
 		jsr		(CalcSine).l
 		asr.w	#4,d0
 		addi.w	#$40,d0 ; '@'
-		sub.b	(Player_1+angle).w,d0
+		move.b	(Player_1+flip_angle).w,d4
+		bne.s	.flip
+		move.b	(Player_1+angle).w,d4
+	.flip:
+		sub.b	d4,d0
 		jsr		(CalcSine).l
 		muls.w	d0,d2
 		muls.w	d1,d3
