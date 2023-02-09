@@ -201,8 +201,7 @@ Tails_Move_FlySwim:
 		beq.s	.cont
 		jsr		Player_AirRoll
 		bset	#2,status(a0)
-		move.b	#1,jumping(a0)
-		move.b	#1,double_jump_property(a0)
+		clr.b	jumping(a0)
 		rts
 	.cont:
 	; old SNI, but genuinely a good idea

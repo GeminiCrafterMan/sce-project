@@ -194,54 +194,51 @@ Obj_HyperSonic_Stars_Main:
 
 	.child:
 		tst.b	(Super_Sonic_Knux_flag).w
-		beq.w	loc_19486
-		subq.b	#1,anim_frame_timer(a0)
-		bpl.s	loc_1941C
-		move.b	#1,anim_frame_timer(a0)
+		beq.w	.delete
 		addq.b	#1,mapping_frame(a0)
-		cmpi.b	#3,mapping_frame(a0)
-		blo.s	loc_1941C
+		cmpi.b	#6,mapping_frame(a0)
+		bcs.s	.noReset
 		move.b	#0,mapping_frame(a0)
-		moveq	#0,d0
-		move.w	d0,$30(a0)
-		move.w	d0,$34(a0)
 
-loc_1941C:
+	.noReset:
 		move.b	angle(a0),d0
-		addi.b	#-$10,angle(a0)
-		jsr	(GetSineCosine).l
-		asl.w	#3,d0
-		asl.w	#3,d1
-		move.w	d0,x_vel(a0)
-		move.w	d1,y_vel(a0)
-		move.w	x_vel(a0),d0
-		add.w	d0,$30(a0)
-		move.w	y_vel(a0),d1
-		add.w	d1,$34(a0)
-		move.b	$30(a0),d2
-		ext.w	d2
-		btst	#0,(Player_1+status).w
-		beq.s	loc_19458
-		neg.w	d2
-
-loc_19458:
-		move.b	$34(a0),d3
-		ext.w	d3
+		jsr		(CalcSine).l
+		asl.w	#5,d1
+		move.w	d1,d3
+		move.w	d1,d2
+		move.b	objoff_30(a0),d0
+		jsr		(CalcSine).l
+		asr.w	#4,d0
+		addi.w	#$40,d0 ; '@'
+		sub.b	(Player_1+angle).w,d0
+		jsr		(CalcSine).l
+		muls.w	d0,d2
+		muls.w	d1,d3
+		swap	d2
+		swap	d3
 		add.w	(Player_1+x_pos).w,d2
 		add.w	(Player_1+y_pos).w,d3
 		move.w	d2,x_pos(a0)
 		move.w	d3,y_pos(a0)
+		move.w	#$80,priority(a0)
+		tst.b	angle(a0)
+		bpl.s	.behindPlayer
+		move.w	#$100,priority(a0)
+
+	.behindPlayer:
+		addq.b	#8,angle(a0)
+		addq.b	#4,objoff_30(a0)
 		andi.w	#drawing_mask,art_tile(a0)
 		tst.b	(Player_1+art_tile).w
-		bpl.s	loc_19480
+		bpl.s	.display
 		ori.w	#high_priority,art_tile(a0)
 
-loc_19480:
-		jmp	(Draw_Sprite).l
+	.display:
+		jmp	(DisplaySprite).l
 ; ---------------------------------------------------------------------------
 
-loc_19486:
-		jmp	(Delete_Current_Sprite).l
+	.delete:
+		jmp	(DeleteObject).l
 ; ---------------------------------------------------------------------------
 
 Obj_HyperSonicKnux_Trail:
