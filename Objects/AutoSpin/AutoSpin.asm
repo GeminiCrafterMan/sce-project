@@ -85,7 +85,7 @@ loc_1E8C0:
 
 sub_1E8C6:
 		tst.b	(a2)+
-		bne.s	loc_1E944
+		bne.w	loc_1E944
 		cmp.w	x_pos(a1),d1
 		bhi.w	locret_1E9B4
 		move.b	#1,-1(a2)
@@ -109,14 +109,17 @@ loc_1E908:
 		bne.s	loc_1E934
 		btst	#4,subtype(a0)
 		bne.s	loc_1E930
+		cmpi.w	#$580,ground_vel(a1)
+		bge.s	.cont
 		move.w	#$580,ground_vel(a1)
+	.cont:
 		move.b	#1,spin_dash_flag(a1)
 		tst.b	subtype(a0)
 		bpl.s	loc_1E930
 		move.b	#$81,spin_dash_flag(a1)
 
 loc_1E930:
-		bra.s	loc_1E9B6
+		bra.w	loc_1E9B6
 ; ---------------------------------------------------------------------------
 
 loc_1E934:
@@ -150,7 +153,10 @@ loc_1E97C:
 		beq.s	loc_1E9A6
 		btst	#4,subtype(a0)
 		bne.s	loc_1E9A4
+		cmpi.w	#-$580,ground_vel(a1)
+		ble.s	.cont
 		move.w	#-$580,ground_vel(a1)
+	.cont:
 		move.b	#1,spin_dash_flag(a1)
 		tst.b	subtype(a0)
 		bpl.s	loc_1E9A4

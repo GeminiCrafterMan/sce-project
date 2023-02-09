@@ -9,8 +9,8 @@ LevelSelect_VRAM:				= 480
 ; Variables
 LevelSelect_ZoneCount:			= ZoneCount
 LevelSelect_ActDEZCount:			= 4	; DEZ
-LevelSelect_ActGHZCount:			= 2	; GHZ
-LevelSelect_ActSSLZCount:			= 2	; SSLZ
+LevelSelect_ActGHZCount:			= 1	; GHZ
+LevelSelect_ActSSLZCount:			= 1	; SSLZ
 LevelSelect_ActWZCount:			= 1	; WZ
 LevelSelect_MusicTestCount:		= 8
 LevelSelect_SoundTestCount:		= LevelSelect_MusicTestCount+1
