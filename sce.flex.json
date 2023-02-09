@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "034e1ad3-85fe-4a11-8872-9da6b9b9cad6",
+    "node": "0674e471-eb9c-4dda-9594-e87af89b2482",
     "objects": [
         {
             "name": "Players",
@@ -494,6 +494,66 @@
                         "path": "Objects/Shields/Object Data/DPLC - Lightning Shield.asm",
                         "label": "PLC_LightningShield"
                     }
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Super stars",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Player Characters/Uncompressed Art/Super Sonic Stars.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Player Characters/Object Data/Map - Super Sonic Stars.asm",
+                        "label": "Map_SuperSonic_Stars"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "0674e471-eb9c-4dda-9594-e87af89b2482"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Super stars part 2",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Player Characters/Uncompressed Art/Super Sonic Stars.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Player Characters/Object Data/Map - Super Sonic Stars 2.asm",
+                        "label": "Map_SuperSonic_Stars2"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "388fd2eb-4844-4cb3-b568-b8ab0c02e4d4"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Hyper stars",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Player Characters/KosinskiM Art/Hyper Sonic Stars.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Player Characters/Object Data/Map - Hyper Sonic Stars.asm",
+                        "label": "Map_HyperSonicStars"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "8fd2eb48-448c-43b5-a8b8-ab0c02e4d4ae"
                 },
                 {
                     "format": "Sonic 3&K Object.js",

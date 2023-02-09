@@ -16,6 +16,8 @@ ArtUnc_EndSigns:	binclude "Objects/Signpost/Uncompressed Art/End Signs.bin"
 	even
 ArtUnc_WaterWave:	binclude "Objects/Water Wave/Uncompressed Art/Water Wave.bin"
 	even
+ArtUnc_SuperSonic_Stars:	binclude	"Objects/Player characters/Uncompressed Art/Super Sonic stars.bin"
+	even
 
 ; ===========================================================================
 ; Animated uncompressed graphics

@@ -1,3 +1,141 @@
+Obj_SuperSonicKnux_Stars:
+		move.l	#ArtUnc_SuperSonic_Stars>>1,d1
+		move.w	#tiles_to_bytes(ArtTile_Shield),d2
+		move.w	#$1A0,d3
+		jsr	(Add_To_DMA_Queue).l
+		move.l	#Map_SuperSonic_Stars,mappings(a0)
+		move.b	#4,render_flags(a0)
+		move.w	#$80,priority(a0)
+		move.b	#$18,width_pixels(a0)
+		move.b	#$18,height_pixels(a0)
+		move.w	#ArtTile_Shield,art_tile(a0)
+		btst	#7,(Player_1+art_tile).w
+		beq.s	loc_1919E
+		bset	#7,art_tile(a0)
+
+loc_1919E:
+		move.l	#loc_191A4,(a0)
+
+loc_191A4:
+		tst.b	(Super_Sonic_Knux_flag).w
+		beq.w	loc_19230
+		tst.b	anim(a0)
+		beq.s	loc_191B6
+		bsr.w	sub_19236
+
+loc_191B6:
+		tst.b	$34(a0)
+		beq.s	loc_19200
+		subq.b	#1,anim_frame_timer(a0)
+		bpl.s	loc_191E8
+		move.b	#1,anim_frame_timer(a0)
+		addq.b	#1,mapping_frame(a0)
+		cmpi.b	#6,mapping_frame(a0)
+		blo.s	loc_191E8
+		move.b	#0,mapping_frame(a0)
+		move.b	#0,$34(a0)
+		move.b	#1,$35(a0)
+		rts
+; ---------------------------------------------------------------------------
+
+loc_191E8:
+		tst.b	$35(a0)
+		bne.s	loc_191FA
+
+loc_191EE:
+		move.w	(Player_1+x_pos).w,x_pos(a0)
+		move.w	(Player_1+y_pos).w,y_pos(a0)
+
+loc_191FA:
+		jmp	(Draw_Sprite).l
+; ---------------------------------------------------------------------------
+
+loc_19200:
+		tst.b	(Player_1+object_control).w
+		bne.s	loc_19222
+		move.w	(Player_1+ground_vel).w,d0
+		bpl.s	loc_1920E
+		neg.w	d0
+
+loc_1920E:
+		cmpi.w	#$800,d0
+		blo.s	loc_19222
+		move.b	#0,mapping_frame(a0)
+		move.b	#1,$34(a0)
+		bra.s	loc_191EE
+; ---------------------------------------------------------------------------
+
+loc_19222:
+		move.b	#0,$34(a0)
+		move.b	#0,$35(a0)
+		rts
+; ---------------------------------------------------------------------------
+
+loc_19230:
+		jmp	(Delete_Current_Sprite).l
+
+; =============== S U B R O U T I N E =======================================
+
+
+sub_19236:
+		move.b	#0,anim(a0)
+		lea	(Player_1).w,a2
+		moveq	#$F,d5
+		move.w	#$488,d4
+
+loc_19246:
+		jsr		Create_New_Sprite
+		bne.w	locret_192BE
+		move.l	#Obj_SuperSonicKnux_Stars_Timer,(a1)
+		move.w	x_pos(a2),x_pos(a1)
+		move.w	y_pos(a2),y_pos(a1)
+		move.l	#Map_SuperSonic_Stars2,mappings(a1)
+		move.w	#$879C,art_tile(a1)
+		move.b	#$84,render_flags(a1)
+		move.w	#$380,priority(a1)
+		move.b	#8,width_pixels(a1)
+		move.b	#8,height_pixels(a1)
+		tst.w	d4
+		bmi.s	loc_192AE
+		move.w	d4,d0
+		jsr	(GetSineCosine).l
+		move.w	d4,d2
+		lsr.w	#8,d2
+		asl.w	d2,d0
+		asl.w	d2,d1
+		move.w	d0,d2
+		move.w	d1,d3
+		addi.b	#$10,d4
+		bcc.s	loc_192AE
+		subi.w	#$80,d4
+		bcc.s	loc_192AE
+		move.w	#$488,d4
+
+loc_192AE:
+		move.w	d2,x_vel(a1)
+		move.w	d3,y_vel(a1)
+		neg.w	d2
+		neg.w	d4
+		dbf	d5,loc_19246
+
+locret_192BE:
+		rts
+; End of function sub_19236
+
+; ---------------------------------------------------------------------------
+
+Obj_SuperSonicKnux_Stars_Timer:
+		tst.b	render_flags(a0)
+		bmi.s	loc_192CC
+		jmp	(Delete_Current_Sprite).l
+; ---------------------------------------------------------------------------
+
+loc_192CC:
+		addq.b	#1,mapping_frame(a0)
+		andi.b	#3,mapping_frame(a0)
+		jsr		MoveSprite2
+		jmp		Draw_Sprite
+; ---------------------------------------------------------------------------
 Obj_HyperSonic_Stars:
 		lea	(ArtKosM_HyperSonicStars).l,a1
 		move.w	#tiles_to_bytes(ArtTile_Shield),d2
@@ -105,8 +243,6 @@ loc_19480:
 loc_19486:
 		jmp	(Delete_Current_Sprite).l
 ; ---------------------------------------------------------------------------
-Map_HyperSonicStars:include "Objects/Player Characters/Object Data/Map - Hyper Sonic Stars.asm"
-; ---------------------------------------------------------------------------
 
 Obj_HyperSonicKnux_Trail:
 		; init
@@ -149,3 +285,8 @@ Obj_HyperSonicKnux_Trail_Main:
 		move.w	#v_FollowObject_P1,(v_Super_stars_2+parent).w
 	.notTails:
 		rts
+
+; ---------------------------------------------------------------------------
+		include "Objects/Player Characters/Object Data/Map - Super Sonic Stars.asm"
+		include "Objects/Player Characters/Object Data/Map - Super Sonic Stars 2.asm"
+		include "Objects/Player Characters/Object Data/Map - Hyper Sonic Stars.asm"

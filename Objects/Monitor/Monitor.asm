@@ -381,6 +381,7 @@ Obj_MonitorContents_Wait:
 Monitor_Give_SuperSonic:
 		move.b	#1,(Super_Sonic_Knux_flag).w		; Super
 		music	bgm_S3Invincible
+		move.l	#Obj_SuperSonicKnux_Stars,(v_Super_stars).w
 		bra.s	Monitor_Give_SuperHyper
 ; ---------------------------------------------------------------------------
 

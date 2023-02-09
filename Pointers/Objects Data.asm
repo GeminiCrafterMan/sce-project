@@ -8,7 +8,7 @@
 		include "Objects/Player Characters/Mighty.asm"
 		include "Objects/Spin Dust/SpinDust.asm"
 		include "Objects/Shields/Shields.asm"
-		include "Objects/Player Characters/Hyper form objects.asm"
+		include "Objects/Player Characters/Super and Hyper form objects.asm"
 
 ; ===========================================================================
 ; Main objects data
