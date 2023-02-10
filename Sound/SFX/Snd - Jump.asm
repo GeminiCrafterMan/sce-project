@@ -4,10 +4,10 @@ Sound_62_Header:
 	smpsHeaderTempoSFX  $01
 	smpsHeaderChanSFX   $01
 
-	smpsHeaderSFXChannel cPSG1, Sound_62_PSG1,	$00, $00
+	smpsHeaderSFXChannel cPSG2, Sound_62_PSG2,	$00, $00
 
-; PSG1 Data
-Sound_62_PSG1:
+; PSG2 Data
+Sound_62_PSG2:
 	smpsPSGvoice        sTone_0D
 	dc.b	nF2, $05
 	smpsModSet          $02, $01, $F8, $65

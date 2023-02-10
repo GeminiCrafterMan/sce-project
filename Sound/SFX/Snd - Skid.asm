@@ -5,10 +5,10 @@ Sound_36_Header:
 	smpsHeaderChanSFX   $02
 
 	smpsHeaderSFXChannel cPSG2, Sound_36_PSG2,	$00, $00
-	smpsHeaderSFXChannel cPSG1, Sound_36_PSG1,	$FE, $00
+	smpsHeaderSFXChannel cPSG3, Sound_36_PSG3,	$FE, $00
 
-; PSG1 Data
-Sound_36_PSG1:
+; PSG3 Data
+Sound_36_PSG3:
 	dc.b	nRst, $01
 
 ; PSG2 Data

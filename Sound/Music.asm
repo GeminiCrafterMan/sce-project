@@ -30,7 +30,7 @@ Music_DEZ1:			include "Sound/Music/Mus - DEZ1.asm"
 	even
 Music_GHZ:			include "Sound/Music/Mus - GHZ.asm"
 	even
-Music_EHZ:			include	"Sound/Music/Mus - EHZ.asm"
+Music_EHZ:			include	"Sound/Music/Mus - Door Into Summer.asm"
 	even
 Music_MCZ2P:		include	"Sound/Music/Mus - MCZ2P.asm"
 	even
