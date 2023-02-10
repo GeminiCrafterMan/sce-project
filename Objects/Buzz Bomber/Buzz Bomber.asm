@@ -75,7 +75,7 @@ Buzz_Action:	; Routine 2
 		add.w	d0,obX(a1)
 		move.b	obStatus(a0),obStatus(a1)
 		move.w	#$E,wait(a1)
-		move.l	a0,obParent(a1)
+		move.w	a0,obParent(a1)
 		move.b	#1,buzz_buzzstatus(a0) ; set to "already fired" to prevent refiring
 		move.w	#59,wait(a0)
 		move.b	#2,obAnim(a0)	; use "firing" animation
@@ -161,8 +161,8 @@ Msl_Main:	; Routine 0
 ; ===========================================================================
 
 Msl_Animate:	; Routine 2
-		movea.l	obParent(a0),a1
-		cmpi.l	#Obj_Explosion,address(a1) ; has Buzz Bomber been destroyed?
+		movea.w	obParent(a0),a1
+		tst.l	address(a1) ; has Buzz Bomber been destroyed?
 		beq.s	Msl_Delete	; if yes, branch
 		lea	(Ani_Buzz).l,a1
 		jsr		AnimateSprite
@@ -176,8 +176,8 @@ Msl_Animate:	; Routine 2
 
 
 Msl_ChkCancel:
-		movea.l	obParent(a0),a1
-		cmpi.l	#Obj_Explosion,address(a1) ; has Buzz Bomber been destroyed?
+		movea.w	obParent(a0),a1
+		tst.l	address(a1) ; has Buzz Bomber been destroyed?
 		beq.s	Msl_Delete	; if yes, branch
 		rts	
 ; End of function Msl_ChkCancel

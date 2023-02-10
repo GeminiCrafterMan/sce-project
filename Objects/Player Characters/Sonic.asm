@@ -2881,7 +2881,18 @@ loc_12700:
 		add.w	d2,d2
 
 loc_1270A:
-		; there WAS a super check here, but i don't care...
+		tst.b	(Super_Sonic_Knux_flag).w
+		beq.s	+
+		lea	SonAni_Mach(pc),a1	; use mach speed animation
+		cmpi.w	#$C00,d2
+		bcc.s	loc_12724
+		lea	SonAni_Run(pc),a1 	; use running	animation
+		cmpi.w	#$800,d2
+		bcc.s	loc_12724
+		lea	SonAni_Walk(pc),a1 	; use walking animation
+		add.b	d0,d0
+		bra.s	loc_12724
++
 		lea	SonAni_Mach(pc),a1	; use mach speed animation
 		cmpi.w	#$A00,d2
 		bcc.s	loc_12724

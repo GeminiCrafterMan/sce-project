@@ -14,6 +14,11 @@ GHZ1_ScreenEvent:
 		bra.w	GHZ_Refresh
 
 DLE_GHZ1:
+;		cmpi.w	#$CEE,(Normal_palette+$2).w	; Is the color shifting already active?
+;		beq.s	.noShiftPlayer			; If so, skip.
+;		ShiftPalUp1 $002				; Shift player palette up in the red and green sections,
+;		ShiftPalDown1 $200				; and down in the blue
+;.noShiftPlayer:
 		moveq	#0,d0
 		move.b	(Screen_event_routine).w,d0
 		move.w	off_6E4A(pc,d0.w),d0

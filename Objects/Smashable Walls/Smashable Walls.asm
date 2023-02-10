@@ -21,7 +21,8 @@ Smash_Main:	; Routine 0
 		move.l	#Map_SmashWall,obMap(a0)
 		move.w	#make_art_tile(ArtTile_SmashableWalls,0,0),obGfx(a0)
 		move.b	#4,obRender(a0)
-		move.b	#$10,obActWid(a0)
+		move.b	#$10,width_pixels(a0)
+		move.b	#$20,height_pixels(a0)
 		move.w	#4*$80,obPriority(a0)
 		move.b	obSubtype(a0),obFrame(a0)
 
@@ -32,11 +33,16 @@ Smash_Solid:	; Routine 2
 		move.w	#$20,d3
 		move.w	obX(a0),d4
 		jsr		SolidObject
-		btst	#p1_pushing_bit,obStatus(a0)	; is Sonic pushing against the wall?
-		bne.s	.chkroll	; if yes, branch
+		swap	d6
+		btst	#p1_touch_side_bit,d6
+		bne.s	.chkroll
+;		andi.w	#p1_touch_side,d6
+;		beq.s	.chkroll
+;		btst	#p1_pushing_bit,status(a0)
+;		bne.s	.chkroll
 
 .donothing:
-		rts	
+		rts
 ; ===========================================================================
 
 .chkroll:
@@ -45,12 +51,11 @@ Smash_Solid:	; Routine 2
 		beq.s	.smashAnyway
 		tst.b	(Super_Sonic_Knux_flag).w
 		bne.s	.smashAnyway
-	; when you figure out a way to check if the player is in the air but also touching the wall, uncomment this
-;		btst	#Status_FireShield,status_secondary(a1)
-;		beq.s	.noFireShield
-;		cmpi.b	#1,(v_Shield+anim).w
-;		beq.s	.smashAnyway
-;	.noFireShield:
+		btst	#Status_FireShield,status_secondary(a1)
+		beq.s	.noFireShield
+		cmpi.b	#1,(v_Shield+anim).w
+		beq.s	.smashAnyway
+	.noFireShield:
 		cmpi.b	#id_Roll,obAnim(a1) ; is Sonic rolling?
 		beq.s	.rolling	; if not, branch
 		cmpi.b	#id_Roll2,obAnim(a1) ; is Sonic rolling?

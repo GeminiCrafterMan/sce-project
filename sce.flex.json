@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
+    "node": "959cc888-7de0-4060-a3ad-fb35fe0c6303",
     "objects": [
         {
             "name": "Players",
@@ -578,6 +578,31 @@
                         "path": "",
                         "label": ""
                     },
+                    "uuid": "eeee6e6a-b0d8-4498-9ff6-82ce6dc4765a"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Coins",
+                    "palettes": [
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Coins/Uncompressed Art/Coins.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Rings/Object Data/Map - Rings.asm",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
                     "uuid": "959cc888-7de0-4060-a3ad-fb35fe0c6303"
                 },
                 {
@@ -713,7 +738,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "489cf77e-de99-4fcb-8c99-a4a8b5e42471"
         },
         {
