@@ -153,28 +153,32 @@ po_SonicAndSonic:		ds.b 1
 
 button_up:						equ	0
 button_down:					equ	1
-button_left:						equ	2
-button_right:						equ	3
+button_left:					equ	2
+button_right:					equ	3
 button_B:						equ	4
 button_C:						equ	5
 button_A:						equ	6
-button_start:						equ	7
-
-; ---------------------------------------------------------------------------
+button_start:					equ	7
+button_Z:						equ button_up
+button_Y:						equ button_down
+button_X:						equ button_left
+button_mode:					equ button_right
 ; Buttons masks (1 << x == pow(2, x))
-; ---------------------------------------------------------------------------
-
 button_up_mask:					equ	1<<button_up	; $01
 button_down_mask:				equ	1<<button_down	; $02
-button_left_mask:					equ	1<<button_left	; $04
+button_left_mask:				equ	1<<button_left	; $04
 button_right_mask:				equ	1<<button_right	; $08
 button_B_mask:					equ	1<<button_B		; $10
 button_C_mask:					equ	1<<button_C		; $20
 button_A_mask:					equ	1<<button_A		; $40
 button_start_mask:				equ	1<<button_start	; $80
+button_Z_mask:					equ button_up_mask
+button_Y_mask:					equ button_down_mask
+button_X_mask:					equ button_left_mask
+button_mode_mask:				equ button_right_mask
 
 ; ---------------------------------------------------------------------------
-; Joypad input
+; Joypad input (S1 nomenclature)
 ; ---------------------------------------------------------------------------
 
 btnR:		equ %00001000		; Right ($08)
@@ -185,7 +189,7 @@ btnUp:		equ %00000001		; Up	($01)
 btnLR:		equ %00001100		; Left or Right ($0C)
 btnDir:		equ %00001111		; Any direction ($0F)
 btnABCS:	equ %11110000		; A, B, C or Start ($F0)
-btnStart:		equ %10000000		; Start button	($80)
+btnStart:	equ %10000000		; Start button	($80)
 btnABC:		equ %01110000		; A, B or C ($70)
 btnAC:		equ %01100000		; A or C ($60)
 btnAB:		equ %01010000		; A or B ($50)
@@ -193,12 +197,7 @@ btnA:		equ %01000000		; A ($40)
 btnBC:		equ %00110000		; B or C ($30)
 btnC:		equ %00100000		; C ($20)
 btnB:		equ %00010000		; B ($10)
-
-; ---------------------------------------------------------------------------
-; Joypad bits
-; ---------------------------------------------------------------------------
-
-bitStart:		equ 7
+bitStart:	equ 7
 bitA:		equ 6
 bitC:		equ 5
 bitB:		equ 4
@@ -206,6 +205,15 @@ bitR:		equ 3
 bitL:		equ 2
 bitDn:		equ 1
 bitUp:		equ 0
+; holy shit six whole buttons
+btnZ:		equ btnUp
+btnY:		equ btnDn
+btnX:		equ btnL
+btnMode:	equ btnR
+bitZ:		equ bitUp
+bitY:		equ bitDn
+bitX:		equ bitL
+bitMode:	equ bitR
 
 ; ---------------------------------------------------------------------------
 ; property of all objects

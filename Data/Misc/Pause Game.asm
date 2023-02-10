@@ -12,7 +12,7 @@ Pause_Game:
 
 .paused
 		st	(Game_paused).w
-		SMPS_PauseMusic
+		SMPS_Pause
 
 Pause_Loop:
 		move.b	#VintID_Level,(V_int_routine).w
@@ -35,7 +35,7 @@ Pause_ChkStart:
 		bpl.s	Pause_Loop							; if not, branch
 
 Pause_ResumeMusic:
-		SMPS_UnpauseMusic
+		SMPS_Unpause
 
 Pause_Unpause:
 		clr.b	(Game_paused).w
@@ -46,6 +46,6 @@ Pause_NoPause:
 	if GameDebug
 Pause_FrameAdvance:
 		st	(Game_paused).w
-		SMPS_UnpauseMusic
+		SMPS_Unpause
 		rts
 	endif

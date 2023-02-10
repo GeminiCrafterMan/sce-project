@@ -157,12 +157,20 @@ v_jpadhold2:							= *
 Ctrl_1_held_logical:					ds.b 1
 v_jpadpress2:						= *
 Ctrl_1_pressed_logical:				ds.b 1
+v_jpadhold2_6btn:							= *
+Ctrl_1_held_logical_6btn:					ds.b 1
+v_jpadpress2_6btn:						= *
+Ctrl_1_pressed_logical_6btn:				ds.b 1
 TailsControl:							= *
 Ctrl_2_logical:						= *
 v_jpad2hold2:							= *
 Ctrl_2_held_logical:					ds.b 1
 v_jpad2press2:						= *
 Ctrl_2_pressed_logical:				ds.b 1
+v_jpad2hold2_6btn:							= *
+Ctrl_2_held_logical_6btn:					ds.b 1
+v_jpad2press2_6btn:						= *
+Ctrl_2_pressed_logical_6btn:				ds.b 1
 Joypad:								= *
 Ctrl_1:								= *
 Ctrl_1_held:							= *
@@ -171,6 +179,12 @@ v_jpadhold1:							ds.b 1
 v_jpadpress1:							= *
 Ctrl_1_press:							= *
 Ctrl_1_pressed:						ds.b 1
+Ctrl_1_held_6btn:							= *
+Ctrl_1_hold_6btn:							= *
+v_jpadhold1_6btn:							ds.b 1
+v_jpadpress1_6btn:							= *
+Ctrl_1_press_6btn:							= *
+Ctrl_1_pressed_6btn:						ds.b 1
 Ctrl_2:								= *
 Ctrl_2_held:							= *
 Ctrl_2_hold:							= *
@@ -178,6 +192,12 @@ v_jpad2hold1:						ds.b 1
 v_jpad2press1:						= *
 Ctrl_2_press:							= *
 Ctrl_2_pressed:						ds.b 1
+Ctrl_2_held_6btn:							= *
+Ctrl_2_hold_6btn:							= *
+v_jpad2hold1_6btn:						ds.b 1
+v_jpad2press1_6btn:						= *
+Ctrl_2_press_6btn:							= *
+Ctrl_2_pressed_6btn:						ds.b 1
 v_vdp_buffer1:						= *
 VDP_reg_1_command:				ds.w 1					; AND the lower byte by $BF and write to VDP control port to disable display, OR by $40 to enable
 Demo_timer:							= *
@@ -298,7 +318,7 @@ Last_star_post_hit:					= *
 Last_star_pole_hit:					ds.b 1
 Current_music:						ds.w 1
 Palette_fade_timer:					ds.w 1					; The palette gets faded in until this timer expires
-SegaCD_Mode:						ds.b 1
+									ds.b 1					; even
 Respawn_table_keep:					ds.b 1					; If set, respawn table is not reset during level load
 
 Block_table_addr_ROM:				ds.l 1					; Block table pointer(Block (16x16) definitions, 8 bytes per definition)
@@ -398,6 +418,10 @@ Tails_CPU_flight_timer:				ds.w 1
 Flying_carrying_Sonic_flag:			ds.b 1
 Flying_picking_Sonic_timer:			ds.b 1
 Tails_CPU_jumping:					ds.b 1
+f_jpad_6button:						= *
+Six_button_flag:					ds.b 1
+f_jpad2_6button:						= *
+Six_button_flag_2:					ds.b 1
 									ds.b 1	; even
 Tails_interact_ID:					ds.w 1
 Tails_respawn_counter:				ds.w 1

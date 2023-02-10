@@ -17,6 +17,25 @@ GetCtrlPressLogical:
 	move.b	(Ctrl_2_pressed_logical).w,d2
 	rts
 
+GetCtrlPressLogical_6btn:
+	cmpa.w	#Player_1,a0
+	bne.s	.p2
+.p1:
+	move.b	(Ctrl_1_pressed_logical_6btn).w,d0
+	rts
+.p2:
+	move.b	(Ctrl_2_pressed_logical_6btn).w,d0
+	rts
+.d2:
+	cmpa.w	#Player_1,a0
+	bne.s	.d2p2
+.d2p1:
+	move.b	(Ctrl_1_pressed_logical_6btn).w,d2
+	rts
+.d2p2:
+	move.b	(Ctrl_2_pressed_logical_6btn).w,d2
+	rts
+
 GetCtrlHeldLogical:
 	cmpa.w	#Player_1,a0
 	bne.s	.p2
@@ -34,6 +53,25 @@ GetCtrlHeldLogical:
 	rts
 .d2p2:
 	move.b	(Ctrl_2_held_logical).w,d2
+	rts
+
+GetCtrlHeldLogical_6btn:
+	cmpa.w	#Player_1,a0
+	bne.s	.p2
+.p1:
+	move.b	(Ctrl_1_held_logical_6btn).w,d0
+	rts
+.p2:
+	move.b	(Ctrl_2_held_logical_6btn).w,d0
+	rts
+.d2:
+	cmpa.w	#Player_1,a0
+	bne.s	.d2p2
+.d2p1:
+	move.b	(Ctrl_1_held_logical_6btn).w,d2
+	rts
+.d2p2:
+	move.b	(Ctrl_2_held_logical_6btn).w,d2
 	rts
 
 ; =============== S U B R O U T I N E =======================================
@@ -172,7 +210,7 @@ loc_10BF0:
 		tst.b	(Ctrl_1_locked).w					; are controls locked?
 		bne.s	.doneController					; if yes, branch
 ;		move.w	(Ctrl_1).w,(Ctrl_2_logical).w	; copy new held buttons, to enable joypad control
-		move.w	(Ctrl_1).w,(Ctrl_1_logical).w	; copy new held buttons, to enable joypad control
+		move.l	(Ctrl_1).w,(Ctrl_1_logical).w	; copy new held buttons, to enable joypad control
 ;		cmpi.b	#$1A,(Tails_CPU_routine).w
 ;		bhs.s	.cpu
 		bra.s	.doneController
@@ -181,7 +219,7 @@ loc_10BF0:
 	.p2:
 		tst.b	(Ctrl_2_locked).w					; are controls locked?
 		bne.s	.cpu
-		move.w	(Ctrl_2).w,(Ctrl_2_logical).w	; copy new held buttons, to enable joypad control
+		move.l	(Ctrl_2).w,(Ctrl_2_logical).w	; copy new held buttons, to enable joypad control
 
 	.cpu:
 		bsr.w	CPU_Control
@@ -474,6 +512,11 @@ loc_10F22:
 ; =============== S U B R O U T I N E =======================================
 
 Sonic_MdNormal:
+		jsr		GetCtrlPressLogical_6btn
+		btst	#bitX,d0
+		beq.s	+
+		sfx		sfx_BubbleAttack
++
 		bsr.w	Player_Spindash
 		bsr.w	Player_Jump
 		bsr.w	Player_SlopeResist

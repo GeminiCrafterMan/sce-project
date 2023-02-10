@@ -1,8 +1,9 @@
-; ========SONIC 1 GIT EQUATES========
-
-Size_of_Mega_PCM_guess = $444	; Why the fuck do I have to increase this so often??
+; ========SONIC 2 GIT EQUATES========
 
 ; ---FLAGS---
+SMPS_RingSFXBehaviour	= 1
+;	| If 1, SndID_Ring alternates between the left and right speakers.
+;
 SMPS_GloopSFXBehaviour	= 0
 ;	| If 1, SndID_Gloop only plays on every other call.
 ;
@@ -31,19 +32,27 @@ SMPS_EnableUniversalVoiceBank	= 0
 SMPS_EnablePlaySoundLocal	= 0
 ;	| If 1, SMPS_PlaySoundLocal is included
 ;
+SMPS_EnableModulationEnvelopes	= 1
+;	| If 1, modulation envelope support is included
+;
 SMPS_IsOn32X	= 0
 ;	| If 1, DAC driver is made compatible with the 32X
 ;
 SMPS_EnablePWM	= 0
 ;	| If 1, support for four PWM tracks is added
 ;
+SMPS_Asserts	= 0
+;	| If 1, some debugging logic is enabled to catch broken behaviour in songs and sounds.
+;
+SMPS_SoundTest	= 0
+;	| If 1, some some extra logic for my 'sound test' homebrew is enabled.
 
-SMPS_S1DACSamples		= 1
-SMPS_S2DACSamples		= 1
-SMPS_S3DACSamples		= 1
-SMPS_SKDACSamples		= 1
+SMPS_S1DACSamples	= 1
+SMPS_S2DACSamples	= 1
+SMPS_S3DACSamples	= 1
+SMPS_SKDACSamples	= 1
 SMPS_S3DDACSamples	= 0
-SMPS_SCDACSamples		= 0
+SMPS_SCDACSamples	= 0
 
 SMPS_S1PSGEnvelopes	= 1
 SMPS_S2PSGEnvelopes	= 1
@@ -53,16 +62,21 @@ SMPS_S3DPSGEnvelopes	= 0
 SMPS_KCPSGEnvelopes	= 0
 
 ; ---DISASM-DEPENDANT VARIABLES AND FUNCTIONS---
-SoundDriverLoad		= SMPS_LoadDACDriver
+JmpTo_SoundDriverLoad	= SMPS_Setup
+SoundDriverLoad		= SMPS_Setup
 
-PlayMusic			= SMPS_QueueSound1
+PlayMusic		= SMPS_QueueSound1
 Play_Music			= SMPS_QueueSound1
-PlaySound			= SMPS_QueueSound1
-Play_Sound			= SMPS_QueueSound1
+    if SMPS_EnablePlaySoundLocal
+PlaySoundLocal		= SMPS_QueueSound2Local
+    endif
+;PlaySound		= SMPS_QueueSound2
+Play_Sound			= SMPS_QueueSound2
 PlaySFX				= SMPS_QueueSound2
 Play_SFX			= SMPS_QueueSound2
 PlaySound_Special	= SMPS_QueueSound2
 Play_Sound_2		= SMPS_QueueSound2
+PlaySoundStereo		= SMPS_QueueSound3
 
 Clone_Driver_RAM	= (-(v_snddriver_ram&$80000000)<<1)|v_snddriver_ram
 

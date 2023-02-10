@@ -6,8 +6,7 @@
 
 ; loc_1BAD4:
 CPU_Control: ; a0=Tails
-	move.b	(Ctrl_2_logical).w,d0	; did the real player 2 hit something?
-	andi.b	#button_up_mask|button_down_mask|button_left_mask|button_right_mask|button_B_mask|button_C_mask|button_A_mask,d0
+	move.l	(Ctrl_2_logical).w,d0	; did the real player 2 hit something?
 	beq.s	+			; if not, branch
 	move.w	#600,(Tails_CPU_idle_timer).w ; give player 2 control for 10 seconds (minimum)
 +
@@ -497,7 +496,7 @@ TailsCPU_Panic_ChargingDash:
 
 ; loc_1BF1C:
 TailsCPU_Panic_ReleaseDash:
-	clr.w	(Ctrl_2_Logical).w
+	clr.l	(Ctrl_2_Logical).w
 	move.b	#6,(Tails_CPU_routine).w	; => TailsCPU_Normal
 	rts
 ; ---------------------------------------------------------------------------
@@ -533,7 +532,7 @@ loc_13FC2:
 
 loc_13FFA:
 	clr.w	(Tails_CPU_idle_timer).w
-	clr.w	(Ctrl_2_Logical).w
+	clr.l	(Ctrl_2_Logical).w
 	move.b	(Level_frame_byte).w,d0
 	andi.b	#$1F,d0
 	bne.s	loc_14016
@@ -573,7 +572,7 @@ loc_14082:
 loc_1408A:
 	clr.w	(Tails_CPU_idle_timer).w
 	move.b	#$F0,double_jump_property(a0)
-	clr.w	(Ctrl_2_Logical).w
+	clr.l	(Ctrl_2_Logical).w
 	move.b	(Level_frame_byte).w,d0
 	andi.b	#$F,d0
 	bne.s	loc_140ACT
@@ -592,7 +591,7 @@ locret_140C4:
 ; ---------------------------------------------------------------------------
 
 loc_140C6:
-	clr.w	(Ctrl_2_Logical).w
+	clr.l	(Ctrl_2_Logical).w
 	rts
 ; ---------------------------------------------------------------------------
 
@@ -618,7 +617,7 @@ loc_140CET:
 loc_14106:
 	clr.w	(Tails_CPU_idle_timer).w
 	move.b	#$F0,double_jump_property(a0)
-	clr.w	(Ctrl_2_Logical).w
+	clr.l	(Ctrl_2_Logical).w
 	move.b	(Level_frame_byte).w,d0
 	andi.b	#7,d0
 	bne.s	loc_14128
@@ -653,7 +652,7 @@ loc_1414C:
 ; ---------------------------------------------------------------------------
 
 loc_14164:
-	clr.w	(Ctrl_2_Logical).w
+	clr.l	(Ctrl_2_Logical).w
 	tst.b	(Flying_carrying_Sonic_flag).w
 	beq.w	loc_142E2T
 	btst	#1,(Ctrl_1).w
@@ -714,7 +713,7 @@ loc_141F2:
 loc_1421C:
 	clr.w	(Tails_CPU_idle_timer).w
 	move.b	#$F0,double_jump_property(a0)
-	clr.w	(Ctrl_2_Logical).w
+	clr.l	(Ctrl_2_Logical).w
 	move.b	(Level_frame_byte).w,d0
 	andi.b	#7,d0
 	bne.s	loc_1423E
@@ -747,7 +746,7 @@ loc_1425C:
 
 loc_14286:
 	clr.w	(Tails_CPU_idle_timer).w
-	clr.w	(Ctrl_2_Logical).w
+	clr.l	(Ctrl_2_Logical).w
 	move.b	(Level_frame_byte).w,d0
 	andi.b	#$1F,d0
 	bne.s	loc_142A2
@@ -785,7 +784,7 @@ loc_142E2T:
 	cmpi.w	#$300,y_vel(a1)
 	bge.w	loc_143AA
 	clr.w	x_vel(a0)
-	clr.w	(Ctrl_2_Logical).w
+	clr.l	(Ctrl_2_Logical).w
 	cmpi.w	#$200,y_vel(a0)
 	bge.s	loc_14328
 	addq.b	#1,(Tails_CPU_flight_timer).w

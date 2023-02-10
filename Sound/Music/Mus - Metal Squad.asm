@@ -1593,9 +1593,8 @@ Metal_Squad_FM4:
 	dc.b	nE3, $03, nRst, $07, nE3, $02, nRst, $19
 
 Metal_Squad_Jump02:
-	dc.b	nRst, $24
 	smpsAlterVol        $71
-	dc.b	$4A, $48, smpsNoAttack, $49
+	dc.b	nRst, $24, $4A, $48, smpsNoAttack, $49
 	smpsAlterVol        $8F
 	dc.b	nE3, $03, nRst, $06, nE3, $03, nRst, $3D
 	smpsAlterVol        $71
@@ -1982,9 +1981,8 @@ Metal_Squad_Loop13:
 	dc.b	nE3, $03, nRst, $10, nE3, $03, nRst, $09, nE3, $03, nRst, $09
 	smpsAlterVol        $04
 	dc.b	nE3, $03, nRst, $02, nE3, $03, nRst, nE3, nRst, $02, nE3, $03
-	dc.b	nRst, $02
 	smpsAlterVol        $02
-	dc.b	nE3, $03, nRst, $02, nE3, $03, nRst, $02
+	dc.b	nRst, $02, nE3, $03, nRst, $02, nE3, $03, nRst, $02
 	smpsAlterVol        $FA
 	dc.b	nE3, $03, nRst, $06, nE3, $03, nRst, $07, nE3, $03, nRst, $06
 	smpsSetvoice        $02
@@ -2551,9 +2549,8 @@ Metal_Squad_Loop17:
 	dc.b	nE3, $03, nRst, $0F, nE3, $03, nRst, $09, nE3, $03, nRst, $09
 	smpsAlterVol        $04
 	dc.b	nE3, $03, nRst, nE3, nRst, $02, nE3, $03, nRst, $02, nE3, $03
-	dc.b	nRst
 	smpsAlterVol        $02
-	dc.b	nE3, $02, nRst, nE3, $03, nRst, $02
+	dc.b	nRst, nE3, $02, nRst, nE3, $03, nRst, $02
 	smpsAlterVol        $FA
 	dc.b	nE3, $03, nRst, $06, nE3, $03, nRst, $06
 	smpsSetvoice        $0A
@@ -3755,7 +3752,7 @@ Metal_Squad_Loop0E:
 	dc.b	$42, smpsNoAttack, $4B, smpsNoAttack, $3F, nRst, $01
 	smpsAlterVol        $6B
 	dc.b	nRst, nRst, $49, $48, smpsNoAttack, $49, smpsNoAttack, $49, $49, $49, $48, smpsNoAttack
-	dc.b	$52
+	dc.b	nRst, $52
 	smpsSetvoice        $1F
 	dc.b	smpsNoAttack, $01
 	smpsSetvoice        $07
@@ -4189,10 +4186,10 @@ Metal_Squad_Loop12:
 	smpsAlterNote       $07
 	dc.b	$01, smpsNoAttack
 	smpsAlterNote       $FA
-	dc.b	$01, nRst
+	dc.b	$01
 	smpsSetvoice        $0D
 	smpsAlterVol        $6B
-	dc.b	smpsNoAttack, $01
+	dc.b	nRst, smpsNoAttack, $01
 	smpsAlterVol        $95
 	smpsAlterNote       $05
 	dc.b	nC5, $2C, nRst, $02
@@ -4865,20 +4862,18 @@ Metal_Squad_Loop0C:
 
 ; PSG1 Data
 Metal_Squad_PSG1:
-	dc.b	nRst
 
 Metal_Squad_Loop9B:
-	dc.b	$7F
+	dc.b	nRst, $7F
 	smpsLoop            $00, $17, Metal_Squad_Loop9B
 	dc.b	$12
 
 Metal_Squad_Jump07:
-	dc.b	nRst
 
 Metal_Squad_Loop9C:
-	dc.b	$7F
+	dc.b	nRst, $7F
 	smpsLoop            $00, $16, Metal_Squad_Loop9C
-	dc.b	$6C
+	dc.b	nRst, $6C
 	smpsPSGAlterVol     $04
 	dc.b	nF2, $22
 	smpsAlterNote       $FF
@@ -5565,12 +5560,12 @@ Metal_Squad_LoopA1:
 	dc.b	$2F
 	smpsPSGAlterVol     $01
 	smpsAlterNote       $00
-	dc.b	$04, nRst
+	dc.b	$04
 
 Metal_Squad_LoopA2:
-	dc.b	$7F
+	dc.b	nRst, $7F
 	smpsLoop            $00, $12, Metal_Squad_LoopA2
-	dc.b	$55
+	dc.b	nRst, $55
 	smpsPSGAlterVol     $FA
 	dc.b	nFs2, $1A, nRst, $02, nF2, $10
 	smpsAlterNote       $FF
@@ -7098,20 +7093,18 @@ Metal_Squad_LoopAE:
 
 ; PSG2 Data
 Metal_Squad_PSG2:
-	dc.b	nRst
 
 Metal_Squad_Loop8C:
-	dc.b	$7F
+	dc.b	nRst, $7F
 	smpsLoop            $00, $17, Metal_Squad_Loop8C
 	dc.b	$20
 
 Metal_Squad_Jump06:
-	dc.b	nRst
 
 Metal_Squad_Loop8D:
-	dc.b	$7F
+	dc.b	nRst, $7F
 	smpsLoop            $00, $16, Metal_Squad_Loop8D
-	dc.b	$7A
+	dc.b	nRst, $7A
 	smpsPSGAlterVol     $05
 	smpsAlterNote       $FE
 	dc.b	nF2, $23
@@ -7820,12 +7813,12 @@ Metal_Squad_Loop91:
 	dc.b	$2F
 	smpsPSGAlterVol     $01
 	smpsAlterNote       $FE
-	dc.b	$04, nRst
+	dc.b	$04
 
 Metal_Squad_Loop92:
-	dc.b	$7F
+	dc.b	nRst, $7F
 	smpsLoop            $00, $12, Metal_Squad_Loop92
-	dc.b	$56
+	dc.b	nRst, $56
 	smpsPSGAlterVol     $FA
 	dc.b	nFs2, $1A, nRst, $01, nF2, $11
 	smpsAlterNote       $FD
