@@ -102,7 +102,7 @@ PLC1_GHZ_Misc_end
 PLC2_GHZ_Enemy: plrlistheader
 		plreq ArtTile_Crabmeat, ArtKosM_Crabmeat		; Crabmeat
 		plreq ArtTile_BuzzBomber, ArtKosM_BuzzBomber		; Buzz Bomber
-		plreq ArtTile_Chopper, ArtKosM_GHZChopper			; Chopper
+		plreq ArtTile_Chopper, ArtKosM_Chopper			; Chopper
 		plreq ArtTile_Motobug, ArtKosM_Motobug			; Motobug
 PLC2_GHZ_Enemy_end
 
@@ -123,7 +123,7 @@ PLC1_SSLZ_Misc_end
 PLC2_SSLZ_Enemy: plrlistheader
 		plreq ArtTile_Crabmeat, ArtKosM_Crabmeat		; Crabmeat
 		plreq ArtTile_BuzzBomber, ArtKosM_BuzzBomber		; Buzz Bomber
-		plreq ArtTile_Chopper, ArtKosM_SSLZChopper			; Chopper
+		plreq ArtTile_Chopper, ArtKosM_Chopper			; Chopper
 		plreq ArtTile_Motobug, ArtKosM_Motobug			; Motobug
 PLC2_SSLZ_Enemy_end
 

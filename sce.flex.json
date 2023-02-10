@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "034e1ad3-85fe-4a11-8872-9da6b9b9cad6",
+    "node": "e74f494f-96cd-4617-909e-82d06cd2d5a1",
     "objects": [
         {
             "name": "Players",
@@ -215,7 +215,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
         },
         {
@@ -738,7 +738,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "489cf77e-de99-4fcb-8c99-a4a8b5e42471"
         },
         {
@@ -788,7 +788,7 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Chopper/KosinskiM Art/GHZ Chopper.bin",
+                        "path": "Objects/Chopper/KosinskiM Art/Chopper.bin",
                         "compression": "Kosinski-M",
                         "offset": 0
                     },
@@ -1091,35 +1091,6 @@
                     "mappings": {
                         "path": "Objects/Purple Rock/Object Data/Map - Purple Rock.asm",
                         "label": "Map_PurpleRock"
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    }
-                },
-                {
-                    "uuid": "94e74f49-4f96-4d26-9750-9e82d06cd2d5",
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Chopper",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Levels/SSLZ/Palettes/Seaside Land Zone.bin",
-                            "length": 3
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Chopper/KosinskiM Art/SSLZ Chopper.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Chopper/Object Data/Map - Chopper.asm",
-                        "label": "Map_Chopper"
                     },
                     "dplcs": {
                         "enabled": false,
