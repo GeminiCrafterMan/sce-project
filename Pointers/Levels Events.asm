@@ -13,6 +13,7 @@
 		include "Levels/GHZ/Events/Events.asm"
 
 ; SSLZ
+		include "Levels/SSLZ/Animated Tiles/Animation Scripts.asm"
 		include "Levels/SSLZ/Events/Events.asm"
 
 ; WZ

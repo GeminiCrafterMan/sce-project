@@ -72,22 +72,22 @@ LevelLoadPointer:
 ; SSLZ1
 		dc.l LevelPointer_Null, DLE_SSLZ, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
 		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null											; Animate tiles main code, Animate tiles PLC scripts
+		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ											; Animate tiles main code, Animate tiles PLC scripts
 
 ; SSLZ2
 		dc.l LevelPointer_Null, DLE_SSLZ, LevelPointer_Null, LevelPointer_Null
 		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null
+		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
 
 ; SSLZ3
 		dc.l LevelPointer_Null, DLE_SSLZ, LevelPointer_Null, LevelPointer_Null
 		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null
+		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
 
 ; SSLZ4
 		dc.l LevelPointer_Null, DLE_SSLZ, LevelPointer_Null, LevelPointer_Null
 		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null
+		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
 
 ; WZ1
 		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss

@@ -41,6 +41,9 @@ Art_GhzFlower1:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flow
 Art_GhzFlower2:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flower Small.bin"
 	even
 
+Art_SslzWater:				binclude "Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ Waterfall.bin"
+	even
+
 Art_WzPoison1:				binclude "Levels/WZ/Animated Tiles/Uncompressed Art/WZ Poison Surface.bin"
 	even
 Art_WzPoison2:				binclude "Levels/WZ/Animated Tiles/Uncompressed Art/WZ Poison.bin"

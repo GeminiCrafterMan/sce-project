@@ -40,6 +40,7 @@
 		include	"Objects/Tension Bridge/Tension Bridge.asm"
 		include	"Objects/Conveyor Belt/Conveyor Belt.asm"
 		include "Objects/Smooth Palette/Smooth Palette.asm"
+		include "Objects/Decoration/Decoration.asm"
 
 ; ===========================================================================
 ; Levels objects data

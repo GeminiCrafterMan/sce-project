@@ -31,7 +31,7 @@ Obj_Index:
 		dc.l DeleteObject						; $19
 		dc.l DeleteObject						; $1A
 		dc.l DeleteObject						; $1B
-		dc.l DeleteObject						; $1C
+		dc.l Obj_Decoration						; $1C
 		dc.l DeleteObject						; $1D
 		dc.l DeleteObject						; $1E
 		dc.l Obj_Crabmeat						; $1F
@@ -76,7 +76,7 @@ Obj_Index:
 		dc.l DeleteObject						; $46
 		dc.l DeleteObject						; $47
 		dc.l DeleteObject						; $48
-		dc.l DeleteObject						; $49
+		dc.l Obj_Waterfall						; $49
 		dc.l DeleteObject						; $4A
 		dc.l DeleteObject						; $4B
 		dc.l DeleteObject						; $4C

@@ -15,7 +15,7 @@ Rock_Index:	dc.w Rock_Main-Rock_Index
 Rock_Main:	; Routine 0
 		addq.b	#2,obRoutine(a0)
 		move.l	#Map_PurpleRock,obMap(a0)
-		move.w	#$3D0,obGfx(a0)
+		move.w	#make_art_tile(ArtTile_PurpleRock,0,0),obGfx(a0)
 		move.b	#4,obRender(a0)
 		move.b	#$13,width_pixels(a0)
 		move.b	#$13,height_pixels(a0)

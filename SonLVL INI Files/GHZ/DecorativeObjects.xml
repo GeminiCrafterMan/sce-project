@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjDef xmlns="http://www.sonicretro.org" Namespace="S3KObjectDefinitions.GHZ" TypeName="Decorative Object" Language="cs" Name="Decorative Object" Image="stake">
+  <Images>
+    <ImageFromMappings id="stake">
+      <ArtFile filename="../Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.bin" compression="KosinskiM" />
+      <MapFile type="ASM" filename="../Objects/Tension Bridge/Object Data/Map - Tension Bridge.asm" frame="1" startpal="2" />
+    </ImageFromMappings>
+  </Images>
+  <Subtypes>
+    <Subtype id="00" image="stake" />
+  </Subtypes>
+</ObjDef>

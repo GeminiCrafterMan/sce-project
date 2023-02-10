@@ -491,6 +491,7 @@ Status_ObjDefeated		= 7
 ; Universal (used on all standard levels)
 ; ---------------------------------------------------------------------------
 
+ArtTile_LevelArt			= $000
 ArtTile_Spikes				= $484
 ArtTile_Spring				= $494
 ArtTile_Monitors			= $4CC
@@ -523,11 +524,17 @@ ArtTile_Bridge:				= $3C0
 
 ArtTile_EdgeWalls:			= $34C
 ArtTile_SmashableWalls:		= $3B0
-ArtTile_PurpleRock:			= $3D0
+ArtTile_PurpleRock:			= $3CB
 ArtTile_Crabmeat:			= $400
 ArtTile_BuzzBomber:			= $444
 ArtTile_Chopper:			= $50C
 ArtTile_Motobug:			= $52C
+
+; ---------------------------------------------------------------------------
+; Seaside Land Zone
+; ---------------------------------------------------------------------------
+
+ArtTile_SSLZWaterfall:		= ArtTile_PurpleRock+24
 
 ; ---------------------------------------------------------------------------
 ; VRAM data
