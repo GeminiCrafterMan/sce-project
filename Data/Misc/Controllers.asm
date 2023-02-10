@@ -11,14 +11,14 @@ Init_Controllers:
 		move.b	#$40,(HW_Port_2_Control).l
 		lea	(HW_Port_1_Data).l,a0
 		lea	(Six_button_flag).l,a1
-;		bsr.s	.read
-;		stopZ80
-;		stopZ802
-;		addq.w	#2,a0		; do the second	joypad
-;		addq.w	#1,a1		; do the second	joypad
-;		bsr.s	.read
-;		rts
-;	.read:
+		bsr.s	.read
+		lea	(HW_Port_2_Data).l,a0
+		lea	(Six_button_flag_2).l,a1
+		bsr.s	.read
+		startZ802
+		startZ80
+		rts
+	.read:
 	; set counter to 1 + TH high
 		move.b #$40,(a0)
 		nop ; bus synchronization
@@ -62,8 +62,6 @@ Init_Controllers:
 		move.b #$40,(a0) ; set TH high
 		nop ; bus synchronization
 		nop ; bus synchronization
-		startZ802
-		startZ80
 		rts
 ; ---------------------------------------------------------------------------
 ; Subroutine to read joypad input, and send it to the RAM
@@ -77,9 +75,9 @@ Poll_Controllers:
 		lea	(HW_Port_1_Data).l,a1
 		lea	(Six_button_flag).l,a2
 		bsr.s	.read
-		addq.w	#4,a0		; do the second joypad
-		addq.w	#2,a1		; do the second	joypad
-		addq.w	#1,a2		; do the second	joypad
+		lea	(Ctrl_2).w,a0 ; address where joypad states are written
+		lea	(HW_Port_2_Data).l,a1
+		lea	(Six_button_flag_2).l,a2
 ;		enable_ints
 	.read:
 	; set counter to 1 + TH high

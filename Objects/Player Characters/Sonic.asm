@@ -512,8 +512,8 @@ loc_10F22:
 ; =============== S U B R O U T I N E =======================================
 
 Sonic_MdNormal:
-		jsr		GetCtrlPressLogical_6btn
-		btst	#bitX,d0
+		jsr		GetCtrlPressLogical_6btn.d2
+		btst	#button_X,d2
 		beq.s	+
 		sfx		sfx_BubbleAttack
 +
