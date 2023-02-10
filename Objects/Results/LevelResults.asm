@@ -146,7 +146,7 @@ loc_2DC7E:
 		move.w	(Level_frame_counter).w,d0
 		andi.w	#3,d0
 		bne.s	locret_2DC9E
-		sfx	sfx_Switch,1								; Every four frames play the score countdown sound
+		sfx	sfx_ScoreTally,1								; Every four frames play the score countdown sound
 ; ---------------------------------------------------------------------------
 
 loc_2DCA0:
