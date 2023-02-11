@@ -214,7 +214,7 @@ loc_7B4EC:
 		btst	#3,objoff_38(a0)
 		bne.s	loc_7B520
 		move.l	#AniRaw_MechaSonic_Crouch,aniraw(a0)
-		move.l	#Obj_SSZEndBoss_Spindash,jump(a0)
+		move.l	#Obj_SSZEndBoss_Dash,jump(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -230,7 +230,7 @@ Obj_SSZEndBoss_Animate_RawMultiDelay:
 		jmp	(Animate_RawMultiDelay).l
 ; ---------------------------------------------------------------------------
 ; loc_7B544
-Obj_SSZEndBoss_Spindash:
+Obj_SSZEndBoss_Dash:
 		move.b	#$10,routine(a0)	; loc_7B5AC
 		move.w	#$820,d0
 		move.w	#-$20,d1
@@ -393,20 +393,21 @@ Obj_SSZEndBoss_Fall:
 		bmi.s	locret_7B70C
 		jsr	(ObjCheckFloorDist).l
 		tst.w	d1
-		bmi.s	Obj_SSZEndBoss_Land
-		beq.s	Obj_SSZEndBoss_Land
+		bmi.s	Obj_SSZEndBoss_Spindash
+		beq.s	Obj_SSZEndBoss_Spindash
 
 locret_7B70C:
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B70E
-Obj_SSZEndBoss_Land:
+Obj_SSZEndBoss_Spindash:
 		add.w	d1,y_pos(a0)
 		move.b	#$20,routine(a0)	; Obj_SSZEndBoss_AnimateAndWait
 		move.w	#$F,wait(a0)
 		move.l	#loc_7B754,jump(a0)
 		bset	#2,objoff_38(a0)
 		sfx		sfx_MechaLand
+		move.l	#AniRaw_MechaSonic_Spindash,aniraw(a0)
 		lea	ChildObjDat_7D480(pc),a2
 		jsr	(CreateChild6_Simple).l
 		bne.s	locret_7B70C
@@ -452,6 +453,7 @@ loc_7B790:
 loc_7B7A8:
 		move.w	d0,x_vel(a0)
 		move.w	d1,vram_art(a0)
+		move.l	#AniRaw_MechaSonic_RollFast,aniraw(a0)
 		sfx		sfx_MechaDash
 		rts
 ; ---------------------------------------------------------------------------
@@ -544,21 +546,21 @@ Obj_SSZEndBoss_SpindashRise:
 
 
 sub_7D3BE:
-		lea	word_7D3CC(pc),a1
-		lea	word_7D3D6(pc,d0.w),a2
+		lea	Obj_SSZEndBoss_FlashPalSlots(pc),a1
+		lea	Obj_SSZEndBoss_FlashPalColors(pc,d0.w),a2
 		jmp	(CopyWordData_5).l
 ; End of function sub_7D3BE
 
 ; ---------------------------------------------------------------------------
-word_7D3CC:
+Obj_SSZEndBoss_FlashPalSlots:
 	dc.w Normal_palette_line_2+$14
 	dc.w Normal_palette_line_2+$18
 	dc.w Normal_palette_line_2+$1A
 	dc.w Normal_palette_line_2+$1C
 	dc.w Normal_palette_line_2+$1E
-word_7D3D6:
-		dc.w   $008,  $A24,  $624,  $422,  $020
-		dc.w   $888,  $666,  $888,  $AAA,  $EEE
+Obj_SSZEndBoss_FlashPalColors:
+		dc.w   $228,  $E24,  $A24,  $622,  $422	; regular
+		dc.w   $888,  $666,  $888,  $AAA,  $EEE	; flashing
 ObjDat4_7D3EA:	dc.w 2
 		dc.w $A3F4
 		dc.w $28
@@ -870,6 +872,11 @@ AniRaw_MechaSonic_Block:
 		dc.b 0,   5
 ;		dc.b $FF, $F4
 		dc.b $F4	; all of his other animations do this instead...
+AniRaw_MechaSonic_Spindash:
+		dc.b  $18,   0
+		dc.b  $19,   0
+		dc.b  $1A,   0
+		dc.b  $FC
 	even
 
 ; ---------------------------------------------------------------------------
@@ -948,6 +955,11 @@ Obj_SSZEndBoss_CollisionTypes:
 	; block
 		dc.b 6
 		dc.b 6
+	; Spindash
+		dc.b $86
+		dc.b $86
+		dc.b $86
+	even
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -1054,7 +1066,7 @@ loc_7C964:
 		movea.w	parent3(a0),a1
 		btst	#6,objoff_38(a1)
 		jne		Delete_Current_Sprite
-		cmpi.w	#$E88,(Normal_palette_line_2+$8).w	; yes, it does check for a color. yes, it's dumb. no, i don't care.
+		cmpi.w	#$E66,(Normal_palette_line_2+$8).w	; yes, it does check for a color. yes, it's dumb. no, i don't care.
 		bne.w	locret_7B448
 		sfx		sfx_MechaSpark
 		moveq	#0,d0
@@ -1070,7 +1082,8 @@ loc_7C990:
 		jsr	Refresh_ChildPositionAdjusted
 		jmp	(Draw_Sprite).l
 ; ---------------------------------------------------------------------------
-word_7C9AA:	dc.w $FC0C
+word_7C9AA:
+		dc.w $FC0C
 		dc.b 4
 		dc.w 0
 		dc.b 8
@@ -1193,6 +1206,16 @@ word_7D280:
 		dc.w $10F6
 		dc.b $B4
 		dc.b 2
+	; spindash frames
+		dc.w 0
+		dc.b 0
+		dc.b 0
+		dc.w 0
+		dc.b 0
+		dc.b 0
+		dc.w 0
+		dc.b 0
+		dc.b 0
 
 loc_7B81A:
 		moveq	#0,d0

@@ -16,7 +16,7 @@ Obj_BridgeStake:
 		move.w	#make_art_tile(ArtTile_Bridge,2,0),art_tile(a0)
 		move.b	#1,mapping_frame(a0)
 		move.w	#bytes_to_word(8,16),height_pixels(a0)
-		move.w	#$200,priority(a0)
+		move.w	#$80,priority(a0)
 		ori.b	#4,render_flags(a0)
 		jmp		RememberState	; Do I really have to?
 

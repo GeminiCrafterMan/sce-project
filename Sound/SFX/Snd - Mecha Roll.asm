@@ -4,7 +4,7 @@ Sound_8E_Header:
 	smpsHeaderTempoSFX  $01
 	smpsHeaderChanSFX   $01
 
-	smpsHeaderSFXChannel cFM5, Sound_8E_FM5,	$B0, $04
+	smpsHeaderSFXChannel cFM5, Sound_8E_FM5,	-$10, $04
 
 ; FM5 Data
 Sound_8E_FM5:
