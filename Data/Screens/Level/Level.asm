@@ -193,6 +193,7 @@ SpawnLevelMainSprites:
 		dc.l	Obj_Mighty,		Obj_Tails	; M&T
 		dc.l	Obj_Tails,		Obj_Tails	; T&T
 		dc.l	Obj_Sonic,		Obj_Sonic	; S&S
+		dc.l	Obj_Espio,		DeleteObject; EA
 
 .cont:
 		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3).w
@@ -233,6 +234,7 @@ LoadPlayerPal:
 		dc.w	palid_Mighty	; M&T
 		dc.w	palid_Sonic		; T&T
 		dc.w	palid_Sonic		; S&S
+		dc.w	palid_Espio		; EA
 		even
 
 ; =============== S U B R O U T I N E =======================================

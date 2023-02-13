@@ -79,7 +79,7 @@ GetCtrlHeldLogical_6btn:
 Obj_Sonic:
 		; Load some addresses into registers
 		; This is done to allow some subroutines to be
-		; shared with Tails/Knuckles.
+		; shared with other characters.
 		lea	(Distance_from_screen_top).w,a5
 		cmpa.w	#Player_1,a0
 		bne.s	.p2
@@ -266,6 +266,7 @@ loc_10C0C:
 		dc.l	Tails_Control
 		dc.l	Knuckles_Control
 		dc.l	Mighty_Control
+		dc.l	Espio_Control
 
 	.cont:
 		movem.l	a4-a6,-(sp)
@@ -1457,8 +1458,10 @@ loc_11790:
 
 loc_1179A:
 		bset	#Status_Roll,status(a0)
-		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		move.b	#id_Roll,anim(a0)
+		cmpi.b	#c_Espio,character_id(a0)
+		beq.s	loc_117C2
+		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		addq.w	#5,y_pos(a0)
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	loc_117C2
@@ -1533,9 +1536,11 @@ loc_1182E:
 		move.b	default_x_radius(a0),x_radius(a0)
 		btst	#Status_Roll,status(a0)
 		bne.s	locret_118B2
-		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		move.b	#id_Roll,anim(a0)
 		bset	#Status_Roll,status(a0)
+		cmpi.b	#c_Espio,character_id(a0)
+		beq.s	locret_118B2
+		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		move.b	y_radius(a0),d0
 		sub.b	default_y_radius(a0),d0
 		ext.w	d0
@@ -1595,7 +1600,7 @@ Player_JumpHeight:
 		jmp		(a1)
 
 	.playerLUT:
-		dc.l	Sonic_InstaAndShieldMoves, Tails_Test_For_Flight, Knux_Test_For_Glide, Sonic_InstaAndShieldMoves
+		dc.l	Sonic_InstaAndShieldMoves, Tails_Test_For_Flight, Knux_Test_For_Glide, locret_118E8, locret_118E8
 
 locret_118E8:
 		rts
@@ -1851,8 +1856,10 @@ Player_UpdateSpindash:
 		bne.w	Player_ChargingSpindash
 
 	; unleash the charged spindash and start rolling quickly:
-		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		move.b	#id_Roll,anim(a0)
+		cmpi.b	#c_Espio,character_id(a0)
+		beq.s	.notReversed
+		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		addq.w	#5,y_pos(a0)
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	.notReversed
@@ -2762,7 +2769,7 @@ Animate_Player:
 		jmp		(a1)
 
 	.aniRoutLUT:
-		dc.l	Animate_Sonic, Animate_Tails, Animate_Knuckles, Animate_Mighty
+		dc.l	Animate_Sonic, Animate_Tails, Animate_Knuckles, Animate_Mighty, Animate_Espio
 
 Animate_Sonic:
 		lea	AniSonic(pc),a1
@@ -3247,9 +3254,9 @@ ReloadPlayerMaps:
 		rts
 
 	.mapLUT:
-		dc.l	Map_Sonic, Map_Tails, Map_Knuckles, Map_Mighty
+		dc.l	Map_Sonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
 	.superMapLUT:
-		dc.l	Map_SuperSonic, Map_Tails, Map_Knuckles, Map_Mighty
+		dc.l	Map_SuperSonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
 
 PlayerDPLCToA2:
 		moveq	#0,d1
@@ -3267,9 +3274,9 @@ PlayerDPLCToA2:
 		rts
 
 	.plcLUT:
-		dc.l	PLC_Sonic, PLC_Tails, PLC_Knuckles, PLC_Mighty
+		dc.l	PLC_Sonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
 	.superplcLUT:
-		dc.l	PLC_SuperSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty
+		dc.l	PLC_SuperSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
 
 PlayerArtToD6:
 		moveq	#0,d6
@@ -3287,9 +3294,9 @@ PlayerArtToD6:
 		rts
 
 	.artLUT:
-		dc.l	ArtUnc_Sonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1
+		dc.l	ArtUnc_Sonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
 	.superartLUT:
-		dc.l	ArtUnc_SuperSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1
+		dc.l	ArtUnc_SuperSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Sonic animation, mapping, and PLC data

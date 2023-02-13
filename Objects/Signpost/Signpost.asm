@@ -66,7 +66,7 @@ Obj_EndSignInit:
 .nothighpriority
 		move.w	a0,(Signpost_addr).w						; put RAM address here for use by hidden monitor object
 		move.w	#bytes_to_word(60/2,48/2),y_radius(a0)	; set y_radius and x_radius
-		move.l	#AniRaw_EndSigns1,$30(a0)
+		move.l	#AniRaw_EndSigns,aniraw(a0)
 		move.w	(Camera_Y_pos).w,d0
 		subi.w	#$20,d0
 		move.w	d0,y_pos(a0)								; place vertical position at top of screen
@@ -264,22 +264,14 @@ Child6_EndSignScore:
 		dc.l Obj_EnemyScore
 PLCPtr_EndSigns:
 		dc.l ArtUnc_EndSigns>>1, DPLC_EndSigns
-AniRaw_EndSigns1:
+AniRaw_EndSigns:
 		dc.b	1,   0
-		dc.b	5,   6
-		dc.b	7,   1
-		dc.b	5,   6
-		dc.b	7,   4
-		dc.b	5,   6
-		dc.b	7, arfEnd
-AniRaw_EndSigns2:
-		dc.b	1,   1
-		dc.b	5,   6
-		dc.b	7,   2
-		dc.b	5,   6
-		dc.b	7,   4
-		dc.b	5,   6
-		dc.b	7, arfEnd
+		dc.b	6,   7
+		dc.b	8,   1
+		dc.b	6,   7
+		dc.b	8,   5
+		dc.b	6,   7
+		dc.b	8, arfEnd
 AniRaw_SignpostSparkle:
 		dc.b	1,   1
 		dc.b	2,   3

@@ -41,6 +41,7 @@ Obj_LevelResultsInit:
 		dc.l	ArtKosM_ResultsTAILS
 		dc.l	ArtKosM_ResultsKNUCKLES
 		dc.l	ArtKosM_ResultsMIGHTY
+		dc.l	ArtKosM_ResultsESPIO
 
 	.cont:
 		move.w	#tiles_to_bytes($4D8),d2
@@ -200,6 +201,8 @@ Obj_LevResultsCharName:
 		dc.b	8
 		dc.b	-48
 		dc.b	-8
+		dc.b	0
+	even
 
 Obj_LevResultsGeneral:
 		bsr.s	LevelResults_MoveElement

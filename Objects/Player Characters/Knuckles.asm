@@ -1,8 +1,7 @@
-; TODO: fix dis shit
 Obj_Knuckles:
 		; Load some addresses into registers
 		; This is done to allow some subroutines to be
-		; shared with Sonic/Knuckles.
+		; shared with other characters.
 		lea	(Distance_from_screen_top).w,a5
 		cmpa.l	#Player_1,a0
 		bne.s	.p2

@@ -118,6 +118,21 @@ Obj_CabaretMighty:
 		move.b	#0,anim(a0)	; Waiting
 		bra.w	Obj_CabaretSonic.display
 
+; ---------------------------------------------------------------------------
+; Object - Espio on the menu
+; ---------------------------------------------------------------------------
+
+Obj_CabaretEspio:
+		move.l	#Map_CabaretSonic,mappings(a0)
+		move.w	#$100,priority(a0)
+		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
+		beq.s	.noMusic
+		move.b	#1,anim(a0)	; Snapping
+		bra.w	Obj_CabaretSonic.display
+	.noMusic:
+		move.b	#0,anim(a0)	; Waiting
+		bra.w	Obj_CabaretSonic.display
+
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Cabaret character animation, mapping, and PLC data

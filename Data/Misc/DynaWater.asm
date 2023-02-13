@@ -10,11 +10,11 @@
 
 loadWaterShift:
 		moveq	#0,d0
-        move.b  (Current_zone).w,d0
+		move.b	(Current_zone).w,d0
 		add.w	d0,d0
 		add.w	d0,d0
-        add.b   (Current_act).w,d0
-        add.w   d0,d0
+		add.b	(Current_act).w,d0
+		add.w	d0,d0
 		add.w	d0,d0
 		move.l	waterValTable(pc,d0.w),(waterValues).w
 		bra.w	updateWaterShift
@@ -22,27 +22,27 @@ loadWaterShift:
 ; ===========================================================================
 ; Per act version (Gotta be 4 acts because even (Also I'm sure it'd be more useful))
 waterValTable:	; Entry format: blue<<3, zero, red<<3, green<<3
-        ; DEZ
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        ; GHZ
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        ; SSLZ
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        ; WZ
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-        dc.b	0, 0, -$2<<3, -$2<<3
-    zonewarning waterValTable,(4*4)
+		; DEZ
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		; GHZ
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		; SSLZ
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		; WZ
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+	zonewarning waterValTable,(4*4)
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Updates water palette

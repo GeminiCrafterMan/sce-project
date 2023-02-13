@@ -6,6 +6,7 @@
 		include "Objects/Player Characters/Tails.asm"
 		include "Objects/Player Characters/Knuckles.asm"
 		include "Objects/Player Characters/Mighty.asm"
+		include "Objects/Player Characters/Espio.asm"
 		include "Objects/Spin Dust/SpinDust.asm"
 		include "Objects/Shields/Shields.asm"
 		include "Objects/Player Characters/Super and Hyper form objects.asm"

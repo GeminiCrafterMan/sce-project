@@ -52,6 +52,8 @@ ArtKosM_ResultsKNUCKLES:	binclude "Objects/Results/KosinskiM Art/Results KNUCKLE
 	even
 ArtKosM_ResultsMIGHTY:		binclude "Objects/Results/KosinskiM Art/Results MIGHTY.bin"
 	even
+ArtKosM_ResultsESPIO:		binclude "Objects/Results/KosinskiM Art/Results ESPIO.bin"
+	even
 ArtKosM_TitleCardNum1:		binclude "Objects/Title Card/KosinskiM Art/Title Card Number 1.bin"
 	even
 ArtKosM_TitleCardNum2:		binclude "Objects/Title Card/KosinskiM Art/Title Card Number 2.bin"

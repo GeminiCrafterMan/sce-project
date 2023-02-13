@@ -1,4 +1,4 @@
-Obj_Mighty:
+Obj_Espio:
 		; Load some addresses into registers
 		; This is done to allow some subroutines to be
 		; shared with other characters.
@@ -15,9 +15,9 @@ Obj_Mighty:
 
 	if GameDebug
 		cmpa.l	#Player_1,a0
-		bne.s	Mighty_Normal
+		bne.s	Espio_Normal
 		tst.w	(Debug_placement_mode).w
-		beq.s	Mighty_Normal
+		beq.s	Espio_Normal
 
 ; Debug only code
 		cmpi.b	#1,(Debug_placement_type).w	; Are Sonic in debug object placement mode?
@@ -27,23 +27,23 @@ Obj_Mighty:
 		beq.s	+
 		clr.w	(Debug_placement_mode).w	; Leave debug mode
 +		addq.b	#1,mapping_frame(a0)		; Next frame
-		cmpi.b	#frM_Last,mapping_frame(a0)	; Have we reached the end of Sonic's frames?
+		cmpi.b	#frE_Last,mapping_frame(a0)	; Have we reached the end of Sonic's frames?
 		blo.s		+
 		clr.b	mapping_frame(a0)	; If so, reset to Sonic's first frame
 +		jsr		Player_Load_PLC
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
-Mighty_Normal:
+Espio_Normal:
 	endif
 		moveq	#0,d0
 		move.b	routine(a0),d0
-		move.w	Mighty_Index(pc,d0.w),d1
-		jmp	Mighty_Index(pc,d1.w)
+		move.w	Espio_Index(pc,d0.w),d1
+		jmp	Espio_Index(pc,d1.w)
 ; ---------------------------------------------------------------------------
 
-Mighty_Index: offsetTable
-		offsetTableEntry.w Mighty_Init		; 0
+Espio_Index: offsetTable
+		offsetTableEntry.w Espio_Init		; 0
 		offsetTableEntry.w .control	; 2
 		offsetTableEntry.w .hurt		; 4
 		offsetTableEntry.w .death		; 6
@@ -58,47 +58,47 @@ Mighty_Index: offsetTable
 .drown:		jmp	Player_Drown
 ; ---------------------------------------------------------------------------
 
-Mighty_Init:	; Routine 0
+Espio_Init:	; Routine 0
 		addq.b	#2,routine(a0)				; => Obj01_Control
-		move.w	#bytes_to_word(38/2,18/2),y_radius(a0)	; set y_radius and x_radius	; this sets Mighty's collision height (2*pixels)
+		move.w	#bytes_to_word(38/2,18/2),y_radius(a0)	; set y_radius and x_radius	; this sets Espio's collision height (2*pixels)
 		move.w	#bytes_to_word(38/2,18/2),default_y_radius(a0)	; set default_y_radius and default_x_radius
-		move.l	#Map_Mighty,mappings(a0)
+		move.l	#Map_Espio,mappings(a0)
 		move.w	#$100,priority(a0)
 		move.w	#bytes_to_word(48/2,48/2),height_pixels(a0)		; set height and width
 		move.b	#4,render_flags(a0)
-		move.b	#c_Mighty,character_id(a0)
+		move.b	#c_Espio,character_id(a0)
 		jmp		Sonic_Init.branchPoint
 
-Mighty_Control:
+Espio_Control:
 		movem.l	a4-a6,-(sp)
 		moveq	#0,d0
 		move.b	status(a0),d0
 		andi.w	#6,d0
-		move.w	Mighty_Modes(pc,d0.w),d1
-		jsr	Mighty_Modes(pc,d1.w)	; run Mighty's movement control code
+		move.w	Espio_Modes(pc,d0.w),d1
+		jsr	Espio_Modes(pc,d1.w)	; run Espio's movement control code
 		movem.l	(sp)+,a4-a6
 		jmp		loc_10C26
 
 ; ---------------------------------------------------------------------------
 ; secondary states under state Player_Control
-Mighty_Modes: offsetTable
-		offsetTableEntry.w Mighty_MdNormal		; 0
-		offsetTableEntry.w Mighty_MdAir			; 2
-		offsetTableEntry.w Mighty_MdRoll		; 4
-		offsetTableEntry.w Mighty_MdJump		; 6
+Espio_Modes: offsetTable
+		offsetTableEntry.w Espio_MdNormal		; 0
+		offsetTableEntry.w Espio_MdAir			; 2
+		offsetTableEntry.w Espio_MdRoll		; 4
+		offsetTableEntry.w Espio_MdJump		; 6
 ; ---------------------------------------------------------------------------
-Mighty_MdNormal:	jmp	Sonic_MdNormal
-Mighty_MdAir:		jmp	Sonic_MdAir
-Mighty_MdRoll:		jmp	Sonic_MdRoll
-Mighty_MdJump:		jmp	Sonic_MdJump
+Espio_MdNormal:	jmp	Sonic_MdNormal
+Espio_MdAir:		jmp	Sonic_MdAir
+Espio_MdRoll:		jmp	Sonic_MdRoll
+Espio_MdJump:		jmp	Sonic_MdJump
 
-Animate_Mighty:
-		lea	AniMighty(pc),a1
+Animate_Espio:
+		lea	AniEspio(pc),a1
 ;		tst.b	(Super_Sonic_Knux_flag).w
-;		beq.s	Animate_Mighty_Part2
-;		lea	(AniSuperMighty).l,a1
+;		beq.s	Animate_Espio_Part2
+;		lea	(AniSuperEspio).l,a1
 ;
-;Animate_Mighty_Part2:
+;Animate_Espio_Part2:
 		moveq	#0,d0
 		move.b	anim(a0),d0
 		cmp.b	prev_anim(a0),d0
@@ -208,13 +208,13 @@ Animate_Mighty:
 
 .loc_1270A:
 		; there WAS a super check here, but i don't care...
-		lea	MtyAni_Mach(pc),a1	; use mach speed animation
+		lea	EspAni_Mach(pc),a1	; use mach speed animation
 		cmpi.w	#$A00,d2
 		bcc.s	.loc_12724
-		lea	MtyAni_Run(pc),a1 	; use running	animation
+		lea	EspAni_Run(pc),a1 	; use running	animation
 		cmpi.w	#$600,d2
 		bcc.s	.loc_12724
-		lea	MtyAni_Walk(pc),a1 	; use walking animation
+		lea	EspAni_Walk(pc),a1 	; use walking animation
 		add.b	d0,d0
 
 .loc_12724:
@@ -271,7 +271,7 @@ Animate_Mighty:
 
 .loc_1280A:
 		divu.w	#$16,d0
-		addi.b	#frM_TumbleWalk1,d0
+		addi.b	#frE_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
@@ -283,17 +283,17 @@ Animate_Mighty:
 		neg.b	d0
 		addi.b	#$8F,d0
 		divu.w	#$16,d0
-		addi.b	#frM_TumbleWalk1,d0
+		addi.b	#frE_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
 .byte_1286E:
-		dc.b frM_Null
-		dc.b frM_TumbleStand1
-		dc.b frM_TumbleHCylinder1
-		dc.b frM_TumbleHCylinder1
+		dc.b frE_Null
+		dc.b frE_TumbleStand1
+		dc.b frE_TumbleHCylinder1
+		dc.b frE_TumbleHCylinder1
 ; ---------------------------------------------------------------------------
 
 .loc_12872:
@@ -404,7 +404,7 @@ Animate_Mighty:
 
 .loc_129A8:
 		divu.w	#$16,d0
-		addi.b	#frM_TumbleWalk1,d0
+		addi.b	#frE_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
@@ -427,7 +427,7 @@ Animate_Mighty:
 
 .loc_129E2:
 		divu.w	#$16,d0
-		addi.b	#frM_TumbleWalk1,d0
+		addi.b	#frE_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
@@ -445,40 +445,60 @@ Animate_Mighty:
 .loc_12A12:
 		addi.b	#$B,d0
 		divu.w	#$16,d0
-		addi.b	#frM_TumbleWalk1,d0
+		addi.b	#frE_TumbleWalk1,d0
 		move.b	d0,mapping_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
 .loc_12A2A:
-		move.b	status(a0),d1
-		andi.b	#1,d1
-		andi.b	#-4,render_flags(a0)
-		or.b	d1,render_flags(a0)
-		subq.b	#1,anim_frame_timer(a0)
-		bpl.w	.Delay
-		move.w	ground_vel(a0),d2
-		bpl.s	.loc_12A4C
-		neg.w	d2
+		subq.b	#1,anim_frame_timer(a0) ; subtract 1 from frame duration
+		bpl.w	.Delay			; if time remains, branch
+		moveq	#0,d1
+		move.b	angle(a0),d0	; get Espio's angle
+		move.b	status(a0),d2
+		andi.b	#1,d2		; is Espio mirrored horizontally?
+		bne.s	.flip		; if yes, branch
+		not.b	d0		; reverse angle
 
-.loc_12A4C:
-		add.w	(HScroll_Shift).w,d2
-		lea	MtyAni_Roll2(pc),a1
+.flip:
+		addi.b	#$10,d0		; add $10 to angle
+		bpl.s	.noinvert	; if angle is $0-$7F, branch
+		moveq	#3,d1
+
+.noinvert:
+		andi.b	#-4,render_flags(a0)
+		eor.b	d1,d2
+		or.b	d2,render_flags(a0)
+
+		lsr.b	#4,d0		; divide angle by $10
+		andi.b	#6,d0		; angle	must be	0, 2, 4	or 6
+		mvabs.w	x_vel(a0),d2 ; get Espio's speed
+;		add.w	(HScroll_Shift).w,d2
+		lea	EspAni_Spin2(pc),a1
 		cmpi.w	#$600,d2
 		bcc.s	.loc_12A5E
-		lea	MtyAni_Roll(pc),a1
+
+		lea	EspAni_Spin(pc),a1
 
 .loc_12A5E:
+		move.b	d0,d1
+		lsr.b	#1,d1
+		add.b	d1,d0
+
+		add.b	d0,d0
+		move.b	d0,d3
 		neg.w	d2
 		addi.w	#$400,d2
-		bpl.s	.loc_12A68
-		moveq	#0,d2
+		bpl.s	.belowmax
+		moveq	#0,d2		; max animation speed
 
-.loc_12A68:
+.belowmax:
 		lsr.w	#8,d2
 		move.b	d2,anim_frame_timer(a0)
-		bra.w	.Do2
+		bsr.w	.Do2
+		add.b	d3,mapping_frame(a0)	; modify frame number
+		rts	
 ; ---------------------------------------------------------------------------
 
 .Push:
@@ -496,14 +516,14 @@ Animate_Mighty:
 .loc_12A8A:
 		lsr.w	#6,d2
 		move.b	d2,anim_frame_timer(a0)
-		lea	MtyAni_Push(pc),a1
+		lea	EspAni_Push(pc),a1
 		bra.w	.Do2
 
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
-; Mighty animation, mapping, and PLC data
+; Espio animation, mapping, and PLC data
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Player Characters/Object Data/Anim - Mighty.asm"
-		include "Objects/Player Characters/Object Data/Map - Mighty.asm"
-		include "Objects/Player Characters/Object Data/Mighty pattern load cues.asm"
+		include "Objects/Player Characters/Object Data/Anim - Espio.asm"
+		include "Objects/Player Characters/Object Data/Map - Espio.asm"
+		include "Objects/Player Characters/Object Data/Espio pattern load cues.asm"

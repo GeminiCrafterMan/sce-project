@@ -21,7 +21,8 @@ Map_Results:
 		dc.w Results_Sonic-Map_Results		; 13	; Sonic
 		dc.w Results_Tails-Map_Results		; 14	; Tails
 		dc.w Results_Knuckles-Map_Results	; 15	; Knuckles
-		dc.w Results_Mighty-Map_Results		; 16	; Sonic
+		dc.w Results_Mighty-Map_Results		; 16	; Mighty
+		dc.w Results_Sonic-Map_Results		; 17	; Espio (Reuses Sonic's because same length)
 word_2F2E0:
 		dc.w 0
 word_2F2E2:

@@ -222,6 +222,7 @@ LevelSelect_LoadLevel_CharacterSwitcher:
 		dc.l	Obj_CabaretMighty,	Obj_CabaretTails,	Pal_Mighty	; M&T	; 72, 76, 80
 		dc.l	Obj_CabaretTails,	Obj_CabaretTails,	Pal_Sonic	; T&T
 		dc.l	Obj_CabaretSonic,	Obj_CabaretSonic,	Pal_Sonic	; S&S
+		dc.l	Obj_CabaretEspio,	DeleteObject,		Pal_Espio	; EA
 	.ret:
 		rts
 
