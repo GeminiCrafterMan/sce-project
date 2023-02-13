@@ -1,5 +1,6 @@
 desktop.ini
-*.gen
+Sonic.gen
+Sonic.prev.gen
 *.lst
 *.log
 *.[ph]
