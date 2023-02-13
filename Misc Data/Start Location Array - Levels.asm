@@ -3,11 +3,6 @@
 ; ===========================================================================
 
 StartLocArray:
-		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 1
-		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 2
-		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 3
-		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 4
-
 		binclude "Levels/GHZ/Start Location/1.bin"	; GHZ 1
 		binclude "Levels/GHZ/Start Location/1.bin"	; GHZ 2
 		binclude "Levels/GHZ/Start Location/1.bin"	; GHZ 3
@@ -22,5 +17,15 @@ StartLocArray:
 		binclude "Levels/WZ/Start Location/1.bin"	; WZ 2
 		binclude "Levels/WZ/Start Location/1.bin"	; WZ 3
 		binclude "Levels/WZ/Start Location/1.bin"	; WZ 4
+
+		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 1
+		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 2
+		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 3
+		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 4
+
+		binclude "Levels/TTZ/Start Location/1.bin"	; TTZ 1
+		binclude "Levels/TTZ/Start Location/1.bin"	; TTZ 2
+		binclude "Levels/TTZ/Start Location/1.bin"	; TTZ 3
+		binclude "Levels/TTZ/Start Location/1.bin"	; TTZ 4
 
 		zonewarning StartLocArray,(4*4)

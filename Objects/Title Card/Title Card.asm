@@ -269,10 +269,11 @@ ObjArray_TtlCardBonus:
 ; Exception: ENOZ>ZONE. These letters are already in VRAM.
 
 TitleCard_LevelGfx:
-		dc.l ArtKosM_DEZTitleCard	; DEZ
 		dc.l ArtKosM_GHZTitleCard	; GHZ
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
 		dc.l ArtKosM_WZTitleCard	; WZ
+		dc.l ArtKosM_DEZTitleCard	; DEZ
+		dc.l ArtKosM_TTZTitleCard	; TTZ
 
 		zonewarning TitleCard_LevelGfx,4
 ; ---------------------------------------------------------------------------

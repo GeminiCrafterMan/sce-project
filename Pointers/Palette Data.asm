@@ -13,13 +13,15 @@ Pal_Espio:			binclude "Objects/Player Characters/Palettes/Espio.bin"
 Pal_LevelSelect:	binclude "Data/Screens/Level Select/Palettes/1.bin"
 	even
 
-Pal_DEZ:			binclude "Levels/DEZ/Palettes/Death Egg Zone.bin"
-	even
 Pal_GHZ:			binclude "Levels/GHZ/Palettes/Green Hill Zone.bin"
 	even
 Pal_SSLZ:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone.bin"
 	even
-Pal_WZ:			binclude "Levels/WZ/Palettes/Wood Zone.bin"
+Pal_WZ:				binclude "Levels/WZ/Palettes/Wood Zone.bin"
+	even
+Pal_DEZ:			binclude "Levels/DEZ/Palettes/Death Egg Zone.bin"
+	even
+Pal_TTZ:			binclude "Levels/TTZ/Palettes/Techno Test Zone.bin"
 	even
 ; ===========================================================================
 ; Dynamic palette

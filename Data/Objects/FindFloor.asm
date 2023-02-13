@@ -1534,9 +1534,6 @@ GetAngleArray:
 		rts
 	ZoneAngleArrays:
 	rept 4
-		dc.l	S1AngleArray	; DEZ
-	endr
-	rept 4
 		dc.l	S1AngleArray	; GHZ
 	endr
 	rept 4
@@ -1544,6 +1541,12 @@ GetAngleArray:
 	endr
 	rept 4
 		dc.l	S3KAngleArray	; WZ
+	endr
+	rept 4
+		dc.l	S1AngleArray	; DEZ
+	endr
+	rept 4
+		dc.l	S1AngleArray	; TTZ
 	endr
 	zonewarning ZoneAngleArrays,(4*4)
 
@@ -1557,9 +1560,6 @@ GetHeightMaps:
 		rts
 	ZoneHeightMaps:
 	rept 4
-		dc.l	S1HeightMaps	; DEZ
-	endr
-	rept 4
 		dc.l	S1HeightMaps	; GHZ
 	endr
 	rept 4
@@ -1567,6 +1567,12 @@ GetHeightMaps:
 	endr
 	rept 4
 		dc.l	S3KHeightMaps	; WZ
+	endr
+	rept 4
+		dc.l	S1HeightMaps	; DEZ
+	endr
+	rept 4
+		dc.l	S1HeightMaps	; TTZ
 	endr
 	zonewarning ZoneHeightMaps,(4*4)
 
@@ -1580,9 +1586,6 @@ GetHeightMapsRot:
 		rts
 	ZoneHeightMapsRot:
 	rept 4
-		dc.l	S1HeightMapsRot	; DEZ
-	endr
-	rept 4
 		dc.l	S1HeightMapsRot	; GHZ
 	endr
 	rept 4
@@ -1590,5 +1593,11 @@ GetHeightMapsRot:
 	endr
 	rept 4
 		dc.l	S3KHeightMapsRot	; WZ
+	endr
+	rept 4
+		dc.l	S1HeightMapsRot	; DEZ
+	endr
+	rept 4
+		dc.l	S1HeightMapsRot	; TTZ
 	endr
 	zonewarning ZoneHeightMapsRot,(4*4)

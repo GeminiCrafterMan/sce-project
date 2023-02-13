@@ -22,11 +22,6 @@ loadWaterShift:
 ; ===========================================================================
 ; Per act version (Gotta be 4 acts because even (Also I'm sure it'd be more useful))
 waterValTable:	; Entry format: blue<<3, zero, red<<3, green<<3
-		; DEZ
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
 		; GHZ
 		dc.b	0, 0, -$2<<3, -$2<<3
 		dc.b	0, 0, -$2<<3, -$2<<3
@@ -38,6 +33,16 @@ waterValTable:	; Entry format: blue<<3, zero, red<<3, green<<3
 		dc.b	0, 0, -$2<<3, -$2<<3
 		dc.b	0, 0, -$2<<3, -$2<<3
 		; WZ
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		; DEZ
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		dc.b	0, 0, -$2<<3, -$2<<3
+		; TTZ
 		dc.b	0, 0, -$2<<3, -$2<<3
 		dc.b	0, 0, -$2<<3, -$2<<3
 		dc.b	0, 0, -$2<<3, -$2<<3

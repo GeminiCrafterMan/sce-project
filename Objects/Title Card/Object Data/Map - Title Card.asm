@@ -3,10 +3,11 @@ Map_TitleCard:
 		dc.w word_2EE3C-Map_TitleCard	; Red ACT
 		dc.w TCard_ACT-Map_TitleCard	; ACT
 		dc.w TCard_ZONE-Map_TitleCard	; ZONE
-		dc.w TCard_DEZ-Map_TitleCard	; DEATH EGG
 		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
 		dc.w TCard_SSLZ-Map_TitleCard	; SEASIDE LAND
 		dc.w TCard_WZ-Map_TitleCard		; WOOD
+		dc.w TCard_DEZ-Map_TitleCard	; DEATH EGG
+		dc.w TCard_TTZ-Map_TitleCard	; TECHNO TEST
 ; Some instructions for title card letters.
 ;
 ; First value: Always zero.
@@ -46,17 +47,6 @@ TCard_ZONE:
 		dc.b	0,  $A, $84, $A8, $FF, $EC		; O
 		dc.b	0, 6, $84, $A2, 0, 4			; N
 		dc.b	0, 6, $84, $9C, 0, $14			; E
-TCard_DEZ:
-		dc.w 8
-		dc.b	0, 6, $84, $D3, $FF, $F8		; D
-		dc.b	0, 6, $84, $9C, 0, 8			; E
-		dc.b	0, 6, $84, $CD, 0, $18			; A
-		dc.b	0, 6, $84, $E5, 0, $28			; T
-		dc.b	0, 6, $84, $DF, 0, $38			; H
-
-		dc.b	0, 6, $84, $9C, 0, $50			; E
-		dc.b	0, 6, $84, $D9, 0, $60			; G
-		dc.b	0, 6, $84, $D9, 0, $70			; G
 TCard_GHZ:
 		dc.w 9	; nine letters
 		dc.b $0, $6, $84, $CD, $FF, $F8			; G
@@ -89,4 +79,28 @@ TCard_WZ:
 		dc.b $0, $A, $84, $A8, $0, $20			; O
 		dc.b $0, $A, $84, $A8, $0, $38			; O
 		dc.b $0, $6, $84, $D6, $0, $50			; D
+TCard_DEZ:
+		dc.w 8
+		dc.b	0, 6, $84, $D3, $FF, $F8		; D
+		dc.b	0, 6, $84, $9C, 0, 8			; E
+		dc.b	0, 6, $84, $CD, 0, $18			; A
+		dc.b	0, 6, $84, $E5, 0, $28			; T
+		dc.b	0, 6, $84, $DF, 0, $38			; H
+
+		dc.b	0, 6, $84, $9C, 0, $50			; E
+		dc.b	0, 6, $84, $D9, 0, $60			; G
+		dc.b	0, 6, $84, $D9, 0, $70			; G
+TCard_TTZ:
+		dc.w 10
+		dc.b	0, 6, $84, $CD, $FF, $E0		; T
+		dc.b	0, 6, $84, $9C, $FF, $F0		; E
+		dc.b	0, 6, $84, $D3, 0,     0		; C
+		dc.b	0, 6, $84, $D9, 0,   $10		; H
+		dc.b	0, 6, $84, $A2, 0,   $20		; N
+		dc.b    0,$A, $84, $A8, 0,   $30		; O
+
+		dc.b	0, 6, $84, $CD, 0,   $50		; T
+		dc.b	0, 6, $84, $9C, 0,   $60		; E
+		dc.b	0, 6, $84, $DF, 0,   $70		; S
+		dc.b	0, 6, $84, $CD, 0,   $80		; T
 		even

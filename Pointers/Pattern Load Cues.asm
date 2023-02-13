@@ -4,15 +4,6 @@
 
 Offs_PLC: offsetTable
 
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
-
 		offsetTableEntry.w PLC1_GHZ_Misc
 		offsetTableEntry.w PLC2_GHZ_Enemy
 		offsetTableEntry.w PLC1_GHZ_Misc
@@ -39,6 +30,24 @@ Offs_PLC: offsetTable
 		offsetTableEntry.w PLC2_WZ_Enemy
 		offsetTableEntry.w PLC1_WZ_Misc
 		offsetTableEntry.w PLC2_WZ_Enemy
+
+		offsetTableEntry.w PLC1_DEZ_Misc
+		offsetTableEntry.w PLC2_DEZ_Enemy
+		offsetTableEntry.w PLC1_DEZ_Misc
+		offsetTableEntry.w PLC2_DEZ_Enemy
+		offsetTableEntry.w PLC1_DEZ_Misc
+		offsetTableEntry.w PLC2_DEZ_Enemy
+		offsetTableEntry.w PLC1_DEZ_Misc
+		offsetTableEntry.w PLC2_DEZ_Enemy
+
+		offsetTableEntry.w PLC1_DEZ_Misc
+		offsetTableEntry.w PLC2_DEZ_Enemy
+		offsetTableEntry.w PLC1_DEZ_Misc
+		offsetTableEntry.w PLC2_DEZ_Enemy
+		offsetTableEntry.w PLC1_DEZ_Misc
+		offsetTableEntry.w PLC2_DEZ_Enemy
+		offsetTableEntry.w PLC1_DEZ_Misc
+		offsetTableEntry.w PLC2_DEZ_Enemy
 
 		zonewarning Offs_PLC,(4*4)
 

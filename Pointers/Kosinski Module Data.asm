@@ -77,22 +77,15 @@ ArtKosM_LevelSelectText:	binclude "Data/Screens/Level Select/KosinskiM Art/Text.
 ; Kosinski Module compressed title card graphics
 ; ===========================================================================
 
-ArtKosM_DEZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/DEZ - Title Card.bin"
-	even
 ArtKosM_GHZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/GHZ - Title Card.bin"
 	even
 ArtKosM_SSLZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/SSLZ - Title Card.bin"
 	even
 ArtKosM_WZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/WZ - Title Card.bin"
 	even
-
-; ===========================================================================
-; Kosinski Module compressed DEZ graphics
-; ===========================================================================
-
-ArtKosM_Spikebonker:		binclude "Objects/Spikebonker/KosinskiM Art/Spikebonker.bin"
+ArtKosM_DEZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/DEZ - Title Card.bin"
 	even
-ArtKosM_BataPyon:			binclude "Objects/Bata-pyon/KosinskiM Art/Bata-pyon.bin"
+ArtKosM_TTZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/TTZ - Title Card.bin"
 	even
 
 ; ===========================================================================
@@ -127,6 +120,21 @@ ArtKosM_SSLZPurpleRock:		binclude "Objects/Purple Rock/KosinskiM Art/Purple Rock
 
 ; ===========================================================================
 ; Kosinski Module compressed WZ graphics
+; ===========================================================================
+
+; shit goes here
+
+; ===========================================================================
+; Kosinski Module compressed DEZ graphics
+; ===========================================================================
+
+ArtKosM_Spikebonker:		binclude "Objects/Spikebonker/KosinskiM Art/Spikebonker.bin"
+	even
+ArtKosM_BataPyon:			binclude "Objects/Bata-pyon/KosinskiM Art/Bata-pyon.bin"
+	even
+
+; ===========================================================================
+; Kosinski Module compressed TTZ graphics
 ; ===========================================================================
 
 ; shit goes here

@@ -8,10 +8,11 @@ LevelSelect_VRAM:				= 480
 
 ; Variables
 LevelSelect_ZoneCount:			= ZoneCount
-LevelSelect_ActDEZCount:			= 4	; DEZ
 LevelSelect_ActGHZCount:			= 1	; GHZ
 LevelSelect_ActSSLZCount:			= 1	; SSLZ
 LevelSelect_ActWZCount:			= 1	; WZ
+LevelSelect_ActDEZCount:			= 4	; DEZ
+LevelSelect_ActTTZCount:			= 4	; TTZ
 LevelSelect_MusicTestCount:		= 8
 LevelSelect_SoundTestCount:		= LevelSelect_MusicTestCount+1
 LevelSelect_SampleTestCount:		= LevelSelect_SoundTestCount+1
@@ -153,10 +154,11 @@ LevelSelect_LoadLevel_Return:
 ; ---------------------------------------------------------------------------
 
 LevelSelect_LoadMaxActs:
-		dc.w LevelSelect_ActDEZCount-1	; DEZ
 		dc.w LevelSelect_ActGHZCount-1	; GHZ
 		dc.w LevelSelect_ActSSLZCount-1	; SSLZ
 		dc.w LevelSelect_ActWZCount-1	; WZ
+		dc.w LevelSelect_ActDEZCount-1	; DEZ
+		dc.w LevelSelect_ActTTZCount-1	; TTZ
 
 		zonewarning LevelSelect_LoadMaxActs,2
 
@@ -413,10 +415,6 @@ LevelSelect_LoadMainText:
 ; --------------------------------------------------------------------------
 
 LevelSelect_ActTextIndex: offsetTable
-		offsetTableEntry.w LevelSelect_LoadAct1		; DEZ1
-		offsetTableEntry.w LevelSelect_LoadAct2		; DEZ2
-		offsetTableEntry.w LevelSelect_LoadAct3		; DEZ3
-		offsetTableEntry.w LevelSelect_LoadAct4		; DEZ4
 		offsetTableEntry.w LevelSelect_LoadAct1		; GHZ1
 		offsetTableEntry.w LevelSelect_LoadAct2		; GHZ2
 		offsetTableEntry.w LevelSelect_LoadAct3		; GHZ3
@@ -429,6 +427,14 @@ LevelSelect_ActTextIndex: offsetTable
 		offsetTableEntry.w LevelSelect_LoadAct2		; WZ2
 		offsetTableEntry.w LevelSelect_LoadAct3		; WZ3
 		offsetTableEntry.w LevelSelect_LoadAct4		; WZ4
+		offsetTableEntry.w LevelSelect_LoadAct1		; DEZ1
+		offsetTableEntry.w LevelSelect_LoadAct2		; DEZ2
+		offsetTableEntry.w LevelSelect_LoadAct3		; DEZ3
+		offsetTableEntry.w LevelSelect_LoadAct4		; DEZ4
+		offsetTableEntry.w LevelSelect_LoadAct1		; TTZ1
+		offsetTableEntry.w LevelSelect_LoadAct2		; TTZ2
+		offsetTableEntry.w LevelSelect_LoadAct3		; TTZ3
+		offsetTableEntry.w LevelSelect_LoadAct4		; TTZ4
 
 		zonewarning LevelSelect_ActTextIndex,(2*4)
 ; --------------------------------------------------------------------------
@@ -610,11 +616,11 @@ LevelSelect_MappingOffsets:
 		dc.w planeLocH28(0,24)
 		dc.w planeLocH28(0,26)
 LevelSelect_Text:
-		levselstr " DEATH EGG          - ACT 1             "
 		levselstr " GREEN HILL         - ACT 1             "
 		levselstr " SEASIDE LAND       - ACT 1             "
 		levselstr " WOOD               - ACT 1             "
-		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " DEATH EGG          - ACT 1             "
+		levselstr " TECHNO TEST        - ACT 1             "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "

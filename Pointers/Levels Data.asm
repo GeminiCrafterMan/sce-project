@@ -4,10 +4,6 @@
 
 		;		1st 8x8 data		1st 16x16 data		1st 128x128 data	palette
 LevelLoadBlock:
-		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ1
-		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ2
-		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ3
-		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ4
 		levartptrs GHZ_8x8_KosM, GHZ_16x16_Unc, GHZ_128x128_Kos, palid_GHZ		; GHZ1
 		levartptrs GHZ_8x8_KosM, GHZ_16x16_Unc, GHZ_128x128_Kos, palid_GHZ		; GHZ2
 		levartptrs GHZ_8x8_KosM, GHZ_16x16_Unc, GHZ_128x128_Kos, palid_GHZ		; GHZ3
@@ -20,6 +16,14 @@ LevelLoadBlock:
 		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ2
 		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ3
 		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ4
+		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ1
+		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ2
+		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ3
+		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ4
+		levartptrs TTZ_8x8_KosM, TTZ_16x16_Unc, TTZ_128x128_Kos, palid_TTZ		; TTZ1
+		levartptrs TTZ_8x8_KosM, TTZ_16x16_Unc, TTZ_128x128_Kos, palid_TTZ		; TTZ2
+		levartptrs TTZ_8x8_KosM, TTZ_16x16_Unc, TTZ_128x128_Kos, palid_TTZ		; TTZ3
+		levartptrs TTZ_8x8_KosM, TTZ_16x16_Unc, TTZ_128x128_Kos, palid_TTZ		; TTZ4
 
 		zonewarning LevelLoadBlock,(12*4)
 
@@ -28,26 +32,6 @@ LevelLoadBlock:
 ; ===========================================================================
 
 LevelLoadPointer:
-
-; DEZ1
-		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
-		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ											; Animate tiles main code, Animate tiles PLC scripts
-
-; DEZ2
-		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
-
-; DEZ3
-		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
-
-; DEZ4
-		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
 
 ; GHZ1
 		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
@@ -109,6 +93,46 @@ LevelLoadPointer:
 		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
 		dc.l WZ_DoAniPLC, AniPLC_WZ
 
+; DEZ1
+		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
+		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ											; Animate tiles main code, Animate tiles PLC scripts
+
+; DEZ2
+		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
+
+; DEZ3
+		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
+
+; DEZ4
+		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
+
+; TTZ1
+		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
+		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null											; Animate tiles main code, Animate tiles PLC scripts
+
+; TTZ2
+		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null
+
+; TTZ3
+		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null
+
+; TTZ4
+		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null
+
 		zonewarning LevelLoadPointer,(40*4)
 
 ; ===========================================================================
@@ -116,10 +140,6 @@ LevelLoadPointer:
 ; ===========================================================================
 
 SolidIndexes:
-		dc.l DEZ1_Solid		; DEZ1
-		dc.l DEZ1_Solid		; DEZ2
-		dc.l DEZ1_Solid		; DEZ3
-		dc.l DEZ1_Solid		; DEZ4
 		dc.l GHZ1_Solid		; GHZ1
 		dc.l GHZ1_Solid		; GHZ2
 		dc.l GHZ1_Solid		; GHZ3
@@ -132,6 +152,14 @@ SolidIndexes:
 		dc.l WZ1_Solid		; WZ2
 		dc.l WZ1_Solid		; WZ3
 		dc.l WZ1_Solid		; WZ4
+		dc.l DEZ1_Solid		; DEZ1
+		dc.l DEZ1_Solid		; DEZ2
+		dc.l DEZ1_Solid		; DEZ3
+		dc.l DEZ1_Solid		; DEZ4
+		dc.l TTZ1_Solid		; TTZ1
+		dc.l TTZ1_Solid		; TTZ2
+		dc.l TTZ1_Solid		; TTZ3
+		dc.l TTZ1_Solid		; TTZ4
 
 		zonewarning SolidIndexes,(4*4)
 
@@ -140,10 +168,6 @@ SolidIndexes:
 ; ===========================================================================
 
 LevelPtrs:
-		dc.l DEZ1_Layout		; DEZ1
-		dc.l DEZ1_Layout		; DEZ2
-		dc.l DEZ1_Layout		; DEZ3
-		dc.l DEZ1_Layout		; DEZ4
 		dc.l GHZ1_Layout		; GHZ1
 		dc.l GHZ1_Layout		; GHZ2
 		dc.l GHZ1_Layout		; GHZ3
@@ -156,6 +180,14 @@ LevelPtrs:
 		dc.l WZ1_Layout		; WZ2
 		dc.l WZ1_Layout		; WZ3
 		dc.l WZ1_Layout		; WZ4
+		dc.l DEZ1_Layout		; DEZ1
+		dc.l DEZ1_Layout		; DEZ2
+		dc.l DEZ1_Layout		; DEZ3
+		dc.l DEZ1_Layout		; DEZ4
+		dc.l TTZ1_Layout		; TTZ1
+		dc.l TTZ1_Layout		; TTZ2
+		dc.l TTZ1_Layout		; TTZ3
+		dc.l TTZ1_Layout		; TTZ4
 
 		zonewarning LevelPtrs,(4*4)
 
@@ -164,10 +196,6 @@ LevelPtrs:
 ; ===========================================================================
 
 SpriteLocPtrs:
-		dc.l DEZ1_Sprites		; DEZ1
-		dc.l DEZ1_Sprites		; DEZ2
-		dc.l DEZ1_Sprites		; DEZ3
-		dc.l DEZ1_Sprites		; DEZ4
 		dc.l GHZ1_Sprites		; GHZ1
 		dc.l GHZ1_Sprites		; GHZ2
 		dc.l GHZ1_Sprites		; GHZ3
@@ -180,6 +208,14 @@ SpriteLocPtrs:
 		dc.l WZ1_Sprites		; WZ2
 		dc.l WZ1_Sprites		; WZ3
 		dc.l WZ1_Sprites		; WZ4
+		dc.l DEZ1_Sprites		; DEZ1
+		dc.l DEZ1_Sprites		; DEZ2
+		dc.l DEZ1_Sprites		; DEZ3
+		dc.l DEZ1_Sprites		; DEZ4
+		dc.l TTZ1_Sprites		; TTZ1
+		dc.l TTZ1_Sprites		; TTZ2
+		dc.l TTZ1_Sprites		; TTZ3
+		dc.l TTZ1_Sprites		; TTZ4
 
 		zonewarning SpriteLocPtrs,(4*4)
 
@@ -188,10 +224,6 @@ SpriteLocPtrs:
 ; ===========================================================================
 
 RingLocPtrs:
-		dc.l DEZ1_Rings		; DEZ1
-		dc.l DEZ1_Rings		; DEZ2
-		dc.l DEZ1_Rings		; DEZ3
-		dc.l DEZ1_Rings		; DEZ4
 		dc.l GHZ1_Rings		; GHZ1
 		dc.l GHZ1_Rings		; GHZ2
 		dc.l GHZ1_Rings		; GHZ3
@@ -204,19 +236,20 @@ RingLocPtrs:
 		dc.l WZ1_Rings		; WZ2
 		dc.l WZ1_Rings		; WZ3
 		dc.l WZ1_Rings		; WZ4
+		dc.l DEZ1_Rings		; DEZ1
+		dc.l DEZ1_Rings		; DEZ2
+		dc.l DEZ1_Rings		; DEZ3
+		dc.l DEZ1_Rings		; DEZ4
+		dc.l TTZ1_Rings		; TTZ1
+		dc.l TTZ1_Rings		; TTZ2
+		dc.l TTZ1_Rings		; TTZ3
+		dc.l TTZ1_Rings		; TTZ4
 
 		zonewarning RingLocPtrs,(4*4)
 
 ; ===========================================================================
 ; Compressed level graphics - tile, primary patterns and block mappings
 ; ===========================================================================
-
-DEZ_8x8_KosM:		binclude "Levels/DEZ/Tiles/Primary.bin"
-	even
-DEZ_16x16_Unc:		binclude "Levels/DEZ/Blocks/Primary.bin"
-	even
-DEZ_128x128_Kos:	binclude "Levels/DEZ/Chunks/Primary.bin"
-	even
 
 GHZ_8x8_KosM:		binclude "Levels/GHZ/Tiles/Primary.bin"
 	even
@@ -237,6 +270,20 @@ WZ_8x8_KosM:		binclude "Levels/WZ/Tiles/Primary.bin"
 WZ_16x16_Unc:		binclude "Levels/WZ/Blocks/Primary.bin"
 	even
 WZ_128x128_Kos:	binclude "Levels/WZ/Chunks/Primary.bin"
+	even
+
+DEZ_8x8_KosM:		binclude "Levels/DEZ/Tiles/Primary.bin"
+	even
+DEZ_16x16_Unc:		binclude "Levels/DEZ/Blocks/Primary.bin"
+	even
+DEZ_128x128_Kos:	binclude "Levels/DEZ/Chunks/Primary.bin"
+	even
+
+TTZ_8x8_KosM:		binclude "Levels/TTZ/Tiles/Primary.bin"
+	even
+TTZ_16x16_Unc:		binclude "Levels/TTZ/Blocks/Primary.bin"
+	even
+TTZ_128x128_Kos:	binclude "Levels/TTZ/Chunks/Primary.bin"
 	even
 
 ; ===========================================================================
@@ -266,13 +313,15 @@ S3KHeightMapsRot:		binclude "Misc Data/Collision/S3K Height Maps Rotated.bin"
 ; Level collision data
 ; ===========================================================================
 
-DEZ1_Solid:			binclude "Levels/DEZ/Collision/1.bin"
-	even
 GHZ1_Solid:			binclude "Levels/GHZ/Collision/1.bin"
 	even
 SSLZ1_Solid:			binclude "Levels/SSLZ/Collision/1.bin"
 	even
 WZ1_Solid:			binclude "Levels/WZ/Collision/1.bin"
+	even
+DEZ1_Solid:			binclude "Levels/DEZ/Collision/1.bin"
+	even
+TTZ1_Solid:			binclude "Levels/TTZ/Collision/1.bin"
 	even
 
 ; ===========================================================================
@@ -281,13 +330,15 @@ WZ1_Solid:			binclude "Levels/WZ/Collision/1.bin"
 
 		align $8000
 
-DEZ1_Layout:		binclude "Levels/DEZ/Layout/1.bin"
-	even
 GHZ1_Layout:		binclude "Levels/GHZ/Layout/1.bin"
 	even
 SSLZ1_Layout:		binclude "Levels/SSLZ/Layout/1.bin"
 	even
 WZ1_Layout:		binclude "Levels/WZ/Layout/1.bin"
+	even
+DEZ1_Layout:		binclude "Levels/DEZ/Layout/1.bin"
+	even
+TTZ1_Layout:		binclude "Levels/TTZ/Layout/1.bin"
 	even
 
 ; ===========================================================================
@@ -295,13 +346,15 @@ WZ1_Layout:		binclude "Levels/WZ/Layout/1.bin"
 ; ===========================================================================
 
 	ObjectLayoutBoundary
-DEZ1_Sprites:		binclude "Levels/DEZ/Object Pos/1.bin"
-	ObjectLayoutBoundary
 GHZ1_Sprites:		binclude "Levels/GHZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 SSLZ1_Sprites:		binclude "Levels/SSLZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 WZ1_Sprites:		binclude "Levels/WZ/Object Pos/1.bin"
+	ObjectLayoutBoundary
+DEZ1_Sprites:		binclude "Levels/DEZ/Object Pos/1.bin"
+	ObjectLayoutBoundary
+TTZ1_Sprites:		binclude "Levels/TTZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 	even
 
@@ -310,12 +363,14 @@ WZ1_Sprites:		binclude "Levels/WZ/Object Pos/1.bin"
 ; ===========================================================================
 
 	RingLayoutBoundary
-DEZ1_Rings:			binclude "Levels/DEZ/Ring Pos/1.bin"
-	RingLayoutBoundary
 GHZ1_Rings:			binclude "Levels/GHZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 SSLZ1_Rings:		binclude "Levels/SSLZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 WZ1_Rings:		binclude "Levels/WZ/Ring Pos/1.bin"
+	RingLayoutBoundary
+DEZ1_Rings:			binclude "Levels/DEZ/Ring Pos/1.bin"
+	RingLayoutBoundary
+TTZ1_Rings:			binclude "Levels/TTZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 	even
