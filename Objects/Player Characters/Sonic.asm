@@ -298,7 +298,7 @@ loc_10C26:
 		bne.s	+
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	+
-		eori.b	#2,render_flags(a0)
+		ori.b	#2,render_flags(a0)
 +		bsr.w	Player_Load_PLC
 +		move.b	object_control(a0),d0
 		andi.b	#$A0,d0
