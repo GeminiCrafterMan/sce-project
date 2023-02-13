@@ -452,12 +452,6 @@ Animate_Espio:
 ; ---------------------------------------------------------------------------
 
 .loc_12A2A:
-		move.b	status(a0),d1
-		andi.b	#1,d1
-		andi.b	#-4,render_flags(a0)
-		or.b	d1,render_flags(a0)
-		subq.b	#1,anim_frame_timer(a0) ; subtract 1 from frame duration
-		bpl.w	.Delay			; if time remains, branch
 		moveq	#0,d1
 		move.b	angle(a0),d0	; get Espio's angle
 		move.b	status(a0),d2
@@ -475,6 +469,8 @@ Animate_Espio:
 		eor.b	d1,d2
 		or.b	d2,render_flags(a0)
 
+		subq.b	#1,anim_frame_timer(a0) ; subtract 1 from frame duration
+		bpl.w	.Delay			; if time remains, branch
 		lsr.b	#4,d0		; divide angle by $10
 		andi.b	#6,d0		; angle	must be	0, 2, 4	or 6
 		mvabs.w	x_vel(a0),d2 ; get Espio's speed
