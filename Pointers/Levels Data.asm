@@ -328,8 +328,6 @@ TTZ1_Solid:			binclude "Levels/TTZ/Collision/1.bin"
 ; Level layout data
 ; ===========================================================================
 
-		align $8000
-
 GHZ1_Layout:		binclude "Levels/GHZ/Layout/1.bin"
 	even
 SSLZ1_Layout:		binclude "Levels/SSLZ/Layout/1.bin"
