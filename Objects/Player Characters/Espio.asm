@@ -452,6 +452,10 @@ Animate_Espio:
 ; ---------------------------------------------------------------------------
 
 .loc_12A2A:
+		move.b	status(a0),d1
+		andi.b	#1,d1
+		andi.b	#-4,render_flags(a0)
+		or.b	d1,render_flags(a0)
 		subq.b	#1,anim_frame_timer(a0) ; subtract 1 from frame duration
 		bpl.w	.Delay			; if time remains, branch
 		moveq	#0,d1
