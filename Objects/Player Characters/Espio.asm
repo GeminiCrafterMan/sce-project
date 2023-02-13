@@ -474,7 +474,12 @@ Animate_Espio:
 		lsr.b	#4,d0		; divide angle by $10
 		andi.b	#6,d0		; angle	must be	0, 2, 4	or 6
 		mvabs.w	x_vel(a0),d2 ; get Espio's speed
-;		add.w	(HScroll_Shift).w,d2
+		mvabs.w	ground_vel(a0),d3	; get his ground speed, too
+		cmp.w	d3,d2				; compare d2 to d3
+		bge.s	+					; if d2 < d3...
+		move.w	d3,d2
++
+		add.w	(HScroll_Shift).w,d2
 		lea	EspAni_Spin2(pc),a1
 		cmpi.w	#$600,d2
 		bcc.s	.loc_12A5E
