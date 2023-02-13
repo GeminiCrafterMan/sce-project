@@ -476,7 +476,7 @@ Animate_Espio:
 		mvabs.w	x_vel(a0),d2 ; get Espio's speed
 		mvabs.w	ground_vel(a0),d3	; get his ground speed, too
 		cmp.w	d3,d2				; compare d2 to d3
-		bge.s	+					; if d2 < d3...
+		bge.s	+					; if d2 <= d3...
 		move.w	d3,d2
 +
 		add.w	(HScroll_Shift).w,d2
