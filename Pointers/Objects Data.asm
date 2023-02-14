@@ -42,6 +42,7 @@
 		include	"Objects/Conveyor Belt/Conveyor Belt.asm"
 		include "Objects/Smooth Palette/Smooth Palette.asm"
 		include "Objects/Decoration/Decoration.asm"
+		include	"Objects/Floating Platform/Floating Platform.asm"
 
 ; ===========================================================================
 ; Levels objects data

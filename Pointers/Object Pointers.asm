@@ -27,7 +27,7 @@ Obj_Index:
 		dc.l DeleteObject						; $15
 		dc.l DeleteObject						; $16
 		dc.l DeleteObject						; $17
-		dc.l DeleteObject						; $18
+		dc.l Obj_FloatingPlatform				; $18
 		dc.l DeleteObject						; $19
 		dc.l DeleteObject						; $1A
 		dc.l DeleteObject						; $1B
