@@ -183,15 +183,91 @@ GHZ1_Transition:
 		move.w	#bytes_to_word(z_SSLZ, 0),d0
 		jmp		(StartNewLevel).l
 	.ret:
-		rts
+		bsr.w	GHZ_Deform
+		bra.w	GHZ1_BackgroundEvent.deform
 ; ---------------------------------------------------------------------------
 
 GHZ1_BGDeformArray:
-	rept 15
-		dc.w 16
+		dc.w 32	; clouds 1 (2 blocks)
+		dc.w 16	; clouds 2 (1 block)
+		dc.w 16	; clouds 3 (1 block)
+		dc.w 48	; mountains 1 (3 blocks)
+		dc.w 40	; mountains 2 (2.5 blocks)
+	rept 104
+		dc.w 1	; water (6.5 blocks, linear... may have to just dc.w 1 104 times)
 	endr
 		dc.w $7FFF
 ; ---------------------------------------------------------------------------
 
 GHZ_Deform:
+	; Vertical scrolling!!
+		move.w	(Camera_Y_pos_copy).w,d0
+		andi.w	#$7FF,d0
+		lsr.w	#5,d0
+		neg.w	d0
+		addi.w	#$20,d0
+		bpl.s	.limitY
+		moveq	#0,d0
+	.limitY:
+		move.w	d0,d4
+		move.w	d0,(Camera_Y_pos_BG_copy).w
+	; It's good!!
+		lea	(H_scroll_table).w,a1
+		move.l	(Camera_X_pos_copy).w,d0
+;		neg.l	d0
+		move.w	(Level_frame_counter).w,d1
+		swap	d1
+		clr.w	d1
+
+	; Clouds 1
+		move.l	d0,d2
+		move.l	d1,d3
+		asr.l	#4,d2
+		asr.l	#1,d3
+		add.l	d3,d2
+		swap	d2
+		move.w	d2,(a1)+
+
+	; Clouds 2 & 3
+	rept 2
+		swap	d2
+		asr.l	#1,d2
+		asr.l	#1,d3
+		add.l	d3,d2
+		swap	d2
+		move.w	d2,(a1)+
+	endr
+
+	; Mountains
+		move.l	d0,d2
+		asr.l	#6,d2
+		swap	d2
+		move.w	d2,(a1)+
+
+		move.l	d0,d2
+		asr.l	#5,d2
+		swap	d2
+		move.w	d2,(a1)+
+	; Ocean
+		move.w	(Camera_X_pos_BG_copy).w,d0
+		move.w	(Camera_X_pos_copy).w,d2
+		andi.w	#$FFF,d0
+		andi.w	#$FFF,d2
+		sub.w	d0,d2
+		ext.l	d2
+		asl.l	#8,d2
+		divs.w	#$68,d2
+		ext.l	d2
+		asl.l	#8,d2
+		moveq	#0,d3
+		move.w	d0,d3
+		move.w	#$47,d1
+		add.w	d4,d1
+	.waterLoop:			; water deformation
+		move.w	d3,d0
+		move.w	d0,(a1)+
+		swap	d3
+		add.l	d2,d3
+		swap	d3
+		dbf	d1,.waterLoop
 		rts

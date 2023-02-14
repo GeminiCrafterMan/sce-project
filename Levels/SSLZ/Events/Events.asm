@@ -100,7 +100,8 @@ SSLZ1_Transition:
 		move.w	#bytes_to_word(z_WZ, 0),d0
 		jmp		(StartNewLevel).l
 	.ret:
-		rts
+		bsr.s	SSLZ_Deform
+		bra.w	SSLZ1_BackgroundEvent.deform
 ; ---------------------------------------------------------------------------
 
 SSLZ1_BGDeformArray:
@@ -116,6 +117,18 @@ SSLZ1_BGDeformArray:
 ; ---------------------------------------------------------------------------
 
 SSLZ_Deform:
+	; Vertical scrolling!!
+		move.w	(Camera_Y_pos_copy).w,d0
+		andi.w	#$7FF,d0
+		lsr.w	#5,d0
+		neg.w	d0
+		addi.w	#$20,d0
+		bpl.s	.limitY
+		moveq	#0,d0
+	.limitY:
+		move.w	d0,d4
+		move.w	d0,(Camera_Y_pos_BG_copy).w
+	; It's good!!
 		lea	(H_scroll_table).w,a1
 		move.l	(Camera_X_pos_copy).w,d0
 ;		neg.l	d0
@@ -151,30 +164,25 @@ SSLZ_Deform:
 		swap	d2
 		move.w	d2,(a1)+
 	; Ocean
-		move.l	d0,d2
-	rept 40
-		swap	d2
-		move.l	d2,d3
-		asr.l	d2
-		add.l	d3,d2
-		swap	d2
-		move.w	d2,(a1)+
-	endr
+		move.w	(Camera_X_pos_BG_copy).w,d0
+		move.w	(Camera_X_pos_copy).w,d2
+		andi.w	#$FFF,d0
+		andi.w	#$FFF,d2
+		sub.w	d0,d2
+		ext.l	d2
+		asl.l	#8,d2
+		divs.w	#$68,d2
+		ext.l	d2
+		asl.l	#8,d2
+		moveq	#0,d3
+		move.w	d0,d3
+		move.w	#$47,d1
+		add.w	d4,d1
+	.waterLoop:			; water deformation
+		move.w	d3,d0
+		move.w	d0,(a1)+
+		swap	d3
+		add.l	d2,d3
+		swap	d3
+		dbf	d1,.waterLoop
 		rts
-	lea		.ParallaxScriptSSLZ,a1
-	jmp		ExecuteParallaxScript
-
-; ---------------------------------------------------------------
-
-.ParallaxScriptSSLZ:
-
-;			Mode			Speed/dist		Number of lines		What's moving?
-	dc.w	_moving,		$0004,			16					; clouds 7
-	dc.w	_moving+2,		$0004,			32					; clouds 5
-;							bottom half of clouds
-	dc.w	_moving+4,		$0004,			56					; clouds 3
-	dc.w	_normal,		$0000,			64					; nothing
-	dc.w	_normal,		$0001,			8					; mountains
-	dc.w	_linear+2,		$0001,			80					; ocean
-	dc.w	-1
-; End of function SwScrl_SSLZ
