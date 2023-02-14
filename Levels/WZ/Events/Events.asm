@@ -57,11 +57,26 @@ WZ1_Transition:
 ; ---------------------------------------------------------------------------
 
 WZ1_BGDeformArray:
-	rept 15
-		dc.w 16
-	endr
 		dc.w $7FFF
 ; ---------------------------------------------------------------------------
 
 WZ_Deform:
+	; Vertical scrolling!!
+		move.w	(Camera_Y_pos_copy).w,d0
+		andi.w	#$FFF,d0	; used to be $7FF
+		lsr.w	#5,d0
+		neg.w	d0
+		addi.w	#$80,d0
+		bpl.s	.limitY
+		moveq	#0,d0
+	.limitY:
+		move.w	d0,d4
+		move.w	d0,(Camera_Y_pos_BG_copy).w
+	; It's good!!
+		lea	(H_scroll_table).w,a1
+		move.l	(Camera_X_pos_copy).w,d0
+		move.l	d0,d2
+		swap	d2
+		asr.l	#1,d2
+		move.w	d2,(a1)+
 	rts

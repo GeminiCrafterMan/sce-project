@@ -67,41 +67,22 @@ PLC_Main_end
 ; ===========================================================================
 
 PLC_Main2: plrlistheader
-		plreq $47E, ArtKosM_GrayButton						; Button
 		plreq ArtTile_Spikes, ArtKosM_Spikes				; Spikes
 		plreq ArtTile_Spring, ArtKosM_Spring				; Springs
 		plreq ArtTile_Monitors, ArtKosM_Monitors			; Monitors
-		plreq $5A0, ArtKosM_Explosion						; Explosion
+		plreq ArtTile_Button, ArtKosM_GrayButton			; Button
+		plreq ArtTile_Explosion, ArtKosM_Explosion						; Explosion
 PLC_Main2_end
-
-; ===========================================================================
-; Pattern load cues - Death Egg (Misc)
-; ===========================================================================
-
-PLC1_DEZ_Misc: plrlistheader
-		plreq ArtTile_Bubbles, ArtKosM_Bubbles
-PLC1_DEZ_Misc_end
-
-; ===========================================================================
-; Pattern load cues - Death Egg (Enemy)
-; ===========================================================================
-
-PLC2_DEZ_Enemy: plrlistheader
-		plreq $100, ArtKosM_Spikebonker					; Spikebonker badnik
-		plreq $438, ArtKosM_BataPyon
-PLC2_DEZ_Enemy_end
 
 ; ===========================================================================
 ; Pattern load cues - Green Hill (Misc)
 ; ===========================================================================
 
 PLC1_GHZ_Misc: plrlistheader
-	; put the bridge in here somewhere
 		plreq ArtTile_EdgeWalls, ArtKosM_EdgeWalls
 		plreq ArtTile_Bridge,	ArtKosM_GHZBridge
 		plreq ArtTile_PurpleRock, ArtKosM_PurpleRock		; Purple rock
 		plreq ArtTile_SmashableWalls, ArtKosM_SmashableWalls
-		plreq ArtTile_Bubbles, ArtKosM_Bubbles
 PLC1_GHZ_Misc_end
 
 ; ===========================================================================
@@ -121,7 +102,6 @@ PLC2_GHZ_Enemy_end
 
 PLC1_SSLZ_Misc: plrlistheader
 		plreq ArtTile_Bridge,	ArtKosM_SSLZBridge
-		plreq ArtTile_PurpleRock, ArtKosM_SSLZPurpleRock		; Purple rock
 		plreq ArtTile_Bubbles, ArtKosM_Bubbles
 PLC1_SSLZ_Misc_end
 
@@ -141,7 +121,6 @@ PLC2_SSLZ_Enemy_end
 ; ===========================================================================
 
 PLC1_WZ_Misc: plrlistheader
-		plreq ArtTile_Bubbles, ArtKosM_Bubbles
 PLC1_WZ_Misc_end
 
 ; ===========================================================================
@@ -150,3 +129,20 @@ PLC1_WZ_Misc_end
 
 PLC2_WZ_Enemy: plrlistheader
 PLC2_WZ_Enemy_end
+
+; ===========================================================================
+; Pattern load cues - Death Egg (Misc)
+; ===========================================================================
+
+PLC1_DEZ_Misc: plrlistheader
+		plreq ArtTile_Bubbles, ArtKosM_Bubbles
+PLC1_DEZ_Misc_end
+
+; ===========================================================================
+; Pattern load cues - Death Egg (Enemy)
+; ===========================================================================
+
+PLC2_DEZ_Enemy: plrlistheader
+		plreq $100, ArtKosM_Spikebonker					; Spikebonker badnik
+		plreq $438, ArtKosM_BataPyon
+PLC2_DEZ_Enemy_end

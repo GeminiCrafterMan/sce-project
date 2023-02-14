@@ -115,8 +115,6 @@ ArtKosM_GHZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.b
 
 ArtKosM_SSLZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge.bin"
 	even
-ArtKosM_SSLZPurpleRock:		binclude "Objects/Purple Rock/KosinskiM Art/Purple Rock (SSLZ).bin"
-	even
 
 ; ===========================================================================
 ; Kosinski Module compressed WZ graphics

@@ -498,10 +498,12 @@ Status_ObjDefeated		= 7
 ; ---------------------------------------------------------------------------
 
 ArtTile_LevelArt			= $000
-ArtTile_Spikes				= $484
-ArtTile_Spring				= $494
-ArtTile_Monitors			= $4CC
+ArtTile_Spikes				= $47B
+ArtTile_Spring				= $48B
+ArtTile_Button				= $4BB
+ArtTile_Monitors			= $4C3
 ArtTile_Bubbles				= $54B
+ArtTile_Explosion			= $5A0
 ArtTile_Coin				= $5E4
 ArtTile_EnemyScore			= $5E8
 ArtTile_StarPost			= $5EC
@@ -522,7 +524,7 @@ ArtTile_DashDust_P2			= $7F0
 ; Common
 ; ---------------------------------------------------------------------------
 
-ArtTile_Bridge:				= $3C0
+ArtTile_Bridge:				= $501
 
 ; ---------------------------------------------------------------------------
 ; Green Hill Zone
@@ -533,14 +535,14 @@ ArtTile_SmashableWalls:		= $3B0
 ArtTile_PurpleRock:			= $3CB
 ArtTile_Crabmeat:			= $400
 ArtTile_BuzzBomber:			= $444
-ArtTile_Chopper:			= $50C
-ArtTile_Motobug:			= $52C
+ArtTile_Chopper:			= $50D
+ArtTile_Motobug:			= $52D
 
 ; ---------------------------------------------------------------------------
 ; Seaside Land Zone
 ; ---------------------------------------------------------------------------
 
-ArtTile_SSLZWaterfall:		= ArtTile_PurpleRock+24
+ArtTile_SSLZWaterfall:		= ArtTile_PurpleRock+29
 
 ; ---------------------------------------------------------------------------
 ; VRAM data

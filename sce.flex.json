@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "a73f423b-ff73-4803-8c2d-1a3c06ba764a",
+    "node": "c0875026-5805-4b1e-b736-ab1f5296b2a7",
     "objects": [
         {
             "name": "Players",
@@ -1117,35 +1117,6 @@
                         "label": ""
                     },
                     "uuid": "ee6e6ab0-d824-481f-b682-ce6dc4765ae5"
-                },
-                {
-                    "uuid": "494f96cd-2617-409e-82d0-6cd2d5a1a614",
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Purple Rock",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Levels/SSLZ/Palettes/Seaside Land Zone.bin",
-                            "length": 3
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Purple Rock/KosinskiM Art/Purple Rock (SSLZ).bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Purple Rock/Object Data/Map - Purple Rock.asm",
-                        "label": "Map_PurpleRock"
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    }
                 },
                 {
                     "format": "Sonic 3&K Object.js",

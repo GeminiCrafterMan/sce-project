@@ -62,7 +62,7 @@ DebugList: offsetTable
 	dbglistobj Obj_BuzzBomber, Map_BuzzBomber, 0, 0, make_art_tile(ArtTile_BuzzBomber,0,0)
 	dbglistobj Obj_Chopper, Map_Chopper, 0, 0, make_art_tile(ArtTile_Chopper,0,0)
 	dbglistobj Obj_Motobug, Map_Motobug, 0, 0, make_art_tile(ArtTile_Motobug,0,0)
-	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile($47E,0,0)
+	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
 	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
 	dbglistobj Obj_SSZEndBoss,	Map_MechaSonic, 0, 0, make_art_tile($3F4,1,1)
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
@@ -98,7 +98,7 @@ DebugList: offsetTable
 	dbglistobj Obj_BuzzBomber, Map_BuzzBomber, 0, 0, make_art_tile(ArtTile_BuzzBomber,0,0)
 	dbglistobj Obj_Chopper, Map_Chopper, 0, 0, make_art_tile(ArtTile_Chopper,0,0)
 	dbglistobj Obj_Motobug, Map_Motobug, 0, 0, make_art_tile(ArtTile_Motobug,0,0)
-	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile($47E,0,0)
+	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
 	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
 .SSLZ1_End
@@ -129,7 +129,7 @@ DebugList: offsetTable
 	dbglistobj Obj_Spring, Map_YellowSpring, $42, $A, make_art_tile(ArtTile_Spring,0,0)
 	dbglistobj Obj_Spikes, Map_Spikes, 0, 0, make_art_tile(ArtTile_Spikes,0,0)
 	dbglistobj Obj_Spikes, Map_Spikes, $40, 4, make_art_tile(ArtTile_Spikes,0,0)
-	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile($47E,0,0)
+	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
 	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
 .WZ1_End
@@ -162,7 +162,7 @@ DebugList: offsetTable
 	dbglistobj Obj_Spikes, Map_Spikes, $40, 4, make_art_tile(ArtTile_Spikes,0,0)
 	dbglistobj Obj_Spikebonker, Map_Spikebonker, $40, 0, make_art_tile($100,0,1)
 	dbglistobj Obj_BataPyon, Map_BataPyon, 0, 0, make_art_tile($438,0,0)
-	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile($47E,0,0)
+	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
 	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
 .DEZ1_End

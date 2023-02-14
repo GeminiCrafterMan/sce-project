@@ -222,21 +222,21 @@ Map_Espio_1B6: 	dc.w Map_Espio_15A4-Map_Espio
 Map_Espio_1B8: 	dc.w Map_Espio_15BE-Map_Espio
 Map_Espio_1BA: 	dc.w Map_Espio_15D8-Map_Espio
 Map_Espio_1BC: 	dc.w Map_Espio_15F2-Map_Espio
-Map_Espio_1BE: 	dc.w Map_Espio_1600-Map_Espio
-Map_Espio_1C0: 	dc.w Map_Espio_160E-Map_Espio
-Map_Espio_1C2: 	dc.w Map_Espio_1622-Map_Espio
-Map_Espio_1C4: 	dc.w Map_Espio_1630-Map_Espio
-Map_Espio_1C6: 	dc.w Map_Espio_164A-Map_Espio
-Map_Espio_1C8: 	dc.w Map_Espio_166A-Map_Espio
-Map_Espio_1CA: 	dc.w Map_Espio_1684-Map_Espio
-Map_Espio_1CC: 	dc.w Map_Espio_16A4-Map_Espio
-Map_Espio_1CE: 	dc.w Map_Espio_16B8-Map_Espio
-Map_Espio_1D0: 	dc.w Map_Espio_16CC-Map_Espio
-Map_Espio_1D2: 	dc.w Map_Espio_16E6-Map_Espio
-Map_Espio_1D4: 	dc.w Map_Espio_16FA-Map_Espio
-Map_Espio_1D6: 	dc.w Map_Espio_171A-Map_Espio
-Map_Espio_1D8: 	dc.w Map_Espio_1734-Map_Espio
-Map_Espio_1DA: 	dc.w Map_Espio_174E-Map_Espio
+Map_Espio_1BE: 	dc.w Map_Espio_1606-Map_Espio
+Map_Espio_1C0: 	dc.w Map_Espio_161A-Map_Espio
+Map_Espio_1C2: 	dc.w Map_Espio_1634-Map_Espio
+Map_Espio_1C4: 	dc.w Map_Espio_1648-Map_Espio
+Map_Espio_1C6: 	dc.w Map_Espio_1662-Map_Espio
+Map_Espio_1C8: 	dc.w Map_Espio_1682-Map_Espio
+Map_Espio_1CA: 	dc.w Map_Espio_169C-Map_Espio
+Map_Espio_1CC: 	dc.w Map_Espio_16BC-Map_Espio
+Map_Espio_1CE: 	dc.w Map_Espio_16D0-Map_Espio
+Map_Espio_1D0: 	dc.w Map_Espio_16E4-Map_Espio
+Map_Espio_1D2: 	dc.w Map_Espio_16FE-Map_Espio
+Map_Espio_1D4: 	dc.w Map_Espio_1712-Map_Espio
+Map_Espio_1D6: 	dc.w Map_Espio_1732-Map_Espio
+Map_Espio_1D8: 	dc.w Map_Espio_174C-Map_Espio
+Map_Espio_1DA: 	dc.w Map_Espio_1766-Map_Espio
 Map_Espio_1DC: 	dc.b $0, $0
 Map_Espio_1DE: 	dc.b $0, $5
 	dc.b $E8, $3, $0, $0, $FF, $FC
@@ -1242,75 +1242,79 @@ Map_Espio_15D8: 	dc.b $0, $4
 	dc.b $E8, $A, $0, $8, $FF, $F2
 	dc.b $10, $8, $0, $11, $FF, $F2
 	dc.b $0, $0, $0, $14, $0, $A
-Map_Espio_15F2: 	dc.b $0, $2
-	dc.b $F4, $F, $0, $0, $FF, $EF
-	dc.b $EC, $8, $0, $10, $FF, $F7
-Map_Espio_1600: 	dc.b $0, $2
-	dc.b $F7, $F, $0, $0, $FF, $EF
-	dc.b $EF, $8, $0, $10, $FF, $F7
-Map_Espio_160E: 	dc.b $0, $3
-	dc.b $7, $D, $0, $0, $FF, $ED
-	dc.b $EF, $A, $0, $8, $FF, $F5
-	dc.b $F7, $0, $0, $11, $0, $D
-Map_Espio_1622: 	dc.b $0, $2
-	dc.b $F7, $F, $0, $0, $FF, $EF
-	dc.b $EF, $8, $0, $10, $FF, $F7
-Map_Espio_1630: 	dc.b $0, $4
+Map_Espio_15F2: 	dc.b $0, $3
+	dc.b $F4, $E, $0, $0, $FF, $F0
+	dc.b $C, $8, $0, $C, $FF, $F0
+	dc.b $F4, $2, $0, $F, $0, $10
+Map_Espio_1606: 	dc.b $0, $3
+	dc.b $FC, $A, $0, $0, $FF, $E8
+	dc.b $F4, $C, $0, $9, $FF, $F8
+	dc.b $FC, $9, $0, $D, $0, $0
+Map_Espio_161A: 	dc.b $0, $4
+	dc.b $F4, $E, $0, $0, $FF, $F8
+	dc.b $FC, $2, $0, $C, $FF, $F0
+	dc.b $4, $1, $0, $F, $FF, $E8
+	dc.b $C, $4, $0, $11, $FF, $F8
+Map_Espio_1634: 	dc.b $0, $3
+	dc.b $FC, $A, $0, $0, $FF, $E8
+	dc.b $F4, $C, $0, $9, $FF, $F8
+	dc.b $FC, $9, $0, $D, $0, $0
+Map_Espio_1648: 	dc.b $0, $4
 	dc.b $EF, $E, $0, $0, $FF, $EE
 	dc.b $F7, $0, $0, $C, $FF, $E6
 	dc.b $FF, $1, $0, $D, $0, $E
 	dc.b $7, $9, $0, $F, $FF, $F6
-Map_Espio_164A: 	dc.b $0, $5
+Map_Espio_1662: 	dc.b $0, $5
 	dc.b $F6, $C, $0, $0, $FF, $E9
 	dc.b $EE, $8, $0, $4, $FF, $F1
 	dc.b $FE, $E, $0, $7, $FF, $F1
 	dc.b $16, $0, $0, $13, $FF, $F9
 	dc.b $F6, $0, $0, $14, $0, $9
-Map_Espio_166A: 	dc.b $0, $4
+Map_Espio_1682: 	dc.b $0, $4
 	dc.b $EF, $B, $0, $0, $FF, $F1
 	dc.b $F7, $1, $0, $C, $FF, $E9
 	dc.b $F7, $3, $0, $E, $0, $9
 	dc.b $F, $4, $0, $12, $FF, $F9
-Map_Espio_1684: 	dc.b $0, $5
+Map_Espio_169C: 	dc.b $0, $5
 	dc.b $F6, $C, $0, $0, $FF, $E9
 	dc.b $EE, $8, $0, $4, $FF, $F1
 	dc.b $FE, $E, $0, $7, $FF, $F1
 	dc.b $16, $0, $0, $13, $FF, $F9
 	dc.b $F6, $0, $0, $14, $0, $9
-Map_Espio_16A4: 	dc.b $0, $3
+Map_Espio_16BC: 	dc.b $0, $3
 	dc.b $EB, $3, $0, $0, $FF, $F7
 	dc.b $F3, $2, $0, $4, $FF, $EF
 	dc.b $F3, $B, $0, $7, $FF, $FF
-Map_Espio_16B8: 	dc.b $0, $3
+Map_Espio_16D0: 	dc.b $0, $3
 	dc.b $F1, $E, $0, $0, $FF, $EF
 	dc.b $9, $C, $0, $C, $FF, $F7
 	dc.b $F1, $2, $0, $10, $0, $F
-Map_Espio_16CC: 	dc.b $0, $4
+Map_Espio_16E4: 	dc.b $0, $4
 	dc.b $F1, $E, $0, $0, $FF, $EF
 	dc.b $9, $0, $0, $C, $FF, $EF
 	dc.b $9, $4, $0, $D, $0, $7
 	dc.b $F1, $2, $0, $F, $0, $F
-Map_Espio_16E6: 	dc.b $0, $3
+Map_Espio_16FE: 	dc.b $0, $3
 	dc.b $F1, $E, $0, $0, $FF, $EF
 	dc.b $9, $C, $0, $C, $FF, $F7
 	dc.b $F1, $2, $0, $10, $0, $F
-Map_Espio_16FA: 	dc.b $0, $5
+Map_Espio_1712: 	dc.b $0, $5
 	dc.b $F0, $E, $0, $0, $FF, $EE
 	dc.b $8, $8, $0, $C, $FF, $EE
 	dc.b $10, $0, $0, $F, $FF, $F6
 	dc.b $E8, $4, $0, $10, $FF, $FE
 	dc.b $F0, $2, $0, $12, $0, $E
-Map_Espio_171A: 	dc.b $0, $4
+Map_Espio_1732: 	dc.b $0, $4
 	dc.b $EE, $F, $0, $0, $FF, $F5
 	dc.b $F6, $2, $0, $10, $FF, $ED
 	dc.b $FE, $0, $0, $13, $0, $15
 	dc.b $E, $0, $0, $14, $FF, $F5
-Map_Espio_1734: 	dc.b $0, $4
+Map_Espio_174C: 	dc.b $0, $4
 	dc.b $F6, $E, $0, $0, $FF, $EE
 	dc.b $EE, $C, $0, $C, $FF, $F6
 	dc.b $E, $4, $0, $10, $FF, $F6
 	dc.b $F6, $1, $0, $12, $0, $E
-Map_Espio_174E: 	dc.b $0, $4
+Map_Espio_1766: 	dc.b $0, $4
 	dc.b $EE, $F, $0, $0, $FF, $F5
 	dc.b $F6, $2, $0, $10, $FF, $ED
 	dc.b $FE, $0, $0, $13, $0, $15
