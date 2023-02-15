@@ -13,12 +13,21 @@ SSLZ1_ScreenInit:
 SSLZ1_ScreenEvent:
 		bra.w	SSLZ_Refresh
 
-DLE_SSLZ:
-	cmpi.w	#$EAC,(Normal_palette+$2).w	; Is the color shifting already active?
-	beq.s	.noShiftPlayer			; If so, skip.
-	ShiftPalUp1 $200				; Shift player palette up in the blue section,
-	ShiftPalDown1 $042				; and down in the red and green
-.noShiftPlayer:
+DLE_SSLZ1:
+		cmpi.w	#$EAC,(Normal_palette+$2).w	; Is the color shifting already active?
+		beq.s	.noShiftPlayer			; If so, skip.
+		ShiftPalUp1 $200				; Shift player palette up in the blue section,
+		ShiftPalDown1 $042				; and down in the red and green
+	.noShiftPlayer:
+		rts
+
+DLE_SSLZ2:
+;		cmpi.w	#$EAC,(Normal_palette+$2).w	; Is the color shifting already active?
+;		beq.s	.noShiftPlayer			; If so, skip.
+;		ShiftPalUp1 $200				; Shift player palette up in the blue section,
+;		ShiftPalDown1 $042				; and down in the red and green
+;	.noShiftPlayer:
+		move.w	#$8C89,(VDP_control_port).l	; enable S/H mode
 		rts
 ; ===========================================================================
 
@@ -46,17 +55,17 @@ SSLZ1_BackgroundInit:
 
 SSLZ1_BackgroundEvent:
 		tst.b (Background_event_flag).w
-		bne.s	SSLZ1_Transition
+		bne.s	SSLZ_Transition
 		bsr.w	SSLZ_Deform
 
 .deform:
-		lea	SSLZ1_BGDeformArray(pc),a4
+;		lea	SSLZ1_BGDeformArray(pc),a4	; done inside of the scrolling routine
 		lea	(H_scroll_table).w,a5
 		jsr	(ApplyDeformation).w
 		jmp	(ShakeScreen_Setup).w
 ; ---------------------------------------------------------------------------
 
-SSLZ1_Transition:
+SSLZ_Transition:
 		st		(LastAct_end_flag).w
 		tst.b	(LevResults_end_flag).w
 		beq.w	.ret
@@ -104,6 +113,12 @@ SSLZ1_Transition:
 		bra.w	SSLZ1_BackgroundEvent.deform
 ; ---------------------------------------------------------------------------
 
+SSLZ_Deform:
+		tst.b	(Current_act).w
+		bne.w	SSLZ2_Deform
+		bra.w	SSLZ1_Deform
+; ---------------------------------------------------------------------------
+
 SSLZ1_BGDeformArray:
 		dc.w 16
 		dc.w 32
@@ -116,7 +131,7 @@ SSLZ1_BGDeformArray:
 		dc.w $7FFF
 ; ---------------------------------------------------------------------------
 
-SSLZ_Deform:
+SSLZ1_Deform:
 	; Vertical scrolling!!
 		move.w	(Camera_Y_pos_copy).w,d0
 		andi.w	#$7FF,d0
@@ -185,4 +200,32 @@ SSLZ_Deform:
 		add.l	d2,d3
 		swap	d3
 		dbf	d1,.waterLoop
+		lea	SSLZ1_BGDeformArray(pc),a4
+		rts
+; ---------------------------------------------------------------------------
+
+SSLZ2_BGDeformArray:
+		dc.w $7FFF
+; ---------------------------------------------------------------------------
+
+SSLZ2_Deform:
+	; Vertical scrolling!!
+		move.w	(Camera_Y_pos_copy).w,d0
+		andi.w	#$7FF,d0
+		lsr.w	#5,d0
+		neg.w	d0
+		addi.w	#$20,d0
+		bpl.s	.limitY
+		moveq	#0,d0
+	.limitY:
+		move.w	d0,d4
+		move.w	d0,(Camera_Y_pos_BG_copy).w
+	; It's good!!
+		lea	(H_scroll_table).w,a1
+		move.l	(Camera_X_pos_copy).w,d0
+		move.l	d0,d2
+		swap	d2
+		asr.l	#1,d2
+		move.w	d2,(a1)+
+		lea	SSLZ2_BGDeformArray(pc),a4
 		rts

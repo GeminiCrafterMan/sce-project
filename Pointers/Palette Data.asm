@@ -15,7 +15,9 @@ Pal_LevelSelect:	binclude "Data/Screens/Level Select/Palettes/1.bin"
 
 Pal_GHZ:			binclude "Levels/GHZ/Palettes/Green Hill Zone.bin"
 	even
-Pal_SSLZ:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone.bin"
+Pal_SSLZ1:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone 1.bin"
+	even
+Pal_SSLZ2:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone 2.bin"
 	even
 Pal_WZ:				binclude "Levels/WZ/Palettes/Wood Zone.bin"
 	even

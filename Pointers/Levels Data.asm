@@ -8,10 +8,10 @@ LevelLoadBlock:
 		levartptrs GHZ_8x8_KosM, GHZ_16x16_Unc, GHZ_128x128_Kos, palid_GHZ		; GHZ2
 		levartptrs GHZ_8x8_KosM, GHZ_16x16_Unc, GHZ_128x128_Kos, palid_GHZ		; GHZ3
 		levartptrs GHZ_8x8_KosM, GHZ_16x16_Unc, GHZ_128x128_Kos, palid_GHZ		; GHZ4
-		levartptrs SSLZ_8x8_KosM, SSLZ_16x16_Unc, SSLZ_128x128_Kos, palid_SSLZ		; SSLZ1
-		levartptrs SSLZ_8x8_KosM, SSLZ_16x16_Unc, SSLZ_128x128_Kos, palid_SSLZ		; SSLZ2
-		levartptrs SSLZ_8x8_KosM, SSLZ_16x16_Unc, SSLZ_128x128_Kos, palid_SSLZ		; SSLZ3
-		levartptrs SSLZ_8x8_KosM, SSLZ_16x16_Unc, SSLZ_128x128_Kos, palid_SSLZ		; SSLZ4
+		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ1		; SSLZ1
+		levartptrs SSLZ2_8x8_KosM, SSLZ2_16x16_Unc, SSLZ2_128x128_Kos, palid_SSLZ2		; SSLZ2
+		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ1		; SSLZ3
+		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ1		; SSLZ4
 		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ1
 		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ2
 		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ3
@@ -37,101 +37,65 @@ LevelLoadPointer:
 		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ											; Animate tiles main code, Animate tiles PLC scripts
-
-; GHZ2
-		dc.l AnPal_GHZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
-
-; GHZ3
-		dc.l AnPal_GHZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
-
-; GHZ4
-		dc.l AnPal_GHZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
+; GHZ2-4
+	rept 3
+		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
+		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ											; Animate tiles main code, Animate tiles PLC scripts
+	endr
 
 ; SSLZ1
-		dc.l LevelPointer_Null, DLE_SSLZ, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
-		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ											; Animate tiles main code, Animate tiles PLC scripts
+		dc.l LevelPointer_Null, DLE_SSLZ1, LevelPointer_Null, LevelPointer_Null
+		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
 
 ; SSLZ2
-		dc.l LevelPointer_Null, DLE_SSLZ, LevelPointer_Null, LevelPointer_Null
+		dc.l LevelPointer_Null, DLE_SSLZ2, LevelPointer_Null, LevelPointer_Null
 		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
 
-; SSLZ3
-		dc.l LevelPointer_Null, DLE_SSLZ, LevelPointer_Null, LevelPointer_Null
+; SSLZ3-4
+	rept 2
+		dc.l LevelPointer_Null, DLE_SSLZ1, LevelPointer_Null, LevelPointer_Null
 		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
-
-; SSLZ4
-		dc.l LevelPointer_Null, DLE_SSLZ, LevelPointer_Null, LevelPointer_Null
-		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
+	endr
 
 ; WZ1
-		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
-		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
-		dc.l WZ_DoAniPLC, AniPLC_WZ											; Animate tiles main code, Animate tiles PLC scripts
-
-; WZ2
 		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
 		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
 		dc.l WZ_DoAniPLC, AniPLC_WZ
 
-; WZ3
+; WZ2-4
+	rept 3
 		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
 		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
 		dc.l WZ_DoAniPLC, AniPLC_WZ
-
-; WZ4
-		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
-		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
-		dc.l WZ_DoAniPLC, AniPLC_WZ
+	endr
 
 ; DEZ1
-		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
-		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ											; Animate tiles main code, Animate tiles PLC scripts
-
-; DEZ2
 		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
 		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
 
-; DEZ3
+; DEZ2-4
+	rept 3
 		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
 		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
-
-; DEZ4
-		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
+	endr
 
 ; TTZ1
-		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
-		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null											; Animate tiles main code, Animate tiles PLC scripts
-
-; TTZ2
 		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
 		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
 
-; TTZ3
+; TTZ2-4
+	rept 3
 		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
 		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
-
-; TTZ4
-		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null
+	endr
 
 		zonewarning LevelLoadPointer,(40*4)
 
@@ -145,7 +109,7 @@ SolidIndexes:
 		dc.l GHZ1_Solid		; GHZ3
 		dc.l GHZ1_Solid		; GHZ4
 		dc.l SSLZ1_Solid		; SSLZ1
-		dc.l SSLZ1_Solid		; SSLZ2
+		dc.l SSLZ2_Solid		; SSLZ2
 		dc.l SSLZ1_Solid		; SSLZ3
 		dc.l SSLZ1_Solid		; SSLZ4
 		dc.l WZ1_Solid		; WZ1
@@ -173,7 +137,7 @@ LevelPtrs:
 		dc.l GHZ1_Layout		; GHZ3
 		dc.l GHZ1_Layout		; GHZ4
 		dc.l SSLZ1_Layout		; SSLZ1
-		dc.l SSLZ1_Layout		; SSLZ2
+		dc.l SSLZ2_Layout		; SSLZ2
 		dc.l SSLZ1_Layout		; SSLZ3
 		dc.l SSLZ1_Layout		; SSLZ4
 		dc.l WZ1_Layout		; WZ1
@@ -201,7 +165,7 @@ SpriteLocPtrs:
 		dc.l GHZ1_Sprites		; GHZ3
 		dc.l GHZ1_Sprites		; GHZ4
 		dc.l SSLZ1_Sprites		; SSLZ1
-		dc.l SSLZ1_Sprites		; SSLZ2
+		dc.l SSLZ2_Sprites		; SSLZ2
 		dc.l SSLZ1_Sprites		; SSLZ3
 		dc.l SSLZ1_Sprites		; SSLZ4
 		dc.l WZ1_Sprites		; WZ1
@@ -229,7 +193,7 @@ RingLocPtrs:
 		dc.l GHZ1_Rings		; GHZ3
 		dc.l GHZ1_Rings		; GHZ4
 		dc.l SSLZ1_Rings		; SSLZ1
-		dc.l SSLZ1_Rings		; SSLZ2
+		dc.l SSLZ2_Rings		; SSLZ2
 		dc.l SSLZ1_Rings		; SSLZ3
 		dc.l SSLZ1_Rings		; SSLZ4
 		dc.l WZ1_Rings		; WZ1
@@ -258,11 +222,18 @@ GHZ_16x16_Unc:		binclude "Levels/GHZ/Blocks/Primary.bin"
 GHZ_128x128_Kos:	binclude "Levels/GHZ/Chunks/Primary.bin"
 	even
 
-SSLZ_8x8_KosM:		binclude "Levels/SSLZ/Tiles/Primary.bin"
+SSLZ1_8x8_KosM:		binclude "Levels/SSLZ/Tiles/Primary.bin"
 	even
-SSLZ_16x16_Unc:		binclude "Levels/SSLZ/Blocks/Primary.bin"
+SSLZ1_16x16_Unc:		binclude "Levels/SSLZ/Blocks/Primary.bin"
 	even
-SSLZ_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Primary.bin"
+SSLZ1_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Primary.bin"
+	even
+
+SSLZ2_8x8_KosM:		binclude "Levels/SSLZ/Tiles/Primary.bin"
+	even
+SSLZ2_16x16_Unc:		binclude "Levels/SSLZ/Blocks/Primary.bin"
+	even
+SSLZ2_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Primary.bin"
 	even
 
 WZ_8x8_KosM:		binclude "Levels/WZ/Tiles/Primary.bin"
@@ -315,7 +286,9 @@ S3KHeightMapsRot:		binclude "Misc Data/Collision/S3K Height Maps Rotated.bin"
 
 GHZ1_Solid:			binclude "Levels/GHZ/Collision/1.bin"
 	even
-SSLZ1_Solid:			binclude "Levels/SSLZ/Collision/1.bin"
+SSLZ1_Solid:		binclude "Levels/SSLZ/Collision/1.bin"
+	even
+SSLZ2_Solid:		binclude "Levels/SSLZ/Collision/2.bin"
 	even
 WZ1_Solid:			binclude "Levels/WZ/Collision/1.bin"
 	even
@@ -332,7 +305,9 @@ GHZ1_Layout:		binclude "Levels/GHZ/Layout/1.bin"
 	even
 SSLZ1_Layout:		binclude "Levels/SSLZ/Layout/1.bin"
 	even
-WZ1_Layout:		binclude "Levels/WZ/Layout/1.bin"
+SSLZ2_Layout:		binclude "Levels/SSLZ/Layout/2.bin"
+	even
+WZ1_Layout:			binclude "Levels/WZ/Layout/1.bin"
 	even
 DEZ1_Layout:		binclude "Levels/DEZ/Layout/1.bin"
 	even
@@ -347,6 +322,8 @@ TTZ1_Layout:		binclude "Levels/TTZ/Layout/1.bin"
 GHZ1_Sprites:		binclude "Levels/GHZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 SSLZ1_Sprites:		binclude "Levels/SSLZ/Object Pos/1.bin"
+	ObjectLayoutBoundary
+SSLZ2_Sprites:		binclude "Levels/SSLZ/Object Pos/2.bin"
 	ObjectLayoutBoundary
 WZ1_Sprites:		binclude "Levels/WZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
@@ -365,7 +342,9 @@ GHZ1_Rings:			binclude "Levels/GHZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 SSLZ1_Rings:		binclude "Levels/SSLZ/Ring Pos/1.bin"
 	RingLayoutBoundary
-WZ1_Rings:		binclude "Levels/WZ/Ring Pos/1.bin"
+SSLZ2_Rings:		binclude "Levels/SSLZ/Ring Pos/2.bin"
+	RingLayoutBoundary
+WZ1_Rings:			binclude "Levels/WZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 DEZ1_Rings:			binclude "Levels/DEZ/Ring Pos/1.bin"
 	RingLayoutBoundary
