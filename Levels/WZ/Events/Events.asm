@@ -5,6 +5,7 @@
 ; =============== S U B R O U T I N E =======================================
 
 WZ1_ScreenInit:
+		move.l	#Obj_Oil,(v_WaterWave1+address).w
 		jsr	(Reset_TileOffsetPositionActual).w
 		jmp	(Refresh_PlaneFull).w
 
@@ -14,7 +15,6 @@ WZ1_ScreenEvent:
 		bra.w	WZ_Refresh
 
 DLE_WZ:
-		move.l	#Obj_Oil,(v_WaterWave1+address).w
 		rts
 ; ===========================================================================
 

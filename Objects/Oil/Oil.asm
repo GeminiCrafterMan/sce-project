@@ -10,8 +10,8 @@ Obj_Oil:
 	moveq	#0,d0
 	move.b	routine(a0),d0
 	move.w	Obj_Oil_Index(pc,d0.w),d1
-	jsr	Obj_Oil_Index(pc,d1.w)
-	jmp		RememberState	; so it doesn't despawn instantly
+	jmp	Obj_Oil_Index(pc,d1.w)
+	;jmp		Draw_Sprite	; so it doesn't despawn instantly
 ; ===========================================================================
 ; off_2402E: Obj_Oil_States:
 Obj_Oil_Index:	offsetTable
@@ -24,9 +24,9 @@ Obj_Oil_Init:
 	move.w	#$608,y_pos(a0)
 	move.b	#$20,width_pixels(a0)
 	move.b	#$20,height_pixels(a0)
-	ori.b	#4,render_flags(a0)		; set screen coordinates
-	move.l	#Map_WaterWave,mappings(a0)	; for rememberstate, both of these
-	move.w	#make_art_tile(ArtTile_WaterWave,0,1),art_tile(a0)
+	;ori.b	#4,render_flags(a0)		; set screen coordinates
+	;move.l	#Map_WaterWave,mappings(a0)	; for rememberstate, both of these
+	;move.w	#make_art_tile(ArtTile_WaterWave,0,1),art_tile(a0)
 	move.w	y_pos(a0),objoff_30(a0)
 	move.b	#$30,oil_char1submersion(a0)
 	bset	#7,status(a0)
@@ -60,7 +60,7 @@ Obj_Oil_CheckSupportChar1:
 	moveq	#p1_standing_bit,d6
 	move.w	x_pos(a1),d4
 	move.w	d4,x_pos(a0)
-	jsr		SolidObjectFull_1P ; stop the character from falling past the oil
+	jsr		SolidObjectTop_1P ; stop the character from falling past the oil
 
 	; check player 2
 	lea	(Player_2).w,a1 ; a1=character
@@ -89,8 +89,7 @@ Obj_Oil_CheckSupportChar2:
 	moveq	#p2_standing_bit,d6
 	move.w	x_pos(a1),d4
 	move.w	d4,x_pos(a0)
-	jsr		SolidObjectFull_1P ; stop the character from falling past the oil
-
+	jsr		SolidObjectTop_1P ; stop the character from falling past the oil
 	rts
 ; ---------------------------------------------------------------------------
 ; loc_240D6:
