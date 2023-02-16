@@ -52,8 +52,13 @@ WZ1_BackgroundEvent:
 ; ---------------------------------------------------------------------------
 
 WZ1_Transition:
-		clr.b	(Background_event_flag).w
-		rts
+		st		(LastAct_end_flag).w
+		tst.b	(LevResults_end_flag).w
+		beq.s	.ret
+		jmp		Transition_Generic
+	.ret:
+		bsr.s	WZ_Deform
+		bra.s	WZ1_BackgroundEvent.deform
 ; ---------------------------------------------------------------------------
 
 WZ1_BGDeformArray:

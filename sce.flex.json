@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "4f96cd26-1750-4e82-906c-d2d5a1a6146d",
+    "node": "96cd2617-509e-42d0-acd2-d5a1a6146d96",
     "objects": [
         {
             "name": "Players",
@@ -721,7 +721,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {

@@ -35,7 +35,7 @@ DEZ1_BackgroundInit:
 DEZ1_BackgroundEvent:
 		tst.b (Background_event_flag).w
 		bne.s	DEZ1_Transition
-		bsr.s	DEZ1_Deform
+		bsr.w	DEZ1_Deform
 
 .deform:
 		lea	DEZ1_BGDeformArray(pc),a4
@@ -45,8 +45,13 @@ DEZ1_BackgroundEvent:
 ; ---------------------------------------------------------------------------
 
 DEZ1_Transition:
-		clr.b	(Background_event_flag).w
-		rts
+		st		(LastAct_end_flag).w
+		tst.b	(LevResults_end_flag).w
+		beq.s	.ret
+		jmp		Transition_Generic
+	.ret:
+		bsr.w	DEZ1_Deform
+		bra.w	DEZ1_BackgroundEvent.deform
 ; ---------------------------------------------------------------------------
 
 DEZ1_BGDeformArray:

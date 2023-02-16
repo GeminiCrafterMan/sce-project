@@ -9,8 +9,8 @@ StartLocArray:
 		binclude "Levels/GHZ/Start Location/1.bin"	; GHZ 4
 
 		binclude "Levels/SSLZ/Start Location/1.bin"	; SSLZ 1
-		binclude "Levels/SSLZ/Start Location/1.bin"	; SSLZ 2
-		binclude "Levels/SSLZ/Start Location/1.bin"	; SSLZ 3
+		binclude "Levels/SSLZ/Start Location/2.bin"	; SSLZ 2
+		binclude "Levels/SSLZ/Start Location/3.bin"	; SSLZ 3
 		binclude "Levels/SSLZ/Start Location/1.bin"	; SSLZ 4
 
 		binclude "Levels/WZ/Start Location/1.bin"	; WZ 1

@@ -466,6 +466,55 @@ Restore_PlayerControl2:
 
 ; =============== S U B R O U T I N E =======================================
 
+Transition_Generic:	; a replication of S1's Sign_SonicRun & loc_EC70, without giant ring checks
+		move.b	#1,(Ctrl_1_locked).w ; lock player's controls
+		move.b	#1,(Ctrl_2_locked).w ; lock player's controls
+		st		(Scroll_lock).w
+		moveq	#0,d0
+		move.w	(Current_zone_and_act).w,d0
+		ror.b	#2,d0
+		lsr.w	#3,d0
+		lea		(LevelSizes).l,a1
+		lea		(a1,d0.w),a1
+		move.w	2(a1),d0
+		addi.w	#128,d0
+		move.w	d0,(Camera_max_X_pos).w
+		clr.b	(Player_1+object_control).w
+		clr.b	(Player_2+object_control).w
+		move.w	#(button_right_mask<<8),(Ctrl_1_held_logical).w ; move Sonic to the right
+		move.w	#(button_right_mask<<8),(Ctrl_2_held_logical).w ; move Tails to the right
+		move.w	(Player_1+x_pos).w,d0
+		move.w	(Camera_max_X_pos).w,d1
+		addi.w	#$128,d1
+		cmp.w	d1,d0
+		bcs.s	StartNewLevel.return
+		tst.l	(Player_2).w
+		beq.s	GotoNextLevel
+		move.w	(Player_2+x_pos).w,d0	; make sure both are off-screen
+		move.w	(Camera_max_X_pos).w,d1
+		addi.w	#$128,d1
+		cmp.w	d1,d0
+		bcs.s	StartNewLevel.return
+
+GotoNextLevel:
+		moveq	#0,d0
+		moveq	#0,d1
+;		move.w	(Current_zone_and_act).w,d0
+;		ror.b	#2,d0
+;		lsr.w	#4,d0
+		move.b	(Current_zone).w,d0
+		andi.w	#7,d0
+		lsl.w	#3,d0
+		move.b	(v_act).w,d1
+		andi.w	#3,d1
+		add.w	d1,d1
+		add.w	d1,d0
+		move.w	LevelOrder(pc,d0.w),d0
+		tst.w	d0
+		bne.s	StartNewLevel
+		move.b	#id_LevelSelectScreen,(Game_mode).w	; set game mode
+		jmp		Pause_ResumeMusic
+
 StartNewLevel:
 		move.w	d0,(Current_zone_and_act).w
 		st	(Restart_level_flag).w
@@ -473,6 +522,8 @@ StartNewLevel:
 
 .return:
 		rts
+
+	include		"Misc Data/Level Order.asm"
 
 ; =============== S U B R O U T I N E =======================================
 

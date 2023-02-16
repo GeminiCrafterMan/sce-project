@@ -10,7 +10,7 @@ LevelLoadBlock:
 		levartptrs GHZ_8x8_KosM, GHZ_16x16_Unc, GHZ_128x128_Kos, palid_GHZ		; GHZ4
 		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ1		; SSLZ1
 		levartptrs SSLZ2_8x8_KosM, SSLZ2_16x16_Unc, SSLZ2_128x128_Kos, palid_SSLZ2		; SSLZ2
-		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ1		; SSLZ3
+		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ3		; SSLZ3
 		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ1		; SSLZ4
 		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ1
 		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ2
@@ -46,20 +46,23 @@ LevelLoadPointer:
 
 ; SSLZ1
 		dc.l LevelPointer_Null, DLE_SSLZ1, LevelPointer_Null, LevelPointer_Null
-		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
+		dc.l SSLZ_ScreenInit, SSLZ_BackgroundInit, SSLZ_ScreenEvent, SSLZ_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
 
 ; SSLZ2
 		dc.l LevelPointer_Null, DLE_SSLZ2, LevelPointer_Null, LevelPointer_Null
-		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
+		dc.l SSLZ_ScreenInit, SSLZ_BackgroundInit, SSLZ_ScreenEvent, SSLZ_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
 
-; SSLZ3-4
-	rept 2
-		dc.l LevelPointer_Null, DLE_SSLZ1, LevelPointer_Null, LevelPointer_Null
-		dc.l SSLZ1_ScreenInit, SSLZ1_BackgroundInit, SSLZ1_ScreenEvent, SSLZ1_BackgroundEvent
+; SSLZ3
+		dc.l LevelPointer_Null, DLE_SSLZ3, LevelPointer_Null, LevelPointer_Null
+		dc.l SSLZ_ScreenInit, SSLZ_BackgroundInit, SSLZ_ScreenEvent, SSLZ_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
-	endr
+
+; SSLZ4
+		dc.l LevelPointer_Null, DLE_SSLZ1, LevelPointer_Null, LevelPointer_Null
+		dc.l SSLZ_ScreenInit, SSLZ_BackgroundInit, SSLZ_ScreenEvent, SSLZ_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
 
 ; WZ1
 		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
@@ -138,7 +141,7 @@ LevelPtrs:
 		dc.l GHZ1_Layout		; GHZ4
 		dc.l SSLZ1_Layout		; SSLZ1
 		dc.l SSLZ2_Layout		; SSLZ2
-		dc.l SSLZ1_Layout		; SSLZ3
+		dc.l SSLZ3_Layout		; SSLZ3
 		dc.l SSLZ1_Layout		; SSLZ4
 		dc.l WZ1_Layout		; WZ1
 		dc.l WZ1_Layout		; WZ2
@@ -166,7 +169,7 @@ SpriteLocPtrs:
 		dc.l GHZ1_Sprites		; GHZ4
 		dc.l SSLZ1_Sprites		; SSLZ1
 		dc.l SSLZ2_Sprites		; SSLZ2
-		dc.l SSLZ1_Sprites		; SSLZ3
+		dc.l SSLZ3_Sprites		; SSLZ3
 		dc.l SSLZ1_Sprites		; SSLZ4
 		dc.l WZ1_Sprites		; WZ1
 		dc.l WZ1_Sprites		; WZ2
@@ -194,7 +197,7 @@ RingLocPtrs:
 		dc.l GHZ1_Rings		; GHZ4
 		dc.l SSLZ1_Rings		; SSLZ1
 		dc.l SSLZ2_Rings		; SSLZ2
-		dc.l SSLZ1_Rings		; SSLZ3
+		dc.l SSLZ3_Rings		; SSLZ3
 		dc.l SSLZ1_Rings		; SSLZ4
 		dc.l WZ1_Rings		; WZ1
 		dc.l WZ1_Rings		; WZ2
@@ -229,11 +232,11 @@ SSLZ1_16x16_Unc:		binclude "Levels/SSLZ/Blocks/Primary.bin"
 SSLZ1_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Primary.bin"
 	even
 
-SSLZ2_8x8_KosM:		binclude "Levels/SSLZ/Tiles/Primary.bin"
+SSLZ2_8x8_KosM:		binclude "Levels/SSLZ/Tiles/Secondary.bin"
 	even
-SSLZ2_16x16_Unc:		binclude "Levels/SSLZ/Blocks/Primary.bin"
+SSLZ2_16x16_Unc:	binclude "Levels/SSLZ/Blocks/Secondary.bin"
 	even
-SSLZ2_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Primary.bin"
+SSLZ2_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Secondary.bin"
 	even
 
 WZ_8x8_KosM:		binclude "Levels/WZ/Tiles/Primary.bin"
@@ -307,6 +310,8 @@ SSLZ1_Layout:		binclude "Levels/SSLZ/Layout/1.bin"
 	even
 SSLZ2_Layout:		binclude "Levels/SSLZ/Layout/2.bin"
 	even
+SSLZ3_Layout:		binclude "Levels/SSLZ/Layout/3.bin"
+	even
 WZ1_Layout:			binclude "Levels/WZ/Layout/1.bin"
 	even
 DEZ1_Layout:		binclude "Levels/DEZ/Layout/1.bin"
@@ -324,6 +329,8 @@ GHZ1_Sprites:		binclude "Levels/GHZ/Object Pos/1.bin"
 SSLZ1_Sprites:		binclude "Levels/SSLZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 SSLZ2_Sprites:		binclude "Levels/SSLZ/Object Pos/2.bin"
+	ObjectLayoutBoundary
+SSLZ3_Sprites:		binclude "Levels/SSLZ/Object Pos/3.bin"
 	ObjectLayoutBoundary
 WZ1_Sprites:		binclude "Levels/WZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
@@ -343,6 +350,8 @@ GHZ1_Rings:			binclude "Levels/GHZ/Ring Pos/1.bin"
 SSLZ1_Rings:		binclude "Levels/SSLZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 SSLZ2_Rings:		binclude "Levels/SSLZ/Ring Pos/2.bin"
+	RingLayoutBoundary
+SSLZ3_Rings:		binclude "Levels/SSLZ/Ring Pos/3.bin"
 	RingLayoutBoundary
 WZ1_Rings:			binclude "Levels/WZ/Ring Pos/1.bin"
 	RingLayoutBoundary

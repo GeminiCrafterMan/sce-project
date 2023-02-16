@@ -4,13 +4,13 @@
 
 ; =============== S U B R O U T I N E =======================================
 
-SSLZ1_ScreenInit:
+SSLZ_ScreenInit:
 		jsr	(Reset_TileOffsetPositionActual).w
 		jmp	(Refresh_PlaneFull).w
 
 ; =============== S U B R O U T I N E =======================================
 
-SSLZ1_ScreenEvent:
+SSLZ_ScreenEvent:
 		bra.w	SSLZ_Refresh
 
 DLE_SSLZ1:
@@ -22,12 +22,15 @@ DLE_SSLZ1:
 		rts
 
 DLE_SSLZ2:
-;		cmpi.w	#$EAC,(Normal_palette+$2).w	; Is the color shifting already active?
-;		beq.s	.noShiftPlayer			; If so, skip.
-;		ShiftPalUp1 $200				; Shift player palette up in the blue section,
-;		ShiftPalDown1 $042				; and down in the red and green
-;	.noShiftPlayer:
 		move.w	#$8C89,(VDP_control_port).l	; enable S/H mode
+		rts
+
+DLE_SSLZ3:
+		cmpi.w	#$CEE,(Normal_palette+$2).w	; Is the color shifting already active?
+		beq.s	.noShiftPlayer			; If so, skip.
+		ShiftPalUp1 $002				; Shift player palette up in the red and green sections,
+		ShiftPalDown1 $200				; and down in the blue
+.noShiftPlayer:
 		rts
 ; ===========================================================================
 
@@ -45,21 +48,21 @@ SSLZ_RefreshPlane:
 
 ; =============== S U B R O U T I N E =======================================
 
-SSLZ1_BackgroundInit:
+SSLZ_BackgroundInit:
 		bsr.w	SSLZ_Deform
 		jsr	(Reset_TileOffsetPositionEff).w
 		jsr	(Refresh_PlaneFull).w
-		bra.s	SSLZ1_BackgroundEvent.deform
+		bra.s	SSLZ_BackgroundEvent.deform
 
 ; =============== S U B R O U T I N E =======================================
 
-SSLZ1_BackgroundEvent:
+SSLZ_BackgroundEvent:
 		tst.b (Background_event_flag).w
 		bne.s	SSLZ_Transition
-		bsr.w	SSLZ_Deform
+		bsr.s	SSLZ_Deform
 
 .deform:
-;		lea	SSLZ1_BGDeformArray(pc),a4	; done inside of the scrolling routine
+	; The deformation table is loaded inside the scrolling routine already.
 		lea	(H_scroll_table).w,a5
 		jsr	(ApplyDeformation).w
 		jmp	(ShakeScreen_Setup).w
@@ -68,55 +71,26 @@ SSLZ1_BackgroundEvent:
 SSLZ_Transition:
 		st		(LastAct_end_flag).w
 		tst.b	(LevResults_end_flag).w
-		beq.w	.ret
-	; a replication of S1's Sign_SonicRun & loc_EC70, without giant ring checks
-		move.b	#1,(Ctrl_1_locked).w ; lock player's controls
-		move.b	#1,(Ctrl_2_locked).w ; lock player's controls
-		st		(Scroll_lock).w
-		moveq	#0,d0
-		move.w	(Current_zone_and_act).w,d0
-		ror.b	#2,d0
-		lsr.w	#3,d0
-		lea		(LevelSizes).l,a1
-		lea		(a1,d0.w),a1
-		move.w	2(a1),d0
-		addi.w	#128,d0
-		move.w	d0,(Camera_max_X_pos).w
-		clr.b	(Player_1+object_control).w
-		clr.b	(Player_2+object_control).w
-		move.w	#(button_right_mask<<8),(Ctrl_1_held_logical).w ; move Sonic to the right
-		move.w	#(button_right_mask<<8),(Ctrl_2_held_logical).w ; move Tails to the right
-		move.w	(Player_1+x_pos).w,d0
-		move.w	(Camera_max_X_pos).w,d1
-		addi.w	#$128,d1
-		cmp.w	d1,d0
-		bcs.s	.ret
-		tst.l	(Player_2).w
-		beq.s	.skipP2
-		move.w	(Player_2+x_pos).w,d0	; make sure both are off-screen
-		move.w	(Camera_max_X_pos).w,d1
-		addi.w	#$128,d1
-		cmp.w	d1,d0
-		bcs.s	.ret
-	.skipP2:
-		cmpi.b	#1,(Current_act).w
-		bge.w	.act2
-		move.w	(Current_zone_and_act).w,d0
-		addq.b	#1,d0
-		jmp		(StartNewLevel).l
-
-	.act2:
-		move.w	#bytes_to_word(z_WZ, 0),d0
-		jmp		(StartNewLevel).l
+		beq.s	.ret
+		jmp		Transition_Generic
 	.ret:
 		bsr.s	SSLZ_Deform
-		bra.w	SSLZ1_BackgroundEvent.deform
+		bra.s	SSLZ_BackgroundEvent.deform
 ; ---------------------------------------------------------------------------
 
 SSLZ_Deform:
-		tst.b	(Current_act).w
-		bne.w	SSLZ2_Deform
-		bra.w	SSLZ1_Deform
+		moveq	#0,d0
+		move.b	(Current_act).w,d0
+		lsl.w	#2,d0	; multiply by 4
+		move.l	.routines(pc,d0.w),a1
+		jmp		(a1)
+
+.routines:
+		dc.l SSLZ1_Deform
+		dc.l SSLZ2_Deform
+		dc.l SSLZ1_Deform
+		dc.l SSLZ1_Deform
+
 ; ---------------------------------------------------------------------------
 
 SSLZ1_BGDeformArray:
@@ -211,10 +185,10 @@ SSLZ2_BGDeformArray:
 SSLZ2_Deform:
 	; Vertical scrolling!!
 		move.w	(Camera_Y_pos_copy).w,d0
-		andi.w	#$7FF,d0
+		andi.w	#$FFF,d0	; used to be $7FF
 		lsr.w	#5,d0
 		neg.w	d0
-		addi.w	#$20,d0
+		addi.w	#64,d0
 		bpl.s	.limitY
 		moveq	#0,d0
 	.limitY:
