@@ -84,7 +84,7 @@ loc_6EB0:
 		bcs.s	locret_6EE8
 		jsr		FindFreeObj
 		bne.s	loc_6ED0
-		move.l	#Obj_SSZEndBoss,address(a1) ; load GHZ boss	object	; unfortunately this does not exist
+		move.l	#Obj_MechaSonic,address(a1) ; load Mecha Sonic
 		st		(Boss_flag).w
 		move.w	#$6E60,obX(a1)
 		move.w	#$480,obY(a1)

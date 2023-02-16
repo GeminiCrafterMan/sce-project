@@ -34,6 +34,7 @@
 		include "Objects/Bubbler/Bubbler.asm"
 		include "Objects/Count Down/Count Down.asm"
 		include "Objects/Water Wave/Water Wave.asm"
+		include	"Objects/Oil/Oil.asm"
 		include "Objects/StarPost/StarPost.asm"
 		include "Objects/Button/Button.asm"
 		include "Objects/Animals/Animals.asm"

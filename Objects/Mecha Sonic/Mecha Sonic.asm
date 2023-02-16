@@ -1,42 +1,42 @@
-Obj_SSZEndBoss:
+Obj_MechaSonic:
 		moveq	#0,d0
 		move.b	routine(a0),d0
-		move.w	Obj_SSZEndBoss_Index(pc,d0.w),d1
-		jsr	Obj_SSZEndBoss_Index(pc,d1.w)
-		lea	Obj_SSZEndBoss_Explode(pc),a4
-		bsr.w	Obj_SSZEndBoss_AttemptBlock
-		bsr.w	Obj_SSZEndBoss_HandleDamage
-		bsr.w	Obj_SSZEndBoss_SetCollisionType
+		move.w	Obj_MechaSonic_Index(pc,d0.w),d1
+		jsr	Obj_MechaSonic_Index(pc,d1.w)
+		lea	Obj_MechaSonic_Explode(pc),a4
+		bsr.w	Obj_MechaSonic_AttemptBlock
+		bsr.w	Obj_MechaSonic_HandleDamage
+		bsr.w	Obj_MechaSonic_SetCollisionType
 		lea	DPLCPtr_MechaSonic(pc),a2
 		jsr	(Perform_DPLC).l
 		jmp	(Draw_And_Touch_Sprite).l
 ; ---------------------------------------------------------------------------
 ; off_7B2B2
-Obj_SSZEndBoss_Index:	offsetTable
-		offsetTableEntry.w Obj_SSZEndBoss_Init	; 0
+Obj_MechaSonic_Index:	offsetTable
+		offsetTableEntry.w Obj_MechaSonic_Init	; 0
 		offsetTableEntry.w loc_7B3AC			; 2
 		offsetTableEntry.w loc_7B3E6			; 4
-		offsetTableEntry.w Obj_SSZEndBoss_Wait			; 6
-		offsetTableEntry.w Obj_SSZEndBoss_AnimateAndMove			; 8
-		offsetTableEntry.w Obj_SSZEndBoss_MidAirDelay			; $A
-		offsetTableEntry.w Obj_SSZEndBoss_FallFromUncurl			; $C
-		offsetTableEntry.w Obj_SSZEndBoss_Animate_RawMultiDelay			; $E
+		offsetTableEntry.w Obj_MechaSonic_Wait			; 6
+		offsetTableEntry.w Obj_MechaSonic_AnimateAndMove			; 8
+		offsetTableEntry.w Obj_MechaSonic_MidAirDelay			; $A
+		offsetTableEntry.w Obj_MechaSonic_FallFromUncurl			; $C
+		offsetTableEntry.w Obj_MechaSonic_Animate_RawMultiDelay			; $E
 		offsetTableEntry.w loc_7B5AC			; $10
-		offsetTableEntry.w Obj_SSZEndBoss_Animate_RawMultiDelay			; $12
-		offsetTableEntry.w Obj_SSZEndBoss_Animate_RawMultiDelay			; $14
-		offsetTableEntry.w Obj_SSZEndBoss_TestAirDash			; $16
+		offsetTableEntry.w Obj_MechaSonic_Animate_RawMultiDelay			; $12
+		offsetTableEntry.w Obj_MechaSonic_Animate_RawMultiDelay			; $14
+		offsetTableEntry.w Obj_MechaSonic_TestAirDash			; $16
 		offsetTableEntry.w loc_7B67C			; $18
-		offsetTableEntry.w Obj_SSZEndBoss_TestBounce			; $1A
-		offsetTableEntry.w Obj_SSZEndBoss_BounceMovement			; $1C
-		offsetTableEntry.w Obj_SSZEndBoss_Fall			; $1E
-		offsetTableEntry.w Obj_SSZEndBoss_AnimateAndWait			; $20
+		offsetTableEntry.w Obj_MechaSonic_TestBounce			; $1A
+		offsetTableEntry.w Obj_MechaSonic_BounceMovement			; $1C
+		offsetTableEntry.w Obj_MechaSonic_Fall			; $1E
+		offsetTableEntry.w Obj_MechaSonic_AnimateAndWait			; $20
 		offsetTableEntry.w loc_7B77E			; $22
 		offsetTableEntry.w loc_7B7BA			; $24
-		offsetTableEntry.w Obj_SSZEndBoss_AnimateAndWait			; $26
-		offsetTableEntry.w Obj_SSZEndBoss_SpindashRise			; $28
+		offsetTableEntry.w Obj_MechaSonic_AnimateAndWait			; $26
+		offsetTableEntry.w Obj_MechaSonic_SpindashRise			; $28
 ; ---------------------------------------------------------------------------
 ; loc_7B2DC
-Obj_SSZEndBoss_Init:
+Obj_MechaSonic_Init:
 		lea	ObjDat4_7D3EA(pc),a1
 		jsr	(SetUp_ObjAttributesSlotted).l
 		move.b	#8,boss_hitcount2(a0)
@@ -54,7 +54,7 @@ Obj_SSZEndBoss_Init:
 		move.l	#Obj_Wait,address(a0)
 		rts
 +
-		move.l	#Obj_SSZEndBoss,address(a0)	; this sucks but that voice clip is worth it
+		move.l	#Obj_MechaSonic,address(a0)	; this sucks but that voice clip is worth it
 ;		tst.b	(Current_act).w
 ;		beq.s	loc_7B308
 ;		move.w	#$220,x_pos(a0)
@@ -108,7 +108,7 @@ loc_7B39C:
 loc_7B3AC:
 		btst	#4,(_unkFAB8).w
 		beq.w	locret_7B448
-		move.b	#$14,routine(a0)	; Obj_SSZEndBoss_Animate_RawMultiDelay
+		move.b	#$14,routine(a0)	; Obj_MechaSonic_Animate_RawMultiDelay
 		move.b	#2,objoff_3B(a0)
 		move.w	(Camera_X_pos).w,d0
 		addi.w	#$20,d0
@@ -127,21 +127,21 @@ loc_7B3E6:
 		subi.w	#$20,d0
 		cmp.w	x_pos(a0),d0
 		blo.s	locret_7B414
-		move.b	#6,routine(a0)	; Obj_SSZEndBoss_Wait
+		move.b	#6,routine(a0)	; Obj_MechaSonic_Wait
 		bclr	#2,objoff_38(a0)
 		move.w	#$3F,wait(a0)
-		move.l	#Obj_SSZEndBoss_Intro,jump(a0)
+		move.l	#Obj_MechaSonic_Intro,jump(a0)
 
 locret_7B414:
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B416
-Obj_SSZEndBoss_Wait:
+Obj_MechaSonic_Wait:
 		jmp	(Obj_Wait).l
 ; ---------------------------------------------------------------------------
 ; loc_7B41C
-Obj_SSZEndBoss_Intro:
-		move.b	#8,routine(a0)	; Obj_SSZEndBoss_AnimateAndMove
+Obj_MechaSonic_Intro:
+		move.b	#8,routine(a0)	; Obj_MechaSonic_AnimateAndMove
 		bset	#0,render_flags(a0)
 		move.w	(Camera_Y_pos).w,d0
 		addi.w	#$40,d0
@@ -154,7 +154,7 @@ locret_7B448:
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B44A
-Obj_SSZEndBoss_AnimateAndMove:
+Obj_MechaSonic_AnimateAndMove:
 		jsr	(Animate_RawMultiDelay).l
 		jsr	(MoveSprite2).l
 		move.w	x_pos(a0),d0
@@ -164,19 +164,19 @@ Obj_SSZEndBoss_AnimateAndMove:
 ; ---------------------------------------------------------------------------
 
 loc_7B462:
-		move.b	#$A,routine(a0)	; Obj_SSZEndBoss_MidAirDelay
+		move.b	#$A,routine(a0)	; Obj_MechaSonic_MidAirDelay
 		move.w	#$1F,wait(a0)
-		move.l	#Obj_SSZEndBoss_Uncurl,jump(a0)
+		move.l	#Obj_MechaSonic_Uncurl,jump(a0)
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B478
-Obj_SSZEndBoss_MidAirDelay:
+Obj_MechaSonic_MidAirDelay:
 		jsr	(Animate_RawMultiDelay).l
 		jmp	(Obj_Wait).l
 ; ---------------------------------------------------------------------------
 ; loc_7B484
-Obj_SSZEndBoss_Uncurl:
-		move.b	#$C,routine(a0)	; Obj_SSZEndBoss_FallFromUncurl
+Obj_MechaSonic_Uncurl:
+		move.b	#$C,routine(a0)	; Obj_MechaSonic_FallFromUncurl
 		move.b	#$1F,y_radius(a0)
 		clr.w	x_vel(a0)
 		clr.w	y_vel(a0)
@@ -185,28 +185,28 @@ Obj_SSZEndBoss_Uncurl:
 		move.l	#loc_7B4EC,jump(a0)
 		jsr	(Random_Number).l
 		tst.w	d0
-		bmi.s	Obj_SSZEndBoss_UncurlAndTurn
+		bmi.s	Obj_MechaSonic_UncurlAndTurn
 		bclr	#4,(_unkFAB8).w
-		bne.s	Obj_SSZEndBoss_UncurlAndTurn
+		bne.s	Obj_MechaSonic_UncurlAndTurn
 		move.l	#AniRaw_MechaSonic_Uncurl,aniraw(a0)
 		bclr	#3,objoff_38(a0)
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B4CA
-Obj_SSZEndBoss_UncurlAndTurn:
+Obj_MechaSonic_UncurlAndTurn:
 		move.l	#AniRaw_MechaSonic_UncurlAndTurn,aniraw(a0)
 		bset	#3,objoff_38(a0)
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B4DA
-Obj_SSZEndBoss_FallFromUncurl:
+Obj_MechaSonic_FallFromUncurl:
 		jsr	(Animate_RawMultiDelay).l
 		jsr	(MoveSprite_LightGravity).l
 		jmp	(ObjHitFloor_DoRoutine).l
 ; ---------------------------------------------------------------------------
 
 loc_7B4EC:
-		move.b	#$E,routine(a0)	; Obj_SSZEndBoss_Animate_RawMultiDelay
+		move.b	#$E,routine(a0)	; Obj_MechaSonic_Animate_RawMultiDelay
 		clr.w	y_sub(a0)
 		clr.b	anim_frame(a0)
 		clr.b	anim_frame_timer(a0)
@@ -214,7 +214,7 @@ loc_7B4EC:
 		btst	#3,objoff_38(a0)
 		bne.s	loc_7B520
 		move.l	#AniRaw_MechaSonic_Crouch,aniraw(a0)
-		move.l	#Obj_SSZEndBoss_Dash,jump(a0)
+		move.l	#Obj_MechaSonic_Dash,jump(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -226,11 +226,11 @@ loc_7B520:
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B53E
-Obj_SSZEndBoss_Animate_RawMultiDelay:
+Obj_MechaSonic_Animate_RawMultiDelay:
 		jmp	(Animate_RawMultiDelay).l
 ; ---------------------------------------------------------------------------
 ; loc_7B544
-Obj_SSZEndBoss_Dash:
+Obj_MechaSonic_Dash:
 		move.b	#$10,routine(a0)	; loc_7B5AC
 		move.w	#$820,d0
 		move.w	#-$20,d1
@@ -249,7 +249,7 @@ loc_7B55E:
 ; ---------------------------------------------------------------------------
 
 loc_7B57A:
-		move.b	#$14,routine(a0)	; Obj_SSZEndBoss_Animate_RawMultiDelay
+		move.b	#$14,routine(a0)	; Obj_MechaSonic_Animate_RawMultiDelay
 		move.l	#byte_7D541,aniraw(a0)
 		move.l	#loc_7B5E8,jump(a0)
 		move.w	(Camera_X_pos).w,d0
@@ -272,7 +272,7 @@ loc_7B5AC:
 ; ---------------------------------------------------------------------------
 
 loc_7B5C2:
-		move.b	#$12,routine(a0)	; Obj_SSZEndBoss_Animate_RawMultiDelay
+		move.b	#$12,routine(a0)	; Obj_MechaSonic_Animate_RawMultiDelay
 		move.w	d0,x_pos(a0)
 		clr.w	x_sub(a0)
 		bclr	#2,objoff_38(a0)
@@ -312,21 +312,21 @@ byte_7B62E:
 		dc.b 0
 		dc.b 1
 byte_7B636:
-		dc.b $16	; Obj_SSZEndBoss_TestAirDash
-		dc.b $1A	; Obj_SSZEndBoss_TestBounce
-		dc.b $1E	; Obj_SSZEndBoss_Fall
-		dc.b 0	; Obj_SSZEndBoss_Init
+		dc.b $16	; Obj_MechaSonic_TestAirDash
+		dc.b $1A	; Obj_MechaSonic_TestBounce
+		dc.b $1E	; Obj_MechaSonic_Fall
+		dc.b 0	; Obj_MechaSonic_Init
 ; ---------------------------------------------------------------------------
 ; loc_7B63A
-Obj_SSZEndBoss_TestAirDash:
+Obj_MechaSonic_TestAirDash:
 		jsr	(Animate_RawMultiDelay).l
 		jsr	(MoveSprite).l
 		tst.w	y_vel(a0)
-		bpl.s	Obj_SSZEndBoss_AirDash	; he dashes when he starts falling
+		bpl.s	Obj_MechaSonic_AirDash	; he dashes when he starts falling
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B64E
-Obj_SSZEndBoss_AirDash:
+Obj_MechaSonic_AirDash:
 		move.b	#$18,routine(a0)	; loc_7B67C
 		move.w	#$780,d0
 		moveq	#-$20,d1
@@ -357,52 +357,52 @@ loc_7B698:
 		bra.w	loc_7B462
 ; ---------------------------------------------------------------------------
 ; loc_7B6A0
-Obj_SSZEndBoss_TestBounce:
+Obj_MechaSonic_TestBounce:
 		jsr	(Animate_RawMultiDelay).l
 		jsr	(MoveSprite).l
 		tst.w	y_vel(a0)
 		bmi.s	locret_7B6BE
 		jsr	(ObjCheckFloorDist).l
 		tst.w	d1
-		bmi.s	Obj_SSZEndBoss_Bounce
-		beq.s	Obj_SSZEndBoss_Bounce
+		bmi.s	Obj_MechaSonic_Bounce
+		beq.s	Obj_MechaSonic_Bounce
 
 locret_7B6BE:
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B6C0
-Obj_SSZEndBoss_Bounce:
+Obj_MechaSonic_Bounce:
 		add.w	d1,y_pos(a0)
-		move.b	#$1C,routine(a0)	; Obj_SSZEndBoss_BounceMovement
+		move.b	#$1C,routine(a0)	; Obj_MechaSonic_BounceMovement
 		move.w	#-$900,y_vel(a0)
 		sfx		sfx_Thump
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B6DA
-Obj_SSZEndBoss_BounceMovement:
+Obj_MechaSonic_BounceMovement:
 		jsr	(Animate_RawMultiDelay).l
 		jsr	(MoveSprite).l
 		lea	loc_7B462(pc),a1
 		bra.w	loc_7D216
 ; ---------------------------------------------------------------------------
 ; loc_7B6EE
-Obj_SSZEndBoss_Fall:
+Obj_MechaSonic_Fall:
 		jsr	(Animate_RawMultiDelay).l
 		jsr	(MoveSprite).l
 		tst.w	y_vel(a0)
 		bmi.s	locret_7B70C
 		jsr	(ObjCheckFloorDist).l
 		tst.w	d1
-		bmi.s	Obj_SSZEndBoss_Spindash
-		beq.s	Obj_SSZEndBoss_Spindash
+		bmi.s	Obj_MechaSonic_Spindash
+		beq.s	Obj_MechaSonic_Spindash
 
 locret_7B70C:
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B70E
-Obj_SSZEndBoss_Spindash:
+Obj_MechaSonic_Spindash:
 		add.w	d1,y_pos(a0)
-		move.b	#$20,routine(a0)	; Obj_SSZEndBoss_AnimateAndWait
+		move.b	#$20,routine(a0)	; Obj_MechaSonic_AnimateAndWait
 		move.w	#$F,wait(a0)
 		move.l	#loc_7B754,jump(a0)
 		bset	#2,objoff_38(a0)
@@ -415,7 +415,7 @@ Obj_SSZEndBoss_Spindash:
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B748
-Obj_SSZEndBoss_AnimateAndWait:
+Obj_MechaSonic_AnimateAndWait:
 		jsr	(Animate_RawMultiDelay).l
 		jmp	(Obj_Wait).l
 ; ---------------------------------------------------------------------------
@@ -468,13 +468,13 @@ loc_7B7BA:
 ; ---------------------------------------------------------------------------
 
 loc_7B7D6:
-		move.b	#$26,routine(a0)	; Obj_SSZEndBoss_AnimateAndWait
+		move.b	#$26,routine(a0)	; Obj_MechaSonic_AnimateAndWait
 		move.w	#$F,wait(a0)
 		move.l	#loc_7B7EC,jump(a0)
 		rts
 ; ---------------------------------------------------------------------------
-Obj_SSZEndBoss_AttemptBlock:
-; Originally a copy of Obj_SSZEndBoss_AnimateAndWait,
+Obj_MechaSonic_AttemptBlock:
+; Originally a copy of Obj_MechaSonic_AnimateAndWait,
 ; this is broken: It repeats the animation and fake-damages Mecha,
 ; while the object that hurts you if you hit the back of his head
 ; becomes killable. He also gets frozen in place and can rarely escape.
@@ -528,14 +528,14 @@ Obj_SSZEndBoss_AttemptBlock:
 ; ---------------------------------------------------------------------------
 
 loc_7B7EC:
-		move.b	#$28,routine(a0)	; Obj_SSZEndBoss_SpindashRise
+		move.b	#$28,routine(a0)	; Obj_MechaSonic_SpindashRise
 		bclr	#2,objoff_38(a0)
 		clr.w	x_vel(a0)
 		move.w	#-$640,y_vel(a0)
 		rts
 ; ---------------------------------------------------------------------------
 ; loc_7B804
-Obj_SSZEndBoss_SpindashRise:
+Obj_MechaSonic_SpindashRise:
 		jsr	(Animate_RawMultiDelay).l
 		jsr	(MoveSprite).l
 		tst.w	y_vel(a0)
@@ -546,19 +546,19 @@ Obj_SSZEndBoss_SpindashRise:
 
 
 sub_7D3BE:
-		lea	Obj_SSZEndBoss_FlashPalSlots(pc),a1
-		lea	Obj_SSZEndBoss_FlashPalColors(pc,d0.w),a2
+		lea	Obj_MechaSonic_FlashPalSlots(pc),a1
+		lea	Obj_MechaSonic_FlashPalColors(pc,d0.w),a2
 		jmp	(CopyWordData_5).l
 ; End of function sub_7D3BE
 
 ; ---------------------------------------------------------------------------
-Obj_SSZEndBoss_FlashPalSlots:
+Obj_MechaSonic_FlashPalSlots:
 	dc.w Normal_palette_line_2+$14
 	dc.w Normal_palette_line_2+$18
 	dc.w Normal_palette_line_2+$1A
 	dc.w Normal_palette_line_2+$1C
 	dc.w Normal_palette_line_2+$1E
-Obj_SSZEndBoss_FlashPalColors:
+Obj_MechaSonic_FlashPalColors:
 		dc.w   $228,  $E24,  $A24,  $622,  $422	; regular
 		dc.w   $888,  $666,  $888,  $AAA,  $EEE	; flashing
 ObjDat4_7D3EA:	dc.w 2
@@ -903,12 +903,12 @@ loc_7D234:
 ; =============== S U B R O U T I N E =======================================
 
 ; sub_7D2D8
-Obj_SSZEndBoss_SetCollisionType:
+Obj_MechaSonic_SetCollisionType:
 		btst	#6,status(a0)
 		bne.s	locret_7D2FA
 		moveq	#0,d0
 		move.b	mapping_frame(a0),d0
-		move.b	Obj_SSZEndBoss_CollisionTypes(pc,d0.w),d0
+		move.b	Obj_MechaSonic_CollisionTypes(pc,d0.w),d0
 		btst	#7,objoff_38(a0)
 		beq.s	loc_7D2F6
 		ori.b	#-$80,d0
@@ -918,11 +918,11 @@ loc_7D2F6:
 
 locret_7D2FA:
 		rts
-; End of function Obj_SSZEndBoss_SetCollisionType
+; End of function Obj_MechaSonic_SetCollisionType
 
 ; ---------------------------------------------------------------------------
 ; byte_7D2FC
-Obj_SSZEndBoss_CollisionTypes:
+Obj_MechaSonic_CollisionTypes:
 	; Idle/Crouching
 		dc.b $23
 		dc.b $23
@@ -964,7 +964,7 @@ Obj_SSZEndBoss_CollisionTypes:
 ; =============== S U B R O U T I N E =======================================
 
 ; sub_7D312
-Obj_SSZEndBoss_HandleDamage:
+Obj_MechaSonic_HandleDamage:
 		tst.b	collision_flags(a0)
 		bne.s	locret_7D356
 		move.b	boss_hitcount2(a0),d0
@@ -993,15 +993,15 @@ locret_7D356:
 
 loc_7D358:
 		jmp	(a4)
-; End of function Obj_SSZEndBoss_HandleDamage
+; End of function Obj_MechaSonic_HandleDamage
 
 
 ; =============== S U B R O U T I N E =======================================
 
 ; sub_7D35A
-Obj_SSZEndBoss_Explode:
+Obj_MechaSonic_Explode:
 		move.l	#loc_7B81A,(a0)
-		clr.b	routine(a0)	; Obj_SSZEndBoss_Init, except we're just clearing the routine so Lol
+		clr.b	routine(a0)	; Obj_MechaSonic_Init, except we're just clearing the routine so Lol
 		move.l	#loc_7B858,jump(a0)
 		bset	#6,status(a0)
 		clr.b	(Update_HUD_timer).w
@@ -1016,7 +1016,7 @@ Obj_SSZEndBoss_Explode:
 
 locret_7D39C:
 		rts
-; End of function Obj_SSZEndBoss_Explode
+; End of function Obj_MechaSonic_Explode
 
 loc_7C9BA:
 		lea	word_7D3FC(pc),a1

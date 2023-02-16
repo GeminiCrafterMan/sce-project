@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "96cd2617-509e-42d0-acd2-d5a1a6146d96",
+    "node": "4f96cd26-1750-4e82-906c-d2d5a1a6146d",
     "objects": [
         {
             "name": "Players",
@@ -251,6 +251,26 @@
             "name": "General Objects",
             "children": [
                 {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Starpost",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/StarPost/KosinskiM Art/Starpost.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/StarPost/Object Data/Map - Starpost.asm",
+                        "label": "Map_Starpost"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "87502658-059b-4e77-b6ab-1f5296b2a7cf"
+                },
+                {
                     "uuid": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
                     "format": "Sonic 3&K Object.js",
                     "name": "Signpost",
@@ -280,24 +300,33 @@
                     }
                 },
                 {
+                    "uuid": "7d0c6e8a-fbb0-40e2-95a9-9414005f3a0a",
                     "format": "Sonic 3&K Object.js",
-                    "name": "Starpost",
-                    "palettes": [],
+                    "name": "Egg Capsule",
+                    "palettes": [
+                        {
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
                     "art": {
-                        "path": "Objects/StarPost/KosinskiM Art/Starpost.bin",
+                        "path": "Objects/Egg Capsule/KosinskiM Art/Egg Capsule.bin",
                         "compression": "Kosinski-M",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/StarPost/Object Data/Map - Starpost.asm",
-                        "label": "Map_Starpost"
+                        "path": "Objects/Egg Capsule/Object Data/Map - Egg Capsule.asm",
+                        "label": "Map_EggCapsule"
                     },
                     "dplcs": {
                         "enabled": false,
                         "path": "",
                         "label": ""
-                    },
-                    "uuid": "87502658-059b-4e77-b6ab-1f5296b2a7cf"
+                    }
                 },
                 {
                     "uuid": "a73f423b-ff73-4803-8c2d-1a3c06ba764a",

@@ -64,7 +64,7 @@ DebugList: offsetTable
 	dbglistobj Obj_Motobug, Map_Motobug, 0, 0, make_art_tile(ArtTile_Motobug,0,0)
 	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
 	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
-	dbglistobj Obj_SSZEndBoss,	Map_MechaSonic, 0, 0, make_art_tile($3F4,1,1)
+	dbglistobj Obj_MechaSonic,	Map_MechaSonic, 0, 0, make_art_tile($3F4,1,1)
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
 .GHZ1_End
 
