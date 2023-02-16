@@ -50,25 +50,31 @@ Obj_DashDust_Secondary:
 ; ---------------------------------------------------------------------------
 
 off_18BBE: offsetTable
-		offsetTableEntry.w loc_18C94
-		offsetTableEntry.w loc_18BC8
-		offsetTableEntry.w loc_18C20
-		offsetTableEntry.w loc_18C84
-		offsetTableEntry.w loc_18BEC
+		offsetTableEntry.w .nothing
+		offsetTableEntry.w .splash
+		offsetTableEntry.w .spindash
+		offsetTableEntry.w .skid
+		offsetTableEntry.w .drown
+		offsetTableEntry.w .skip
 ; ---------------------------------------------------------------------------
 
-loc_18BC8:
+.skip:
+		move.w	x_vel(a2),x_vel(a0)
+		asr.w	x_vel(a0)
+		asr.w	x_vel(a0)
+		jsr		SpeedToPos
+.splash:
 		move.w	(Water_level).w,y_pos(a0)
-		tst.b	$21(a0)
-		bne.w	loc_18C94
+		tst.b	next_anim(a0)
+		bne.w	.nothing
 		move.w	x_pos(a2),x_pos(a0)
 		clr.b	status(a0)
 		andi.w	#$7FFF,art_tile(a0)
-		bra.w	loc_18C94
+		bra.w	.nothing
 ; ---------------------------------------------------------------------------
 
-loc_18BEC:
-		tst.b	$21(a0)
+.drown:
+		tst.b	next_anim(a0)
 		bne.s	+
 		move.w	x_pos(a2),x_pos(a0)
 		clr.b	status(a0)
@@ -80,50 +86,49 @@ loc_18BEC:
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
-loc_18C20:
+.spindash:
 		cmpi.b	#12,air_left(a2)
-		blo.w	loc_18CAA
+		blo.w	.reset
 		cmpi.b	#4,routine(a2)
-		bhs.s	loc_18CAA
+		bhs.s	.reset
 		tst.b	$3D(a2)
-		beq.s	loc_18CAA
+		beq.s	.reset
 		move.w	x_pos(a2),x_pos(a0)
 		move.w	y_pos(a2),y_pos(a0)
 		move.b	status(a2),status(a0)
 		andi.b	#1,status(a0)
 		moveq	#4,d1
 		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_18C60
+		beq.s	+
 		ori.b	#2,status(a0)
 		neg.w	d1
-
-loc_18C60:
++
 		cmpi.b	#c_Tails,character_id(a0)
 		bne.s	+
 		sub.w	d1,y_pos(a0)
-+		tst.b	$21(a0)
-		bne.s	loc_18C94
++		tst.b	next_anim(a0)
+		bne.s	.nothing
 		andi.w	#$7FFF,art_tile(a0)
 		tst.w	art_tile(a2)
-		bpl.s	loc_18C94
+		bpl.s	.nothing
 		ori.w	#$8000,art_tile(a0)
-		bra.s	loc_18C94
+		bra.s	.nothing
 ; ---------------------------------------------------------------------------
 
-loc_18C84:
+.skid:
 		cmpi.b	#12,air_left(a2)
-		blo.s		loc_18CAA
+		blo.s		.reset
 		btst	#6,status(a0)
-		bne.s	loc_18CAA
+		bne.s	.reset
 
-loc_18C94:
+.nothing:
 		lea	Ani_DashSplashDrown(pc),a1
 		jsr	(Animate_Sprite).w
 		bsr.w	DashDust_Load_DPLC
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
-loc_18CAA:
+.reset:
 		clr.b	anim(a0)
 		rts
 ; ---------------------------------------------------------------------------

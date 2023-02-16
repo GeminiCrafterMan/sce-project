@@ -6,6 +6,7 @@
 
 WZ1_ScreenInit:
 		move.l	#Obj_Oil,(v_WaterWave1+address).w
+		move.w	#$608,(v_WaterWave1+y_pos).w
 		jsr	(Reset_TileOffsetPositionActual).w
 		jmp	(Refresh_PlaneFull).w
 

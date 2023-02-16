@@ -11,7 +11,6 @@ Obj_Oil:
 	move.b	routine(a0),d0
 	move.w	Obj_Oil_Index(pc,d0.w),d1
 	jmp	Obj_Oil_Index(pc,d1.w)
-	;jmp		Draw_Sprite	; so it doesn't despawn instantly
 ; ===========================================================================
 ; off_2402E: Obj_Oil_States:
 Obj_Oil_Index:	offsetTable
@@ -21,12 +20,8 @@ Obj_Oil_Index:	offsetTable
 ; loc_24032:
 Obj_Oil_Init:
 	addq.b	#2,routine(a0) ; => Obj_Oil_Main
-	move.w	#$608,y_pos(a0)
 	move.b	#$20,width_pixels(a0)
 	move.b	#$20,height_pixels(a0)
-	;ori.b	#4,render_flags(a0)		; set screen coordinates
-	;move.l	#Map_WaterWave,mappings(a0)	; for rememberstate, both of these
-	;move.w	#make_art_tile(ArtTile_WaterWave,0,1),art_tile(a0)
 	move.w	y_pos(a0),objoff_30(a0)
 	move.b	#$30,oil_char1submersion(a0)
 	bset	#7,status(a0)

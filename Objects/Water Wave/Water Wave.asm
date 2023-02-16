@@ -47,14 +47,49 @@ Obj_WaterWave:
 		move.b	#7,anim_frame_timer(a0)
 		addq.b	#1,mapping_frame(a0)
 		cmpi.b	#3,mapping_frame(a0)
-		blo.s		.setframe
+		blo.s	.setframe
 		clr.b	mapping_frame(a0)
 
 .setframe
 ;		move.b	mapping_frame(a0),1(a2)
 		lea	PLCPtr_WaterWave(pc),a2
 		jsr	(Perform_DPLC).w
-		jmp	(Draw_Sprite).w
+		jsr	(Draw_Sprite).w
+		jsr	(Find_SonicTails).w
+	; water running tests
+		tst.b	d1	; is player above the water?
+		bne.s	.ret	; if not, get outta here
+		cmpi.w	#$10,d3	; more than $10 above the water?
+		bgt.s	.ret
+		moveq	#0,d0
+		mvabs.w	x_vel(a1),d0
+		cmpi.w	#$608,d0
+		blt.s	.getOff
+		btst	#Status_Roll,status(a1)
+		bne.s	.getOff
+		clr.w	y_vel(a1)
+		move.w	y_pos(a0),d0
+		move.b	default_y_radius(a1),d1
+		subq.b	#4,d1
+		sub.w	d1,d0
+		move.w	d0,y_pos(a1)
+		jsr		RideObject_SetRide
+		cmpa.w	#Player_1,a1
+		bne.s	.p2
+		lea		(v_Dust_P1).w,a1
+		bra.s	.setSplash
+	.p2:
+		lea		(v_Dust_P2).w,a1
+	.setSplash:
+		tst.b	mapping_frame(a1)
+		bne.s	.ret
+		move.w	#bytes_to_word(5,0),anim(a1)	; skip animation, write 5 to anim and clear prev_anim
+		sfx	sfx_Splash,1				; splash sound
+	.getOff:
+		bclr	#Status_OnObj,status(a1)
+	.ret:
+		rts
+
 ; ---------------------------------------------------------------------------
 
 PLCPtr_WaterWave:

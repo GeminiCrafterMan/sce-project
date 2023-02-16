@@ -75,6 +75,7 @@ CartRAMEndLoc:	dc.l $20202020	; SRAM end ($20xxxx)
 Modem_Info:		dc.b "                                                    "
 Country_Code:	dc.b "JUE             "
 EndOfHeader:
+		dc.w	0	; to make bizhawk work. stupid-ass eagle
 
 ; ---------------------------------------------------------------------------
 ; Security Subroutine

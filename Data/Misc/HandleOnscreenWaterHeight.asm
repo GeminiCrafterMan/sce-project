@@ -95,18 +95,17 @@ LoadWaterPalette:
 ; ---------------------------------------------------------------------------
 
 StartingWaterHeights:
-		dc.w $1000	; GHZ 1
-		dc.w $1000	; GHZ 2
-		dc.w $1000	; GHZ 3
-		dc.w $1000	; GHZ 4
+	rept 4
+		dc.w $1000	; GHZ 1-4
+	endr
 		dc.w $1000	; SSLZ 1
-		dc.w $1000	; SSLZ 2
-		dc.w $1000	; SSLZ 3
-		dc.w $1000	; SSLZ 4
-		dc.w $1000	; WZ 1
-		dc.w $1000	; WZ 2
-		dc.w $1000	; WZ 3
-		dc.w $1000	; WZ 4
+		dc.w $C80	; SSLZ 2
+	rept 2
+		dc.w $1000	; SSLZ 3-4
+	endr
+	rept 4
+		dc.w $1000	; WZ 1-4
+	endr
 		dc.w $500	; DEZ 1
 		dc.w $480	; DEZ 2
 		dc.w $400	; DEZ 3

@@ -465,7 +465,7 @@ touch_top_mask			= p1_touch_top|p2_touch_top
 ; ---------------------------------------------------------------------------
 
 Status_Facing			= 0
-Status_InAir				= 1
+Status_InAir			= 1
 Status_Roll				= 2
 Status_OnObj			= 3
 Status_RollJump			= 4
@@ -478,7 +478,7 @@ Status_Underwater		= 6
 
 Status_Shield				= 0
 Status_Invincible			= 1
-Status_SpeedShoes		= 2
+Status_SpeedShoes			= 2
 
 Status_FireShield			= 4
 Status_LtngShield			= 5
@@ -490,8 +490,8 @@ Status_BublShield			= 6
 
 Status_ObjOrienX			= 0
 Status_ObjOrienY			= 1
-Status_ObjTouch			= 6
-Status_ObjDefeated		= 7
+Status_ObjTouch				= 6
+Status_ObjDefeated			= 7
 
 ; ---------------------------------------------------------------------------
 ; Universal (used on all standard levels)

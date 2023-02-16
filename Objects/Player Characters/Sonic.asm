@@ -463,12 +463,34 @@ Player_InWater:
 loc_10E82:
 		tst.b	object_control(a0)
 		bne.s	locret_10E2C
-		asr	x_vel(a0)
-		asr	y_vel(a0)				; memory operands can only be shifted one bit at a time
-		asr	y_vel(a0)
+	; Slow player once. The other two happen if they fail to skim.
+		asr		y_vel(a0)				; memory operands can only be shifted one bit at a time
 		beq.w	locret_10E2C
 		move.w	#bytes_to_word(1,0),anim(a6)	; splash animation, write 1 to anim and clear prev_anim
-		sfx	sfx_Splash,1				; splash sound
+		sfx	sfx_Splash				; splash sound
+	; Water skimming, made by me for SHIMA, but I want it here.
+		btst	#Status_InAir,status(a0)	; In the air?
+		beq.s	.noSkim			; If not, return.
+		btst	#Status_Roll,status(a0)	; Spinning?
+		beq.s	.noSkim			; If not, return.
+		cmpi.b	#id_Roll,anim(a0)	; Are you SUUUUURE?
+		beq.s	.contSkim			; If so, get over there.
+		cmpi.b	#id_Roll2,anim(a0); ABSOLUTELY FUCKING POSITIVE?
+		bne.s	.noSkim			; If so, get over there. If not, gtfo.
+	.contSkim:
+		cmpi.w	#-$608,x_vel(a0)
+		bgt.s	.rightSkim
+		bra.s	.skim
+	.rightSkim:
+		cmpi.w	#$608,x_vel(a0)
+		blt.s	.noSkim
+	.skim:
+		neg.w	y_vel(a0)
+		rts
+	.noSkim:
+		asr	x_vel(a0)
+		asr	y_vel(a0)	; slow player.
+		rts
 ; ---------------------------------------------------------------------------
 
 Player_OutWater:
