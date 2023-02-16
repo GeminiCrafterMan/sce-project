@@ -15,7 +15,6 @@ WZ1_ScreenEvent:
 
 DLE_WZ:
 		move.l	#Obj_Oil,(v_WaterWave1+address).w
-		move.w	#$60,(v_WaterWave1+x_pos).w
 		rts
 ; ===========================================================================
 

@@ -10,7 +10,8 @@ Obj_Oil:
 	moveq	#0,d0
 	move.b	routine(a0),d0
 	move.w	Obj_Oil_Index(pc,d0.w),d1
-	jmp	Obj_Oil_Index(pc,d1.w)
+	jsr	Obj_Oil_Index(pc,d1.w)
+	jmp		RememberState	; so it doesn't despawn instantly
 ; ===========================================================================
 ; off_2402E: Obj_Oil_States:
 Obj_Oil_Index:	offsetTable
@@ -23,6 +24,9 @@ Obj_Oil_Init:
 	move.w	#$608,y_pos(a0)
 	move.b	#$20,width_pixels(a0)
 	move.b	#$20,height_pixels(a0)
+	ori.b	#4,render_flags(a0)		; set screen coordinates
+	move.l	#Map_WaterWave,mappings(a0)	; for rememberstate, both of these
+	move.w	#make_art_tile(ArtTile_WaterWave,0,1),art_tile(a0)
 	move.w	y_pos(a0),objoff_30(a0)
 	move.b	#$30,oil_char1submersion(a0)
 	bset	#7,status(a0)
@@ -39,7 +43,6 @@ Obj_Oil_Main:
 	bne.s	Obj_Oil_CheckKillChar1
 	cmpi.b	#$30,oil_char1submersion(a0)
 	beq.s	Obj_Oil_CheckSupportChar1
-	illegal
 	addq.b	#1,oil_char1submersion(a0)
 	bra.s	Obj_Oil_CheckSupportChar1
 ; ---------------------------------------------------------------------------
@@ -61,6 +64,8 @@ Obj_Oil_CheckSupportChar1:
 
 	; check player 2
 	lea	(Player_2).w,a1 ; a1=character
+	tst.b	render_flags(a1)
+	bpl.w	Obj_Oil_End
 	moveq	#p2_standing,d1
 	move.b	status(a0),d0
 	and.b	d1,d0
