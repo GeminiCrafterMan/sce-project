@@ -94,17 +94,17 @@ LevelLoadPointer:
 		dc.l LevelPointer_Null, LevelPointer_Null
 
 ; TTZ2
-		dc.l AnPal_TTZ, LevelPointer_Null, DWE_TTZ2, LevelPointer_Null
+		dc.l AnPal_TTZ, LevelPointer_Null, DWE_TTZ, LevelPointer_Null
 		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
 
 ; TTZ3
-		dc.l AnPal_TTZ, LevelPointer_Null, DWE_TTZ3, LevelPointer_Null
+		dc.l AnPal_TTZ, LevelPointer_Null, DWE_TTZ, LevelPointer_Null
 		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
 
 ; TTZ4
-		dc.l AnPal_TTZ, LevelPointer_Null, DWE_TTZ4, LevelPointer_Null
+		dc.l AnPal_TTZ, LevelPointer_Null, DWE_TTZ, LevelPointer_Null
 		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
 

@@ -87,15 +87,41 @@ TTZ_Deform:
 		rts
 ; ---------------------------------------------------------------------------
 
-DWE_TTZ2:	; basically a copy of Labyrinth Zone 1.
-		move.w	(v_screenposx).w,d0
-		move.b	(Water_routine).w,d2
+DWE_TTZ:
+		moveq	#0,d0
+		move.b	(Current_act).w,d0
+		add.w	d0,d0
+		move.w	.index(pc,d0.w),d0
+		jsr	.index(pc,d0.w)
+		moveq	#0,d1
+		move.b	(Water_on).w,d1
+		move.w	(Target_water_level).w,d0
+		sub.w	(Mean_water_level).w,d0
+		beq.s	.exit		; if water level is correct, branch
+		bcc.s	.movewater	; if water level is too high, branch
+		neg.w	d1		; set water to move up instead
+
+.movewater:
+		add.w	d1,(Mean_water_level).w ; move water up/down
+
+.exit:
+		rts	
+; ===========================================================================
+.index:	dc.w .exit-.index
+		dc.w DWE_TTZ2-.index
+		dc.w DWE_TTZ3-.index
+		dc.w DWE_TTZ4-.index
+; ===========================================================================
+
+DWE_TTZ2:
+		move.w	(Camera_X_pos).w,d0
+		move.b	(WaterEvent_routine).w,d2
 		bne.s	.routine2
 		move.w	#$B8,d1		; water height
 		cmpi.w	#$600,d0	; has screen reached next position?
 		bcs.s	.setwater	; if not, branch
 		move.w	#$108,d1
-		cmpi.w	#$200,(Player_1+obY).w ; is Sonic above $200 y-axis?
+		cmpi.w	#$200,(Player_1+y_pos).w ; is Sonic above $200 y-axis?
 		bcs.s	.sonicishigh	; if yes, branch
 		cmpi.w	#$C00,d0
 		bcs.s	.setwater
@@ -109,7 +135,7 @@ DWE_TTZ2:	; basically a copy of Labyrinth Zone 1.
 		move.w	#$3A8,d1
 		cmp.w	(Mean_water_level).w,d1 ; has water reached last height?
 		bne.s	.setwater	; if not, branch
-		move.b	#1,(Water_routine).w ; use second routine next
+		move.b	#1,(WaterEvent_routine).w ; use second routine next
 
 .setwater:
 		move.w	d1,(Target_water_level).w
@@ -129,13 +155,13 @@ DWE_TTZ2:	; basically a copy of Labyrinth Zone 1.
 .routine2:
 		subq.b	#1,d2
 		bne.s	.skip
-		cmpi.w	#$2E0,(Player_1+obY).w ; is Sonic above $2E0 y-axis?
+		cmpi.w	#$2E0,(Player_1+y_pos).w ; is Sonic above $2E0 y-axis?
 		bcc.s	.skip		; if not, branch
 		move.w	#$3A8,d1
 		cmpi.w	#$1300,d0
 		bcs.s	.setwater2
 		move.w	#$108,d1
-		move.b	#2,(Water_routine).w
+		move.b	#2,(WaterEvent_routine).w
 
 .setwater2:
 		move.w	d1,(Target_water_level).w
@@ -144,8 +170,8 @@ DWE_TTZ2:	; basically a copy of Labyrinth Zone 1.
 		rts	
 ; ===========================================================================
 
-DWE_TTZ3:	; basically a copy of Labyrinth Zone 2.
-		move.w	(v_screenposx).w,d0
+DWE_TTZ3:
+		move.w	(Camera_X_pos).w,d0
 		move.w	#$328,d1
 		cmpi.w	#$500,d0
 		bcs.s	.setwater
@@ -159,22 +185,22 @@ DWE_TTZ3:	; basically a copy of Labyrinth Zone 2.
 		rts	
 ; ===========================================================================
 
-DWE_TTZ4:	; basically a copy of Labyrinth Zone 3.
-		move.w	(v_screenposx).w,d0
-		move.b	(Water_routine).w,d2
+DWE_TTZ4:
+		move.w	(Camera_X_pos).w,d0
+		move.b	(WaterEvent_routine).w,d2
 		bne.s	.routine2
 
 		move.w	#$900,d1
 		cmpi.w	#$600,d0	; has screen reached position?
 		bcs.s	.setwaterlz3	; if not, branch
-		cmpi.w	#$3C0,(Player_1+obY).w
+		cmpi.w	#$3C0,(Player_1+y_pos).w
 		bcs.s	.setwaterlz3
-		cmpi.w	#$600,(Player_1+obY).w ; is Sonic in a y-axis range?
+		cmpi.w	#$600,(Player_1+y_pos).w ; is Sonic in a y-axis range?
 		bcc.s	.setwaterlz3	; if not, branch
 
 		move.w	#$4C8,d1	; set new water height
 ;		move.l	#Level_LZ3,(v_lvllayoutfg).w ; MJ: Set normal version of act 3's layout to be read
-		move.b	#1,(Water_routine).w ; use second routine next
+		move.b	#1,(WaterEvent_routine).w ; use second routine next
 ;		move.w	#sfx_Rumbling,d0
 ;		bsr.w	PlaySound_Special ; play sound $B7 (rumbling)
 
@@ -195,9 +221,9 @@ DWE_TTZ4:	; basically a copy of Labyrinth Zone 3.
 		bcs.s	.setwater2
 		cmpi.w	#$508,(Target_water_level).w
 		beq.s	.sonicislow
-		cmpi.w	#$600,(Player_1+obY).w ; is Sonic below $600 y-axis?
+		cmpi.w	#$600,(Player_1+y_pos).w ; is Sonic below $600 y-axis?
 		bcc.s	.sonicislow	; if yes, branch
-		cmpi.w	#$280,(Player_1+obY).w
+		cmpi.w	#$280,(Player_1+y_pos).w
 		bcc.s	.setwater2
 
 .sonicislow:
@@ -205,7 +231,7 @@ DWE_TTZ4:	; basically a copy of Labyrinth Zone 3.
 		move.w	d1,(Mean_water_level).w
 		cmpi.w	#$1770,d0
 		bcs.s	.setwater2
-		move.b	#2,(Water_routine).w
+		move.b	#2,(WaterEvent_routine).w
 
 .setwater2:
 		move.w	d1,(Target_water_level).w
@@ -225,7 +251,7 @@ DWE_TTZ4:	; basically a copy of Labyrinth Zone 3.
 		bne.s	.setwater3
 
 .loc_3DC6:
-		move.b	#3,(Water_routine).w
+		move.b	#3,(WaterEvent_routine).w
 
 .setwater3:
 		move.w	d1,(Target_water_level).w
@@ -241,7 +267,7 @@ DWE_TTZ4:	; basically a copy of Labyrinth Zone 3.
 		move.w	#$900,d1
 		cmpi.w	#$1BC0,d0
 		bcs.s	.setwater4
-		move.b	#4,(Water_routine).w
+		move.b	#4,(WaterEvent_routine).w
 		move.w	#$608,(Target_water_level).w
 		move.w	#$7C0,(Mean_water_level).w
 		move.b	#1,(Level_trigger_array+8).w
