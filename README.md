@@ -13,3 +13,5 @@ JevilTheIrishBoi: S1 Badnik sprites
 Andrew Chandler: Voicing Cooler in Dragon Ball Z: Tenkaichi 3
 
 RatherNoiceSprites: Espio sprites
+
+mengo: Various pieces of art, including concept art and backgrounds so far.
