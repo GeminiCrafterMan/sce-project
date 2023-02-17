@@ -8,6 +8,7 @@ ptr_mus_dis:		SMPS_MUSIC_METADATA Music_DiS, 8, 0			; SSLZ
 ptr_mus_mcz2p:		SMPS_MUSIC_METADATA Music_MCZ2P, 8, 0		; WZ
 ptr_mus_dez1:		SMPS_MUSIC_METADATA	Music_DEZ1, s3TempotoS1($FF), 0			; DEZ 1
 ptr_mus_tffz:		SMPS_MUSIC_METADATA Music_TFFZ, s3TempotoS1($FF), 0			; TTZ
+ptr_mus_lz:			SMPS_MUSIC_METADATA	Music_LZ, 8, 0							; TTZ2-4?
 
 ; Boss
 ptr_mus_boss:		SMPS_MUSIC_METADATA	Music_Boss, s3TempotoS1($FF), 0			; Boss
@@ -36,6 +37,8 @@ Music_MCZ2P:		include	"Sound/Music/Mus - MCZ2P.asm"
 Music_DEZ1:			include "Sound/Music/Mus - DEZ1.asm"
 	even
 Music_TFFZ:			include "Sound/Music/Mus - The Final Fight.asm"
+	even
+Music_LZ:			include "Sound/Music/Mus - LZ.asm"
 	even
 Music_Boss:			include "Sound/Music/Mus - Miniboss.asm"
 	even

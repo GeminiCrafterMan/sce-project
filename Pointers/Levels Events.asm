@@ -22,4 +22,5 @@
 		include "Levels/DEZ/Events/Events.asm"
 
 ; TTZ
+		include "Levels/TTZ/Events/Animate Palette.asm"
 		include "Levels/TTZ/Events/Events.asm"

@@ -85,3 +85,179 @@ TTZ_Deform:
 		asr.l	#1,d2
 		move.w	d2,(a1)+
 		rts
+; ---------------------------------------------------------------------------
+
+DWE_TTZ2:	; basically a copy of Labyrinth Zone 1.
+		move.w	(v_screenposx).w,d0
+		move.b	(Water_routine).w,d2
+		bne.s	.routine2
+		move.w	#$B8,d1		; water height
+		cmpi.w	#$600,d0	; has screen reached next position?
+		bcs.s	.setwater	; if not, branch
+		move.w	#$108,d1
+		cmpi.w	#$200,(Player_1+obY).w ; is Sonic above $200 y-axis?
+		bcs.s	.sonicishigh	; if yes, branch
+		cmpi.w	#$C00,d0
+		bcs.s	.setwater
+		move.w	#$318,d1
+		cmpi.w	#$1080,d0
+		bcs.s	.setwater
+		move.b	#$80,(Level_trigger_array+5).w
+		move.w	#$5C8,d1
+		cmpi.w	#$1380,d0
+		bcs.s	.setwater
+		move.w	#$3A8,d1
+		cmp.w	(Mean_water_level).w,d1 ; has water reached last height?
+		bne.s	.setwater	; if not, branch
+		move.b	#1,(Water_routine).w ; use second routine next
+
+.setwater:
+		move.w	d1,(Target_water_level).w
+		rts	
+; ===========================================================================
+
+.sonicishigh:
+		cmpi.w	#$C80,d0
+		bcs.s	.setwater
+		move.w	#$E8,d1
+		cmpi.w	#$1500,d0
+		bcs.s	.setwater
+		move.w	#$108,d1
+		bra.s	.setwater
+; ===========================================================================
+
+.routine2:
+		subq.b	#1,d2
+		bne.s	.skip
+		cmpi.w	#$2E0,(Player_1+obY).w ; is Sonic above $2E0 y-axis?
+		bcc.s	.skip		; if not, branch
+		move.w	#$3A8,d1
+		cmpi.w	#$1300,d0
+		bcs.s	.setwater2
+		move.w	#$108,d1
+		move.b	#2,(Water_routine).w
+
+.setwater2:
+		move.w	d1,(Target_water_level).w
+
+.skip:
+		rts	
+; ===========================================================================
+
+DWE_TTZ3:	; basically a copy of Labyrinth Zone 2.
+		move.w	(v_screenposx).w,d0
+		move.w	#$328,d1
+		cmpi.w	#$500,d0
+		bcs.s	.setwater
+		move.w	#$3C8,d1
+		cmpi.w	#$B00,d0
+		bcs.s	.setwater
+		move.w	#$428,d1
+
+.setwater:
+		move.w	d1,(Target_water_level).w
+		rts	
+; ===========================================================================
+
+DWE_TTZ4:	; basically a copy of Labyrinth Zone 3.
+		move.w	(v_screenposx).w,d0
+		move.b	(Water_routine).w,d2
+		bne.s	.routine2
+
+		move.w	#$900,d1
+		cmpi.w	#$600,d0	; has screen reached position?
+		bcs.s	.setwaterlz3	; if not, branch
+		cmpi.w	#$3C0,(Player_1+obY).w
+		bcs.s	.setwaterlz3
+		cmpi.w	#$600,(Player_1+obY).w ; is Sonic in a y-axis range?
+		bcc.s	.setwaterlz3	; if not, branch
+
+		move.w	#$4C8,d1	; set new water height
+;		move.l	#Level_LZ3,(v_lvllayoutfg).w ; MJ: Set normal version of act 3's layout to be read
+		move.b	#1,(Water_routine).w ; use second routine next
+;		move.w	#sfx_Rumbling,d0
+;		bsr.w	PlaySound_Special ; play sound $B7 (rumbling)
+
+.setwaterlz3:
+		move.w	d1,(Target_water_level).w
+		move.w	d1,(Mean_water_level).w ; change water height instantly
+		rts	
+; ===========================================================================
+
+.routine2:
+		subq.b	#1,d2
+		bne.s	.routine3
+		move.w	#$4C8,d1
+		cmpi.w	#$770,d0
+		bcs.s	.setwater2
+		move.w	#$308,d1
+		cmpi.w	#$1400,d0
+		bcs.s	.setwater2
+		cmpi.w	#$508,(Target_water_level).w
+		beq.s	.sonicislow
+		cmpi.w	#$600,(Player_1+obY).w ; is Sonic below $600 y-axis?
+		bcc.s	.sonicislow	; if yes, branch
+		cmpi.w	#$280,(Player_1+obY).w
+		bcc.s	.setwater2
+
+.sonicislow:
+		move.w	#$508,d1
+		move.w	d1,(Mean_water_level).w
+		cmpi.w	#$1770,d0
+		bcs.s	.setwater2
+		move.b	#2,(Water_routine).w
+
+.setwater2:
+		move.w	d1,(Target_water_level).w
+		rts	
+; ===========================================================================
+
+.routine3:
+		subq.b	#1,d2
+		bne.s	.routine4
+		move.w	#$508,d1
+		cmpi.w	#$1860,d0
+		bcs.s	.setwater3
+		move.w	#$188,d1
+		cmpi.w	#$1AF0,d0
+		bcc.s	.loc_3DC6
+		cmp.w	(Mean_water_level).w,d1
+		bne.s	.setwater3
+
+.loc_3DC6:
+		move.b	#3,(Water_routine).w
+
+.setwater3:
+		move.w	d1,(Target_water_level).w
+		rts	
+; ===========================================================================
+
+.routine4:
+		subq.b	#1,d2
+		bne.s	.routine5
+		move.w	#$188,d1
+		cmpi.w	#$1AF0,d0
+		bcs.s	.setwater4
+		move.w	#$900,d1
+		cmpi.w	#$1BC0,d0
+		bcs.s	.setwater4
+		move.b	#4,(Water_routine).w
+		move.w	#$608,(Target_water_level).w
+		move.w	#$7C0,(Mean_water_level).w
+		move.b	#1,(Level_trigger_array+8).w
+		rts	
+; ===========================================================================
+
+.setwater4:
+		move.w	d1,(Target_water_level).w
+		move.w	d1,(Mean_water_level).w
+		rts	
+; ===========================================================================
+
+.routine5:
+		cmpi.w	#$1E00,d0	; has screen passed final position?
+		bcs.s	.dontset	; if not, branch
+		move.w	#$128,(Target_water_level).w
+
+.dontset:
+		rts	

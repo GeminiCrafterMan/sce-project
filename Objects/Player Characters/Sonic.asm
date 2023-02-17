@@ -454,6 +454,8 @@ Player_InWater:
 		move.w	#$300,Top_speed_P1-Top_speed_P1(a4)
 		move.w	#6,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$40,Deceleration_P1-Top_speed_P1(a4)
+		cmpa.w	#Player_1,a0
+		bne.s	loc_10E82
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	loc_10E82	; if Super/Hyper, set different values
 		move.w	#$500,Top_speed_P1-Top_speed_P1(a4)
@@ -503,6 +505,8 @@ Player_OutWater:
 		move.w	#$600,Top_speed_P1-Top_speed_P1(a4)
 		move.w	#$C,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$80,Deceleration_P1-Top_speed_P1(a4)
+		cmpa.w	#Player_1,a0
+		bne.s	loc_10EE0
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	loc_10EE0	; if Super/Hyper, set different values
 		move.w	#$A00,Top_speed_P1-Top_speed_P1(a4)
@@ -707,8 +711,11 @@ Player_NotRight:
 		subq.w	#2,d2						; Subtract 2: This is the margin for 'on edge'
 		add.w	x_pos(a0),d1					; Add Sonic's X position to object width
 		sub.w	x_pos(a1),d1					; Subtract object's X position from width+Sonic's X pos, giving you Sonic's distance from left edge of object
+		cmpa.w	#Player_1,a0
+		bne.s	.cont
 		tst.b	(Super_Sonic_Knux_flag).w	; is Sonic Super/Hyper?
 		bne.s	SuperPlayer_Balance	; if so, branch
+	.cont:
 		cmpi.w	#2,d1						; is Sonic within two units of object's left edge?
 		blt.s		Player_BalanceOnObjLeft		; if so, branch
 		cmp.w	d2,d1
@@ -772,8 +779,11 @@ Player_Balance:
 		bsr.w	ChooseChkFloorEdge
 		cmpi.w	#$C,d1
 		blt.w	Player_Duck
+		cmpa.w	#Player_1,a0
+		bne.s	.cont
 		tst.b	(Super_Sonic_Knux_flag).w	; is Sonic Super/Hyper?
 		bne.w	loc_11250			; if so, branch
+	.cont:
 		cmpi.b	#3,next_tilt(a0)
 		bne.s	loc_111F6
 		btst	#Status_Facing,status(a0)
@@ -917,6 +927,8 @@ Player_ResetScr_Part2:
 ; ---------------------------------------------------------------------------
 ; sub_1A5F8:
 Player_UpdateSpeedOnGround:
+		cmpa.w	#Player_1,a0
+		bne.s	loc_11306
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	loc_11306
 		move.w	#$C,d5
@@ -1135,6 +1147,8 @@ Player_RollSpeed:
 		asl.w	#1,d6
 		move.w	Acceleration_P1-Top_speed_P1(a4),d5
 		asr.w	#1,d5
+		cmpa.w	#Player_1,a0
+		bne.s	loc_1151C
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	loc_1151C
 		move.w	#6,d5
@@ -2910,6 +2924,8 @@ loc_12700:
 		add.w	d2,d2
 
 loc_1270A:
+		cmpa.w	#Player_1,a0
+		bne.s	+
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	+
 		lea	SonAni_Mach(pc),a1	; use mach speed animation

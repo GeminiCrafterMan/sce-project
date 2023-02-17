@@ -84,7 +84,7 @@ Obj_WaterWave:
 		tst.b	mapping_frame(a1)
 		bne.s	.ret
 		move.w	#bytes_to_word(5,0),anim(a1)	; skip animation, write 5 to anim and clear prev_anim
-		sfx	sfx_Splash,1				; splash sound
+		sfx	sfx_Slide,1				; splash sound
 	.getOff:
 		movea.w	interact(a1),a2
 		cmpa.w	a0,a2

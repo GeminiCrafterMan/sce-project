@@ -14,6 +14,7 @@ bgm_DiS =			SMPS_id(ptr_mus_dis)
 bgm_MCZ2P =			SMPS_id(ptr_mus_mcz2p)
 bgm_DEZ1 =			SMPS_id(ptr_mus_dez1)
 bgm_TFFZ =			SMPS_id(ptr_mus_tffz)
+bgm_LZ =			SMPS_id(ptr_mus_lz)
 
 ; Bosses
 bgm_MidBoss =		SMPS_id(ptr_mus_boss)

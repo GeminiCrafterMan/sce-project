@@ -110,8 +110,8 @@ StartingWaterHeights:
 		dc.w $400	; DEZ 3
 		dc.w $380	; DEZ 4
 		dc.w $500	; TTZ 1
-		dc.w $480	; TTZ 2
-		dc.w $400	; TTZ 3
-		dc.w $380	; TTZ 4
+		dc.w $88	; TTZ 2
+		dc.w $328	; TTZ 3
+		dc.w $900	; TTZ 4
 
 		zonewarning StartingWaterHeights,(2*4)

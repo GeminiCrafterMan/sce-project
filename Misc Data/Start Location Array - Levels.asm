@@ -24,8 +24,8 @@ StartLocArray:
 		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 4
 
 		binclude "Levels/TTZ/Start Location/1.bin"	; TTZ 1
-		binclude "Levels/TTZ/Start Location/1.bin"	; TTZ 2
-		binclude "Levels/TTZ/Start Location/1.bin"	; TTZ 3
-		binclude "Levels/TTZ/Start Location/1.bin"	; TTZ 4
+		binclude "Levels/TTZ/Start Location/2.bin"	; TTZ 2
+		binclude "Levels/TTZ/Start Location/3.bin"	; TTZ 3
+		binclude "Levels/TTZ/Start Location/4.bin"	; TTZ 4
 
 		zonewarning StartLocArray,(4*4)

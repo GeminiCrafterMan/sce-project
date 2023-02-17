@@ -176,7 +176,7 @@ AirCountdown_Load_Art:
 		moveq	#0,d1
 		move.b	mapping_frame(a0),d1
 		cmpi.b	#9,d1
-		blo.s		locret_18464
+		blo.s	locret_18464
 		cmpi.b	#$13,d1
 		bhs.s	locret_18464
 		cmp.b	objoff_32(a0),d1
@@ -234,6 +234,8 @@ AirCountdown_Countdown:
 		cmpi.w	#12,d0
 		bhi.s	loc_1850A
 		bne.s	loc_184E8
+		cmpa.w	#Player_1,a2
+		bne.s	loc_184E8
 		music	bgm_Drowning	; Drowning music
 
 loc_184E8:
@@ -245,11 +247,13 @@ loc_184E8:
 ; ---------------------------------------------------------------------------
 
 loc_184FC:
+		cmpa.w	#Player_1,a2
+		bne.s	loc_1850A
 		sfx	sfx_AirDing
 
 loc_1850A:
 		subq.b	#1,air_left(a2)
-		bcc.w	loc_18592
+		bcc.w	loc_185A4
 		move.b	#$81,object_control(a2)
 		sfx	sfx_Drown
 		move.b	#10,objoff_38(a0)
@@ -266,27 +270,27 @@ loc_1850A:
 		clr.l	x_vel(a0)
 		clr.w	ground_vel(a0)
 		move.b	#id_SonicDrown,routine(a0)
-		movea.w	(sp)+,a0
+		cmpa.w	#Player_1,a0
+		bne.s	.p2
+		lea	(v_Dust_P1).w,a6
 		st	(Deform_lock).w
+		bra.s	.cont
+	.p2:
+		lea	(v_Dust_P2).w,a6
+	.cont:
+		move.w	#bytes_to_word(4,0),anim(a6)	; drown puff animation
+		movea.w	(sp)+,a0
 		rts
 ; ---------------------------------------------------------------------------
 
 loc_1857C:
 		move.b	#id_Drown,anim(a2)
 		subq.w	#1,objoff_30(a0)
-		bne.s	loc_18590
+		bne.s	loc_18594
 		move.b	#id_SonicDeath,routine(a2)
 
 locret_1858E:
 		rts
-; ---------------------------------------------------------------------------
-
-loc_18590:
-		bra.s	loc_18594
-; ---------------------------------------------------------------------------
-
-loc_18592:
-		bra.s	loc_185A4
 ; ---------------------------------------------------------------------------
 
 loc_18594:
@@ -365,6 +369,8 @@ loc_18676:
 Player_ResetAirTimer:
 		cmpi.b	#12,air_left(a1)
 		bhi.s	.end								; branch if countdown hasn't started yet
+		cmpa.w	#Player_1,a1
+		bne.s	.end
 		move.w	(Current_music).w,d0				; prepare to play current level's music
 		tst.b	(Boss_flag).w
 		bne.s	.notinvincible						; branch if in a boss fight
