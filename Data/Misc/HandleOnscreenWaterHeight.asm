@@ -100,9 +100,8 @@ StartingWaterHeights:
 	endr
 		dc.w $1000	; SSLZ 1
 		dc.w $C80	; SSLZ 2
-	rept 2
-		dc.w $1000	; SSLZ 3-4
-	endr
+		dc.w $390	; SSLZ 3
+		dc.w $1000	; SSLZ 4
 	rept 4
 		dc.w $1000	; WZ 1-4
 	endr

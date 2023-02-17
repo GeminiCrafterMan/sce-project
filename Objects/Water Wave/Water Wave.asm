@@ -86,6 +86,9 @@ Obj_WaterWave:
 		move.w	#bytes_to_word(5,0),anim(a1)	; skip animation, write 5 to anim and clear prev_anim
 		sfx	sfx_Splash,1				; splash sound
 	.getOff:
+		movea.w	interact(a1),a2
+		cmpa.w	a0,a2
+		bne.s	.ret
 		bclr	#Status_OnObj,status(a1)
 	.ret:
 		rts
