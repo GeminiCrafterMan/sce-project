@@ -4,17 +4,30 @@ using System.Collections.ObjectModel;
 using System.Drawing;
 using SonicRetro.SonLVL.API;
 
+namespace S3KObjectDefinitions.GHZ
+{
+	class SwingingPlatform : Common.SwingingPlatform
+	{
+		public override void Init(ObjectData data)
+		{
+			imgsaw = ObjectHelper.MapASMToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), "../Objects/Swinging Platform/Object Data/Map - Saw.asm", 1, 2);
+			for (int i = 0; i < labels.Length; i++)
+				imgs.Add(ObjectHelper.MapASMToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM), "../Objects/Swinging Platform/Object Data/Map - Swinging Platform.asm", labels[i], i == 1 ? 0 : 2));
+		}
+	}
+}
+
 namespace S3KObjectDefinitions.Common
 {
 	class SwingingPlatform : ObjectDefinition
 	{
-		private int[] labels = { 0, 1, 2 };
-		private Sprite imgsaw;
-		private List<Sprite> imgs = new List<Sprite>();
+		public int[] labels = { 0, 1, 2 };
+		public Sprite imgsaw;
+		public List<Sprite> imgs = new List<Sprite>();
 
 		public override void Init(ObjectData data)
 		{
-			imgsaw = ObjectHelper.MapASMToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", 0), "../Objects/Swinging Platform/Object Data/Map - Saw.asm", 1, 2);
+			imgsaw = ObjectHelper.MapASMToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), "../Objects/Swinging Platform/Object Data/Map - Saw.asm", 1, 2);
 			for (int i = 0; i < labels.Length; i++)
 				imgs.Add(ObjectHelper.MapASMToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM), "../Objects/Swinging Platform/Object Data/Map - Swinging Platform.asm", labels[i], i == 1 ? 0 : 2));
 		}

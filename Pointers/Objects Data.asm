@@ -61,6 +61,7 @@
 		include	"Objects/Purple Rock/Purple Rock.asm"
 		include	"Objects/Smashable Walls/Smashable Walls.asm"
 		include	"Objects/Edge Walls/Edge Walls.asm"
+		include	"Objects/Swinging Platform/Swinging Platform.asm"
 
 	; SSLZ
 		include	"Objects/Burrobot/Burrobot.asm"
