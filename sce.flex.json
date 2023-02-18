@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
+    "node": "7f8f4735-1d77-4e10-b709-028a3a4d80b4",
     "objects": [
         {
             "name": "Players",
@@ -21,6 +21,10 @@
                         },
                         {
                             "path": "Objects/Player Characters/Palettes/Mighty.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Player Characters/Palettes/Espio.bin",
                             "length": 1
                         }
                     ],
@@ -757,6 +761,26 @@
             "name": "Green Hill",
             "children": [
                 {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Swinging Platform",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Swinging Platform/Object Data/Map - Swinging Platform.asm",
+                        "label": "Map_SwingingPlatform"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "aa7f8f47-351d-470e-9077-09028a3a4d80"
+                },
+                {
                     "uuid": "4f96cd26-1750-4e82-906c-d2d5a1a6146d",
                     "format": "Sonic 3&K Object.js",
                     "name": "Buzz Bomber",
@@ -1075,7 +1099,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "9cf77ede-99af-4b8c-99a4-a8b5e4247148"
         },
         {
@@ -1186,6 +1210,43 @@
             "uuid": "d3d95b3c-8175-4835-b97c-8859b145c346"
         },
         {
+            "name": "Wood",
+            "children": [
+                {
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Saw",
+                    "palettes": [
+                        {
+                            "length": 1,
+                            "blank": true
+                        },
+                        {
+                            "path": "Levels/WZ/Palettes/Wood Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Swinging Platform/Uncompressed Art/Saw.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Swinging Platform/Object Data/Map - Saw.asm",
+                        "label": "Map_Saw"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Swinging Platform/Object Data/Saw pattern load cues.asm",
+                        "label": "PLC_Saw"
+                    },
+                    "uuid": "7f8f4735-1d77-4e10-b709-028a3a4d80b4"
+                }
+            ],
+            "isDirectory": true,
+            "expanded": true,
+            "uuid": "f5214947-99e5-41e8-9e03-d3245caadc9f"
+        },
+        {
             "name": "Death Egg",
             "children": [
                 {
@@ -1248,7 +1309,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "489cf77e-de99-4fcb-8c99-a4a8b5e42471"
         }
     ]
