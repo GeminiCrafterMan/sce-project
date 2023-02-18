@@ -17,12 +17,6 @@ VInt:
 
 		move.l	#vdpComm($0000,VSRAM,WRITE),VDP_control_port-VDP_control_port(a5)
 		move.l	(V_scroll_value).w,VDP_data_port-VDP_data_port(a6) ; send screen ypos to VSRAM
-		btst	#6,(Graphics_flags).w
-		beq.s	.notpal								; branch if it's not a PAL system
-		move.w	#$700,d0
-		dbf	d0,*										; otherwise, waste a bit of time here
-
-.notpal
 		move.b	(V_int_routine).w,d0
 		clr.b	(V_int_routine).w
 		st	(H_int_flag).w							; allow H Interrupt code to run
@@ -75,14 +69,7 @@ VInt_Lag_Level:
 		tst.b	(Water_flag).w
 		beq.w	VInt_Lag_NoWater
 		move.w	VDP_control_port-VDP_control_port(a5),d0
-		btst	#6,(Graphics_flags).w
-		beq.s	.notpal								; branch if it isn't a PAL system
-		move.w	#$700,d0
-		dbf	d0,*										; otherwise waste a bit of time here
-
-.notpal
 		st	(H_int_flag).w							; set HInt flag
-		stopZ80
 		tst.b	(Water_full_screen_flag).w					; is water above top of screen?
 		bne.s	VInt_Lag_FullyUnderwater 			; if yes, branch
 		dma68kToVDP Normal_palette,$0000,$80,CRAM
@@ -94,18 +81,11 @@ VInt_Lag_FullyUnderwater:
 
 VInt_Lag_Water_Cont:
 		move.w	(H_int_counter_command).w,VDP_control_port-VDP_control_port(a5)
-		startZ80
 		bra.w	VInt_Music
 ; ---------------------------------------------------------------------------
 
 VInt_Lag_NoWater:
 		move.w	VDP_control_port-VDP_control_port(a5),d0
-		btst	#6,(Graphics_flags).w
-		beq.s	.notpal	; branch if it isn't a PAL system
-		move.w	#$700,d0
-		dbf	d0,*		; otherwise, waste a bit of time here
-
-.notpal
 		st	(H_int_flag).w
 		move.w	(H_int_counter_command).w,VDP_control_port-VDP_control_port(a5)
 
@@ -160,10 +140,7 @@ VInt_Fade:
 ; =============== S U B R O U T I N E =======================================
 
 Do_ControllerPal:
-		stopZ80
-		stopZ802
 		jsr	(Poll_Controllers).w
-		startZ802
 		tst.b	(Water_full_screen_flag).w
 		bne.s	.water
 		dma68kToVDP Normal_palette,$0000,$80,CRAM
@@ -175,9 +152,7 @@ Do_ControllerPal:
 .skipwater
 		dma68kToVDP Sprite_table_buffer,vram_sprites,$280,VRAM
 		dma68kToVDP H_scroll_buffer,vram_hscroll,(224<<2),VRAM
-		jsr	(Process_DMA_Queue).w
-		startZ80
-		rts
+		jmp	(Process_DMA_Queue).w
 
 ; ---------------------------------------------------------------------------
 ; Sega
@@ -189,11 +164,7 @@ VInt_Sega:
 		move.b	(V_int_run_count+3).w,d0
 		andi.w	#$F,d0
 		bne.s	.skip	; run the following code once every 16 frames
-		stopZ80
-		stopZ802
 		jsr	(Poll_Controllers).w
-		startZ802
-		startZ80
 
 .skip
 		tst.w	(Demo_timer).w
@@ -210,10 +181,7 @@ VInt_Sega:
 ; =============== S U B R O U T I N E =======================================
 
 VInt_Level:
-		stopZ80
-		stopZ802
 		jsr	(Poll_Controllers).w
-		startZ802
 		tst.b	(Game_paused).w
 		bne.s	VInt_Level_NoNegativeFlash
 		tst.b	(Hyper_Sonic_flash_timer).w
@@ -270,7 +238,6 @@ VInt_Level_Cont:
 		dma68kToVDP Sprite_table_buffer,vram_sprites,$280,VRAM
 		jsr	(Process_DMA_Queue).w
 		jsr	(VInt_DrawLevel).w
-		startZ80
 		enableInts
 		tst.b	(Water_flag).w
 		beq.s	.notwater

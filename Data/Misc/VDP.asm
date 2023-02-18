@@ -34,8 +34,7 @@ Init_VDP:
 .setreg
 		move.w	(a1)+,VDP_control_port-VDP_control_port(a5)
 		dbf	d1,.setreg	; set the VDP registers
-		move.w	VDP_register_values+2(pc),d0
-		move.w	d0,(VDP_reg_1_command).w
+		move.w	VDP_register_values+2(pc),(VDP_reg_1_command).w
 		move.w	#$8A00+223,(H_int_counter_command).w
 		moveq	#0,d0
 
@@ -50,8 +49,9 @@ Init_VDP:
 .clrCRAM
 		move.l	d0,VDP_data_port-VDP_data_port(a6)
 		dbf	d1,.clrCRAM	; clear the CRAM
-		clr.l	(V_scroll_value).w
-		clr.l	(H_scroll_value).w
+		moveq	#0,d0
+                move.l	d0,(V_scroll_value).w
+		move.l	d0,(H_scroll_value).w
 
 ; Clear VRAM
 		dmaFillVRAM 0,$0000,($1000<<4)	; clear entire VRAM

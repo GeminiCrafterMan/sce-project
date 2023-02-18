@@ -5,8 +5,6 @@
 ; =============== S U B R O U T I N E =======================================
 
 Init_Controllers:
-		stopZ80
-		stopZ802
 		move.b	#$40,(HW_Port_1_Control).l
 		move.b	#$40,(HW_Port_2_Control).l
 		lea	(HW_Port_1_Data).l,a0
@@ -14,10 +12,6 @@ Init_Controllers:
 		bsr.s	.read
 		lea	(HW_Port_2_Data).l,a0
 		lea	(Six_button_flag_2).l,a1
-		bsr.s	.read
-		startZ802
-		startZ80
-		rts
 	.read:
 	; set counter to 1 + TH high
 		move.b #$40,(a0)

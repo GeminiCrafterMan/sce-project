@@ -221,8 +221,7 @@ LoadPlayerPal:
 		move.w	d0,d1
 		jsr	(LoadPalette).w											; load Sonic's palette
 		move.w	d1,d0
-		jsr	(LoadPalette_Immediate).w
-		rts
+		jmp	(LoadPalette_Immediate).w
 
 .palIDs:
 		dc.w	palid_Sonic		; S&T
