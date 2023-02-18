@@ -110,10 +110,12 @@ ArtKosM_GHZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.b
 	even
 
 ; ===========================================================================
-; Kosinski Module compressed GHZ graphics
+; Kosinski Module compressed SSLZ graphics
 ; ===========================================================================
 
 ArtKosM_SSLZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge.bin"
+	even
+ArtKosM_Burrobot:			binclude "Objects/Burrobot/KosinskiM Art/Burrobot.bin"
 	even
 
 ; ===========================================================================

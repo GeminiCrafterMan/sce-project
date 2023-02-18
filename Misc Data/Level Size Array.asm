@@ -27,6 +27,6 @@ LevelSizes:
 		dc.w 0, $3FFF, 0, $800				; TTZ 1
 		dc.w 0, $19BF, 0, $530				; TTZ 2
 		dc.w 0, $10AF, 0, $720				; TTZ 3
-		dc.w 0, $202F, 0, $800				; TTZ 4
+		dc.w 0, $202F, -$100, $800				; TTZ 4
 
 		zonewarning LevelSizes,(8*4)

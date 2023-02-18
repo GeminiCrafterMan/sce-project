@@ -2,6 +2,11 @@
 ; Button (Object)
 ; ---------------------------------------------------------------------------
 
+; Extra subtype bits:
+; Bit 4 ($1X) - Trigger value does not get reset after stepping off. Used in Angel Island Act 2 in S3K so the water only lowers once.
+; Bit 5 ($2X) - Top-solid only. Used in Flying Battery in S3K.
+; Bit 6 ($4X) - Leftover from Sonic 2, unknown at the moment
+
 ; =============== S U B R O U T I N E =======================================
 
 Obj_Button:

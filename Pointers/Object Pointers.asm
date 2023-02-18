@@ -48,7 +48,7 @@ Obj_Index:
 		dc.l DeleteObject						; $2A
 		dc.l Obj_Chopper						; $2B
 		dc.l DeleteObject						; $2C
-		dc.l DeleteObject						; $2D
+		dc.l Obj_Burrobot						; $2D
 		dc.l DeleteObject						; $2E
 		dc.l DeleteObject						; $2F
 		dc.l DeleteObject						; $30

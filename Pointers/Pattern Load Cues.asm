@@ -4,50 +4,34 @@
 
 Offs_PLC: offsetTable
 
+	rept 4
 		offsetTableEntry.w PLC1_GHZ_Misc
 		offsetTableEntry.w PLC2_GHZ_Enemy
-		offsetTableEntry.w PLC1_GHZ_Misc
-		offsetTableEntry.w PLC2_GHZ_Enemy
-		offsetTableEntry.w PLC1_GHZ_Misc
-		offsetTableEntry.w PLC2_GHZ_Enemy
-		offsetTableEntry.w PLC1_GHZ_Misc
-		offsetTableEntry.w PLC2_GHZ_Enemy
+	endr
 
 		offsetTableEntry.w PLC1_SSLZ_Misc
 		offsetTableEntry.w PLC2_SSLZ_Enemy
 		offsetTableEntry.w PLC1_SSLZ_Misc
-		offsetTableEntry.w PLC2_SSLZ_Enemy
+		offsetTableEntry.w PLC2_SSLZ2_Enemy
+	rept 2
 		offsetTableEntry.w PLC1_SSLZ_Misc
 		offsetTableEntry.w PLC2_SSLZ_Enemy
-		offsetTableEntry.w PLC1_SSLZ_Misc
-		offsetTableEntry.w PLC2_SSLZ_Enemy
+	endr
 
+	rept 4
 		offsetTableEntry.w PLC1_WZ_Misc
 		offsetTableEntry.w PLC2_WZ_Enemy
-		offsetTableEntry.w PLC1_WZ_Misc
-		offsetTableEntry.w PLC2_WZ_Enemy
-		offsetTableEntry.w PLC1_WZ_Misc
-		offsetTableEntry.w PLC2_WZ_Enemy
-		offsetTableEntry.w PLC1_WZ_Misc
-		offsetTableEntry.w PLC2_WZ_Enemy
+	endr
 
+	rept 4
 		offsetTableEntry.w PLC1_DEZ_Misc
 		offsetTableEntry.w PLC2_DEZ_Enemy
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
+	endr
 
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
+	rept 4
+		offsetTableEntry.w PLC1_TTZ_Misc
+		offsetTableEntry.w PLC2_TTZ_Enemy
+	endr
 
 		zonewarning Offs_PLC,(4*4)
 
@@ -117,6 +101,14 @@ PLC2_SSLZ_Enemy: plrlistheader
 PLC2_SSLZ_Enemy_end
 
 ; ===========================================================================
+; Pattern load cues - Seaside Land 2 (Enemy)
+; ===========================================================================
+
+PLC2_SSLZ2_Enemy: plrlistheader
+		plreq ArtTile_Crabmeat, ArtKosM_Burrobot		; Burrobot
+PLC2_SSLZ2_Enemy_end
+
+; ===========================================================================
 ; Pattern load cues - Wood (Misc)
 ; ===========================================================================
 
@@ -146,3 +138,19 @@ PLC2_DEZ_Enemy: plrlistheader
 		plreq $100, ArtKosM_Spikebonker					; Spikebonker badnik
 		plreq $438, ArtKosM_BataPyon
 PLC2_DEZ_Enemy_end
+
+; ===========================================================================
+; Pattern load cues - Techno Test (Misc)
+; ===========================================================================
+
+PLC1_TTZ_Misc: plrlistheader
+		plreq ArtTile_Bubbles, ArtKosM_Bubbles
+PLC1_TTZ_Misc_end
+
+; ===========================================================================
+; Pattern load cues - Techno Test (Enemy)
+; ===========================================================================
+
+PLC2_TTZ_Enemy: plrlistheader
+		plreq ArtTile_Crabmeat, ArtKosM_Burrobot
+PLC2_TTZ_Enemy_end

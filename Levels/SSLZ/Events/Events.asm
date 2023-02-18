@@ -23,6 +23,7 @@ DLE_SSLZ1:
 
 DLE_SSLZ2:
 		move.w	#$644,(Normal_palette+$1C).w	; edit player palette because S/H shenanigans
+		move.w	#$422,(Normal_palette_line_2+$1C).w	; edit enemy palette because S/H shenanigans
 		move.w	#$8C89,(VDP_control_port).l	; enable S/H mode
 	.ret:
 		rts

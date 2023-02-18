@@ -5,6 +5,12 @@
 ; =============== S U B R O U T I N E =======================================
 
 TTZ1_ScreenInit:
+		cmpi.b	#3,(Current_act).w
+		bne.s	.notAct4
+		move.w	#$7FF,(Screen_Y_wrap_value).w
+		move.w	#$7F0,(Camera_Y_pos_mask).w
+		move.w	#$3C,(Layout_row_index_mask).w		; We're in a looping level!
+	.notAct4:
 		jsr	(Reset_TileOffsetPositionActual).w
 		jmp	(Refresh_PlaneFull).w
 
@@ -68,14 +74,14 @@ TTZ1_BGDeformArray:
 TTZ_Deform:
 	; Vertical scrolling!!
 		move.w	(Camera_Y_pos_copy).w,d0
-		andi.w	#$FFF,d0	; used to be $7FF
-		lsr.w	#5,d0
-		neg.w	d0
-		addi.w	#$80,d0
-		bpl.s	.limitY
-		moveq	#0,d0
-	.limitY:
-		move.w	d0,d4
+;		andi.w	#$7FF,d0	; used to be $7FF
+;		lsr.w	#5,d0
+;		neg.w	d0
+;		addi.w	#$20,d0
+;		bpl.s	.limitY
+;		moveq	#0,d0
+;	.limitY:
+;		move.w	d0,d4
 		move.w	d0,(Camera_Y_pos_BG_copy).w
 	; It's good!!
 		lea	(H_scroll_table).w,a1

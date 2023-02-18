@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "ac697b46-7e40-4019-b4f8-f0661da179ee",
+    "node": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
     "objects": [
         {
             "name": "Players",
@@ -750,7 +750,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {
@@ -1075,7 +1075,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "9cf77ede-99af-4b8c-99a4-a8b5e4247148"
         },
         {
@@ -1150,6 +1150,35 @@
                     },
                     "uuid": "8cdbc348-4533-4e3f-b59a-4a24887bdef4",
                     "expanded": true
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Burrobot",
+                    "palettes": [
+                        {
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/SSLZ/Palettes/Seaside Land Zone 2.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Burrobot/KosinskiM Art/Burrobot.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Burrobot/Object Data/Map - Burrobot.asm",
+                        "label": "Map_Burrobot"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "a8142787-a44d-43d7-8b7c-a1cb7f7e6c7d"
                 }
             ],
             "isDirectory": true,

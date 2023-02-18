@@ -63,6 +63,7 @@
 		include	"Objects/Edge Walls/Edge Walls.asm"
 
 	; SSLZ
+		include	"Objects/Burrobot/Burrobot.asm"
 		include	"Objects/Spiral/Spiral.asm"
 
 ; ===========================================================================

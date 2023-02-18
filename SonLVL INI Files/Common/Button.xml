@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjDef xmlns="http://www.sonicretro.org" Name="Button" Image="default">
+  <Images>
+    <ImageFromMappings id="default">
+      <ArtFile filename="../Objects/Button/KosinskiM Art/Gray Button.bin" compression="KosinskiM" />
+      <MapFile type="ASM" filename="../Objects/Button/Object Data/Map - Button.asm" frame="0" startpal="0" />
+    </ImageFromMappings>
+  </Images>
+  <Properties>
+    <BitsProperty name="Don't reset trigger" type="bool" startbit="4" length="1" />
+    <BitsProperty name="Top-solid only" type="bool" startbit="5" length="1" />
+    <BitsProperty name="Unknown (Sonic 2 leftover)" type="bool" startbit="6" length="1" />
+  </Properties>
+</ObjDef>
