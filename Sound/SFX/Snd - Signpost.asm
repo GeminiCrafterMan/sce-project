@@ -1,27 +1,42 @@
-Sound_B8_Header:
-	smpsHeaderStartSong 3
-	smpsHeaderVoice     Sound_B8_Voices
+Sound4F_Signpost_Header:
+	smpsHeaderStartSong 2
+	smpsHeaderVoice     Sound4F_Signpost_Voices
 	smpsHeaderTempoSFX  $01
-	smpsHeaderChanSFX   $01
+	smpsHeaderChanSFX   $02
 
-	smpsHeaderSFXChannel cPSG2, Sound_B8_PSG2,	$00, $00
+	smpsHeaderSFXChannel cFM4, Sound4F_Signpost_FM4,	$27, $03
+	smpsHeaderSFXChannel cFM5, Sound4F_Signpost_FM5,	$27, $00
 
-; PSG2 Data
-Sound_B8_PSG2:
-	smpsPSGvoice        sTone_03
+; FM4 Data
+Sound4F_Signpost_FM4:
+	dc.b	nRst, $04
 
-Sound_B8_Loop00:
-	dc.b	nD5, $04, nE5, nFs5
-	smpsPSGAlterVol     $01
-	smpsAlterPitch      $FF
-	smpsLoop            $00, $05, Sound_B8_Loop00
+; FM5 Data
+Sound4F_Signpost_FM5:
+	smpsSetvoice        $00
 
-Sound_B8_Loop01:
-	dc.b	nD5, $04, nE5, nFs5
-	smpsPSGAlterVol     $01
-	smpsAlterPitch      $01
-	smpsLoop            $00, $07, Sound_B8_Loop01
+Sound4F_Signpost_Loop00:
+	dc.b	nEb4, $05
+	smpsAlterVol        $02
+	smpsLoop            $00, $15, Sound4F_Signpost_Loop00
 	smpsStop
 
-; Song seems to not use any FM voices
-Sound_B8_Voices:
+Sound4F_Signpost_Voices:
+;	Voice $00
+;	$F4
+;	$06, $04, $0F, $0E, 	$1F, $1F, $1F, $1F, 	$00, $00, $0B, $0B
+;	$00, $00, $05, $08, 	$0F, $0F, $FF, $FF, 	$0C, $8B, $03, $80
+	smpsVcAlgorithm     $04
+	smpsVcFeedback      $06
+	smpsVcUnusedBits    $03
+	smpsVcDetune        $00, $00, $00, $00
+	smpsVcCoarseFreq    $0E, $0F, $04, $06
+	smpsVcRateScale     $00, $00, $00, $00
+	smpsVcAttackRate    $1F, $1F, $1F, $1F
+	smpsVcAmpMod        $00, $00, $00, $00
+	smpsVcDecayRate1    $0B, $0B, $00, $00
+	smpsVcDecayRate2    $08, $05, $00, $00
+	smpsVcDecayLevel    $0F, $0F, $00, $00
+	smpsVcReleaseRate   $0F, $0F, $0F, $0F
+	smpsVcTotalLevel    $00, $03, $0B, $0C
+

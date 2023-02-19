@@ -63,7 +63,7 @@ sfx_BossHit =			SMPS_id(ptr_snd57)
 sfx_AirDing =		SMPS_id(ptr_snd58)
 sfx_Bubble =			SMPS_id(ptr_snd59)
 sfx_Explode =		SMPS_id(ptr_snd5A)
-sfx_Signpost =		SMPS_id(ptr_snd5B)
+sfx_SignpostFall =		SMPS_id(ptr_snd5B)
 sfx_Switch =			SMPS_id(ptr_snd5C)
 sfx_Register =		SMPS_id(ptr_snd5D)
 sfx_SuperTransform =	SMPS_id(ptr_snd5E)
@@ -81,6 +81,7 @@ sfx_MechaSpark =		SMPS_id(ptr_snd69)
 sfx_MechaRoll =			SMPS_id(ptr_snd6A)
 sfx_MechaDash =			SMPS_id(ptr_snd6B)
 sfx_ScoreTally =		SMPS_id(ptr_snd6C)
+sfx_Signpost =			SMPS_id(ptr_snd6D)
 
 sfx__Last =			SMPS_id(ptr_sndend)-1
 

@@ -38,25 +38,25 @@ Obj_EndSignControlDoStart:
 
 ; =============== S U B R O U T I N E =======================================
 
-Obj_EndSign:
+Obj_FallingEndSign:
 		moveq	#0,d0
 		move.b	routine(a0),d0
-		move.w	EndSign_Index(pc,d0.w),d1
-		jsr	EndSign_Index(pc,d1.w)
+		move.w	FallingEndSign_Index(pc,d0.w),d1
+		jsr	FallingEndSign_Index(pc,d1.w)
 		lea	PLCPtr_EndSigns(pc),a2
 		jsr	(Perform_DPLC).w
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
-EndSign_Index: offsetTable
-		offsetTableEntry.w Obj_EndSignInit
-		offsetTableEntry.w Obj_EndSignFall
+FallingEndSign_Index: offsetTable
+		offsetTableEntry.w Obj_FallingEndSignInit
+		offsetTableEntry.w Obj_FallingEndSignFall
 		offsetTableEntry.w Obj_EndSignLanded
 		offsetTableEntry.w Obj_EndSignResults
 		offsetTableEntry.w Obj_EndSignAfter
 ; ---------------------------------------------------------------------------
 
-Obj_EndSignInit:
+Obj_FallingEndSignInit:
 		lea	ObjSlot_EndSigns(pc),a1
 		jsr	(SetUp_ObjAttributesSlotted).w
 		btst	#7,(Player_1+art_tile).w
@@ -70,11 +70,11 @@ Obj_EndSignInit:
 		move.w	(Camera_Y_pos).w,d0
 		subi.w	#$20,d0
 		move.w	d0,y_pos(a0)								; place vertical position at top of screen
-		sfx	sfx_Signpost
+		sfx	sfx_SignpostFall
 		rts
 ; ---------------------------------------------------------------------------
 
-Obj_EndSignFall:
+Obj_FallingEndSignFall:
 		move.b	(V_int_run_count+3).w,d0
 		andi.b	#3,d0
 		bne.s	+
@@ -204,7 +204,7 @@ sub_83A70:
 +		lsl.w	#4,d0
 		move.w	d0,x_vel(a0)				; Modify strength of X velocity based on how far to the left/right player is
 		move.w	#-$200,y_vel(a0)			; New vertical velocity is always the same
-		sfx	sfx_Signpost
+		sfx	sfx_SignpostFall
 		lea	Child6_EndSignScore(pc),a2
 		jsr	(CreateChild6_Simple).w
 		moveq	#10,d0
@@ -278,6 +278,56 @@ AniRaw_SignpostSparkle:
 		dc.b	4, arfEnd
 	even
 ; ---------------------------------------------------------------------------
+
+Obj_EndSign:
+		moveq	#0,d0
+		move.b	routine(a0),d0
+		move.w	EndSign_Index(pc,d0.w),d1
+		jsr	EndSign_Index(pc,d1.w)
+		lea	PLCPtr_EndSigns(pc),a2
+		jsr	(Perform_DPLC).w
+		jmp	(Draw_Sprite).w
+; ---------------------------------------------------------------------------
+
+EndSign_Index: offsetTable
+		offsetTableEntry.w Obj_EndSignInit
+		offsetTableEntry.w Obj_EndSignTouch
+		offsetTableEntry.w Obj_EndSignLanded
+		offsetTableEntry.w Obj_EndSignResults
+		offsetTableEntry.w Obj_EndSignAfter
+; ---------------------------------------------------------------------------
+
+Obj_EndSignInit:
+;		addq.b	#2,routine(a0)
+		lea	ObjSlot_EndSigns(pc),a1
+		jsr	(SetUp_ObjAttributesSlotted).w
+		btst	#7,(Player_1+art_tile).w
+		beq.s	.nothighpriority
+		bset	#7,art_tile(a0)								; signs have same priority as Sonic
+		move.b	#5,mapping_frame(a0)
+;		move.b	#-1,previous_frame(a0)
+
+.nothighpriority
+		move.w	a0,(Signpost_addr).w						; put RAM address here for use by hidden monitor object
+		move.w	#bytes_to_word(60/2,48/2),y_radius(a0)	; set y_radius and x_radius
+
+Obj_EndSignTouch:
+		move.w	(Player_1+x_pos).w,d0
+		sub.w	x_pos(a0),d0
+		bcs.s	.notouch
+		cmpi.w	#$20,d0		; is Sonic within $20 pixels of	the signpost?
+		bcc.s	.notouch	; if not, branch
+		sfx		sfx_Signpost	; S2 signpost sound
+		move.l	#AniRaw_EndSigns,aniraw(a0)
+		move.b	(V_int_run_count+3).w,d0
+		andi.b	#3,d0
+		bne.s	+
+		lea	Child6_EndSignSparkle(pc),a2		; Create a signpost sparkle every 4 frames
+		jsr	(CreateChild6_Simple).w
++		move.b	#4,routine(a0)
+;		addq.b	#2,routine(a0)
+	.notouch:
+		rts
 
 		include "Objects/Signpost/Object Data/DPLC - End Signs.asm"
 		include "Objects/Signpost/Object Data/Map - End Signs.asm"

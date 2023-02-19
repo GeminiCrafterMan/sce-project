@@ -57,6 +57,7 @@ ptr_snd69:	SMPS_SFX_METADATA	Sound69, $70, 0	; Nice
 ptr_snd6A:	SMPS_SFX_METADATA	Sound6A, $70, 0
 ptr_snd6B:	SMPS_SFX_METADATA	Sound6B, $70, 0
 ptr_snd6C:	SMPS_SFX_METADATA	Sound6C, $70, 0
+ptr_snd6D:	SMPS_SFX_METADATA	Sound6D, $70, 0
 
 ptr_sndend
 ; ---------------------------------------------------------------------------
@@ -117,7 +118,7 @@ Sound59:	include	"Sound/SFX/Snd - Bubble.asm"
 	even
 Sound5A:	include	"Sound/SFX/Snd - Explode.asm"
 	even
-Sound5B:	include	"Sound/SFX/Snd - Signpost.asm"
+Sound5B:	include	"Sound/SFX/Snd - Signpost Fall.asm"
 	even
 Sound5C:	include	"Sound/SFX/Snd - Switch.asm"
 	even
@@ -152,4 +153,6 @@ Sound6A:	include	"Sound/SFX/Snd - Mecha Roll.asm"
 Sound6B:	include	"Sound/SFX/Snd - Mecha Dash.asm"
 	even
 Sound6C:	include	"Sound/SFX/Snd - Score Tally.asm"
+	even
+Sound6D:	include	"Sound/SFX/Snd - Signpost.asm"
 	even

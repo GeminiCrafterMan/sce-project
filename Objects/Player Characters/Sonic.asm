@@ -1496,14 +1496,21 @@ loc_1179A:
 		bset	#Status_Roll,status(a0)
 		move.b	#id_Roll,anim(a0)
 		cmpi.b	#c_Espio,character_id(a0)
-		beq.s	loc_117C2
+		beq.s	.notReversed
+		btst	#Status_Shrunk,status_secondary(a0)
+		beq.s	.notShrunk
+;		move.w	#bytes_to_word(14/2,7/2),y_radius(a0)	; set y_radius and x_radius
+;		subq.w	#1,y_pos(a0)
+		bra.s	.gravchk
+	.notShrunk:
 		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		addq.w	#5,y_pos(a0)
+	.gravchk:
 		tst.b	(Reverse_gravity_flag).w
-		beq.s	loc_117C2
+		beq.s	.notReversed
 		subi.w	#$A,y_pos(a0)
 
-loc_117C2:
+.notReversed:
 		sfx	sfx_Roll
 		tst.w	ground_vel(a0)
 		bne.s	locret_117D8
@@ -1577,6 +1584,13 @@ loc_1182E:
 		cmpi.b	#c_Espio,character_id(a0)
 		beq.s	locret_118B2
 		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
+		btst	#Status_Shrunk,status_secondary(a0)
+		beq.s	.notShrunk
+		bra.s	.shrunkCont
+;		move.w	#bytes_to_word(14/2,7/2),y_radius(a0)	; set y_radius and x_radius
+	.notShrunk:
+		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
+	.shrunkCont:
 		move.b	y_radius(a0),d0
 		sub.b	default_y_radius(a0),d0
 		ext.w	d0
@@ -1895,8 +1909,15 @@ Player_UpdateSpindash:
 		move.b	#id_Roll,anim(a0)
 		cmpi.b	#c_Espio,character_id(a0)
 		beq.s	.notReversed
+		btst	#Status_Shrunk,status_secondary(a0)
+		beq.s	.notShrunk
+;		move.w	#bytes_to_word(14/2,7/2),y_radius(a0)	; set y_radius and x_radius
+;		subq.w	#1,y_pos(a0)
+		bra.s	.gravchk
+	.notShrunk:
 		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		addq.w	#5,y_pos(a0)
+	.gravchk:
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	.notReversed
 		subi.w	#$A,y_pos(a0)
@@ -2563,7 +2584,13 @@ BubbleShield_Bounce:
 		bclr	#Status_Push,status(a0)
 		move.b	#1,jumping(a0)
 		clr.b	stick_to_convex(a0)
+		btst	#Status_Shrunk,status_secondary(a0)
+		beq.s	.notShrunk
+		bra.s	.shrunkCont
+;		move.w	#bytes_to_word(14/2,7/2),y_radius(a0)	; set y_radius and x_radius
+	.notShrunk:
 		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
+	.shrunkCont:
 		move.b	#id_Roll,anim(a0)
 		bset	#Status_Roll,status(a0)
 		move.b	y_radius(a0),d0
@@ -3451,8 +3478,8 @@ MiniSonic_Index: offsetTable
 
 MiniSonic_Init:	; Routine 0
 		addq.b	#2,routine(a0)				; => Obj01_Control
-		move.w	#bytes_to_word(18/2,10/2),y_radius(a0)	; set y_radius and x_radius	; this sets MiniSonic's collision height (2*pixels)
-		move.w	#bytes_to_word(18/2,10/2),default_y_radius(a0)	; set default_y_radius and default_x_radius
+		move.w	#bytes_to_word(19/2,9/2),y_radius(a0)	; set y_radius and x_radius	; this sets MiniSonic's collision height (2*pixels)
+		move.w	#bytes_to_word(19/2,9/2),default_y_radius(a0)	; set default_y_radius and default_x_radius
 		move.l	#Map_MiniSonic,mappings(a0)
 		move.w	#$100,priority(a0)
 		move.w	#bytes_to_word(24/2,24/2),height_pixels(a0)		; set height and width
