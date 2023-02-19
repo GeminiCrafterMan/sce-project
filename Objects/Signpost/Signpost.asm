@@ -290,11 +290,11 @@ Obj_EndSign:
 ; ---------------------------------------------------------------------------
 
 EndSign_Index: offsetTable
-		offsetTableEntry.w Obj_EndSignInit
-		offsetTableEntry.w Obj_EndSignTouch
-		offsetTableEntry.w Obj_EndSignLanded
-		offsetTableEntry.w Obj_EndSignResults
-		offsetTableEntry.w Obj_EndSignAfter
+		offsetTableEntry.w Obj_EndSignInit ;0
+		offsetTableEntry.w Obj_EndSignTouch ;2
+		offsetTableEntry.w Obj_EndSignLanded ;4
+		offsetTableEntry.w Obj_EndSignResults ;6
+		offsetTableEntry.w Obj_EndSignAfter ;8
 ; ---------------------------------------------------------------------------
 
 Obj_EndSignInit:
@@ -304,28 +304,42 @@ Obj_EndSignInit:
 		btst	#7,(Player_1+art_tile).w
 		beq.s	.nothighpriority
 		bset	#7,art_tile(a0)								; signs have same priority as Sonic
-		move.b	#5,mapping_frame(a0)
-;		move.b	#-1,previous_frame(a0)
+		move.b	#$5,mapping_frame(a0) ;Robotnik
+		move.b	#-1,previous_frame(a0)
 
 .nothighpriority
 		move.w	a0,(Signpost_addr).w						; put RAM address here for use by hidden monitor object
 		move.w	#bytes_to_word(60/2,48/2),y_radius(a0)	; set y_radius and x_radius
 
 Obj_EndSignTouch:
-		move.w	(Player_1+x_pos).w,d0
-		sub.w	x_pos(a0),d0
-		bcs.s	.notouch
-		cmpi.w	#$20,d0		; is Sonic within $20 pixels of	the signpost?
-		bcc.s	.notouch	; if not, branch
-		sfx		sfx_Signpost	; S2 signpost sound
+                move.b	#$5,mapping_frame(a0) ;Robotnik
+                tst.b	$20(a0)
+		bne.s	.reset
+		lea	EndSign_Range(pc),a1
+		jsr	Check_PlayerInRange;(pc)
+		move.w	#$40,$2E(a0) ;set animation timer
+		tst.l	d0
+		beq.s	.notouch		; If neither player is in range, don't do anything
+		tst.w	d0
+		beq.s	.skip
+		addq.b	#2,routine(a0)	;increment routine
 		move.l	#AniRaw_EndSigns,aniraw(a0)
-		move.b	(V_int_run_count+3).w,d0
-		andi.b	#3,d0
-		bne.s	+
+                sfx		sfx_Signpost	; S2 signpost sound
+
+		;The code below only gets to run once, so I'm just commenting it out so that it can run exactly one time ever time.
+		;move.b	(V_int_run_count+3).w,d0
+		;andi.b	#3,d0
+		;bne.s	+
 		lea	Child6_EndSignSparkle(pc),a2		; Create a signpost sparkle every 4 frames
 		jsr	(CreateChild6_Simple).w
-+		move.b	#4,routine(a0)
-;		addq.b	#2,routine(a0)
+
+.skip:
+		swap	d0
+		rts
+.reset:
+		subq.b	#1,$20(a0)
+		rts
+
 	.notouch:
 		rts
 
