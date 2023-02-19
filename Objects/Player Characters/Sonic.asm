@@ -3280,6 +3280,8 @@ ReloadPlayerMaps:
 		moveq	#0,d0
 		move.b	character_id(a0),d0
 		lsl.w	#2,d0
+		btst	#Status_Shrunk,status_secondary(a0)
+		bne.s	.shrunk
 		cmpa.w	#Player_1,a0
 		bne.s	.notSuper
 		tst.b	(Super_Sonic_Knux_flag).w
@@ -3290,16 +3292,33 @@ ReloadPlayerMaps:
 	.super:
 		move.l	.superMapLUT(pc,d0.w),mappings(a0)
 		rts
+	.shrunk:
+		cmpa.w	#Player_1,a0
+		bne.s	.shrunkNotSuper
+		tst.b	(Super_Sonic_Knux_flag).w
+		bne.s	.shrunkSuper
+	.shrunkNotSuper:
+		move.l	.shrunkMapLUT(pc,d0.w),mappings(a0)
+		rts
+	.shrunkSuper:
+		move.l	.shrunkSuperMapLUT(pc,d0.w),mappings(a0)
+		rts
 
 	.mapLUT:
 		dc.l	Map_Sonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
 	.superMapLUT:
+		dc.l	Map_SuperSonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
+	.shrunkMapLUT:
+		dc.l	Map_MiniSonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
+	.shrunkSuperMapLUT:
 		dc.l	Map_SuperSonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
 
 PlayerDPLCToA2:
 		moveq	#0,d1
 		move.b	character_id(a0),d1
 		lsl.w	#2,d1
+		btst	#Status_Shrunk,status_secondary(a0)
+		bne.s	.shrunk
 		cmpa.w	#Player_1,a0
 		bne.s	.notSuper
 		tst.b	(Super_Sonic_Knux_flag).w
@@ -3310,16 +3329,33 @@ PlayerDPLCToA2:
 	.super:
 		movea.l	.superplcLUT(pc,d1.w),a2
 		rts
+	.shrunk:
+		cmpa.w	#Player_1,a0
+		bne.s	.shrunkNotSuper
+		tst.b	(Super_Sonic_Knux_flag).w
+		bne.s	.shrunkSuper
+	.shrunkNotSuper:
+		movea.l	.shrunkPlcLUT(pc,d1.w),a2
+		rts
+	.shrunkSuper:
+		movea.l	.shrunkSuperplcLUT(pc,d1.w),a2
+		rts
 
 	.plcLUT:
 		dc.l	PLC_Sonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
 	.superplcLUT:
+		dc.l	PLC_SuperSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
+	.shrunkPlcLUT:
+		dc.l	PLC_MiniSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
+	.shrunkSuperplcLUT:
 		dc.l	PLC_SuperSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
 
 PlayerArtToD6:
 		moveq	#0,d6
 		move.b	character_id(a0),d6
 		lsl.w	#2,d6
+		btst	#Status_Shrunk,status_secondary(a0)
+		bne.s	.shrunk
 		cmpa.w	#Player_1,a0
 		bne.s	.notSuper
 		tst.b	(Super_Sonic_Knux_flag).w
@@ -3330,11 +3366,100 @@ PlayerArtToD6:
 	.super:
 		move.l	.superartLUT(pc,d6.w),d6
 		rts
+	.shrunk:
+		cmpa.w	#Player_1,a0
+		bne.s	.shrunkNotSuper
+		tst.b	(Super_Sonic_Knux_flag).w
+		bne.s	.shrunkSuper
+	.shrunkNotSuper:
+		move.l	.shrunkArtLUT(pc,d6.w),d6
+		rts
+	.shrunkSuper:
+		move.l	.shrunkSuperartLUT(pc,d6.w),d6
+		rts
 
 	.artLUT:
 		dc.l	ArtUnc_Sonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
 	.superartLUT:
 		dc.l	ArtUnc_SuperSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
+	.shrunkArtLUT:
+		dc.l	ArtUnc_MiniSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
+	.shrunkSuperartLUT:
+		dc.l	ArtUnc_SuperSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
+
+
+Obj_MiniSonic:
+		; Load some addresses into registers
+		; This is done to allow some subroutines to be
+		; shared with other characters.
+		lea	(Distance_from_screen_top).w,a5
+		cmpa.l	#Player_1,a0
+		bne.s	.p2
+		lea	(Top_speed_P1).w,a4
+		lea	(v_Dust_P1).w,a6
+		bra.s	.cont
+	.p2:
+		lea	(Top_speed_P2).w,a4
+		lea	(v_Dust_P2).w,a6
+	.cont:
+
+	if GameDebug
+		cmpa.l	#Player_1,a0
+		bne.s	MiniSonic_Normal
+		tst.w	(Debug_placement_mode).w
+		beq.s	MiniSonic_Normal
+
+; Debug only code
+		cmpi.b	#1,(Debug_placement_type).w	; Are Sonic in debug object placement mode?
+		jeq		DebugMode			; If so, skip to debug mode routine
+		; By this point, we're assuming you're in frame cycling mode
+		btst	#button_B,(Ctrl_1_pressed).w
+		beq.s	+
+		clr.w	(Debug_placement_mode).w	; Leave debug mode
++		addq.b	#1,mapping_frame(a0)		; Next frame
+		cmpi.b	#frS_Last,mapping_frame(a0)	; Have we reached the end of Sonic's frames?
+		blo.s		+
+		clr.b	mapping_frame(a0)	; If so, reset to Sonic's first frame
++		jsr		Player_Load_PLC
+		jmp	(Draw_Sprite).w
+; ---------------------------------------------------------------------------
+
+MiniSonic_Normal:
+	endif
+		moveq	#0,d0
+		bset	#Status_Shrunk,status_secondary(a0)
+		move.b	routine(a0),d0
+		move.w	MiniSonic_Index(pc,d0.w),d1
+		jmp	MiniSonic_Index(pc,d1.w)
+; ---------------------------------------------------------------------------
+
+MiniSonic_Index: offsetTable
+		offsetTableEntry.w MiniSonic_Init		; 0
+		offsetTableEntry.w .control	; 2
+		offsetTableEntry.w .hurt		; 4
+		offsetTableEntry.w .death		; 6
+		offsetTableEntry.w .restart	; 8
+		offsetTableEntry.w .loc_12590		; A
+		offsetTableEntry.w .drown		; C
+.control:	jmp	Player_Control
+.hurt:		jmp	Player_Hurt
+.death:		jmp	Player_Death
+.restart:	jmp	Player_Restart
+.loc_12590:	jmp	loc_12590
+.drown:		jmp	Player_Drown
+; ---------------------------------------------------------------------------
+
+MiniSonic_Init:	; Routine 0
+		addq.b	#2,routine(a0)				; => Obj01_Control
+		move.w	#bytes_to_word(18/2,10/2),y_radius(a0)	; set y_radius and x_radius	; this sets MiniSonic's collision height (2*pixels)
+		move.w	#bytes_to_word(18/2,10/2),default_y_radius(a0)	; set default_y_radius and default_x_radius
+		move.l	#Map_MiniSonic,mappings(a0)
+		move.w	#$100,priority(a0)
+		move.w	#bytes_to_word(24/2,24/2),height_pixels(a0)		; set height and width
+		move.b	#4,render_flags(a0)
+		move.b	#c_Sonic,character_id(a0)
+		jmp		Sonic_Init.branchPoint
+
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Sonic animation, mapping, and PLC data
@@ -3345,3 +3470,5 @@ PlayerArtToD6:
 		include "Objects/Player Characters/Object Data/Sonic pattern load cues.asm"
 		include "Objects/Player Characters/Object Data/Map - Super Sonic.asm"
 		include "Objects/Player Characters/Object Data/Super Sonic pattern load cues.asm"
+		include "Objects/Player Characters/Object Data/Map - Mini Sonic.asm"
+		include "Objects/Player Characters/Object Data/Mini Sonic pattern load cues.asm"

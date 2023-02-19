@@ -86,6 +86,8 @@ loc_1E8C0:
 sub_1E8C6:
 		tst.b	(a2)+
 		bne.w	loc_1E944
+		btst	#Status_Shrunk,status_secondary(a1)
+		bne.w	locret_1E9B4
 		cmp.w	x_pos(a1),d1
 		bhi.w	locret_1E9B4
 		move.b	#1,-1(a2)

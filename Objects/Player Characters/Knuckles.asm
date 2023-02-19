@@ -170,7 +170,7 @@ loc_315762:
 		beq.s	loc_315780
 		move.w	ground_vel(a0),x_vel(a0)
 		clr.w	y_vel(a0)
-		bra.w	Player_TouchFloor_Check_Spindash
+		jmp		Player_TouchFloor_Check_Spindash
 ; ---------------------------------------------------------------------------
 
 loc_315780:
@@ -350,10 +350,10 @@ Knuckles_Fall_From_Glide:
 		addi.b	#$20,d0
 		andi.b	#$C0,d0
 		beq.s	.skip3
-		bra.w	Player_TouchFloor_Check_Spindash
+		jmp		Player_TouchFloor_Check_Spindash
 
 .skip3:
-		bsr.w	Player_TouchFloor_Check_Spindash
+		jsr		Player_TouchFloor_Check_Spindash
 		move.w	#$F,move_lock(a0)
 		move.b	#id_Ability4,anim(a0)
 
@@ -399,7 +399,7 @@ Knuckles_Sliding:
 .skip1:
 		add.w	d0,y_pos(a0)
 
-		bsr.w	Player_TouchFloor_Check_Spindash
+		jsr		Player_TouchFloor_Check_Spindash
 
 		move.w	#$F,move_lock(a0)
 		move.b	#id_Ability3,anim(a0)
@@ -410,7 +410,7 @@ Knuckles_Sliding:
 		bsr.w	Knux_DoLevelCollision_CheckRet
 
 		; Get distance from floor in 'd1', and angle of floor in 'd3'.
-		bsr.w	sub_11FD6
+		jsr		sub_11FD6
 
 		; If the distance from the floor is suddenly really high, then
 		; Knuckles must have slid off a ledge, so make him enter his falling
@@ -590,7 +590,7 @@ Knuckles_Wall_Climb:
 		clr.w	x_vel(a0)
 		clr.w	y_vel(a0)
 
-		bsr.w	Player_TouchFloor_Check_Spindash
+		jsr		Player_TouchFloor_Check_Spindash
 
 		move.b	#id_Walk,anim(a0)
 
@@ -963,7 +963,7 @@ Knuckles_Climb_Ledge:
 		beq.s	+
 		subq.w	#1,x_pos(a0)
 +
-		bsr.w	Player_TouchFloor_Check_Spindash
+		jsr		Player_TouchFloor_Check_Spindash
 		move.b	#id_Wait,anim(a0)
 
 return_315C7A:
