@@ -75,7 +75,8 @@
 		include "Objects/Robotnik/Robotnik.asm"
 
 ; ===========================================================================
-; Menu objects data
+; Screen objects data
 ; ===========================================================================
 
+		include	"Objects/Title Screen Sonic/Title Screen Sonic.asm"
 		include	"Objects/Cabaret Characters/Cabaret Characters.asm"

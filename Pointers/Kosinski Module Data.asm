@@ -70,6 +70,8 @@ ArtKosM_StarPostStars2:		binclude "Objects/Starpost/KosinskiM Art/Starpost Stars
 	even
 ArtKosM_StarPostStars3:		binclude "Objects/Starpost/KosinskiM Art/Starpost Stars 3.bin"
 	even
+ArtKosM_TitleScreenFG:		binclude "Data/Screens/Title/KosinskiM Art/Title Screen Foreground.bin"
+	even
 ArtKosM_LevelSelectText:	binclude "Data/Screens/Level Select/KosinskiM Art/Text.bin"
 	even
 

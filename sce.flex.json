@@ -1,8 +1,33 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "f6755f3b-6060-4927-b8a5-ac8da3ee0927",
+    "node": "370bb55e-13f6-43e1-8b7e-fdffc3432376",
     "objects": [
+        {
+            "format": "Sonic 3&K Object.js",
+            "name": "Title Screen Sonic",
+            "palettes": [
+                {
+                    "path": "Data/Screens/Title/Palettes/1.bin",
+                    "length": 2
+                }
+            ],
+            "art": {
+                "path": "Objects/Title Screen Sonic/Uncompressed Art/Title Screen Sonic.bin",
+                "compression": "Uncompressed",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "Objects/Title Screen Sonic/Object Data/Map - Title Screen Sonic.asm",
+                "label": "Map_TitleSonic"
+            },
+            "dplcs": {
+                "enabled": true,
+                "path": "Objects/Title Screen Sonic/Object Data/PLC - Title Screen Sonic.asm",
+                "label": "PLC_TitleSonic"
+            },
+            "uuid": "370bb55e-13f6-43e1-8b7e-fdffc3432376"
+        },
         {
             "name": "Players",
             "children": [

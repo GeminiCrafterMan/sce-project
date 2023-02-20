@@ -10,6 +10,8 @@ Pal_Mighty:			binclude "Objects/Player Characters/Palettes/Mighty.bin"
 	even
 Pal_Espio:			binclude "Objects/Player Characters/Palettes/Espio.bin"
 	even
+Pal_TitleScreen:	binclude "Data/Screens/Title/Palettes/1.bin"
+	even
 Pal_LevelSelect:	binclude "Data/Screens/Level Select/Palettes/1.bin"
 	even
 

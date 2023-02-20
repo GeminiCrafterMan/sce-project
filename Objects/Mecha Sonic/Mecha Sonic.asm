@@ -616,9 +616,9 @@ AniRaw_MechaSonic_Uncurl:	dc.b    3,   0
 		dc.b    6,   3
 		dc.b    7,   4
 		dc.b    8,   5
-		dc.b  $F8,  $E
+		dc.b  arfBack,  $E
 		dc.b    8, $7F
-		dc.b  $FC
+		dc.b  arfEnd
 ; byte_7D4EF
 AniRaw_MechaSonic_UncurlAndTurn:	dc.b    3,   0
 		dc.b    4,   1
@@ -630,29 +630,29 @@ AniRaw_MechaSonic_UncurlAndTurn:	dc.b    3,   0
 		dc.b   $A,   4
 		dc.b   $B,   4
 		dc.b   $C,   4
-		dc.b  $F8, $16
+		dc.b  arfBack, $16
 		dc.b   $C, $7F
-		dc.b  $FC
+		dc.b  arfEnd
 byte_7D508:	dc.b  $13,   5
 		dc.b  $13,   5
 		dc.b    8, $7F
-		dc.b  $F8, $E4
+		dc.b  arfBack, $E4
 byte_7D510:	dc.b    1,   5
 		dc.b    1,   5
 		dc.b    2,   9
 		dc.b    1,   5
-		dc.b  $F4
+		dc.b  arfJump
 ; byte_7D519
 AniRaw_MechaSonic_Roll:	dc.b    3,   1
 		dc.b    3,   1
 		dc.b    4,   1
 		dc.b    5,   1
-		dc.b  $F8,  $A
+		dc.b  arfBack,  $A
 ; byte_7D523
 AniRaw_MechaSonic_RollFast:	dc.b    3,   0
 		dc.b    4,   0
 		dc.b    5,   0
-		dc.b  $FC
+		dc.b  arfEnd
 ; byte_7D52A
 AniRaw_MechaSonic_AirCurl:	dc.b    8,   0
 		dc.b    7,   3
@@ -660,37 +660,37 @@ AniRaw_MechaSonic_AirCurl:	dc.b    8,   0
 		dc.b    3,   1
 		dc.b    4,   1
 		dc.b    5,   1
-		dc.b  $F8, $F9
+		dc.b  arfBack, $F9
 ; byte_7D538
 AniRaw_MechaSonic_AirUncurl:	dc.b    6,   3
 		dc.b    6,   3
 		dc.b    7,   3
 		dc.b    8, $1F
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D541:	dc.b    0,   0
 		dc.b    1,   5
 		dc.b    2,   9
 		dc.b    1,   0
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D54A:	dc.b    1,   0
 		dc.b    1,   1
 		dc.b    3,   1
 		dc.b    4,   1
 		dc.b    5,   1
-		dc.b  $F8, $D9
+		dc.b  arfBack, $D9
 byte_7D556:	dc.b  $12,   0
 		dc.b  $12,   5
 		dc.b   $D,   3
 		dc.b    8,   5
 		dc.b    1,   1
-		dc.b  $F4
+		dc.b  arfJump
 ; byte_7D561
 AniRaw_MechaSonic_Jump:	dc.b    1,   3
 		dc.b    1,   7
 		dc.b    2,   7
 		dc.b    1,   3
 		dc.b    8,   0
-		dc.b  $F4
+		dc.b  arfJump
 ; byte_7D56C
 AniRaw_MechaSonic_Turn:	dc.b    8,   5
 		dc.b    8,   5
@@ -699,13 +699,13 @@ AniRaw_MechaSonic_Turn:	dc.b    8,   5
 		dc.b   $B,   3
 		dc.b   $C,   3
 		dc.b  $48, $7F
-		dc.b  $F8, $80
+		dc.b  arfBack, $80
 byte_7D57C:	dc.b    8,   5
 		dc.b  $13,   5
 		dc.b  $14, $7F
-		dc.b  $F8,   8
+		dc.b  arfBack,   8
 		dc.b  $15, $7F
-		dc.b  $FC
+		dc.b  arfEnd
 byte_7D587:	dc.b    1,   5
 		dc.b    1,   5
 		dc.b  $10,  $F
@@ -713,31 +713,31 @@ byte_7D587:	dc.b    1,   5
 		dc.b  $11, $17
 		dc.b    0,   5
 		dc.b    8,   3
-		dc.b  $F4
+		dc.b  arfJump
 AniRaw_MechaSonic_Crouch:	dc.b    1,   5
 		dc.b    2, $1F
-		dc.b  $F4
+		dc.b  arfJump
 AniRaw_MechaSonic_Uncrouch:	dc.b    2,   0
 		dc.b    1,   5
 		dc.b    0, $3F
-		dc.b  $F4
+		dc.b  arfJump
 AniRaw_MechaSonic_CrouchUncrouch:	dc.b    1,   5
 		dc.b    2,   9
 		dc.b    1,   5
 		dc.b    0, $3F
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D5AB:	dc.b    1,   5
 		dc.b    1,   5
 		dc.b    2,   9
 		dc.b  $13,   5
 		dc.b  $15,   3
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D5B6:	dc.b    1,   5
 		dc.b    1,   5
 		dc.b    2,   9
 		dc.b  $13,   5
 		dc.b  $15, $7F
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D5C1:	dc.b    3,   1
 		dc.b    3,   1
 		dc.b    4,   1
@@ -749,34 +749,34 @@ byte_7D5C1:	dc.b    3,   1
 		dc.b    2,   9
 		dc.b    1,   5
 		dc.b    0,   3
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D5D8:	dc.b   $C,   3
 		dc.b   $C,   3
 		dc.b   $A,   3
 		dc.b    9,   3
 		dc.b    8,   3
-		dc.b  $F8, $42
+		dc.b  arfBack, $42
 byte_7D5E4:	dc.b   $E,   5
 		dc.b   $E,   5
 		dc.b   $F,   3
-		dc.b  $F8,   8
+		dc.b  arfBack,   8
 		dc.b   $F, $7F
-		dc.b  $FC
+		dc.b  arfEnd
 byte_7D5EF:	dc.b   $F,   5
 		dc.b   $E,   5
 		dc.b    2,   1
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D5F6:	dc.b    2,   5
 		dc.b    2,  $F
 		dc.b    1,   5
 		dc.b    8,   0
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D5FF:	dc.b    1,   3
 		dc.b    1,   3
 		dc.b    2,  $F
 		dc.b    1,   3
 		dc.b    8,   0
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D60A:	dc.b    8,   7
 		dc.b    8,   7
 		dc.b    9,   5
@@ -784,13 +784,13 @@ byte_7D60A:	dc.b    8,   7
 		dc.b   $B,   5
 		dc.b   $C,   5
 		dc.b  $48, $7F
-		dc.b  $F8, $10
+		dc.b  arfBack, $10
 byte_7D61A:	dc.b    8, $7F
 		dc.b  $FC,   2
 		dc.b    5,   2
 		dc.b    5,   1
 		dc.b    5,   8
-		dc.b    0, $F4
+		dc.b    0, arfJump
 byte_7D626:	dc.b    8,   1
 		dc.b    8,   1
 		dc.b    9,   1
@@ -798,7 +798,7 @@ byte_7D626:	dc.b    8,   1
 		dc.b   $B,   1
 		dc.b   $C,   0
 		dc.b  $48, $7F
-		dc.b  $F8, $24
+		dc.b  arfBack, $24
 byte_7D636:	dc.b    8,   3
 		dc.b    8,   3
 		dc.b    9,   3
@@ -806,27 +806,27 @@ byte_7D636:	dc.b    8,   3
 		dc.b   $B,   3
 		dc.b   $C,   3
 		dc.b  $48,   3
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D645:	dc.b    8,   3
 		dc.b    8,  $F
 		dc.b    1,   5
 		dc.b  $10,  $F
 		dc.b    1,   5
 		dc.b  $11,   0
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D652:	dc.b    8,   1
 		dc.b    8,   1
 		dc.b   $D,   5
 		dc.b  $12, $7F
-		dc.b  $F8,  $A
+		dc.b  arfBack,  $A
 		dc.b  $12, $7F
-		dc.b  $FC
+		dc.b  arfEnd
 ; byte_7D65F
 AniRaw_MechaSonic_SpindashSparks:	dc.b    1,   1	; I think this is the spark for his spindash.
 		dc.b    2,   1
 		dc.b    3,   1
 		dc.b    0,   0
-		dc.b  $FC
+		dc.b  arfEnd
 byte_7D668:	dc.b  $11,   3
 		dc.b  $11,   3
 		dc.b    0,   3
@@ -836,24 +836,24 @@ byte_7D668:	dc.b  $11,   3
 		dc.b  $12, $1B
 		dc.b  $13,   5
 		dc.b  $14, $3F
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D67B:	dc.b    0,   0,   8,   9
-		dc.b    0, $17, $18, $FC
+		dc.b    0, $17, $18, arfEnd
 byte_7D683:	dc.b   $E,   1
 		dc.b   $E,   1
 		dc.b   $F,   2
 		dc.b  $10,   3
-		dc.b  $F4
+		dc.b  arfJump
 byte_7D68C:	dc.b    0,  $A,  $A,   0
 		dc.b   $A,  $B,   0,  $A
 		dc.b   $C,   0,  $A,  $B
 		dc.b    0,  $A,  $D,   0
 		dc.b  $19,  $D,   0,  $B
-		dc.b   $D,   0, $F4
+		dc.b   $D,   0, arfJump
 byte_7D6A3:	dc.b    0,   0,  $D, $16
 		dc.b    0,  $D,  $C, $16
 		dc.b    0,  $D, $16,   0
-		dc.b   $D, $19, $16, $FC
+		dc.b   $D, $19, $16, arfEnd
 byte_7D6B3:	dc.b    0,  $B,  $B,  $D
 		dc.b    0,  $B,  $D,   0
 		dc.b   $B,  $D,   0,  $A
@@ -863,20 +863,20 @@ byte_7D6B3:	dc.b    0,  $B,  $B,  $D
 		dc.b   $A,   0,  $A,   0
 		dc.b   $A,   0,  $A,   0
 		dc.b   $A,   0,  $A,   0
-		dc.b  $F4
+		dc.b  arfJump
 ; this is new.
 AniRaw_MechaSonic_Block:
 		dc.b $16, 2
 		dc.b $17, 5
 		dc.b $16, 2
 		dc.b 0,   5
-;		dc.b $FF, $F4
-		dc.b $F4	; all of his other animations do this instead...
+;		dc.b $FF, arfJump
+		dc.b arfJump	; all of his other animations do this instead...
 AniRaw_MechaSonic_Spindash:
 		dc.b  $18,   0
 		dc.b  $19,   0
 		dc.b  $1A,   0
-		dc.b  $FC
+		dc.b  arfEnd
 	even
 
 ; ---------------------------------------------------------------------------

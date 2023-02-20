@@ -21,6 +21,7 @@ ptr_mus_s3invin:	SMPS_MUSIC_METADATA Music_S3Invin, s3TempotoS1($FF), 0	; Super 
 ptr_mus_skinvin:	SMPS_MUSIC_METADATA Music_SKInvin, s3TempotoS1($FF), 0	; Hyper Sonic
 ptr_mus_through:	SMPS_MUSIC_METADATA	Music_Through, s3TempotoS1($FF), 0		; End of Act
 ptr_mus_drowning:	SMPS_MUSIC_METADATA	Music_Drowning, s3TempotoS1($02), SMPS_MUSIC_METADATA_FORCE_PAL_SPEED	; Drowning
+ptr_mus_title:		SMPS_MUSIC_METADATA Music_Title, 8, 0		; Title Screen
 
 ptr_musend
 
@@ -55,4 +56,6 @@ Music_SKInvin:		include	"Sound/Music/Mus - SK Invincibility.asm"
 Music_Through: 		include "Sound/Music/Mus - Sonic Got Through.asm"
 	even
 Music_Drowning:		include "Sound/Music/Mus - Drowning.asm"
+	even
+Music_Title:		include	"Sound/Music/Mus - Title Screen.asm"
 	even

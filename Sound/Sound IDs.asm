@@ -27,6 +27,7 @@ bgm_S3Invincible =	SMPS_id(ptr_mus_s3invin)
 bgm_SKInvincible =	SMPS_id(ptr_mus_skinvin)
 bgm_GotThrough =	SMPS_id(ptr_mus_through)
 bgm_Drowning =		SMPS_id(ptr_mus_drowning)
+bgm_Title =			SMPS_id(ptr_mus_title)
 
 bgm__Last =			SMPS_id(ptr_musend)-1
 

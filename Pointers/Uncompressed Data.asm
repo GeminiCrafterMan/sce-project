@@ -50,9 +50,11 @@ Art_WzPoison2:				binclude "Levels/WZ/Animated Tiles/Uncompressed Art/WZ Poison.
 	even
 
 ; ===========================================================================
-; Animated menu elements
+; Animated screen elements
 ; ===========================================================================
 
+ArtUnc_TitleSonic:			binclude "Objects/Title Screen Sonic/Uncompressed Art/Title Screen Sonic.bin"
+	even
 ArtUnc_CabaretSonic:		binclude "Objects/Cabaret Characters/Uncompressed Art/Cabaret Sonic.bin"
 	even
 
