@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
+    "node": "f6755f3b-6060-4927-b8a5-ac8da3ee0927",
     "objects": [
         {
             "name": "Players",
@@ -268,7 +268,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
         },
         {
@@ -774,7 +774,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {
@@ -1260,6 +1260,80 @@
                         "label": "PLC_Saw"
                     },
                     "uuid": "7f8f4735-1d77-4e10-b709-028a3a4d80b4"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Mecha Tails",
+                    "palettes": [
+                        {
+                            "path": "Objects/Mecha Tails/Palettes/Main.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Mecha Tails/Palettes/Flash 1.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Mecha Tails/Palettes/Flash 2.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Mecha Tails/Palettes/Flash 3.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Mecha Tails/Uncompressed Art/Mecha Tails.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Mecha Tails/Object Data/Map - Mecha Tails.asm",
+                        "label": "Map_MechaTails"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Mecha Tails/Object Data/DPLC - Mecha Tails.asm",
+                        "label": "PLC_MechaTails"
+                    },
+                    "uuid": "f6755f3b-6060-4927-b8a5-ac8da3ee0927"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Mecha Tails Extra",
+                    "palettes": [
+                        {
+                            "path": "Objects/Mecha Tails/Palettes/Main.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Mecha Tails/Palettes/Flash 1.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Mecha Tails/Palettes/Flash 2.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Objects/Mecha Tails/Palettes/Flash 3.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Mecha Tails/Uncompressed Art/Mecha Tails Extra Art.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Mecha Tails/Object Data/Map - Mecha Tails Extra.asm",
+                        "label": "Map_MechaTailsExtra"
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": "PLC_MechaTails"
+                    },
+                    "uuid": "8af6755f-3b60-4089-a738-a5ac8da3ee09"
                 }
             ],
             "isDirectory": true,
