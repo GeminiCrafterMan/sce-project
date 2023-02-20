@@ -9,7 +9,7 @@ Obj_EndSignControl:
 		st	(Level_end_flag).w		; End of level is in effect
 		clr.b	(TitleCard_end_flag).w
 		bset	#4,$38(a0)
-		move.w	#$77,$2E(a0)
+		move.w	#$77,wait(a0)
 		move.l	#Obj_EndSignControlDoSign,$34(a0)
 
 .locret:
@@ -97,13 +97,13 @@ Obj_FallingEndSignFall:
 		add.w	d1,y_pos(a0)
 		move.b	#4,routine(a0)				; if signpost has landed
 		bset	#0,$38(a0)
-		move.w	#$40,$2E(a0)
+		move.w	#$40,wait(a0)
 +		rts
 ; ---------------------------------------------------------------------------
 
 Obj_EndSignLanded:
 		jsr	(Animate_Raw).w
-		subq.w	#1,$2E(a0)					; keep animating while landing for X amount of frames
+		subq.w	#1,wait(a0)					; keep animating while landing for X amount of frames
 		bmi.s	+
 		rts
 ; ---------------------------------------------------------------------------
@@ -152,7 +152,7 @@ Obj_SignpostSparkle:
 		add.w	d0,y_pos(a0)					; random vertical position
 		move.w	x_pos(a0),$3A(a0)
 		move.w	#$1000,x_vel(a0)
-		move.w	#$20,$2E(a0)
+		move.w	#$20,wait(a0)
 		move.l	#Go_Delete_Sprite,$34(a0)
 
 Obj_SignpostSparkleMain:
@@ -312,19 +312,19 @@ Obj_EndSignInit:
 		move.w	#bytes_to_word(60/2,48/2),y_radius(a0)	; set y_radius and x_radius
 
 Obj_EndSignTouch:
-                move.b	#$5,mapping_frame(a0) ;Robotnik
-                tst.b	$20(a0)
+		move.b	#$5,mapping_frame(a0) ;Robotnik
+		tst.b	objoff_20(a0)
 		bne.s	.reset
 		lea	EndSign_Range(pc),a1
 		jsr	Check_PlayerInRange;(pc)
-		move.w	#$80,$2E(a0) ;set animation timer
+		move.w	#$80,wait(a0) ;set animation timer
 		tst.l	d0
 		beq.s	.notouch		; If neither player is in range, don't do anything
 		tst.w	d0
 		beq.s	.skip
 		addq.b	#2,routine(a0)	;increment routine
 		move.l	#AniRaw_EndSigns,aniraw(a0)
-                sfx		sfx_Signpost	; S2 signpost sound
+		sfx		sfx_Signpost	; S2 signpost sound
 
 		;The code below only gets to run once, so I'm just commenting it out so that it can run exactly one time ever time.
 		;move.b	(V_int_run_count+3).w,d0
@@ -337,7 +337,7 @@ Obj_EndSignTouch:
 		swap	d0
 		rts
 .reset:
-		subq.b	#1,$20(a0)
+		subq.b	#1,objoff_20(a0)
 		rts
 
 	.notouch:
