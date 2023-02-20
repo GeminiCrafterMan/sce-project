@@ -26,8 +26,8 @@ TSon_Main:	; Routine 0
 		move.b	#1,obPriority(a0)
 		move.b	#1,obFrame(a0)
 		move.b	#29,wait(a0) ; set time delay to 0.5 seconds
-		lea	(Ani_TitleSonic).l,a1
-		jsr		AnimateSprite
+		lea	Ani_TitleSonic(pc),a1
+		jsr	(AnimateSprite).w
 
 TSon_Delay:	;Routine 2
 		subq.b	#1,wait(a0) ; subtract 1 from time delay
@@ -35,7 +35,7 @@ TSon_Delay:	;Routine 2
 		addq.b	#2,obRoutine(a0) ; go to next routine
 
 .wait:
-		rts	
+		rts
 ; ===========================================================================
 
 TSon_Move:	; Routine 4
@@ -50,9 +50,9 @@ TSon_Move:	; Routine 4
 ; ===========================================================================
 
 TSon_Animate:	; Routine 6
-		lea	(Ani_TitleSonic).l,a1
-		jsr		AnimateSprite
-		jmp		DisplaySprite
+		lea	Ani_TitleSonic(pc),a1
+		jsr	(AnimateSprite).w
+		jmp	(DisplaySprite).w
 
 		include	"Objects/Title Screen Sonic/Object Data/Map - Title Screen Sonic.asm"
 		include	"Objects/Title Screen Sonic/Object Data/PLC - Title Screen Sonic.asm"

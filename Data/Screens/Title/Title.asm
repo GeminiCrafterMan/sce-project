@@ -28,23 +28,24 @@ Title_Screen:
 		jsr	(LoadLevelLoadBlock).w
 		jsr	(LoadLevelLoadBlock2).w
 		disableInts
-		jsr	(LevelSetup).l
+		jsr	(LevelSetup_BG_Only).l
 		enableInts
-		lea		(ArtKosM_TitleScreenFG).l,a1
-		move.w	#tiles_to_bytes(ArtTile_LevelArt),d2
-		jsr		(Queue_Kos_Module).w
-		lea		(Pal_GHZ).l,a1
-		lea		(Target_palette_line_2).w,a2
+		lea	(ArtKosM_TitleScreenFG).l,a1
+		move.w	#$4000,d2
+		jsr	(Queue_Kos_Module).w
+		lea	(Pal_GHZ).l,a1
+		lea	(Target_palette_line_2).w,a2
 		jsr	(PalLoad_Line48).w
-		lea		(Pal_TitleScreen).l,a1
-		lea		(Target_palette).w,a2
+		lea	(Pal_TitleScreen).l,a1
+		lea	(Target_palette).w,a2
 		jsr	(PalLoad_Line32).w
 
 		lea	(Eni_Title).l,a0 ; load	title screen mappings
-		move.w	#0,d0
-		jsr		EniDec
+                lea	($FF0000).l,a1 ; load	buffer
+                moveq	#0,d0
+		jsr	(EniDec).w
 
-		copyTilemap	$C208,$21,$15
+                copyTilemap	$C208,278,148
 
 		music	bgm_Title
 
