@@ -317,7 +317,7 @@ Obj_EndSignTouch:
 		bne.s	.reset
 		lea	EndSign_Range(pc),a1
 		jsr	Check_PlayerInRange;(pc)
-		move.w	#$40,$2E(a0) ;set animation timer
+		move.w	#$80,$2E(a0) ;set animation timer
 		tst.l	d0
 		beq.s	.notouch		; If neither player is in range, don't do anything
 		tst.w	d0
