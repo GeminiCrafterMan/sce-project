@@ -1267,7 +1267,8 @@ loc_7B888:
 		move.w	#$77,wait(a0)
 		jsr	(Create_New_Sprite).l
 		bne.s	locret_7B8E4
-		move.l	#loc_7D056,(a1)
+		move.l	#Obj_EggCapsule,(a1)
+		bset	#1,render_flags(a1)
 
 locret_7B8E4:
 		rts

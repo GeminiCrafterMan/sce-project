@@ -236,25 +236,25 @@ Map_MiniSonic_1D2: 	dc.w Map_MiniSonic_BFA-Map_MiniSonic
 Map_MiniSonic_1D4: 	dc.w Map_MiniSonic_C02-Map_MiniSonic
 Map_MiniSonic_1D6: 	dc.b $0, $0
 Map_MiniSonic_1D8: 	dc.b $0, $2
-	dc.b $F4, $6, $0, $0, $FF, $F4
-	dc.b $FC, $0, $0, $6, $0, $4
+	dc.b $F5, $6, $0, $0, $FF, $F7
+	dc.b $FD, $0, $0, $6, $0, $7
 Map_MiniSonic_1E6: 	dc.b $0, $2
-	dc.b $F4, $6, $0, $0, $FF, $F4
-	dc.b $4, $0, $0, $6, $0, $4
+	dc.b $F1, $6, $0, $0, $FF, $F7
+	dc.b $1, $0, $0, $6, $0, $7
 Map_MiniSonic_1F4: 	dc.b $0, $1
-	dc.b $F4, $6, $0, $0, $FF, $F8
+	dc.b $F7, $6, $0, $0, $FF, $FA
 Map_MiniSonic_1FC: 	dc.b $0, $1
-	dc.b $F4, $6, $0, $0, $FF, $F8
+	dc.b $F6, $6, $0, $0, $FF, $F9
 Map_MiniSonic_204: 	dc.b $0, $2
-	dc.b $F4, $6, $0, $0, $FF, $F4
-	dc.b $FC, $0, $0, $6, $0, $4
+	dc.b $F5, $6, $0, $0, $FF, $F7
+	dc.b $FD, $0, $0, $6, $0, $7
 Map_MiniSonic_212: 	dc.b $0, $2
-	dc.b $F4, $6, $0, $0, $FF, $F4
-	dc.b $4, $0, $0, $6, $0, $4
+	dc.b $F1, $6, $0, $0, $FF, $F7
+	dc.b $1, $0, $0, $6, $0, $7
 Map_MiniSonic_220: 	dc.b $0, $1
-	dc.b $F4, $6, $0, $0, $FF, $F8
+	dc.b $F7, $6, $0, $0, $FF, $F9
 Map_MiniSonic_228: 	dc.b $0, $1
-	dc.b $F4, $6, $0, $0, $FF, $F8
+	dc.b $F6, $6, $0, $0, $FF, $F9
 Map_MiniSonic_230: 	dc.b $0, $2
 	dc.b $F4, $9, $0, $0, $FF, $F4
 	dc.b $4, $0, $0, $6, $FF, $FC
