@@ -327,6 +327,8 @@ Monitor_Give_Super_Sneakers:
 		move.w	#$C00,(Top_speed_P1).w
 		move.w	#$18,(Acceleration_P1).w
 		move.w	#$80,(Deceleration_P1).w
+		move.b	#emotion_happy,(Current_emotion).w
+		jsr		UpdateEmotionWindow
 		music	bgm_Speedup,1						; speed up the music
 ; ---------------------------------------------------------------------------
 
@@ -365,6 +367,8 @@ Monitor_Give_Invincibility:
 		bne.s	.skipmusic
 		cmpi.b	#12,air_left(a1)
 		bls.s		.skipmusic
+		move.b	#emotion_happy,(Current_emotion).w
+		jsr		UpdateEmotionWindow
 		music	bgm_Invincible					; if invincible, play invincibility music
 
 .skipmusic:

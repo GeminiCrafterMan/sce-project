@@ -422,7 +422,7 @@ f_jpad_6button:						= *
 Six_button_flag:					ds.b 1
 f_jpad2_6button:						= *
 Six_button_flag_2:					ds.b 1
-									ds.b 1	; even
+Current_emotion:					ds.b 1	; even
 Tails_interact_ID:					ds.w 1
 Tails_respawn_counter:				ds.w 1
 Tails_CPU_target_x:					ds.w 1

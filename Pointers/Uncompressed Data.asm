@@ -58,6 +58,10 @@ ArtUnc_TitleSonic:			binclude "Objects/Title Screen Sonic/Uncompressed Art/Title
 ArtUnc_CabaretSonic:		binclude "Objects/Cabaret Characters/Uncompressed Art/Cabaret Sonic.bin"
 	even
 
+; Emotion Window
+ArtUnc_SonicEmotions:		binclude "Objects/HUD/Uncompressed Art/Sonic Emotions.bin"
+	even
+
 ; ===========================================================================
 ; Bosses
 ; ===========================================================================

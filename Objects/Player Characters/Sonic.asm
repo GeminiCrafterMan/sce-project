@@ -347,6 +347,8 @@ Player_ChkInvin:										; checks if invincibility has expired and disables it 
 
 Player_RmvInvin:
 		bclr	#Status_Invincible,status_secondary(a0)
+.reset:
+		jsr		ResetEmotion
 
 Player_ChkShoes:										; checks if Speed Shoes have expired and disables them if they have.
 		btst	#Status_SpeedShoes,status_secondary(a0)	; does Sonic have speed shoes?
@@ -370,6 +372,7 @@ Player_ChkShoes:										; checks if Speed Shoes have expired and disables them
 loc_10D32:
 		bclr	#Status_SpeedShoes,status_secondary(a0)
 		music	bgm_Slowdown						; run music at normal speed
+		jsr		ResetEmotion
 
 Player_ExitChk:
 		rts
@@ -1757,6 +1760,7 @@ Player_Transform:
 		move.l	#Obj_SuperSonicKnux_Stars,(v_Super_stars).w	; load Super Stars object
 
 	.continued:
+		jsr		ResetEmotion
 		move.w	#$A00,Top_speed_P1-Top_speed_P1(a4)
 		move.w	#$30,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$100,Deceleration_P1-Top_speed_P1(a4)

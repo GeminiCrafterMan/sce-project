@@ -114,6 +114,7 @@ Level_Screen:
 		move.b	d0,(Super_Sonic_Knux_flag).w
 		move.l	d0,(Super_palette_status).w				; hits Super_palette_status, Palette_timer, and Super_frame_count
 		move.l	d0,(Palette_frame).w					; hits Palette_frame, Palette_frame_Tails, and Palette_timer_Tails
+		jsr		ResetEmotion.cont
 		jsr	(OscillateNumInit).w
 		moveq	#1,d0
 		move.b	d0,(Ctrl_1_locked).w

@@ -387,3 +387,64 @@ loc_1C9D6:
 		addi.l	#$400000,d0
 		dbf	d6,Hud_TimeLoop
 		rts
+
+ResetEmotion:
+		cmpa.w	#Player_1,a0
+		beq.s	.cont
+		rts
+	.cont:
+		moveq	#emotion_neutral,d0
+		cmpi.b	#id_SonicDeath,(Player_1+routine).w
+		blt.s	.notSad
+		moveq	#emotion_sad,d0
+		bra.s	.done
+	.notSad:
+		tst.b	(Super_Sonic_Knux_flag).w
+		beq.s	.notSuper
+		moveq	#emotion_super,d0
+		bra.s	.done
+	.notSuper:
+	;	btst	#Status_Shrunk,(Player_1+status_secondary).w
+	;	bne.s	.angry
+		btst	#Status_Invincible,(Player_1+status_secondary).w	; Invincible?
+		bne.s	.happy	; I know it's out of order. Don't care, it probably works.
+		tst.b	(Player_1+invulnerability_timer).w
+		beq.s	.notAngry
+	.angry:
+		moveq	#emotion_angry,d0
+		bra.s	.done
+	.notAngry:
+		btst	#Status_SpeedShoes,(Player_1+status_secondary).w	; Speedy?
+		bne.s	.happy
+		tst.b	(LastAct_end_flag).w	; Did I win?
+		bne.s	.happy
+		cmpi.w	#4,(Chain_bonus_counter).w	; am I badnik bouncing?
+		bge.s	.happy
+		btst	#f_1up_playing,(Clone_Driver_RAM+SMPS_RAM.variables.bitfield2).w
+		bne.s	.happy
+		bra.s	.done
+	.happy:
+		moveq	#emotion_happy,d0
+	.done:
+		move.b	d0,(Current_emotion).w	; set the emotion
+UpdateEmotionWindow:
+		movem.l	d0-d3,-(sp)
+		moveq	#0,d1
+		moveq	#0,d2
+		moveq	#0,d3
+		move.b	(Current_emotion).w,d0
+		move.b	(Player_1+character_id).w,d1
+		lsl.w	#2,d1
+		move.l	.artLUT(pc,d1.w),d1
+	.cont:
+		move.w	#tiles_to_bytes(ArtTile_EmotionWindow),d2
+		move.w	#16*6,d3	; length of one emotion's image (1 tile = 16 bytes)
+		mulu.w	d3,d0	; source, destination
+		add.w	d0,d0
+		add.w	d0,d1
+		jsr		(QueueDMATransfer).l
+		movem.l	(sp)+,d0-d3
+		rts
+
+	.artLUT:
+		dc.l	ArtUnc_SonicEmotions>>1,ArtUnc_SonicEmotions>>1,ArtUnc_SonicEmotions>>1,ArtUnc_SonicEmotions>>1,ArtUnc_SonicEmotions>>1

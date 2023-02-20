@@ -224,6 +224,17 @@ bitX:		equ bitL
 bitMode:	equ bitR
 
 ; ---------------------------------------------------------------------------
+; Emotion Window emotions
+; For use with Current_emotion
+; ---------------------------------------------------------------------------
+
+emotion_neutral =		0
+emotion_happy =			1
+emotion_angry =			2
+emotion_sad =			3
+emotion_super =			4
+
+; ---------------------------------------------------------------------------
 ; property of all objects
 ; ---------------------------------------------------------------------------
 
@@ -519,9 +530,10 @@ ArtTile_Ring				= $6BC
 ArtTile_Ring_Sparks			= ArtTile_Ring+4
 ArtTile_HUD					= $6C4
 ArtTile_Shield				= $79C
-ArtTile_Shield_Sparks		= ArtTile_Shield+$1F
-ArtTile_Tails				= $7C0	; reeeeally not built for this...
-ArtTile_FollowObject_P2		= $7D0
+ArtTile_Shield_Sparks		= ArtTile_Shield+$1E
+ArtTile_EmotionWindow		= $7BF
+ArtTile_Tails				= $7C7	; reeeeally not built for this...
+ArtTile_FollowObject_P2		= $7D7
 ArtTile_DashDust_P1			= $7E0
 ArtTile_DashDust_P2			= $7F0
 

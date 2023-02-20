@@ -37,6 +37,8 @@ Obj_CoinCollect:
 		clr.b	collision_flags(a0)
 		move.w	#$80,priority(a0)
 		jsr	(GiveRing).w
+		move.b	#emotion_happy,(Current_emotion).w
+		jsr		UpdateEmotionWindow
 
 Obj_CoinSparkle:
 		move.w	#make_art_tile(ArtTile_Ring,1,1),art_tile(a0)

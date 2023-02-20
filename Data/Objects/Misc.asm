@@ -442,7 +442,8 @@ Set_PlayerEndingPose:
 		bclr	#Status_Push,status(a0)
 		bclr	#Status_Underwater,status(a0)
 		bclr	#Status_Push,status(a1)
-		rts
+		move.b	#emotion_happy,(Current_emotion).w
+		jmp		UpdateEmotionWindow
 
 ; =============== S U B R O U T I N E =======================================
 
