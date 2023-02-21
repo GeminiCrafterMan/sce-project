@@ -3,68 +3,68 @@
   <Images>
     <ImageFromMappings id="mid0">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="0" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="0" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="mid1">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="1" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="1" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="mid2">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="2" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="2" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="mid3">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="3" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="3" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="mid4">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="4" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="4" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="mid5">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="5" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="5" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="mid6">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="6" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="6" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="mid7">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="7" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="7" startpal="0" />
     </ImageFromMappings>
 
     <ImageFromMappings id="top0">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="8" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="8" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="top1">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="9" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="9" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="top2">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="10" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="10" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="top3">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="11" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="11" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="top4">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="12" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="12" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="top5">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="13" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="13" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="top6">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="14" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="14" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="top7">
       <ArtFile filename="../Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ waterfall.bin" compression="Uncompressed" />
-      <MapFile type="ASM" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm" frame="15" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin" frame="15" startpal="0" />
     </ImageFromMappings>
   </Images>
   <Properties>
