@@ -14,7 +14,7 @@ namespace S3KObjectDefinitions.GHZ
 			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), 0);
 
 			BuildSprites(indexer.ToArray(),
-				"../Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).asm", 0x00);
+				"../Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).bin", 0x00);
 		}
 	}
 }
@@ -30,7 +30,7 @@ namespace S3KObjectDefinitions.SSLZ
 			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), 0);
 
 			BuildSprites(indexer.ToArray(),
-				"../Objects/Floating Platform/Object Data/Map - Floating Platform (SSLZ).asm", 0x00);
+				"../Objects/Floating Platform/Object Data/Map - Floating Platform (SSLZ).bin", 0x00);
 		}
 	}
 }
@@ -46,7 +46,7 @@ namespace S3KObjectDefinitions.WZ
 			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), -32);
 
 			BuildSprites(indexer.ToArray(),
-				"../Objects/Floating Platform/Object Data/Map - Floating Platform.asm", 0x00);
+				"../Objects/Floating Platform/Object Data/Map - Floating Platform.bin", 0x00);
 		}
 	}
 }
@@ -61,7 +61,7 @@ namespace S3KObjectDefinitions.TTZ
 			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), -32);
 
 			BuildSprites(indexer.ToArray(),
-				"../Objects/Floating Platform/Object Data/Map - Floating Platform.asm", 0x00);
+				"../Objects/Floating Platform/Object Data/Map - Floating Platform.bin", 0x00);
 		}
 	}
 }
@@ -173,7 +173,7 @@ namespace S3KObjectDefinitions.Common
 
 		protected void BuildSprites(byte[] art, string mapfile, byte defaultSubtype)
 		{
-			var map = LevelData.ASMToBin(mapfile, LevelData.Game.MappingsVersion);
+			var map = ObjectHelper.MapToBmp(mapfile, LevelData.Game.MappingsVersion);
 			BuildSprites(art, map, defaultSubtype);
 		}
 

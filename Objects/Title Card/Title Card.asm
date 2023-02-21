@@ -277,5 +277,5 @@ TitleCard_LevelGfx:
 
 		zonewarning TitleCard_LevelGfx,4
 ; ---------------------------------------------------------------------------
-
+; Not using .bin because actual labels.
 		include "Objects/Title Card/Object Data/Map - Title Card.asm"

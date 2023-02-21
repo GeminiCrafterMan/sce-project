@@ -3,51 +3,51 @@
   <Images>
     <ImageFromMappings id="static">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="1" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="1" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="sonic">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="2" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="2" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="eggman">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="3" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="3" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="rings">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="4" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="4" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="shoes">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="5" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="5" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="fire">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="6" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="6" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="lightning">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="7" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="7" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="water">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="8" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="8" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="invincibility">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="9" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="9" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="s">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="10" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="10" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="h">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="11" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="11" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="broken">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Monitor/Object Data/Map - Monitor.asm" frame="12" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="12" startpal="0" />
     </ImageFromMappings>
   </Images>
   <Subtypes>

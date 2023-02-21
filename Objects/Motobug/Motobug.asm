@@ -114,4 +114,4 @@ Moto_Delete:	; Routine 6
 		jmp		DeleteObject
 
 		include "Objects/Motobug/Object Data/Anim - Motobug.asm"
-		include "Objects/Motobug/Object Data/Map - Motobug.asm"
+Map_Motobug:		binclude "Objects/Motobug/Object Data/Map - Motobug.bin"

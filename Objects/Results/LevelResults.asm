@@ -440,5 +440,5 @@ ObjArray_LevResults:
 		dc.b $40
 		dc.w 9
 ; ---------------------------------------------------------------------------
-
+; Not using .bin because actual labels.
 		include "Objects/Results/Object Data/Map - Results.asm"

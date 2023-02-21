@@ -51,11 +51,10 @@ TSon_Move:	; Routine 4
 
 TSon_Animate:	; Routine 6
 		lea	Ani_TitleSonic(pc),a1
-		jsr	(AnimateSprite).w
-		jmp	(DisplaySprite).w
+		jmp	(AnimateSprite).w
 
-		include	"Objects/Title Screen Sonic/Object Data/Map - Title Screen Sonic.asm"
-		include	"Objects/Title Screen Sonic/Object Data/PLC - Title Screen Sonic.asm"
+Map_TitleSonic:		binclude	"Objects/Title Screen Sonic/Object Data/Map - Title Screen Sonic.bin"
+PLC_TitleSonic:		binclude	"Objects/Title Screen Sonic/Object Data/PLC - Title Screen Sonic.bin"
 
 DPLCPtr_TitleSonic:
 		dc.l ArtUnc_TitleSonic>>1

@@ -1770,5 +1770,5 @@ Animate_Knuckles:
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Player Characters/Object Data/Anim - Knuckles.asm"
-		include "Objects/Player Characters/Object Data/Map - Knuckles.asm"
-		include "Objects/Player Characters/Object Data/Knuckles pattern load cues.asm"
+Map_Knuckles:		binclude "Objects/Player Characters/Object Data/Map - Knuckles.bin"
+PLC_Knuckles:		binclude "Objects/Player Characters/Object Data/PLC - Knuckles.bin"

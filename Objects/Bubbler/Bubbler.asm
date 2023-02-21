@@ -253,4 +253,4 @@ locret_2FC7C:
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Bubbler/Object Data/Anim - Bubbler.asm"
-		include "Objects/Bubbler/Object Data/Map - Bubbler.asm"
+Map_Bubbler:		binclude "Objects/Bubbler/Object Data/Map - Bubbler.bin"

@@ -3,7 +3,7 @@
 ; ---------------------------------------------------------------------------
 
 Obj_CabaretSonic:
-		move.l	#Map_CabaretSonic,mappings(a0)
+		move.l	#Map_CabaretChars,mappings(a0)
 		move.w	#$100,priority(a0)
 		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
 		beq.s	.noMusic
@@ -13,25 +13,25 @@ Obj_CabaretSonic:
 		move.b	#0,anim(a0)	; Waiting
 	; run into .display
 	.display:
-		lea		(Ani_CabaretSonic).l,a1
+		lea		(Ani_CabaretChars).l,a1
 		jsr		AnimateSprite
-		bsr.s	CabaretSonic_Load_PLC
+		bsr.s	CabaretChars_Load_PLC
 		jmp		DisplaySprite
 
-CabaretSonic_Load_PLC:
+CabaretChars_Load_PLC:
 		moveq	#0,d0
 		move.b	mapping_frame(a0),d0
 		cmp.b	previous_frame(a0),d0
 		beq.s	+
 		move.b	d0,previous_frame(a0)
-		lea	(PLC_CabaretSonic).l,a2
+		lea	(PLC_CabaretChars).l,a2
 		add.w	d0,d0
 		adda.w	(a2,d0.w),a2
 		move.w	(a2)+,d5
 		subq.w	#1,d5
 		bmi.s	+
 		move.w	vram_art(a0),d4
-		move.l	#ArtUnc_CabaretSonic>>1,d6
+		move.l	#ArtUnc_CabaretChars>>1,d6
 
 -		moveq	#0,d1
 		move.w	(a2)+,d1
@@ -48,7 +48,7 @@ CabaretSonic_Load_PLC:
 		jsr	(Add_To_DMA_Queue).w
 		dbf	d5,-
 +		rts
-; End of function CabaretSonic_Load_PLC
+; End of function CabaretChars_Load_PLC
 
 ; ---------------------------------------------------------------------------
 ; Object - Tails and his tails on the menu
@@ -67,7 +67,7 @@ Obj_CabaretTails:
 		move.w	a0,(v_FollowObject_P2+parent).w
 		move.w	#make_art_tile(ArtTile_FollowObject_P2,2,0),(v_FollowObject_P2+art_tile).w
 	.cont:
-		move.l	#Map_CabaretSonic,mappings(a0)
+		move.l	#Map_CabaretChars,mappings(a0)
 		move.w	#$100,priority(a0)
 		move.b	#2,anim(a0)	; Sleeping
 		bra.w	Obj_CabaretSonic.display
@@ -93,7 +93,7 @@ Obj_CabaretTails_Tail:
 ; ---------------------------------------------------------------------------
 
 Obj_CabaretKnuckles:
-		move.l	#Map_CabaretSonic,mappings(a0)
+		move.l	#Map_CabaretChars,mappings(a0)
 		move.w	#$100,priority(a0)
 		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
 		beq.s	.noMusic
@@ -108,7 +108,7 @@ Obj_CabaretKnuckles:
 ; ---------------------------------------------------------------------------
 
 Obj_CabaretMighty:
-		move.l	#Map_CabaretSonic,mappings(a0)
+		move.l	#Map_CabaretChars,mappings(a0)
 		move.w	#$100,priority(a0)
 		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
 		beq.s	.noMusic
@@ -123,7 +123,7 @@ Obj_CabaretMighty:
 ; ---------------------------------------------------------------------------
 
 Obj_CabaretEspio:
-		move.l	#Map_CabaretSonic,mappings(a0)
+		move.l	#Map_CabaretChars,mappings(a0)
 		move.w	#$100,priority(a0)
 		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
 		beq.s	.noMusic
@@ -138,7 +138,7 @@ Obj_CabaretEspio:
 ; ---------------------------------------------------------------------------
 
 Obj_CabaretMiniSonic:
-		move.l	#Map_CabaretSonic,mappings(a0)
+		move.l	#Map_CabaretChars,mappings(a0)
 		move.w	#$100,priority(a0)
 		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
 		beq.s	.noMusic
@@ -153,6 +153,6 @@ Obj_CabaretMiniSonic:
 ; Cabaret character animation, mapping, and PLC data
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Cabaret Characters/Object Data/Anim - Cabaret Sonic.asm"
-		include "Objects/Cabaret Characters/Object Data/Map - Cabaret Sonic.asm"
-		include "Objects/Cabaret Characters/Object Data/DPLC - Cabaret Sonic.asm"
+		include "Objects/Cabaret Characters/Object Data/Anim - Cabaret Characters.asm"
+Map_CabaretChars:		binclude "Objects/Cabaret Characters/Object Data/Map - Cabaret Characters.bin"
+PLC_CabaretChars:		binclude "Objects/Cabaret Characters/Object Data/PLC - Cabaret Characters.bin"

@@ -10,9 +10,9 @@ namespace S3KObjectDefinitions.GHZ
 	{
 		public override void Init(ObjectData data)
 		{
-			imgsaw = ObjectHelper.MapASMToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), "../Objects/Swinging Platform/Object Data/Map - Saw.asm", 1, 2);
+			imgsaw = ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Saw.bin"), 1, 2);
 			for (int i = 0; i < labels.Length; i++)
-				imgs.Add(ObjectHelper.MapASMToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM), "../Objects/Swinging Platform/Object Data/Map - Swinging Platform.asm", labels[i], i == 1 ? 0 : 2));
+				imgs.Add(ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin"), labels[i], i == 1 ? 0 : 2));
 		}
 	}
 }
@@ -27,9 +27,9 @@ namespace S3KObjectDefinitions.Common
 
 		public override void Init(ObjectData data)
 		{
-			imgsaw = ObjectHelper.MapASMToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), "../Objects/Swinging Platform/Object Data/Map - Saw.asm", 1, 2);
+			imgsaw = ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Saw.bin"), 1, 2);
 			for (int i = 0; i < labels.Length; i++)
-				imgs.Add(ObjectHelper.MapASMToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM), "../Objects/Swinging Platform/Object Data/Map - Swinging Platform.asm", labels[i], i == 1 ? 0 : 2));
+				imgs.Add(ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin"), labels[i], i == 1 ? 0 : 2));
 		}
 
 		public override ReadOnlyCollection<byte> Subtypes

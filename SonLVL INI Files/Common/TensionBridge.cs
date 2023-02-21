@@ -12,7 +12,7 @@ namespace S3KObjectDefinitions.GHZ
 		{
 			BuildSpritesProperties(
 				"../Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.bin", 0,
-				"../Objects/Tension Bridge/Object Data/Map - Tension Bridge.asm", 2, false, null, null, 0);
+				System.IO.File.ReadAllBytes("../Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin"), 2, false, null, null, 0);
 		}
 	}
 }
@@ -25,7 +25,7 @@ namespace S3KObjectDefinitions.SSLZ
 		{
 			BuildSpritesProperties(
 				"../Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge.bin", 0,
-				"../Objects/Tension Bridge/Object Data/Map - Tension Bridge.asm", 2, false, null, null, 0);
+				System.IO.File.ReadAllBytes("../Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin"), 2, false, null, null, 0);
 		}
 	}
 }
@@ -38,7 +38,7 @@ namespace S3KObjectDefinitions.ICZ
 		{
 			BuildSpritesProperties(
 				"../Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.bin", 0,
-				"../Objects/Tension Bridge/Object Data/Map - Tension Bridge.asm", 2, false,
+				System.IO.File.ReadAllBytes("../Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin"), 2, false,
 				"Angled", "If set, the bridge segments will be angled diagonally.", 3);
 		}
 	}
@@ -150,7 +150,7 @@ namespace S3KObjectDefinitions.Common
 				art = indexer.ToArray();
 			}
 
-			sprite = ObjectHelper.MapASMToBmp(art, mapfile, 0, startpal);
+			sprite = ObjectHelper.MapToBmp(art, mapfile, 0, startpal);
 			sprite.Offset(8, 8);
 
 			properties = new PropertySpec[2];

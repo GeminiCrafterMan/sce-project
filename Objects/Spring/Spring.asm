@@ -633,5 +633,5 @@ ObjSpring_SlopeData_DiagDown:
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Spring/Object Data/Anim - Spring.asm"
-		include "Objects/Spring/Object Data/Map - Spring(Red).asm"
-		include "Objects/Spring/Object Data/Map - Spring(Yellow).asm"
+Map_RedSpring:			binclude "Objects/Spring/Object Data/Map - Spring(Red).bin"
+Map_YellowSpring:		binclude "Objects/Spring/Object Data/Map - Spring(Yellow).bin"

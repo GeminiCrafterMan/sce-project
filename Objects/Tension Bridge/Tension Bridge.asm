@@ -520,7 +520,8 @@ locret_38E28:
 		rts
 ; End of function sub_38D74
 ; ---------------------------------------------------------------------------
-byte_38E2A:	dc.b    2,   4,   6,   8,   8,   6,   4,   2,   0,   0,   0,   0,   0,   0,   0,   0
+byte_38E2A:
+		dc.b    2,   4,   6,   8,   8,   6,   4,   2,   0,   0,   0,   0,   0,   0,   0,   0
 		dc.b    2,   4,   6,   8,  $A,   8,   6,   4,   2,   0,   0,   0,   0,   0,   0,   0
 		dc.b    2,   4,   6,   8,  $A,  $A,   8,   6,   4,   2,   0,   0,   0,   0,   0,   0
 		dc.b    2,   4,   6,   8,  $A,  $C,  $A,   8,   6,   4,   2,   0,   0,   0,   0,   0
@@ -529,7 +530,8 @@ byte_38E2A:	dc.b    2,   4,   6,   8,   8,   6,   4,   2,   0,   0,   0,   0,   
 		dc.b    2,   4,   6,   8,  $A,  $C,  $E,  $E,  $C,  $A,   8,   6,   4,   2,   0,   0
 		dc.b    2,   4,   6,   8,  $A,  $C,  $E, $10,  $E,  $C,  $A,   8,   6,   4,   2,   0
 		dc.b    2,   4,   6,   8,  $A,  $C,  $E, $10, $10,  $E,  $C,  $A,   8,   6,   4,   2
-BridgeBendData:	dc.b  $FF,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0
+BridgeBendData:
+		dc.b  $FF,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0
 		dc.b  $B5, $FF,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0
 		dc.b  $7E, $DB, $FF,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0
 		dc.b  $61, $B5, $EC, $FF,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0
@@ -546,7 +548,7 @@ BridgeBendData:	dc.b  $FF,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0
 		dc.b  $19, $31, $4A, $67, $7E, $93, $A7, $BD, $CD, $DB, $E7, $F3, $F9, $FE, $FF,   0
 		dc.b  $19, $31, $4A, $61, $78, $8E, $A2, $B5, $C5, $D4, $E1, $EC, $F4, $FB, $FE, $FF
 
-		include "Objects/Tension Bridge/Object Data/Map - Tension Bridge.asm"
+Map_TensionBridge:		binclude "Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin"
 
 byte_39006:	dc.b    2,   4,   4,   4,   4,   4,  $C,   0
 

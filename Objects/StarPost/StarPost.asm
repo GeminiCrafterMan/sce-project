@@ -345,5 +345,5 @@ loc_2D5C0:
 ; ---------------------------------------------------------------------------
 
 		include "Objects/StarPost/Object Data/Anim - Starpost.asm"
-		include "Objects/StarPost/Object Data/Map - Starpost.asm"
-		include "Objects/StarPost/Object Data/Map - Starpost Stars.asm"
+Map_StarPost:		binclude "Objects/StarPost/Object Data/Map - Starpost.bin"
+Map_StarpostStars:		binclude "Objects/StarPost/Object Data/Map - Starpost Stars.bin"

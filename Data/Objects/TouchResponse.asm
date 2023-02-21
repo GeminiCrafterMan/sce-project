@@ -345,7 +345,7 @@ Touch_EnemyNormal:
 		cmp.w	y_pos(a1),d0							; was player above, or at the same height as, the enemy when it was destroyed
 		bhs.s	.bounceup
 		neg.w	y_vel(a0)
-		rts
+		jmp		ResetEmotion
 ; ---------------------------------------------------------------------------
 
 .bouncedown:

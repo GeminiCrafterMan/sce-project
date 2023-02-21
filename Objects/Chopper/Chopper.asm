@@ -53,4 +53,4 @@ Chop_ChgSpeed:	; Routine 2
 		rts
 
 		include "Objects/Chopper/Object Data/Anim - Chopper.asm"
-		include "Objects/Chopper/Object Data/Map - Chopper.asm"
+Map_Chopper:		binclude "Objects/Chopper/Object Data/Map - Chopper.bin"

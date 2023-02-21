@@ -98,4 +98,4 @@ loc_2C690:
 		jmp	(Sprite_OnScreen_Test).w
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Button/Object Data/Map - Button.asm"
+Map_Button:		binclude "Objects/Button/Object Data/Map - Button.bin"

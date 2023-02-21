@@ -505,5 +505,5 @@ Animate_Mighty:
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Player Characters/Object Data/Anim - Mighty.asm"
-		include "Objects/Player Characters/Object Data/Map - Mighty.asm"
-		include "Objects/Player Characters/Object Data/Mighty pattern load cues.asm"
+Map_Mighty:		binclude "Objects/Player Characters/Object Data/Map - Mighty.bin"
+PLC_Mighty:		binclude "Objects/Player Characters/Object Data/PLC - Mighty.bin"

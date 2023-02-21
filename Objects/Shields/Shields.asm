@@ -17,7 +17,7 @@ Obj_Fire_Shield:
 
 		; init
 		move.l	#Map_FireShield,mappings(a0)
-		move.l	#DPLC_FireShield,DPLC_Address(a0)				; used by PLCLoad_Shields
+		move.l	#PLC_FireShield,DPLC_Address(a0)				; used by PLCLoad_Shields
 		move.l	#ArtUnc_FireShield>>1,Art_Address(a0)				; used by PLCLoad_Shields
 		move.b	#4,render_flags(a0)
 		move.w	#$80,priority(a0)
@@ -100,7 +100,7 @@ Obj_Lightning_Shield:
 
 		; init
 		move.l	#Map_LightningShield,mappings(a0)
-		move.l	#DPLC_LightningShield,DPLC_Address(a0)			; used by PLCLoad_Shields
+		move.l	#PLC_LightningShield,DPLC_Address(a0)			; used by PLCLoad_Shields
 		move.l	#ArtUnc_LightningShield>>1,Art_Address(a0)		; used by PLCLoad_Shields
 		move.b	#4,render_flags(a0)
 		move.w	#$80,priority(a0)
@@ -270,7 +270,7 @@ Obj_Bubble_Shield:
 
 		; init
 		move.l	#Map_BubbleShield,mappings(a0)
-		move.l	#DPLC_BubbleShield,DPLC_Address(a0)				; used by PLCLoad_Shields
+		move.l	#PLC_BubbleShield,DPLC_Address(a0)				; used by PLCLoad_Shields
 		move.l	#ArtUnc_BubbleShield>>1,Art_Address(a0)			; used by PLCLoad_Shields
 		move.b	#4,render_flags(a0)
 		move.w	#$80,priority(a0)
@@ -334,7 +334,7 @@ Obj_Insta_Shield:
 
 		; init
 		move.l	#Map_InstaShield,mappings(a0)
-		move.l	#DPLC_InstaShield,DPLC_Address(a0)				; used by PLCLoad_Shields
+		move.l	#PLC_InstaShield,DPLC_Address(a0)				; used by PLCLoad_Shields
 		move.l	#ArtUnc_InstaShield>>1,Art_Address(a0)			; used by PLCLoad_Shields
 		move.b	#4,render_flags(a0)
 		move.w	#$80,priority(a0)
@@ -593,16 +593,16 @@ byte_18A1B:
 		dc.b    6,   5,   4,   3,   2
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Shields/Object Data/Map - Invincibility.asm"
 		include "Objects/Shields/Object Data/Anim - Fire Shield.asm"
-		include "Objects/Shields/Object Data/Map - Fire Shield.asm"
-		include "Objects/Shields/Object Data/DPLC - Fire Shield.asm"
 		include "Objects/Shields/Object Data/Anim - Lightning Shield.asm"
-		include "Objects/Shields/Object Data/Map - Lightning Shield.asm"
-		include "Objects/Shields/Object Data/DPLC - Lightning Shield.asm"
 		include "Objects/Shields/Object Data/Anim - Bubble Shield.asm"
-		include "Objects/Shields/Object Data/Map - Bubble Shield.asm"
-		include "Objects/Shields/Object Data/DPLC - Bubble Shield.asm"
 		include "Objects/Shields/Object Data/Anim - Insta-Shield.asm"
-		include "Objects/Shields/Object Data/Map - Insta-Shield.asm"
-		include "Objects/Shields/Object Data/DPLC - Insta-Shield.asm"
+Map_Invincibility:		binclude "Objects/Shields/Object Data/Map - Invincibility.bin"
+Map_FireShield:			binclude "Objects/Shields/Object Data/Map - Fire Shield.bin"
+PLC_FireShield:			binclude "Objects/Shields/Object Data/PLC - Fire Shield.bin"
+Map_LightningShield:	binclude "Objects/Shields/Object Data/Map - Lightning Shield.bin"
+PLC_LightningShield:	binclude "Objects/Shields/Object Data/PLC - Lightning Shield.bin"
+Map_BubbleShield:		binclude "Objects/Shields/Object Data/Map - Bubble Shield.bin"
+PLC_BubbleShield:		binclude "Objects/Shields/Object Data/PLC - Bubble Shield.bin"
+Map_InstaShield:		binclude "Objects/Shields/Object Data/Map - Insta-Shield.bin"
+PLC_InstaShield:		binclude "Objects/Shields/Object Data/PLC - Insta-Shield.bin"

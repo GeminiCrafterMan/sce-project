@@ -530,5 +530,5 @@ Animate_Espio:
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Player Characters/Object Data/Anim - Espio.asm"
-		include "Objects/Player Characters/Object Data/Map - Espio.asm"
-		include "Objects/Player Characters/Object Data/Espio pattern load cues.asm"
+Map_Espio:		binclude "Objects/Player Characters/Object Data/Map - Espio.bin"
+PLC_Espio:		binclude "Objects/Player Characters/Object Data/PLC - Espio.bin"

@@ -422,5 +422,6 @@ Obj_SwingingPlatform_State7:
 	jsr		SolidObjectTop ; PlatformObject2
 	jmp		MarkObjGone
 
-	include	"Objects/Swinging Platform/Object Data/Map - Swinging Platform.asm"
-	include	"Objects/Swinging Platform/Object Data/Map - Saw.asm"
+Map_SwingingPlatform:		binclude	"Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin"
+Map_Saw:		binclude	"Objects/Swinging Platform/Object Data/Map - Saw.bin"
+PLC_Saw:		binclude	"Objects/Swinging Platform/Object Data/PLC - Saw.bin"

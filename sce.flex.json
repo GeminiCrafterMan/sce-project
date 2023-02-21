@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "3b3cc9b6-e112-4f6b-a269-b56018efe5f0",
+    "node": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -18,12 +18,12 @@
                 "offset": 0
             },
             "mappings": {
-                "path": "Objects/Title Screen Sonic/Object Data/Map - Title Screen Sonic.asm",
+                "path": "Objects/Title Screen Sonic/Object Data/Map - Title Screen Sonic.bin",
                 "label": "Map_TitleSonic"
             },
             "dplcs": {
                 "enabled": true,
-                "path": "Objects/Title Screen Sonic/Object Data/PLC - Title Screen Sonic.asm",
+                "path": "Objects/Title Screen Sonic/Object Data/PLC - Title Screen Sonic.bin",
                 "label": "PLC_TitleSonic"
             },
             "uuid": "370bb55e-13f6-43e1-8b7e-fdffc3432376"
@@ -88,13 +88,42 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Sonic.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Sonic.bin",
                         "label": "Map_Sonic"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Sonic pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Sonic pattern load cues.bin",
                         "label": "PLC_Sonic"
+                    }
+                },
+                {
+                    "uuid": "d7af2394-e74f-494f-96cd-2617509e82d0",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Super Sonic",
+                    "palettes": [
+                        {
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Player Characters/Uncompressed Art/Super Sonic.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Player Characters/Object Data/Map - Super Sonic.bin",
+                        "label": "Map_SuperSonic"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Player Characters/Object Data/Super Sonic pattern load cues.bin",
+                        "label": "PLC_SuperSonic"
                     }
                 },
                 {
@@ -107,12 +136,12 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Mini Sonic.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Mini Sonic.bin",
                         "label": "Map_MiniSonic"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Mini Sonic pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Mini Sonic pattern load cues.bin",
                         "label": "PLC_MiniSonic"
                     },
                     "uuid": "fe4ad8ef-f4eb-455f-9834-e78b9df59b32"
@@ -137,42 +166,13 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Mini Super Sonic.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Mini Super Sonic.bin",
                         "label": "Map_MiniSuperSonic"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Mini Super Sonic pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Mini Super Sonic pattern load cues.bin",
                         "label": "PLC_MiniSuperSonic"
-                    }
-                },
-                {
-                    "uuid": "d7af2394-e74f-494f-96cd-2617509e82d0",
-                    "format": "Sonic 3&K Player.js",
-                    "name": "Super Sonic",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
-                            "length": 1
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Player Characters/Uncompressed Art/Super Sonic.bin",
-                        "compression": "Uncompressed",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Super Sonic.asm",
-                        "label": "Map_SuperSonic"
-                    },
-                    "dplcs": {
-                        "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Super Sonic pattern load cues.asm",
-                        "label": "PLC_SuperSonic"
                     }
                 },
                 {
@@ -195,12 +195,12 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Tails.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Tails.bin",
                         "label": "Map_Tails"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Tails pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Tails pattern load cues.bin",
                         "label": "PLC_Tails"
                     }
                 },
@@ -224,12 +224,12 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Tails tails.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Tails tails.bin",
                         "label": "Map_TailsTails"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Tails tails pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Tails tails pattern load cues.bin",
                         "label": "PLC_TailsTails"
                     }
                 },
@@ -253,12 +253,12 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Knuckles.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Knuckles.bin",
                         "label": "Map_Knuckles"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Knuckles pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Knuckles pattern load cues.bin",
                         "label": "PLC_Knuckles"
                     }
                 },
@@ -282,12 +282,12 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Mighty.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Mighty.bin",
                         "label": "Map_Mighty"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Mighty pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Mighty pattern load cues.bin",
                         "label": "PLC_Mighty"
                     }
                 },
@@ -311,12 +311,12 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Espio.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Espio.bin",
                         "label": "Map_Espio"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Espio pattern load cues.asm",
+                        "path": "Objects/Player Characters/Object Data/Espio pattern load cues.bin",
                         "label": "PLC_Espio"
                     }
                 }
@@ -661,7 +661,7 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Super Sonic Stars.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Super Sonic Stars.bin",
                         "label": "Map_SuperSonic_Stars"
                     },
                     "dplcs": {
@@ -681,7 +681,7 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Super Sonic Stars 2.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Super Sonic Stars 2.bin",
                         "label": "Map_SuperSonic_Stars2"
                     },
                     "dplcs": {
@@ -701,7 +701,7 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Hyper Sonic Stars.asm",
+                        "path": "Objects/Player Characters/Object Data/Map - Hyper Sonic Stars.bin",
                         "label": "Map_HyperSonicStars"
                     },
                     "dplcs": {
@@ -726,7 +726,7 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Rings/Object Data/Map - Rings.asm",
+                        "path": "Objects/Rings/Object Data/Map - Rings.bin",
                         "label": ""
                     },
                     "dplcs": {
@@ -1342,12 +1342,12 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Mecha Tails/Object Data/Map - Mecha Tails.asm",
+                        "path": "Objects/Mecha Tails/Object Data/Map - Mecha Tails.bin",
                         "label": "Map_MechaTails"
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Mecha Tails/Object Data/DPLC - Mecha Tails.asm",
+                        "path": "Objects/Mecha Tails/Object Data/DPLC - Mecha Tails.bin",
                         "label": "PLC_MechaTails"
                     },
                     "uuid": "f6755f3b-6060-4927-b8a5-ac8da3ee0927"
@@ -1374,12 +1374,12 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Mecha Tails/Uncompressed Art/Mecha Tails Extra Art.bin",
+                        "path": "Objects/Mecha Tails/KosinskiM Art/Mecha Tails Extra Art.bin",
                         "compression": "Kosinski-M",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Mecha Tails/Object Data/Map - Mecha Tails Extra.asm",
+                        "path": "Objects/Mecha Tails/Object Data/Map - Mecha Tails Extra.bin",
                         "label": "Map_MechaTailsExtra"
                     },
                     "dplcs": {

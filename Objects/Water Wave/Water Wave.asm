@@ -96,7 +96,7 @@ Obj_WaterWave:
 ; ---------------------------------------------------------------------------
 
 PLCPtr_WaterWave:
-		dc.l ArtUnc_WaterWave>>1, DPLC_WaterWave
+		dc.l ArtUnc_WaterWave>>1, PLC_WaterWave
 
-		include "Objects/Water Wave/Object Data/Map - Water Wave.asm"
-		include "Objects/Water Wave/Object Data/DPLC - Water Wave.asm"
+Map_WaterWave:		binclude "Objects/Water Wave/Object Data/Map - Water Wave.bin"
+PLC_WaterWave:		binclude "Objects/Water Wave/Object Data/PLC - Water Wave.bin"

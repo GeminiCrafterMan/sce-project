@@ -228,4 +228,4 @@ Msl_Animate2:
 		jmp		DisplaySprite
 
 		include "Objects/Buzz Bomber/Object Data/Anim - Buzz Bomber.asm"
-		include "Objects/Buzz Bomber/Object Data/Map - Buzz Bomber.asm"
+Map_BuzzBomber:		binclude "Objects/Buzz Bomber/Object Data/Map - Buzz Bomber.bin"

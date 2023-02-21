@@ -55,4 +55,4 @@ Obj_Waterfall:
 ; ---------------------------------------------------------------------------
 ; Mappings for foreground objects
 ; ---------------------------------------------------------------------------
-		include	"Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm"
+Map_SSLZWaterfall:		binclude	"Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin"

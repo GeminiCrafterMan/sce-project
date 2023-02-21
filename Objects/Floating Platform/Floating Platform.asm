@@ -577,6 +577,6 @@ loc_25322:
 ; ---------------------------------------------------------------------------
 ; Mappings - Floating Platform
 ; ---------------------------------------------------------------------------
-		include	"Objects/Floating Platform/Object Data/Map - Floating Platform.asm"
-		include	"Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).asm"
-		include	"Objects/Floating Platform/Object Data/Map - Floating Platform (SSLZ).asm"
+Map_FloatingPlatform:			binclude	"Objects/Floating Platform/Object Data/Map - Floating Platform.bin"
+Map_FloatingPlatform_GHZ:		binclude	"Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).bin"
+Map_FloatingPlatform_SSLZ:		binclude	"Objects/Floating Platform/Object Data/Map - Floating Platform (SSLZ).bin"

@@ -55,7 +55,7 @@ Art_WzPoison2:				binclude "Levels/WZ/Animated Tiles/Uncompressed Art/WZ Poison.
 
 ArtUnc_TitleSonic:			binclude "Objects/Title Screen Sonic/Uncompressed Art/Title Screen Sonic.bin"
 	even
-ArtUnc_CabaretSonic:		binclude "Objects/Cabaret Characters/Uncompressed Art/Cabaret Sonic.bin"
+ArtUnc_CabaretChars:		binclude "Objects/Cabaret Characters/Uncompressed Art/Cabaret Characters.bin"
 	even
 
 ; Emotion Window

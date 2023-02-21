@@ -130,5 +130,5 @@ Obj_EnemyScore:
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Explosion/Object Data/Map - Explosion.asm"
-		include "Objects/Explosion/Object Data/Map - Enemy Score.asm"
+Map_Explosion:		binclude "Objects/Explosion/Object Data/Map - Explosion.bin"
+Map_EnemyScore:		binclude "Objects/Explosion/Object Data/Map - Enemy Score.bin"

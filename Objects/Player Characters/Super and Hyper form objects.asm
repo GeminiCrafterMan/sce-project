@@ -166,7 +166,7 @@ Obj_HyperSonic_Stars_Init:
 	.artDoneLoading:
 		subq.b	#1,anim_frame_timer(a0)
 		bne.s	.return
-		move.l	#Map_HyperSonicStars,mappings(a0)
+		move.l	#Map_HyperSonic_Stars,mappings(a0)
 		move.b	#4,render_flags(a0)
 		move.w	#$80,priority(a0)
 		move.b	#$18,width_pixels(a0)
@@ -288,6 +288,6 @@ Obj_HyperSonicKnux_Trail_Main:
 		rts
 
 ; ---------------------------------------------------------------------------
-		include "Objects/Player Characters/Object Data/Map - Super Sonic Stars.asm"
-		include "Objects/Player Characters/Object Data/Map - Super Sonic Stars 2.asm"
-		include "Objects/Player Characters/Object Data/Map - Hyper Sonic Stars.asm"
+Map_SuperSonic_Stars:		binclude "Objects/Player Characters/Object Data/Map - Super Sonic Stars.bin"
+Map_SuperSonic_Stars2:		binclude "Objects/Player Characters/Object Data/Map - Super Sonic Stars 2.bin"
+Map_HyperSonic_Stars:		binclude "Objects/Player Characters/Object Data/Map - Hyper Sonic Stars.bin"

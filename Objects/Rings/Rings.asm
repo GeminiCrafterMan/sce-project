@@ -344,4 +344,4 @@ AttractedRing_ApplyMovementY:
 ; ---------------------------------------------------------------------------
 
 		include	"Objects/Rings/Object Data/Anim - Rings.asm"
-		include	"Objects/Rings/Object Data/Map - Rings.asm"
+Map_Ring:		binclude	"Objects/Rings/Object Data/Map - Rings.bin"

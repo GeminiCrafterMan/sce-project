@@ -200,7 +200,7 @@ SplashDrown_Load_DPLC:
 		cmp.b	previous_frame(a0),d0
 		beq.s	+
 		move.b	d0,previous_frame(a0)
-		lea	DPLC_DashSplashDrown(pc),a2
+		lea	PLC_DashSplashDrown(pc),a2
 		add.w	d0,d0
 		adda.w	(a2,d0.w),a2
 		move.w	(a2)+,d5
@@ -226,5 +226,5 @@ SplashDrown_Load_DPLC:
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Spin Dust/Object Data/Anim - Dash Splash Drown.asm"
-		include "Objects/Spin Dust/Object Data/Map - Dash Dust.asm"
-		include "Objects/Spin Dust/Object Data/DPLC - Dash Splash Drown.asm"
+Map_DashDust:		binclude "Objects/Spin Dust/Object Data/Map - Dash Dust.bin"
+PLC_DashSplashDrown:		binclude "Objects/Spin Dust/Object Data/PLC - Dash Splash Drown.bin"

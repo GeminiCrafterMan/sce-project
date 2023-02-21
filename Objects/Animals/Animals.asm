@@ -430,8 +430,8 @@ sub_2CCD2:
 		rts
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Animals/Object Data/Map - Animals 1.asm"
-		include "Objects/Animals/Object Data/Map - Animals 2.asm"
-		include "Objects/Animals/Object Data/Map - Animals 3.asm"
-		include "Objects/Animals/Object Data/Map - Animals 4.asm"
-		include "Objects/Animals/Object Data/Map - Animals 5.asm"
+Map_Animals1:		binclude "Objects/Animals/Object Data/Map - Animals 1.bin"
+Map_Animals2:		binclude "Objects/Animals/Object Data/Map - Animals 2.bin"
+Map_Animals3:		binclude "Objects/Animals/Object Data/Map - Animals 3.bin"
+Map_Animals4:		binclude "Objects/Animals/Object Data/Map - Animals 4.bin"
+Map_Animals5:		binclude "Objects/Animals/Object Data/Map - Animals 5.bin"

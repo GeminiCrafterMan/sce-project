@@ -277,4 +277,4 @@ sub_2438A:
 +		rts
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Spikes/Object Data/Map - Spikes.asm"
+Map_Spikes:		binclude "Objects/Spikes/Object Data/Map - Spikes.bin"

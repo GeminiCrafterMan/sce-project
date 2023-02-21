@@ -51,4 +51,4 @@ loc_1EBB6:
 		jmp	(Delete_Current_Sprite).w
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Invisible Blocks/Object Data/Map - Invisible Block.asm"
+Map_InvisibleBlock:		binclude "Objects/Invisible Blocks/Object Data/Map - Invisible Block.bin"

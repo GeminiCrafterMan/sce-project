@@ -37,4 +37,4 @@ Rock_ChkDel:
 	.delete:
 		jmp		DeleteObject
 
-		include "Objects/Purple Rock/Object Data/Map - Purple Rock.asm"
+Map_PurpleRock:		binclude "Objects/Purple Rock/Object Data/Map - Purple Rock.bin"

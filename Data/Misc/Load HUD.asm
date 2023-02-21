@@ -65,4 +65,4 @@ Render_HUD:
 		rts
 ; ---------------------------------------------------------------------------
 
-		include	"Objects/HUD/Object Data/Map - HUD.asm"
+Map_HUD:		binclude	"Objects/HUD/Object Data/Map - HUD.bin"

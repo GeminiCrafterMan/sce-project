@@ -220,4 +220,4 @@ Crab_BallMove:	; Routine 8
 		jmp		DeleteObject
 
 		include "Objects/Crabmeat/Object Data/Anim - Crabmeat.asm"
-		include "Objects/Crabmeat/Object Data/Map - Crabmeat.asm"
+Map_Crabmeat:		binclude "Objects/Crabmeat/Object Data/Map - Crabmeat.bin"

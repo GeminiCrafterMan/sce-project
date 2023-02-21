@@ -3,7 +3,7 @@
   <Images>
     <ImageFromMappings id="spawner">
       <ArtFile filename="../Objects/Bubbler/KosinskiM Art/Bubbles.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Bubbler/Object Data/Map - Bubbler.asm" frame="19" />
+      <MapFile type="Binary" filename="../Objects/Bubbler/Object Data/Map - Bubbler.bin" frame="19" />
     </ImageFromMappings>
   </Images>
 </ObjDef>

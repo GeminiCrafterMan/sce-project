@@ -191,4 +191,4 @@ ObjBataPyon_SwapFrames:
 
 ; -------------------------------------------------------------------------
 
-	include	"Objects/Bata-pyon/Object Data/Map - Bata-pyon.asm"
+Map_BataPyon:		binclude	"Objects/Bata-pyon/Object Data/Map - Bata-pyon.bin"

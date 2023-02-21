@@ -157,5 +157,5 @@ Burro_ChkSonic2:
 		rts	
 ; End of function Burro_ChkSonic2
 
-	include	"Objects/Burrobot/Object Data/Map - Burrobot.asm"
 	include	"Objects/Burrobot/Object Data/Anim - Burrobot.asm"
+Map_Burrobot:		binclude	"Objects/Burrobot/Object Data/Map - Burrobot.bin"

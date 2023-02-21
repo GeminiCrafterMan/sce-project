@@ -46,4 +46,4 @@ Edge_ChkDel:
 	.delete:
 		jmp		DeleteObject
 
-	include	"Objects/Edge Walls/Object Data/Map - Edge Walls.asm"
+Map_EdgeWalls:		binclude	"Objects/Edge Walls/Object Data/Map - Edge Walls.bin"

@@ -416,5 +416,5 @@ Monitor_Give_SuperHyper:
 		sfx	sfx_SuperTransform, 1
 
 		include "Objects/Monitor/Object Data/Anim - Monitor.asm"
-		include "Objects/Monitor/Object Data/Map - Monitor.asm"
-		include "Objects/Monitor/Object Data/Map - Monitor Contents.asm"
+Map_Monitor:		binclude "Objects/Monitor/Object Data/Map - Monitor.bin"
+Map_MonitorContents:		binclude "Objects/Monitor/Object Data/Map - Monitor Contents.bin"

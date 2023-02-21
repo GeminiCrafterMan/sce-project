@@ -115,4 +115,4 @@ Smash_FragSpd2:
 		dc.w -$600, $100
 		dc.w -$400, $500
 
-	include	"Objects/Smashable Walls/Object Data/Map - Smashable Walls.asm"
+Map_SmashWall:		binclude	"Objects/Smashable Walls/Object Data/Map - Smashable Walls.bin"

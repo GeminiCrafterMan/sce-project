@@ -284,4 +284,4 @@ locret_1D058:
 		rts
 ; ---------------------------------------------------------------------------
 
-		include "Objects/PathSwap/Object Data/Map - Path Swap.asm"
+Map_PathSwap:		binclude "Objects/PathSwap/Object Data/Map - Path Swap.bin"

@@ -3,7 +3,7 @@
   <Images>
     <ImageFromMappings id="default">
       <ArtFile filename="../Objects/Button/KosinskiM Art/Gray Button.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Button/Object Data/Map - Button.asm" frame="0" startpal="0" />
+      <MapFile type="Binary" filename="../Objects/Button/Object Data/Map - Button.bin" frame="0" startpal="0" />
     </ImageFromMappings>
   </Images>
   <Properties>

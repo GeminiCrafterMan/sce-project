@@ -263,7 +263,7 @@ Child6_EndSignScore:
 		dc.w 1-1
 		dc.l Obj_EnemyScore
 PLCPtr_EndSigns:
-		dc.l ArtUnc_EndSigns>>1, DPLC_EndSigns
+		dc.l ArtUnc_EndSigns>>1, PLC_EndSigns
 AniRaw_EndSigns:
 		dc.b	1,   0
 		dc.b	6,   7
@@ -343,5 +343,5 @@ Obj_EndSignTouch:
 	.notouch:
 		rts
 
-		include "Objects/Signpost/Object Data/DPLC - End Signs.asm"
-		include "Objects/Signpost/Object Data/Map - End Signs.asm"
+Map_EndSigns:		binclude "Objects/Signpost/Object Data/Map - End Signs.bin"
+PLC_EndSigns:		binclude "Objects/Signpost/Object Data/PLC - End Signs.bin"

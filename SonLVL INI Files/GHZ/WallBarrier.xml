@@ -3,15 +3,15 @@
   <Images>
     <ImageFromMappings id="img1">
       <ArtFile filename="../Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Edge Walls/Object Data/Map - Edge Walls.asm" frame="0" startpal="0"/>
+      <MapFile type="Binary" filename="../Objects/Edge Walls/Object Data/Map - Edge Walls.bin" frame="0" startpal="0"/>
     </ImageFromMappings>
     <ImageFromMappings id="img2">
       <ArtFile filename="../Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Edge Walls/Object Data/Map - Edge Walls.asm" frame="1" startpal="0"/>
+      <MapFile type="Binary" filename="../Objects/Edge Walls/Object Data/Map - Edge Walls.bin" frame="1" startpal="0"/>
     </ImageFromMappings>
     <ImageFromMappings id="img3">
       <ArtFile filename="../Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Edge Walls/Object Data/Map - Edge Walls.asm" frame="2" startpal="0"/>
+      <MapFile type="Binary" filename="../Objects/Edge Walls/Object Data/Map - Edge Walls.bin" frame="2" startpal="0"/>
     </ImageFromMappings>
   </Images>
   <Subtypes>

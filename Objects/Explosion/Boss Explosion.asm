@@ -259,4 +259,4 @@ AniRaw_BossExplosion:
 	even
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Explosion/Object Data/Map - Boss Explosion.asm"
+Map_BossExplosion:		binclude "Objects/Explosion/Object Data/Map - Boss Explosion.bin"

@@ -3,11 +3,11 @@
   <Images>
     <ImageFromMappings id="main">
       <ArtFile filename="../Objects/Egg Capsule/KosinskiM Art/Egg Capsule.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Egg Capsule/Object Data/Map - Egg Capsule.asm" frame="0" />
+      <MapFile type="Binary" filename="../Objects/Egg Capsule/Object Data/Map - Egg Capsule.bin" frame="0" />
     </ImageFromMappings>
     <ImageFromMappings id="button">
       <ArtFile filename="../Objects/Egg Capsule/KosinskiM Art/Egg Capsule.bin" compression="KosinskiM" />
-      <MapFile type="ASM" filename="../Objects/Egg Capsule/Object Data/Map - Egg Capsule.asm" frame="5" />
+      <MapFile type="Binary" filename="../Objects/Egg Capsule/Object Data/Map - Egg Capsule.bin" frame="5" />
     </ImageFromMappings>
   </Images>
   <Display>

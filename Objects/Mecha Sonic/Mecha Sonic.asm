@@ -1339,6 +1339,6 @@ PLC_BossExplosion:
 ; ===========================================================================
 ; Maps/PLCs
 ; ===========================================================================
-		include	"Objects/Mecha Sonic/Object Data/Map - Mecha Sonic.asm"
-		include	"Objects/Mecha Sonic/Object Data/Map - Mecha Sonic Extra.asm"
-		include	"Objects/Mecha Sonic/Object Data/DPLC - Mecha Sonic.asm"
+Map_MechaSonic:			binclude	"Objects/Mecha Sonic/Object Data/Map - Mecha Sonic.bin"
+Map_MechaSonicExtra:	binclude	"Objects/Mecha Sonic/Object Data/Map - Mecha Sonic Extra.bin"
+PLC_MechaSonic:			binclude	"Objects/Mecha Sonic/Object Data/PLC - Mecha Sonic.bin"

@@ -657,4 +657,4 @@ PLC_EggCapsule: plrlistheader
 PLC_EggCapsule_End
 ; ---------------------------------------------------------------------------
 
-		include "Objects/Egg Capsule/Object Data/Map - Egg Capsule.asm"
+Map_EggCapsule:		binclude "Objects/Egg Capsule/Object Data/Map - Egg Capsule.bin"

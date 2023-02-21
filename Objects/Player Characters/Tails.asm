@@ -948,7 +948,7 @@ Tails_Tail_Load_PLC:
 ; ---------------------------------------------------------------------------
 
 		include "Objects/Player Characters/Object Data/Anim - Tails.asm"
-		include "Objects/Player Characters/Object Data/Map - Tails.asm"
-		include "Objects/Player Characters/Object Data/Tails pattern load cues.asm"
-		include "Objects/Player Characters/Object Data/Map - Tails tails.asm"
-		include "Objects/Player Characters/Object Data/Tails tails pattern load cues.asm"
+Map_Tails:		binclude "Objects/Player Characters/Object Data/Map - Tails.bin"
+PLC_Tails:		binclude "Objects/Player Characters/Object Data/PLC - Tails.bin"
+Map_TailsTails:		binclude "Objects/Player Characters/Object Data/Map - Tails tails.bin"
+PLC_TailsTails:		binclude "Objects/Player Characters/Object Data/PLC - Tails tails.bin"
