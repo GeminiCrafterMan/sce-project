@@ -3342,7 +3342,7 @@ ReloadPlayerMaps:
 	.shrunkMapLUT:
 		dc.l	Map_MiniSonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
 	.shrunkSuperMapLUT:
-		dc.l	Map_SuperSonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
+		dc.l	Map_MiniSuperSonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
 
 PlayerDPLCToA2:
 		moveq	#0,d1
@@ -3379,7 +3379,7 @@ PlayerDPLCToA2:
 	.shrunkPlcLUT:
 		dc.l	PLC_MiniSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
 	.shrunkSuperplcLUT:
-		dc.l	PLC_SuperSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
+		dc.l	PLC_MiniSuperSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
 
 PlayerArtToD6:
 		moveq	#0,d6
@@ -3416,7 +3416,7 @@ PlayerArtToD6:
 	.shrunkArtLUT:
 		dc.l	ArtUnc_MiniSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
 	.shrunkSuperartLUT:
-		dc.l	ArtUnc_SuperSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
+		dc.l	ArtUnc_MiniSuperSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
 
 
 Obj_MiniSonic:
@@ -3503,3 +3503,5 @@ MiniSonic_Init:	; Routine 0
 		include "Objects/Player Characters/Object Data/Super Sonic pattern load cues.asm"
 		include "Objects/Player Characters/Object Data/Map - Mini Sonic.asm"
 		include "Objects/Player Characters/Object Data/Mini Sonic pattern load cues.asm"
+		include "Objects/Player Characters/Object Data/Map - Mini Super Sonic.asm"
+		include "Objects/Player Characters/Object Data/Mini Super Sonic pattern load cues.asm"

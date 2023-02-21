@@ -30,7 +30,7 @@ Obj_Knuckles:
 		cmpi.b	#frK_Last,mapping_frame(a0)	; Have we reached the end of Sonic's frames?
 		blo.s		+
 		clr.b	mapping_frame(a0)	; If so, reset to Sonic's first frame
-+		bsr.w	Player_Load_PLC
++		jsr		Player_Load_PLC
 		jmp	(Draw_Sprite).w
 ; ---------------------------------------------------------------------------
 

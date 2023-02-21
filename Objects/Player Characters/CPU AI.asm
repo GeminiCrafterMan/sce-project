@@ -108,7 +108,7 @@ loc_13B78:
 	move.b	d0,jumping(a0)
 	move.b	d0,jumping+1(a0)	; Uh... The hell is this?
 	move.b	#-$10,double_jump_property(a0)
-	bsr.w	Tails_Set_Flying_Animation
+	jsr		Tails_Set_Flying_Animation
 
 return_1BB88:
 	rts
@@ -129,14 +129,14 @@ TailsCPU_Flying:
 	clr.w	x_pos(a0)
 	clr.w	y_pos(a0)
 	move.b	#-$10,double_jump_property(a0)
-	bsr.w	Tails_Set_Flying_Animation
+	jsr		Tails_Set_Flying_Animation
 	rts
 ; ---------------------------------------------------------------------------
 
 TailsCPU_FlyingOnscreen:
 	move.b	#-$10,double_jump_property(a0)
 	ori.b	#2,status(a0)
-	bsr.w	Tails_Set_Flying_Animation
+	jsr		Tails_Set_Flying_Animation
 	clr.w	(Tails_respawn_counter).w
 
 ; loc_1BBCE:

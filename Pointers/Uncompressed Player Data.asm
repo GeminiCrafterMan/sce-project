@@ -8,6 +8,8 @@ ArtUnc_SuperSonic:					binclude "Objects/Player Characters/Uncompressed Art/Supe
 	even
 ArtUnc_MiniSonic:					binclude "Objects/Player Characters/Uncompressed Art/Mini Sonic.bin"
 	even
+ArtUnc_MiniSuperSonic:				binclude "Objects/Player Characters/Uncompressed Art/Mini Super Sonic.bin"
+	even
 ArtUnc_Tails:						binclude "Objects/Player Characters/Uncompressed Art/Tails.bin"
 	even
 ArtUnc_TailsTails:					binclude "Objects/Player Characters/Uncompressed Art/Tails tails.bin"

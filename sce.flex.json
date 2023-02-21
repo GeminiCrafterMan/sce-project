@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
+    "node": "3b3cc9b6-e112-4f6b-a269-b56018efe5f0",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -116,6 +116,35 @@
                         "label": "PLC_MiniSonic"
                     },
                     "uuid": "fe4ad8ef-f4eb-455f-9834-e78b9df59b32"
+                },
+                {
+                    "uuid": "3b3cc9b6-e112-4f6b-a269-b56018efe5f0",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Mini Super Sonic",
+                    "palettes": [
+                        {
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Player Characters/Uncompressed Art/Mini Super Sonic.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Player Characters/Object Data/Map - Mini Super Sonic.asm",
+                        "label": "Map_MiniSuperSonic"
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Player Characters/Object Data/Mini Super Sonic pattern load cues.asm",
+                        "label": "PLC_MiniSuperSonic"
+                    }
                 },
                 {
                     "uuid": "d7af2394-e74f-494f-96cd-2617509e82d0",
