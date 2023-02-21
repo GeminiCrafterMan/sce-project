@@ -19,12 +19,12 @@
             },
             "mappings": {
                 "path": "Objects/Title Screen Sonic/Object Data/Map - Title Screen Sonic.bin",
-                "label": "Map_TitleSonic"
+                "label": ""
             },
             "dplcs": {
                 "enabled": true,
                 "path": "Objects/Title Screen Sonic/Object Data/PLC - Title Screen Sonic.bin",
-                "label": "PLC_TitleSonic"
+                "label": ""
             },
             "uuid": "370bb55e-13f6-43e1-8b7e-fdffc3432376"
         },
@@ -54,18 +54,18 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Cabaret Characters/Uncompressed Art/Cabaret Sonic.bin",
+                        "path": "Objects/Cabaret Characters/Uncompressed Art/Cabaret Characters.bin",
                         "compression": "Uncompressed",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Cabaret Characters/Object Data/Map - Cabaret Sonic.asm",
-                        "label": "Map_CabaretSonic"
+                        "path": "Objects/Cabaret Characters/Object Data/Map - Cabaret Characters.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Cabaret Characters/Object Data/DPLC - Cabaret Sonic.asm",
-                        "label": "PLC_CabaretSonic"
+                        "path": "Objects/Cabaret Characters/Object Data/PLC - Cabaret Characters.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -89,12 +89,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Sonic.bin",
-                        "label": "Map_Sonic"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Sonic pattern load cues.bin",
-                        "label": "PLC_Sonic"
+                        "path": "Objects/Player Characters/Object Data/PLC - Sonic.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -118,12 +118,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Super Sonic.bin",
-                        "label": "Map_SuperSonic"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Super Sonic pattern load cues.bin",
-                        "label": "PLC_SuperSonic"
+                        "path": "Objects/Player Characters/Object Data/PLC - Super Sonic.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -137,12 +137,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Mini Sonic.bin",
-                        "label": "Map_MiniSonic"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Mini Sonic pattern load cues.bin",
-                        "label": "PLC_MiniSonic"
+                        "path": "Objects/Player Characters/Object Data/PLC - Mini Sonic.bin",
+                        "label": ""
                     },
                     "uuid": "fe4ad8ef-f4eb-455f-9834-e78b9df59b32"
                 },
@@ -167,12 +167,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Mini Super Sonic.bin",
-                        "label": "Map_MiniSuperSonic"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Mini Super Sonic pattern load cues.bin",
-                        "label": "PLC_MiniSuperSonic"
+                        "path": "Objects/Player Characters/Object Data/PLC - Mini Super Sonic.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -196,12 +196,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Tails.bin",
-                        "label": "Map_Tails"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Tails pattern load cues.bin",
-                        "label": "PLC_Tails"
+                        "path": "Objects/Player Characters/Object Data/PLC - Tails.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -225,12 +225,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Tails tails.bin",
-                        "label": "Map_TailsTails"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Tails tails pattern load cues.bin",
-                        "label": "PLC_TailsTails"
+                        "path": "Objects/Player Characters/Object Data/PLC - Tails tails.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -254,12 +254,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Knuckles.bin",
-                        "label": "Map_Knuckles"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Knuckles pattern load cues.bin",
-                        "label": "PLC_Knuckles"
+                        "path": "Objects/Player Characters/Object Data/PLC - Knuckles.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -283,12 +283,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Mighty.bin",
-                        "label": "Map_Mighty"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Mighty pattern load cues.bin",
-                        "label": "PLC_Mighty"
+                        "path": "Objects/Player Characters/Object Data/PLC - Mighty.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -312,12 +312,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Espio.bin",
-                        "label": "Map_Espio"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/Espio pattern load cues.bin",
-                        "label": "PLC_Espio"
+                        "path": "Objects/Player Characters/Object Data/PLC - Espio.bin",
+                        "label": ""
                     }
                 }
             ],
@@ -338,8 +338,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/StarPost/Object Data/Map - Starpost.asm",
-                        "label": "Map_Starpost"
+                        "path": "Objects/StarPost/Object Data/Map - Starpost.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -368,13 +368,13 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Signpost/Object Data/Map - End Signs.asm",
-                        "label": "Map_EndSigns"
+                        "path": "Objects/Signpost/Object Data/Map - End Signs.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Signpost/Object Data/DPLC - End Signs.asm",
-                        "label": "DPLC_EndSigns"
+                        "path": "Objects/Signpost/Object Data/PLC - End Signs.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -397,8 +397,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Egg Capsule/Object Data/Map - Egg Capsule.asm",
-                        "label": "Map_EggCapsule"
+                        "path": "Objects/Egg Capsule/Object Data/Map - Egg Capsule.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -426,8 +426,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Monitor/Object Data/Map - Monitor.asm",
-                        "label": "Map_Monitor"
+                        "path": "Objects/Monitor/Object Data/Map - Monitor.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -455,8 +455,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Monitor/Object Data/Map - Monitor Contents.asm",
-                        "label": "Map_MonitorContents"
+                        "path": "Objects/Monitor/Object Data/Map - Monitor Contents.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -484,8 +484,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Spikes/Object Data/Map - Spikes.asm",
-                        "label": "Map_Spikes"
+                        "path": "Objects/Spikes/Object Data/Map - Spikes.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -513,8 +513,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Spring/Object Data/Map - Spring(Red).asm",
-                        "label": "Map_RedSpring"
+                        "path": "Objects/Spring/Object Data/Map - Spring(Red).bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -542,8 +542,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Spring/Object Data/Map - Spring(Yellow).asm",
-                        "label": "Map_YellowSpring"
+                        "path": "Objects/Spring/Object Data/Map - Spring(Yellow).bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -562,8 +562,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Explosion/Object Data/Map - Explosion.asm",
-                        "label": "Map_Explosion"
+                        "path": "Objects/Explosion/Object Data/Map - Explosion.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -582,8 +582,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Explosion/Object Data/Map - Boss Explosion.asm",
-                        "label": "Map_BossExplosion"
+                        "path": "Objects/Explosion/Object Data/Map - Boss Explosion.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -602,13 +602,13 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Shields/Object Data/Map - Bubble Shield.asm",
-                        "label": "Map_BubbleShield"
+                        "path": "Objects/Shields/Object Data/Map - Bubble Shield.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Shields/Object Data/DPLC - Bubble Shield.asm",
-                        "label": "PLC_BubbleShield"
+                        "path": "Objects/Shields/Object Data/PLC - Bubble Shield.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -622,13 +622,13 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Shields/Object Data/Map - Fire Shield.asm",
-                        "label": "Map_FireShield"
+                        "path": "Objects/Shields/Object Data/Map - Fire Shield.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Shields/Object Data/DPLC - Fire Shield.asm",
-                        "label": "PLC_FireShield"
+                        "path": "Objects/Shields/Object Data/PLC - Fire Shield.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -642,13 +642,13 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Shields/Object Data/Map - Lightning Shield.asm",
-                        "label": "Map_LightningShield"
+                        "path": "Objects/Shields/Object Data/Map - Lightning Shield.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Shields/Object Data/DPLC - Lightning Shield.asm",
-                        "label": "PLC_LightningShield"
+                        "path": "Objects/Shields/Object Data/PLC - Lightning Shield.bin",
+                        "label": ""
                     }
                 },
                 {
@@ -662,7 +662,7 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Super Sonic Stars.bin",
-                        "label": "Map_SuperSonic_Stars"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -682,7 +682,7 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Super Sonic Stars 2.bin",
-                        "label": "Map_SuperSonic_Stars2"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -702,7 +702,7 @@
                     },
                     "mappings": {
                         "path": "Objects/Player Characters/Object Data/Map - Hyper Sonic Stars.bin",
-                        "label": "Map_HyperSonicStars"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -751,7 +751,7 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Rings/Object Data/Map - Rings.asm",
+                        "path": "Objects/Rings/Object Data/Map - Rings.bin",
                         "label": ""
                     },
                     "dplcs": {
@@ -777,8 +777,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Bubbler/Object Data/Map - Bubbler.asm",
-                        "label": "Map_Bubbler"
+                        "path": "Objects/Bubbler/Object Data/Map - Bubbler.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -796,13 +796,13 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Water Wave/Object Data/Map - Water Wave.asm",
-                        "label": "Map_WaterWave"
+                        "path": "Objects/Water Wave/Object Data/Map - Water Wave.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Water Wave/Object Data/DPLC - Water Wave.asm",
-                        "label": "DPLC_WaterWave"
+                        "path": "Objects/Water Wave/Object Data/PLC - Water Wave.bin",
+                        "label": ""
                     },
                     "uuid": "4ca73f42-3bff-4328-838c-2d1a3c06ba76"
                 },
@@ -816,8 +816,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Explosion/Object Data/Map - Enemy Score.asm",
-                        "label": "Map_EnemyScore"
+                        "path": "Objects/Explosion/Object Data/Map - Enemy Score.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -844,8 +844,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Swinging Platform/Object Data/Map - Swinging Platform.asm",
-                        "label": "Map_SwingingPlatform"
+                        "path": "Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -874,8 +874,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Buzz Bomber/Object Data/Map - Buzz Bomber.asm",
-                        "label": "Map_BuzzBomber"
+                        "path": "Objects/Buzz Bomber/Object Data/Map - Buzz Bomber.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -903,8 +903,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Chopper/Object Data/Map - Chopper.asm",
-                        "label": "Map_Chopper"
+                        "path": "Objects/Chopper/Object Data/Map - Chopper.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -932,8 +932,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Crabmeat/Object Data/Map - Crabmeat.asm",
-                        "label": "Map_Crabmeat"
+                        "path": "Objects/Crabmeat/Object Data/Map - Crabmeat.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -961,8 +961,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Motobug/Object Data/Map - Motobug.asm",
-                        "label": "Map_Motobug"
+                        "path": "Objects/Motobug/Object Data/Map - Motobug.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -990,8 +990,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Purple Rock/Object Data/Map - Purple Rock.asm",
-                        "label": "Map_PurpleRock"
+                        "path": "Objects/Purple Rock/Object Data/Map - Purple Rock.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1019,8 +1019,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Smashable Walls/Object Data/Map - Smashable Walls.asm",
-                        "label": "Map_SmashWall"
+                        "path": "Objects/Smashable Walls/Object Data/Map - Smashable Walls.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1049,8 +1049,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Edge Walls/Object Data/Map - Edge Walls.asm",
-                        "label": "Map_EdgeWalls"
+                        "path": "Objects/Edge Walls/Object Data/Map - Edge Walls.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1078,8 +1078,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Tension Bridge/Object Data/Map - Tension Bridge.asm",
-                        "label": "Map_TensionBridge"
+                        "path": "Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1099,8 +1099,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).asm",
-                        "label": "Map_FloatingPlatform_GHZ"
+                        "path": "Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1136,13 +1136,13 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Mecha Sonic/Object Data/Map - Mecha Sonic.asm",
-                        "label": "Map_MechaSonic"
+                        "path": "Objects/Mecha Sonic/Object Data/Map - Mecha Sonic.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Mecha Sonic/Object Data/DPLC - Mecha Sonic.asm",
-                        "label": "PLC_MechaSonic"
+                        "path": "Objects/Mecha Sonic/Object Data/PLC - Mecha Sonic.bin",
+                        "label": ""
                     },
                     "uuid": "034e1ad3-85fe-4a11-8872-9da6b9b9cad6"
                 },
@@ -1161,8 +1161,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Mecha Sonic/Object Data/Map - Mecha Sonic Extra.asm",
-                        "label": "Map_MechaSonicExtra"
+                        "path": "Objects/Mecha Sonic/Object Data/Map - Mecha Sonic Extra.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1189,8 +1189,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Floating Platform/Object Data/Map - Floating Platform (SSLZ).asm",
-                        "label": "Map_FloatingPlatform_SSLZ"
+                        "path": "Objects/Floating Platform/Object Data/Map - Floating Platform (SSLZ).bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1209,8 +1209,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Decoration/Object Data/Map - SSLZ Waterfall.asm",
-                        "label": "Map_SSLZWaterfall"
+                        "path": "Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1238,8 +1238,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Tension Bridge/Object Data/Map - Tension Bridge.asm",
-                        "label": "Map_TensionBridge"
+                        "path": "Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1268,8 +1268,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Burrobot/Object Data/Map - Burrobot.asm",
-                        "label": "Map_Burrobot"
+                        "path": "Objects/Burrobot/Object Data/Map - Burrobot.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1305,13 +1305,13 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Swinging Platform/Object Data/Map - Saw.asm",
-                        "label": "Map_Saw"
+                        "path": "Objects/Swinging Platform/Object Data/Map - Saw.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Swinging Platform/Object Data/Saw pattern load cues.asm",
-                        "label": "PLC_Saw"
+                        "path": "Objects/Swinging Platform/Object Data/PLC - Saw.bin",
+                        "label": ""
                     },
                     "uuid": "7f8f4735-1d77-4e10-b709-028a3a4d80b4"
                 },
@@ -1343,12 +1343,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Mecha Tails/Object Data/Map - Mecha Tails.bin",
-                        "label": "Map_MechaTails"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": true,
-                        "path": "Objects/Mecha Tails/Object Data/DPLC - Mecha Tails.bin",
-                        "label": "PLC_MechaTails"
+                        "path": "Objects/Mecha Tails/Object Data/PLC - Mecha Tails.bin",
+                        "label": ""
                     },
                     "uuid": "f6755f3b-6060-4927-b8a5-ac8da3ee0927"
                 },
@@ -1380,12 +1380,12 @@
                     },
                     "mappings": {
                         "path": "Objects/Mecha Tails/Object Data/Map - Mecha Tails Extra.bin",
-                        "label": "Map_MechaTailsExtra"
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
                         "path": "",
-                        "label": "PLC_MechaTails"
+                        "label": ""
                     },
                     "uuid": "8af6755f-3b60-4089-a738-a5ac8da3ee09"
                 }
@@ -1417,8 +1417,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Spikebonker/Object Data/Map - Spikebonker.asm",
-                        "label": "Map_Spikebonker"
+                        "path": "Objects/Spikebonker/Object Data/Map - Spikebonker.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
@@ -1446,8 +1446,8 @@
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Bata-pyon/Object Data/Map - Bata-pyon.asm",
-                        "label": "Map_BataPyon"
+                        "path": "Objects/Bata-pyon/Object Data/Map - Bata-pyon.bin",
+                        "label": ""
                     },
                     "dplcs": {
                         "enabled": false,
