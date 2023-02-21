@@ -412,6 +412,7 @@ Monitor_Give_SuperHyper:
 		move.w	#$100,(Deceleration_P1).w
 		move.b	#0,(Player_1+invincibility_timer).w
 		bset	#Status_Invincible,status_secondary(a1)
+		jsr		ResetEmotion.super
 		sfx	sfx_SuperTransform, 1
 
 		include "Objects/Monitor/Object Data/Anim - Monitor.asm"

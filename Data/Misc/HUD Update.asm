@@ -391,16 +391,19 @@ loc_1C9D6:
 ResetEmotion:
 		cmpa.w	#Player_1,a0
 		beq.s	.cont
+	.ret:
 		rts
 	.cont:
 		moveq	#emotion_neutral,d0
 		cmpi.b	#id_SonicDeath,(Player_1+routine).w
 		blt.s	.notSad
+	.sad:
 		moveq	#emotion_sad,d0
 		bra.s	.done
 	.notSad:
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	.notSuper
+	.super:
 		moveq	#emotion_super,d0
 		bra.s	.done
 	.notSuper:
@@ -426,6 +429,8 @@ ResetEmotion:
 	.happy:
 		moveq	#emotion_happy,d0
 	.done:
+		cmpa.w	#Player_2,a0
+		beq.s	.ret
 		move.b	d0,(Current_emotion).w	; set the emotion
 UpdateEmotionWindow:
 		movem.l	d0-d3,-(sp)
@@ -438,9 +443,9 @@ UpdateEmotionWindow:
 		move.l	.artLUT(pc,d1.w),d1
 	.cont:
 		move.w	#tiles_to_bytes(ArtTile_EmotionWindow),d2
-		move.w	#16*6,d3	; length of one emotion's image (1 tile = 16 bytes)
+		move.w	#16*8,d3	; length of one emotion's image (1 tile = 16 bytes)
 		mulu.w	d3,d0	; source, destination
-		add.w	d0,d0
+;		add.w	d0,d0
 		add.w	d0,d1
 		jsr		(QueueDMATransfer).l
 		movem.l	(sp)+,d0-d3

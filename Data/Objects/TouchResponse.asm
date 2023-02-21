@@ -477,7 +477,6 @@ HurtCharacter:
 		move.b	#id_Hurt,anim(a0)
 	.doneanim:
 		move.b	#2*60,invulnerability_timer(a0)			; set temp invincible time to 2 seconds
-		jsr		ResetEmotion
 		moveq	#signextendB(sfx_Death),d0			; load normal damage sound
 		cmpi.l	#Obj_Spikes,address(a2)				; was damage caused by spikes?
 		blo.s		.sound								; if not, branch
@@ -487,6 +486,7 @@ HurtCharacter:
 
 .sound:
 		jsr	(SMPS_QueueSound2).w
+		jsr		ResetEmotion.angry
 		moveq	#-1,d0
 		rts
 ; ---------------------------------------------------------------------------
@@ -513,7 +513,6 @@ loc_1036E:
 		clr.b	status_secondary(a0)
 		clr.b	status_tertiary(a0)
 		move.b	#id_SonicDeath,routine(a0)
-		jsr		ResetEmotion
 		move.w	d0,-(sp)
 		bsr.w	Player_ResetOnFloor
 		move.w	(sp)+,d0
@@ -525,6 +524,7 @@ loc_1036E:
 		move.w	art_tile(a0),(Saved_art_tile).w
 		bset	#7,art_tile(a0)
 		jsr	(SMPS_QueueSound2).w
+		jsr		ResetEmotion
 
 .dontdie:
 		moveq	#-1,d0

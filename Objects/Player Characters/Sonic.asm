@@ -328,7 +328,7 @@ loc_10CA6:
 
 Player_ChkInvin:										; checks if invincibility has expired and disables it if it has.
 		btst	#Status_Invincible,status_secondary(a0)
-		beq.s	Player_ChkShoes
+		beq.s	Player_RmvInvin.reset
 		tst.b	invincibility_timer(a0)
 		beq.s	Player_ChkShoes						; if there wasn't any time left, that means we're in Super/Hyper mode
 		move.b	(Level_frame_counter+1).w,d0
@@ -1760,12 +1760,12 @@ Player_Transform:
 		move.l	#Obj_SuperSonicKnux_Stars,(v_Super_stars).w	; load Super Stars object
 
 	.continued:
-		jsr		ResetEmotion
 		move.w	#$A00,Top_speed_P1-Top_speed_P1(a4)
 		move.w	#$30,Acceleration_P1-Top_speed_P1(a4)
 		move.w	#$100,Deceleration_P1-Top_speed_P1(a4)
 		move.b	#0,invincibility_timer(a0)
 		bset	#Status_Invincible,status_secondary(a0)
+		jsr		ResetEmotion.super
 		sfx	sfx_SuperTransform, 1
 ; ---------------------------------------------------------------------------
 
