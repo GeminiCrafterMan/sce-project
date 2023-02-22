@@ -14,11 +14,10 @@ namespace S3KObjectDefinitions.GHZ
 			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), 0);
 
 			BuildSprites(indexer.ToArray(),
-				"../Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).bin", 0x00);
+				System.IO.File.ReadAllBytes("../Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).bin"), 0x00);
 		}
 	}
 }
-
 
 namespace S3KObjectDefinitions.SSLZ
 {
@@ -30,7 +29,7 @@ namespace S3KObjectDefinitions.SSLZ
 			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), 0);
 
 			BuildSprites(indexer.ToArray(),
-				"../Objects/Floating Platform/Object Data/Map - Floating Platform (SSLZ).bin", 0x00);
+				System.IO.File.ReadAllBytes("../Objects/Floating Platform/Object Data/Map - Floating Platform (SSLZ).bin"), 0x00);
 		}
 	}
 }
@@ -43,10 +42,10 @@ namespace S3KObjectDefinitions.WZ
 		public override void Init(ObjectData data)
 		{
 			var indexer = new MultiFileIndexer<byte>();
-			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), -32);
+			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), 0);
 
 			BuildSprites(indexer.ToArray(),
-				"../Objects/Floating Platform/Object Data/Map - Floating Platform.bin", 0x00);
+				System.IO.File.ReadAllBytes("../Objects/Floating Platform/Object Data/Map - Floating Platform.bin"), 0x00);
 		}
 	}
 }
@@ -58,10 +57,10 @@ namespace S3KObjectDefinitions.TTZ
 		public override void Init(ObjectData data)
 		{
 			var indexer = new MultiFileIndexer<byte>();
-			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), -32);
+			indexer.AddFile(new List<byte>(LevelData.ReadFile("LevelArt", 0)), 0);
 
 			BuildSprites(indexer.ToArray(),
-				"../Objects/Floating Platform/Object Data/Map - Floating Platform.bin", 0x00);
+				System.IO.File.ReadAllBytes("../Objects/Floating Platform/Object Data/Map - Floating Platform.bin"), 0x00);
 		}
 	}
 }
@@ -163,18 +162,6 @@ namespace S3KObjectDefinitions.Common
 		public override int GetDepth(ObjectEntry obj)
 		{
 			return 3;
-		}
-
-		protected void BuildSprites(string artfile, string mapfile, byte defaultSubtype)
-		{
-			var art = LevelData.ReadFile(artfile, CompressionType.Nemesis);
-			BuildSprites(art, mapfile, defaultSubtype);
-		}
-
-		protected void BuildSprites(byte[] art, string mapfile, byte defaultSubtype)
-		{
-			var map = ObjectHelper.MapToBmp(mapfile, LevelData.Game.MappingsVersion);
-			BuildSprites(art, map, defaultSubtype);
 		}
 
 		protected void BuildSprites(byte[] art, byte[] map, byte defaultSubtype)

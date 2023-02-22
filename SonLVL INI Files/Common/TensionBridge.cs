@@ -140,7 +140,7 @@ namespace S3KObjectDefinitions.Common
 		}
 
 		protected void BuildSpritesProperties(string artfile, int artoffset,
-			string mapfile, int startpal, bool priority, string name, string description, int slope)
+			byte[] mapfile, int startpal, bool priority, string name, string description, int slope)
 		{
 			var art = LevelData.ReadFile(artfile, CompressionType.KosinskiM);
 			if (artoffset != 0)

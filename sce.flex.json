@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "17509e82-d06c-42d5-a1a6-146d96ef45ca",
+    "node": "3f81ae78-94fb-41b8-8a46-875c2a5790ae",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -1286,6 +1286,35 @@
         {
             "name": "Wood",
             "children": [
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Mecha-Bu",
+                    "palettes": [
+                        {
+                            "length": 1,
+                            "blank": true
+                        },
+                        {
+                            "path": "Levels/WZ/Palettes/Wood Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Mecha-Bu/Object Data/Map - Mecha-Bu.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "3f81ae78-94fb-41b8-8a46-875c2a5790ae"
+                },
                 {
                     "format": "Sonic 3&K Player.js",
                     "name": "Saw",
