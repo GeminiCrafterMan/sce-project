@@ -15,9 +15,10 @@ ptr_Pal_GHZ:			palp	Pal_GHZ, Normal_palette_line_2, 48			; 4 - GHZ
 ptr_Pal_SSLZ1:			palp	Pal_SSLZ1, Normal_palette_line_2, 48		; 5 - SSLZ1
 ptr_Pal_SSLZ2:			palp	Pal_SSLZ2, Normal_palette_line_2, 48		; 6 - SSLZ2
 ptr_Pal_SSLZ3:			palp	Pal_SSLZ3, Normal_palette_line_2, 48		; 7 - SSLZ3
-ptr_Pal_WZ:				palp	Pal_WZ, Normal_palette_line_2, 48			; 8 - WZ
-ptr_Pal_DEZ:			palp	Pal_DEZ, Normal_palette_line_2, 48			; 9 - DEZ
-ptr_Pal_TTZ:			palp	Pal_TTZ, Normal_palette_line_2, 48			; 10 - TTZ
+ptr_Pal_TTPZ:			palp	Pal_TTPZ, Normal_palette_line_2, 48			; 8 - TTPZ
+ptr_Pal_MMZ:			palp	Pal_MMZ, Normal_palette_line_2, 48			; 9 - MMZ
+ptr_Pal_DEZ:			palp	Pal_DEZ, Normal_palette_line_2, 48			; 10 - DEZ
+ptr_Pal_TTSZ:			palp	Pal_TTSZ, Normal_palette_line_2, 48			; 11 - TTSZ
 ; ---------------------------------------------------------------------------
 
 ; Main
@@ -31,6 +32,7 @@ palid_GHZ:				equ (ptr_Pal_GHZ-PalPointers)/8			; 4 - GHZ
 palid_SSLZ1:			equ (ptr_Pal_SSLZ1-PalPointers)/8		; 5 - SSLZ1
 palid_SSLZ2:			equ (ptr_Pal_SSLZ2-PalPointers)/8		; 6 - SSLZ2
 palid_SSLZ3:			equ (ptr_Pal_SSLZ3-PalPointers)/8		; 7 - SSLZ3
-palid_WZ:				equ (ptr_Pal_WZ-PalPointers)/8			; 8 - WZ
-palid_DEZ:				equ (ptr_Pal_DEZ-PalPointers)/8			; 9 - DEZ
-palid_TTZ:				equ (ptr_Pal_TTZ-PalPointers)/8			; 10 - TTZ
+palid_TTPZ:				equ (ptr_Pal_TTPZ-PalPointers)/8		; 8 - TTPZ
+palid_MMZ:				equ (ptr_Pal_MMZ-PalPointers)/8			; 9 - MMZ
+palid_DEZ:				equ (ptr_Pal_DEZ-PalPointers)/8			; 10 - DEZ
+palid_TTSZ:				equ (ptr_Pal_TTSZ-PalPointers)/8		; 11 - TTSZ

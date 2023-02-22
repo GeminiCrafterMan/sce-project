@@ -8,11 +8,12 @@ LevelSelect_VRAM:				= 480
 
 ; Variables
 LevelSelect_ZoneCount:			= ZoneCount
-LevelSelect_ActGHZCount:			= 1	; GHZ
-LevelSelect_ActSSLZCount:			= 3	; SSLZ
-LevelSelect_ActWZCount:			= 1	; WZ
-LevelSelect_ActDEZCount:			= 4	; DEZ
-LevelSelect_ActTTZCount:			= 4	; TTZ
+LevelSelect_ActGHZCount:			= 1	; Green Hill Zone
+LevelSelect_ActSSLZCount:			= 3	; Seaside Land Zone
+LevelSelect_ActTTPZCount:			= 1	; Tree Top Zone
+LevelSelect_ActMMZCount:			= 1 ; Mecha Mushroom Zone
+LevelSelect_ActDEZCount:			= 4	; Death Egg Zone
+LevelSelect_ActTTSZCount:			= 4	; Techno Test Zone
 LevelSelect_MusicTestCount:		= 8
 LevelSelect_SoundTestCount:		= LevelSelect_MusicTestCount+1
 LevelSelect_SampleTestCount:		= LevelSelect_SoundTestCount+1
@@ -156,9 +157,10 @@ LevelSelect_LoadLevel_Return:
 LevelSelect_LoadMaxActs:
 		dc.w LevelSelect_ActGHZCount-1	; GHZ
 		dc.w LevelSelect_ActSSLZCount-1	; SSLZ
-		dc.w LevelSelect_ActWZCount-1	; WZ
+		dc.w LevelSelect_ActTTPZCount-1	; TTPZ
+		dc.w LevelSelect_ActMMZCount-1	; MMZ
 		dc.w LevelSelect_ActDEZCount-1	; DEZ
-		dc.w LevelSelect_ActTTZCount-1	; TTZ
+		dc.w LevelSelect_ActTTSZCount-1	; TTSZ
 
 		zonewarning LevelSelect_LoadMaxActs,2
 
@@ -416,26 +418,12 @@ LevelSelect_LoadMainText:
 ; --------------------------------------------------------------------------
 
 LevelSelect_ActTextIndex: offsetTable
-		offsetTableEntry.w LevelSelect_LoadAct1		; GHZ1
-		offsetTableEntry.w LevelSelect_LoadAct2		; GHZ2
-		offsetTableEntry.w LevelSelect_LoadAct3		; GHZ3
-		offsetTableEntry.w LevelSelect_LoadAct4		; GHZ4
-		offsetTableEntry.w LevelSelect_LoadAct1		; SSLZ1
-		offsetTableEntry.w LevelSelect_LoadAct2		; SSLZ2
-		offsetTableEntry.w LevelSelect_LoadAct3		; SSLZ3
-		offsetTableEntry.w LevelSelect_LoadAct4		; SSLZ4
-		offsetTableEntry.w LevelSelect_LoadAct1		; WZ1
-		offsetTableEntry.w LevelSelect_LoadAct2		; WZ2
-		offsetTableEntry.w LevelSelect_LoadAct3		; WZ3
-		offsetTableEntry.w LevelSelect_LoadAct4		; WZ4
-		offsetTableEntry.w LevelSelect_LoadAct1		; DEZ1
-		offsetTableEntry.w LevelSelect_LoadAct2		; DEZ2
-		offsetTableEntry.w LevelSelect_LoadAct3		; DEZ3
-		offsetTableEntry.w LevelSelect_LoadAct4		; DEZ4
-		offsetTableEntry.w LevelSelect_LoadAct1		; TTZ1
-		offsetTableEntry.w LevelSelect_LoadAct2		; TTZ2
-		offsetTableEntry.w LevelSelect_LoadAct3		; TTZ3
-		offsetTableEntry.w LevelSelect_LoadAct4		; TTZ4
+	rept ZoneCount
+		offsetTableEntry.w LevelSelect_LoadAct1
+		offsetTableEntry.w LevelSelect_LoadAct2
+		offsetTableEntry.w LevelSelect_LoadAct3
+		offsetTableEntry.w LevelSelect_LoadAct4
+	endr
 
 		zonewarning LevelSelect_ActTextIndex,(2*4)
 ; --------------------------------------------------------------------------
@@ -619,10 +607,10 @@ LevelSelect_MappingOffsets:
 LevelSelect_Text:
 		levselstr " GREEN HILL         - ACT 1             "
 		levselstr " SEASIDE LAND       - ACT 1             "
-		levselstr " WOOD               - ACT 1             "
+		levselstr " TREE TOP           - ACT 1             "
+		levselstr " MECHA MUSHROOM     - ACT 1             "
 		levselstr " DEATH EGG          - ACT 1             "
 		levselstr " TECHNO TEST        - ACT 1             "
-		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " MUSIC TEST:        - 000               "

@@ -12,10 +12,16 @@ LevelOrder:
 	; Seaside Land Zone
 		dc.b z_SSLZ, 1	; Act 1
 		dc.b z_SSLZ, 2	; Act 2
-		dc.b z_WZ, 0	; Act 3
+		dc.b z_TTPZ, 0	; Act 3
 		dc.b 0, 0		; Act 4
 
-	; Wood Zone
+	; Tree Top Zone
+		dc.b 0, 0		; Act 1
+		dc.b 0, 0		; Act 2
+		dc.b 0, 0		; Act 3
+		dc.b 0, 0		; Act 4
+
+	; Mecha Mushroom Zone
 		dc.b 0, 0		; Act 1
 		dc.b 0, 0		; Act 2
 		dc.b 0, 0		; Act 3
@@ -26,11 +32,11 @@ LevelOrder:
 		dc.b z_DEZ, 1	; Act 1
 		dc.b z_DEZ, 2	; Act 2
 		dc.b z_DEZ, 3	; Act 3
-		dc.b z_TTZ, 0	; Act 4
+		dc.b z_TTSZ, 0	; Act 4
 
 	; Techno Test Zone
-		dc.b z_TTZ, 1	; Act 1
-		dc.b z_TTZ, 2	; Act 2
-		dc.b z_TTZ, 3	; Act 3
+		dc.b z_TTSZ, 1	; Act 1
+		dc.b z_TTSZ, 2	; Act 2
+		dc.b z_TTSZ, 3	; Act 3
 		dc.b 0, 0		; Act 4
 	zonewarning	LevelOrder,(4*2)

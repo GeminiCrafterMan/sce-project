@@ -23,30 +23,30 @@ loadWaterShift:
 ; Per act version (Gotta be 4 acts because even (Also I'm sure it'd be more useful))
 waterValTable:	; Entry format: blue<<3, zero, red<<3, green<<3
 		; GHZ
+	rept 4
 		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
+	endr
 		; SSLZ
+	rept 4
 		dc.b	0, 0, -$2<<3, -$2<<3
+	endr
+		; TTPZ
+	rept 4
 		dc.b	0, 0, -$2<<3, -$2<<3
+	endr
+		; MMZ
+	rept 4
 		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
-		; WZ
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
+	endr
 		; DEZ
+	rept 4
 		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
-		dc.b	0, 0, -$2<<3, -$2<<3
+	endr
 		; TTZ
 		dc.b	0, 0, -$2<<3, -$2<<3
+	rept 3
 		dc.b	-$6<<3, 0, -$6<<3, -$2<<3
-		dc.b	-$6<<3, 0, -$6<<3, -$2<<3
-		dc.b	-$6<<3, 0, -$6<<3, -$2<<3
+	endr
 	zonewarning waterValTable,(4*4)
 ; ===========================================================================
 ; ---------------------------------------------------------------------------

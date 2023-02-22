@@ -12,18 +12,22 @@ LevelLoadBlock:
 		levartptrs SSLZ2_8x8_KosM, SSLZ2_16x16_Unc, SSLZ2_128x128_Kos, palid_SSLZ2		; SSLZ2
 		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ3		; SSLZ3
 		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ1		; SSLZ4
-		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ1
-		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ2
-		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ3
-		levartptrs WZ_8x8_KosM, WZ_16x16_Unc, WZ_128x128_Kos, palid_WZ		; WZ4
+		levartptrs TTPZ_8x8_KosM, TTPZ_16x16_Unc, TTPZ_128x128_Kos, palid_TTPZ		; TTPZ1
+		levartptrs TTPZ_8x8_KosM, TTPZ_16x16_Unc, TTPZ_128x128_Kos, palid_TTPZ		; TTPZ2
+		levartptrs TTPZ_8x8_KosM, TTPZ_16x16_Unc, TTPZ_128x128_Kos, palid_TTPZ		; TTPZ3
+		levartptrs TTPZ_8x8_KosM, TTPZ_16x16_Unc, TTPZ_128x128_Kos, palid_TTPZ		; TTPZ4
+		levartptrs MMZ_8x8_KosM, MMZ_16x16_Unc, MMZ_128x128_Kos, palid_MMZ		; MMZ1
+		levartptrs MMZ_8x8_KosM, MMZ_16x16_Unc, MMZ_128x128_Kos, palid_MMZ		; MMZ2
+		levartptrs MMZ_8x8_KosM, MMZ_16x16_Unc, MMZ_128x128_Kos, palid_MMZ		; MMZ3
+		levartptrs MMZ_8x8_KosM, MMZ_16x16_Unc, MMZ_128x128_Kos, palid_MMZ		; MMZ4
 		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ1
 		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ2
 		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ3
 		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ		; DEZ4
-		levartptrs TTZ_8x8_KosM, TTZ_16x16_Unc, TTZ_128x128_Kos, palid_TTZ		; TTZ1
-		levartptrs TTZ_8x8_KosM, TTZ_16x16_Unc, TTZ2_128x128_Kos, palid_TTZ		; TTZ2
-		levartptrs TTZ_8x8_KosM, TTZ_16x16_Unc, TTZ2_128x128_Kos, palid_TTZ		; TTZ3
-		levartptrs TTZ_8x8_KosM, TTZ_16x16_Unc, TTZ2_128x128_Kos, palid_TTZ		; TTZ4
+		levartptrs TTSZ_8x8_KosM, TTSZ_16x16_Unc, TTSZ_128x128_Kos, palid_TTSZ		; TTSZ1
+		levartptrs TTSZ_8x8_KosM, TTSZ_16x16_Unc, TTSZ2_128x128_Kos, palid_TTSZ		; TTSZ2
+		levartptrs TTSZ_8x8_KosM, TTSZ_16x16_Unc, TTSZ2_128x128_Kos, palid_TTSZ		; TTSZ3
+		levartptrs TTSZ_8x8_KosM, TTSZ_16x16_Unc, TTSZ2_128x128_Kos, palid_TTSZ		; TTSZ4
 
 		zonewarning LevelLoadBlock,(12*4)
 
@@ -64,16 +68,23 @@ LevelLoadPointer:
 		dc.l SSLZ_ScreenInit, SSLZ_BackgroundInit, SSLZ_ScreenEvent, SSLZ_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_SSLZ
 
-; WZ1
-		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
-		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
-		dc.l WZ_DoAniPLC, AniPLC_WZ
+; TTPZ1
+		dc.l AnPal_TTPZ, DLE_TTPZ, LevelPointer_Null, LevelPointer_Null
+		dc.l TTPZ1_ScreenInit, TTPZ1_BackgroundInit, TTPZ1_ScreenEvent, TTPZ1_BackgroundEvent
+		dc.l TTPZ_DoAniPLC, AniPLC_TTPZ
 
-; WZ2-4
+; TTPZ2-4
 	rept 3
-		dc.l AnPal_WZ, DLE_WZ, LevelPointer_Null, LevelPointer_Null
-		dc.l WZ1_ScreenInit, WZ1_BackgroundInit, WZ1_ScreenEvent, WZ1_BackgroundEvent
-		dc.l WZ_DoAniPLC, AniPLC_WZ
+		dc.l AnPal_TTPZ, DLE_TTPZ, LevelPointer_Null, LevelPointer_Null
+		dc.l TTPZ1_ScreenInit, TTPZ1_BackgroundInit, TTPZ1_ScreenEvent, TTPZ1_BackgroundEvent
+		dc.l TTPZ_DoAniPLC, AniPLC_TTPZ
+	endr
+
+; MMZ1-4
+	rept 4
+		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l MMZ1_ScreenInit, MMZ1_BackgroundInit, MMZ1_ScreenEvent, MMZ1_BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null
 	endr
 
 ; DEZ1
@@ -88,24 +99,24 @@ LevelLoadPointer:
 		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
 	endr
 
-; TTZ1
-		dc.l AnPal_TTZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
+; TTSZ1
+		dc.l AnPal_TTSZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l TTSZ1_ScreenInit, TTSZ1_BackgroundInit, TTSZ1_ScreenEvent, TTSZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
 
-; TTZ2
-		dc.l AnPal_TTZ, LevelPointer_Null, DWE_TTZ, LevelPointer_Null
-		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
+; TTSZ2
+		dc.l AnPal_TTSZ, LevelPointer_Null, DWE_TTSZ, LevelPointer_Null
+		dc.l TTSZ1_ScreenInit, TTSZ1_BackgroundInit, TTSZ1_ScreenEvent, TTSZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
 
-; TTZ3
-		dc.l AnPal_TTZ, LevelPointer_Null, DWE_TTZ, LevelPointer_Null
-		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
+; TTSZ3
+		dc.l AnPal_TTSZ, LevelPointer_Null, DWE_TTSZ, LevelPointer_Null
+		dc.l TTSZ1_ScreenInit, TTSZ1_BackgroundInit, TTSZ1_ScreenEvent, TTSZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
 
-; TTZ4
-		dc.l AnPal_TTZ, LevelPointer_Null, DWE_TTZ, LevelPointer_Null
-		dc.l TTZ1_ScreenInit, TTZ1_BackgroundInit, TTZ1_ScreenEvent, TTZ1_BackgroundEvent
+; TTSZ4
+		dc.l AnPal_TTSZ, LevelPointer_Null, DWE_TTSZ, LevelPointer_Null
+		dc.l TTSZ1_ScreenInit, TTSZ1_BackgroundInit, TTSZ1_ScreenEvent, TTSZ1_BackgroundEvent
 		dc.l LevelPointer_Null, LevelPointer_Null
 
 		zonewarning LevelLoadPointer,(40*4)
@@ -123,18 +134,22 @@ SolidIndexes:
 		dc.l SSLZ2_Solid		; SSLZ2
 		dc.l SSLZ1_Solid		; SSLZ3
 		dc.l SSLZ1_Solid		; SSLZ4
-		dc.l WZ1_Solid		; WZ1
-		dc.l WZ1_Solid		; WZ2
-		dc.l WZ1_Solid		; WZ3
-		dc.l WZ1_Solid		; WZ4
+		dc.l TTPZ1_Solid		; TTPZ1
+		dc.l TTPZ1_Solid		; TTPZ2
+		dc.l TTPZ1_Solid		; TTPZ3
+		dc.l TTPZ1_Solid		; TTPZ4
+		dc.l MMZ1_Solid		; MMZ1
+		dc.l MMZ1_Solid		; MMZ2
+		dc.l MMZ1_Solid		; MMZ3
+		dc.l MMZ1_Solid		; MMZ4
 		dc.l DEZ1_Solid		; DEZ1
 		dc.l DEZ1_Solid		; DEZ2
 		dc.l DEZ1_Solid		; DEZ3
 		dc.l DEZ1_Solid		; DEZ4
-		dc.l TTZ1_Solid		; TTZ1
-		dc.l TTZ1_Solid		; TTZ2
-		dc.l TTZ1_Solid		; TTZ3
-		dc.l TTZ1_Solid		; TTZ4
+		dc.l TTSZ1_Solid		; TTSZ1
+		dc.l TTSZ1_Solid		; TTSZ2
+		dc.l TTSZ1_Solid		; TTSZ3
+		dc.l TTSZ1_Solid		; TTSZ4
 
 		zonewarning SolidIndexes,(4*4)
 
@@ -151,18 +166,22 @@ LevelPtrs:
 		dc.l SSLZ2_Layout		; SSLZ2
 		dc.l SSLZ3_Layout		; SSLZ3
 		dc.l SSLZ1_Layout		; SSLZ4
-		dc.l WZ1_Layout		; WZ1
-		dc.l WZ1_Layout		; WZ2
-		dc.l WZ1_Layout		; WZ3
-		dc.l WZ1_Layout		; WZ4
+		dc.l TTPZ1_Layout		; TTPZ1
+		dc.l TTPZ1_Layout		; TTPZ2
+		dc.l TTPZ1_Layout		; TTPZ3
+		dc.l TTPZ1_Layout		; TTPZ4
+		dc.l MMZ1_Layout		; MMZ1
+		dc.l MMZ1_Layout		; MMZ2
+		dc.l MMZ1_Layout		; MMZ3
+		dc.l MMZ1_Layout		; MMZ4
 		dc.l DEZ1_Layout		; DEZ1
 		dc.l DEZ1_Layout		; DEZ2
 		dc.l DEZ1_Layout		; DEZ3
 		dc.l DEZ1_Layout		; DEZ4
-		dc.l TTZ1_Layout		; TTZ1
-		dc.l TTZ2_Layout		; TTZ2
-		dc.l TTZ3_Layout		; TTZ3
-		dc.l TTZ4_Layout		; TTZ4
+		dc.l TTSZ1_Layout		; TTSZ1
+		dc.l TTSZ2_Layout		; TTSZ2
+		dc.l TTSZ3_Layout		; TTSZ3
+		dc.l TTSZ4_Layout		; TTSZ4
 
 		zonewarning LevelPtrs,(4*4)
 
@@ -179,18 +198,22 @@ SpriteLocPtrs:
 		dc.l SSLZ2_Sprites		; SSLZ2
 		dc.l SSLZ3_Sprites		; SSLZ3
 		dc.l SSLZ1_Sprites		; SSLZ4
-		dc.l WZ1_Sprites		; WZ1
-		dc.l WZ1_Sprites		; WZ2
-		dc.l WZ1_Sprites		; WZ3
-		dc.l WZ1_Sprites		; WZ4
+		dc.l TTPZ1_Sprites		; TTPZ1
+		dc.l TTPZ1_Sprites		; TTPZ2
+		dc.l TTPZ1_Sprites		; TTPZ3
+		dc.l TTPZ1_Sprites		; TTPZ4
+		dc.l MMZ1_Sprites		; MMZ1
+		dc.l MMZ1_Sprites		; MMZ2
+		dc.l MMZ1_Sprites		; MMZ3
+		dc.l MMZ1_Sprites		; MMZ4
 		dc.l DEZ1_Sprites		; DEZ1
 		dc.l DEZ1_Sprites		; DEZ2
 		dc.l DEZ1_Sprites		; DEZ3
 		dc.l DEZ1_Sprites		; DEZ4
-		dc.l TTZ1_Sprites		; TTZ1
-		dc.l TTZ2_Sprites		; TTZ2
-		dc.l TTZ3_Sprites		; TTZ3
-		dc.l TTZ4_Sprites		; TTZ4
+		dc.l TTSZ1_Sprites		; TTSZ1
+		dc.l TTSZ2_Sprites		; TTSZ2
+		dc.l TTSZ3_Sprites		; TTSZ3
+		dc.l TTSZ4_Sprites		; TTSZ4
 
 		zonewarning SpriteLocPtrs,(4*4)
 
@@ -207,18 +230,22 @@ RingLocPtrs:
 		dc.l SSLZ2_Rings		; SSLZ2
 		dc.l SSLZ3_Rings		; SSLZ3
 		dc.l SSLZ1_Rings		; SSLZ4
-		dc.l WZ1_Rings		; WZ1
-		dc.l WZ1_Rings		; WZ2
-		dc.l WZ1_Rings		; WZ3
-		dc.l WZ1_Rings		; WZ4
+		dc.l TTPZ1_Rings		; TTPZ1
+		dc.l TTPZ1_Rings		; TTPZ2
+		dc.l TTPZ1_Rings		; TTPZ3
+		dc.l TTPZ1_Rings		; TTPZ4
+		dc.l MMZ1_Rings		; MMZ1
+		dc.l MMZ1_Rings		; MMZ2
+		dc.l MMZ1_Rings		; MMZ3
+		dc.l MMZ1_Rings		; MMZ4
 		dc.l DEZ1_Rings		; DEZ1
 		dc.l DEZ1_Rings		; DEZ2
 		dc.l DEZ1_Rings		; DEZ3
 		dc.l DEZ1_Rings		; DEZ4
-		dc.l TTZ1_Rings		; TTZ1
-		dc.l TTZ2_Rings		; TTZ2
-		dc.l TTZ3_Rings		; TTZ3
-		dc.l TTZ4_Rings		; TTZ4
+		dc.l TTSZ1_Rings		; TTSZ1
+		dc.l TTSZ2_Rings		; TTSZ2
+		dc.l TTSZ3_Rings		; TTSZ3
+		dc.l TTSZ4_Rings		; TTSZ4
 
 		zonewarning RingLocPtrs,(4*4)
 
@@ -247,11 +274,18 @@ SSLZ2_16x16_Unc:	binclude "Levels/SSLZ/Blocks/Secondary.bin"
 SSLZ2_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Secondary.bin"
 	even
 
-WZ_8x8_KosM:		binclude "Levels/WZ/Tiles/Primary.bin"
+TTPZ_8x8_KosM:		binclude "Levels/TTPZ/Tiles/Primary.bin"
 	even
-WZ_16x16_Unc:		binclude "Levels/WZ/Blocks/Primary.bin"
+TTPZ_16x16_Unc:		binclude "Levels/TTPZ/Blocks/Primary.bin"
 	even
-WZ_128x128_Kos:	binclude "Levels/WZ/Chunks/Primary.bin"
+TTPZ_128x128_Kos:	binclude "Levels/TTPZ/Chunks/Primary.bin"
+	even
+
+MMZ_8x8_KosM:		binclude "Levels/MMZ/Tiles/Primary.bin"
+	even
+MMZ_16x16_Unc:		binclude "Levels/MMZ/Blocks/Primary.bin"
+	even
+MMZ_128x128_Kos:	binclude "Levels/MMZ/Chunks/Primary.bin"
 	even
 
 DEZ_8x8_KosM:		binclude "Levels/DEZ/Tiles/Primary.bin"
@@ -261,13 +295,13 @@ DEZ_16x16_Unc:		binclude "Levels/DEZ/Blocks/Primary.bin"
 DEZ_128x128_Kos:	binclude "Levels/DEZ/Chunks/Primary.bin"
 	even
 
-TTZ_8x8_KosM:		binclude "Levels/TTZ/Tiles/Primary.bin"
+TTSZ_8x8_KosM:		binclude "Levels/TTSZ/Tiles/Primary.bin"
 	even
-TTZ_16x16_Unc:		binclude "Levels/TTZ/Blocks/Primary.bin"
+TTSZ_16x16_Unc:		binclude "Levels/TTSZ/Blocks/Primary.bin"
 	even
-TTZ_128x128_Kos:	binclude "Levels/TTZ/Chunks/Primary.bin"
+TTSZ_128x128_Kos:	binclude "Levels/TTSZ/Chunks/Primary.bin"
 	even
-TTZ2_128x128_Kos:	binclude "Levels/TTZ/Chunks/Secondary.bin"
+TTSZ2_128x128_Kos:	binclude "Levels/TTSZ/Chunks/Secondary.bin"
 	even
 
 ; ===========================================================================
@@ -303,11 +337,13 @@ SSLZ1_Solid:		binclude "Levels/SSLZ/Collision/1.bin"
 	even
 SSLZ2_Solid:		binclude "Levels/SSLZ/Collision/2.bin"
 	even
-WZ1_Solid:			binclude "Levels/WZ/Collision/1.bin"
+TTPZ1_Solid:			binclude "Levels/TTPZ/Collision/1.bin"
+	even
+MMZ1_Solid:			binclude "Levels/MMZ/Collision/1.bin"
 	even
 DEZ1_Solid:			binclude "Levels/DEZ/Collision/1.bin"
 	even
-TTZ1_Solid:			binclude "Levels/TTZ/Collision/1.bin"
+TTSZ1_Solid:			binclude "Levels/TTSZ/Collision/1.bin"
 	even
 
 ; ===========================================================================
@@ -322,17 +358,19 @@ SSLZ2_Layout:		binclude "Levels/SSLZ/Layout/2.bin"
 	even
 SSLZ3_Layout:		binclude "Levels/SSLZ/Layout/3.bin"
 	even
-WZ1_Layout:			binclude "Levels/WZ/Layout/1.bin"
+TTPZ1_Layout:			binclude "Levels/TTPZ/Layout/1.bin"
+	even
+MMZ1_Layout:			binclude "Levels/MMZ/Layout/1.bin"
 	even
 DEZ1_Layout:		binclude "Levels/DEZ/Layout/1.bin"
 	even
-TTZ1_Layout:		binclude "Levels/TTZ/Layout/1.bin"
+TTSZ1_Layout:		binclude "Levels/TTSZ/Layout/1.bin"
 	even
-TTZ2_Layout:		binclude "Levels/TTZ/Layout/2.bin"
+TTSZ2_Layout:		binclude "Levels/TTSZ/Layout/2.bin"
 	even
-TTZ3_Layout:		binclude "Levels/TTZ/Layout/3.bin"
+TTSZ3_Layout:		binclude "Levels/TTSZ/Layout/3.bin"
 	even
-TTZ4_Layout:		binclude "Levels/TTZ/Layout/4.bin"
+TTSZ4_Layout:		binclude "Levels/TTSZ/Layout/4.bin"
 	even
 
 ; ===========================================================================
@@ -348,17 +386,19 @@ SSLZ2_Sprites:		binclude "Levels/SSLZ/Object Pos/2.bin"
 	ObjectLayoutBoundary
 SSLZ3_Sprites:		binclude "Levels/SSLZ/Object Pos/3.bin"
 	ObjectLayoutBoundary
-WZ1_Sprites:		binclude "Levels/WZ/Object Pos/1.bin"
+TTPZ1_Sprites:		binclude "Levels/TTPZ/Object Pos/1.bin"
+	ObjectLayoutBoundary
+MMZ1_Sprites:		binclude "Levels/MMZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 DEZ1_Sprites:		binclude "Levels/DEZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
-TTZ1_Sprites:		binclude "Levels/TTZ/Object Pos/1.bin"
+TTSZ1_Sprites:		binclude "Levels/TTSZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
-TTZ2_Sprites:		binclude "Levels/TTZ/Object Pos/2.bin"
+TTSZ2_Sprites:		binclude "Levels/TTSZ/Object Pos/2.bin"
 	ObjectLayoutBoundary
-TTZ3_Sprites:		binclude "Levels/TTZ/Object Pos/3.bin"
+TTSZ3_Sprites:		binclude "Levels/TTSZ/Object Pos/3.bin"
 	ObjectLayoutBoundary
-TTZ4_Sprites:		binclude "Levels/TTZ/Object Pos/4.bin"
+TTSZ4_Sprites:		binclude "Levels/TTSZ/Object Pos/4.bin"
 	ObjectLayoutBoundary
 	even
 
@@ -375,16 +415,18 @@ SSLZ2_Rings:		binclude "Levels/SSLZ/Ring Pos/2.bin"
 	RingLayoutBoundary
 SSLZ3_Rings:		binclude "Levels/SSLZ/Ring Pos/3.bin"
 	RingLayoutBoundary
-WZ1_Rings:			binclude "Levels/WZ/Ring Pos/1.bin"
+TTPZ1_Rings:			binclude "Levels/TTPZ/Ring Pos/1.bin"
+	RingLayoutBoundary
+MMZ1_Rings:			binclude "Levels/MMZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 DEZ1_Rings:			binclude "Levels/DEZ/Ring Pos/1.bin"
 	RingLayoutBoundary
-TTZ1_Rings:			binclude "Levels/TTZ/Ring Pos/1.bin"
+TTSZ1_Rings:			binclude "Levels/TTSZ/Ring Pos/1.bin"
 	RingLayoutBoundary
-TTZ2_Rings:			binclude "Levels/TTZ/Ring Pos/2.bin"
+TTSZ2_Rings:			binclude "Levels/TTSZ/Ring Pos/2.bin"
 	RingLayoutBoundary
-TTZ3_Rings:			binclude "Levels/TTZ/Ring Pos/3.bin"
+TTSZ3_Rings:			binclude "Levels/TTSZ/Ring Pos/3.bin"
 	RingLayoutBoundary
-TTZ4_Rings:			binclude "Levels/TTZ/Ring Pos/4.bin"
+TTSZ4_Rings:			binclude "Levels/TTSZ/Ring Pos/4.bin"
 	RingLayoutBoundary
 	even

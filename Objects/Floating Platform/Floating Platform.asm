@@ -7,7 +7,11 @@ FloatingPlatformArt:
 		dc.l Map_FloatingPlatform_SSLZ
 		dc.w make_art_tile(ArtTile_LevelArt,2,0), 0
 	endr
-	rept 4	; WZ
+	rept 4	; TTPZ
+		dc.l Map_FloatingPlatform
+		dc.w make_art_tile(ArtTile_LevelArt,3,0), 0
+	endr
+	rept 4	; MMZ
 		dc.l Map_FloatingPlatform
 		dc.w make_art_tile(ArtTile_LevelArt,3,0), 0
 	endr
@@ -15,7 +19,7 @@ FloatingPlatformArt:
 		dc.l Map_FloatingPlatform
 		dc.w make_art_tile(ArtTile_LevelArt,3,0), 0
 	endr
-	rept 4	; TTZ
+	rept 4	; TTSZ
 		dc.l Map_FloatingPlatform
 		dc.w make_art_tile(ArtTile_LevelArt,3,0), 0
 	endr

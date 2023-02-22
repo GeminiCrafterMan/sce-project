@@ -103,7 +103,10 @@ StartingWaterHeights:
 		dc.w $390	; SSLZ 3
 		dc.w $1000	; SSLZ 4
 	rept 4
-		dc.w $1000	; WZ 1-4
+		dc.w $1000	; TTPZ 1-4
+	endr
+	rept 4
+		dc.w $1000	; MMZ 1-4
 	endr
 		dc.w $500	; DEZ 1
 		dc.w $480	; DEZ 2

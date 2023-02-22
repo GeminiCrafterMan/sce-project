@@ -135,9 +135,10 @@ loc_86698:
 byte_866A2:
 		dc.b $A	; GHZ
 		dc.b $A	; SSLZ
-		dc.b $A	; WZ
+		dc.b $A	; TTPZ
+		dc.b $A	; MMZZ
 		dc.b $A	; DEZ
-		dc.b $A	; TTZ
+		dc.b $A	; TTSZ
 	zonewarning	byte_866A2,1
 	even
 ; ---------------------------------------------------------------------------

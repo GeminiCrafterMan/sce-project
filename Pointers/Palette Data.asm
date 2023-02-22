@@ -23,11 +23,13 @@ Pal_SSLZ2:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone 2.bin"
 	even
 Pal_SSLZ3:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone 3.bin"
 	even
-Pal_WZ:				binclude "Levels/WZ/Palettes/Wood Zone.bin"
+Pal_TTPZ:			binclude "Levels/TTPZ/Palettes/Tree Top Zone.bin"
+	even
+Pal_MMZ:			binclude "Levels/MMZ/Palettes/Mecha Mushroom Zone.bin"
 	even
 Pal_DEZ:			binclude "Levels/DEZ/Palettes/Death Egg Zone.bin"
 	even
-Pal_TTZ:			binclude "Levels/TTZ/Palettes/Techno Test Zone.bin"
+Pal_TTSZ:			binclude "Levels/TTSZ/Palettes/Techno Test Zone.bin"
 	even
 ; ===========================================================================
 ; Dynamic palette

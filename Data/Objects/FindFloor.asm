@@ -1540,7 +1540,10 @@ GetAngleArray:
 		dc.l	S3KAngleArray	; SSLZ
 	endr
 	rept 4
-		dc.l	S3KAngleArray	; WZ
+		dc.l	S3KAngleArray	; TTPZ
+	endr
+	rept 4
+		dc.l	S3KAngleArray	; MMZ
 	endr
 	rept 4
 		dc.l	S1AngleArray	; DEZ
@@ -1566,7 +1569,10 @@ GetHeightMaps:
 		dc.l	S3KHeightMaps	; SSLZ
 	endr
 	rept 4
-		dc.l	S3KHeightMaps	; WZ
+		dc.l	S3KHeightMaps	; TTPZ
+	endr
+	rept 4
+		dc.l	S3KHeightMaps	; MMZ
 	endr
 	rept 4
 		dc.l	S1HeightMaps	; DEZ
@@ -1592,7 +1598,10 @@ GetHeightMapsRot:
 		dc.l	S3KHeightMapsRot	; SSLZ
 	endr
 	rept 4
-		dc.l	S3KHeightMapsRot	; WZ
+		dc.l	S3KHeightMapsRot	; TTPZ
+	endr
+	rept 4
+		dc.l	S3KHeightMapsRot	; MMZ
 	endr
 	rept 4
 		dc.l	S1HeightMapsRot	; DEZ

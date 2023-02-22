@@ -13,19 +13,24 @@ StartLocArray:
 		binclude "Levels/SSLZ/Start Location/3.bin"	; SSLZ 3
 		binclude "Levels/SSLZ/Start Location/1.bin"	; SSLZ 4
 
-		binclude "Levels/WZ/Start Location/1.bin"	; WZ 1
-		binclude "Levels/WZ/Start Location/1.bin"	; WZ 2
-		binclude "Levels/WZ/Start Location/1.bin"	; WZ 3
-		binclude "Levels/WZ/Start Location/1.bin"	; WZ 4
+		binclude "Levels/TTPZ/Start Location/1.bin"	; TTPZ 1
+		binclude "Levels/TTPZ/Start Location/1.bin"	; TTPZ 2
+		binclude "Levels/TTPZ/Start Location/1.bin"	; TTPZ 3
+		binclude "Levels/TTPZ/Start Location/1.bin"	; TTPZ 4
+
+		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 1
+		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 2
+		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 3
+		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 4
 
 		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 1
 		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 2
 		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 3
 		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 4
 
-		binclude "Levels/TTZ/Start Location/1.bin"	; TTZ 1
-		binclude "Levels/TTZ/Start Location/2.bin"	; TTZ 2
-		binclude "Levels/TTZ/Start Location/3.bin"	; TTZ 3
-		binclude "Levels/TTZ/Start Location/4.bin"	; TTZ 4
+		binclude "Levels/TTSZ/Start Location/1.bin"	; TTSZ 1
+		binclude "Levels/TTSZ/Start Location/2.bin"	; TTSZ 2
+		binclude "Levels/TTSZ/Start Location/3.bin"	; TTSZ 3
+		binclude "Levels/TTSZ/Start Location/4.bin"	; TTSZ 4
 
 		zonewarning StartLocArray,(4*4)

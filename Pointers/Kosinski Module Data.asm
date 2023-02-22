@@ -83,11 +83,13 @@ ArtKosM_GHZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/GHZ - T
 	even
 ArtKosM_SSLZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/SSLZ - Title Card.bin"
 	even
-ArtKosM_WZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/WZ - Title Card.bin"
+ArtKosM_TTPZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/TTPZ - Title Card.bin"
+	even
+ArtKosM_MMZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/MMZ - Title Card.bin"
 	even
 ArtKosM_DEZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/DEZ - Title Card.bin"
 	even
-ArtKosM_TTZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/TTZ - Title Card.bin"
+ArtKosM_TTSZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/TTSZ - Title Card.bin"
 	even
 
 ; ===========================================================================
@@ -121,11 +123,17 @@ ArtKosM_Burrobot:			binclude "Objects/Burrobot/KosinskiM Art/Burrobot.bin"
 	even
 
 ; ===========================================================================
-; Kosinski Module compressed WZ graphics
+; Kosinski Module compressed TTPZ graphics
 ; ===========================================================================
 
 ArtKosM_MechaBu:			binclude "Objects/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin"
 	even
+
+; ===========================================================================
+; Kosinski Module compressed MMZ graphics
+; ===========================================================================
+
+; shit goes here
 
 ; ===========================================================================
 ; Kosinski Module compressed DEZ graphics
@@ -137,7 +145,7 @@ ArtKosM_BataPyon:			binclude "Objects/Bata-pyon/KosinskiM Art/Bata-pyon.bin"
 	even
 
 ; ===========================================================================
-; Kosinski Module compressed TTZ graphics
+; Kosinski Module compressed TTSZ graphics
 ; ===========================================================================
 
 ; shit goes here

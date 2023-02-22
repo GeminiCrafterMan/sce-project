@@ -35,7 +35,7 @@ namespace S3KObjectDefinitions.SSLZ
 }
 
 
-namespace S3KObjectDefinitions.WZ
+namespace S3KObjectDefinitions.TTPZ
 {
 	class FloatingPlatform : Common.FloatingPlatform
 	{
@@ -50,7 +50,7 @@ namespace S3KObjectDefinitions.WZ
 	}
 }
 
-namespace S3KObjectDefinitions.TTZ
+namespace S3KObjectDefinitions.TTSZ
 {
 	class FloatingPlatform : Common.FloatingPlatform
 	{

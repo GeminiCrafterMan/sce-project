@@ -119,10 +119,10 @@ id_SonicDrown =					id(ptr_Sonic_Drown)		; C
 	phase 0 ; Reset ds.b value to 0
 z_GHZ:	ds.b 1
 z_SSLZ:	ds.b 1
-z_WZ:	ds.b 1
+z_TTPZ:	ds.b 1
 z_DEZ:	ds.b 1
 z_Last:				= *
-z_TTZ:	ds.b 1
+z_TTSZ:	ds.b 1
 	dephase
 
 ; ---------------------------------------------------------------------------

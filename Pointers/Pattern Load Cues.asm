@@ -3,12 +3,12 @@
 ; ===========================================================================
 
 Offs_PLC: offsetTable
-
+	; Green Hill Zone
 	rept 4
 		offsetTableEntry.w PLC1_GHZ_Misc
 		offsetTableEntry.w PLC2_GHZ_Enemy
 	endr
-
+	; Seaside Land Zone
 		offsetTableEntry.w PLC1_SSLZ_Misc
 		offsetTableEntry.w PLC2_SSLZ_Enemy
 		offsetTableEntry.w PLC1_SSLZ_Misc
@@ -17,20 +17,25 @@ Offs_PLC: offsetTable
 		offsetTableEntry.w PLC1_SSLZ_Misc
 		offsetTableEntry.w PLC2_SSLZ_Enemy
 	endr
-
+	; Tree Top Zone
 	rept 4
-		offsetTableEntry.w PLC1_WZ_Misc
-		offsetTableEntry.w PLC2_WZ_Enemy
+		offsetTableEntry.w PLC1_TTPZ_Misc
+		offsetTableEntry.w PLC2_TTPZ_Enemy
 	endr
-
+	; Mecha Mushroom Zone
+	rept 4
+		offsetTableEntry.w PLC1_MMZ_Misc
+		offsetTableEntry.w PLC2_MMZ_Enemy
+	endr
+	; Death Egg Zone
 	rept 4
 		offsetTableEntry.w PLC1_DEZ_Misc
 		offsetTableEntry.w PLC2_DEZ_Enemy
 	endr
-
+	; Techno Test Zone
 	rept 4
-		offsetTableEntry.w PLC1_TTZ_Misc
-		offsetTableEntry.w PLC2_TTZ_Enemy
+		offsetTableEntry.w PLC1_TTSZ_Misc
+		offsetTableEntry.w PLC2_TTSZ_Enemy
 	endr
 
 		zonewarning Offs_PLC,(4*4)
@@ -109,19 +114,33 @@ PLC2_SSLZ2_Enemy: plrlistheader
 PLC2_SSLZ2_Enemy_end
 
 ; ===========================================================================
-; Pattern load cues - Wood (Misc)
+; Pattern load cues - Tree Top (Misc)
 ; ===========================================================================
 
-PLC1_WZ_Misc: plrlistheader
-PLC1_WZ_Misc_end
+PLC1_TTPZ_Misc: plrlistheader
+PLC1_TTPZ_Misc_end
 
 ; ===========================================================================
-; Pattern load cues - Wood (Enemy)
+; Pattern load cues - Tree Top (Enemy)
 ; ===========================================================================
 
-PLC2_WZ_Enemy: plrlistheader
+PLC2_TTPZ_Enemy: plrlistheader
 		plreq	ArtTile_Motobug, ArtKosM_MechaBu
-PLC2_WZ_Enemy_end
+PLC2_TTPZ_Enemy_end
+
+; ===========================================================================
+; Pattern load cues - Mecha Mushroom (Misc)
+; ===========================================================================
+
+PLC1_MMZ_Misc: plrlistheader
+PLC1_MMZ_Misc_end
+
+; ===========================================================================
+; Pattern load cues - Mecha Mushroom (Enemy)
+; ===========================================================================
+
+PLC2_MMZ_Enemy: plrlistheader
+PLC2_MMZ_Enemy_end
 
 ; ===========================================================================
 ; Pattern load cues - Death Egg (Misc)
@@ -144,14 +163,14 @@ PLC2_DEZ_Enemy_end
 ; Pattern load cues - Techno Test (Misc)
 ; ===========================================================================
 
-PLC1_TTZ_Misc: plrlistheader
+PLC1_TTSZ_Misc: plrlistheader
 		plreq ArtTile_Bubbles, ArtKosM_Bubbles
-PLC1_TTZ_Misc_end
+PLC1_TTSZ_Misc_end
 
 ; ===========================================================================
 ; Pattern load cues - Techno Test (Enemy)
 ; ===========================================================================
 
-PLC2_TTZ_Enemy: plrlistheader
+PLC2_TTSZ_Enemy: plrlistheader
 		plreq ArtTile_Crabmeat, ArtKosM_Burrobot
-PLC2_TTZ_Enemy_end
+PLC2_TTSZ_Enemy_end

@@ -25,20 +25,25 @@ Offs_PLCAnimals: offsetTable
 		offsetTableEntry.w PLCAnimals_SSLZ	; SSLZ3
 		offsetTableEntry.w PLCAnimals_SSLZ	; SSLZ4
 
-		offsetTableEntry.w PLCAnimals_WZ	; WZ1
-		offsetTableEntry.w PLCAnimals_WZ	; WZ2
-		offsetTableEntry.w PLCAnimals_WZ	; WZ3
-		offsetTableEntry.w PLCAnimals_WZ	; WZ4
+		offsetTableEntry.w PLCAnimals_TTPZ	; TTPZ1
+		offsetTableEntry.w PLCAnimals_TTPZ	; TTPZ2
+		offsetTableEntry.w PLCAnimals_TTPZ	; TTPZ3
+		offsetTableEntry.w PLCAnimals_TTPZ	; TTPZ4
+
+		offsetTableEntry.w PLCAnimals_MMZ	; MMZ1
+		offsetTableEntry.w PLCAnimals_MMZ	; MMZ2
+		offsetTableEntry.w PLCAnimals_MMZ	; MMZ3
+		offsetTableEntry.w PLCAnimals_MMZ	; MMZ4
 
 		offsetTableEntry.w PLCAnimals_DEZ1	; DEZ1
 		offsetTableEntry.w PLCAnimals_DEZ1	; DEZ2
 		offsetTableEntry.w PLCAnimals_DEZ1	; DEZ3
 		offsetTableEntry.w PLCAnimals_DEZ1	; DEZ4
 
-		offsetTableEntry.w PLCAnimals_TTZ1	; TTZ1
-		offsetTableEntry.w PLCAnimals_TTZ1	; TTZ2
-		offsetTableEntry.w PLCAnimals_TTZ1	; TTZ3
-		offsetTableEntry.w PLCAnimals_TTZ1	; TTZ4
+		offsetTableEntry.w PLCAnimals_TTSZ1	; TTSZ1
+		offsetTableEntry.w PLCAnimals_TTSZ1	; TTSZ2
+		offsetTableEntry.w PLCAnimals_TTSZ1	; TTSZ3
+		offsetTableEntry.w PLCAnimals_TTSZ1	; TTSZ4
 
 		zonewarning Offs_PLCAnimals,(2*4)
 ; ---------------------------------------------------------------------------
@@ -53,17 +58,22 @@ PLCAnimals_SSLZ: plrlistheader
 		plreq $592, ArtKosM_Chicken
 PLCAnimals_SSLZ_End
 
-PLCAnimals_WZ: plrlistheader
+PLCAnimals_TTPZ: plrlistheader
 		plreq $580, ArtKosM_Squirrel
 		plreq $592, ArtKosM_BlueFlicky
-PLCAnimals_WZ_End
+PLCAnimals_TTPZ_End
+
+PLCAnimals_MMZ: plrlistheader
+		plreq $580, ArtKosM_Squirrel
+		plreq $592, ArtKosM_Chicken
+PLCAnimals_MMZ_End
 
 PLCAnimals_DEZ1: plrlistheader
 		plreq $580, ArtKosM_BlueFlicky
 		plreq $592, ArtKosM_Chicken
 PLCAnimals_DEZ1_End
 
-PLCAnimals_TTZ1: plrlistheader
+PLCAnimals_TTSZ1: plrlistheader
 		plreq $580, ArtKosM_BlueFlicky
 		plreq $592, ArtKosM_Chicken
-PLCAnimals_TTZ1_End
+PLCAnimals_TTSZ1_End

@@ -5,9 +5,10 @@ Map_TitleCard:
 		dc.w TCard_ZONE-Map_TitleCard	; ZONE
 		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
 		dc.w TCard_SSLZ-Map_TitleCard	; SEASIDE LAND
-		dc.w TCard_WZ-Map_TitleCard		; WOOD
+		dc.w TCard_TTPZ-Map_TitleCard	; TREE TOP
+		dc.w TCard_MMZ-Map_TitleCard	; MECHA MUSHROOM
 		dc.w TCard_DEZ-Map_TitleCard	; DEATH EGG
-		dc.w TCard_TTZ-Map_TitleCard	; TECHNO TEST
+		dc.w TCard_TTSZ-Map_TitleCard	; TECHNO TEST
 ; Some instructions for title card letters.
 ;
 ; First value: Always zero.
@@ -73,12 +74,23 @@ TCard_SSLZ:
 		dc.b $0, $6, $84, $D3, $0, $60			; A
 		dc.b $0, $6, $84, $A2, $0, $70			; N
 		dc.b $0, $6, $84, $DC, $0, $80			; D
-TCard_WZ:
+TCard_TTPZ:
 		dc.w 4 ; four letters
 		dc.b $0, $A, $84, $CD, $0, $8			; W
 		dc.b $0, $A, $84, $A8, $0, $20			; O
 		dc.b $0, $A, $84, $A8, $0, $38			; O
 		dc.b $0, $6, $84, $D6, $0, $50			; D
+TCard_MMZ:	dc.w $A			; DATA XREF: ROM:0002EE10o
+		dc.b	0,  $A,	$84, $59+$80, $FF, $B0
+		dc.b	0,   6,	$84, $6E+$80, $FF, $C8
+		dc.b	0,   6,	$84, $68+$80, $FF, $D8
+		dc.b	0,   6,	$84, $4D+$80, $FF, $E8
+		dc.b	0,   6,	$84, $62+$80, $FF, $F8
+		dc.b	0,  $A,	$84, $28+$80,   0,	 8
+		dc.b	0,  $A,	$84, $28+$80,   0, $20
+		dc.b	0,  $A,	$84, $59+$80,   0, $38
+		dc.b	0,  $E,	$84, $4D+$80,   0, $58
+		dc.b	0,   2,	$84, $56+$80,   0, $78
 TCard_DEZ:
 		dc.w 8
 		dc.b	0, 6, $84, $D3, $FF, $F8		; D
@@ -90,7 +102,7 @@ TCard_DEZ:
 		dc.b	0, 6, $84, $9C, 0, $50			; E
 		dc.b	0, 6, $84, $D9, 0, $60			; G
 		dc.b	0, 6, $84, $D9, 0, $70			; G
-TCard_TTZ:
+TCard_TTSZ:
 		dc.w 10
 		dc.b	0, 6, $84, $CD, $FF, $E0		; T
 		dc.b	0, 6, $84, $9C, $FF, $F0		; E

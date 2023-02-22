@@ -13,10 +13,15 @@ DebugList: offsetTable
 		offsetTableEntry.w .SSLZ1
 		offsetTableEntry.w .SSLZ1
 
-		offsetTableEntry.w .WZ1
-		offsetTableEntry.w .WZ1
-		offsetTableEntry.w .WZ1
-		offsetTableEntry.w .WZ1
+		offsetTableEntry.w .TTPZ1
+		offsetTableEntry.w .TTPZ1
+		offsetTableEntry.w .TTPZ1
+		offsetTableEntry.w .TTPZ1
+
+		offsetTableEntry.w .DEZ1
+		offsetTableEntry.w .DEZ1
+		offsetTableEntry.w .DEZ1
+		offsetTableEntry.w .DEZ1
 
 		offsetTableEntry.w .DEZ1
 		offsetTableEntry.w .DEZ1
@@ -103,7 +108,7 @@ DebugList: offsetTable
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
 .SSLZ1_End
 
-.WZ1: dbglistheader
+.TTPZ1: dbglistheader
 	dbglistobj Obj_Ring, Map_Ring, 0, 0, make_art_tile(ArtTile_Ring,1,1)
 	dbglistobj Obj_Coin, Map_Ring, 0, 0, make_art_tile(ArtTile_Coin,1,1)
 	dbglistobj Obj_Monitor, Map_Monitor, 2, 3, make_art_tile(ArtTile_Monitors,0,0)
@@ -133,7 +138,7 @@ DebugList: offsetTable
 	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
 	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
-.WZ1_End
+.TTPZ1_End
 
 .DEZ1: dbglistheader
 	dbglistobj Obj_Ring, Map_Ring, 0, 0, make_art_tile(ArtTile_Ring,1,1)

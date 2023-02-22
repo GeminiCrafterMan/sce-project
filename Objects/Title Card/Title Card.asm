@@ -271,9 +271,10 @@ ObjArray_TtlCardBonus:
 TitleCard_LevelGfx:
 		dc.l ArtKosM_GHZTitleCard	; GHZ
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
-		dc.l ArtKosM_WZTitleCard	; WZ
+		dc.l ArtKosM_TTPZTitleCard	; TTPZ
+		dc.l ArtKosM_MMZTitleCard	; MMZ
 		dc.l ArtKosM_DEZTitleCard	; DEZ
-		dc.l ArtKosM_TTZTitleCard	; TTZ
+		dc.l ArtKosM_TTSZTitleCard	; TTSZ
 
 		zonewarning TitleCard_LevelGfx,4
 ; ---------------------------------------------------------------------------
