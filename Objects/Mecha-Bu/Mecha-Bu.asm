@@ -91,6 +91,7 @@ Obj_MechaBuPartTwo:	; saw and horn
 ;		move.w	d0,child_dx(a0)
 	.swapdone:
 		clr.w	wait(a0)
+		sfx		sfx_MechaBuSawLift
 		bra.s	.display
 	.ret:
 		rts
