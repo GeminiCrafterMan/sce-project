@@ -17,12 +17,12 @@ Obj_Index:
 		dc.l DeleteObject						; $0B
 		dc.l Obj_TensionBridge					; $0C
 		dc.l Obj_EndSign						; $0D
-		dc.l DeleteObject						; $0E
-		dc.l DeleteObject						; $0F
-		dc.l DeleteObject						; $10
-		dc.l DeleteObject						; $11
-		dc.l DeleteObject						; $12
-		dc.l DeleteObject						; $13
+		dc.l Obj_BadnikSlot1					; $0E
+		dc.l Obj_BadnikSlot2					; $0F
+		dc.l Obj_BadnikSlot3					; $10
+		dc.l Obj_BadnikSlot4					; $11
+		dc.l Obj_BadnikSlot5					; $12
+		dc.l Obj_BadnikSlot6					; $13
 		dc.l DeleteObject						; $14
 		dc.l Obj_SwingingPlatform				; $15
 		dc.l DeleteObject						; $16
@@ -34,10 +34,10 @@ Obj_Index:
 		dc.l Obj_Decoration						; $1C
 		dc.l DeleteObject						; $1D
 		dc.l DeleteObject						; $1E
-		dc.l Obj_Crabmeat						; $1F
-		dc.l Obj_Spikebonker					; $20
-		dc.l Obj_BataPyon						; $21
-		dc.l Obj_BuzzBomber						; $22
+		dc.l DeleteObject						; $1F
+		dc.l DeleteObject						; $20
+		dc.l DeleteObject						; $21
+		dc.l DeleteObject						; $22
 		dc.l DeleteObject						; $23
 		dc.l DeleteObject						; $24
 		dc.l DeleteObject						; $25
@@ -46,9 +46,9 @@ Obj_Index:
 		dc.l Obj_Invisible_SolidBlock			; $28
 		dc.l DeleteObject						; $29
 		dc.l DeleteObject						; $2A
-		dc.l Obj_Chopper						; $2B
-		dc.l Obj_MechaBu						; $2C
-		dc.l Obj_Burrobot						; $2D
+		dc.l DeleteObject						; $2B
+		dc.l DeleteObject						; $2C
+		dc.l DeleteObject						; $2D
 		dc.l DeleteObject						; $2E
 		dc.l DeleteObject						; $2F
 		dc.l DeleteObject						; $30
@@ -67,7 +67,7 @@ Obj_Index:
 		dc.l DeleteObject						; $3D
 		dc.l DeleteObject						; $3E
 		dc.l DeleteObject						; $3F
-		dc.l Obj_Motobug						; $40
+		dc.l DeleteObject						; $40
 		dc.l DeleteObject						; $41
 		dc.l DeleteObject						; $42
 		dc.l DeleteObject						; $43

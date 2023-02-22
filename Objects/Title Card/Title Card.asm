@@ -119,7 +119,7 @@ Obj_TitleCardWait2:
 +		lea	(PLC_Main2).l,a5
 		jsr	(LoadPLC_Raw_KosM).w
 		jsr	(LoadPLC2_KosM).w	; load zone PLCs
-		jsr	LoadPLC_Animals(pc)
+		jsr	(LoadPLC_Animals).l
 		move.b	#1,(HUD_RAM.status).w
 		clr.b	(Ctrl_1_locked).w
 		clr.b	(Player_1+object_control).w

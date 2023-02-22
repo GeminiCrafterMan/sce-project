@@ -44,6 +44,7 @@
 		include "Objects/Smooth Palette/Smooth Palette.asm"
 		include "Objects/Decoration/Decoration.asm"
 		include	"Objects/Floating Platform/Floating Platform.asm"
+		include	"Objects/Generic Badnik Slots.asm"
 
 ; ===========================================================================
 ; Levels objects data
