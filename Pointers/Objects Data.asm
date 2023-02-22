@@ -67,6 +67,9 @@
 		include	"Objects/Burrobot/Burrobot.asm"
 		include	"Objects/Spiral/Spiral.asm"
 
+	; WZ
+		include	"Objects/Mecha-Bu/Mecha-Bu.asm"
+
 ; ===========================================================================
 ; Bosses objects data
 ; ===========================================================================

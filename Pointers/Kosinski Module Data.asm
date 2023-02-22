@@ -124,7 +124,8 @@ ArtKosM_Burrobot:			binclude "Objects/Burrobot/KosinskiM Art/Burrobot.bin"
 ; Kosinski Module compressed WZ graphics
 ; ===========================================================================
 
-; shit goes here
+ArtKosM_MechaBu:			binclude "Objects/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin"
+	even
 
 ; ===========================================================================
 ; Kosinski Module compressed DEZ graphics

@@ -120,6 +120,7 @@ PLC1_WZ_Misc_end
 ; ===========================================================================
 
 PLC2_WZ_Enemy: plrlistheader
+		plreq	ArtTile_Motobug, ArtKosM_MechaBu
 PLC2_WZ_Enemy_end
 
 ; ===========================================================================
