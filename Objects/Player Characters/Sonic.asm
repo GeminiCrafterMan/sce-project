@@ -1749,6 +1749,7 @@ Player_Transform:
 		move.b	#-1,(Super_Sonic_Knux_flag).w		; set flag to Hyper Sonic
 		music	bgm_SKInvincible					; if invincible, play invincibility music
 		move.l	#Obj_HyperSonic_Stars,(v_Invincibility_stars).w	; load Hyper Stars object
+		move.b	#1,(v_Invincibility_stars+anim).w
 		move.l	#Obj_HyperSonicKnux_Trail,(v_Super_stars).w	; load After-Images object
 		move.w	a0,(v_Super_stars+parent).w
 		bra.s	.continued
@@ -1758,6 +1759,7 @@ Player_Transform:
 		move.b	#1,(Super_Sonic_Knux_flag).w		; set flag to Super Sonic
 		music	bgm_S3Invincible					; if invincible, play invincibility music
 		move.l	#Obj_SuperSonicKnux_Stars,(v_Super_stars).w	; load Super Stars object
+		move.b	#1,(v_Super_stars+anim).w
 
 	.continued:
 		move.w	#$A00,Top_speed_P1-Top_speed_P1(a4)

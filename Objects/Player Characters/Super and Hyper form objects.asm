@@ -90,6 +90,7 @@ loc_19246:
 		move.w	x_pos(a2),x_pos(a1)
 		move.w	y_pos(a2),y_pos(a1)
 		move.l	#Map_SuperSonic_Stars2,mappings(a1)
+		move.b	#4,(Hyper_Sonic_flash_timer).w
 		move.w	#$879C,art_tile(a1)
 		move.b	#$84,render_flags(a1)
 		move.w	#$380,priority(a1)
