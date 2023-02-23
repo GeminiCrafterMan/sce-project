@@ -75,7 +75,7 @@ Buzz_Action:	; Routine 2
 		add.w	d0,obX(a1)
 		move.b	obStatus(a0),obStatus(a1)
 		move.w	#$E,wait(a1)
-		move.w	a0,obParent(a1)
+;		move.w	a0,parent3(a1)
 		move.b	#1,buzz_buzzstatus(a0) ; set to "already fired" to prevent refiring
 		move.w	#59,wait(a0)
 		move.b	#2,obAnim(a0)	; use "firing" animation
@@ -141,7 +141,7 @@ Msl_Index:	dc.w Msl_Main-Msl_Index
 
 Msl_Main:	; Routine 0
 		subq.w	#1,wait(a0)
-		bpl.s	Msl_ChkCancel
+		bpl.s	.ret
 		move.b	#3,obAnim(a0)
 		addq.b	#2,obRoutine(a0)
 		move.l	#Map_BuzzBomber,obMap(a0)
@@ -158,29 +158,14 @@ Msl_Main:	; Routine 0
 		move.b	#$87,obColType(a0)
 		move.b	#4,obAnim(a0)
 		bra.w	Msl_Animate2
+	.ret:
+		rts
 ; ===========================================================================
 
 Msl_Animate:	; Routine 2
-		movea.w	obParent(a0),a1
-		tst.l	address(a1) ; has Buzz Bomber been destroyed?
-		beq.s	Msl_Delete	; if yes, branch
 		lea	(Ani_Buzz).l,a1
 		jsr		AnimateSprite
 		jmp		DisplaySprite
-
-; ---------------------------------------------------------------------------
-; Subroutine to	check if the Buzz Bomber which fired the missile has been
-; destroyed, and if it has, then cancel	the missile
-; ---------------------------------------------------------------------------
-; ||||||||||||||| S U B	R O U T	I N E |||||||||||||||||||||||||||||||||||||||
-
-
-Msl_ChkCancel:
-		movea.w	obParent(a0),a1
-		tst.l	address(a1) ; has Buzz Bomber been destroyed?
-		beq.s	Msl_Delete	; if yes, branch
-		rts	
-; End of function Msl_ChkCancel
 
 ; ===========================================================================
 
@@ -204,6 +189,7 @@ Msl_FromBuzz:	; Routine 4
 		bcs.s	Msl_Delete	; if yes, branch
 		jsr		Add_SpriteToCollisionResponseList
 		jmp		DisplaySprite
+;		jmp		Child_DrawTouch_Sprite
 ; ===========================================================================
 
 .explode:
@@ -226,6 +212,7 @@ Msl_Animate2:
 		jsr		AnimateSprite
 		jsr		Add_SpriteToCollisionResponseList
 		jmp		DisplaySprite
+;		jmp		Child_DrawTouch_Sprite
 
 		include "Objects/Buzz Bomber/Object Data/Anim - Buzz Bomber.asm"
 Map_BuzzBomber:		binclude "Objects/Buzz Bomber/Object Data/Map - Buzz Bomber.bin"

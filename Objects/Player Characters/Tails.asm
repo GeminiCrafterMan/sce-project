@@ -873,6 +873,14 @@ loc_1612C:
 loc_1613C:
 		lea		(AniTails_Tail).l,a1
 		bsr.w	Animate_Tails_Part2
+
+		move.b	invulnerability_timer(a2),d0
+		beq.s	loc_16146
+		addq.b	#1,d0
+		lsr.b	#3,d0
+		bcc.w	loc_15A92.ret	; hate
+
+loc_16146:
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	loc_1615A
 		cmpi.b	#3,anim(a0)		; Is this the Directional animation?
