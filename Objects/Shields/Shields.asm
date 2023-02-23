@@ -176,9 +176,8 @@ Obj_Fire_Shield:
 		move.w	x_pos(a2),x_pos(a0)
 		move.w	y_pos(a2),y_pos(a0)
 		tst.b	anim(a0)											; is shield in its 'dashing' state?
-		bne.s	.nothighpriority2									; if so, do not update orientation or allow changing of the priority art_tile bit
-		move.b	status(a2),status(a0)								; inherit status
-		andi.b	#1,status(a0)										; limit inheritance to 'orientation' bit
+		bne.s	.dashing									; if so, do not update orientation or allow changing of the priority art_tile bit
+		bclr	#0,status(a0)
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	.normalgravity
 		ori.b	#2,status(a0)										; if in reverse gravity, reverse the vertical mirror render_flag bit (On if Off beforehand and vice versa)
@@ -188,6 +187,10 @@ Obj_Fire_Shield:
 		tst.w	art_tile(a2)
 		bpl.s	.nothighpriority2
 		ori.w	#high_priority,art_tile(a0)
+		bra.s	.nothighpriority2
+.dashing
+		move.b	status(a2),status(a0)								; inherit status
+		andi.b	#1,status(a0)										; limit inheritance to 'orientation' bit
 
 .nothighpriority2
 		lea	Ani_FireShield(pc),a1
@@ -258,8 +261,6 @@ Obj_Lightning_Shield:
 		bne.s	.destroyunderwater								; if so, branch
 		move.w	x_pos(a2),x_pos(a0)
 		move.w	y_pos(a2),y_pos(a0)
-		move.b	status(a2),status(a0)								; inherit status
-		andi.b	#1,status(a0)										; limit inheritance to 'orientation' bit
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	.normalgravity
 		ori.b	#2,status(a0)										; if in reverse gravity, reverse the vertical mirror render_flag bit (On if Off beforehand and vice versa)
@@ -428,8 +429,6 @@ Obj_Bubble_Shield:
 		beq.s	.destroy											; if not, change to Insta-Shield
 		move.w	x_pos(a2),x_pos(a0)
 		move.w	y_pos(a2),y_pos(a0)
-		move.b	status(a2),status(a0)								; inherit status
-		andi.b	#1,status(a0)										; limit inheritance to 'orientation' bit
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	.normalgravity
 		ori.b	#2,status(a0)										; reverse the vertical mirror render_flag bit (On if Off beforehand and vice versa)
@@ -486,8 +485,6 @@ Obj_Insta_Shield:
 		bne.s	Obj_Bubble_Shield.return							; if so, return
 		move.w	x_pos(a2),x_pos(a0)								; inherit player's x_pos
 		move.w	y_pos(a2),y_pos(a0)								; inherit player's y_pos
-		move.b	status(a2),status(a0)								; inherit status
-		andi.b	#1,status(a0)										; limit inheritance to 'orientation' bit
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	.normalgravity
 		ori.b	#2,status(a0)										; reverse the vertical mirror render_flag bit (On if Off beforehand and vice versa)
