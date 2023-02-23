@@ -5,7 +5,7 @@
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
       <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="1" startpal="0" />
     </ImageFromMappings>
-    <ImageFromMappings id="sonic">
+    <ImageFromMappings id="doubleshield">
       <ArtFile filename="../Objects/Monitor/KosinskiM Art/Monitors.bin" compression="KosinskiM" />
       <MapFile type="Binary" filename="../Objects/Monitor/Object Data/Map - Monitor.bin" frame="2" startpal="0" />
     </ImageFromMappings>
@@ -52,7 +52,7 @@
   </Images>
   <Subtypes>
     <Subtype id="00" name="Static" image="static" />
-    <Subtype id="01" name="1-up" image="sonic" />
+    <Subtype id="01" name="Double Shield" image="doubleshield" />
     <Subtype id="02" name="Eggman" image="eggman" />
     <Subtype id="03" name="Rings" image="rings" />
     <Subtype id="04" name="Shoes" image="shoes" />
@@ -70,7 +70,7 @@
   <Enums>
     <Enum name="MonitorType">
       <EnumMember name="Static" />
-      <EnumMember name="1-up" />
+      <EnumMember name="Double Shield" />
       <EnumMember name="Eggman" />
       <EnumMember name="Rings" />
       <EnumMember name="Shoes" />

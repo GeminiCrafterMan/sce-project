@@ -295,7 +295,7 @@ loc_1D850:
 
 Obj_MonitorContents_Types: offsetTable
 		offsetTableEntry.w Monitor_Give_Eggman			; 0
-		offsetTableEntry.w Monitor_Give_Eggman			; 2
+		offsetTableEntry.w Monitor_Give_Double_Shield	; 2
 		offsetTableEntry.w Monitor_Give_Eggman			; 4
 		offsetTableEntry.w Monitor_Give_Rings				; 6
 		offsetTableEntry.w Monitor_Give_Super_Sneakers		; 8
@@ -309,6 +309,13 @@ Obj_MonitorContents_Types: offsetTable
 
 Monitor_Give_Eggman:
 		jmp	sub_24280(pc)
+; ---------------------------------------------------------------------------
+
+Monitor_Give_Double_Shield:
+		andi.b	#$8E,status_secondary(a1)
+		bset	#Status_Shield,status_secondary(a1)
+		move.l	#Obj_Double_Shield,(v_Shield).w
+		sfx	sfx_NormalShield,1
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Rings:

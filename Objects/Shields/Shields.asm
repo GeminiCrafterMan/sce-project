@@ -8,6 +8,136 @@ Art_Address					= $38
 DPLC_Address		 		= $3C
 
 ; ---------------------------------------------------------------------------
+; Double Shield
+; ---------------------------------------------------------------------------
+
+; =============== S U B R O U T I N E =======================================
+
+Obj_Double_Shield:
+		; init
+		lea		(v_Shield_Part2).w,a1
+		move.w	a0,parent3(a1)
+		move.l	#Obj_DoubleShieldRing,address(a1)				; make new object a shield ring
+		move.w	#make_art_tile(ArtTile_Shield+17,0,0),art_tile(a1)
+		move.w	#tiles_to_bytes(ArtTile_Shield+17),vram_art(a1)			; used by PLCLoad_Shields
+		move.b	#1,anim(a1)
+		lea		(v_Shield_Part3).w,a1
+		move.w	a0,parent3(a1)
+		move.l	#Obj_DoubleShieldRing,address(a1)				; make new object a shield ring
+		move.w	#make_art_tile(ArtTile_Shield+24,0,0),art_tile(a1)
+		move.w	#tiles_to_bytes(ArtTile_Shield+24),vram_art(a1)			; used by PLCLoad_Shields
+		move.b	#2,anim(a1)
+.didntMakeRings
+		bset	#Status_Shield,status_secondary(a0)	; set own shield flag, for use when determining if it should be destroyed yet
+		move.l	#Map_DoubleShield,mappings(a0)
+		move.l	#PLC_DoubleShield,DPLC_Address(a0)				; used by PLCLoad_Shields
+		move.l	#ArtUnc_DoubleShield>>1,Art_Address(a0)			; used by PLCLoad_Shields
+		move.b	#4,render_flags(a0)
+		move.w	#$80,priority(a0)
+		move.w	#bytes_to_word(48/2,48/2),height_pixels(a0)			; set height and width
+		move.w	#make_art_tile(ArtTile_Shield,0,0),art_tile(a0)
+		move.w	#tiles_to_bytes(ArtTile_Shield),vram_art(a0)			; used by PLCLoad_Shields
+		btst	#7,(Player_1+art_tile).w
+		beq.s	.nothighpriority
+		bset	#7,art_tile(a0)
+
+.nothighpriority
+		move.w	#1,anim(a0)										; clear anim and set prev_anim to 1
+		st	LastLoadedDPLC(a0)									; reset LastLoadedDPLC (used by PLCLoad_Shields)
+		move.l	#.main,address(a0)
+
+.main
+		lea	(Player_1).w,a2
+		btst	#Status_Invincible,status_secondary(a2)					; is player invincible?
+		bne.s	.return											; if so, do not display and do not update variables
+		cmpi.b	#id_Null,anim(a2)								; is player in their 'blank' animation?
+		beq.s	.return											; if so, do not display and do not update variables
+		btst	#Status_Shield,status_secondary(a2)						; should the player still have a shield?
+		beq.s	.destroy											; if not, change to Insta-Shield
+		move.w	x_pos(a2),x_pos(a0)
+		move.w	y_pos(a2),y_pos(a0)
+		tst.b	(Reverse_gravity_flag).w
+		beq.s	.normalgravity
+		ori.b	#2,status(a0)										; reverse the vertical mirror render_flag bit (On if Off beforehand and vice versa)
+
+.normalgravity
+		andi.w	#drawing_mask,art_tile(a0)
+		tst.w	art_tile(a2)
+		bpl.s	.nothighpriority2
+		ori.w	#high_priority,art_tile(a0)
+
+.nothighpriority2
+		lea	Ani_DoubleShield(pc),a1
+		jsr	(Animate_Sprite).w
+		bsr.w	PLCLoad_Shields
+		jmp	(Draw_Sprite).w
+; ---------------------------------------------------------------------------
+
+.destroy
+		btst	#Status_Shield,status_secondary(a0)
+		bne.s	.dontdestroyyet
+		andi.b	#$8E,status_secondary(a2)							; sets Status_Shield, Status_FireShield, Status_LtngShield, and Status_BublShield to 0
+		move.l	#Obj_Insta_Shield,address(a0)						; replace the Double Shield with the Insta-Shield
+		rts
+
+.dontdestroyyet
+		bclr	#Status_Shield,status_secondary(a0)
+		bset	#Status_Shield,status_secondary(a2)
+
+.return
+		rts
+
+Obj_DoubleShieldRing:
+		move.l	#Map_DoubleShield,mappings(a0)
+		move.l	#PLC_DoubleShield,DPLC_Address(a0)				; used by PLCLoad_Shields
+		move.l	#ArtUnc_DoubleShield>>1,Art_Address(a0)			; used by PLCLoad_Shields
+		move.b	#4,render_flags(a0)
+		move.w	parent3(a0),a2
+		beq.w	.destroy
+		move.w	#bytes_to_word(48/2,48/2),height_pixels(a0)			; set height and width
+		btst	#7,art_tile(a2)
+		beq.s	.nothighpriority
+		bset	#7,art_tile(a0)
+
+.nothighpriority
+		st	LastLoadedDPLC(a0)									; reset LastLoadedDPLC (used by PLCLoad_Shields)
+		move.l	#.main,address(a0)
+.main:
+		lea	(Player_1).w,a2
+		btst	#Status_Invincible,status_secondary(a2)					; is player invincible?
+		bne.w	.return											; if so, do not display and do not update variables
+		move.w	x_pos(a2),x_pos(a0)
+		move.w	y_pos(a2),y_pos(a0)
+		move.w	parent3(a0),a2
+		btst	#Status_Shield,status_secondary(a2)
+		beq.w	.destroy
+		tst.b	(Reverse_gravity_flag).w
+		beq.s	.normalgravity
+		ori.b	#2,status(a0)										; if in reverse gravity, reverse the vertical mirror render_flag bit (On if Off beforehand and vice versa)
+
+.normalgravity
+		andi.w	#drawing_mask,art_tile(a0)
+		tst.w	art_tile(a2)
+		bpl.s	.nothighpriority2
+		ori.w	#high_priority,art_tile(a0)
+
+.nothighpriority2
+		lea	Ani_DoubleShield(pc),a1
+		jsr	(Animate_Sprite).w
+		move.w	#$80,priority(a0)								; layer shield over player sprite
+		cmpi.b	#$1D,mapping_frame(a0)							; are these the frames that display in front of the player?
+		blo.s	.overplayer										; if so, branch
+		move.w	#$200,priority(a0)								; if not, layer shield behind player sprite
+
+.overplayer
+		bsr.w	PLCLoad_Shields
+		jmp	(Draw_Sprite).w
+
+.destroy
+		jmp		DeleteObject
+.return
+		rts
+; ---------------------------------------------------------------------------
 ; Fire Shield
 ; ---------------------------------------------------------------------------
 
@@ -593,11 +723,14 @@ byte_18A1B:
 		dc.b    6,   5,   4,   3,   2
 ; ---------------------------------------------------------------------------
 
+		include "Objects/Shields/Object Data/Anim - Double Shield.asm"
 		include "Objects/Shields/Object Data/Anim - Fire Shield.asm"
 		include "Objects/Shields/Object Data/Anim - Lightning Shield.asm"
 		include "Objects/Shields/Object Data/Anim - Bubble Shield.asm"
 		include "Objects/Shields/Object Data/Anim - Insta-Shield.asm"
 Map_Invincibility:		binclude "Objects/Shields/Object Data/Map - Invincibility.bin"
+Map_DoubleShield:		binclude "Objects/Shields/Object Data/Map - Double Shield.bin"
+PLC_DoubleShield:		binclude "Objects/Shields/Object Data/PLC - Double Shield.bin"
 Map_FireShield:			binclude "Objects/Shields/Object Data/Map - Fire Shield.bin"
 PLC_FireShield:			binclude "Objects/Shields/Object Data/PLC - Fire Shield.bin"
 Map_LightningShield:	binclude "Objects/Shields/Object Data/Map - Lightning Shield.bin"

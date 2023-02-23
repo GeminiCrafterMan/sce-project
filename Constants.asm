@@ -541,7 +541,7 @@ ArtTile_DashDust_P2			= $7F0
 ; Common
 ; ---------------------------------------------------------------------------
 
-ArtTile_Bridge:				= $501
+ArtTile_Bridge:				= $502
 
 ; ---------------------------------------------------------------------------
 ; Green Hill Zone
@@ -552,8 +552,8 @@ ArtTile_SmashableWalls:		= $3B0
 ArtTile_PurpleRock:			= $3CB
 ArtTile_Crabmeat:			= $400
 ArtTile_BuzzBomber:			= $444
-ArtTile_Chopper:			= $50D
-ArtTile_Motobug:			= $52D
+ArtTile_Chopper:			= $50E
+ArtTile_Motobug:			= $52E
 
 ; ---------------------------------------------------------------------------
 ; Seaside Land Zone

@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "8cdbc348-4533-4e3f-b59a-4a24887bdef4",
+    "node": "a9306459-c030-4be8-8e4c-84aeb79928f4",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -322,7 +322,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
         },
         {
@@ -593,6 +593,26 @@
                 },
                 {
                     "uuid": "7b467e40-2019-44f8-b066-1da179eea748",
+                    "format": "Sonic 3&K Player.js",
+                    "name": "Double Shield",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Shields/Uncompressed Art/Double Shield.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Shields/Object Data/Map - Double Shield.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Shields/Object Data/PLC - Double Shield.bin",
+                        "label": ""
+                    }
+                },
+                {
+                    "uuid": "7df4fbdd-0aa9-4c2e-a9e9-158e33822c0b",
                     "format": "Sonic 3&K Player.js",
                     "name": "Bubble Shield",
                     "palettes": [],

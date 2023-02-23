@@ -59,6 +59,7 @@ ptr_snd6B:	SMPS_SFX_METADATA	Sound6B, $70, 0
 ptr_snd6C:	SMPS_SFX_METADATA	Sound6C, $70, 0
 ptr_snd6D:	SMPS_SFX_METADATA	Sound6D, $70, 0
 ptr_snd6E:	SMPS_SFX_METADATA	Sound6E, $70, 0
+ptr_snd6F:	SMPS_SFX_METADATA	Sound6F, $70, 0
 
 ptr_sndend
 ; ---------------------------------------------------------------------------
@@ -158,4 +159,6 @@ Sound6C:	include	"Sound/SFX/Snd - Score Tally.asm"
 Sound6D:	include	"Sound/SFX/Snd - Signpost.asm"
 	even
 Sound6E:	include "Sound/SFX/Snd - Mecha-Bu Saw Lift.asm"
+	even
+Sound6F:	include	"Sound/SFX/Snd - Normal Shield.asm"
 	even

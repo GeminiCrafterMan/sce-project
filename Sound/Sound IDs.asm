@@ -85,6 +85,7 @@ sfx_MechaDash =			SMPS_id(ptr_snd6B)
 sfx_ScoreTally =		SMPS_id(ptr_snd6C)
 sfx_Signpost =			SMPS_id(ptr_snd6D)
 sfx_MechaBuSawLift =	SMPS_id(ptr_snd6E)
+sfx_NormalShield =		SMPS_id(ptr_snd6F)
 
 sfx__Last =			SMPS_id(ptr_sndend)-1
 

@@ -19,8 +19,9 @@ v_Dust_P1:							ds.b object_size
 v_Dust_P2:							ds.b object_size
 v_FollowObject_P1:					ds.b object_size
 v_FollowObject_P2:					ds.b object_size
+v_Shield_Part2:						ds.b object_size
+v_Shield_Part3:						ds.b object_size
 v_Shield:							ds.b object_size
-									ds.b object_size
 v_Breathing_bubbles_P1:				ds.b object_size
 v_Breathing_bubbles_P2:				ds.b object_size
 v_Super_stars:						ds.b object_size

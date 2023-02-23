@@ -30,6 +30,8 @@ ArtUnc_Invincibility:				binclude "Objects/Shields/Uncompressed Art/Invincibilit
 	even
 ArtUnc_InstaShield:					binclude "Objects/Shields/Uncompressed Art/Insta-Shield.bin"
 	even
+ArtUnc_DoubleShield:				binclude "Objects/Shields/Uncompressed Art/Double Shield.bin"
+	even
 ArtUnc_FireShield:					binclude "Objects/Shields/Uncompressed Art/Fire Shield.bin"
 	even
 ArtUnc_LightningShield:				binclude "Objects/Shields/Uncompressed Art/Lightning Shield.bin"

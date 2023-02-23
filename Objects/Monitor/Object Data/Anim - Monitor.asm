@@ -1,6 +1,6 @@
 Ani_Monitor: offsetTable
 		offsetTableEntry.w .static
-		offsetTableEntry.w .1up
+		offsetTableEntry.w .doubleshield
 		offsetTableEntry.w .eggman
 		offsetTableEntry.w .rings
 		offsetTableEntry.w .shoes
@@ -12,7 +12,7 @@ Ani_Monitor: offsetTable
 		offsetTableEntry.w .hyper
 		offsetTableEntry.w .broken
 .static:	dc.b	1,   0,	  1, afEnd
-.1up:	dc.b	1,   0,	  2,   2,   1,	 2,   2, afEnd
+.doubleshield:	dc.b	1,   0,	  2,   2,   1,	 2,   2, afEnd
 .eggman:	dc.b	1,   0,	  3,   3,   1,	 3,   3, afEnd
 .rings:	dc.b	1,   0,	  4,   4,   1,	 4,   4, afEnd
 .shoes:	dc.b	1,   0,	  5,   5,   1,	 5,   5, afEnd
