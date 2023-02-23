@@ -22,16 +22,7 @@ ArtUnc_SuperSonic_Stars:	binclude	"Objects/Player characters/Uncompressed Art/Su
 ; ===========================================================================
 ; Animated uncompressed graphics
 ; ===========================================================================
-
-ArtUnc_AniDEZ__3:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/3.bin"
-	even
-ArtUnc_AniDEZ__4:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/4.bin"
-	even
-ArtUnc_AniDEZ__5:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/5.bin"
-	even
-ArtUnc_AniDEZ__6:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/6.bin"
-	even
-
+; Green Hill
 Art_GhzFlowerStalk:			binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flower Stalk.bin"
 	even
 Art_GhzWater:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Waterfall.bin"
@@ -40,13 +31,35 @@ Art_GhzFlower1:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flow
 	even
 Art_GhzFlower2:				binclude "Levels/GHZ/Animated Tiles/Uncompressed Art/GHZ Flower Small.bin"
 	even
-
+; Seaside Land
 Art_SslzWater:				binclude "Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ Waterfall.bin"
 	even
-
+; Tree Top
 Art_TtpzPoison1:			binclude "Levels/TTPZ/Animated Tiles/Uncompressed Art/TTPZ Poison Surface.bin"
 	even
 Art_TtpzPoison2:			binclude "Levels/TTPZ/Animated Tiles/Uncompressed Art/TTPZ Poison.bin"
+	even
+; Mecha Mushroom
+ArtUnc_AniMMZ__BG:			binclude "Levels/MMZ/Animated Tiles/Uncompressed Art/BG 1.bin"
+	even
+ArtUnc_AniMMZ__BG2:			binclude "Levels/MMZ/Animated Tiles/Uncompressed Art/BG 2.bin"
+	even
+ArtUnc_AniMMZ__0:			binclude "Levels/MMZ/Animated Tiles/Uncompressed Art/0.bin"
+	even
+ArtUnc_AniMMZ__1:			binclude "Levels/MMZ/Animated Tiles/Uncompressed Art/1.bin"
+	even
+ArtUnc_AniMMZ__2:			binclude "Levels/MMZ/Animated Tiles/Uncompressed Art/2.bin"
+	even
+ArtUnc_AniMMZ__3:			binclude "Levels/MMZ/Animated Tiles/Uncompressed Art/3.bin"
+	even
+; Death Egg
+ArtUnc_AniDEZ__3:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/3.bin"
+	even
+ArtUnc_AniDEZ__4:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/4.bin"
+	even
+ArtUnc_AniDEZ__5:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/5.bin"
+	even
+ArtUnc_AniDEZ__6:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/6.bin"
 	even
 
 ; ===========================================================================

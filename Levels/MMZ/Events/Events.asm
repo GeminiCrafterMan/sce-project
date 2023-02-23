@@ -34,21 +34,24 @@ MMZ_RefreshPlane:
 MMZ1_BackgroundInit:
 		bsr.w	MMZ_Deform
 		jsr	(Reset_TileOffsetPositionEff).w
+		moveq	#0,d1
 		jsr	(Refresh_PlaneFull).w
-		bra.s	MMZ1_BackgroundEvent.deform
+		jmp	PlainDeformation
 
 ; =============== S U B R O U T I N E =======================================
 
 MMZ1_BackgroundEvent:
 		tst.b (Background_event_flag).w
 		bne.s	MMZ1_Transition
-		bsr.w	MMZ_Deform
 
 .deform:
-		lea	MMZ1_BGDeformArray(pc),a4
-		lea	(H_scroll_table).w,a5
-		jsr	(ApplyDeformation).w
-		jmp	(ShakeScreen_Setup).w
+		bsr.w	MMZ_Deform
+		lea	(Camera_Y_pos_BG_copy).w,a6
+		lea	(Camera_Y_pos_BG_rounded).w,a5
+		moveq	#0,d1
+		moveq	#$20,d6
+		jsr	Draw_TileRow
+		jmp	PlainDeformation
 ; ---------------------------------------------------------------------------
 
 MMZ1_Transition:
@@ -57,7 +60,6 @@ MMZ1_Transition:
 		beq.s	.ret
 		jmp		Transition_Generic
 	.ret:
-		bsr.s	MMZ_Deform
 		bra.s	MMZ1_BackgroundEvent.deform
 ; ---------------------------------------------------------------------------
 
@@ -66,22 +68,33 @@ MMZ1_BGDeformArray:
 ; ---------------------------------------------------------------------------
 
 MMZ_Deform:
-	; Vertical scrolling!!
 		move.w	(Camera_Y_pos_copy).w,d0
-		andi.w	#$FFF,d0	; used to be $7FF
-		lsr.w	#5,d0
-		neg.w	d0
-		addi.w	#$80,d0
-		bpl.s	.limitY
-		moveq	#0,d0
-	.limitY:
-		move.w	d0,d4
+		swap	d0
+		clr.w	d0
+		asr.l	#3,d0
+		move.l	d0,d1
+		asr.l	#2,d1
+		add.l	d1,d0
+		swap	d0
+		addi.w	#$76,d0
 		move.w	d0,(Camera_Y_pos_BG_copy).w
-	; It's good!!
-		lea	(H_scroll_table).w,a1
-		move.l	(Camera_X_pos_copy).w,d0
-		move.l	d0,d2
-		swap	d2
-		asr.l	#1,d2
-		move.w	d2,(a1)+
-	rts
+		move.w	(Camera_X_pos_copy).w,d0	; Events_fg_1
+		swap	d0
+		clr.w	d0
+		asr.l	#1,d0
+		move.l	d0,d1
+		asr.l	#2,d1
+		sub.l	d1,d0
+		asr.l	#1,d1
+		swap	d0
+		move.w	d0,(Camera_X_pos_BG_copy).w
+		swap	d0
+		sub.l	d1,d0
+		swap	d0
+		move.w	d0,(Events_bg+$10).w
+		swap	d0
+		sub.l	d1,d0
+		swap	d0
+		move.w	d0,(Events_bg+$12).w
+		rts
+; End of function MHZ_Deform

@@ -127,7 +127,21 @@ Layout_row_index_mask:				ds.w 1					; Either $3C or $7C
 Screen_shaking_flag:					ds.w 1					; flag for enabling screen shake. Negative values cause screen to shake infinitely, positive values make the screen shake for a short amount of time
 Screen_shaking_offset:					ds.w 1					; vertical offset when screen_shake_flag is enabled. This is added to camera position later
 Screen_shaking_last_offset:			ds.w 1					; value of Screen_shake_offset for the previous frame
-Events_fg:							ds.b $18					; various flags used by foreground events
+
+Events_fg:							= *					; various flags used by foreground events
+_unkEEB0:							ds.w 1			;
+Special_events_routine:				ds.w 1			; routine counter for various special events. Used for example with LBZ2 Death Egg sequence
+Events_fg_0:						ds.w 1			; various flags used by screen events
+Events_fg_1:						ds.w 1			; various flags used by screen events
+Events_fg_2:						ds.w 1			; various flags used by screen events
+_unkEEBA:							ds.w 1			; only used in Sonic 3
+Level_repeat_offset:				ds.w 1			; the number of pixels the screen was moved this frame, used to offset level objects horizontally. Used only for level repeat sections, such as AIZ airship.
+Events_fg_3:						ds.w 1			; various flags used by screen events
+Events_routine_fg:					ds.w 1			; screen events routine counter
+Events_routine_bg:					ds.w 1			; background events routine counter
+Events_fg_4:						ds.w 1			; various flags used by screen events
+Events_fg_5:						ds.w 1			; various flags used by screen events
+
 Draw_delayed_position:				ds.w 1					; position to redraw screen from. Screen is reloaded 1 row at a time to avoid game lag
 Draw_delayed_rowcount:				ds.w 1					; number of rows for screen redrawing. Screen is reloaded 1 row at a time to avoid game lag
 Events_bg:							ds.b $18					; various flags used by background events

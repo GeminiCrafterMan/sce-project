@@ -84,7 +84,7 @@ LevelLoadPointer:
 	rept 4
 		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
 		dc.l MMZ1_ScreenInit, MMZ1_BackgroundInit, MMZ1_ScreenEvent, MMZ1_BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null
+		dc.l AnimateTiles_MMZ, AniPLC_MMZ
 	endr
 
 ; DEZ1

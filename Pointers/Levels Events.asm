@@ -17,6 +17,7 @@
 		include "Levels/TTPZ/Events/Events.asm"
 
 ; MMZ
+		include	"Levels/MMZ/Animated Tiles/Animation Scripts.asm"
 		include "Levels/MMZ/Events/Events.asm"
 
 ; DEZ
