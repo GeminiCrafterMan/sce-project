@@ -111,6 +111,8 @@ Obj_DoubleShieldRing:
 		move.w	parent3(a0),a2
 		btst	#Status_Shield,status_secondary(a2)
 		beq.w	.destroy
+		cmpi.l	#Obj_Double_Shield.return,address(a2)
+		bgt.w	.destroy
 		tst.b	(Reverse_gravity_flag).w
 		beq.s	.normalgravity
 		ori.b	#2,status(a0)										; if in reverse gravity, reverse the vertical mirror render_flag bit (On if Off beforehand and vice versa)
