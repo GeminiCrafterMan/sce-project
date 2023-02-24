@@ -43,6 +43,7 @@ AniKnuckles:	offsetTable
 		offsetTableEntry.w KnuxAni_Null
 		offsetTableEntry.w KnuxAni_Null
 		offsetTableEntry.w KnuxAni_Null
+		offsetTableEntry.w KnuxAni_MonkeyBars
 
 KnuxAni_Walk:	dc.b  $FF,   frK_Walk17,	  frK_Walk18,   frK_Walk11,   frK_Walk12,	 frK_Walk13,   frK_Walk14,   frK_Walk15,	frK_Walk16, afEnd
 KnuxAni_Run:	dc.b  $FF, frK_Run11,	frK_Run12, frK_Run13, frK_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
@@ -88,6 +89,7 @@ KnuxAni_Glide:	dc.b  $1F, frK_Float1,	afEnd
 KnuxAni_GlideFall:	dc.b	7, frK_GlideFall1,	frK_GlideFall2, afBack,   1
 KnuxAni_GetUp:	dc.b   $F, frK_GlideSlide2,	afChange,   id_Walk
 KnuxAni_GlideLand:	dc.b   $F, frK_Duck2,	afChange,   id_Walk
+KnuxAni_MonkeyBars:	dc.b  $7F, frK_MonkeyBars6, frK_MonkeyBars4, afEnd
 	even
 
 ; Frame IDs
@@ -127,8 +129,12 @@ frK_TumbleVCylinder1:	ds.b 1
 frK_TumbleVCylinderX:	ds.b 14
 frK_RopeSwing1:			ds.b 1
 frK_RopeSwingX:			ds.b 7
-frK_MonkeyBars1:		ds.b 1
-frK_MonkeyBarsX:		ds.b 5
+frK_MonkeyBars1:	ds.b 1
+frK_MonkeyBars2:	ds.b 1
+frK_MonkeyBars3:	ds.b 1
+frK_MonkeyBars4:	ds.b 1
+frK_MonkeyBars5:	ds.b 1
+frK_MonkeyBars6:	ds.b 1
 frK_Spindash1:			ds.b 1
 frK_Spindash2:			ds.b 1
 frK_Spindash3:			ds.b 1

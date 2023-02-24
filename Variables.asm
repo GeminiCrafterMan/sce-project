@@ -277,7 +277,9 @@ Secondary_collision_addr:				ds.l 1
 									ds.b 1	; used to be Player_prev_frame
 Reverse_gravity_flag:					ds.b 1
 Primary_Angle:						ds.b 1
+									ds.b 1
 Secondary_Angle:						ds.b 1
+									ds.b 1
 Deform_Lock:						ds.b 1
 Boss_flag:							ds.b 1					; Set if a boss fight is going on
 TitleCard_end_flag:					ds.b 1

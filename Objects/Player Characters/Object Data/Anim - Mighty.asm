@@ -43,6 +43,7 @@ AniMighty:				offsetTable
 		offsetTableEntry.w MtyAni_Null
 		offsetTableEntry.w MtyAni_Null
 		offsetTableEntry.w MtyAni_Null
+		offsetTableEntry.w MtyAni_MonkeyBars
 
 MtyAni_Walk:		dc.b  $FF, frM_Walk17, frM_Walk18, frM_Walk11, frM_Walk12, frM_Walk13, frM_Walk14, frM_Walk15, frM_Walk16, afEnd
 MtyAni_Run:			dc.b  $FF, frM_Run11, frM_Run12, frM_Run13, frM_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
@@ -81,6 +82,7 @@ MtyAni_Mach:		dc.b  $FF, frM_Mach11, frM_Mach12, frM_Mach13, frM_Mach14, afEnd, 
 MtyAni_Transform:	dc.b	2, frM_Transform1, frM_Transform1, frM_Transform2, frM_Transform2, frM_Transform3, frM_Transform4, frM_Transform5, frM_Transform4, frM_Transform5, frM_Transform4, frM_Transform5, frM_Transform4, frM_Transform5, afChange,   id_Walk
 MtyAni_Fall:		dc.b	3, frM_Fall1, frM_Fall2, afEnd
 MtyAni_Uncurl:		dc.b	3, frM_Uncurl1, frM_Uncurl2, afChange, id_Fall
+MtyAni_MonkeyBars:	dc.b  $7F, frM_MonkeyBars6, frM_MonkeyBars4, afEnd
 	even
 
 ; Frame IDs
@@ -121,7 +123,11 @@ frM_TumbleVCylinderX:	ds.b 14
 frM_RopeSwing1:			ds.b 1
 frM_RopeSwingX:			ds.b 7
 frM_MonkeyBars1:		ds.b 1
-frM_MonkeyBarsX:		ds.b 5
+frM_MonkeyBars2:		ds.b 1
+frM_MonkeyBars3:		ds.b 1
+frM_MonkeyBars4:		ds.b 1
+frM_MonkeyBars5:		ds.b 1
+frM_MonkeyBars6:		ds.b 1
 frM_Spindash1:			ds.b 1
 frM_Spindash2:			ds.b 1
 frM_Spindash3:			ds.b 1

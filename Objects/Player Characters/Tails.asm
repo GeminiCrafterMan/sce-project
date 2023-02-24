@@ -144,7 +144,7 @@ Tails_FlyingSwimming:
 		beq.s	.cont
 		move.w	(Ctrl_1).w,d0
 	.cont:
-		bsr.w	Tails_Carry_Sonic
+		jsr		Tails_Carry_Sonic
 
 locret_14820:
 		rts

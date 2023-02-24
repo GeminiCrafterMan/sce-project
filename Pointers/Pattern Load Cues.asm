@@ -118,6 +118,7 @@ PLC2_SSLZ2_Enemy_end
 ; ===========================================================================
 
 PLC1_TTPZ_Misc: plrlistheader
+		plreq	ArtTile_PurpleRock, ArtKosM_MonkeyBars
 PLC1_TTPZ_Misc_end
 
 ; ===========================================================================

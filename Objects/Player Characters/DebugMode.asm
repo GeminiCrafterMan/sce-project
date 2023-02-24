@@ -22,7 +22,7 @@ DebugMode:
 		bclr	#Status_Underwater,status(a0)
 		beq.s	.select
 		movea.w	a0,a1
-		jsr	Player_ResetAirTimer(pc)
+		jsr	Player_ResetAirTimer
 		move.w	#$600,(Top_speed_P1).w
 		move.w	#$C,(Acceleration_P1).w
 		move.w	#$80,(Deceleration_P1).w

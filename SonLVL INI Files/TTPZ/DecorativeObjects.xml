@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjDef xmlns="http://www.sonicretro.org" Namespace="S3KObjectDefinitions.TTPZ" TypeName="Decorative Object" Language="cs" Name="Decorative Object" Image="stake">
+  <Images>
+    <ImageFromMappings id="stake">
+      <ArtFile filename="../Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin" frame="1" startpal="2" />
+    </ImageFromMappings>
+    <ImageFromMappings id="hanger">
+      <ArtFile filename="../Objects/Monkey Bars/KosinskiM Art/Monkey Bars.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Monkey Bars/Object Data/Map - Monkey Bars.bin" frame="15" startpal="0" />
+    </ImageFromMappings>
+  </Images>
+  <Subtypes>
+    <Subtype id="00" image="stake" />
+    <Subtype id="01" image="hanger" />
+  </Subtypes>
+</ObjDef>

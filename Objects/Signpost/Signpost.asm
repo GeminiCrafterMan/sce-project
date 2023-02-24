@@ -20,7 +20,7 @@ Obj_EndSignControlDoSign:
 		move.l	#Obj_EndSignControlAwaitStart,address(a0)
 		lea	Child6_EndSign(pc),a2
 		jsr	(CreateChild6_Simple).w
-		jmp	AfterBoss_Cleanup(pc)
+		jmp	AfterBoss_Cleanup
 ; ---------------------------------------------------------------------------
 
 Obj_EndSignControlAwaitStart:

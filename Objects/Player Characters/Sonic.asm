@@ -589,10 +589,10 @@ Sonic_MdAir:
 		bsr.w	Player_LevelBound
 		jsr	(MoveSprite_TestGravity).w
 		btst	#Status_Underwater,status(a0)	; is Sonic underwater?
-		beq.s	loc_10FD6				; if not, branch
+		beq.s	.notUnderwater				; if not, branch
 		subi.w	#$28,y_vel(a0)			; reduce gravity by $28 ($38-$28=$10)
 
-loc_10FD6:
+.notUnderwater:
 		bsr.w	Player_JumpAngle
 		bra.w	Player_DoLevelCollision
 
@@ -601,7 +601,7 @@ Player_SetFallingAnimation:
 		ble.s	.dontSet
 		cmpi.b	#id_Spring,anim(a0)
 		bne.s	.dontSet
-		move.b	#id_Fall,anim(a0)	; change to something like id_Fall if/when you add a falling animation
+		move.b	#id_Fall,anim(a0)
 	.dontSet:
 		rts
 ; ---------------------------------------------------------------------------

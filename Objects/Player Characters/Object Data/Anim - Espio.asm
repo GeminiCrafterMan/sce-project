@@ -43,6 +43,7 @@ AniEspio:				offsetTable
 		offsetTableEntry.w EspAni_Null
 		offsetTableEntry.w EspAni_Null
 		offsetTableEntry.w EspAni_Null
+		offsetTableEntry.w EspAni_MonkeyBars
 
 EspAni_Walk:		dc.b  $FF, frE_Walk17,	frE_Walk18,   frE_Walk11,   frE_Walk12,	 frE_Walk13,   frE_Walk14,   frE_Walk15,	frE_Walk16, afEnd
 EspAni_Run:			dc.b  $FF, frE_Run11,	frE_Run12, frE_Run13, frE_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
@@ -78,6 +79,7 @@ EspAni_Zapped:		dc.b	9, frE_Hurt, afEnd
 EspAni_Null:		dc.b  $77,   frE_Null, afEnd
 EspAni_Mach:		dc.b  $FF, frE_Mach11,	frE_Mach12,	frE_Mach13,	frE_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 EspAni_Transform:	dc.b	2, frE_Transform1, frE_Transform1, frE_Transform2, frE_Transform2, frE_Transform3, frE_Transform4, frE_Transform5, frE_Transform4, frE_Transform5, frE_Transform4, frE_Transform5, frE_Transform4, frE_Transform5, afChange,   id_Walk
+EspAni_MonkeyBars:	dc.b  $7F, frE_MonkeyBars6, frE_MonkeyBars4, afEnd
 	even
 
 ; Frame IDs
@@ -118,7 +120,11 @@ frE_TumbleVCylinderX:	ds.b 14
 frE_RopeSwing1:		ds.b 1
 frE_RopeSwingX:		ds.b 7
 frE_MonkeyBars1:	ds.b 1
-frE_MonkeyBarsX:	ds.b 5
+frE_MonkeyBars2:	ds.b 1
+frE_MonkeyBars3:	ds.b 1
+frE_MonkeyBars4:	ds.b 1
+frE_MonkeyBars5:	ds.b 1
+frE_MonkeyBars6:	ds.b 1
 frE_Spindash1:		ds.b 1
 frE_Spindash2:		ds.b 1
 frE_Spindash3:		ds.b 1

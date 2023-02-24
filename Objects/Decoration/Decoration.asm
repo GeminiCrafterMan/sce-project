@@ -9,6 +9,7 @@ Obj_Decoration:
 ; Obj_Waterfall wasn't included because I really don't want to define like 17 different entries for that alone...
 .types:
 		dc.l	Obj_BridgeStake
+		dc.l	Obj_MonkeyBarHanger
 ; ---------------------------------------------------------------------------
 
 Obj_BridgeStake:
@@ -16,6 +17,16 @@ Obj_BridgeStake:
 		move.w	#make_art_tile(ArtTile_Bridge,2,0),art_tile(a0)
 		move.b	#1,mapping_frame(a0)
 		move.w	#bytes_to_word(8,16),height_pixels(a0)
+		move.w	#$80,priority(a0)
+		ori.b	#4,render_flags(a0)
+		jmp		RememberState	; Do I really have to?
+; ---------------------------------------------------------------------------
+
+Obj_MonkeyBarHanger:
+		move.l	#Map_MonkeyBars,mappings(a0)
+		move.w	#make_art_tile(ArtTile_PurpleRock,0,0),art_tile(a0)
+		move.b	#$F,mapping_frame(a0)
+		move.w	#bytes_to_word(40,16),height_pixels(a0)
 		move.w	#$80,priority(a0)
 		ori.b	#4,render_flags(a0)
 		jmp		RememberState	; Do I really have to?

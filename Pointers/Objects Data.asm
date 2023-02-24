@@ -68,8 +68,9 @@
 		include	"Objects/Burrobot/Burrobot.asm"
 		include	"Objects/Spiral/Spiral.asm"
 
-	; WZ
+	; TTPZ
 		include	"Objects/Mecha-Bu/Mecha-Bu.asm"
+		include	"Objects/Monkey Bars/Monkey Bars.asm"
 
 ; ===========================================================================
 ; Bosses objects data

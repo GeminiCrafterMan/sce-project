@@ -438,11 +438,11 @@ Animate_ExternalPlayerSprite:
 		bset	#0,render_flags(a1)
 
 loc_84500:
-		jmp	Player_Load_PLC2(pc)
+		jmp	Player_Load_PLC2
 ; ---------------------------------------------------------------------------
 
 loc_84504:
-		jsr	Player_Load_PLC2(pc)
+		jsr	Player_Load_PLC2
 		movea.l	objoff_34(a0),a1
 		jmp	(a1)
 

@@ -43,6 +43,7 @@ AniTails:	offsetTable
 		offsetTableEntry.w TailsAni_SwimFast
 		offsetTableEntry.w TailsAni_SwimHoldTired
 		offsetTableEntry.w TailsAni_SwimTired
+		offsetTableEntry.w TailsAni_MonkeyBars
 
 TailsAni_Walk:	dc.b  $FF,   frT_Walk17,   frT_Walk18,   frT_Walk11,   frT_Walk12,   frT_Walk13,   frT_Walk14,   frT_Walk15,   frT_Walk16, afEnd
 TailsAni_Run:	dc.b  $FF, frT_Run11, frT_Run12, frT_Run13, frT_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
@@ -87,6 +88,7 @@ TailsAni_Swim:	dc.b    7, frT_Swim1, frT_Swim2, frT_Swim3, frT_Swim4, frT_Swim5,
 TailsAni_SwimFast:	dc.b    3, frT_Swim1, frT_Swim2, frT_Swim3, frT_Swim4, frT_Swim5, afEnd
 TailsAni_SwimHoldTired:	dc.b    4, frT_SwimHoldTired1, frT_SwimHoldTired2, afEnd
 TailsAni_SwimTired:	dc.b   $B, frT_SwimTired1, frT_SwimTired2, frT_SwimTired3, afEnd
+TailsAni_MonkeyBars:	dc.b  $7F, frT_MonkeyBars6, frT_MonkeyBars4, afEnd
 		even
 
 ; Frame IDs
@@ -127,7 +129,11 @@ frT_TumbleVCylinderX:	ds.b 14
 frT_RopeSwing1:		ds.b 1
 frT_RopeSwingX:		ds.b 7
 frT_MonkeyBars1:	ds.b 1
-frT_MonkeyBarsX:	ds.b 5
+frT_MonkeyBars2:	ds.b 1
+frT_MonkeyBars3:	ds.b 1
+frT_MonkeyBars4:	ds.b 1
+frT_MonkeyBars5:	ds.b 1
+frT_MonkeyBars6:	ds.b 1
 frT_Spindash1:		ds.b 1
 frT_Spindash2:		ds.b 1
 frT_Spindash3:		ds.b 1

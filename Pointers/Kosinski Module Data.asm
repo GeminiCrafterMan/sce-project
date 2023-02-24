@@ -128,6 +128,8 @@ ArtKosM_Burrobot:			binclude "Objects/Burrobot/KosinskiM Art/Burrobot.bin"
 
 ArtKosM_MechaBu:			binclude "Objects/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin"
 	even
+ArtKosM_MonkeyBars:			binclude "Objects/Monkey Bars/KosinskiM Art/Monkey Bars.bin"
+	even
 
 ; ===========================================================================
 ; Kosinski Module compressed MMZ graphics
