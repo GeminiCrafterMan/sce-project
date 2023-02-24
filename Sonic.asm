@@ -25,7 +25,7 @@ AddressSRAM:			= 0	; 0 = odd+even; 2 = even only; 3 = odd only
 		include "Constants.asm"			; include constants
 		include "Variables.asm"			; include RAM variables
 		include "Sound/Definitions.asm"	; include sound driver macros and functions
-		include "Misc Data/Debugger/ErrorHandler/Debugger.asm"	; include debugger macros and functions
+		include "Debuggers/ErrorHandler/Debugger.asm"	; include debugger macros and functions
 ; ---------------------------------------------------------------------------
 
 StartOfROM:
@@ -433,7 +433,7 @@ EndOfHeader:
 ; Error handling module
 ; ---------------------------------------------------------------
 
-		include "Misc Data/Debugger/ErrorHandler/ErrorHandler.asm"
+		include "Debuggers/ErrorHandler/ErrorHandler.asm"
 
 ; end of 'ROM'
 EndOfROM:

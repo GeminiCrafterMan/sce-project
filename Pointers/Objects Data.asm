@@ -45,6 +45,7 @@
 		include "Objects/Decoration/Decoration.asm"
 		include	"Objects/Floating Platform/Floating Platform.asm"
 		include	"Objects/Generic Badnik Slots.asm"
+		include	"Objects/Background Characters/Background Characters.asm"
 
 ; ===========================================================================
 ; Levels objects data

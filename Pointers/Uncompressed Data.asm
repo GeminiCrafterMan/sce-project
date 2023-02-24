@@ -87,3 +87,10 @@ ArtUnc_MightyEmotions:		binclude "Objects/HUD/Uncompressed Art/Mighty Emotions.b
 
 ArtUnc_MechaSonic:			binclude "Objects/Mecha Sonic/Uncompressed Art/Mecha Sonic.bin"
 	even
+
+; ===========================================================================
+; Background Characters
+; ===========================================================================
+
+ArtUnc_FlareTheAlligator:	binclude "Objects/Background Characters/Uncompressed Art/Flare the Alligator.bin"
+	even

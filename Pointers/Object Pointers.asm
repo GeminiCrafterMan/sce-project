@@ -32,7 +32,7 @@ Obj_Index:
 		dc.l DeleteObject						; $1A
 		dc.l DeleteObject						; $1B
 		dc.l Obj_Decoration						; $1C
-		dc.l DeleteObject						; $1D
+		dc.l Obj_BackgroundCharacters			; $1D
 		dc.l DeleteObject						; $1E
 		dc.l DeleteObject						; $1F
 		dc.l DeleteObject						; $20

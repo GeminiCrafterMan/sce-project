@@ -101,7 +101,7 @@ ErrorHandler___extern__vsync:
 ; Include error handler binary module
 ; ---------------------------------------------------------------
 
-ErrorHandler:	binclude "Misc Data/Debugger/ErrorHandler/ErrorHandler.bin"
+ErrorHandler:	binclude "Debuggers/ErrorHandler/ErrorHandler.bin"
 
 ; ---------------------------------------------------------------
 ; WARNING!

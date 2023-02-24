@@ -16,9 +16,9 @@ LevelOrder:
 		dc.b 0, 0		; Act 4
 
 	; Tree Top Zone
-		dc.b 0, 0		; Act 1
-		dc.b 0, 0		; Act 2
-		dc.b 0, 0		; Act 3
+		dc.b z_TTPZ, 1	; Act 1
+		dc.b z_TTPZ, 2	; Act 2
+		dc.b z_MMZ,  0	; Act 3
 		dc.b 0, 0		; Act 4
 
 	; Mecha Mushroom Zone
