@@ -10,7 +10,7 @@ namespace S3KObjectDefinitions.GHZ
 	{
 		public override void Init(ObjectData data)
 		{
-			imgsaw = ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Saw.bin"), 1, 2);
+			imgsaw = ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Saw.bin"), 1, 0);
 			for (int i = 0; i < labels.Length; i++)
 				imgs.Add(ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin"), labels[i], i == 1 ? 0 : 2));
 		}
