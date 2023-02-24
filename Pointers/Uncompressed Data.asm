@@ -74,7 +74,11 @@ ArtUnc_CabaretChars:		binclude "Objects/Cabaret Characters/Uncompressed Art/Caba
 ; Emotion Window
 ArtUnc_SonicEmotions:		binclude "Objects/HUD/Uncompressed Art/Sonic Emotions.bin"
 	even
+ArtUnc_TailsEmotions:		binclude "Objects/HUD/Uncompressed Art/Tails Emotions.bin"
+	even
 ArtUnc_KnucklesEmotions:	binclude "Objects/HUD/Uncompressed Art/Knuckles Emotions.bin"
+	even
+ArtUnc_MightyEmotions:		binclude "Objects/HUD/Uncompressed Art/Mighty Emotions.bin"
 	even
 
 ; ===========================================================================
