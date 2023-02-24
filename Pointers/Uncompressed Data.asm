@@ -39,6 +39,8 @@ Art_TtpzPoison1:			binclude "Levels/TTPZ/Animated Tiles/Uncompressed Art/TTPZ Po
 	even
 Art_TtpzPoison2:			binclude "Levels/TTPZ/Animated Tiles/Uncompressed Art/TTPZ Poison.bin"
 	even
+ArtUnc_Saw:					binclude "Objects/Swinging Platform/Uncompressed Art/Saw.bin"
+	even
 ; Mecha Mushroom
 ArtUnc_AniMMZ__BG:			binclude "Levels/MMZ/Animated Tiles/Uncompressed Art/BG 1.bin"
 	even

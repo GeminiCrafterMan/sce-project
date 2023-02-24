@@ -101,11 +101,11 @@ Obj_SwingingPlatform_Init:
 	move.b	subtype(a0),d1
 	andi.w	#$70,d1
 	move.b	d1,subtype(a0)
-	cmpi.b	#$40,d1
+	cmpi.b	#$60,d1
 	bne.s	Obj_SwingingPlatform_State2
 	move.l	#Map_Saw,mappings(a0)
 	move.w	#$43AA,art_tile(a0)
-	move.b	#1,mapping_frame(a0)
+	clr.b	mapping_frame(a0)
 	move.w	#$100,priority(a0)
 	move.b	#$81,collision_flags(a0)
 
@@ -119,7 +119,11 @@ Obj_SwingingPlatform_State2:
 	move.b	height_pixels(a0),d3
 	addq.b	#1,d3
 	move.w	(sp)+,d4
+	move.b	subtype(a0),d1
+	cmpi.b	#$60,subtype(a0)
+	bge.s	.skipSolid
 	jsr		SolidObjectTop ; PlatformObject2
+.skipSolid:
 	bra.w	loc_1000C
 
 ; ||||||||||||||| S U B R O U T I N E |||||||||||||||||||||||||||||||||||||||
@@ -287,6 +291,15 @@ loc_10006:
 
 loc_1000C:
 	out_of_xrange.s .offscreen, swing_pivot_x(a0)
+	cmpi.b	#$60,subtype(a0)
+	blt.s	.skipPLC
+	move.w	(Level_frame_counter).w,d0
+	andi.w	#3,d0
+	bne.s	.skipPLC
+	bchg	#0,mapping_frame(a0)
+	lea		PLCPtr_Saw(pc),a2
+	jsr		(Perform_DPLC).w
+.skipPLC:
 	jmp		DisplaySprite
 ; ===========================================================================
 .offscreen:
@@ -433,6 +446,9 @@ Obj_SwingingPlatform_State7:
 	move.w	(sp)+,d4
 	jsr		SolidObjectTop ; PlatformObject2
 	jmp		MarkObjGone
+
+PLCPtr_Saw:
+		dc.l ArtUnc_Saw>>1, PLC_Saw
 
 Map_SwingingPlatform:		binclude	"Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin"
 Map_Saw:		binclude	"Objects/Swinging Platform/Object Data/Map - Saw.bin"

@@ -49,8 +49,8 @@ namespace S3KObjectDefinitions.Common
 
 		public override string SubtypeName(byte subtype)
 		{
-			if ((subtype & 0x10) != 0)
-				return (subtype & 0x0F) + " links + wrecking ball";
+			if ((subtype & 0x60) != 0)
+				return (subtype & 0x0F) + " links + saw";
 			else
 				return (subtype & 0x0F) + " links";
 		}
@@ -62,7 +62,7 @@ namespace S3KObjectDefinitions.Common
 
 		public override Sprite SubtypeImage(byte subtype)
 		{
-			if ((subtype & 0x10) != 0)
+			if ((subtype & 0x60) != 0)
 				return imgsaw;
 			else
 				return imgs[0];
@@ -127,12 +127,12 @@ namespace S3KObjectDefinitions.Common
 
 		private static object GetSaw(ObjectEntry obj)
 		{
-			return (obj.SubType & 0x10) != 0 ? true : false;
+			return (obj.SubType & 0x60) != 0 ? true : false;
 		}
 
 		private static void SetSaw(ObjectEntry obj, object value)
 		{
-			obj.SubType = (byte)((obj.SubType & ~0x10) | ((bool)value == true ? 0x10 : 0));
+			obj.SubType = (byte)((obj.SubType & ~0x60) | ((bool)value == true ? 0x60 : 0));
 		}
 	}
 }
