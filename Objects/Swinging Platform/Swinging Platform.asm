@@ -19,6 +19,13 @@ Obj_SwingingPlatform_Index:	offsetTable
 		offsetTableEntry.w Obj_SwingingPlatform_State5		;  8
 		offsetTableEntry.w Obj_SwingingPlatform_State6		; $A
 		offsetTableEntry.w Obj_SwingingPlatform_State7		; $C
+		
+; ===========================================================================
+
+swing_child = objoff_30
+swing_pivot_y = objoff_38
+swing_pivot_x = objoff_3A
+
 ; ===========================================================================
 ; loc_FCCA:
 Obj_SwingingPlatform_Init:
@@ -28,31 +35,31 @@ Obj_SwingingPlatform_Init:
 	move.b	#4,render_flags(a0)
 	move.w	#$180,priority(a0)
 	move.b	#$20,width_pixels(a0)
-	move.b	#$10,y_radius(a0)
-	move.w	y_pos(a0),objoff_38(a0)
-	move.w	x_pos(a0),objoff_3A(a0)
+	move.b	#$10,height_pixels(a0)
+	move.w	y_pos(a0),swing_pivot_y(a0)
+	move.w	x_pos(a0),swing_pivot_x(a0)
 	moveq	#0,d1
 	move.b	subtype(a0),d1
-	bpl.s	+
+	bpl.s	.posSubtype
 	addq.b	#4,routine(a0)
-+
+.posSubtype:
 	move.b	d1,d4
 	andi.b	#$70,d4
 	andi.w	#$F,d1
 	move.w	x_pos(a0),d2
 	move.w	y_pos(a0),d3
 	jsr		SingleObjLoad2
-	bne.w	+++
-	_move.l	id(a0),id(a1) ; load Obj_SwingingPlatform
+	bne.w	.loadFail
+	move.l	id(a0),id(a1) ; load Obj_SwingingPlatform
 	move.l	mappings(a0),mappings(a1)
 	move.w	art_tile(a0),art_tile(a1)
 	move.b	#4,render_flags(a1)
 	cmpi.b	#$20,d4
-	bne.s	+
+	bne.s	.initSubspr
 	move.b	#4,routine(a1)
 	move.w	#$200,priority(a1)
 	move.b	#$10,width_pixels(a1)
-	move.b	#$50,y_radius(a1)
+	move.b	#$50,height_pixels(a1)
 	bset	#4,render_flags(a1)
 	move.b	#3,mapping_frame(a1)
 	move.w	d2,x_pos(a1)
@@ -60,20 +67,21 @@ Obj_SwingingPlatform_Init:
 	move.w	d3,y_pos(a1)
 	addi.w	#$48,d3
 	move.w	d3,y_pos(a0)
-	bra.s	++
+	bra.s	.skipSubspr
 ; ===========================================================================
-+
+.initSubspr:
 	bset	#6,render_flags(a1)
 	move.b	#$48,mainspr_width(a1)
-	move.b	d1,mainspr_childsprites(a1)
-	subq.b	#1,d1
+	move.w	d1,mainspr_childsprites(a1)
+	subq.w	#1,d1
 	lea	sub2_x_pos(a1),a2
 
--	move.w	d2,(a2)+	; sub?_x_pos
+.initLoop:
+	move.w	d2,(a2)+	; sub?_x_pos
 	move.w	d3,(a2)+	; sub?_y_pos
 	move.w	#1,(a2)+	; sub2_mapframe
 	addi.w	#$10,d3
-	dbf	d1,-
+	dbf	d1,.initLoop
 
 	move.b	#2,sub2_mapframe(a1)
 	move.w	sub6_x_pos(a1),x_pos(a1)
@@ -85,9 +93,9 @@ Obj_SwingingPlatform_Init:
 	move.w	d3,y_pos(a0)
 	move.b	#$50,mainspr_height(a1)
 	bset	#4,render_flags(a1)
-+
-	move.l	a1,objoff_30(a0)
-+
+.skipSubspr:
+	move.l	a1,swing_child(a0)
+.loadFail:
 	move.w	#$8000,angle(a0)
 	move.w	#0,objoff_3E(a0)
 	move.b	subtype(a0),d1
@@ -108,7 +116,7 @@ Obj_SwingingPlatform_State2:
 	moveq	#0,d1
 	move.b	width_pixels(a0),d1
 	moveq	#0,d3
-	move.b	y_radius(a0),d3
+	move.b	height_pixels(a0),d3
 	addq.b	#1,d3
 	move.w	(sp)+,d4
 	jsr		SolidObjectTop ; PlatformObject2
@@ -123,58 +131,60 @@ sub_FE70:
 	moveq	#0,d1
 	move.b	(Oscillating_Data+$18).w,d0
 	move.b	subtype(a0),d1
-	beq.s	loc_FEC2
+	beq.s	.movePlatform
 	cmpi.b	#$10,d1
-	bne.s	++
+	bne.s	.notBounceLeft
 	cmpi.b	#$3F,d0
-	beq.s	+
-	bhs.s	loc_FEC2
+	beq.s	.bounce
+	bhs.s	.movePlatform
 	moveq	#$40,d0
-	bra.s	loc_FEC2
+	bra.s	.movePlatform
 ; ===========================================================================
-/
+
+.bounce:
 	tst.b	render_flags(a0)
-	bpl.s	.no
+	bpl.s	.notOnscreen
 	sfx		sfx_Thump
 
-.no	moveq	#$40,d0
-	bra.s	loc_FEC2
-; ===========================================================================
-+
-	cmpi.b	#$20,d1
-	beq.w	+++	; rts
-	cmpi.b	#$30,d1
-	bne.s	+
-	cmpi.b	#$41,d0
-	beq.s	-
-	blo.s	loc_FEC2
+.notOnscreen:	
 	moveq	#$40,d0
-	bra.s	loc_FEC2
+	bra.s	.movePlatform
 ; ===========================================================================
-+
+.notBounceLeft:
+	cmpi.b	#$20,d1
+	beq.w	.ret
+	cmpi.b	#$30,d1
+	bne.s	.notBounceRight
+	cmpi.b	#$41,d0
+	beq.s	.bounce
+	blo.s	.movePlatform
+	moveq	#$40,d0
+	bra.s	.movePlatform
+; ===========================================================================
+.notBounceRight:
 	cmpi.b	#$40,d1
-	bne.s	loc_FEC2
+	bne.s	.movePlatform
 	bsr.w	loc_FF6E
 
-loc_FEC2:
+.movePlatform:
 	move.b	objoff_2E(a0),d1
 	cmp.b	d0,d1
-	beq.w	++	; rts
+	beq.w	.ret
 	move.b	d0,objoff_2E(a0)
 	move.w	#$80,d1
 	btst	#0,status(a0)
-	beq.s	+
+	beq.s	.noflipX
 	neg.w	d0
 	add.w	d1,d0
-+
+.noflipX:
 	jsr		CalcSine
-	move.w	objoff_38(a0),d2
-	move.w	objoff_3A(a0),d3
+	move.w	swing_pivot_y(a0),d2
+	move.w	swing_pivot_x(a0),d3
 	moveq	#0,d6
-	movea.l	objoff_30(a0),a1
-	move.b	mainspr_childsprites(a1),d6
+	movea.l	swing_child(a0),a1
+	move.w	mainspr_childsprites(a1),d6
 	subq.w	#1,d6
-	bcs.s	+	; rts
+	bcs.s	.ret
 	swap	d0
 	swap	d1
 	asr.l	#4,d0
@@ -183,7 +193,8 @@ loc_FEC2:
 	moveq	#0,d5
 	lea	sub2_x_pos(a1),a2
 
--	movem.l	d4-d5,-(sp)
+.subsprloop:
+	movem.l	d4-d5,-(sp)
 	swap	d4
 	swap	d5
 	add.w	d2,d4
@@ -194,7 +205,7 @@ loc_FEC2:
 	add.l	d0,d4
 	add.l	d1,d5
 	addq.w	#next_subspr-4,a2
-	dbf	d6,-
+	dbf	d6, .subsprloop
 
 	movem.l	d4-d5,-(sp)
 	swap	d4
@@ -214,11 +225,11 @@ loc_FEC2:
 	add.l	d1,d5
 	swap	d4
 	swap	d5
-	add.w	objoff_38(a0),d4
-	add.w	objoff_3A(a0),d5
+	add.w	swing_pivot_y(a0),d4
+	add.w	swing_pivot_x(a0),d5
 	move.w	d4,y_pos(a0)
 	move.w	d5,x_pos(a0)
-+
+.ret:
 	rts
 ; End of function sub_FE70
 
@@ -234,7 +245,7 @@ loc_FF6E:
 	tst.b	objoff_34(a0)
 	bne.s	+
 	move.w	(Player_1+x_pos).w,d0
-	sub.w	objoff_3A(a0),d0
+	sub.w	swing_pivot_x(a0),d0
 	addi.w	#$20,d0
 	cmpi.w	#$40,d0
 	bhs.s	loc_10006
@@ -275,15 +286,16 @@ loc_10006:
 ; ===========================================================================
 
 loc_1000C:
-	move.w	objoff_3A(a0),d0
-	andi.w	#$FF80,d0
-	sub.w	(Camera_X_pos_coarse).w,d0
-	cmpi.w	#$280,d0
-	bhi.w	+
+	out_of_xrange.s .offscreen, swing_pivot_x(a0)
 	jmp		DisplaySprite
 ; ===========================================================================
-+
-	movea.l	objoff_30(a0),a1
+.offscreen:
+	move.w	respawn_addr(a0),d0
+	beq.s	.delete
+	movea.w	d0,a2
+	bclr	#7,(a2)
+.delete:
+	movea.l	swing_child(a0),a1
 	jsr		DeleteObject2
 	jmp		DeleteObject
 ; ===========================================================================
@@ -299,7 +311,7 @@ Obj_SwingingPlatform_State4:
 	moveq	#0,d1
 	move.b	width_pixels(a0),d1
 	moveq	#0,d3
-	move.b	y_radius(a0),d3
+	move.b	height_pixels(a0),d3
 	addq.b	#1,d3
 	move.w	(sp)+,d4
 	jsr		SolidObjectTop ; PlatformObject2
@@ -360,20 +372,20 @@ Obj_SwingingPlatform_State6:
 	bclr	#1,status(a0)
 	move.w	#0,x_vel(a0)
 	move.w	#0,y_vel(a0)
-	move.w	y_pos(a0),objoff_38(a0)
+	move.w	y_pos(a0),swing_pivot_y(a0)
 	bra.s	++
 ; ===========================================================================
 +
 	moveq	#0,d0
 	move.b	(Oscillating_Data+$14).w,d0
 	lsr.w	#1,d0
-	add.w	objoff_38(a0),d0
+	add.w	swing_pivot_y(a0),d0
 	move.w	d0,y_pos(a0)
 +
 	moveq	#0,d1
 	move.b	width_pixels(a0),d1
 	moveq	#0,d3
-	move.b	y_radius(a0),d3
+	move.b	height_pixels(a0),d3
 	addq.b	#1,d3
 	move.w	(sp)+,d4
 	jsr		SolidObjectTop ; PlatformObject2
@@ -391,7 +403,7 @@ Obj_SwingingPlatform_State7:
 	cmp.w	y_pos(a0),d0
 	bhi.s	++
 	move.w	d0,y_pos(a0)
-	move.w	d0,objoff_38(a0)
+	move.w	d0,swing_pivot_y(a0)
 	bclr	#1,status(a0)
 	move.w	#$100,x_vel(a0)
 	move.w	#0,y_vel(a0)
@@ -401,7 +413,7 @@ Obj_SwingingPlatform_State7:
 	moveq	#0,d0
 	move.b	(Oscillating_Data+$14).w,d0
 	lsr.w	#1,d0
-	add.w	objoff_38(a0),d0
+	add.w	swing_pivot_y(a0),d0
 	move.w	d0,y_pos(a0)
 	tst.w	x_vel(a0)
 	beq.s	+
@@ -416,7 +428,7 @@ Obj_SwingingPlatform_State7:
 	moveq	#0,d1
 	move.b	width_pixels(a0),d1
 	moveq	#0,d3
-	move.b	y_radius(a0),d3
+	move.b	height_pixels(a0),d3
 	addq.b	#1,d3
 	move.w	(sp)+,d4
 	jsr		SolidObjectTop ; PlatformObject2

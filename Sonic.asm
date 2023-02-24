@@ -422,6 +422,14 @@ EndOfHeader:
 		include "Sound/Engine/Sonic 2 Clone Driver v2.asm"
 
 ; ---------------------------------------------------------------
+; Debuggers
+; ---------------------------------------------------------------
+
+		include "Debuggers/Object Debugger.asm"
+		include "Debuggers/Subsprites Debugger.asm"
+
+
+; ---------------------------------------------------------------
 ; Error handling module
 ; ---------------------------------------------------------------
 

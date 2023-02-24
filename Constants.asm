@@ -390,9 +390,9 @@ obParent2 =				parent2 	; word ; parent of child objects
 ; When childsprites are activated (i.e. bit #6 of render_flags set)
 ; ---------------------------------------------------------------------------
 
-mainspr_mapframe	= $B
-mainspr_width		= $E
-mainspr_height		= $14
+mainspr_mapframe	= mapping_frame
+mainspr_width		= width_pixels
+mainspr_height		= height_pixels
 mainspr_childsprites 		= $16	; word ; amount of child sprites
 
 sub2_x_pos				= $18
