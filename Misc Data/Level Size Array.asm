@@ -5,7 +5,7 @@
 ;		xstart, xend, ystart, yend			; Level
 LevelSizes:
 		dc.w 0, $6D60, 0, $300				; GHZ 1
-		dc.w 0, $3FFF, 0, $300				; GHZ 2
+		dc.w 0, $6D60, 0, $300				; GHZ 2
 		dc.w 0, $3FFF, 0, $300				; GHZ 3
 		dc.w 0, $3FFF, 0, $300				; GHZ 4
 

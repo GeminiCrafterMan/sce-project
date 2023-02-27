@@ -8,7 +8,7 @@ LevelSelect_VRAM:				= 480
 
 ; Variables
 LevelSelect_ZoneCount:			= ZoneCount
-LevelSelect_ActGHZCount:			= 1	; Green Hill Zone
+LevelSelect_ActGHZCount:			= 2	; Green Hill Zone
 LevelSelect_ActSSLZCount:			= 3	; Seaside Land Zone
 LevelSelect_ActTTPZCount:			= 1	; Tree Top Zone
 LevelSelect_ActMMZCount:			= 1 ; Mecha Mushroom Zone

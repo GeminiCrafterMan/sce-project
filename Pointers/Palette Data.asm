@@ -15,7 +15,9 @@ Pal_Espio:			binclude "Objects/Player Characters/Palettes/Espio.bin"
 ; Level palettes
 ; ===========================================================================
 
-Pal_GHZ:			binclude "Levels/GHZ/Palettes/Green Hill Zone.bin"
+Pal_GHZ1:			binclude "Levels/GHZ/Palettes/Green Hill Zone 1.bin"
+	even
+Pal_GHZ2:			binclude "Levels/GHZ/Palettes/Green Hill Zone 2.bin"
 	even
 Pal_SSLZ1:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone 1.bin"
 	even

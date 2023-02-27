@@ -5,34 +5,36 @@
 PalPointers:				; palette address, RAM address, colours
 
 ; Main
-ptr_Pal_Sonic:			palp	Pal_Sonic, Normal_palette_line_1, 16		; 0 - Sonic
-ptr_Pal_Knuckles:		palp	Pal_Knuckles, Normal_palette_line_1, 16		; 1 - Knuckles
-ptr_Pal_Mighty:			palp	Pal_Mighty, Normal_palette_line_1, 16		; 2 - Mighty
-ptr_Pal_Espio:			palp	Pal_Espio, Normal_palette_line_1, 16		; 3 - Espio
+ptr_Pal_Sonic:			palp	Pal_Sonic, Normal_palette_line_1, 16
+ptr_Pal_Knuckles:		palp	Pal_Knuckles, Normal_palette_line_1, 16
+ptr_Pal_Mighty:			palp	Pal_Mighty, Normal_palette_line_1, 16
+ptr_Pal_Espio:			palp	Pal_Espio, Normal_palette_line_1, 16
 
 ; Levels
-ptr_Pal_GHZ:			palp	Pal_GHZ, Normal_palette_line_2, 48			; 4 - GHZ
-ptr_Pal_SSLZ1:			palp	Pal_SSLZ1, Normal_palette_line_2, 48		; 5 - SSLZ1
-ptr_Pal_SSLZ2:			palp	Pal_SSLZ2, Normal_palette_line_2, 48		; 6 - SSLZ2
-ptr_Pal_SSLZ3:			palp	Pal_SSLZ3, Normal_palette_line_2, 48		; 7 - SSLZ3
-ptr_Pal_TTPZ:			palp	Pal_TTPZ, Normal_palette_line_2, 48			; 8 - TTPZ
-ptr_Pal_MMZ:			palp	Pal_MMZ, Normal_palette_line_2, 48			; 9 - MMZ
-ptr_Pal_DEZ:			palp	Pal_DEZ, Normal_palette_line_2, 48			; 10 - DEZ
-ptr_Pal_TTSZ:			palp	Pal_TTSZ, Normal_palette_line_2, 48			; 11 - TTSZ
+ptr_Pal_GHZ1:			palp	Pal_GHZ1, Normal_palette_line_2, 48
+ptr_Pal_GHZ2:			palp	Pal_GHZ2, Normal_palette_line_2, 48
+ptr_Pal_SSLZ1:			palp	Pal_SSLZ1, Normal_palette_line_2, 48
+ptr_Pal_SSLZ2:			palp	Pal_SSLZ2, Normal_palette_line_2, 48
+ptr_Pal_SSLZ3:			palp	Pal_SSLZ3, Normal_palette_line_2, 48
+ptr_Pal_TTPZ:			palp	Pal_TTPZ, Normal_palette_line_2, 48
+ptr_Pal_MMZ:			palp	Pal_MMZ, Normal_palette_line_2, 48
+ptr_Pal_DEZ:			palp	Pal_DEZ, Normal_palette_line_2, 48
+ptr_Pal_TTSZ:			palp	Pal_TTSZ, Normal_palette_line_2, 48
 ; ---------------------------------------------------------------------------
 
 ; Main
-palid_Sonic:			equ (ptr_Pal_Sonic-PalPointers)/8		; 0 - Sonic
-palid_Knuckles:			equ (ptr_Pal_Knuckles-PalPointers)/8	; 1 - Knuckles
-palid_Mighty:			equ (ptr_Pal_Mighty-PalPointers)/8		; 2 - Mighty
-palid_Espio:			equ (ptr_Pal_Espio-PalPointers)/8		; 3 - Espio
+palid_Sonic:			equ (ptr_Pal_Sonic-PalPointers)/8
+palid_Knuckles:			equ (ptr_Pal_Knuckles-PalPointers)/8
+palid_Mighty:			equ (ptr_Pal_Mighty-PalPointers)/8
+palid_Espio:			equ (ptr_Pal_Espio-PalPointers)/8
 
 ; Levels
-palid_GHZ:				equ (ptr_Pal_GHZ-PalPointers)/8			; 4 - GHZ
-palid_SSLZ1:			equ (ptr_Pal_SSLZ1-PalPointers)/8		; 5 - SSLZ1
-palid_SSLZ2:			equ (ptr_Pal_SSLZ2-PalPointers)/8		; 6 - SSLZ2
-palid_SSLZ3:			equ (ptr_Pal_SSLZ3-PalPointers)/8		; 7 - SSLZ3
-palid_TTPZ:				equ (ptr_Pal_TTPZ-PalPointers)/8		; 8 - TTPZ
-palid_MMZ:				equ (ptr_Pal_MMZ-PalPointers)/8			; 9 - MMZ
-palid_DEZ:				equ (ptr_Pal_DEZ-PalPointers)/8			; 10 - DEZ
-palid_TTSZ:				equ (ptr_Pal_TTSZ-PalPointers)/8		; 11 - TTSZ
+palid_GHZ1:				equ (ptr_Pal_GHZ1-PalPointers)/8
+palid_GHZ2:				equ (ptr_Pal_GHZ2-PalPointers)/8
+palid_SSLZ1:			equ (ptr_Pal_SSLZ1-PalPointers)/8
+palid_SSLZ2:			equ (ptr_Pal_SSLZ2-PalPointers)/8
+palid_SSLZ3:			equ (ptr_Pal_SSLZ3-PalPointers)/8
+palid_TTPZ:				equ (ptr_Pal_TTPZ-PalPointers)/8
+palid_MMZ:				equ (ptr_Pal_MMZ-PalPointers)/8
+palid_DEZ:				equ (ptr_Pal_DEZ-PalPointers)/8
+palid_TTSZ:				equ (ptr_Pal_TTSZ-PalPointers)/8

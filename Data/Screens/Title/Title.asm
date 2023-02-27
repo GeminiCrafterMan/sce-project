@@ -33,12 +33,9 @@ Title_Screen:
 		lea	(ArtKosM_TitleScreenFG).l,a1
 		move.w	#$4000,d2
 		jsr	(Queue_Kos_Module).w
-		lea	(Pal_GHZ).l,a1
-		lea	(Target_palette_line_2).w,a2
-		jsr	(PalLoad_Line48).w
 		lea	(Pal_TitleScreen).l,a1
 		lea	(Target_palette).w,a2
-		jsr	(PalLoad_Line32).w
+		jsr	(PalLoad_Line64).w
 
 		lea	(Eni_Title).l,a0 ; load	title screen mappings
                 lea	($FF0000).l,a1 ; load	buffer

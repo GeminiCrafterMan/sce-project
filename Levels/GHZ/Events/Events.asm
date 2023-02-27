@@ -14,95 +14,184 @@ GHZ1_ScreenEvent:
 		bra.w	GHZ_Refresh
 
 DLE_GHZ1:
-;		cmpi.w	#$CEE,(Normal_palette+$2).w	; Is the color shifting already active?
-;		beq.s	.noShiftPlayer			; If so, skip.
-;		ShiftPalUp1 $002				; Shift player palette up in the red and green sections,
-;		ShiftPalDown1 $200				; and down in the blue
-;.noShiftPlayer:
+		cmpi.b	#id_TitleScreen,(Game_mode).w
+		beq.w	DLE_GHZ1main.ret
+		cmpi.w	#$CEE,(Normal_palette+$2).w	; Is the color shifting already active?
+		beq.s	.noShiftPlayer			; If so, skip.
+		ShiftPalUp1 $002				; Shift player palette up in the red and green sections,
+		ShiftPalDown1 $200				; and down in the blue
+.noShiftPlayer:
 		moveq	#0,d0
 		move.b	(Screen_event_routine).w,d0
-		move.w	off_6E4A(pc,d0.w),d0
-		jmp	off_6E4A(pc,d0.w)
+		move.w	.index(pc,d0.w),d0
+		jmp	.index(pc,d0.w)
 ; ===========================================================================
-off_6E4A:	dc.w DLE_GHZ1main-off_6E4A
-		dc.w DLE_GHZ1boss-off_6E4A
-		dc.w DLE_GHZ1end-off_6E4A
+.index:	dc.w DLE_GHZ1main-.index
+		dc.w DLE_GHZ1boss-.index
+		dc.w DLE_GHZ1end-.index
 ; ===========================================================================
 
 DLE_GHZ1main:
 		move.w	#$300,(Camera_target_max_Y_pos).w ; set lower y-boundary
 		cmpi.w	#$1780,(v_screenposx).w ; has the camera reached $1780 on x-axis?
-		bcs.s	locret_6E96	; if not, branch
+		bcs.s	.ret	; if not, branch
 		move.w	#$400,(Camera_target_max_Y_pos).w ; set lower y-boundary
 		cmpi.w	#$2500,(v_screenposx).w	; has camera reached the start of act 2?
-		bcs.s	locret_6E96
+		bcs.s	.ret
 		move.w	#$500,(Camera_target_max_Y_pos).w
 		cmpi.w	#$33D0,(v_screenposx).w
-		bcs.s	locret_6E96
+		bcs.s	.ret
 		move.w	#$400,(Camera_target_max_Y_pos).w
 		cmpi.w	#$3B00,(v_screenposx).w
-		bcs.s	locret_6E96
+		bcs.s	.ret
 		move.w	#$600,(Camera_target_max_Y_pos).w
 		cmpi.w	#$4260,(v_screenposx).w
-		bcs.s	locret_6E96
+		bcs.s	.ret
 	; act 3
 		move.w	#$500,(Camera_target_max_Y_pos).w
 		cmpi.w	#$4780,(v_screenposx).w
-		bcs.s	locret_6E96
+		bcs.s	.ret
 		move.w	#$510,(Camera_target_max_Y_pos).w
 		cmpi.w	#$4D60,(v_screenposx).w
-		bcs.s	locret_6E96
+		bcs.s	.ret
 		cmpi.w	#$480,(v_screenposy).w
-		bcs.s	loc_6E98
+		bcs.s	.cont2
 		move.w	#$600,(Camera_target_max_Y_pos).w
 		cmpi.w	#$5780,(v_screenposx).w
-		bcc.s	loc_6E8E
+		bcc.s	.cont
 		move.w	#$6C0,(Camera_target_max_Y_pos).w
 		move.w	#$6C0,(Camera_max_Y_pos).w
 
-loc_6E8E:
+.cont:
 		cmpi.w	#$5B00,(v_screenposx).w
-		bcc.s	loc_6E98
+		bcc.s	.cont2
 
-locret_6E96:
+.ret:
 		rts
 ; ===========================================================================
 
-loc_6E98:
+.cont2:
 		move.w	#$500,(Camera_target_max_Y_pos).w
 		addq.b	#2,(Screen_event_routine).w
-		rts	
+		rts
 ; ===========================================================================
 
 DLE_GHZ1boss:
 		cmpi.w	#$4D60,(v_screenposx).w
-		bcc.s	loc_6EB0
+		bcc.s	.cont
 		subq.b	#2,(Screen_event_routine).w
 
-loc_6EB0:
+.cont:
 		cmpi.w	#$6D60,(v_screenposx).w
-		bcs.s	locret_6EE8
+		bcs.s	.ret
 		jsr		FindFreeObj
-		bne.s	loc_6ED0
+		bne.s	.cont2
 		move.l	#Obj_MechaSonic,address(a1) ; load Mecha Sonic
 		st		(Boss_flag).w
 		move.w	#$6E60,obX(a1)
 		move.w	#$480,obY(a1)
 
-loc_6ED0:
+.cont2:
 		move.b	#1,(f_lockscreen).w ; lock screen
 		addq.b	#2,(Screen_event_routine).w
 ;		moveq	#plcid_Boss,d0
 ;		bra.w	AddPLC		; load boss patterns
 ; ===========================================================================
 
-locret_6EE8:
+.ret:
 		rts
 ; ===========================================================================
 
 DLE_GHZ1end:
 		move.w	(v_screenposx).w,(Camera_min_X_pos).w
-		rts	
+		rts
+; ===========================================================================
+
+DLE_GHZ2:
+		moveq	#0,d0
+		move.b	(Screen_event_routine).w,d0
+		move.w	.index(pc,d0.w),d0
+		jmp	.index(pc,d0.w)
+; ===========================================================================
+.index:	dc.w DLE_GHZ2main-.index
+		dc.w DLE_GHZ2boss-.index
+		dc.w DLE_GHZ2end-.index
+; ===========================================================================
+
+DLE_GHZ2main:
+		move.w	#$300,(Camera_target_max_Y_pos).w ; set lower y-boundary
+		cmpi.w	#$1780,(v_screenposx).w ; has the camera reached $1780 on x-axis?
+		bcs.s	.ret	; if not, branch
+		move.w	#$400,(Camera_target_max_Y_pos).w ; set lower y-boundary
+		cmpi.w	#$2500,(v_screenposx).w	; has camera reached the start of act 2?
+		bcs.s	.ret
+		move.w	#$500,(Camera_target_max_Y_pos).w
+		cmpi.w	#$33D0,(v_screenposx).w
+		bcs.s	.ret
+		move.w	#$400,(Camera_target_max_Y_pos).w
+		cmpi.w	#$3B00,(v_screenposx).w
+		bcs.s	.ret
+		move.w	#$600,(Camera_target_max_Y_pos).w
+		cmpi.w	#$4260,(v_screenposx).w
+		bcs.s	.ret
+	; act 3
+		move.w	#$500,(Camera_target_max_Y_pos).w
+		cmpi.w	#$4780,(v_screenposx).w
+		bcs.s	.ret
+		move.w	#$510,(Camera_target_max_Y_pos).w
+		cmpi.w	#$4D60,(v_screenposx).w
+		bcs.s	.ret
+		cmpi.w	#$480,(v_screenposy).w
+		bcs.s	.cont2
+		move.w	#$600,(Camera_target_max_Y_pos).w
+		cmpi.w	#$5780,(v_screenposx).w
+		bcc.s	.cont
+		move.w	#$6C0,(Camera_target_max_Y_pos).w
+		move.w	#$6C0,(Camera_max_Y_pos).w
+
+.cont:
+		cmpi.w	#$5B00,(v_screenposx).w
+		bcc.s	.cont2
+
+.ret:
+		rts
+; ===========================================================================
+
+.cont2:
+		move.w	#$500,(Camera_target_max_Y_pos).w
+		addq.b	#2,(Screen_event_routine).w
+		rts
+; ===========================================================================
+
+DLE_GHZ2boss:
+		cmpi.w	#$4D60,(v_screenposx).w
+		bcc.s	.cont
+		subq.b	#2,(Screen_event_routine).w
+
+.cont:
+		cmpi.w	#$6D60,(v_screenposx).w
+		bcs.s	.ret
+		jsr		FindFreeObj
+		bne.s	.cont2
+		move.l	#Obj_MechaSonic,address(a1) ; load Mecha Sonic
+		st		(Boss_flag).w
+		move.w	#$6E60,obX(a1)
+		move.w	#$480,obY(a1)
+
+.cont2:
+		move.b	#1,(f_lockscreen).w ; lock screen
+		addq.b	#2,(Screen_event_routine).w
+;		moveq	#plcid_Boss,d0
+;		bra.w	AddPLC		; load boss patterns
+; ===========================================================================
+
+.ret:
+		rts
+; ===========================================================================
+
+DLE_GHZ2end:
+		move.w	(v_screenposx).w,(Camera_min_X_pos).w
+		rts
 ; ===========================================================================
 
 GHZ_Refresh:
