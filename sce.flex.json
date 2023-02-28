@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
+    "node": "467e4020-19b4-48f0-a61d-a179eea7481f",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -848,7 +848,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {

@@ -638,7 +638,8 @@ Sonic_MdJump:
 
 loc_11056:
 		bsr.w	Player_JumpAngle
-		bra.w	Player_DoLevelCollision
+		bsr.w	Player_DoLevelCollision
+		bra.w	FireShield_ReleaseDropDash
 
 	if RollInAir
 
@@ -1628,9 +1629,18 @@ Player_JumpHeight:
 		tst.b	move_lock(a0)
 		bne.w	locret_118E8
 	.superchk:
-		jsr		GetCtrlPressLogical
+		jsr		GetCtrlHeldLogical
 		andi.b	#btnABC,d0					; are buttons A, B or C being pressed?
 		beq.w	locret_118E8
+		cmpa.w	#Player_2,a0
+		beq.s	.abilities
+		tst.l	(Player_2+address).w
+		beq.s	.noP2
+		jsr		GetCtrlHeldLogical
+		andi.b	#btnUp,d0					; is Up being held?
+		bne.s	locret_118E8
+
+	.noP2:
 		cmpi.b	#7,(Super_emerald_count).w	; does Sonic have all 7 Super Emeralds?
 		bhs.s	.emeralds			; if yes, branch
 		cmpi.b	#7,(Emerald_count).w		; does Sonic have all 7 Chaos Emeralds?
@@ -1643,6 +1653,8 @@ Player_JumpHeight:
 		blo.s	.abilities	; if not, perform Insta-Shield
 		tst.b	(Update_HUD_timer).w
 		beq.s	.abilities
+		tst.b	(Super_Sonic_Knux_flag).w
+		bne.s	.abilities
 		bra.w	Player_Transform
 
 	.abilities:
@@ -1673,6 +1685,13 @@ locret_118FE:
 Sonic_InstaAndShieldMoves:
 		cmpa.w	#Player_1,a0
 		bne.s	locret_118FE
+		btst	#Status_FireShield,status_secondary(a0)
+		beq.s	.cont
+		cmpi.b	#4,double_jump_flag(a0)
+		beq.w	FireShield_DropDash.cont
+		cmpi.b	#1,double_jump_flag(a0)
+		bgt.w	FireShield_DropDash.add
+	.cont:
 		tst.b	double_jump_flag(a0)						; is Sonic currently performing a double jump?
 		bne.s	locret_118FE							; if yes, branch
 		jsr		GetCtrlPressLogical
@@ -1683,6 +1702,7 @@ Sonic_InstaAndShieldMoves:
 		beq.s	Sonic_FireShield		; if not in a super-state, branch
 		bmi.w	Sonic_HyperDash			; if Hyper, branch
 		move.b	#1,double_jump_flag(a0)
+		clr.b	double_jump_property(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -1690,21 +1710,117 @@ Sonic_FireShield:
 		btst	#Status_Invincible,status_secondary(a0)		; first, does Sonic have invincibility?
 		bne.s	locret_118FE							; if yes, branch
 		btst	#Status_FireShield,status_secondary(a0)		; does Sonic have a Fire Shield?
-		beq.s	Sonic_LightningShield					; if not, branch
+		beq.w	Sonic_LightningShield					; if not, branch
+		jsr		GetCtrlHeldLogical
+		btst	#bitDn,d0
+		bne.s	FireShield_DropDash
 		move.b	#1,(v_Shield+anim).w
 		move.b	#1,double_jump_flag(a0)
 		move.w	#$800,d0
 		btst	#Status_Facing,status(a0)					; is Sonic facing left?
-		beq.s	loc_11958							; if not, branch
+		beq.s	.notLeft							; if not, branch
 		neg.w	d0									; reverse speed value, moving Sonic left
 
-loc_11958:
+	.notLeft:
 		move.w	d0,x_vel(a0)							; apply velocity...
 		move.w	d0,ground_vel(a0)					; ...both ground and air
 		clr.w	y_vel(a0)							; kill y-velocity
 		move.w	#$2000,(H_scroll_frame_offset).w
 		bsr.w	Reset_Player_Position_Array
 		sfx	sfx_FireAttack,1							; play Fire Shield attack sound
+
+FireShield_DropDash:
+		jsr		GetCtrlHeldLogical
+		andi.b	#btnABC,d0
+		beq.s	.ret
+		move.b	#3,double_jump_flag(a0)
+		bclr	#Status_RollJump,status(a0)
+	.add:
+		addq.b	#1,double_jump_property(a0)
+		cmpi.b	#22,double_jump_property(a0)
+		beq.s	.start
+		rts
+	.start:
+		move.b	#2,(v_Shield+anim).w
+		move.b	#4,double_jump_flag(a0)
+		sfx		sfx_FireShield
+	.ret:
+		rts
+	.cont:
+		jsr		GetCtrlHeldLogical
+;		btst	#bitDn,d0
+;		beq.s	.reset
+		andi.b	#btnABC,d0
+		beq.s	.reset
+		bra.s	.ret
+
+	.reset:
+		clr.b	double_jump_flag(a0)
+		clr.b	double_jump_property(a0)
+		clr.b	jumping(a0)
+		clr.b	(v_Shield+anim).w
+		sfx		sfx_FireAttack,1
+
+FireShield_ReleaseDropDash:
+		cmpi.b	#4,double_jump_flag(a0)
+		bne.w	.done
+		btst	#Status_InAir,status(a0)
+		bne.w	.done
+		clr.b	double_jump_flag(a0)
+		clr.b	double_jump_property(a0)
+		move.b	#id_Roll,anim(a0)
+		move.b	#1,(v_Shield+anim).w
+;	.notShrunk:
+		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
+		addq.w	#5,y_pos(a0)
+	.gravchk:
+		tst.b	(Reverse_gravity_flag).w
+		beq.s	.notReversed
+		subi.w	#$A,y_pos(a0)
+	.notReversed:
+		mvabs.w	x_vel(a0),d2
+		mvabs.w	ground_vel(a0),d3
+		move.w	#$800,d0
+		move.w	#$C00,d1
+; I think I can skip the button checks, since I can use mvabs.
+		tst.w	d2
+		bge.s	.gezero
+		tst.b	angle(a0)
+		bne.s	.nonzero
+		move.w	d0,d3
+		bra.s	.cont2
+
+	.nonzero:
+		asr.w	#1,d3
+		add.w	d0,d3
+		bra.s	.cont2
+
+	.gezero:
+		asr.w	#2,d3
+		add.w	d0,d3
+		cmp.w	d3,d1
+		bgt.s	.cont2
+		move.w	d1,d3
+
+	.cont2:
+		jsr		GetCtrlHeldLogical.d2
+		btst	#bitL,d2
+		bne.s	.left2
+		btst	#bitR,d2
+		bne.s	.cont3
+		btst	#Status_Facing,status(a0)
+		beq.s	.cont3
+	.left2:
+		neg.w	d3
+	.cont3:
+		move.w	d3,ground_vel(a0)
+		bset	#Status_Roll,status(a0)
+		sfx		sfx_Dash
+		move.w	#$1000,(H_scroll_frame_offset).w
+		bsr.w	Reset_Player_Position_Array
+	.done:
+		rts
+
 ; ---------------------------------------------------------------------------
 
 Sonic_LightningShield:
@@ -2293,7 +2409,8 @@ loc_11F7A:
 loc_11F9C:
 		clr.w	y_vel(a0)
 		move.w	x_vel(a0),ground_vel(a0)
-		bra.w	Player_TouchFloor_Check_Spindash
+		bsr.w	Player_TouchFloor_Check_Spindash
+		jmp		FireShield_ReleaseDropDash
 ; ---------------------------------------------------------------------------
 
 loc_11FAE:
@@ -2304,6 +2421,7 @@ loc_11FAE:
 
 loc_11FC2:
 		bsr.w	Player_TouchFloor_Check_Spindash
+		jsr		FireShield_ReleaseDropDash
 		move.w	y_vel(a0),ground_vel(a0)
 		tst.b	d3
 		bpl.s	locret_11FD4
@@ -2402,6 +2520,7 @@ loc_12084:
 		clr.w	y_vel(a0)
 		move.w	x_vel(a0),ground_vel(a0)
 		bsr.w	Player_TouchFloor_Check_Spindash
+		jsr		FireShield_ReleaseDropDash
 
 locret_1209C:
 		rts
@@ -2442,6 +2561,7 @@ loc_120D2:
 loc_120EA:
 		move.b	d3,angle(a0)
 		bsr.w	Player_TouchFloor_Check_Spindash
+		jsr		FireShield_ReleaseDropDash
 		move.w	y_vel(a0),ground_vel(a0)
 		tst.b	d3
 		bpl.s	locret_12100
@@ -2557,12 +2677,15 @@ loc_121D8:
 		bne.s	loc_1222A
 		btst	#Status_Invincible,status_secondary(a0)		; don't bounce when invincible... or Super, I guess.
 		bne.s	loc_1222A
+		cmpi.b	#4,double_jump_flag(a0)
+		beq.s	locret_12230
 		btst	#Status_BublShield,status_secondary(a0)
 		beq.s	loc_1222A
 		bsr.s	BubbleShield_Bounce
 
 loc_1222A:
 		clr.b	double_jump_flag(a0)
+		clr.b	double_jump_property(a0)
 
 locret_12230:
 		rts

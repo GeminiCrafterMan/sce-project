@@ -200,6 +200,8 @@ Obj_Fire_Shield:
 		move.w	#$80,priority(a0)									; layer shield over player sprite
 		cmpi.b	#$F,mapping_frame(a0)							; are these the frames that display in front of the player?
 		blo.s		.overplayer										; if so, branch
+		cmpi.b	#$19,mapping_frame(a0)
+		bge.s	.overplayer
 		move.w	#$200,priority(a0)								; if not, layer shield behind player sprite
 
 .overplayer

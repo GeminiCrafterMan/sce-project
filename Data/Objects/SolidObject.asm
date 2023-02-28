@@ -942,7 +942,7 @@ loc_1E42E:
 		bmi.w	locret_1E4D4
 		add.w	d1,d1
 		cmp.w	d1,d0
-		bhs.s	locret_1E4D4
+		bhs.w	locret_1E4D4
 
 loc_1E44C:
 		tst.b	(Reverse_gravity_flag).w
@@ -988,6 +988,7 @@ loc_1E4A0:
 		move.w	a0,-(sp)
 		movea.w	a1,a0
 		jsr	Player_ResetOnFloor(pc)
+		jsr	FireShield_ReleaseDropDash
 		movea.w	(sp)+,a0
 
 locret_1E4D4:
