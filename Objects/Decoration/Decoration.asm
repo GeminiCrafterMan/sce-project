@@ -30,7 +30,6 @@ Obj_MonkeyBarHanger:
 		move.w	#$80,priority(a0)
 		ori.b	#4,render_flags(a0)
 		jmp		RememberState	; Do I really have to?
-
 ; ---------------------------------------------------------------------------
 
 Obj_Waterfall:
@@ -62,8 +61,31 @@ Obj_Waterfall:
 	.done:
 		move.b	d1,mapping_frame(a0)
 		jmp		MarkObjGone
+; ---------------------------------------------------------------------------
+
+Obj_Pylon:
+		move.l	#Map_Pylon,mappings(a0)
+		move.w	#make_art_tile(ArtTile_PurpleRock+16,0,0),art_tile(a0)
+		move.w	#bytes_to_word($60,$10),height_pixels(a0)
+		move.l	#.display,address(a0)
+
+	.display:
+		move.l	(Camera_X_pos).w,d1
+		add.l	d1,d1
+		swap	d1
+		neg.w	d1
+		move.w	d1,x_pos(a0)
+		move.l	(Camera_Y_pos).w,d1
+		add.l	d1,d1
+		swap	d1
+		andi.w	#$3F,d1
+		neg.w	d1
+		addi.w	#$100,d1
+		move.w	d1,y_pos(a0)
+		jmp		DisplaySprite
 
 ; ---------------------------------------------------------------------------
 ; Mappings for foreground objects
 ; ---------------------------------------------------------------------------
 Map_SSLZWaterfall:		binclude	"Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin"
+Map_Pylon:				binclude	"Objects/Decoration/Object Data/Map - Pylon.bin"

@@ -7,6 +7,7 @@
 TTPZ1_ScreenInit:
 		move.l	#Obj_Oil,(v_WaterWave1+address).w
 		move.w	#$608,(v_WaterWave1+y_pos).w
+		move.l	#Obj_Pylon,(v_WaterWave2+address).w
 		jsr	(Reset_TileOffsetPositionActual).w
 		jmp	(Refresh_PlaneFull).w
 
