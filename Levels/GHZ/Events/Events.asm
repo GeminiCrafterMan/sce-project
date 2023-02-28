@@ -18,7 +18,7 @@ DLE_GHZ1:
 		beq.w	DLE_GHZ1main.ret
 		cmpi.w	#$CEE,(Normal_palette+$2).w	; Is the color shifting already active?
 		beq.s	.noShiftPlayer			; If so, skip.
-		ShiftPalUp1 $002				; Shift player palette up in the red and green sections,
+		ShiftPalUp1 $002				; Shift player palette up in the red section,
 		ShiftPalDown1 $200				; and down in the blue
 .noShiftPlayer:
 		moveq	#0,d0

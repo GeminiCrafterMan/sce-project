@@ -441,12 +441,11 @@ UpdateEmotionWindow:
 		move.b	(Player_1+character_id).w,d1
 		lsl.w	#2,d1
 		move.l	.artLUT(pc,d1.w),d1
-	.cont:
 		move.w	#tiles_to_bytes(ArtTile_EmotionWindow),d2
 		move.w	#16*8,d3	; length of one emotion's image (1 tile = 16 bytes)
 		mulu.w	d3,d0	; source, destination
 ;		add.w	d0,d0
-		add.w	d0,d1
+		add.l	d0,d1
 		jsr		(QueueDMATransfer).l
 		movem.l	(sp)+,d0-d3
 		rts
