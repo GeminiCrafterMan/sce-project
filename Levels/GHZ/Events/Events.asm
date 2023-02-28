@@ -32,36 +32,6 @@ DLE_GHZ1:
 ; ===========================================================================
 
 DLE_GHZ1main:
-		move.w	#$300,(Camera_target_max_Y_pos).w ; set lower y-boundary
-		cmpi.w	#$1780,(v_screenposx).w ; has the camera reached $1780 on x-axis?
-		bcs.s	.ret	; if not, branch
-		move.w	#$400,(Camera_target_max_Y_pos).w ; set lower y-boundary
-		cmpi.w	#$2500,(v_screenposx).w	; has camera reached the start of act 2?
-		bcs.s	.ret
-		move.w	#$500,(Camera_target_max_Y_pos).w
-		cmpi.w	#$33D0,(v_screenposx).w
-		bcs.s	.ret
-		move.w	#$400,(Camera_target_max_Y_pos).w
-		cmpi.w	#$3B00,(v_screenposx).w
-		bcs.s	.ret
-		move.w	#$600,(Camera_target_max_Y_pos).w
-		cmpi.w	#$4260,(v_screenposx).w
-		bcs.s	.ret
-	; act 3
-		move.w	#$500,(Camera_target_max_Y_pos).w
-		cmpi.w	#$4780,(v_screenposx).w
-		bcs.s	.ret
-		move.w	#$510,(Camera_target_max_Y_pos).w
-		cmpi.w	#$4D60,(v_screenposx).w
-		bcs.s	.ret
-		cmpi.w	#$480,(v_screenposy).w
-		bcs.s	.cont2
-		move.w	#$600,(Camera_target_max_Y_pos).w
-		cmpi.w	#$5780,(v_screenposx).w
-		bcc.s	.cont
-		move.w	#$6C0,(Camera_target_max_Y_pos).w
-		move.w	#$6C0,(Camera_max_Y_pos).w
-
 .cont:
 		cmpi.w	#$5B00,(v_screenposx).w
 		bcc.s	.cont2
