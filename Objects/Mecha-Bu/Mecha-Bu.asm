@@ -1,7 +1,7 @@
 Obj_MechaBu:
 	.init:
 		move.l	#Map_MechaBu,mappings(a0)
-		move.w	#make_art_tile(ArtTile_Motobug,0,0),art_tile(a0)
+		move.w	#make_art_tile(ArtTile_Crabmeat,0,0),art_tile(a0)
 		ori.b	#4,render_flags(a0)
 		move.w	#$200,priority(a0)
 		move.b	#4,mapping_frame(a0)	; so the saw can use bchg

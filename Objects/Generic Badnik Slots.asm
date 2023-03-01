@@ -41,7 +41,7 @@ Obj_BadnikSlot2:
 		dc.l	Obj_BuzzBomber	; SSLZ
 	endr
 	rept 4
-		dc.l	Obj_BuzzBomber	; TTPZ
+		dc.l	Obj_SpringShell	; TTPZ
 	endr
 	rept 4
 		dc.l	Obj_BuzzBomber	; MMZ

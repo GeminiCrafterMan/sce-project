@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjDef xmlns="http://www.sonicretro.org" Name="Spring Shell" Image="main">
+  <Images>
+    <ImageFromMappings id="main">
+      <ArtFile filename="../Objects/Motobug/KosinskiM Art/Motobug.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Motobug/Object Data/Map - Motobug.bin" frame="0" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="vertred">
+      <ArtFile filename="../Objects/Spring/KosinskiM Art/Spring.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Spring/Object Data/Map - Spring(Red).bin" frame="0" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="vertyel">
+      <ArtFile filename="../Objects/Spring/KosinskiM Art/Spring.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Spring/Object Data/Map - Spring(Yellow).bin" frame="0" startpal="0" />
+    </ImageFromMappings>
+  </Images>
+  <Subtypes>
+    <Subtype id="00" name="Red Spring" image="vertred" />
+    <Subtype id="02" name="Yellow Spring" image="vertyel" />
+  </Subtypes>
+  <Properties>
+    <BitsProperty name="Twirl" type="bool" startbit="0" length="1" />
+    <BitsProperty name="Color" type="SpringColor" startbit="1" length="1" />
+    <BitsProperty name="Layer" type="SpringLayer" startbit="2" length="2" />
+    <BitsProperty name="KillTransverseSpeed" displayname="Kill Transverse Speed" type="bool" startbit="7" length="1" />
+  </Properties>
+  <Enums>
+    <Enum name="SpringColor">
+      <EnumMember name="Red" />
+      <EnumMember name="Yellow" />
+    </Enum>
+    <Enum name="SpringLayer">
+      <EnumMember name="No Change" />
+      <EnumMember name="Layer 1" />
+      <EnumMember name="Layer 2" />
+      <EnumMember name="No Change 2" />
+    </Enum>
+  </Enums>
+  <Display>
+    <DisplayOption>
+      <Condition property="Color" value="Red" />
+      <ImageRef image="vertred">
+        <Offset Y="-18" />
+      </ImageRef>
+      <ImageRef image="main"/>
+    </DisplayOption>
+    <DisplayOption>
+      <Condition property="Color" value="Yellow" />
+      <ImageRef image="vertyel">
+        <Offset Y="-18" />
+      </ImageRef>
+      <ImageRef image="main"/>
+    </DisplayOption>
+  </Display>
+</ObjDef>

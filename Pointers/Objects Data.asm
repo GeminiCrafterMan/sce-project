@@ -71,6 +71,7 @@
 
 	; TTPZ
 		include	"Objects/Mecha-Bu/Mecha-Bu.asm"
+		include	"Objects/Spring Shell/Spring Shell.asm"
 		include	"Objects/Monkey Bars/Monkey Bars.asm"
 
 ; ===========================================================================
