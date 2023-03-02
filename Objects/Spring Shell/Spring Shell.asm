@@ -120,6 +120,8 @@ Obj_SpringShellSpring:
 		move.l	#Obj_SpringShellSpring_Up,address(a0)
 
 ;Spring_Common:
+		move.w	parent3(a0),a2
+		move.b	subtype(a2),subtype(a0)
 		move.b	subtype(a0),d0
 		andi.w	#2,d0
 		move.w	.strengths(pc,d0.w),objoff_30(a0)
