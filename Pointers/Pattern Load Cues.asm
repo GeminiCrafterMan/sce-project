@@ -129,7 +129,7 @@ PLC1_TTPZ_Misc_end
 
 PLC2_TTPZ_Enemy: plrlistheader
 		plreq	ArtTile_Crabmeat, ArtKosM_MechaBu
-		plreq	ArtTile_Motobug, ArtKosM_Motobug
+		plreq	ArtTile_Motobug, ArtKosM_SpringShell
 PLC2_TTPZ_Enemy_end
 
 ; ===========================================================================
