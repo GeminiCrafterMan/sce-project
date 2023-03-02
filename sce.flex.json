@@ -322,7 +322,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
         },
         {
@@ -848,7 +848,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {
@@ -1320,7 +1320,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "d3d95b3c-8175-4835-b97c-8859b145c346"
         },
         {
@@ -1379,6 +1379,26 @@
                         "label": ""
                     },
                     "uuid": "3f81ae78-94fb-41b8-8a46-875c2a5790ae"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Decorations",
+                    "palettes": [],
+                    "art": {
+                        "path": "Levels/TTPZ/Tiles/Primary.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Decoration/Object Data/Map - TTPZ Decorations.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "826c097f-1702-4745-86fe-671e006873c1"
                 },
                 {
                     "format": "Sonic 3&K Object.js",

@@ -1642,6 +1642,11 @@ Player_JumpHeight:
 		beq.s	.abilities
 		tst.l	(Player_2+address).w
 		beq.s	.noP2
+		cmpi.b	#c_Sonic,character_id(a0)	; are we Sonic?
+		bne.s	.skipHyperChk			; if not, branch
+		cmpi.b	#-1,(Super_Sonic_Knux_flag).w	; is player Hyper?
+		beq.s	.noP2						; if so, skip this
+	.skipHyperChk:
 		jsr		GetCtrlHeldLogical
 		andi.b	#btnUp,d0					; is Up being held?
 		bne.s	locret_118E8

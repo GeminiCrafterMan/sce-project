@@ -9,9 +9,19 @@
       <ArtFile filename="../Objects/Monkey Bars/KosinskiM Art/Monkey Bars.bin" compression="KosinskiM" />
       <MapFile type="Binary" filename="../Objects/Monkey Bars/Object Data/Map - Monkey Bars.bin" frame="15" startpal="0" />
     </ImageFromMappings>
+    <ImageFromMappings id="bottom1">
+      <ArtFile filename="LevelArt" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - TTPZ Decorations.bin" frame="0" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="bottom2">
+      <ArtFile filename="LevelArt" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - TTPZ Decorations.bin" frame="1" startpal="0" />
+    </ImageFromMappings>
   </Images>
   <Subtypes>
     <Subtype id="00" image="stake" />
     <Subtype id="01" image="hanger" />
+    <Subtype id="02" image="bottom1" />
+    <Subtype id="03" image="bottom2" />
   </Subtypes>
 </ObjDef>
