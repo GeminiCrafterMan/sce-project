@@ -190,7 +190,9 @@ loc_1AF1C:
 		move.w	mainspr_childsprites(a0),d3
 		subq.w	#1,d3
 		bcs.w	Render_Sprites_NextObj
-		pea		(a0)
+	if DEBUG = 1
+		pea		(a0)	; used later in the debugger
+	endif
 		lea	sub2_x_pos(a0),a0
 
 loc_1AF2A:
@@ -211,12 +213,14 @@ loc_1AF46:
 		add.w	d4,d4
 		lea	(a2),a1
 		adda.w	(a1,d4.w),a1
+	if DEBUG = 1
 		move.w	a1,d4
 		btst	#0,d4
 		beq.s	+	; apparently local labels don't work after RaiseError...
 		movea.l	(sp)+,a0
 		RaiseError "a1(mapping) address is odd a1 = %<.l a1>(%<.l a1 sym>)", SubspritesDebugger
 +
+	endif
 		move.w	(a1)+,d4
 		subq.w	#1,d4
 		bmi.s	loc_1AF62
@@ -227,7 +231,9 @@ loc_1AF46:
 loc_1AF62:
 		tst.w	d7
 		dbmi	d3,loc_1AF2A
+	if DEBUG = 1
 		lea		4(sp),sp
+	endif
 		bra.w	Render_Sprites_NextObj
 
 ; =============== S U B R O U T I N E =======================================
