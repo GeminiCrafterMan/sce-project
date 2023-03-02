@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "d5c21781-69da-4b2f-a9ef-a19306d2bab3",
+    "node": "d86ce0ef-fa1d-49f8-afbe-58000e53dfb2",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -982,7 +982,7 @@
                     }
                 },
                 {
-                    "uuid": "2617509e-82d0-4cd2-95a1-a6146d96ef45",
+                    "uuid": "d86ce0ef-fa1d-49f8-afbe-58000e53dfb2",
                     "format": "Sonic 3&K Object.js",
                     "name": "Motobug",
                     "palettes": [
@@ -991,7 +991,7 @@
                             "length": 1
                         },
                         {
-                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                            "path": "Levels/GHZ/Palettes/Green Hill Zone 2.bin",
                             "length": 3
                         }
                     ],
@@ -1399,6 +1399,35 @@
                         "label": ""
                     },
                     "uuid": "e05b8f06-b02e-490b-9f7b-96855d64d1d3"
+                },
+                {
+                    "uuid": "2617509e-82d0-4cd2-95a1-a6146d96ef45",
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Spring Shell",
+                    "palettes": [
+                        {
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/TTPZ/Palettes/Tree Top Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Spring Shell/KosinskiM Art/Spring Shell.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Spring Shell/Object Data/Map - Spring Shell.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    }
                 },
                 {
                     "format": "Sonic 3&K Object.js",

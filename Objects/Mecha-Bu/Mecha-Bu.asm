@@ -8,9 +8,9 @@ Obj_MechaBu:
 		move.w	#bytes_to_word(4*4,4*6),y_radius(a0)
 		move.w	#bytes_to_word(8*4,8*6),height_pixels(a0)
 		move.b	#$C,obColType(a0)
+		move.l	#.main,address(a0)
 		lea	ChildObjDat_MechaBuPartTwo(pc),a2
 		jsr	(CreateChild1_Normal).w
-		move.l	#.main,address(a0)
 	.main:
 		moveq	#0,d0
 		move.b	routine(a0),d0
@@ -62,7 +62,8 @@ Obj_MechaBu:
 Obj_MechaBuPartTwo:	; saw and horn
 	.main:
 		move.w	parent3(a0),a2
-		beq.s	.del
+		cmpi.l	#Obj_MechaBu.main,address(a2)
+		bne.s	.del
 		move.b	status(a2),status(a0)
 		move.b	render_flags(a2),render_flags(a0)
 		move.w	height_pixels(a2),height_pixels(a0)

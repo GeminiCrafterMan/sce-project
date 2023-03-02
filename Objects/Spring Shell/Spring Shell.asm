@@ -1,18 +1,18 @@
 ; -------------------------------------------------------------------------
-; Spring Shell from Sonic Triple Trouble (Currently just a Motobug as a placeholder)
+; Spring Shell from Sonic Triple Trouble
 ; -------------------------------------------------------------------------
 Obj_SpringShell:
 	.init:
-		move.l	#Map_Motobug,mappings(a0)
+		move.l	#Map_SpringShell,mappings(a0)
 		move.w	#make_art_tile(ArtTile_Motobug,0,0),art_tile(a0)
 		move.b	#4,render_flags(a0)
 		move.w	#4*$80,priority(a0)
 		move.w	#bytes_to_word($14,$14),height_pixels(a0)
 		move.w	#bytes_to_word($E,8),y_radius(a0)
 		move.b	#$C,collision_flags(a0)
+		move.l	#.theActualObject,address(a0)
 		lea	ChildObjDat_SpringShellSpring(pc),a2
 		jsr	(CreateChild1_Normal).w
-		move.l	#.theActualObject,address(a0)
 	.theActualObject:
 		moveq	#0,d0
 		move.b	routine(a0),d0
@@ -137,6 +137,8 @@ Obj_SpringShellSpring:
 
 Obj_SpringShellSpring_Up:
 		move.w	parent3(a0),a2
+		cmpi.l	#Obj_SpringShell.theActualObject,address(a2)
+		bne.s	.del
 		move.b	status(a2),status(a0)
 		move.b	render_flags(a2),render_flags(a0)
 		jsr	(Refresh_ChildPositionAdjusted).w
@@ -165,6 +167,8 @@ Obj_SpringShellSpring_Up:
 		lea	Ani_Spring(pc),a1
 		jsr	(Animate_Sprite).w
 		jmp	Child_Draw_Sprite
+	.del:
+		jmp		DeleteObject
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -215,3 +219,8 @@ Obj_SpringShellSpring_Up:
 
 .playSound:
 		sfx	sfx_Spring,1
+
+; -------------------------------------------------------------------------
+; Object data
+; -------------------------------------------------------------------------
+Map_SpringShell:	binclude "Objects/Spring Shell/Object Data/Map - Spring Shell.bin"

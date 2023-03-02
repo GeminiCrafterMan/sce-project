@@ -14,22 +14,29 @@ ArtKosM_Spikes:				binclude "Objects/Spikes/KosinskiM Art/Spikes.bin"
 	even
 ArtKosM_Spring:				binclude "Objects/Spring/KosinskiM Art/Spring.bin"
 	even
-ArtKosM_RobotnikShip:		binclude "Objects/Robotnik/KosinskiM Art/Robotnik Ship.bin"
-	even
-ArtKosM_BossExplosion:		binclude "Objects/Explosion/KosinskiM Art/Boss Explosion.bin"
-	even
-ArtKosM_Explosion:			binclude "Objects/Explosion/KosinskiM Art/Explosion.bin"
-	even
-ArtKosM_EnemyScore:			binclude "Objects/Explosion/KosinskiM Art/Enemy score.bin"
-	even
-ArtKosM_StarPost:			binclude "Objects/StarPost/KosinskiM Art/Starpost.bin"
-	even
 ArtKosM_GrayButton:			binclude "Objects/Button/KosinskiM Art/Gray Button.bin"
 	even
 ArtKosM_Bubbles:			binclude "Objects/Bubbler/KosinskiM Art/Bubbles.bin"
 	even
 ArtKosM_EggCapsule:			binclude "Objects/Egg Capsule/KosinskiM Art/Egg Capsule.bin"
 	even
+
+; Starpost
+ArtKosM_StarPost:			binclude "Objects/StarPost/KosinskiM Art/Starpost.bin"
+	even
+ArtKosM_StarPostStars1:		binclude "Objects/Starpost/KosinskiM Art/Starpost Stars 1.bin"
+	even
+ArtKosM_StarPostStars2:		binclude "Objects/Starpost/KosinskiM Art/Starpost Stars 2.bin"
+	even
+ArtKosM_StarPostStars3:		binclude "Objects/Starpost/KosinskiM Art/Starpost Stars 3.bin"
+	even
+
+; Enemy explosions + score
+ArtKosM_Explosion:			binclude "Objects/Explosion/KosinskiM Art/Explosion.bin"
+	even
+ArtKosM_EnemyScore:			binclude "Objects/Explosion/KosinskiM Art/Enemy score.bin"
+	even
+; Animal friends
 ArtKosM_Seal:				binclude "Objects/Animals/KosinskiM Art/Seal.bin"
 	even
 ArtKosM_BlueFlicky:			binclude "Objects/Animals/KosinskiM Art/Blue Flicky.bin"
@@ -42,18 +49,16 @@ ArtKosM_Squirrel:			binclude "Objects/Animals/KosinskiM Art/Squirrel.bin"
 	even
 ArtKosM_Rabbit:				binclude "Objects/Animals/KosinskiM Art/Rabbit.bin"
 	even
-ArtKosM_ResultsGeneral:		binclude "Objects/Results/KosinskiM Art/Results General.bin"
+ArtKosM_TitleScreenFG:		binclude "Data/Screens/Title/KosinskiM Art/Title Screen Foreground.bin"
 	even
-ArtKosM_ResultsSONIC:		binclude "Objects/Results/KosinskiM Art/Results SONIC.bin"
+ArtKosM_LevelSelectText:	binclude "Data/Screens/Level Select/KosinskiM Art/Text.bin"
 	even
-ArtKosM_ResultsTAILS:		binclude "Objects/Results/KosinskiM Art/Results TAILS.bin"
-	even
-ArtKosM_ResultsKNUCKLES:	binclude "Objects/Results/KosinskiM Art/Results KNUCKLES.bin"
-	even
-ArtKosM_ResultsMIGHTY:		binclude "Objects/Results/KosinskiM Art/Results MIGHTY.bin"
-	even
-ArtKosM_ResultsESPIO:		binclude "Objects/Results/KosinskiM Art/Results ESPIO.bin"
-	even
+
+; ===========================================================================
+; Kosinski Module compressed title/results card graphics
+; ===========================================================================
+
+; General title cards
 ArtKosM_TitleCardNum1:		binclude "Objects/Title Card/KosinskiM Art/Title Card Number 1.bin"
 	even
 ArtKosM_TitleCardNum2:		binclude "Objects/Title Card/KosinskiM Art/Title Card Number 2.bin"
@@ -64,21 +69,8 @@ ArtKosM_TitleCardNum4:		binclude "Objects/Title Card/KosinskiM Art/Title Card Nu
 	even
 ArtKosM_TitleCardRedAct:	binclude "Objects/Title Card/KosinskiM Art/Title Card Red ACT.bin"
 	even
-ArtKosM_StarPostStars1:		binclude "Objects/Starpost/KosinskiM Art/Starpost Stars 1.bin"
-	even
-ArtKosM_StarPostStars2:		binclude "Objects/Starpost/KosinskiM Art/Starpost Stars 2.bin"
-	even
-ArtKosM_StarPostStars3:		binclude "Objects/Starpost/KosinskiM Art/Starpost Stars 3.bin"
-	even
-ArtKosM_TitleScreenFG:		binclude "Data/Screens/Title/KosinskiM Art/Title Screen Foreground.bin"
-	even
-ArtKosM_LevelSelectText:	binclude "Data/Screens/Level Select/KosinskiM Art/Text.bin"
-	even
 
-; ===========================================================================
-; Kosinski Module compressed title card graphics
-; ===========================================================================
-
+; Stage title cards
 ArtKosM_GHZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/GHZ - Title Card.bin"
 	even
 ArtKosM_SSLZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/SSLZ - Title Card.bin"
@@ -92,10 +84,25 @@ ArtKosM_DEZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/DEZ - T
 ArtKosM_TTSZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/TTSZ - Title Card.bin"
 	even
 
+; Results cards
+ArtKosM_ResultsGeneral:		binclude "Objects/Results/KosinskiM Art/Results General.bin"
+	even
+ArtKosM_ResultsSONIC:		binclude "Objects/Results/KosinskiM Art/Results SONIC.bin"
+	even
+ArtKosM_ResultsTAILS:		binclude "Objects/Results/KosinskiM Art/Results TAILS.bin"
+	even
+ArtKosM_ResultsKNUCKLES:	binclude "Objects/Results/KosinskiM Art/Results KNUCKLES.bin"
+	even
+ArtKosM_ResultsMIGHTY:		binclude "Objects/Results/KosinskiM Art/Results MIGHTY.bin"
+	even
+ArtKosM_ResultsESPIO:		binclude "Objects/Results/KosinskiM Art/Results ESPIO.bin"
+	even
+
 ; ===========================================================================
 ; Kosinski Module compressed GHZ graphics
 ; ===========================================================================
 
+; Enemies
 ArtKosM_BuzzBomber:			binclude "Objects/Buzz Bomber/KosinskiM Art/Buzz Bomber.bin"
 	even
 ArtKosM_Chopper:			binclude "Objects/Chopper/KosinskiM Art/Chopper.bin"
@@ -104,6 +111,8 @@ ArtKosM_Crabmeat:			binclude "Objects/Crabmeat/KosinskiM Art/Crabmeat.bin"
 	even
 ArtKosM_Motobug:			binclude "Objects/Motobug/KosinskiM Art/Motobug.bin"
 	even
+
+; Misc
 ArtKosM_PurpleRock:			binclude "Objects/Purple Rock/KosinskiM Art/Purple Rock.bin"
 	even
 ArtKosM_EdgeWalls:			binclude "Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin"
@@ -119,17 +128,25 @@ ArtKosM_GHZWaterfall:		binclude "Objects/Decoration/KosinskiM Art/GHZ waterfall.
 ; Kosinski Module compressed SSLZ graphics
 ; ===========================================================================
 
-ArtKosM_SSLZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge.bin"
-	even
+; Enemies
 ArtKosM_Burrobot:			binclude "Objects/Burrobot/KosinskiM Art/Burrobot.bin"
+	even
+
+; Misc
+ArtKosM_SSLZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge.bin"
 	even
 
 ; ===========================================================================
 ; Kosinski Module compressed TTPZ graphics
 ; ===========================================================================
 
+; Enemies
 ArtKosM_MechaBu:			binclude "Objects/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin"
 	even
+ArtKosM_SpringShell:		binclude "Objects/Spring Shell/KosinskiM Art/Spring Shell.bin"
+	even
+
+; Misc
 ArtKosM_MonkeyBars:			binclude "Objects/Monkey Bars/KosinskiM Art/Monkey Bars.bin"
 	even
 ArtKosM_Pylon:				binclude "Objects/Decoration/KosinskiM Art/Pylon.bin"
@@ -139,26 +156,42 @@ ArtKosM_Pylon:				binclude "Objects/Decoration/KosinskiM Art/Pylon.bin"
 ; Kosinski Module compressed MMZ graphics
 ; ===========================================================================
 
-; shit goes here
+; Enemies
+
+
+; Misc
+
 
 ; ===========================================================================
 ; Kosinski Module compressed DEZ graphics
 ; ===========================================================================
 
+; Enemies
 ArtKosM_Spikebonker:		binclude "Objects/Spikebonker/KosinskiM Art/Spikebonker.bin"
 	even
 ArtKosM_BataPyon:			binclude "Objects/Bata-pyon/KosinskiM Art/Bata-pyon.bin"
 	even
 
+; Misc
+
+
 ; ===========================================================================
 ; Kosinski Module compressed TTSZ graphics
 ; ===========================================================================
 
-; shit goes here
+; Enemies
+
+
+; Misc
+
 
 ; ===========================================================================
 ; Kosinski Module compressed boss graphics
 ; ===========================================================================
 
 ArtKosM_MechaSonicExtra:	binclude "Objects/Mecha Sonic/KosinskiM Art/Mecha Sonic Extra Art.bin"
+	even
+ArtKosM_RobotnikShip:		binclude "Objects/Robotnik/KosinskiM Art/Robotnik Ship.bin"
+	even
+ArtKosM_BossExplosion:		binclude "Objects/Explosion/KosinskiM Art/Boss Explosion.bin"
 	even
