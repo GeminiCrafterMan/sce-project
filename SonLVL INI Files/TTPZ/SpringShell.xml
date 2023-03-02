@@ -2,8 +2,8 @@
 <ObjDef xmlns="http://www.sonicretro.org" Name="Spring Shell" Image="main">
   <Images>
     <ImageFromMappings id="main">
-      <ArtFile filename="../Objects/Motobug/KosinskiM Art/Motobug.bin" compression="KosinskiM" />
-      <MapFile type="Binary" filename="../Objects/Motobug/Object Data/Map - Motobug.bin" frame="0" startpal="0" />
+      <ArtFile filename="../Objects/Spring Shell/KosinskiM Art/Spring Shell.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Spring Shell/Object Data/Map - Spring Shell.bin" frame="0" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="vertred">
       <ArtFile filename="../Objects/Spring/KosinskiM Art/Spring.bin" compression="KosinskiM" />
