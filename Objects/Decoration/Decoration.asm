@@ -35,6 +35,10 @@ Obj_MonkeyBarHanger:
 Obj_Waterfall:
 		moveq	#0,d0
 		move.l	#Map_SSLZWaterfall,mappings(a0)
+		cmpi.b	#z_GHZ,(Current_zone).w
+		bne.s	.notGHZ
+		move.l	#Map_GHZWaterfall,mappings(a0)
+	.notGHZ:
 		move.w	#make_art_tile(ArtTile_SSLZWaterfall,0,0),art_tile(a0)
 		move.b	#4,render_flags(a0)
 		move.w	#bytes_to_word($60,$20),height_pixels(a0)
@@ -88,4 +92,5 @@ Obj_Pylon:
 ; Mappings for foreground objects
 ; ---------------------------------------------------------------------------
 Map_SSLZWaterfall:		binclude	"Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin"
+Map_GHZWaterfall:		binclude	"Objects/Decoration/Object Data/Map - GHZ Waterfall.bin"
 Map_Pylon:				binclude	"Objects/Decoration/Object Data/Map - Pylon.bin"

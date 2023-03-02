@@ -18,8 +18,8 @@ Title_Screen:
 		clearRAM Camera_RAM, Camera_RAM_end
 		clearRAM Oscillating_variables, Oscillating_variables_end
 		moveq	#0,d0
-		move.w	d0,(Current_zone_and_act).w
-		move.w	d0,(Apparent_zone_and_act).w
+		move.w	#1,(Current_zone_and_act).w	; GHZ EX
+		move.w	#1,(Apparent_zone_and_act).w; GHZ EX
 		move.b	d0,(Last_star_post_hit).w
 		move.b	d0,(Level_started_flag).w
 		ResetDMAQueue
@@ -37,12 +37,12 @@ Title_Screen:
 		lea	(Target_palette).w,a2
 		jsr	(PalLoad_Line64).w
 
-		lea	(Eni_Title).l,a0 ; load	title screen mappings
-                lea	($FF0000).l,a1 ; load	buffer
-                moveq	#0,d0
+		lea	(Eni_Title).l,a0	; load title screen mappings
+		lea	($FF0000).l,a1	; load buffer
+		moveq	#0,d0
 		jsr	(EniDec).w
 
-                copyTilemap	$C208,278,148
+		copyTilemap	$C208,278,148
 
 		music	bgm_Title
 
@@ -69,5 +69,12 @@ Title_Screen:
 ;		addq.w	#2,(Player_1+x_pos).w
 		btst	#bitStart,(Ctrl_1_pressed).w
 		beq.s	.loop
+		btst	#bitA,(Ctrl_1_held).w
+		bne.s	.levsel
+		clr.w	(Current_zone_and_act).w	; GHZ1
+		clr.w	(Apparent_zone_and_act).w	; GHZ1
 		move.b	#id_LevelScreen,(Game_mode).w	; set screen mode to level
+		rts
+	.levsel:
+		move.b	#id_LevelSelectScreen,(Game_mode).w	; set game mode
 		rts

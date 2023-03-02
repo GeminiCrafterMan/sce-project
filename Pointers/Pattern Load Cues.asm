@@ -71,6 +71,7 @@ PLC1_GHZ_Misc: plrlistheader
 		plreq ArtTile_EdgeWalls, ArtKosM_EdgeWalls
 		plreq ArtTile_Bridge,	ArtKosM_GHZBridge
 		plreq ArtTile_PurpleRock, ArtKosM_PurpleRock		; Purple rock
+		plreq ArtTile_SSLZWaterfall, ArtKosM_GHZWaterfall
 		plreq ArtTile_SmashableWalls, ArtKosM_SmashableWalls
 PLC1_GHZ_Misc_end
 

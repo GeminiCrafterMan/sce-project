@@ -1632,6 +1632,12 @@ Player_JumpHeight:
 		jsr		GetCtrlHeldLogical
 		andi.b	#btnABC,d0					; are buttons A, B or C being pressed?
 		beq.w	locret_118E8
+		cmpi.b	#c_Sonic,character_id(a0)
+		beq.s	.sonic
+		jsr		GetCtrlPressLogical
+		andi.b	#btnABC,d0					; are buttons A, B or C being pressed?
+		beq.w	locret_118E8
+	.sonic:
 		cmpa.w	#Player_2,a0
 		beq.s	.abilities
 		tst.l	(Player_2+address).w

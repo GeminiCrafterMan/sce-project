@@ -112,6 +112,8 @@ ArtKosM_SmashableWalls:		binclude "Objects/Smashable Walls/KosinskiM Art/GHZ Bre
 	even
 ArtKosM_GHZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.bin"
 	even
+ArtKosM_GHZWaterfall:		binclude "Objects/Decoration/KosinskiM Art/GHZ waterfall.bin"
+	even
 
 ; ===========================================================================
 ; Kosinski Module compressed SSLZ graphics

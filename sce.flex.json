@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "467e4020-19b4-48f0-a61d-a179eea7481f",
+    "node": "d5c21781-69da-4b2f-a9ef-a19306d2bab3",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -856,6 +856,26 @@
             "children": [
                 {
                     "format": "Sonic 3&K Object.js",
+                    "name": "Foreground Waterfall",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Decoration/KosinskiM Art/GHZ waterfall.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Decoration/Object Data/Map - GHZ Waterfall.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "d5c21781-69da-4b2f-a9ef-a19306d2bab3"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
                     "name": "Swinging Platform",
                     "palettes": [],
                     "art": {
@@ -1300,7 +1320,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "d3d95b3c-8175-4835-b97c-8859b145c346"
         },
         {

@@ -60,23 +60,18 @@ Obj_FlareTheAlligator:
 		jsr	(Find_SonicTails).w
 		cmpi.w	#16*4,d2	; x distance
 		bgt.w	.display
-	; check for pressing down
-		move.w	a0,-(sp)
-		movea.w	a1,a0
-		jsr		GetCtrlHeldLogical
-		btst	#button_down,d0
-		beq.s	.notDown
-		move.w	(sp)+,a0
+	; check for ducking
+		cmpi.b	#id_Duck,anim(a1)
+		bne.s	.notDucking
 		cmpi.l	#AniRaw_FlareWait,aniraw(a0)
-		beq.s	.contDown
+		beq.s	.contDucking
 		clr.b	anim_frame(a0)
 		clr.b	anim_frame_timer(a0)
 		move.l	#AniRaw_FlareWait,aniraw(a0)	; waitin'
 		bra.w	.display
-	.notDown:
-		move.w	(sp)+,a0
+	.notDucking:
 		move.l	#AniRaw_FlareVibe,aniraw(a0)	; vibin'
-	.contDown:
+	.contDucking:
 		cmpi.w	#8*4,d3	; y distance
 		bgt.w	.display
 		cmpi.w	#8*4,d2	; x distance
