@@ -96,11 +96,14 @@ Obj_Pylon:
 
 Obj_TTPZBottom2:
 		move.b	#1,mapping_frame(a0)
+		bra.s	Obj_TTPZBottom_Common
+		move.w	#$200,priority(a0)
 Obj_TTPZBottom1:
+		move.w	#$80,priority(a0)
+Obj_TTPZBottom_Common:
 		move.l	#Map_TTPZDecor,mappings(a0)
 		move.w	#make_art_tile(ArtTile_LevelArt,0,0),art_tile(a0)
 		move.w	#bytes_to_word(8,32),height_pixels(a0)
-		move.w	#$80,priority(a0)
 		ori.b	#4,render_flags(a0)
 		jmp		DisplaySprite	; Do I really have to?
 
