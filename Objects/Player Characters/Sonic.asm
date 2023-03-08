@@ -2075,8 +2075,11 @@ Player_UpdateSpindash:
 		andi.w	#$1F00,d0
 		neg.w	d0
 		addi.w	#$2000,d0
+		cmpa.w	#Player_1,a0
+		bne.s	.notP1
 		lea	(H_scroll_frame_offset).w,a1
 		move.w	d0,(a1)
+	.notP1:
 		btst	#Status_Facing,status(a0)
 		beq.s	.right
 		neg.w	ground_vel(a0)
@@ -2689,8 +2692,10 @@ loc_121D8:
 		beq.s	locret_12230
 		tst.b	character_id(a0)
 		bne.s	loc_1222A
-		btst	#Status_Invincible,status_secondary(a0)		; don't bounce when invincible... or Super, I guess.
-		bne.s	loc_1222A
+;		btst	#Status_Invincible,status_secondary(a0)		; don't bounce when invincible... or Super, I guess.
+;		bne.s	loc_1222A
+		tst.b	(Super_Sonic_Knux_flag).w	; Don't bounce when Hyper.
+		bmi.s	loc_1222A
 		cmpi.b	#4,double_jump_flag(a0)
 		beq.s	locret_12230
 		btst	#Status_BublShield,status_secondary(a0)
