@@ -1710,16 +1710,17 @@ Sonic_InstaAndShieldMoves:
 		beq.s	locret_118FE							; if not, branch
 		bclr	#Status_RollJump,status(a0)
 		tst.b	(Super_Sonic_Knux_flag).w	; check Super-state
-		beq.s	Sonic_FireShield		; if not in a super-state, branch
+;		beq.s	Sonic_FireShield		; if not in a super-state, branch
 		bmi.w	Sonic_HyperDash			; if Hyper, branch
-		move.b	#1,double_jump_flag(a0)
-		clr.b	double_jump_property(a0)
+		bra.s	Sonic_FireShield
+;		move.b	#1,double_jump_flag(a0)
+;		clr.b	double_jump_property(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
 Sonic_FireShield:
-		btst	#Status_Invincible,status_secondary(a0)		; first, does Sonic have invincibility?
-		bne.s	locret_118FE							; if yes, branch
+;		btst	#Status_Invincible,status_secondary(a0)		; first, does Sonic have invincibility?
+;		bne.s	locret_118FE							; if yes, branch
 		btst	#Status_FireShield,status_secondary(a0)		; does Sonic have a Fire Shield?
 		beq.w	Sonic_LightningShield					; if not, branch
 		jsr		GetCtrlHeldLogical
@@ -1855,6 +1856,8 @@ Sonic_BubbleShield:
 		sfx	sfx_BubbleAttack,1						; play Bubble Shield attack sound
 ; ---------------------------------------------------------------------------
 Sonic_InstaShield:
+		btst	#Status_Invincible,status_secondary(a0)		; first, does Sonic have invincibility?
+		bne.s	.ret										; if yes, branch
 		btst	#Status_Shield,status_secondary(a0)		; does Sonic have an S2 shield (The Elementals were already filtered out at this point)?
 		bne.s	.ret							; if yes, branch
 		move.b	#1,(v_Shield+anim).w
