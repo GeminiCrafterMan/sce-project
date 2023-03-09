@@ -73,6 +73,7 @@
 		include	"Objects/Mecha-Bu/Mecha-Bu.asm"
 		include	"Objects/Spring Shell/Spring Shell.asm"
 		include	"Objects/Monkey Bars/Monkey Bars.asm"
+		include	"Objects/Sideways Log/Sideways Log.asm"
 
 ; ===========================================================================
 ; Bosses objects data

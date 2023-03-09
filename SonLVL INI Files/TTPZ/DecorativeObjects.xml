@@ -19,9 +19,9 @@
     </ImageFromMappings>
   </Images>
   <Subtypes>
-    <Subtype id="00" image="stake" />
-    <Subtype id="01" image="hanger" />
-    <Subtype id="02" image="bottom1" />
-    <Subtype id="03" image="bottom2" />
+    <Subtype id="00" image="stake" depth="1"/>
+    <Subtype id="01" image="hanger" depth="1"/>
+    <Subtype id="02" image="bottom1" depth="1"/>
+    <Subtype id="03" image="bottom2" depth="4"/>
   </Subtypes>
 </ObjDef>

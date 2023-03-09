@@ -8,7 +8,7 @@ Obj_Index:
 		dc.l Obj_PathSwap					; $02
 		dc.l Obj_Coin						; $03
 		dc.l Obj_MonkeyBars						; $04
-		dc.l DeleteObject						; $05
+		dc.l Obj_SideLog					; $05
 		dc.l Obj_Spiral						; $06
 		dc.l Obj_Spring						; $07
 		dc.l Obj_Spikes						; $08

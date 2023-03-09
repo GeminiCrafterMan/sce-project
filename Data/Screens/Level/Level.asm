@@ -185,7 +185,6 @@ SpawnLevelMainSprites:
 		bra.s	.cont
 
 .plrIDs:
-	; Obj_MiniSonic is for testing.
 		dc.l	Obj_Sonic,		Obj_Tails	; S&T
 		dc.l	Obj_Sonic,		DeleteObject; SA
 		dc.l	Obj_Tails,		DeleteObject; TA
@@ -196,7 +195,6 @@ SpawnLevelMainSprites:
 		dc.l	Obj_Tails,		Obj_Tails	; T&T
 		dc.l	Obj_Sonic,		Obj_Sonic	; S&S
 		dc.l	Obj_Espio,		DeleteObject; EA
-		dc.l	Obj_MiniSonic,	DeleteObject; MS
 
 .cont:
 		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3).w
