@@ -521,17 +521,72 @@ loc_1036E:
 		clr.w	x_vel(a0)
 		clr.w	ground_vel(a0)
 		move.b	#id_Death,anim(a0)
+		cmpa.w	#Player_1,a0
+		bne.s	.doneanim
 		btst	#Status_FireShield,shield_reaction(a2)
 		beq.s	.doneanim
 		move.b	#id_Burnt,anim(a0)
+		bra.s	.noSpecial
 	.doneanim:
+		move.w	d0,-(sp)
+		bsr.s	Player_DeathBehaviors
+		move.w	(sp)+,d0
+	.noSpecial:
+		cmpa.w	#Player_1,a0
+		bne.s	.notP1
 		move.w	art_tile(a0),(Saved_art_tile).w
+	.notP1:
 		bset	#7,art_tile(a0)
 		jsr	(SMPS_QueueSound2).w
 		jsr		ResetEmotion
 
 .dontdie:
 		moveq	#-1,d0
+		rts
+
+Player_DeathBehaviors:
+		moveq	#0,d0
+		move.b	character_id(a0),d0
+		lsl.w	#2,d0
+		move.l	.dieRoutLUT(pc,d0.w),a1
+		jmp		(a1)
+
+	.dieRoutLUT:
+		dc.l	.ret, .ret, .ret, Death_Mighty, Death_Espio
+	.ret:
+		rts
+
+Death_Mighty:
+		move.w	#-$400,y_vel(a0)						; make Sonic bounce away from the object
+		move.w	#-$200,x_vel(a0)
+		move.w	x_pos(a0),d0
+		cmp.w	x_pos(a2),d0
+		blo.s		.isleft								; if Sonic is left of the object, branch
+		neg.w	x_vel(a0)							; if Sonic is right of the object, reverse
+
+.isleft:
+		cmpa.w	#Player_1,a0
+		bne.s	.p2
+		move.l	#Obj_MightyDeathShell,(v_FollowObject_P1).w
+		move.w	#ArtTile_FollowObject_P1+2,(v_FollowObject_P1+art_tile).w
+		move.w	a0,(v_FollowObject_P1+parent).w
+		bra.s	.ret
+	.p2:
+		move.l	#Obj_MightyDeathShell,(v_FollowObject_P2).w
+		move.w	#ArtTile_FollowObject_P2+2,(v_FollowObject_P2+art_tile).w
+		move.w	a0,(v_FollowObject_P2+parent).w
+	.ret:
+		rts
+
+Death_Espio:
+		move.w	#-$500,y_vel(a0)						; make Sonic bounce away from the object
+		move.w	#-$100,x_vel(a0)
+		move.w	x_pos(a0),d0
+		cmp.w	x_pos(a2),d0
+		blo.s		.isleft								; if Sonic is left of the object, branch
+		neg.w	x_vel(a0)							; if Sonic is right of the object, reverse
+
+.isleft:
 		rts
 ; ---------------------------------------------------------------------------
 

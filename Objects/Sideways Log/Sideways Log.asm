@@ -40,7 +40,7 @@ Obj_SideLog_Main:
 	bne.s	Obj_SideLog_CheckDropChar1
 	cmpi.b	#32,sidelog_char1submersion(a0)
 	beq.s	Obj_SideLog_CheckSupportChar1
-	addq.b	#1,sidelog_char1submersion(a0)
+	addq.b	#2,sidelog_char1submersion(a0)
 	bra.s	Obj_SideLog_CheckSupportChar1
 ; ---------------------------------------------------------------------------
 ; loc_24078:
@@ -48,7 +48,7 @@ Obj_SideLog_CheckDropChar1:
 	moveq	#p1_standing_bit,d6
 	tst.b	sidelog_char1submersion(a0)
 	beq.s	Obj_SideLog_DropCharacter
-	subq.b	#1,sidelog_char1submersion(a0)
+	subq.b	#2,sidelog_char1submersion(a0)
 
 ; loc_24082:
 Obj_SideLog_CheckSupportChar1:
@@ -70,7 +70,7 @@ Obj_SideLog_CheckSupportChar1:
 	bne.s	Obj_SideLog_CheckDropChar2
 	cmpi.b	#32,sidelog_char2submersion(a0)
 	beq.s	Obj_SideLog_CheckSupportChar2
-	addq.b	#1,sidelog_char2submersion(a0)
+	addq.b	#2,sidelog_char2submersion(a0)
 	bra.s	Obj_SideLog_CheckSupportChar2
 ; ---------------------------------------------------------------------------
 ; loc_240B4:
@@ -78,7 +78,7 @@ Obj_SideLog_CheckDropChar2:
 	moveq	#p2_standing_bit,d6
 	tst.b	sidelog_char2submersion(a0)
 	beq.s	Obj_SideLog_DropCharacter
-	subq.b	#1,sidelog_char2submersion(a0)
+	subq.b	#2,sidelog_char2submersion(a0)
 
 ; loc_240BE:
 Obj_SideLog_CheckSupportChar2:
@@ -102,9 +102,19 @@ Obj_SideLog_DropCharacter:
 	cmpa.w	#Player_1,a1
 	bne.s	.p2
 	move.b	#32,sidelog_char1submersion(a0)
-	bra.s	Obj_SideLog_End
+	bra.s	.flip
 .p2:
 	move.b	#32,sidelog_char2submersion(a0)
+.flip:
+		move.w	#1,ground_vel(a1)
+		move.b	#1,flip_angle(a1)
+		clr.b	anim(a1)		; id_Walk
+		clr.b	flips_remaining(a1)
+		move.b	#4,flip_speed(a1)
+		btst	#Status_Facing,status(a1)
+		beq.s	Obj_SideLog_End
+		neg.b	flip_angle(a1)
+		neg.w	ground_vel(a1)
 ;	bra.s	Obj_SideLog_End
 
 ;	move.l	a0,-(sp)

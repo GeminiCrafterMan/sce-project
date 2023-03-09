@@ -547,7 +547,7 @@ SolidObject_TopBottom:
 
 ; SolidObject_InsideTop:
 		cmpi.w	#$10,d3
-		blo.s		SolidObject_Landed
+		blo.w	SolidObject_Landed
 		bra.s	SolidObject_TestClearPush
 ; ---------------------------------------------------------------------------
 
@@ -596,12 +596,37 @@ SolidObject_Squash:
 		blo.w	SolidObject_LeftRight
 		move.w	a0,-(sp)
 		movea.w	a1,a0
-		jsr	Kill_Character(pc)
+SquashCharacter:
+		tst.w	(Debug_placement_mode).w			; is debug mode active?
+		bne.s	.dontdie						; if yes, branch
+		clr.b	status_secondary(a0)
+		clr.b	status_tertiary(a0)
+		move.b	#id_SonicDeath,routine(a0)
+		bsr.w	Player_ResetOnFloor
+		bset	#Status_InAir,status(a0)
+		move.w	#-$700,y_vel(a0)
+		clr.w	x_vel(a0)
+		clr.w	ground_vel(a0)
+		move.b	#id_Death,anim(a0)
+		bsr.s	Player_SquashBehaviors
+		cmpa.w	#Player_1,a0
+		bne.s	.notP1
+		move.w	art_tile(a0),(Saved_art_tile).w
+	.notP1:
+		bset	#7,art_tile(a0)
+		sfx		sfx_Death
+		jsr		ResetEmotion
+
+.dontdie:
+		moveq	#-1,d0
 		movea.w	(sp)+,a0
 		move.w	d6,d4
 		addi.b	#$F,d4
 		bset	d4,d6
 		moveq	#-2,d4
+		rts
+
+Player_SquashBehaviors:
 		rts
 ; ---------------------------------------------------------------------------
 

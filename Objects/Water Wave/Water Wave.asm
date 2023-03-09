@@ -63,8 +63,15 @@ Obj_WaterWave:
 		bgt.s	.ret
 		moveq	#0,d0
 		mvabs.w	x_vel(a1),d0
+		btst	#Status_BublShield,status_secondary(a1)
+		beq.s	.noShield
+		cmpi.w	#$408,d0
+		blt.s	.getOff
+		bra.s	.skipShield
+	.noShield:
 		cmpi.w	#$608,d0
 		blt.s	.getOff
+	.skipShield:
 		btst	#Status_Roll,status(a1)
 		bne.s	.getOff
 		clr.w	y_vel(a1)

@@ -71,7 +71,7 @@ TailsAni_Hang:		dc.b  $13, frT_Hang1,	frT_Hang2,	frT_Hang3,	frT_Hang2,	afEnd
 TailsAni_GetAir:	dc.b   $B, frT_GetAir, frT_GetAir,   frT_Walk13,   frT_Walk14, afChange,   id_Walk
 TailsAni_Burnt:	dc.b  $20, frT_Burnt, afEnd
 TailsAni_Drown:	dc.b  $2F, frT_Drown, afEnd
-TailsAni_Death:	dc.b    3, frT_Death, afEnd
+TailsAni_Death:	dc.b    4, frT_Death1, frT_Death2, frT_Death3, frT_Death4, frT_Death5, afBack, 1
 TailsAni_Slide:	dc.b    9, frT_Slide1, frT_Slide2, afEnd
 TailsAni_Hurt:	dc.b  9, frT_Hurt1, frT_Hurt2, afEnd
 TailsAni_Zapped:	dc.b  3, frT_Zapped1, frT_Zapped2, afEnd
@@ -163,7 +163,11 @@ frT_Balance1:		ds.b 1
 frT_Balance2:		ds.b 1
 frT_Burnt:			ds.b 1
 frT_Drown:			ds.b 1
-frT_Death:			ds.b 1
+frT_Death1:			ds.b 1
+frT_Death2:			ds.b 1
+frT_Death3:			ds.b 1
+frT_Death4:			ds.b 1
+frT_Death5:			ds.b 1
 frT_LZHang1:		ds.b 1
 frT_LZHang2:		ds.b 1
 frT_GetAir:			ds.b 1

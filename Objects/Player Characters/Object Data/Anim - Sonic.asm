@@ -72,7 +72,7 @@ SonAni_Hang:		dc.b  $13, frS_Hang1,	frS_Hang2,	frS_Hang3,	frS_Hang2,	afEnd
 SonAni_GetAir:		dc.b   $B, frS_GetAir,	frS_GetAir,   frS_Walk13,   frS_Walk14, afChange,   id_Walk
 SonAni_Burnt:		dc.b  $20, frS_Burnt, afEnd
 SonAni_Drown:		dc.b  $20, frS_Drown, afEnd
-SonAni_Death:		dc.b  $20, frS_Death, afEnd
+SonAni_Death:		dc.b    5, frS_Death3, frS_Death1, frS_Death2, frS_Death2, frS_Death2, frS_Death3, afBack, 1	; Originally 7, but Sonic falls way faster in these games.
 SonAni_Slide:		dc.b	9, frS_Slide1, frS_Slide2, afBack, 1
 SonAni_Hurt:		dc.b	9, frS_Hurt1, frS_Hurt2, afBack, 1
 SonAni_Zapped:		dc.b	3, frS_Zapped1, frS_Zapped2, afEnd
@@ -251,7 +251,9 @@ frS_Balance13:		ds.b 1
 frS_Balance21:		ds.b 1
 frS_Balance22:		ds.b 1
 frS_Balance23:		ds.b 1
-frS_Death:			ds.b 1
+frS_Death1:			ds.b 1
+frS_Death2:			ds.b 1
+frS_Death3:			ds.b 1
 frS_Burnt:			ds.b 1
 frS_Drown:			ds.b 1
 frS_LZHang1:		ds.b 1

@@ -498,7 +498,39 @@ Animate_Mighty:
 		move.b	d2,anim_frame_timer(a0)
 		lea	MtyAni_Push(pc),a1
 		bra.w	.Do2
+; ===========================================================================
 
+Obj_MightyDeathShell:
+		movea.w	parent(a0),a2	; Is Parent in S2
+		move.b	angle(a2),angle(a0)
+		move.b	status(a2),status(a0)
+		move.w	x_pos(a2),x_pos(a0)
+		move.w	y_pos(a2),y_pos(a0)
+		move.w	height_pixels(a2),height_pixels(a0)
+		move.w	y_radius(a2),y_radius(a0)
+		move.b	render_flags(a2),render_flags(a0)
+		move.b	character_id(a2),character_id(a0)
+		move.w	y_vel(a2),y_vel(a0)
+		subi.w	#$200,y_vel(a0)
+		move.w	x_vel(a2),x_vel(a0)
+		lsl.w	#1,x_vel(a0)
+		move.l	mappings(a2),mappings(a0)
+		move.w	priority(a2),priority(a0)
+		andi.w	#drawing_mask,art_tile(a0)
+		move.l	#.main,address(a0)
+		move.b	#frM_Shell,mapping_frame(a0)
+		tst.w	art_tile(a2)
+		bpl.s	.main
+		ori.w	#high_priority,art_tile(a0)
+	.main:
+		jsr	(MoveSprite_TestGravity).w
+		out_of_yrange.s	.delete
+		moveq	#0,d0
+		move.b	mapping_frame(a0),d0
+		jsr		Player_Load_PLC2
+		jmp	(Draw_Sprite).l
+	.delete:
+		jmp		DeleteObject
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Mighty animation, mapping, and PLC data

@@ -65,14 +65,14 @@ EspAni_Balance2:	dc.b	5, frE_Balance11, frE_Balance11, frE_Balance11, frE_Balanc
 EspAni_Stop:		dc.b	3, frE_Skid1,	frE_Skid2, frE_Skid3, frE_SkidT, afChange,   id_Walk
 EspAni_Float1:		dc.b	7, frE_Float1, afEnd
 EspAni_Float2:		dc.b	7, frE_Float1,	frE_Float2, frE_Float3, frE_Float4, frE_Float5, frE_Float6, frE_Float7, frE_Float8, afEnd
-EspAni_Spring:		dc.b  	2, frE_Spring, afEnd
+EspAni_Spring:		dc.b	2, frE_Spring, afEnd
 EspAni_LZHang:		dc.b	1, frE_LZHang1,	frE_LZHang2, afEnd
 EspAni_Victory:		dc.b	7, frE_Victory1,frE_Victory2, afBack,	 1
 EspAni_Hang:		dc.b  $13, frE_Hang1,	frE_Hang2,	frE_Hang3,	frE_Hang2,	afEnd
 EspAni_GetAir:		dc.b   $B, frE_GetAir,	frE_GetAir,   frE_Walk13,   frE_Walk14, afChange,   id_Walk
 EspAni_Burnt:		dc.b  $20, frE_Burnt, afEnd
 EspAni_Drown:		dc.b  $20, frE_Drown, afEnd
-EspAni_Death:		dc.b  $20, frE_Death, afEnd
+EspAni_Death:		dc.b   $D, frE_Death1, frE_Death2, afBack, 1
 EspAni_Slide:		dc.b	9, frE_Slide1, frE_Slide2, afBack, 1
 EspAni_Hurt:		dc.b	9, frE_Hurt, afEnd
 EspAni_Zapped:		dc.b	9, frE_Hurt, afEnd
@@ -161,7 +161,8 @@ frE_Balance13:		ds.b 1
 frE_Balance21:		ds.b 1
 frE_Balance22:		ds.b 1
 frE_Balance23:		ds.b 1
-frE_Death:			ds.b 1
+frE_Death1:			ds.b 1
+frE_Death2:			ds.b 1
 frE_Burnt:			ds.b 1
 frE_Drown:			ds.b 1
 frE_LZHang1:		ds.b 1

@@ -73,7 +73,7 @@ MtyAni_Hang:		dc.b  $13, frM_Hang1, frM_Hang2, frM_Hang3, frM_Hang2, afEnd
 MtyAni_GetAir:		dc.b   $B, frM_GetAir, frM_GetAir, frM_Walk13, frM_Walk14, afChange, id_Walk
 MtyAni_Burnt:		dc.b  $20, frM_Burnt, afEnd
 MtyAni_Drown:		dc.b  $20, frM_Drown, afEnd
-MtyAni_Death:		dc.b  $20, frM_Death, afEnd
+MtyAni_Death:		dc.b  	9, frM_Death1, frM_Death2, frM_Death3, frM_Death4, afEnd
 MtyAni_Slide:		dc.b	9, frM_Slide1, frM_Slide2, afEnd
 MtyAni_Hurt:		dc.b	9, frM_Hurt1, frM_Hurt2, afEnd
 MtyAni_Zapped:		dc.b	9, frM_Hurt1, frM_Hurt2, afEnd
@@ -161,7 +161,11 @@ frM_Balance13:			ds.b 1
 frM_Balance21:			ds.b 1
 frM_Balance22:			ds.b 1
 frM_Balance23:			ds.b 1
-frM_Death:				ds.b 1
+frM_Shell:				ds.b 1
+frM_Death1:				ds.b 1
+frM_Death2:				ds.b 1
+frM_Death3:				ds.b 1
+frM_Death4:				ds.b 1
 frM_Burnt:				ds.b 1
 frM_Drown:				ds.b 1
 frM_LZHang1:			ds.b 1

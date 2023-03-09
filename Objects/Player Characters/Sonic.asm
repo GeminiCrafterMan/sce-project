@@ -3387,8 +3387,6 @@ loc_12A8A:
 ; Player graphics loading subroutine
 ; ---------------------------------------------------------------------------
 
-
-
 Player_Load_PLC:	; huge thanks to AngelKOR64.
 		bsr.w	ReloadPlayerMaps
 		moveq	#0,d0
