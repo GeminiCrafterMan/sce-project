@@ -96,8 +96,8 @@ Obj_Pylon:
 
 Obj_TTPZBottom2:
 		move.b	#1,mapping_frame(a0)
-		bra.s	Obj_TTPZBottom_Common
 		move.w	#$200,priority(a0)
+		bra.s	Obj_TTPZBottom_Common
 Obj_TTPZBottom1:
 		move.w	#$80,priority(a0)
 Obj_TTPZBottom_Common:

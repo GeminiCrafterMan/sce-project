@@ -155,9 +155,8 @@ po_MightyAlone:			ds.b 1
 po_MightyAndTails:		ds.b 1
 po_TailsAndTails:		ds.b 1
 po_SonicAndSonic:		ds.b 1
-po_Espio:				ds.b 1
 po_Last:				= *
-po_MiniSonic:			ds.b 1
+po_Espio:				ds.b 1
 	dephase
 
 ; ---------------------------------------------------------------------------
@@ -500,7 +499,7 @@ Status_Underwater		= 6
 Status_Shield				= 0
 Status_Invincible			= 1
 Status_SpeedShoes			= 2
-Status_Shrunk				= 3
+Status_Unused				= 3
 Status_FireShield			= 4
 Status_LtngShield			= 5
 Status_BublShield			= 6

@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "c0875026-5805-4b1e-b736-ab1f5296b2a7",
+    "node": "d06cd2d5-a1a6-446d-96ef-45cafec8209a",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -123,55 +123,6 @@
                     "dplcs": {
                         "enabled": true,
                         "path": "Objects/Player Characters/Object Data/PLC - Super Sonic.bin",
-                        "label": ""
-                    }
-                },
-                {
-                    "format": "Sonic 3&K Player.js",
-                    "name": "Mini Sonic",
-                    "palettes": [],
-                    "art": {
-                        "path": "Objects/Player Characters/Uncompressed Art/Mini Sonic.bin",
-                        "compression": "Uncompressed",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Mini Sonic.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/PLC - Mini Sonic.bin",
-                        "label": ""
-                    },
-                    "uuid": "fe4ad8ef-f4eb-455f-9834-e78b9df59b32"
-                },
-                {
-                    "uuid": "3b3cc9b6-e112-4f6b-a269-b56018efe5f0",
-                    "format": "Sonic 3&K Player.js",
-                    "name": "Mini Super Sonic",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
-                            "length": 1
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Player Characters/Uncompressed Art/Mini Super Sonic.bin",
-                        "compression": "Uncompressed",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Mini Super Sonic.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/PLC - Mini Super Sonic.bin",
                         "label": ""
                     }
                 },
@@ -1213,7 +1164,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "9cf77ede-99af-4b8c-99a4-a8b5e4247148"
         },
         {
@@ -1419,6 +1370,26 @@
                         "label": ""
                     },
                     "uuid": "e05b8f06-b02e-490b-9f7b-96855d64d1d3"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Sideways log (Barrel placeholder)",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Sideways Log/Uncompressed Art/Sideways Log.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Sideways Log/Object Data/Map - Sideways Log.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Sideways Log/Object Data/PLC - Sideways Log.bin",
+                        "label": ""
+                    },
+                    "uuid": "61f300ba-2a8d-44e9-8fb3-374ddd4c89f0"
                 },
                 {
                     "uuid": "2617509e-82d0-4cd2-95a1-a6146d96ef45",

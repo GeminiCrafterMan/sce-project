@@ -133,21 +133,6 @@ Obj_CabaretEspio:
 		move.b	#0,anim(a0)	; Waiting
 		bra.w	Obj_CabaretSonic.display
 
-; ---------------------------------------------------------------------------
-; Object - Mini Sonic on the menu
-; ---------------------------------------------------------------------------
-
-Obj_CabaretMiniSonic:
-		move.l	#Map_CabaretChars,mappings(a0)
-		move.w	#$100,priority(a0)
-		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
-		beq.s	.noMusic
-		move.b	#6,anim(a0)	; Snapping
-		bra.w	Obj_CabaretSonic.display
-	.noMusic:
-		move.b	#5,anim(a0)	; Waiting
-		bra.w	Obj_CabaretSonic.display
-
 ; ===========================================================================
 ; ---------------------------------------------------------------------------
 ; Cabaret character animation, mapping, and PLC data
