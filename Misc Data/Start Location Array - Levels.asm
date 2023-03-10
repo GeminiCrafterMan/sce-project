@@ -5,7 +5,7 @@
 StartLocArray:
 	; Intro Stages
 		binclude "Levels/Intro Stages/Green Hill/Start Location/1.bin"	; Green Hill
-		binclude "Levels/Intro Stages/Green Hill/Start Location/1.bin"	; Techno Tower
+		binclude "Levels/Intro Stages/Techno Tower/Start Location/1.bin"; Techno Tower
 		binclude "Levels/Intro Stages/Green Hill/Start Location/1.bin"	; ?
 		binclude "Levels/Intro Stages/Green Hill/Start Location/EX.bin"	; Green Hill
 

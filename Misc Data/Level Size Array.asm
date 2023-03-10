@@ -5,7 +5,7 @@
 ;		xstart, xend, ystart, yend			; Level
 LevelSizes:
 		dc.w 0, $6D60, 0, $6C0				; Green Hill
-		dc.w 0, $3FFF, 0, $800				; Techno Tower
+		dc.w 0, $3C00, 0, $F00				; Techno Tower
 		dc.w 0, $3FFF, 0, $300				; None
 		dc.w 0, $6D60, 0, $300				; GHZ EX
 
