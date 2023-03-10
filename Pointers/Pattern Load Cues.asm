@@ -3,8 +3,14 @@
 ; ===========================================================================
 
 Offs_PLC: offsetTable
-	; Green Hill Zone
-	rept 4
+; Intro Stages
+	; Green Hill
+		offsetTableEntry.w PLC1_GHZ_Misc
+		offsetTableEntry.w PLC2_GHZ_Enemy
+	; Techno Tower
+		offsetTableEntry.w PLC1_GHZ_Misc
+		offsetTableEntry.w PLC2_GHZ_Enemy
+	rept 2	; ? and Green Hill EX
 		offsetTableEntry.w PLC1_GHZ_Misc
 		offsetTableEntry.w PLC2_GHZ_Enemy
 	endr

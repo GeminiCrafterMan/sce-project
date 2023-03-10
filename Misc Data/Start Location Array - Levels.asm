@@ -3,10 +3,11 @@
 ; ===========================================================================
 
 StartLocArray:
-		binclude "Levels/GHZ/Start Location/1.bin"	; GHZ 1
-		binclude "Levels/GHZ/Start Location/2.bin"	; GHZ 2
-		binclude "Levels/GHZ/Start Location/1.bin"	; GHZ 3
-		binclude "Levels/GHZ/Start Location/1.bin"	; GHZ 4
+	; Intro Stages
+		binclude "Levels/Intro Stages/Green Hill/Start Location/1.bin"	; Green Hill
+		binclude "Levels/Intro Stages/Green Hill/Start Location/1.bin"	; Techno Tower
+		binclude "Levels/Intro Stages/Green Hill/Start Location/1.bin"	; ?
+		binclude "Levels/Intro Stages/Green Hill/Start Location/EX.bin"	; Green Hill
 
 		binclude "Levels/SSLZ/Start Location/1.bin"	; SSLZ 1
 		binclude "Levels/SSLZ/Start Location/2.bin"	; SSLZ 2

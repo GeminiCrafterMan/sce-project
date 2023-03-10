@@ -23,15 +23,21 @@ Obj_TitleCardInit:
 		move.w	#tiles_to_bytes($480),d2
 		jsr	(Queue_Kos_Module).w
 		moveq	#0,d0
-		move.b	(Current_act).w,d0
-		lsl.w	#2,d0
+		move.w	(Current_zone_and_act).w,d0
+		ror.b	#2,d0
+		lsr.w	#4,d0
+;		move.b	(Current_act).w,d0
+;		lsl.w	#2,d0
 		movea.l	TitleCardAct_Index(pc,d0.w),a1
 		move.w	#tiles_to_bytes($4BD),d2
 		jsr	(Queue_Kos_Module).w
 		moveq	#0,d0
 		lea	TitleCard_LevelGfx(pc),a1
-		move.b	(Current_zone).w,d0			; Otherwise, just use current zone
-		lsl.w	#2,d0
+		move.w	(Current_zone_and_act).w,d0
+		ror.b	#2,d0
+		lsr.w	#4,d0
+;		move.b	(Current_zone).w,d0			; Otherwise, just use current zone
+;		lsl.w	#2,d0
 		movea.l	(a1,d0.w),a1
 		move.w	#tiles_to_bytes($4CD),d2
 		jsr	(Queue_Kos_Module).w
@@ -43,10 +49,18 @@ Obj_TitleCardInit:
 ; ---------------------------------------------------------------------------
 
 TitleCardAct_Index:
+	; Intro stages
+		dc.l ArtKosM_TitleCardNum0		; Green Hill
+		dc.l ArtKosM_TitleCardNum0		; Techno Tower
+		dc.l ArtKosM_TitleCardNum3
+		dc.l ArtKosM_TitleCardNumEX		; Green Hill EX
+	rept 5
 		dc.l ArtKosM_TitleCardNum1
 		dc.l ArtKosM_TitleCardNum2
 		dc.l ArtKosM_TitleCardNum3
 		dc.l ArtKosM_TitleCardNum4
+	endr
+	zonewarning	TitleCardAct_Index,(4*4)
 ; ---------------------------------------------------------------------------
 
 Obj_TitleCardCreate:
@@ -270,13 +284,31 @@ ObjArray_TtlCardBonus:
 
 TitleCard_LevelGfx:
 		dc.l ArtKosM_GHZTitleCard	; GHZ
+		dc.l ArtKosM_GHZTitleCard	; GHZ
+		dc.l ArtKosM_GHZTitleCard	; GHZ
+		dc.l ArtKosM_GHZTitleCard	; GHZ
+		dc.l ArtKosM_SSLZTitleCard	; SSLZ
+		dc.l ArtKosM_SSLZTitleCard	; SSLZ
+		dc.l ArtKosM_SSLZTitleCard	; SSLZ
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
 		dc.l ArtKosM_TTPZTitleCard	; TTPZ
+		dc.l ArtKosM_TTPZTitleCard	; TTPZ
+		dc.l ArtKosM_TTPZTitleCard	; TTPZ
+		dc.l ArtKosM_TTPZTitleCard	; TTPZ
+		dc.l ArtKosM_MMZTitleCard	; MMZ
+		dc.l ArtKosM_MMZTitleCard	; MMZ
+		dc.l ArtKosM_MMZTitleCard	; MMZ
 		dc.l ArtKosM_MMZTitleCard	; MMZ
 		dc.l ArtKosM_DEZTitleCard	; DEZ
+		dc.l ArtKosM_DEZTitleCard	; DEZ
+		dc.l ArtKosM_DEZTitleCard	; DEZ
+		dc.l ArtKosM_DEZTitleCard	; DEZ
+		dc.l ArtKosM_TTSZTitleCard	; TTSZ
+		dc.l ArtKosM_TTSZTitleCard	; TTSZ
+		dc.l ArtKosM_TTSZTitleCard	; TTSZ
 		dc.l ArtKosM_TTSZTitleCard	; TTSZ
 
-		zonewarning TitleCard_LevelGfx,4
+		zonewarning TitleCard_LevelGfx,(4*4)
 ; ---------------------------------------------------------------------------
 ; Not using .bin because actual labels.
 		include "Objects/Title Card/Object Data/Map - Title Card.asm"

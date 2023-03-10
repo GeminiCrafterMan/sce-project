@@ -16,7 +16,7 @@ Obj_Index:
 		dc.l DeleteObject						; $0A
 		dc.l DeleteObject						; $0B
 		dc.l Obj_TensionBridge					; $0C
-		dc.l Obj_EndSign						; $0D
+		dc.l Obj_Signpost						; $0D
 		dc.l Obj_BadnikSlot1					; $0E
 		dc.l Obj_BadnikSlot2					; $0F
 		dc.l Obj_BadnikSlot3					; $10

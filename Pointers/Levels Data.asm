@@ -5,9 +5,9 @@
 		;		1st 8x8 data		1st 16x16 data		1st 128x128 data	palette
 LevelLoadBlock:
 		levartptrs GHZ1_8x8_KosM, GHZ1_16x16_Unc, GHZ1_128x128_Kos, palid_GHZ1		; GHZ1
-		levartptrs GHZ2_8x8_KosM, GHZ2_16x16_Unc, GHZ2_128x128_Kos, palid_GHZ2		; GHZ2
-		levartptrs GHZ1_8x8_KosM, GHZ1_16x16_Unc, GHZ1_128x128_Kos, palid_GHZ1		; GHZ3
-		levartptrs GHZ1_8x8_KosM, GHZ1_16x16_Unc, GHZ1_128x128_Kos, palid_GHZ1		; GHZ4
+		levartptrs GHZ1_8x8_KosM, GHZ1_16x16_Unc, GHZ1_128x128_Kos, palid_GHZ1		; Techno Tower
+		levartptrs GHZ1_8x8_KosM, GHZ1_16x16_Unc, GHZ1_128x128_Kos, palid_GHZ1		; ?
+		levartptrs GHZEX_8x8_KosM, GHZEX_16x16_Unc, GHZEX_128x128_Kos, palid_GHZEX		; Green Hill EX
 		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ1		; SSLZ1
 		levartptrs SSLZ2_8x8_KosM, SSLZ2_16x16_Unc, SSLZ2_128x128_Kos, palid_SSLZ2		; SSLZ2
 		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ3		; SSLZ3
@@ -37,20 +37,23 @@ LevelLoadBlock:
 
 LevelLoadPointer:
 
-; GHZ1
+; Intro Stages
+	; Green Hill
 		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ											; Animate tiles main code, Animate tiles PLC scripts
-; GHZ2
-		dc.l AnPal_GHZ, DLE_GHZ2, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
+	; Techno Tower
+		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null
+		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
+	; ?
+		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null
+		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
+	; Green Hill EX
+		dc.l AnPal_GHZ, DLE_GHZEX, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ											; Animate tiles main code, Animate tiles PLC scripts
-; GHZ3-4
-	rept 2
-		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
-		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ											; Animate tiles main code, Animate tiles PLC scripts
-	endr
 
 ; SSLZ1
 		dc.l LevelPointer_Null, DLE_SSLZ1, LevelPointer_Null, LevelPointer_Null
@@ -130,10 +133,10 @@ LevelLoadPointer:
 ; ===========================================================================
 
 SolidIndexes:
-		dc.l GHZ1_Solid		; GHZ1
-		dc.l GHZ2_Solid		; GHZ2
-		dc.l GHZ1_Solid		; GHZ3
-		dc.l GHZ1_Solid		; GHZ4
+		dc.l GHZ1_Solid		; Green Hill
+		dc.l GHZ1_Solid		; Techno Tower
+		dc.l GHZ1_Solid		; ?
+		dc.l GHZEX_Solid		; Green Hill EX
 		dc.l SSLZ1_Solid		; SSLZ1
 		dc.l SSLZ2_Solid		; SSLZ2
 		dc.l SSLZ1_Solid		; SSLZ3
@@ -162,10 +165,10 @@ SolidIndexes:
 ; ===========================================================================
 
 LevelPtrs:
-		dc.l GHZ1_Layout		; GHZ1
-		dc.l GHZ2_Layout		; GHZ2
-		dc.l GHZ1_Layout		; GHZ3
-		dc.l GHZ1_Layout		; GHZ4
+		dc.l GHZ1_Layout		; Green Hill
+		dc.l GHZ1_Layout		; Techno Tower
+		dc.l GHZ1_Layout		; ?
+		dc.l GHZEX_Layout		; Green Hill EX
 		dc.l SSLZ1_Layout		; SSLZ1
 		dc.l SSLZ2_Layout		; SSLZ2
 		dc.l SSLZ3_Layout		; SSLZ3
@@ -194,10 +197,10 @@ LevelPtrs:
 ; ===========================================================================
 
 SpriteLocPtrs:
-		dc.l GHZ1_Sprites		; GHZ1
-		dc.l GHZ2_Sprites		; GHZ2
-		dc.l GHZ1_Sprites		; GHZ3
-		dc.l GHZ1_Sprites		; GHZ4
+		dc.l GHZ1_Sprites		; Green Hill
+		dc.l GHZ1_Sprites		; Techno Tower
+		dc.l GHZ1_Sprites		; ?
+		dc.l GHZEX_Sprites		; Green Hill EX
 		dc.l SSLZ1_Sprites		; SSLZ1
 		dc.l SSLZ2_Sprites		; SSLZ2
 		dc.l SSLZ3_Sprites		; SSLZ3
@@ -226,10 +229,10 @@ SpriteLocPtrs:
 ; ===========================================================================
 
 RingLocPtrs:
-		dc.l GHZ1_Rings		; GHZ1
-		dc.l GHZ2_Rings		; GHZ2
-		dc.l GHZ1_Rings		; GHZ3
-		dc.l GHZ1_Rings		; GHZ4
+		dc.l GHZ1_Rings		; Green Hill
+		dc.l GHZ1_Rings		; Techno Tower
+		dc.l GHZ1_Rings		; ?
+		dc.l GHZEX_Rings		; Green Hill EX
 		dc.l SSLZ1_Rings		; SSLZ1
 		dc.l SSLZ2_Rings		; SSLZ2
 		dc.l SSLZ3_Rings		; SSLZ3
@@ -257,17 +260,17 @@ RingLocPtrs:
 ; Compressed level graphics - tile, primary patterns and block mappings
 ; ===========================================================================
 
-GHZ1_8x8_KosM:		binclude "Levels/GHZ/Tiles/Primary.bin"
+GHZ1_8x8_KosM:		binclude "Levels/Intro Stages/Green Hill/Tiles/Primary.bin"
 	even
-GHZ1_16x16_Unc:		binclude "Levels/GHZ/Blocks/Primary.bin"
+GHZ1_16x16_Unc:		binclude "Levels/Intro Stages/Green Hill/Blocks/Primary.bin"
 	even
-GHZ1_128x128_Kos:	binclude "Levels/GHZ/Chunks/Primary.bin"
+GHZ1_128x128_Kos:	binclude "Levels/Intro Stages/Green Hill/Chunks/Primary.bin"
 	even
-GHZ2_8x8_KosM:		binclude "Levels/GHZ/Tiles/Secondary.bin"
+GHZEX_8x8_KosM:		binclude "Levels/Intro Stages/Green Hill/Tiles/Secondary.bin"
 	even
-GHZ2_16x16_Unc:		binclude "Levels/GHZ/Blocks/Secondary.bin"
+GHZEX_16x16_Unc:		binclude "Levels/Intro Stages/Green Hill/Blocks/Secondary.bin"
 	even
-GHZ2_128x128_Kos:	binclude "Levels/GHZ/Chunks/Secondary.bin"
+GHZEX_128x128_Kos:	binclude "Levels/Intro Stages/Green Hill/Chunks/Secondary.bin"
 	even
 
 SSLZ1_8x8_KosM:		binclude "Levels/SSLZ/Tiles/Primary.bin"
@@ -340,9 +343,9 @@ S3KHeightMapsRot:		binclude "Misc Data/Collision/S3K Height Maps Rotated.bin"
 ; Level collision data
 ; ===========================================================================
 
-GHZ1_Solid:			binclude "Levels/GHZ/Collision/1.bin"
+GHZ1_Solid:			binclude "Levels/Intro Stages/Green Hill/Collision/1.bin"
 	even
-GHZ2_Solid:			binclude "Levels/GHZ/Collision/2.bin"
+GHZEX_Solid:			binclude "Levels/Intro Stages/Green Hill/Collision/EX.bin"
 	even
 SSLZ1_Solid:		binclude "Levels/SSLZ/Collision/1.bin"
 	even
@@ -361,9 +364,9 @@ TTSZ1_Solid:			binclude "Levels/TTSZ/Collision/1.bin"
 ; Level layout data
 ; ===========================================================================
 
-GHZ1_Layout:		binclude "Levels/GHZ/Layout/1.bin"
+GHZ1_Layout:		binclude "Levels/Intro Stages/Green Hill/Layout/1.bin"
 	even
-GHZ2_Layout:		binclude "Levels/GHZ/Layout/2.bin"
+GHZEX_Layout:		binclude "Levels/Intro Stages/Green Hill/Layout/EX.bin"
 	even
 SSLZ1_Layout:		binclude "Levels/SSLZ/Layout/1.bin"
 	even
@@ -391,9 +394,9 @@ TTSZ4_Layout:		binclude "Levels/TTSZ/Layout/4.bin"
 ; ===========================================================================
 
 	ObjectLayoutBoundary
-GHZ1_Sprites:		binclude "Levels/GHZ/Object Pos/1.bin"
+GHZ1_Sprites:		binclude "Levels/Intro Stages/Green Hill/Object Pos/1.bin"
 	ObjectLayoutBoundary
-GHZ2_Sprites:		binclude "Levels/GHZ/Object Pos/2.bin"
+GHZEX_Sprites:		binclude "Levels/Intro Stages/Green Hill/Object Pos/EX.bin"
 	ObjectLayoutBoundary
 SSLZ1_Sprites:		binclude "Levels/SSLZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
@@ -422,9 +425,9 @@ TTSZ4_Sprites:		binclude "Levels/TTSZ/Object Pos/4.bin"
 ; ===========================================================================
 
 	RingLayoutBoundary
-GHZ1_Rings:			binclude "Levels/GHZ/Ring Pos/1.bin"
+GHZ1_Rings:			binclude "Levels/Intro Stages/Green Hill/Ring Pos/1.bin"
 	RingLayoutBoundary
-GHZ2_Rings:			binclude "Levels/GHZ/Ring Pos/2.bin"
+GHZEX_Rings:			binclude "Levels/Intro Stages/Green Hill/Ring Pos/EX.bin"
 	RingLayoutBoundary
 SSLZ1_Rings:		binclude "Levels/SSLZ/Ring Pos/1.bin"
 	RingLayoutBoundary

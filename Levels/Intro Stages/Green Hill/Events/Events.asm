@@ -77,18 +77,18 @@ DLE_GHZ1end:
 		rts
 ; ===========================================================================
 
-DLE_GHZ2:
+DLE_GHZEX:
 		moveq	#0,d0
 		move.b	(Screen_event_routine).w,d0
 		move.w	.index(pc,d0.w),d0
 		jmp	.index(pc,d0.w)
 ; ===========================================================================
-.index:	dc.w DLE_GHZ2main-.index
-		dc.w DLE_GHZ2boss-.index
-		dc.w DLE_GHZ2end-.index
+.index:	dc.w DLE_GHZEXmain-.index
+		dc.w DLE_GHZEXboss-.index
+		dc.w DLE_GHZEXend-.index
 ; ===========================================================================
 
-DLE_GHZ2main:
+DLE_GHZEXmain:
 		move.w	#$300,(Camera_target_max_Y_pos).w ; set lower y-boundary
 		cmpi.w	#$1780,(v_screenposx).w ; has the camera reached $1780 on x-axis?
 		bcs.s	.ret	; if not, branch
@@ -133,7 +133,7 @@ DLE_GHZ2main:
 		rts
 ; ===========================================================================
 
-DLE_GHZ2boss:
+DLE_GHZEXboss:
 		cmpi.w	#$4D60,(v_screenposx).w
 		bcc.s	.cont
 		subq.b	#2,(Screen_event_routine).w
@@ -159,7 +159,7 @@ DLE_GHZ2boss:
 		rts
 ; ===========================================================================
 
-DLE_GHZ2end:
+DLE_GHZEXend:
 		move.w	(v_screenposx).w,(Camera_min_X_pos).w
 		rts
 ; ===========================================================================

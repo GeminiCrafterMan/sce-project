@@ -67,6 +67,10 @@ ArtKosM_TitleCardNum3:		binclude "Objects/Title Card/KosinskiM Art/Title Card Nu
 	even
 ArtKosM_TitleCardNum4:		binclude "Objects/Title Card/KosinskiM Art/Title Card Number 4.bin"
 	even
+ArtKosM_TitleCardNumEX:		binclude "Objects/Title Card/KosinskiM Art/Title Card Number EX.bin"
+	even
+ArtKosM_TitleCardNum0:		binclude "Objects/Title Card/KosinskiM Art/Title Card Number 0.bin"
+	even
 ArtKosM_TitleCardRedAct:	binclude "Objects/Title Card/KosinskiM Art/Title Card Red ACT.bin"
 	even
 

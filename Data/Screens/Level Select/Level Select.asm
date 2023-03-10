@@ -8,7 +8,7 @@ LevelSelect_VRAM:				= 480
 
 ; Variables
 LevelSelect_ZoneCount:			= ZoneCount
-LevelSelect_ActGHZCount:			= 2	; Green Hill Zone
+LevelSelect_ActIntroCount:			= 4	; Intro Stages
 LevelSelect_ActSSLZCount:			= 3	; Seaside Land Zone
 LevelSelect_ActTTPZCount:			= 1	; Tree Top Zone
 LevelSelect_ActMMZCount:			= 1 ; Mecha Mushroom Zone
@@ -155,7 +155,7 @@ LevelSelect_LoadLevel_Return:
 ; ---------------------------------------------------------------------------
 
 LevelSelect_LoadMaxActs:
-		dc.w LevelSelect_ActGHZCount-1	; GHZ
+		dc.w LevelSelect_ActIntroCount-1	; Intro Stages
 		dc.w LevelSelect_ActSSLZCount-1	; SSLZ
 		dc.w LevelSelect_ActTTPZCount-1	; TTPZ
 		dc.w LevelSelect_ActMMZCount-1	; MMZ
@@ -417,7 +417,11 @@ LevelSelect_LoadMainText:
 ; --------------------------------------------------------------------------
 
 LevelSelect_ActTextIndex: offsetTable
-	rept ZoneCount
+		offsetTableEntry.w LevelSelect_LoadGreenHill
+		offsetTableEntry.w LevelSelect_LoadTechnoTower
+		offsetTableEntry.w LevelSelect_LoadAct3
+		offsetTableEntry.w LevelSelect_LoadGreenHillEX
+	rept ZoneCount-1
 		offsetTableEntry.w LevelSelect_LoadAct1
 		offsetTableEntry.w LevelSelect_LoadAct2
 		offsetTableEntry.w LevelSelect_LoadAct3
@@ -437,6 +441,12 @@ LevelSelect_LoadAct4:
 		levselstr "ACT 4"
 LevelSelect_MainText:
 		levselstr "SONIC TEST GAME - *** DEBUG MODE ***                            "
+LevelSelect_LoadGreenHill:
+		levselstr "GREEN HILL"
+LevelSelect_LoadTechnoTower:
+		levselstr "TECHNO TOWER"
+LevelSelect_LoadGreenHillEX:
+		levselstr "GREEN HILL EX"
 	even
 
 ; ---------------------------------------------------------------------------
@@ -604,7 +614,7 @@ LevelSelect_MappingOffsets:
 		dc.w planeLocH28(0,24)
 		dc.w planeLocH28(0,26)
 LevelSelect_Text:
-		levselstr " GREEN HILL         - ACT 1             "
+		levselstr " INTRO STAGES       - ACT 1             "
 		levselstr " SEASIDE LAND       - ACT 1             "
 		levselstr " TREE TOP           - ACT 1             "
 		levselstr " MECHA MUSHROOM     - ACT 1             "

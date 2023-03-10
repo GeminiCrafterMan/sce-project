@@ -2,10 +2,11 @@
 ; Levels Events
 ; ===========================================================================
 
-; GHZ
-		include "Levels/GHZ/Animated Tiles/Animation Scripts.asm"
-		include "Levels/GHZ/Events/Animate Palette.asm"
-		include "Levels/GHZ/Events/Events.asm"
+; Intro Stages
+	; GHZ + EX
+		include "Levels/Intro Stages/Green Hill/Animated Tiles/Animation Scripts.asm"
+		include "Levels/Intro Stages/Green Hill/Events/Animate Palette.asm"
+		include "Levels/Intro Stages/Green Hill/Events/Events.asm"
 
 ; SSLZ
 		include "Levels/SSLZ/Animated Tiles/Animation Scripts.asm"

@@ -2,6 +2,11 @@
 ; Signpost (Object)
 ; ---------------------------------------------------------------------------
 
+Obj_Signpost:
+		tst.b	subtype(a0)
+		bne.w	Obj_FallingEndSign
+		jmp		Obj_EndSign
+
 ; =============== S U B R O U T I N E =======================================
 
 Obj_EndSignControl:
