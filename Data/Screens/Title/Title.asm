@@ -18,8 +18,8 @@ Title_Screen:
 		clearRAM Camera_RAM, Camera_RAM_end
 		clearRAM Oscillating_variables, Oscillating_variables_end
 		moveq	#0,d0
-		move.w	#1,(Current_zone_and_act).w	; GHZ EX
-		move.w	#1,(Apparent_zone_and_act).w; GHZ EX
+		move.w	#3,(Current_zone_and_act).w	; GHZ EX
+		move.w	#3,(Apparent_zone_and_act).w; GHZ EX
 		move.b	d0,(Last_star_post_hit).w
 		move.b	d0,(Level_started_flag).w
 		ResetDMAQueue

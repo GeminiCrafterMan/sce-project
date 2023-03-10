@@ -17,6 +17,8 @@ Pal_Espio:			binclude "Objects/Player Characters/Palettes/Espio.bin"
 
 Pal_GHZ1:			binclude "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone 1.bin"
 	even
+Pal_TTZ1:			binclude "Levels/Intro Stages/Techno Tower/Palettes/Techno Tower Zone 1.bin"
+	even
 Pal_GHZEX:			binclude "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin"
 	even
 Pal_SSLZ1:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone 1.bin"

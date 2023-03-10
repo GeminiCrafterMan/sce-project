@@ -12,6 +12,7 @@ ptr_Pal_Espio:			palp	Pal_Espio, Normal_palette_line_1, 16
 
 ; Levels
 ptr_Pal_GHZ1:			palp	Pal_GHZ1, Normal_palette_line_2, 48
+ptr_Pal_TTZ1:			palp	Pal_TTZ1, Normal_palette_line_2, 48
 ptr_Pal_GHZEX:			palp	Pal_GHZEX, Normal_palette_line_2, 48
 ptr_Pal_SSLZ1:			palp	Pal_SSLZ1, Normal_palette_line_2, 48
 ptr_Pal_SSLZ2:			palp	Pal_SSLZ2, Normal_palette_line_2, 48
@@ -30,6 +31,7 @@ palid_Espio:			equ (ptr_Pal_Espio-PalPointers)/8
 
 ; Levels
 palid_GHZ1:				equ (ptr_Pal_GHZ1-PalPointers)/8
+palid_TTZ1:				equ (ptr_Pal_TTZ1-PalPointers)/8
 palid_GHZEX:			equ (ptr_Pal_GHZEX-PalPointers)/8
 palid_SSLZ1:			equ (ptr_Pal_SSLZ1-PalPointers)/8
 palid_SSLZ2:			equ (ptr_Pal_SSLZ2-PalPointers)/8
