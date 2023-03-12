@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "4f96cd26-1750-4e82-906c-d2d5a1a6146d",
+    "node": "57088e2c-53f8-48c1-9419-0d6f345028b3",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -26,7 +26,8 @@
                 "path": "Objects/Title Screen Sonic/Object Data/PLC - Title Screen Sonic.bin",
                 "label": ""
             },
-            "uuid": "370bb55e-13f6-43e1-8b7e-fdffc3432376"
+            "uuid": "370bb55e-13f6-43e1-8b7e-fdffc3432376",
+            "expanded": true
         },
         {
             "name": "Players",
@@ -66,7 +67,8 @@
                         "enabled": true,
                         "path": "Objects/Cabaret Characters/Object Data/PLC - Cabaret Characters.bin",
                         "label": ""
-                    }
+                    },
+                    "expanded": true
                 },
                 {
                     "uuid": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
@@ -799,373 +801,437 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {
-            "name": "Green Hill",
+            "name": "Intro Stages",
             "children": [
                 {
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Foreground Waterfall",
-                    "palettes": [],
-                    "art": {
-                        "path": "Objects/Decoration/KosinskiM Art/GHZ waterfall.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Decoration/Object Data/Map - GHZ Waterfall.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    },
-                    "uuid": "d5c21781-69da-4b2f-a9ef-a19306d2bab3"
-                },
-                {
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Swinging Platform",
-                    "palettes": [],
-                    "art": {
-                        "path": "Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    },
-                    "uuid": "aa7f8f47-351d-470e-9077-09028a3a4d80"
-                },
-                {
-                    "uuid": "4f96cd26-1750-4e82-906c-d2d5a1a6146d",
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Buzz Bomber",
-                    "palettes": [
+                    "name": "Green Hill",
+                    "children": [
                         {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Foreground Waterfall",
+                            "palettes": [],
+                            "art": {
+                                "path": "Objects/Decoration/KosinskiM Art/GHZ waterfall.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Decoration/Object Data/Map - GHZ Waterfall.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "uuid": "d5c21781-69da-4b2f-a9ef-a19306d2bab3"
                         },
                         {
-                            "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
-                            "length": 3
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Buzz Bomber/KosinskiM Art/Buzz Bomber.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Buzz Bomber/Object Data/Map - Buzz Bomber.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    }
-                },
-                {
-                    "uuid": "ecd4e911-3b71-4bb8-b23d-01feff5d393e",
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Chopper",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Swinging Platform",
+                            "palettes": [],
+                            "art": {
+                                "path": "Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "uuid": "aa7f8f47-351d-470e-9077-09028a3a4d80"
                         },
                         {
-                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
-                            "length": 3
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Chopper/KosinskiM Art/Chopper.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Chopper/Object Data/Map - Chopper.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    }
-                },
-                {
-                    "uuid": "96cd2617-509e-42d0-acd2-d5a1a6146d96",
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Crabmeat",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
+                            "uuid": "4f96cd26-1750-4e82-906c-d2d5a1a6146d",
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Buzz Bomber",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Buzz Bomber/KosinskiM Art/Buzz Bomber.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Buzz Bomber/Object Data/Map - Buzz Bomber.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            }
                         },
                         {
-                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
-                            "length": 3
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Crabmeat/KosinskiM Art/Crabmeat.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Crabmeat/Object Data/Map - Crabmeat.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    }
-                },
-                {
-                    "uuid": "d86ce0ef-fa1d-49f8-afbe-58000e53dfb2",
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Motobug",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
+                            "uuid": "ecd4e911-3b71-4bb8-b23d-01feff5d393e",
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Chopper",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Chopper/KosinskiM Art/Chopper.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Chopper/Object Data/Map - Chopper.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            }
                         },
                         {
-                            "path": "Levels/GHZ/Palettes/Green Hill Zone 2.bin",
-                            "length": 3
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Motobug/KosinskiM Art/Motobug.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Motobug/Object Data/Map - Motobug.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    }
-                },
-                {
-                    "uuid": "5c74559b-85d7-4b3c-8e8e-66c8af8c6098",
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Purple Rock",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
+                            "uuid": "96cd2617-509e-42d0-acd2-d5a1a6146d96",
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Crabmeat",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Crabmeat/KosinskiM Art/Crabmeat.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Crabmeat/Object Data/Map - Crabmeat.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            }
                         },
                         {
-                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
-                            "length": 3
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Purple Rock/KosinskiM Art/Purple Rock.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Purple Rock/Object Data/Map - Purple Rock.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    }
-                },
-                {
-                    "uuid": "bfc29ddb-730a-47d4-a789-03ade67e499c",
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Smashable Walls",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
+                            "uuid": "d86ce0ef-fa1d-49f8-afbe-58000e53dfb2",
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Motobug",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Levels/GHZ/Palettes/Green Hill Zone 2.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Motobug/KosinskiM Art/Motobug.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Motobug/Object Data/Map - Motobug.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            }
                         },
                         {
-                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
-                            "length": 3
+                            "uuid": "5c74559b-85d7-4b3c-8e8e-66c8af8c6098",
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Purple Rock",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Purple Rock/KosinskiM Art/Purple Rock.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Purple Rock/Object Data/Map - Purple Rock.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            }
+                        },
+                        {
+                            "uuid": "bfc29ddb-730a-47d4-a789-03ade67e499c",
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Smashable Walls",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Smashable Walls/KosinskiM Art/GHZ Breakable Wall.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Smashable Walls/Object Data/Map - Smashable Walls.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "expanded": true
+                        },
+                        {
+                            "uuid": "c29ddb73-0a67-44e7-8903-ade67e499c1a",
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Edge Walls",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Edge Walls/Object Data/Map - Edge Walls.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "expanded": true
+                        },
+                        {
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Bridge",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "uuid": "484533ee-3fb5-4a4a-a488-7bdef4036416",
+                            "expanded": true
+                        },
+                        {
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Floating Platform",
+                            "palettes": [],
+                            "art": {
+                                "path": "Levels/GHZ/Tiles/Primary.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "uuid": "df128fb0-2129-4aa3-b73a-745ede6f52d9"
+                        },
+                        {
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Mecha Sonic",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Mecha Sonic/Palettes/Main.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Objects/Mecha Sonic/Palettes/Flash 1.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Objects/Mecha Sonic/Palettes/Flash 2.bin",
+                                    "length": 1
+                                },
+                                {
+                                    "path": "Objects/Mecha Sonic/Palettes/Flash 3.bin",
+                                    "length": 1
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Mecha Sonic/Uncompressed Art/Mecha Sonic.bin",
+                                "compression": "Uncompressed",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Mecha Sonic/Object Data/Map - Mecha Sonic.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": true,
+                                "path": "Objects/Mecha Sonic/Object Data/PLC - Mecha Sonic.bin",
+                                "label": ""
+                            },
+                            "uuid": "034e1ad3-85fe-4a11-8872-9da6b9b9cad6"
+                        },
+                        {
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Mecha Sonic Extras",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Mecha Sonic/Palettes/Main.bin",
+                                    "length": 1
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Mecha Sonic/KosinskiM Art/Mecha Sonic Extra Art.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Mecha Sonic/Object Data/Map - Mecha Sonic Extra.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "uuid": "4e1ad385-fe4a-4188-b29d-a6b9b9cad642"
                         }
                     ],
-                    "art": {
-                        "path": "Objects/Smashable Walls/KosinskiM Art/GHZ Breakable Wall.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Smashable Walls/Object Data/Map - Smashable Walls.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    },
+                    "isDirectory": true,
+                    "expanded": false,
+                    "uuid": "9cf77ede-99af-4b8c-99a4-a8b5e4247148"
+                },
+                {
+                    "name": "Techno Tower",
+                    "children": [
+                        {
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Silver Sonic",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Silver Sonic/Palettes/Main.bin",
+                                    "length": 1
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Silver Sonic/Uncompressed Art/Silver Sonic.bin",
+                                "compression": "Uncompressed",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Silver Sonic/Object Data/Map - Silver Sonic.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": true,
+                                "path": "Objects/Silver Sonic/Object Data/PLC - Silver Sonic.bin",
+                                "label": ""
+                            },
+                            "uuid": "4a57088e-2c53-4898-8114-190d6f345028"
+                        },
+                        {
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Silver Sonic Misc",
+                            "palettes": [
+                                {
+                                    "path": "Objects/Silver Sonic/Palettes/Main.bin",
+                                    "length": 1
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Silver Sonic/KosinskiM Art/Silver Sonic Misc.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Silver Sonic/Object Data/Map - Silver Sonic Misc.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "uuid": "57088e2c-53f8-48c1-9419-0d6f345028b3"
+                        }
+                    ],
+                    "isDirectory": true,
                     "expanded": true
-                },
-                {
-                    "uuid": "c29ddb73-0a67-44e7-8903-ade67e499c1a",
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Edge Walls",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
-                            "length": 3
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Edge Walls/Object Data/Map - Edge Walls.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    },
-                    "expanded": true
-                },
-                {
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Bridge",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
-                            "length": 3
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    },
-                    "uuid": "484533ee-3fb5-4a4a-a488-7bdef4036416",
-                    "expanded": true
-                },
-                {
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Floating Platform",
-                    "palettes": [],
-                    "art": {
-                        "path": "Levels/GHZ/Tiles/Primary.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Floating Platform/Object Data/Map - Floating Platform (GHZ).bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    },
-                    "uuid": "df128fb0-2129-4aa3-b73a-745ede6f52d9"
-                },
-                {
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Mecha Sonic",
-                    "palettes": [
-                        {
-                            "path": "Objects/Mecha Sonic/Palettes/Main.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Objects/Mecha Sonic/Palettes/Flash 1.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Objects/Mecha Sonic/Palettes/Flash 2.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Objects/Mecha Sonic/Palettes/Flash 3.bin",
-                            "length": 1
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Mecha Sonic/Uncompressed Art/Mecha Sonic.bin",
-                        "compression": "Uncompressed",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Mecha Sonic/Object Data/Map - Mecha Sonic.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": true,
-                        "path": "Objects/Mecha Sonic/Object Data/PLC - Mecha Sonic.bin",
-                        "label": ""
-                    },
-                    "uuid": "034e1ad3-85fe-4a11-8872-9da6b9b9cad6"
-                },
-                {
-                    "format": "Sonic 3&K Object.js",
-                    "name": "Mecha Sonic Extras",
-                    "palettes": [
-                        {
-                            "path": "Objects/Mecha Sonic/Palettes/Main.bin",
-                            "length": 1
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Mecha Sonic/KosinskiM Art/Mecha Sonic Extra Art.bin",
-                        "compression": "Kosinski-M",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Mecha Sonic/Object Data/Map - Mecha Sonic Extra.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": false,
-                        "path": "",
-                        "label": ""
-                    },
-                    "uuid": "4e1ad385-fe4a-4188-b29d-a6b9b9cad642"
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
-            "uuid": "9cf77ede-99af-4b8c-99a4-a8b5e4247148"
+            "expanded": true
         },
         {
             "name": "Seaside Land",
@@ -1271,7 +1337,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "d3d95b3c-8175-4835-b97c-8859b145c346"
         },
         {
@@ -1300,7 +1366,8 @@
                         "path": "Objects/Background Characters/Object Data/PLC - Flare the Alligator.bin",
                         "label": ""
                     },
-                    "uuid": "43fd03c9-de3a-41fc-9eeb-621b5d1830d3"
+                    "uuid": "43fd03c9-de3a-41fc-9eeb-621b5d1830d3",
+                    "expanded": true
                 },
                 {
                     "format": "Sonic 3&K Object.js",
@@ -1329,7 +1396,8 @@
                         "path": "",
                         "label": ""
                     },
-                    "uuid": "3f81ae78-94fb-41b8-8a46-875c2a5790ae"
+                    "uuid": "3f81ae78-94fb-41b8-8a46-875c2a5790ae",
+                    "expanded": true
                 },
                 {
                     "format": "Sonic 3&K Object.js",
