@@ -25,8 +25,11 @@ Obj_LevelResultsInit:
 		jsr	(Queue_Kos_Module).w					; General art
 		moveq	#0,d0
 		lea	TitleCardAct_Index(pc),a1
-		move.b	(Current_act).w,d0
-		lsl.w	#2,d0
+		move.w	(Current_zone_and_act).w,d0
+		ror.b	#2,d0
+		lsr.w	#4,d0
+;		move.b	(Current_act).w,d0
+;		lsl.w	#2,d0
 		movea.l	(a1,d0.w),a1
 		move.w	#tiles_to_bytes($4C8),d2
 		jsr	(Queue_Kos_Module).w

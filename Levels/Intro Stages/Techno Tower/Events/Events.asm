@@ -14,14 +14,6 @@ TechnoTower1_ScreenEvent:
 		bra.w	TechnoTower_Refresh
 
 DLE_TechnoTower1:
-		rts
-		cmpi.b	#id_TitleScreen,(Game_mode).w
-		beq.w	DLE_TechnoTower1main.ret
-		cmpi.w	#$CEE,(Normal_palette+$2).w	; Is the color shifting already active?
-		beq.s	.noShiftPlayer			; If so, skip.
-		ShiftPalUp1 $002				; Shift player palette up in the red section,
-		ShiftPalDown1 $200				; and down in the blue
-.noShiftPlayer:
 		moveq	#0,d0
 		move.b	(Screen_event_routine).w,d0
 		move.w	.index(pc,d0.w),d0
@@ -33,34 +25,32 @@ DLE_TechnoTower1:
 ; ===========================================================================
 
 DLE_TechnoTower1main:
-.cont:
-		cmpi.w	#$5B00,(v_screenposx).w
-		bcc.s	.cont2
+		move.w	#$06C0,(Camera_max_X_pos).w
+		move.w	#$0F00,(Camera_target_max_Y_pos).w
+		cmpi.w	#$0050,(v_screenposy).w
+		bhs.s	.ret	; >= $50, return
+		move.w	#$0100,(Camera_target_max_Y_pos).w
+		move.w	#$0C00,(Camera_max_X_pos).w	; Right boundary to $C00 for the boss fight
+		addq.b	#2,(Screen_event_routine).w
 
 .ret:
 		rts
 ; ===========================================================================
 
-.cont2:
-		move.w	#$500,(Camera_target_max_Y_pos).w
-		addq.b	#2,(Screen_event_routine).w
-		rts
-; ===========================================================================
-
 DLE_TechnoTower1boss:
-		cmpi.w	#$4D60,(v_screenposx).w
-		bcc.s	.cont
+		cmpi.w	#$0800,(v_screenposx).w
+		bhs.s	.cont	; >= $800, continue
 		subq.b	#2,(Screen_event_routine).w
 
 .cont:
-		cmpi.w	#$6D60,(v_screenposx).w
-		bcs.s	.ret
+		cmpi.w	#$0A00,(v_screenposx).w
+		bcs.s	.ret	; <= $A00, return
 		jsr		FindFreeObj
 		bne.s	.cont2
 		move.l	#Obj_MechaSonic,address(a1) ; load Mecha Sonic
 		st		(Boss_flag).w
-		move.w	#$6E60,obX(a1)
-		move.w	#$480,obY(a1)
+		move.w	#$0B00,obX(a1)
+		move.w	#$0008,obY(a1)
 
 .cont2:
 		move.b	#1,(f_lockscreen).w ; lock screen

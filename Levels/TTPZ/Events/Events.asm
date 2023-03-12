@@ -65,7 +65,7 @@ TTPZ1_Transition:
 
 TTPZ_Deform:
 		move.w	(Camera_Y_pos_copy).w,d0
-;		asr.w	#3,d0
+		asr.w	#3,d0
 		move.w	d0,(Camera_Y_pos_BG_copy).w
 		move.w	(Camera_X_pos_copy).w,d0
 		subi.w	#$A0,d0

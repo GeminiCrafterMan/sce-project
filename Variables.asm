@@ -67,21 +67,21 @@ H_scroll_amount:					ds.w 1					; Number of pixels camera scrolled horizontally 
 v_scrshifty:						= *
 V_scroll_amount:					ds.w 1					; Number of pixels camera scrolled vertically in the last frame * $100
 v_limitleft1:						= *
-Camera_target_min_X_pos:			ds.w 1
+Camera_target_min_X_pos:			ds.w 1					; Level's target left boundary (Unused)
 v_limitright1:						= *
-Camera_target_max_X_pos:			ds.w 1
+Camera_target_max_X_pos:			ds.w 1					; Level's target right boundary (Unused)
 v_limittop1:						= *
-Camera_target_min_Y_pos:			ds.w 1
+Camera_target_min_Y_pos:			ds.w 1					; Level's target upper boundary (Unused)
 v_limitbtm1:						= *
-Camera_target_max_Y_pos:			ds.w 1
+Camera_target_max_Y_pos:			ds.w 1					; Level's target lower boundary
 v_limitleft2:						= *
-Camera_min_X_pos:					ds.w 1
+Camera_min_X_pos:					ds.w 1					; Level's left boundary
 v_limitright2:						= *
-Camera_max_X_pos:					ds.w 1
+Camera_max_X_pos:					ds.w 1					; Level's right boundary
 v_limittop2:						= *
-Camera_min_Y_pos:					ds.w 1
+Camera_min_Y_pos:					ds.w 1					; Level's upper boundary
 v_limitbtm2:						= *
-Camera_max_Y_pos:					ds.w 1
+Camera_max_Y_pos:					ds.w 1					; Level's lower boundary
 Saved_Camera_max_X_pos:			ds.w 1
 Saved_Camera_min_X_pos:			ds.w 1
 Saved_Camera_min_Y_pos:			ds.w 1
