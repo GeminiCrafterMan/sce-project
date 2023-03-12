@@ -1227,11 +1227,13 @@
                         }
                     ],
                     "isDirectory": true,
-                    "expanded": true
+                    "expanded": true,
+                    "uuid": "f1bc51e9-971c-4fde-acee-ad682b27714e"
                 }
             ],
             "isDirectory": true,
-            "expanded": true
+            "expanded": true,
+            "uuid": "8af1bc51-e997-4cff-9eec-eead682b2771"
         },
         {
             "name": "Seaside Land",

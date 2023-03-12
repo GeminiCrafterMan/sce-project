@@ -3,18 +3,18 @@
 ; (also handles Eggman's remote-control window)
 ; ----------------------------------------------------------------------------
 ; Sprite_3972C:
-ObjAF:
+Obj_SilverSonic:
 	moveq	#0,d0
 	move.b	routine(a0),d0
-	move.w	ObjAF_Index(pc,d0.w),d1
-	jmp	ObjAF_Index(pc,d1.w)
+	move.w	Obj_SilverSonic_Index(pc,d0.w),d1
+	jmp	Obj_SilverSonic_Index(pc,d1.w)
 ; ===========================================================================
 ; off_3973A:
-ObjAF_Index:	offsetTable
-		offsetTableEntry.w ObjAF_Init	;   0
-		offsetTableEntry.w loc_397AC	;   2
-		offsetTableEntry.w loc_397E6	;   4
-		offsetTableEntry.w loc_397FE	;   6
+Obj_SilverSonic_Index:	offsetTable
+		offsetTableEntry.w Obj_SilverSonic_Init	;   0
+		offsetTableEntry.w Obj_SilverSonic_GetCameraXPos	;   2
+		offsetTableEntry.w Obj_SilverSonic_Wait	;   4
+		offsetTableEntry.w Obj_SilverSonic_FloatDown	;   6
 		offsetTableEntry.w loc_3984A	;   8
 		offsetTableEntry.w loc_398C0	;  $A
 		offsetTableEntry.w loc_39B92	;  $C
@@ -31,8 +31,8 @@ ObjAF_Index:	offsetTable
 		offsetTableEntry.w loc_39CA0	; $22
 ; ===========================================================================
 ; loc_3975E:
-ObjAF_Init:
-	bsr.w	LoadSubObject
+Obj_SilverSonic_Init:
+	bsr.w	LoadSubObject	; loads Obj_SilverSonic_SubObjData2
 	move.b	#$1B,y_radius(a0)
 	move.b	#$10,x_radius(a0)
 	move.b	#0,collision_flags(a0)
@@ -49,60 +49,57 @@ ObjAF_Init:
 	rts
 ; ===========================================================================
 
-loc_397AC:
+Obj_SilverSonic_GetCameraXPos:
 	move.w	(Camera_X_pos).w,d0
 	cmpi.w	#$224,d0
-	bhs.s	loc_397BA
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
-; ===========================================================================
+	bhs.s	.lock
+	jmp		DisplaySprite
 
-loc_397BA:
+.lock:
 	addq.b	#2,routine(a0)
-	move.w	#$3C,objoff_2A(a0)
+	move.w	#$3C,wait(a0)
 	move.w	#$100,y_vel(a0)
 	move.w	#$224,d0
 	move.w	d0,(Camera_Min_X_pos).w
 	move.w	d0,(Camera_Max_X_pos).w
 	move.b	#9,(Current_Boss_ID).w
 	moveq	#signextendB(MusID_FadeOut),d0
-	jsrto	PlaySound, JmpTo12_PlaySound
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jsr		PlaySound
+	jmp	DisplaySprite
 ; ===========================================================================
 
-loc_397E6:
-	subq.w	#1,objoff_2A(a0)
-	bmi.s	loc_397F0
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
-; ===========================================================================
+Obj_SilverSonic_Wait:
+	subq.w	#1,wait(a0)
+	bmi.s	.donewaiting
+	jmp	DisplaySprite
 
-loc_397F0:
+.donewaiting:
 	addq.b	#2,routine(a0)
 	moveq	#signextendB(MusID_Boss),d0
-	jsrto	PlayMusic, JmpTo5_PlayMusic
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jsr	PlayMusic
+	jmp	DisplaySprite
 ; ===========================================================================
 
-loc_397FE:
+Obj_SilverSonic_FloatDown:
 	move.b	(Vint_runcount+3).w,d0
 	andi.b	#$1F,d0
-	bne.s	loc_3980E
+	bne.s	.dontfire
 	moveq	#signextendB(SndID_Fire),d0
-	jsrto	PlaySound, JmpTo12_PlaySound
+	jsr	PlaySound
 
-loc_3980E:
+.dontfire:
 	jsr	(ObjCheckFloorDist).l
 	tst.w	d1
-	bmi.s	loc_39830
-	jsrto	ObjectMove, JmpTo26_ObjectMove
+	bmi.s	.movedown
+	jsr	ObjectMove
 	moveq	#0,d0
 	moveq	#0,d1
 	movea.w	parent(a0),a1 ; a1=object
 	bsr.w	Obj_AlignChildXY
 	bsr.w	loc_39D4A
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
-; ===========================================================================
+	jmp	DisplaySprite
 
-loc_39830:
+.movedown:
 	add.w	d1,y_pos(a0)
 	move.w	#0,y_vel(a0)
 	move.b	#$1A,collision_flags(a0)
@@ -111,15 +108,15 @@ loc_39830:
 ; ===========================================================================
 
 loc_3984A:
-	bsr.w	loc_39CAE
-	bsr.w	loc_39D1C
-	subq.b	#1,objoff_2A(a0)
+	bsr.w	Obj_SilverSonic_HandleDamage
+	bsr.w	Obj_SilverSonic_SetColType
+	subq.b	#1,wait(a0)
 	beq.s	loc_39886
-	cmpi.b	#$32,objoff_2A(a0)
+	cmpi.b	#$32,wait(a0)
 	bne.s	loc_3986A
 	moveq	#signextendB(SndID_MechaSonicBuzz),d0
-	jsrto	PlaySound, JmpTo12_PlaySound
-	jsrto	DisplaySprite, JmpTo45_DisplaySprite
+	jsr	PlaySound
+	jsr	DisplaySprite
 
 loc_3986A:
 	jsr	(ObjCheckFloorDist).l
@@ -127,7 +124,7 @@ loc_3986A:
 	lea	(off_39DE2).l,a1
 	bsr.w	AnimateSprite_Checked
 	bsr.w	loc_39D4A
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39886:
@@ -140,7 +137,7 @@ loc_39886:
 	clr.b	objoff_2E(a0)
 	movea.w	objoff_3C(a0),a1 ; a1=object
 	move.b	#$16,routine(a1)
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jmp	DisplaySprite
 ; ===========================================================================
 byte_398B0:
 	dc.b   6
@@ -163,8 +160,8 @@ byte_398B0:
 ; ===========================================================================
 
 loc_398C0:
-	bsr.w	loc_39CAE
-	bsr.w	loc_39D1C
+	bsr.w	Obj_SilverSonic_HandleDamage
+	bsr.w	Obj_SilverSonic_SetColType
 	moveq	#0,d0
 	move.b	routine_secondary(a0),d0
 	move.w	off_398F2(pc,d0.w),d1
@@ -175,8 +172,8 @@ loc_398C0:
 	bsr.w	Obj_AlignChildXY
 	bsr.w	loc_39D4A
 	bsr.w	Obj_AlignChildXY
-	jsrto	ObjectMove, JmpTo26_ObjectMove
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jsr	ObjectMove
+	jmp	DisplaySprite
 ; ===========================================================================
 off_398F2:	offsetTable
 		offsetTableEntry.w loc_3991E	;   0
@@ -209,7 +206,7 @@ loc_3991E:
 	move.b	#2,objoff_2C(a0)
 
 loc_3992E:
-	move.b	#$20,objoff_2A(a0)
+	move.b	#$20,wait(a0)
 	movea.w	parent(a0),a1 ; a1=object
 	move.b	#$10,routine(a1)
 	move.b	#1,anim(a1)
@@ -217,27 +214,27 @@ loc_3992E:
 ; ===========================================================================
 
 loc_39946:
-	subq.b	#1,objoff_2A(a0)
+	subq.b	#1,wait(a0)
 	bmi.s	loc_3994E
 	rts
 ; ===========================================================================
 
 loc_3994E:
 	addq.b	#2,routine_secondary(a0)
-	move.b	#$40,objoff_2A(a0)
+	move.b	#$40,wait(a0)
 	move.b	#1,anim(a0)
 	move.w	#$800,d0
 	bsr.w	loc_39D60
 	movea.w	parent(a0),a1 ; a1=object
 	move.b	#2,anim(a1)
 	moveq	#signextendB(SndID_SpindashRelease),d0
-	jmpto	PlaySound, JmpTo12_PlaySound
+	jmp	PlaySound
 ; ===========================================================================
 
 loc_39976:
-	subq.b	#1,objoff_2A(a0)
+	subq.b	#1,wait(a0)
 	bmi.s	loc_399C2
-	cmpi.b	#$20,objoff_2A(a0)
+	cmpi.b	#$20,wait(a0)
 	bne.s	loc_39994
 	move.b	#2,anim(a0)
 	movea.w	parent(a0),a1 ; a1=object
@@ -270,15 +267,15 @@ loc_399C2:
 loc_399D6:
 	move.b	#8,routine(a0)
 	move.b	#0,anim(a0)
-	move.b	#$64,objoff_2A(a0)
+	move.b	#$64,wait(a0)
 	clr.w	x_vel(a0)
 	movea.w	parent(a0),a1 ; a1=object
 	move.b	#$12,routine(a1)
 	movea.w	objoff_3C(a0),a1 ; a1=object
 	move.b	#$18,routine(a1)
 	moveq	#signextendB(SndID_MechaSonicBuzz),d0
-	jsrto	PlaySound, JmpTo12_PlaySound
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jsr	PlaySound
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39A0A:
@@ -297,15 +294,15 @@ loc_39A1C:
 
 loc_39A2A:
 	addq.b	#2,routine_secondary(a0)
-	move.b	#$20,objoff_2A(a0)
+	move.b	#$20,wait(a0)
 	move.b	#4,anim(a0)
 	moveq	#signextendB(SndID_LaserBeam),d0
-	jsrto	PlaySound, JmpTo12_PlaySound
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jsr	PlaySound
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39A44:
-	subq.b	#1,objoff_2A(a0)
+	subq.b	#1,wait(a0)
 	bmi.s	loc_39A56
 	lea	(off_39DE2).l,a1
 	bsr.w	AnimateSprite_Checked
@@ -314,13 +311,13 @@ loc_39A44:
 
 loc_39A56:
 	addq.b	#2,routine_secondary(a0)
-	move.b	#$40,objoff_2A(a0)
+	move.b	#$40,wait(a0)
 	move.w	#$800,d0
 	bra.w	loc_39D60
 ; ===========================================================================
 
 loc_39A68:
-	subq.b	#1,objoff_2A(a0)
+	subq.b	#1,wait(a0)
 	bmi.s	loc_39A7C
 	bsr.w	loc_39D72
 	lea	(off_39DE2).l,a1
@@ -348,7 +345,7 @@ BranchTo_loc_399D6 ; BranchTo
 ; ===========================================================================
 
 loc_39AAA:
-	subq.b	#1,objoff_2A(a0)
+	subq.b	#1,wait(a0)
 	bmi.s	loc_39ABC
 	lea	(off_39DE2).l,a1
 	bsr.w	AnimateSprite_Checked
@@ -357,14 +354,14 @@ loc_39AAA:
 
 loc_39ABC:
 	addq.b	#2,routine_secondary(a0)
-	move.b	#$40,objoff_2A(a0)
+	move.b	#$40,wait(a0)
 	move.w	#$400,d0
 	bra.w	loc_39D60
 ; ===========================================================================
 
 loc_39ACE:
-	subq.b	#1,objoff_2A(a0)
-	cmpi.b	#$3C,objoff_2A(a0)
+	subq.b	#1,wait(a0)
+	cmpi.b	#$3C,wait(a0)
 	bne.s	loc_39ADE
 	bsr.w	loc_39AE8
 
@@ -380,7 +377,7 @@ loc_39AE8:
 ; ===========================================================================
 
 loc_39AF4:
-	subq.b	#1,objoff_2A(a0)
+	subq.b	#1,wait(a0)
 	bmi.w	loc_39A7C
 	jsr	(ObjCheckFloorDist).l
 	tst.w	d1
@@ -401,7 +398,7 @@ loc_39B1A:
 ; ===========================================================================
 
 loc_39B28:
-	subq.b	#1,objoff_2A(a0)
+	subq.b	#1,wait(a0)
 	bmi.w	loc_39A7C
 	jsr	(ObjCheckFloorDist).l
 	add.w	d1,y_pos(a0)
@@ -410,7 +407,7 @@ loc_39B28:
 ; ===========================================================================
 
 loc_39B44:
-	subq.b	#1,objoff_2A(a0)
+	subq.b	#1,wait(a0)
 	bmi.w	loc_39A7C
 	tst.b	objoff_2E(a0)
 	bne.s	loc_39B66
@@ -419,7 +416,7 @@ loc_39B44:
 	st.b	objoff_2E(a0)
 	bsr.w	loc_39D82
 	moveq	#signextendB(SndID_SpikeSwitch),d0
-	jsrto	PlaySound, JmpTo12_PlaySound
+	jsr	PlaySound
 
 loc_39B66:
 	jsr	(ObjCheckFloorDist).l
@@ -444,8 +441,8 @@ loc_39B92:
 	clr.b	collision_flags(a0)
 	subq.w	#1,objoff_32(a0)
 	bmi.s	loc_39BA4
-	jsrto	Boss_LoadExplosion, JmpTo_Boss_LoadExplosion
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jsr	Boss_LoadExplosion
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39BA4:
@@ -460,12 +457,12 @@ loc_39BA4:
 	; Silver Sonic fight.
 	move.b	(Level_Music).w,d0
     endif
-	jsrto	PlayMusic, JmpTo5_PlayMusic
-	bra.w	JmpTo65_DeleteObject
+	jsr	PlayMusic
+	bra.w	jmp65_DeleteObject
 ; ===========================================================================
 
 loc_39BBA:
-	bsr.w	LoadSubObject
+	bsr.w	LoadSubObject	; eggman window?
 	move.b	#8,width_pixels(a0)
 	move.b	#0,collision_flags(a0)
 	rts
@@ -476,7 +473,7 @@ loc_39BCC:
 	bsr.w	InheritParentXYFlip
 	lea	(off_39E30).l,a1
 	bsr.w	AnimateSprite_Checked
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39BE2:
@@ -485,7 +482,7 @@ loc_39BE2:
 ; ===========================================================================
 
 loc_39BEA:
-	bsr.w	LoadSubObject
+	bsr.w	LoadSubObject	; okay no that has to be the eggman window
 	move.b	#8,width_pixels(a0)
 	move.b	#$B,mapping_frame(a0)
 	move.b	#3,priority(a0)
@@ -502,7 +499,7 @@ loc_39C0A:
 	rts
 ; ===========================================================================
 
-loc_39C12:
+loc_39C12:	; okay no that's DEFINITELY the eggman window, it literally has to be
 	bsr.w	LoadSubObject
 	move.b	#4,mapping_frame(a0)
 	move.w	#$2C0,x_pos(a0)
@@ -514,18 +511,18 @@ loc_39C2A:
 	movea.w	objoff_2C(a0),a1 ; a1=object
 	bclr	#1,status(a1)
 	bne.s	loc_39C3A
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39C3A:
 	addq.b	#2,routine(a0)
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39C42:
-	lea	(Ani_objAF_c).l,a1
-	jsrto	AnimateSprite, JmpTo25_AnimateSprite
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	lea	(Ani_Obj_SilverSonic_c).l,a1
+	jsr	AnimateSprite
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39C50:
@@ -546,53 +543,53 @@ loc_39C78:
 	move.b	#4,anim(a0)
 
 loc_39C84:
-	lea	(Ani_objAF_c).l,a1
-	jsrto	AnimateSprite, JmpTo25_AnimateSprite
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	lea	(Ani_Obj_SilverSonic_c).l,a1
+	jsr	AnimateSprite
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39C92:
 	addq.b	#2,routine(a0)
 	move.b	#1,anim(a0)
-	jmpto	DisplaySprite, JmpTo45_DisplaySprite
+	jmp	DisplaySprite
 ; ===========================================================================
 
 loc_39CA0:
-	lea	(Ani_objAF_c).l,a1
-	jsrto	AnimateSprite, JmpTo25_AnimateSprite
-	jmpto	MarkObjGone, JmpTo39_MarkObjGone
+	lea	(Ani_Obj_SilverSonic_c).l,a1
+	jsr	AnimateSprite
+	jmp	MarkObjGone
 ; ===========================================================================
 
-loc_39CAE:
+Obj_SilverSonic_HandleDamage:
 	tst.b	collision_property(a0)
-	beq.s	loc_39CF0
+	beq.s	.die
 	tst.b	collision_flags(a0)
-	bne.s	return_39CEE
+	bne.s	.ret
 	tst.b	objoff_30(a0)
-	bne.s	loc_39CD0
+	bne.s	.flash
 	move.b	#$20,objoff_30(a0)
 	move.w	#SndID_BossHit,d0
 	jsr	(PlaySound).l
 
-loc_39CD0:
+.flash:
 	lea	(Normal_palette_line2+2).w,a1
 	moveq	#0,d0
 	tst.w	(a1)
-	bne.s	loc_39CDE
+	bne.s	.black
 	move.w	#$EEE,d0
 
-loc_39CDE:
+.black:
 	move.w	d0,(a1)
 	subq.b	#1,objoff_30(a0)
-	bne.s	return_39CEE
+	bne.s	.ret
 	clr.w	(Normal_palette_line2+2).w
-	bsr.w	loc_39D24
+	bsr.w	Obj_SilverSonic_SetColType.rollchk
 
-return_39CEE:
+.ret:
 	rts
 ; ===========================================================================
 
-loc_39CF0:
+.die:
 	moveq	#100,d0
 	bsr.w	AddPoints
 	move.w	#$FF,objoff_32(a0)
@@ -600,28 +597,28 @@ loc_39CF0:
 	clr.b	collision_flags(a0)
 	bset	#2,status(a0)
 	movea.w	objoff_3C(a0),a1 ; a1=object
-	jsrto	DeleteObject2, JmpTo6_DeleteObject2
+	jsr	DeleteObject2
 	movea.w	parent(a0),a1 ; a1=object
-	jmpto	DeleteObject2, JmpTo6_DeleteObject2
+	jmp	DeleteObject2
 ; ===========================================================================
 
-loc_39D1C:
+Obj_SilverSonic_SetColType:
 	tst.b	collision_flags(a0)
-	beq.w	return_37A48
+	beq.s	.ret
 
-loc_39D24:
+.rollchk:
 	move.b	mapping_frame(a0),d0
-	cmpi.b	#6,d0
-	beq.s	loc_39D42
 	cmpi.b	#7,d0
-	beq.s	loc_39D42
+	beq.s	.rolling
 	cmpi.b	#8,d0
-	beq.s	loc_39D42
+	beq.s	.rolling
+	cmpi.b	#9,d0
+	beq.s	.rolling
 	move.b	#$1A,collision_flags(a0)
+.ret:
 	rts
-; ===========================================================================
 
-loc_39D42:
+.rolling:
 	move.b	#$9A,collision_flags(a0)
 	rts
 ; ===========================================================================
@@ -667,9 +664,15 @@ loc_39D82:
 	bra.w	Obj_CreateProjectiles
 ; ===========================================================================
 byte_39D92:
-	dc.b   0,$E8,  0,$FD, $F,  0,$F0,$F0,$FE,$FE,$10,  0,$E8,  0,$FD,  0
-	dc.b $11,  0,$F0,$10,$FE,  2,$12,  0,  0,$18,  0,  3,$13,  0,$10,$10; 16
-	dc.b   2,  2,$14,  0,$18,  0,  3,  0,$15,  0,$10,$F0,  2,$FE,$16,  0; 32
+;		 xof,yof,xvl,yvl,frm,rfl
+	dc.b   0,$E8,  0,$FD,  6,  0
+	dc.b $F0,$F0,$FE,$FE,  7,  0
+	dc.b $E8,  0,$FD,  0,  8,  0
+	dc.b $F0,$10,$FE,  2,  9,  0
+	dc.b   0,$18,  0,  3, 10,  0
+	dc.b $10,$10,  2,  2, 11,  0
+	dc.b $18,  0,  3,  0, 12,  0
+	dc.b $10,$F0,  2,$FE, 13,  0
 	even
 word_39DC2:
 	dc.w objoff_3E
@@ -684,11 +687,11 @@ word_39DCA:
 	dc.b ObjID_MechaSonic
 	dc.b $A4
 ; off_39DCE:
-ObjAF_SubObjData2:
-	subObjData ObjAF_Obj98_MapUnc_39E68,make_art_tile(ArtTile_ArtNem_SilverSonic,1,0),4,4,$10,$1A
+Obj_SilverSonic_SubObjData2:
+	subObjData Obj_SilverSonic_Obj98_MapUnc_39E68,make_art_tile(ArtTile_ArtNem_SilverSonic,1,0),4,4,$10,$1A
 ; off_39DD8:
-ObjAF_SubObjData3:
-	subObjData ObjAF_MapUnc_3A08C,make_art_tile(ArtTile_ArtNem_DEZWindow,0,0),4,6,$10,0
+Obj_SilverSonic_SubObjData3:
+	subObjData Obj_SilverSonic_MapUnc_3A08C,make_art_tile(ArtTile_ArtNem_DEZWindow,0,0),4,6,$10,0
 
 ; animation script
 off_39DE2:	offsetTable
@@ -729,7 +732,7 @@ byte_39E3E:
 
 ; animation script
 ; off_39E42:
-Ani_objAF_c:	offsetTable
+Ani_Obj_SilverSonic_c:	offsetTable
 		offsetTableEntry.w byte_39E4C	; 0
 		offsetTableEntry.w byte_39E54	; 1
 		offsetTableEntry.w byte_39E5C	; 2
