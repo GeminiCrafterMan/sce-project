@@ -10,6 +10,7 @@ idstart :=	1
 bgm__First = idstart
 ; Levels
 bgm_GHZ =			SMPS_id(ptr_mus_ghz)
+bgm_Elec =			SMPS_id(ptr_mus_elec)
 bgm_DiS =			SMPS_id(ptr_mus_dis)
 bgm_MCZ2P =			SMPS_id(ptr_mus_mcz2p)
 bgm_MHZ1 =			SMPS_id(ptr_mus_mhz1)

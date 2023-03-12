@@ -4,6 +4,7 @@
 MusicIndex:
 ; Levels
 ptr_mus_ghz:		SMPS_MUSIC_METADATA	Music_GHZ, 8, 0			; GHZ
+ptr_mus_elec:		SMPS_MUSIC_METADATA Music_Elec, 8, 0		; NTHZ
 ptr_mus_dis:		SMPS_MUSIC_METADATA Music_DiS, 8, 0			; SSLZ
 ptr_mus_mcz2p:		SMPS_MUSIC_METADATA Music_MCZ2P, 8, 0		; TTPZ
 ptr_mus_mhz1:		SMPS_MUSIC_METADATA Music_MHZ1, s3tempotoS1($FF), 0		; MMZ
@@ -31,6 +32,8 @@ ptr_musend
 ; ---------------------------------------------------------------------------
 
 Music_GHZ:			include "Sound/Music/Mus - GHZ.asm"
+	even
+Music_Elec:			include "Sound/Music/Mus - Electoria.asm"
 	even
 Music_DiS:			include	"Sound/Music/Mus - Door Into Summer.asm"
 	even

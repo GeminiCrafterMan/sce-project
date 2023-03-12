@@ -3,7 +3,7 @@
 ; ===========================================================================
 
 LevelMusic_Playlist:
-		dc.b bgm_GHZ, bgm_GHZ, bgm_GHZ, bgm_GHZ	; GHZ 1,2,3,4
+		dc.b bgm_GHZ, bgm_Elec, bgm_GHZ, bgm_GHZ	; GHZ 1,2,3,4
 		dc.b bgm_DiS, bgm_DiS, bgm_DiS, bgm_DiS ; SSLZ 1,2,3,4
 		dc.b bgm_MCZ2P, bgm_MCZ2P, bgm_MCZ2P, bgm_MCZ2P ; TTPZ 1,2,3,4
 		dc.b bgm_MHZ1, bgm_MHZ1, bgm_MHZ1, bgm_MHZ1 ; MMZ 1,2,3,4
