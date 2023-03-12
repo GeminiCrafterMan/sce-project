@@ -43,9 +43,9 @@ LevelLoadPointer:
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ											; Animate tiles main code, Animate tiles PLC scripts
 	; Techno Tower
-		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
-		dc.l LevelPointer_Null, LevelPointer_Null
+		dc.l AnPal_TechnoTower, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l TechnoTower1_ScreenInit, TechnoTower1_BackgroundInit, TechnoTower1_ScreenEvent, TechnoTower1_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_TechnoTower
 	; ?
 		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent

@@ -41,7 +41,7 @@ Obj_MonkeyBarHanger:
 Obj_Waterfall:
 		moveq	#0,d0
 		move.l	#Map_SSLZWaterfall,mappings(a0)
-		cmpi.b	#z_GHZ,(Current_zone).w
+		cmpi.b	#z_Intro,(Current_zone).w	; just check for the Intro zone, not like Techno Tower will use waterfalls
 		bne.s	.notGHZ
 		move.l	#Map_GHZWaterfall,mappings(a0)
 	.notGHZ:

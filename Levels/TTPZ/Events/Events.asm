@@ -48,9 +48,8 @@ TTPZ1_BackgroundEvent:
 		bsr.w	TTPZ_Deform
 
 .deform:
-		lea	TTPZ1_BGDeformArray(pc),a4
-		lea	(H_scroll_table).w,a5
-		jsr	(ApplyDeformation).w
+		jsr	(DrawBGAsYouMove).l
+		jsr	(PlainDeformation).w
 		jmp	(ShakeScreen_Setup).w
 ; ---------------------------------------------------------------------------
 
@@ -64,20 +63,19 @@ TTPZ1_Transition:
 		bra.s	TTPZ1_BackgroundEvent.deform
 ; ---------------------------------------------------------------------------
 
-TTPZ1_BGDeformArray:
-		dc.w $7FFF
-; ---------------------------------------------------------------------------
-
 TTPZ_Deform:
-	; Vertical scrolling!!
 		move.w	(Camera_Y_pos_copy).w,d0
-		lsr.w	#2,d0
+;		asr.w	#3,d0
 		move.w	d0,(Camera_Y_pos_BG_copy).w
-	; It's good!!
-		lea	(H_scroll_table).w,a1
-		move.l	(Camera_X_pos_copy).w,d0
-		move.l	d0,d2
-		swap	d2
-		asr.l	#1,d2
-		move.w	d2,(a1)+
-	rts
+		move.w	(Camera_X_pos_copy).w,d0
+		subi.w	#$A0,d0
+		swap	d0
+		clr.w	d0
+		asr.l	#1,d0
+		move.l	d0,d1
+		asr.l	#2,d1
+		add.l	d1,d0
+		swap	d0
+		addi.w	#$60,d0
+		move.w	d0,(Camera_X_pos_BG_copy).w
+		rts

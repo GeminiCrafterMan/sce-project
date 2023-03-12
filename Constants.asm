@@ -120,7 +120,7 @@ id_SonicDrown =					id(ptr_Sonic_Drown)		; C
 ; zone IDs
 ZoneIDs:
 	phase 0 ; Reset ds.b value to 0
-z_GHZ:	ds.b 1
+z_Intro:ds.b 1
 z_SSLZ:	ds.b 1
 z_TTPZ:	ds.b 1
 z_MMZ:	ds.b 1

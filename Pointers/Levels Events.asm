@@ -7,6 +7,10 @@
 		include "Levels/Intro Stages/Green Hill/Animated Tiles/Animation Scripts.asm"
 		include "Levels/Intro Stages/Green Hill/Events/Animate Palette.asm"
 		include "Levels/Intro Stages/Green Hill/Events/Events.asm"
+	; Techno Tower
+		include "Levels/Intro Stages/Techno Tower/Animated Tiles/Animation Scripts.asm"
+		include "Levels/Intro Stages/Techno Tower/Events/Animate Palette.asm"
+		include "Levels/Intro Stages/Techno Tower/Events/Events.asm"
 
 ; SSLZ
 		include "Levels/SSLZ/Animated Tiles/Animation Scripts.asm"

@@ -22,7 +22,8 @@ ArtUnc_SuperSonic_Stars:	binclude	"Objects/Player characters/Uncompressed Art/Su
 ; ===========================================================================
 ; Animated uncompressed graphics
 ; ===========================================================================
-; Green Hill
+; Intro Stages
+	; Green Hill
 Art_GhzFlowerStalk:			binclude "Levels/Intro Stages/Green Hill/Animated Tiles/Uncompressed Art/GHZ Flower Stalk.bin"
 	even
 Art_GhzWater:				binclude "Levels/Intro Stages/Green Hill/Animated Tiles/Uncompressed Art/GHZ Waterfall.bin"
@@ -30,6 +31,11 @@ Art_GhzWater:				binclude "Levels/Intro Stages/Green Hill/Animated Tiles/Uncompr
 Art_GhzFlower1:				binclude "Levels/Intro Stages/Green Hill/Animated Tiles/Uncompressed Art/GHZ Flower Large.bin"
 	even
 Art_GhzFlower2:				binclude "Levels/Intro Stages/Green Hill/Animated Tiles/Uncompressed Art/GHZ Flower Small.bin"
+	even
+	; Techno Tower
+Art_TechnoTowerFans:		binclude "Levels/Intro Stages/Techno Tower/Animated Tiles/Uncompressed Art/FG Fans.bin"
+	even
+Art_TechnoTowerTurbine:		binclude "Levels/Intro Stages/Techno Tower/Animated Tiles/Uncompressed Art/BG Turbine.bin"
 	even
 ; Seaside Land
 Art_SslzWater:				binclude "Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ Waterfall.bin"

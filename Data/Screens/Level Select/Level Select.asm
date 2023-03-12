@@ -241,11 +241,17 @@ LevelSelect_LoadMusicNumber:
 		bsr.w	LevelSelect_FindLeftRightControls
 		move.w	d3,(vLevelSelect_MusicCount).w
 		move.b	(Ctrl_1_pressed).w,d1
+		btst	#bitStart,d1
+		bne.s	LevelSelect_ToTitleScreen
 		andi.b	#btnABC,d1
 		beq.w	LevelSelect_LoadLevel_Return
 		move.w	d3,d0
 		addq.w	#bgm__First,d0		; $00 is reserved for silence
 		jmp	(SMPS_QueueSound1).w	; play music
+
+LevelSelect_ToTitleScreen:
+		move.b	#id_TitleScreen,(Game_mode).w	; set game mode
+		jmp		Title_Screen
 
 ; ---------------------------------------------------------------------------
 ; Load Sound
@@ -255,9 +261,11 @@ LevelSelect_LoadSoundNumber:
 		move.w	#LevelSelect_MaxSoundNumber,d2
 		move.w	(vLevelSelect_SoundCount).w,d3
 		lea	(vLevelSelect_CtrlTimer).w,a3
-		bsr.s	LevelSelect_FindLeftRightControls
+		bsr.w	LevelSelect_FindLeftRightControls
 		move.w	d3,(vLevelSelect_SoundCount).w
 		move.b	(Ctrl_1_pressed).w,d1
+		btst	#bitStart,d1
+		bne.s	LevelSelect_ToTitleScreen
 		andi.b	#btnABC,d1
 		beq.w	LevelSelect_LoadLevel_Return
 		move.w	d3,d0
@@ -275,6 +283,8 @@ LevelSelect_LoadSampleNumber:
 		bsr.s	LevelSelect_FindLeftRightControls
 		move.w	d3,(vLevelSelect_SampleCount).w
 		move.b	(Ctrl_1_pressed).w,d1
+		btst	#bitStart,d1
+		bne.s	LevelSelect_ToTitleScreen
 		andi.b	#btnABC,d1
 		beq.w	LevelSelect_LoadLevel_Return
 		move.w	d3,d0

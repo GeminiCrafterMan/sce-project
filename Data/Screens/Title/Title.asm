@@ -71,10 +71,26 @@ Title_Screen:
 		beq.s	.loop
 		btst	#bitA,(Ctrl_1_held).w
 		bne.s	.levsel
-		clr.w	(Current_zone_and_act).w	; GHZ1
-		clr.w	(Apparent_zone_and_act).w	; GHZ1
+		moveq	#0,d0
+		move.b	(Player_mode).w,d0
+		lsl.w	#1,d0
+		move.w	.startZoneLUT(pc,d0.w),(Current_zone_and_act).w
+		move.w	.startZoneLUT(pc,d0.w),(Apparent_zone_and_act).w
 		move.b	#id_LevelScreen,(Game_mode).w	; set screen mode to level
 		rts
 	.levsel:
 		move.b	#id_LevelSelectScreen,(Game_mode).w	; set game mode
 		rts
+
+	.startZoneLUT:
+		dc.w	(z_Intro<<8)+0	; S&T
+		dc.w	(z_Intro<<8)+0	; SA
+		dc.w	(z_Intro<<8)+0	; TA
+		dc.w	(z_Intro<<8)+0	; KA
+		dc.w	(z_Intro<<8)+0	; K&T
+		dc.w	(z_Intro<<8)+1	; MA
+		dc.w	(z_Intro<<8)+1	; M&T
+		dc.w	(z_Intro<<8)+0	; T&T
+		dc.w	(z_Intro<<8)+0	; S&S
+		dc.w	(z_Intro<<8)+1	; EA
+	even
