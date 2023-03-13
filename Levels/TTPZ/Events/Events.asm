@@ -65,8 +65,6 @@ TTPZ1_Transition:
 
 TTPZ_Deform:
 	; goal: get 5/8
-		moveq	#0,d0
-		moveq	#0,d1
 		move.l	(Camera_Y_pos_copy).w,d0	; 1/1
 		lsr.l	#1,d0	; 4/8 (or 1/2)
 		move.l	d0,d1
@@ -74,12 +72,11 @@ TTPZ_Deform:
 		add.l	d1,d0	; 5/8
 		move.l	d0,(Camera_Y_pos_BG_copy).w
 
-		moveq	#0,d0
-		moveq	#0,d1
 		move.l	(Camera_X_pos_copy).w,d0
 		lsr.l	#1,d0	; 4/8 (or 1/2)
 		move.l	d0,d1
 		lsr.l	#2,d1	; 1/8
 		add.l	d1,d0	; 5/8
+		andi.l	#$3FFFFFF,d0	; Loop every $400 pixels (8 chunks)
 		move.l	d0,(Camera_X_pos_BG_copy).w
 		rts
