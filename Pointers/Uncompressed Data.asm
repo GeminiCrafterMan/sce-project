@@ -88,6 +88,8 @@ ArtUnc_KnucklesEmotions:	binclude "Objects/HUD/Uncompressed Art/Knuckles Emotion
 	even
 ArtUnc_MightyEmotions:		binclude "Objects/HUD/Uncompressed Art/Mighty Emotions.bin"
 	even
+ArtUnc_EspioEmotions:		binclude "Objects/HUD/Uncompressed Art/Espio Emotions.bin"
+	even
 
 ; ===========================================================================
 ; Bosses

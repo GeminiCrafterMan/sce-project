@@ -451,4 +451,4 @@ UpdateEmotionWindow:
 		rts
 
 	.artLUT:
-		dc.l	ArtUnc_SonicEmotions>>1,ArtUnc_TailsEmotions>>1,ArtUnc_KnucklesEmotions>>1,ArtUnc_MightyEmotions>>1,ArtUnc_SonicEmotions>>1
+		dc.l	ArtUnc_SonicEmotions>>1,ArtUnc_TailsEmotions>>1,ArtUnc_KnucklesEmotions>>1,ArtUnc_MightyEmotions>>1,ArtUnc_EspioEmotions>>1
