@@ -24,10 +24,7 @@ TSon_Main:	; Routine 0
 		move.l	#Map_TitleSonic,obMap(a0)
 		move.w	#$400,obGfx(a0)
 		move.b	#1,obPriority(a0)
-		move.b	#1,obFrame(a0)
 		move.b	#29,wait(a0) ; set time delay to 0.5 seconds
-		lea	Ani_TitleSonic(pc),a1
-		jsr	(AnimateSprite).w
 
 TSon_Delay:	;Routine 2
 		subq.b	#1,wait(a0) ; subtract 1 from time delay
@@ -40,6 +37,10 @@ TSon_Delay:	;Routine 2
 
 TSon_Move:	; Routine 4
 		subq.w	#8,obY(a0) ; move Sonic up
+		cmpi.w	#$DE-8,obY(a0)
+		bhs.s	.ret
+		lea	Ani_TitleSonic(pc),a1
+		jsr	(AnimateSprite).w
 		cmpi.w	#$96,obY(a0) ; has Sonic reached final position?
 		bne.s	.ret	; if not, branch
 		addq.b	#2,obRoutine(a0)
@@ -62,6 +63,8 @@ DPLCPtr_TitleSonic:
 ; ---------------------------------------------------------------------------
 ; Animation script - Sonic on the title screen
 ; ---------------------------------------------------------------------------
-Ani_TitleSonic:	dc.w byte_A706-Ani_TitleSonic
-byte_A706:	dc.b 7,	1, 2, 3, 4, 5, 6, 7, 8,	afBack, 2
+Ani_TitleSonic:	dc.w .dingus-Ani_TitleSonic
+.dingus:	dc.b 3,	1, 1, 1, 1, 1, 2, 3, 4, 5,6
+			dc.b	7,8,9,10,11,12,13,14,15,16,16,16,16,16,16,16,16,16,16
+			dc.b	16,17,18,19,18,17,afBack, 6
 		even
