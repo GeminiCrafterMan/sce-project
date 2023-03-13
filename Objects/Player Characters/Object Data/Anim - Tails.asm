@@ -24,6 +24,7 @@ AniTails:	offsetTable
 		offsetTableEntry.w TailsAni_Victory
 		offsetTableEntry.w TailsAni_Hang
 		offsetTableEntry.w TailsAni_GetAir
+		offsetTableEntry.w TailsAni_Squash
 		offsetTableEntry.w TailsAni_Burnt
 		offsetTableEntry.w TailsAni_Drown
 		offsetTableEntry.w TailsAni_Death
@@ -69,6 +70,7 @@ TailsAni_LZHang:	dc.b    1, frT_LZHang1, frT_LZHang2, afEnd
 TailsAni_Victory:	dc.b   $F, frT_Victory1, frT_Victory2, afBack,   1
 TailsAni_Hang:		dc.b  $13, frT_Hang1,	frT_Hang2,	frT_Hang3,	frT_Hang2,	afEnd
 TailsAni_GetAir:	dc.b   $B, frT_GetAir, frT_GetAir,   frT_Walk13,   frT_Walk14, afChange,   id_Walk
+TailsAni_Squash:	dc.b	3, frT_Squash1, frT_Squash1, frT_Squash1, frT_Squash2, frT_Squash3, afBack, 1
 TailsAni_Burnt:	dc.b  $20, frT_Burnt, afEnd
 TailsAni_Drown:	dc.b  $2F, frT_Drown, afEnd
 TailsAni_Death:	dc.b    4, frT_Death1, frT_Death2, frT_Death3, frT_Death4, frT_Death5, afBack, 1
@@ -227,6 +229,9 @@ frT_Transform3:		ds.b 1
 frT_Transform4:		ds.b 1
 frT_Fall1:			ds.b 1
 frT_Fall2:			ds.b 1
+frT_Squash1:		ds.b 1
+frT_Squash2:		ds.b 1
+frT_Squash3:		ds.b 1
 frT_Last:			ds.b 0
 	even
 	dephase

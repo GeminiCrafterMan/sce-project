@@ -12,7 +12,7 @@ TouchResponse:
 		move.b	status_secondary(a0),d0
 		andi.b	#$73,d0									; does the player have any shields or is invincible?
 		bne.s	.Touch_NoInstaShield						; if so, branch
-		; By this point, we're focussing purely on the Insta-Shield
+		; By this point, we're focusing purely on the Insta-Shield
 		cmpi.b	#1,double_jump_flag(a0)					; is the Insta-Shield currently in its 'attacking' mode?
 		bne.s	.Touch_NoInstaShield						; if not, branch
 		bset	#Status_Invincible,status_secondary(a0)			; make the player invincible

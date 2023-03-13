@@ -24,6 +24,7 @@ SonAni_LZHang_ptr:		offsetTableEntry.w SonAni_LZHang
 SonAni_Victory_ptr:		offsetTableEntry.w SonAni_Victory
 SonAni_Hang_ptr:		offsetTableEntry.w SonAni_Hang
 SonAni_GetAir_ptr:		offsetTableEntry.w SonAni_GetAir
+SonAni_Squash_ptr:		offsetTableEntry.w SonAni_Squash
 SonAni_Burnt_ptr:		offsetTableEntry.w SonAni_Burnt
 SonAni_Drown_ptr:		offsetTableEntry.w SonAni_Drown
 SonAni_Death_ptr:		offsetTableEntry.w SonAni_Death
@@ -70,6 +71,7 @@ SonAni_LZHang:		dc.b	1, frS_LZHang1,	frS_LZHang2, afEnd
 SonAni_Victory:		dc.b	7, frS_Victory1,	frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory3, frS_Victory2, frS_Victory3,	frS_Victory4, frS_Victory3, afBack,	 4
 SonAni_Hang:		dc.b  $13, frS_Hang1,	frS_Hang2,	frS_Hang3,	frS_Hang2,	afEnd
 SonAni_GetAir:		dc.b   $B, frS_GetAir,	frS_GetAir,   frS_Walk13,   frS_Walk14, afChange,   id_Walk
+SonAni_Squash:		dc.b	7, frS_Squash2, frS_Squash2, frS_Squash3, frS_Squash3, frS_Squash2, frS_Squash1, frS_Squash1, afBack, 6
 SonAni_Burnt:		dc.b  $20, frS_Burnt, afEnd
 SonAni_Drown:		dc.b  $20, frS_Drown, afEnd
 SonAni_Death:		dc.b    5, frS_Death3, frS_Death1, frS_Death2, frS_Death2, frS_Death2, frS_Death3, afBack, 1	; Originally 7, but Sonic falls way faster in these games.
@@ -106,6 +108,7 @@ AniSuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Victory
 		offsetTableEntry.w SonAni_Hang
 		offsetTableEntry.w SonAni_GetAir
+		offsetTableEntry.w SonAni_Squash
 		offsetTableEntry.w SonAni_Burnt
 		offsetTableEntry.w SonAni_Drown
 		offsetTableEntry.w SonAni_Death
@@ -151,6 +154,7 @@ id_LZHang:			equ	(SonAni_LZHang_ptr-AniSonic)/2
 id_Victory:			equ	(SonAni_Victory_ptr-AniSonic)/2
 id_Hang:			equ	(SonAni_Hang_ptr-AniSonic)/2
 id_GetAir:			equ	(SonAni_GetAir_ptr-AniSonic)/2
+id_Squash:			equ	(SonAni_Squash_ptr-AniSonic)/2
 id_Burnt:			equ	(SonAni_Burnt_ptr-AniSonic)/2
 id_Drown:			equ	(SonAni_Drown_ptr-AniSonic)/2
 id_Death:			equ	(SonAni_Death_ptr-AniSonic)/2
@@ -309,6 +313,9 @@ frS_Fly2:			ds.b 1
 frS_Fly3:			ds.b 1
 frS_Fly4:			ds.b 1
 frS_FlyArmless:		ds.b 1
+frS_Squash1:		ds.b 1
+frS_Squash2:		ds.b 1
+frS_Squash3:		ds.b 1
 frS_Last:			ds.b 0
 	even
 	dephase

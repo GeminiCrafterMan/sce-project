@@ -6,8 +6,8 @@
 
 Process_Sprites:
 		lea	(Object_RAM).w,a0
-		cmpi.b	#id_SonicDeath,routine(a0)	; has Sonic just died?
-		bhs.s	Process_Sprites_FreezeObject	; if yes, branch
+;		cmpi.b	#id_SonicDeath,routine(a0)	; has Sonic just died?
+;		bhs.s	Process_Sprites_FreezeObject	; if yes, branch
 
 Process_Sprites_Skip:
 		moveq	#((Object_RAM_End-Object_RAM)/object_size)-1,d7
@@ -26,8 +26,8 @@ Process_Sprites_Loop:
 ; =============== S U B R O U T I N E =======================================
 
 Process_Sprites_FreezeObject:
-		cmpi.b	#id_SonicDrown,(Player_1+routine).w
-		beq.s	Process_Sprites_Skip
+;		cmpi.b	#id_SonicDrown,(Player_1+routine).w
+;		beq.s	Process_Sprites_Skip
 		moveq	#((Dynamic_object_RAM-Object_RAM)/object_size)-1,d7
 		bsr.s	Process_Sprites_Loop
 		moveq	#((Dynamic_object_RAM_End-Dynamic_object_RAM)/object_size)-1,d7

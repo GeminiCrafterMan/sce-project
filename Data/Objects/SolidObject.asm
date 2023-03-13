@@ -604,11 +604,12 @@ SquashCharacter:
 		move.b	#id_SonicDeath,routine(a0)
 		bsr.w	Player_ResetOnFloor
 		bset	#Status_InAir,status(a0)
-		move.w	#-$700,y_vel(a0)
+;		move.w	#-$700,y_vel(a0)
+		clr.w	y_vel(a0)
 		clr.w	x_vel(a0)
 		clr.w	ground_vel(a0)
-		move.b	#id_Death,anim(a0)
-		bsr.s	Player_SquashBehaviors
+		move.b	#id_Squash,anim(a0)
+;		bsr.s	Player_SquashBehaviors
 		cmpa.w	#Player_1,a0
 		bne.s	.notP1
 		move.w	art_tile(a0),(Saved_art_tile).w
@@ -624,9 +625,6 @@ SquashCharacter:
 		addi.b	#$F,d4
 		bset	d4,d6
 		moveq	#-2,d4
-		rts
-
-Player_SquashBehaviors:
 		rts
 ; ---------------------------------------------------------------------------
 

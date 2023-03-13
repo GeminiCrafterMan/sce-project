@@ -2840,11 +2840,141 @@ Player_Death:
 		bset	#1,status(a1)
 		clr.w	(Flying_carrying_Sonic_flag).w
 +
-		bsr.s	sub_123C2
+		bsr.w	sub_123C2
+		cmpi.b	#id_Squash,anim(a0)
+		beq.s	Player_SquashBehaviors
 		jsr	(MoveSprite_TestGravity).w
 		bsr.w	Player_RecordPos
 		bsr.w	sub_125E0
 		jmp	(Draw_Sprite).w
+
+Player_SquashBehaviors:
+		moveq	#0,d0
+		move.b	character_id(a0),d0
+		lsl.w	#2,d0
+		move.l	.squashRoutLUT(pc,d0.w),a1
+		jsr		(a1)
+		bsr.w	Player_RecordPos
+		bsr.w	sub_125E0
+		jmp	(Draw_Sprite).w
+
+	.squashRoutLUT:
+		dc.l	Squash_Sonic, Squash_Tails, .none, Squash_Mighty, Squash_Espio		
+
+	.none:
+		move.b	#id_Death,anim(a0)	; Should cancel this.
+		move.w	#-$700,y_vel(a0)
+		jsr	(MoveSprite_TestGravity).w
+	.ret:
+		rts
+
+Squash_Sonic:
+		cmpi.b	#frS_Squash1,mapping_frame(a0)
+		bne.s	.frame2chk
+;		move.w	#-$100,x_vel(a0)
+		subi.w	#$40,x_vel(a0)
+		subi.w	#$3C,y_vel(a0)
+		jsr	(MoveSprite).w
+		rts
+	.frame2chk:
+		cmpi.b	#frS_Squash2,mapping_frame(a0)
+		bne.s	.frame3chk
+		tst.w	x_vel(a0)
+		beq.s	.f2cont
+		bmi.s	.neg
+	.pos:
+		subi.w	#$80,x_vel(a0)
+		bra.s	.f2cont
+	.neg:
+		addi.w	#$80,x_vel(a0)
+	.f2cont:
+		jsr	(MoveSprite_TestGravity).w
+		subi.w	#$28,y_vel(a0)
+		rts
+	.frame3chk:
+		cmpi.b	#frS_Squash3,mapping_frame(a0)
+		bne.s	.ret
+		addi.w	#$40,x_vel(a0)
+		subi.w	#$3C,y_vel(a0)
+		jsr	(MoveSprite).w
+	.ret:
+		rts
+
+Squash_Tails:
+		jsr		(MoveSprite_TestGravity).w
+		cmpi.b	#frT_Squash1,mapping_frame(a0)
+		beq.s	.fr1
+		cmpi.b	#frT_Squash2,mapping_frame(a0)
+		beq.s	.fr2
+		cmpi.b	#frT_Squash3,mapping_frame(a0)
+		beq.s	.fr3
+		rts
+	.fr1:
+		subi.w	#$3C,y_vel(a0)
+		rts
+	.fr2:
+		subi.w	#$28,y_vel(a0)
+		rts
+	.fr3:
+		subi.w	#$14,y_vel(a0)
+	.ret:
+		rts
+
+Squash_Mighty:
+		cmpi.b	#frM_Squash1,mapping_frame(a0)
+		bne.s	.frame2chk
+		move.w	#-$200,x_vel(a0)
+		subi.w	#$50,y_vel(a0)
+		jsr	(MoveSprite).w
+		rts
+	.frame2chk:
+		cmpi.b	#frM_Squash2,mapping_frame(a0)
+		bne.s	.frame3chk
+		move.w	#-$100,x_vel(a0)
+		subi.w	#$3C,y_vel(a0)
+		jsr	(MoveSprite).w
+		rts
+	.frame3chk:
+		cmpi.b	#frM_Squash3,mapping_frame(a0)
+		bne.s	.frame4chk
+		tst.w	x_vel(a0)
+		beq.s	.f4cont
+		bmi.s	.neg
+	.pos:
+		subi.w	#$180,x_vel(a0)
+		bra.s	.f4cont
+	.neg:
+		addi.w	#$180,x_vel(a0)
+	.f4cont:
+		jsr	(MoveSprite_TestGravity).w
+		subi.w	#$28,y_vel(a0)
+		rts
+	.frame4chk:
+		cmpi.b	#frM_Squash4,mapping_frame(a0)
+		bne.s	.frame5chk
+		move.w	#$100,x_vel(a0)
+		subi.w	#$3C,y_vel(a0)
+		jsr	(MoveSprite).w
+		rts
+	.frame5chk:
+		cmpi.b	#frM_Squash5,mapping_frame(a0)
+		bne.w	Player_SquashBehaviors.ret
+		move.w	#$200,x_vel(a0)
+		subi.w	#$50,y_vel(a0)
+		jsr	(MoveSprite).w
+		rts
+
+Squash_Espio:
+		jsr		FindFreeObj
+		bne.s	.ret
+		move.w	x_pos(a0),x_pos(a1)
+		move.w	y_pos(a0),y_pos(a1)
+		move.l	#Obj_Explosion,address(a1)
+		move.b	#6,routine(a1)	; no sound effect, but runs the rest of the init stuff
+		sfx		sfx_Explode		; sound effect.
+	.ret:
+		move.b	#id_Null,anim(a0)
+		rts
 
 ; =============== S U B R O U T I N E =======================================
 

@@ -24,6 +24,7 @@ AniKnuckles:	offsetTable
 		offsetTableEntry.w KnuxAni_Victory
 		offsetTableEntry.w KnuxAni_Hang
 		offsetTableEntry.w KnuxAni_GetAir
+		offsetTableEntry.w KnuxAni_Death
 		offsetTableEntry.w KnuxAni_Burnt
 		offsetTableEntry.w KnuxAni_Drown
 		offsetTableEntry.w KnuxAni_Death

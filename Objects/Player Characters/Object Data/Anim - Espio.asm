@@ -24,6 +24,7 @@ AniEspio:				offsetTable
 		offsetTableEntry.w EspAni_Victory
 		offsetTableEntry.w EspAni_Hang
 		offsetTableEntry.w EspAni_GetAir
+		offsetTableEntry.w EspAni_Null
 		offsetTableEntry.w EspAni_Burnt
 		offsetTableEntry.w EspAni_Drown
 		offsetTableEntry.w EspAni_Death

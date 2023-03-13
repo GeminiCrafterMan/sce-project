@@ -24,6 +24,7 @@ AniMighty:				offsetTable
 		offsetTableEntry.w MtyAni_Victory
 		offsetTableEntry.w MtyAni_Hang
 		offsetTableEntry.w MtyAni_GetAir
+		offsetTableEntry.w MtyAni_Squash
 		offsetTableEntry.w MtyAni_Burnt
 		offsetTableEntry.w MtyAni_Drown
 		offsetTableEntry.w MtyAni_Death
@@ -71,6 +72,7 @@ MtyAni_LZHang:		dc.b	1, frM_LZHang1, frM_LZHang2, afEnd
 MtyAni_Victory:		dc.b	5, frM_Victory1, frM_Victory2, frM_Victory3, frM_Victory4, afBack, 2
 MtyAni_Hang:		dc.b  $13, frM_Hang1, frM_Hang2, frM_Hang3, frM_Hang2, afEnd
 MtyAni_GetAir:		dc.b   $B, frM_GetAir, frM_GetAir, frM_Walk13, frM_Walk14, afChange, id_Walk
+MtyAni_Squash:		dc.b	9, frM_Squash3, frM_Squash3, frM_Squash3, frM_Squash4, frM_Squash5, frM_Squash4, frM_Squash3, frM_Squash3, frM_Squash2, frM_Squash1, frM_Squash2, afBack, 9
 MtyAni_Burnt:		dc.b  $20, frM_Burnt, afEnd
 MtyAni_Drown:		dc.b  $20, frM_Drown, afEnd
 MtyAni_Death:		dc.b  	9, frM_Death1, frM_Death2, frM_Death3, frM_Death4, afEnd
@@ -220,6 +222,11 @@ frM_Uncurl1:			ds.b 1
 frM_Uncurl2:			ds.b 1
 frM_Fall1:				ds.b 1
 frM_Fall2:				ds.b 1
+frM_Squash1:			ds.b 1
+frM_Squash2:			ds.b 1
+frM_Squash3:			ds.b 1
+frM_Squash4:			ds.b 1
+frM_Squash5:			ds.b 1
 frM_Last:				ds.b 0
 	even
 	dephase

@@ -911,16 +911,15 @@ Obj_Tails_Tail_AniSelection:
 		dc.b 0		; TailsAni_LZHang	->
 		dc.b 0		; TailsAni_Victory	->
 		dc.b $A		; TailsAni_Hang		-> Hanging
-		dc.b 0,0,0,0,0,0,0,0,0,0,0		; TailsAni_GetAir,Burnt,Drown,Death,Slide,Hurt,Zapped,Null,Mach,Transform,Fall	->
+		dc.b 0,0,0,0,0,0,0,0,0,0,0,0		; TailsAni_GetAir,Squash,Burnt,Drown,Death,Slide,Hurt,Zapped,Null,Mach,Transform,Fall	->
 		dc.b $B,$C	; TailsAni_Fly,FlyFast	-> Fly1,2
 		dc.b $B		; TailsAni_FlyHold	-> Fly1
 		dc.b $C		; TailsAni_FlyHoldUp	-> Fly2
 		dc.b $B		; TailsAni_FlyTired	-> Fly1
 		dc.b 0,0	; TailsAni_Swim,SwimFast	->
-		dc.b 0		; TailsAni_SwimHoldTired	->
-		dc.b 0		; TailsAni_SwimTired	->
+		dc.b 0,0	; TailsAni_SwimHoldTired,SwimTired	->
+		dc.b 0		; TailsAni_MonkeyBars	->
 	; and a bunch of blanks for good measure
-		dc.b 0
 		dc.b 0
 		dc.b 0
 		dc.b 0
