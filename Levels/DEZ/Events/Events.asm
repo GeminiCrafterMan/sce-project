@@ -101,7 +101,7 @@ DLE_DEZ2:
 		addq.b	#2,(Screen_event_routine).w
 		jsr	SingleObjLoad
 		bne.s	+	; rts
-		move.l	#Obj_SilverSonic,id(a1) ; load objAF (Silver Sonic)
+		move.l	#Obj_SilverSonic,address(a1) ; load objAF (Silver Sonic)
 ;		move.b	#$48,subtype(a1)
 		move.w	#$348,x_pos(a1)
 		move.w	#$A0,y_pos(a1)

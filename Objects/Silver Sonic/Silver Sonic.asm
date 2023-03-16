@@ -9,7 +9,7 @@ Obj_SilverSonic:
 		move.b	routine(a0),d0
 		move.w	Obj_SilverSonic_Index(pc,d0.w),d1
 		jsr	Obj_SilverSonic_Index(pc,d1.w)
-		lea	Obj_SilverSonic_Explode(pc),a4
+;		lea	Obj_SilverSonic_Explode(pc),a4
 ;		bsr.w	Obj_SilverSonic_HandleDamage
 ;		bsr.w	Obj_SilverSonic_SetCollisionType
 		lea	DPLCPtr_SilverSonic(pc),a2
@@ -40,7 +40,7 @@ Obj_SilverSonic_Index:	offsetTable	; ObjectMain
 Obj_SilverSonic_Init:	; Case 0
 		lea		ObjDat4_SilverSonic(pc),a1
 		jsr		(SetUp_ObjAttributesSlotted).l
-		move.b	#1,mapping_frame(a0)
+;		addq.b	#2,routine(a0)
 		move.b	#8*3,x_radius(a0)
 	; this part's stolen from 3K Mecha
 ;		move.w	(Camera_X_pos).w,d0
@@ -70,12 +70,10 @@ Obj_SilverSonic_Init:	; Case 0
 		move.l	#Obj_Song_Fade_Transition,(a1)
 		move.b	#bgm_MidBoss,subtype(a1)
 ;		music	bgm_MidBoss
-		addq.b	#2,routine(a0)
 	.ret:
 		rts
 
 Obj_SilverSonic_StartDown:	; Case 1
-	illegal
 		addq.w	#1,wait(a0)
 		cmpi.w	#45,wait(a0)
 		blt.s	.ret
@@ -93,7 +91,9 @@ Obj_SilverSonic_FloatDown:	; Case 2
 		beq.s	.playsnd
 	.contsnd:
 		; something about oscillation, probably related to the flame sprite
-		addi.w	#$100,y_pos(a0)
+		move.w	#$100,y_pos(a0)
+		jsr	SpeedToPos
+;		addi.w	#$100,y_pos(a0)
 		jsr	(ObjCheckFloorDist).l
 		tst.w	d1
 		bmi.s	.landed
