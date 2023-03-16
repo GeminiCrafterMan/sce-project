@@ -140,6 +140,7 @@ Obj_FlareTheAlligator:
 		lea	(Pal_TTPZ).l,a1
 		lea	(Normal_palette_line_2).w,a2
 		jsr	(PalLoad_Line16).l
+		jsr		LoadPLC2_KosM	; Maybe?
 		jmp		DeleteObject
 
 ; ---------------------------------------------------------------------------

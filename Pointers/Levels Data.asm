@@ -82,7 +82,7 @@ LevelLoadPointer:
 
 ; TTPZ2-4
 	rept 3
-		dc.l AnPal_TTPZ, DLE_TTPZ, LevelPointer_Null, LevelPointer_Null
+		dc.l AnPal_TTPZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
 		dc.l TTPZ1_ScreenInit, TTPZ1_BackgroundInit, TTPZ1_ScreenEvent, TTPZ1_BackgroundEvent
 		dc.l TTPZ_DoAniPLC, AniPLC_TTPZ
 	endr

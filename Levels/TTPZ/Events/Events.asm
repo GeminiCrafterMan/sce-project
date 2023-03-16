@@ -17,6 +17,11 @@ TTPZ1_ScreenEvent:
 		bra.w	TTPZ_Refresh
 
 DLE_TTPZ:
+		move.w	#$608,(v_WaterWave1+y_pos).w
+		cmpi.w	#$8F0,(Camera_X_pos).w
+		blo.s	.ret
+		move.w	#$788,(v_WaterWave1+y_pos).w
+	.ret:
 		rts
 ; ===========================================================================
 
