@@ -80,6 +80,7 @@
 ; ===========================================================================
 
 		include	"Objects/Mecha Sonic/Mecha Sonic.asm"
+		include	"Objects/Silver Sonic/Silver Sonic.asm"
 		include "Objects/Robotnik/Robotnik.asm"
 
 ; ===========================================================================

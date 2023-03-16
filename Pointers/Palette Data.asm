@@ -53,6 +53,8 @@ Pal_MechaSonic:		binclude "Objects/Mecha Sonic/Palettes/Main.bin"
 	even
 Pal_MechaTails:		binclude "Objects/Mecha Tails/Palettes/Main.bin"
 	even
+Pal_SilverSonic:	binclude "Objects/Silver Sonic/Palettes/Main.bin"
+	even
 
 ; ===========================================================================
 ; Background character palettes

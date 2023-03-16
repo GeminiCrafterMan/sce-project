@@ -97,6 +97,10 @@ ArtUnc_EspioEmotions:		binclude "Objects/HUD/Uncompressed Art/Espio Emotions.bin
 
 ArtUnc_MechaSonic:			binclude "Objects/Mecha Sonic/Uncompressed Art/Mecha Sonic.bin"
 	even
+ArtUnc_MechaTails:			binclude "Objects/Mecha Tails/Uncompressed Art/Mecha Tails.bin"
+	even
+ArtUnc_SilverSonic:			binclude "Objects/Silver Sonic/Uncompressed Art/Silver Sonic.bin"
+	even
 
 ; ===========================================================================
 ; Background Characters

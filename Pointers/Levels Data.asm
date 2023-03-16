@@ -99,8 +99,13 @@ LevelLoadPointer:
 		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
 
-; DEZ2-4
-	rept 3
+; DEZ2
+		dc.l AnPal_DEZ, DLE_DEZ2, LevelPointer_Null, LevelPointer_Null
+		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
+
+; DEZ3-4
+	rept 2
 		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
 		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
@@ -182,7 +187,7 @@ LevelPtrs:
 		dc.l MMZ1_Layout		; MMZ3
 		dc.l MMZ1_Layout		; MMZ4
 		dc.l DEZ1_Layout		; DEZ1
-		dc.l DEZ1_Layout		; DEZ2
+		dc.l DEZ2_Layout		; DEZ2
 		dc.l DEZ1_Layout		; DEZ3
 		dc.l DEZ1_Layout		; DEZ4
 		dc.l TTSZ1_Layout		; TTSZ1
@@ -214,7 +219,7 @@ SpriteLocPtrs:
 		dc.l MMZ1_Sprites		; MMZ3
 		dc.l MMZ1_Sprites		; MMZ4
 		dc.l DEZ1_Sprites		; DEZ1
-		dc.l DEZ1_Sprites		; DEZ2
+		dc.l DEZ2_Sprites		; DEZ2
 		dc.l DEZ1_Sprites		; DEZ3
 		dc.l DEZ1_Sprites		; DEZ4
 		dc.l TTSZ1_Sprites		; TTSZ1
@@ -246,7 +251,7 @@ RingLocPtrs:
 		dc.l MMZ1_Rings		; MMZ3
 		dc.l MMZ1_Rings		; MMZ4
 		dc.l DEZ1_Rings		; DEZ1
-		dc.l DEZ1_Rings		; DEZ2
+		dc.l DEZ2_Rings		; DEZ2
 		dc.l DEZ1_Rings		; DEZ3
 		dc.l DEZ1_Rings		; DEZ4
 		dc.l TTSZ1_Rings		; TTSZ1
@@ -384,11 +389,13 @@ SSLZ2_Layout:		binclude "Levels/SSLZ/Layout/2.bin"
 	even
 SSLZ3_Layout:		binclude "Levels/SSLZ/Layout/3.bin"
 	even
-TTPZ1_Layout:			binclude "Levels/TTPZ/Layout/1.bin"
+TTPZ1_Layout:		binclude "Levels/TTPZ/Layout/1.bin"
 	even
-MMZ1_Layout:			binclude "Levels/MMZ/Layout/1.bin"
+MMZ1_Layout:		binclude "Levels/MMZ/Layout/1.bin"
 	even
 DEZ1_Layout:		binclude "Levels/DEZ/Layout/1.bin"
+	even
+DEZ2_Layout:		binclude "Levels/DEZ/Layout/2.bin"
 	even
 TTSZ1_Layout:		binclude "Levels/TTSZ/Layout/1.bin"
 	even
@@ -422,6 +429,8 @@ MMZ1_Sprites:		binclude "Levels/MMZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 DEZ1_Sprites:		binclude "Levels/DEZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
+DEZ2_Sprites:		binclude "Levels/DEZ/Object Pos/2.bin"
+	ObjectLayoutBoundary
 TTSZ1_Sprites:		binclude "Levels/TTSZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 TTSZ2_Sprites:		binclude "Levels/TTSZ/Object Pos/2.bin"
@@ -454,6 +463,8 @@ TTPZ1_Rings:			binclude "Levels/TTPZ/Ring Pos/1.bin"
 MMZ1_Rings:			binclude "Levels/MMZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 DEZ1_Rings:			binclude "Levels/DEZ/Ring Pos/1.bin"
+	RingLayoutBoundary
+DEZ2_Rings:			binclude "Levels/DEZ/Ring Pos/2.bin"
 	RingLayoutBoundary
 TTSZ1_Rings:			binclude "Levels/TTSZ/Ring Pos/1.bin"
 	RingLayoutBoundary

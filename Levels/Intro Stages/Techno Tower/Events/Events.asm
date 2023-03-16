@@ -25,15 +25,18 @@ DLE_TechnoTower1:
 ; ===========================================================================
 
 DLE_TechnoTower1main:
-		move.w	#$06C0,(Camera_max_X_pos).w
-		move.w	#$0F00,(Camera_target_max_Y_pos).w
-		cmpi.w	#$0050,(v_screenposy).w
-		bhs.s	.ret	; >= $50, return
-		move.w	#$0100,(Camera_target_max_Y_pos).w
-		move.w	#$0C00,(Camera_max_X_pos).w	; Right boundary to $C00 for the boss fight
+		cmpi.w	#$0058,(v_screenposy).w
+		bhi.s	.above58	; >= $50, return
+		clr.w	(Camera_target_max_Y_pos).w
+;		clr.w	(Camera_min_Y_pos).w
+		move.w	#$0A00,(Camera_max_X_pos).w	; Right boundary to $C00 for the boss fight
 		addq.b	#2,(Screen_event_routine).w
 
 .ret:
+		rts
+.above58:
+		move.w	#$06C0,(Camera_max_X_pos).w
+		move.w	#$0F00,(Camera_target_max_Y_pos).w
 		rts
 ; ===========================================================================
 
@@ -44,7 +47,7 @@ DLE_TechnoTower1boss:
 
 .cont:
 		cmpi.w	#$0A00,(v_screenposx).w
-		bcs.s	.ret	; <= $A00, return
+		blo.s	.ret	; <= $A00, return
 		jsr		FindFreeObj
 		bne.s	.cont2
 		move.l	#Obj_MechaSonic,address(a1) ; load Mecha Sonic

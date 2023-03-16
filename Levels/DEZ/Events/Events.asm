@@ -91,3 +91,22 @@ DEZ1_Deform:
 	endr
 
 		rts
+
+DLE_DEZ2:
+		tst.b	(Screen_event_routine).w
+		bne.s	+
+		move.w	#320,d0
+		cmp.w	(Camera_X_pos).w,d0
+		bhi.s	+	; rts
+		addq.b	#2,(Screen_event_routine).w
+		jsr	SingleObjLoad
+		bne.s	+	; rts
+		move.l	#Obj_SilverSonic,id(a1) ; load objAF (Silver Sonic)
+;		move.b	#$48,subtype(a1)
+		move.w	#$348,x_pos(a1)
+		move.w	#$A0,y_pos(a1)
+;		moveq	#PLCID_FieryExplosion,d0
+;		jmpto	LoadPLC, JmpTo2_LoadPLC
+; ===========================================================================
++
+	rts

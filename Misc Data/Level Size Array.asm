@@ -5,7 +5,7 @@
 ;		xstart, xend, ystart, yend			; Level
 LevelSizes:
 		dc.w 0, $6D60, 0, $6C0				; Green Hill
-		dc.w 0, $0C00, 0, $F00				; Techno Tower
+		dc.w 0, $0A00, 0, $F00				; Techno Tower
 		dc.w 0, $3FFF, 0, $300				; None
 		dc.w 0, $6D60, 0, $300				; GHZ EX
 
@@ -25,7 +25,7 @@ LevelSizes:
 		dc.w 0, $4300, 0, $AA0				; MMZ 4
 
 		dc.w 0, $A20, 0, $4A0				; DEZ 1
-		dc.w 0, $A20, 0, $4A0				; DEZ 2
+		dc.w 0, $1000, $C8, $C8				; DEZ 2
 		dc.w 0, $A20, 0, $4A0				; DEZ 3
 		dc.w 0, $A20, 0, $4A0				; DEZ 4
 
