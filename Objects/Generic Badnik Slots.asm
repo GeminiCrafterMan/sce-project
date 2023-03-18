@@ -17,6 +17,9 @@ Obj_BadnikSlot1:
 		dc.l	Obj_MechaBu		; TTPZ
 	endr
 	rept 4
+		dc.l	Obj_Motobug		; CCZ
+	endr
+	rept 4
 		dc.l	Obj_Motobug		; MMZ
 	endr
 	rept 4
@@ -43,6 +46,9 @@ Obj_BadnikSlot2:
 	endr
 	rept 4
 		dc.l	Obj_SpringShell	; TTPZ
+	endr
+	rept 4
+		dc.l	Obj_BuzzBomber	; CCZ
 	endr
 	rept 4
 		dc.l	Obj_BuzzBomber	; MMZ
@@ -73,6 +79,9 @@ Obj_BadnikSlot3:
 		dc.l	Obj_Chopper	; TTPZ
 	endr
 	rept 4
+		dc.l	Obj_Chopper	; CCZ
+	endr
+	rept 4
 		dc.l	Obj_Chopper	; MMZ
 	endr
 	rept 4
@@ -99,6 +108,9 @@ Obj_BadnikSlot4:
 	endr
 	rept 4
 		dc.l	Obj_Crabmeat	; TTPZ
+	endr
+	rept 4
+		dc.l	Obj_Crabmeat	; CCZ
 	endr
 	rept 4
 		dc.l	Obj_Crabmeat	; MMZ
@@ -129,6 +141,9 @@ Obj_BadnikSlot5:
 		dc.l	DeleteObject	; TTPZ
 	endr
 	rept 4
+		dc.l	DeleteObject	; CCZ
+	endr
+	rept 4
 		dc.l	DeleteObject	; MMZ
 	endr
 	rept 4
@@ -155,6 +170,9 @@ Obj_BadnikSlot6:
 	endr
 	rept 4
 		dc.l	DeleteObject	; TTPZ
+	endr
+	rept 4
+		dc.l	DeleteObject	; CCZ
 	endr
 	rept 4
 		dc.l	DeleteObject	; MMZ

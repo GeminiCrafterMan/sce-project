@@ -3,7 +3,7 @@
 ; ===========================================================================
 
 ; Assembly options
-ZoneCount:				= 6	; discrete zones are: GHZ, SSLZ, TTPZ, MMZ, DEZ, and TTSZ
+ZoneCount:				= 7	; discrete zones are: Intro Stages, SSLZ, TTPZ, CCZ, MMZ, DEZ, TTSZ
 GameDebug:				= 1	; if 1, enable debug mode for Sonic
 GameDebugAlt:			= 0	; if 1, enable alt debug mode for Sonic
 Lagometer:				= 0	; if 1, enable debug lagometer

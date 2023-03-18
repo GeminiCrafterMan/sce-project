@@ -126,6 +126,9 @@ Obj_ZoneSpecificDecoration1:
 		dc.l	Obj_TTPZBottom1		; TTPZ
 	endr
 	rept 4
+		dc.l	DeleteObject		; CCZ
+	endr
+	rept 4
 		dc.l	DeleteObject		; MMZ
 	endr
 	rept 4
@@ -152,6 +155,9 @@ Obj_ZoneSpecificDecoration2:
 	endr
 	rept 4
 		dc.l	Obj_TTPZBottom2		; TTPZ
+	endr
+	rept 4
+		dc.l	DeleteObject		; CCZ
 	endr
 	rept 4
 		dc.l	DeleteObject		; MMZ
@@ -182,6 +188,9 @@ Obj_ZoneSpecificDecoration3:
 		dc.l	DeleteObject		; TTPZ
 	endr
 	rept 4
+		dc.l	DeleteObject		; CCZ
+	endr
+	rept 4
 		dc.l	DeleteObject		; MMZ
 	endr
 	rept 4
@@ -208,6 +217,9 @@ Obj_ZoneSpecificDecoration4:
 	endr
 	rept 4
 		dc.l	DeleteObject		; TTPZ
+	endr
+	rept 4
+		dc.l	DeleteObject		; CCZ
 	endr
 	rept 4
 		dc.l	DeleteObject		; MMZ
@@ -238,6 +250,9 @@ Obj_ZoneSpecificDecoration5:
 		dc.l	DeleteObject		; TTPZ
 	endr
 	rept 4
+		dc.l	DeleteObject		; CCZ
+	endr
+	rept 4
 		dc.l	DeleteObject		; MMZ
 	endr
 	rept 4
@@ -264,6 +279,9 @@ Obj_ZoneSpecificDecoration6:
 	endr
 	rept 4
 		dc.l	DeleteObject		; TTPZ
+	endr
+	rept 4
+		dc.l	DeleteObject		; CCZ
 	endr
 	rept 4
 		dc.l	DeleteObject		; MMZ

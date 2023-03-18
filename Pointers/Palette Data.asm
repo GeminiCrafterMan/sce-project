@@ -29,6 +29,8 @@ Pal_SSLZ3:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone 3.bin"
 	even
 Pal_TTPZ:			binclude "Levels/TTPZ/Palettes/Tree Top Zone.bin"
 	even
+Pal_CCZ:			binclude "Levels/CCZ/Palettes/Clockwork Castle Zone.bin"
+	even
 Pal_MMZ:			binclude "Levels/MMZ/Palettes/Mecha Mushroom Zone.bin"
 	even
 Pal_DEZ:			binclude "Levels/DEZ/Palettes/Death Egg Zone.bin"

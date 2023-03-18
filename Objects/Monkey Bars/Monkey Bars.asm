@@ -206,8 +206,7 @@ loc_3AA18:
 		move.b	#id_Hang,anim(a1)
 		move.b	#1,$2E(a1)
 		move.b	#1,(a2)
-		moveq	#signextendB(sfx_Grab),d0
-		jsr	(Play_SFX).l
+		sfx		sfx_Grab
 
 locret_3AA58:
 		rts
@@ -331,8 +330,7 @@ loc_3ABBE:
 		move.b	4(a2),d1
 		cmpi.b	#2,d1
 		bne.s	loc_3ABE4
-		moveq	#signextendB(sfx_Grab),d0
-		jsr	(Play_SFX).l
+		sfx		sfx_Grab
 
 loc_3ABE4:
 		subq.w	#1,d1
@@ -481,8 +479,7 @@ loc_3AD10:
 		jsr	(Player_Load_PLC).l
 		movea.l	(sp)+,a2
 		movea.l	(sp)+,a0
-		moveq	#signextendB(sfx_Grab),d0
-		jsr	(Play_SFX).l
+		sfx		sfx_Grab
 
 locret_3AD88:
 		rts

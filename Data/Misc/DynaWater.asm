@@ -34,6 +34,10 @@ waterValTable:	; Entry format: blue<<3, zero, red<<3, green<<3
 	rept 4
 		dc.b	0, 0, -$2<<3, -$2<<3
 	endr
+		; CCZ
+	rept 4
+		dc.b	0, 0, -$2<<3, -$2<<3
+	endr
 		; MMZ
 	rept 4
 		dc.b	0, 0, -$2<<3, -$2<<3

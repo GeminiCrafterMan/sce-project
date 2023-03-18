@@ -3,12 +3,15 @@ Map_TitleCard:
 		dc.w word_2EE3C-Map_TitleCard	; Red ACT
 		dc.w TCard_ACT-Map_TitleCard	; ACT
 		dc.w TCard_ZONE-Map_TitleCard	; ZONE
+Map_TitleCard_Zones:
 		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
 		dc.w TCard_SSLZ-Map_TitleCard	; SEASIDE LAND
 		dc.w TCard_TTPZ-Map_TitleCard	; TREE TOP
+		dc.w TCard_CCZ-Map_TitleCard	; CLOCKWORK CASTLE
 		dc.w TCard_MMZ-Map_TitleCard	; MECHA MUSHROOM
 		dc.w TCard_DEZ-Map_TitleCard	; DEATH EGG
 		dc.w TCard_TTSZ-Map_TitleCard	; TECHNO TEST
+	zonewarning	Map_TitleCard_Zones,2
 ; Some instructions for title card letters.
 ;
 ; First value: Always zero.
@@ -80,7 +83,23 @@ TCard_TTPZ:
 		dc.b $0, $A, $84, $A8, $0, $20			; O
 		dc.b $0, $A, $84, $A8, $0, $38			; O
 		dc.b $0, $6, $84, $D6, $0, $50			; D
-TCard_MMZ:	dc.w $A			; DATA XREF: ROM:0002EE10o
+
+TCard_CCZ:
+		dc.w 10	; change later
+		dc.b	0, 6, $84, $CD, $FF, $E0		; T
+		dc.b	0, 6, $84, $9C, $FF, $F0		; E
+		dc.b	0, 6, $84, $D3, 0,     0		; C
+		dc.b	0, 6, $84, $D9, 0,   $10		; H
+		dc.b	0, 6, $84, $A2, 0,   $20		; N
+		dc.b    0,$A, $84, $A8, 0,   $30		; O
+
+		dc.b	0, 6, $84, $CD, 0,   $50		; T
+		dc.b	0, 6, $84, $9C, 0,   $60		; E
+		dc.b	0, 6, $84, $DF, 0,   $70		; S
+		dc.b	0, 6, $84, $CD, 0,   $80		; T
+
+TCard_MMZ:
+		dc.w 10
 		dc.b	0,  $A,	$84, $59+$80, $FF, $B0
 		dc.b	0,   6,	$84, $6E+$80, $FF, $C8
 		dc.b	0,   6,	$84, $68+$80, $FF, $D8

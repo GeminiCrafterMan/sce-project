@@ -106,6 +106,9 @@ StartingWaterHeights:
 		dc.w $1000	; TTPZ 1-4
 	endr
 	rept 4
+		dc.w $1000	; CCZ 1-4
+	endr
+	rept 4
 		dc.w $1000	; MMZ 1-4
 	endr
 		dc.w $500	; DEZ 1

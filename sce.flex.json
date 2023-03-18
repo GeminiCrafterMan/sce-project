@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "57088e2c-53f8-48c1-9419-0d6f345028b3",
+    "node": "42fc7fcf-3b45-4c15-89d9-82bc89a51e19",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -275,7 +275,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
         },
         {
@@ -801,7 +801,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {
@@ -1232,7 +1232,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "8af1bc51-e997-4cff-9eec-eead682b2771"
         },
         {
@@ -1339,7 +1339,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "d3d95b3c-8175-4835-b97c-8859b145c346"
         },
         {
@@ -1595,8 +1595,44 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "f5214947-99e5-41e8-9e03-d3245caadc9f"
+        },
+        {
+            "name": "Clocktower Castle",
+            "children": [
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Rotating Platform",
+                    "palettes": [
+                        {
+                            "length": 1,
+                            "blank": true
+                        },
+                        {
+                            "path": "Levels/CCZ/Palettes/Clocktower Castle Zone.bin",
+                            "length": 3
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Rotating Platform/KosinskiM Art/Rotating Platform.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Rotating Platform/Object Data/Map - Rotating Platform.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "42fc7fcf-3b45-4c15-89d9-82bc89a51e19"
+                }
+            ],
+            "isDirectory": true,
+            "expanded": false
         },
         {
             "name": "Death Egg",
@@ -1661,7 +1697,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "489cf77e-de99-4fcb-8c99-a4a8b5e42471"
         }
     ]

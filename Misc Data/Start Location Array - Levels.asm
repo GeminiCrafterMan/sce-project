@@ -19,6 +19,11 @@ StartLocArray:
 		binclude "Levels/TTPZ/Start Location/1.bin"	; TTPZ 3
 		binclude "Levels/TTPZ/Start Location/1.bin"	; TTPZ 4
 
+		binclude "Levels/CCZ/Start Location/1.bin"	; CCZ 1
+		binclude "Levels/CCZ/Start Location/1.bin"	; CCZ 2
+		binclude "Levels/CCZ/Start Location/1.bin"	; CCZ 3
+		binclude "Levels/CCZ/Start Location/1.bin"	; CCZ 4
+
 		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 1
 		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 2
 		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 3

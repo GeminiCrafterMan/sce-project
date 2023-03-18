@@ -204,7 +204,12 @@ frS_TumbleStandX:	ds.b 11
 frS_TumbleHCylinder1:	ds.b 1
 frS_TumbleHCylinderX:	ds.b 11
 frS_Turntable1:		ds.b 1
-frS_TurntableX:		ds.b 6
+frS_Turntable2:		ds.b 1
+frS_Turntable3:		ds.b 1
+frS_Turntable4:		ds.b 1
+frS_Turntable5:		ds.b 1
+frS_Turntable6:		ds.b 1
+frS_Turntable7:		ds.b 1
 frS_PoleSwingH1:		ds.b 1
 frS_PoleSwingHX:	ds.b 6
 frS_PoleSwingV1:	ds.b 1

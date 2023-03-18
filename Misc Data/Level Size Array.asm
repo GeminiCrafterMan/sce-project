@@ -19,6 +19,11 @@ LevelSizes:
 		dc.w 0, $3FFF, 0, $800				; TTPZ 3
 		dc.w 0, $3FFF, 0, $800				; TTPZ 4
 
+		dc.w 0, $3FFF, 0, $800				; CCZ 1
+		dc.w 0, $3FFF, 0, $800				; CCZ 2
+		dc.w 0, $3FFF, 0, $800				; CCZ 3
+		dc.w 0, $3FFF, 0, $800				; CCZ 4
+
 		dc.w 0, $4300, 0, $AA0				; MMZ 1
 		dc.w 0, $4300, 0, $AA0				; MMZ 2
 		dc.w 0, $4300, 0, $AA0				; MMZ 3

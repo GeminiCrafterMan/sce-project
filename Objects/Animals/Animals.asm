@@ -42,6 +42,7 @@ byte_2C7BA:
 		dc.b 5, 1	; GHZ
 		dc.b 5, 1	; SSLZ
 		dc.b 6, 5	; TTPZ	; squirrel, bird
+		dc.b 5, 1	; CCZ
 		dc.b 6, 1	; MMZ
 		dc.b 5, 1	; DEZ
 		dc.b 5, 1	; TTSZ

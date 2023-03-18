@@ -21,6 +21,9 @@
 		include "Levels/TTPZ/Events/Animate Palette.asm"
 		include "Levels/TTPZ/Events/Events.asm"
 
+; CCZ
+		include "Levels/CCZ/Events/Events.asm"
+
 ; MMZ
 		include	"Levels/MMZ/Animated Tiles/Animation Scripts.asm"
 		include "Levels/MMZ/Events/Events.asm"

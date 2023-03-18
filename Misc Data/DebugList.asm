@@ -3,31 +3,37 @@
 ; ===========================================================================
 
 DebugList: offsetTable
+	; Intro Stages
 		offsetTableEntry.w .GHZ1
 		offsetTableEntry.w .GHZ1
 		offsetTableEntry.w .GHZ1
 		offsetTableEntry.w .GHZ1
-
+	; Seaside Land
 		offsetTableEntry.w .SSLZ1
 		offsetTableEntry.w .SSLZ1
 		offsetTableEntry.w .SSLZ1
 		offsetTableEntry.w .SSLZ1
-
+	; Tree Top
 		offsetTableEntry.w .TTPZ1
 		offsetTableEntry.w .TTPZ1
 		offsetTableEntry.w .TTPZ1
 		offsetTableEntry.w .TTPZ1
-
+	; Clockwork Castle
 		offsetTableEntry.w .DEZ1
 		offsetTableEntry.w .DEZ1
 		offsetTableEntry.w .DEZ1
 		offsetTableEntry.w .DEZ1
-
+	; Mecha Mushroom
 		offsetTableEntry.w .DEZ1
 		offsetTableEntry.w .DEZ1
 		offsetTableEntry.w .DEZ1
 		offsetTableEntry.w .DEZ1
-
+	; Death Egg
+		offsetTableEntry.w .DEZ1
+		offsetTableEntry.w .DEZ1
+		offsetTableEntry.w .DEZ1
+		offsetTableEntry.w .DEZ1
+	; Techno Test
 		offsetTableEntry.w .DEZ1
 		offsetTableEntry.w .DEZ1
 		offsetTableEntry.w .DEZ1

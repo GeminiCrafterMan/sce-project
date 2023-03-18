@@ -11,6 +11,7 @@ LevelSelect_ZoneCount:			= ZoneCount
 LevelSelect_ActIntroCount:			= 4	; Intro Stages
 LevelSelect_ActSSLZCount:			= 3	; Seaside Land Zone
 LevelSelect_ActTTPZCount:			= 1	; Tree Top Zone
+LevelSelect_ActCCZCount:			= 1 ; Clockwork Castle Zone
 LevelSelect_ActMMZCount:			= 1 ; Mecha Mushroom Zone
 LevelSelect_ActDEZCount:			= 4	; Death Egg Zone
 LevelSelect_ActTTSZCount:			= 4	; Techno Test Zone
@@ -158,6 +159,7 @@ LevelSelect_LoadMaxActs:
 		dc.w LevelSelect_ActIntroCount-1	; Intro Stages
 		dc.w LevelSelect_ActSSLZCount-1	; SSLZ
 		dc.w LevelSelect_ActTTPZCount-1	; TTPZ
+		dc.w LevelSelect_ActCCZCount-1	; CCZ
 		dc.w LevelSelect_ActMMZCount-1	; MMZ
 		dc.w LevelSelect_ActDEZCount-1	; DEZ
 		dc.w LevelSelect_ActTTSZCount-1	; TTSZ
@@ -624,13 +626,13 @@ LevelSelect_MappingOffsets:
 		dc.w planeLocH28(0,24)
 		dc.w planeLocH28(0,26)
 LevelSelect_Text:
-		levselstr " INTRO STAGES       - ACT 1             "
+		levselstr " INTRO STAGES       - DUMMY             "
 		levselstr " SEASIDE LAND       - ACT 1             "
 		levselstr " TREE TOP           - ACT 1             "
+		levselstr " CLOCKWORK CASTLE   - ACT 1             "
 		levselstr " MECHA MUSHROOM     - ACT 1             "
 		levselstr " DEATH EGG          - ACT 1             "
 		levselstr " TECHNO TEST        - ACT 1             "
-		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " MUSIC TEST:        - 000               "
 		levselstr " SOUND TEST:        - 000               "

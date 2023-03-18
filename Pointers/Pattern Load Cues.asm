@@ -28,6 +28,11 @@ Offs_PLC: offsetTable
 		offsetTableEntry.w PLC1_TTPZ_Misc
 		offsetTableEntry.w PLC2_TTPZ_Enemy
 	endr
+	; Clockwork Castle Zone
+	rept 4
+		offsetTableEntry.w PLC1_CCZ_Misc
+		offsetTableEntry.w PLC2_CCZ_Enemy
+	endr
 	; Mecha Mushroom Zone
 	rept 4
 		offsetTableEntry.w PLC1_MMZ_Misc
@@ -137,6 +142,21 @@ PLC2_TTPZ_Enemy: plrlistheader
 		plreq	ArtTile_Crabmeat, ArtKosM_MechaBu
 		plreq	ArtTile_Motobug, ArtKosM_SpringShell
 PLC2_TTPZ_Enemy_end
+
+; ===========================================================================
+; Pattern load cues - Clockwork Castle (Misc)
+; ===========================================================================
+
+PLC1_CCZ_Misc: plrlistheader
+		plreq	$37E, ArtKosM_RotatingPlatform
+PLC1_CCZ_Misc_end
+
+; ===========================================================================
+; Pattern load cues - Clockwork Castle (Enemy)
+; ===========================================================================
+
+PLC2_CCZ_Enemy: plrlistheader
+PLC2_CCZ_Enemy_end
 
 ; ===========================================================================
 ; Pattern load cues - Mecha Mushroom (Misc)

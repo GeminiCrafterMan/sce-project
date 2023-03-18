@@ -132,13 +132,10 @@ loc_86698:
 		jmp	(MoveSprite2).w
 ; ---------------------------------------------------------------------------
 
-byte_866A2:
-		dc.b $A	; GHZ
-		dc.b $A	; SSLZ
-		dc.b $A	; TTPZ
-		dc.b $A	; MMZZ
-		dc.b $A	; DEZ
-		dc.b $A	; TTSZ
+byte_866A2: ; I'm not even sure what this does.
+	rept ZoneCount
+		dc.b $A
+	endr
 	zonewarning	byte_866A2,1
 	even
 ; ---------------------------------------------------------------------------

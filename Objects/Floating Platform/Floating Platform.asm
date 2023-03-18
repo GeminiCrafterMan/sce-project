@@ -11,6 +11,10 @@ FloatingPlatformArt:
 		dc.l Map_FloatingPlatform
 		dc.w make_art_tile(ArtTile_LevelArt,3,0), 0
 	endr
+	rept 4	; CCZ
+		dc.l Map_FloatingPlatform
+		dc.w make_art_tile(ArtTile_LevelArt,3,0), 0
+	endr
 	rept 4	; MMZ
 		dc.l Map_FloatingPlatform
 		dc.w make_art_tile(ArtTile_LevelArt,3,0), 0

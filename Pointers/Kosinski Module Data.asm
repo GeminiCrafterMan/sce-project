@@ -157,6 +157,17 @@ ArtKosM_Pylon:				binclude "Objects/Decoration/KosinskiM Art/Pylon.bin"
 	even
 
 ; ===========================================================================
+; Kosinski Module compressed CCZ graphics
+; ===========================================================================
+
+; Enemies
+
+
+; Misc
+ArtKosM_RotatingPlatform:	binclude "Objects/Rotating Platform/KosinskiM Art/Rotating Platform.bin"
+	even
+
+; ===========================================================================
 ; Kosinski Module compressed MMZ graphics
 ; ===========================================================================
 

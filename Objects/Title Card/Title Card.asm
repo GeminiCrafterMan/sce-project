@@ -54,7 +54,7 @@ TitleCardAct_Index:
 		dc.l ArtKosM_TitleCardNum0		; Techno Tower
 		dc.l ArtKosM_TitleCardNum3
 		dc.l ArtKosM_TitleCardNumEX		; Green Hill EX
-	rept 5
+	rept ZoneCount-1
 		dc.l ArtKosM_TitleCardNum1
 		dc.l ArtKosM_TitleCardNum2
 		dc.l ArtKosM_TitleCardNum3
@@ -283,10 +283,10 @@ ObjArray_TtlCardBonus:
 ; Exception: ENOZ>ZONE. These letters are already in VRAM.
 
 TitleCard_LevelGfx:
-		dc.l ArtKosM_GHZTitleCard	; GHZ
-		dc.l ArtKosM_GHZTitleCard	; GHZ
-		dc.l ArtKosM_GHZTitleCard	; GHZ
-		dc.l ArtKosM_GHZTitleCard	; GHZ
+		dc.l ArtKosM_GHZTitleCard	; Green Hill
+		dc.l ArtKosM_GHZTitleCard	; Techno Tower
+		dc.l ArtKosM_GHZTitleCard	; ???
+		dc.l ArtKosM_GHZTitleCard	; GHZ EX
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
@@ -295,6 +295,10 @@ TitleCard_LevelGfx:
 		dc.l ArtKosM_TTPZTitleCard	; TTPZ
 		dc.l ArtKosM_TTPZTitleCard	; TTPZ
 		dc.l ArtKosM_TTPZTitleCard	; TTPZ
+		dc.l ArtKosM_GHZTitleCard	; CCZ
+		dc.l ArtKosM_GHZTitleCard	; CCZ
+		dc.l ArtKosM_GHZTitleCard	; CCZ
+		dc.l ArtKosM_GHZTitleCard	; CCZ
 		dc.l ArtKosM_MMZTitleCard	; MMZ
 		dc.l ArtKosM_MMZTitleCard	; MMZ
 		dc.l ArtKosM_MMZTitleCard	; MMZ

@@ -16,6 +16,9 @@ Obj_BackgroundCharacters:
 		dc.l	Obj_FlareTheAlligator	; TTPZ
 	endr
 	rept 4
+		dc.l	DeleteObject			; CCZ
+	endr
+	rept 4
 		dc.l	DeleteObject			; MMZ
 	endr
 	rept 4

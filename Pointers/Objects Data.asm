@@ -75,6 +75,9 @@
 		include	"Objects/Monkey Bars/Monkey Bars.asm"
 		include	"Objects/Sideways Log/Sideways Log.asm"
 
+	; CCZ
+		include	"Objects/Rotating Platform/Rotating Platform.asm"
+
 ; ===========================================================================
 ; Bosses objects data
 ; ===========================================================================
