@@ -2,10 +2,10 @@ Sound_3D_Header:
 	smpsHeaderStartSong 3
 	smpsHeaderVoice     Sound_3D_Voices
 	smpsHeaderTempoSFX  $01
-	smpsHeaderChanSFX   $02
+	smpsHeaderChanSFX   $01
 
 	smpsHeaderSFXChannel cFM5, Sound_3D_FM5,	$00, $00
-	smpsHeaderSFXChannel cPSG3, Sound_3D_PSG3,	$0C, $02
+	;smpsHeaderSFXChannel cPSG3, Sound_3D_PSG3,	$0C, $02
 
 ; FM5 Data
 Sound_3D_FM5:
@@ -15,11 +15,11 @@ Sound_3D_FM5:
 	smpsStop
 
 ; PSG3 Data
-Sound_3D_PSG3:
-	smpsPSGvoice        sTone_0E
-	smpsPSGform         $E7
-	dc.b	nB3, $1B
-	smpsStop
+;Sound_3D_PSG3:
+	;smpsPSGvoice        sTone_0E
+	;smpsPSGform         $E7
+	;dc.b	nB3, $1B
+	;smpsStop
 
 Sound_3D_Voices:
 ;	Voice $00

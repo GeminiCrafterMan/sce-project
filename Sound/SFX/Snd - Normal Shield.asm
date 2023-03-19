@@ -2,9 +2,14 @@ Sound_3A_Header:
 	smpsHeaderStartSong 3
 	smpsHeaderVoice     Sound_3A_71_Voices
 	smpsHeaderTempoSFX  $01
-	smpsHeaderChanSFX   $01
+	smpsHeaderChanSFX   $02
 
 	smpsHeaderSFXChannel cFM5, Sound_3A_71_FM5,	$0C, $00
+	smpsHeaderSFXChannel cFM4, Sound_3A_71_FM4,	$0C, $01
+
+; FM4 Data
+Sound_3A_71_FM4:
+	dc.b	nRst, $03
 
 ; FM5 Data
 Sound_3A_71_FM5:
