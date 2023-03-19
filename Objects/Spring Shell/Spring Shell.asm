@@ -45,7 +45,7 @@ Obj_SpringShell:
 		move.b	routine_secondary(a0),d0
 		move.w	.actIndex(pc,d0.w),d1
 		jsr	.actIndex(pc,d1.w)
-		lea	(Ani_Moto).l,a1
+		lea	(Ani_Motobug).l,a1
 		jsr		AnimateSprite
 		jsr		Add_SpriteToCollisionResponseList
 		jmp		RememberState
@@ -87,7 +87,7 @@ Obj_SpringShell:
 ; ===========================================================================
 
 .animate:	; Routine 4
-		lea	(Ani_Moto).l,a1
+		lea	(Ani_Motobug).l,a1
 		jsr		AnimateSprite
 		jmp		DisplaySprite
 ; ===========================================================================

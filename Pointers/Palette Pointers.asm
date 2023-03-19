@@ -17,7 +17,8 @@ ptr_Pal_GHZEX:			palp	Pal_GHZEX, Normal_palette_line_2, 48
 ptr_Pal_SSLZ1:			palp	Pal_SSLZ1, Normal_palette_line_2, 48
 ptr_Pal_SSLZ2:			palp	Pal_SSLZ2, Normal_palette_line_2, 48
 ptr_Pal_SSLZ3:			palp	Pal_SSLZ3, Normal_palette_line_2, 48
-ptr_Pal_TTPZ:			palp	Pal_TTPZ, Normal_palette_line_2, 48
+ptr_Pal_TTPZ1:			palp	Pal_TTPZ1, Normal_palette_line_2, 48
+ptr_Pal_TTPZ2:			palp	Pal_TTPZ2, Normal_palette_line_2, 48
 ptr_Pal_CCZ:			palp	Pal_CCZ, Normal_palette_line_2, 48
 ptr_Pal_MMZ:			palp	Pal_MMZ, Normal_palette_line_2, 48
 ptr_Pal_DEZ:			palp	Pal_DEZ, Normal_palette_line_2, 48
@@ -37,7 +38,8 @@ palid_GHZEX:			equ (ptr_Pal_GHZEX-PalPointers)/8
 palid_SSLZ1:			equ (ptr_Pal_SSLZ1-PalPointers)/8
 palid_SSLZ2:			equ (ptr_Pal_SSLZ2-PalPointers)/8
 palid_SSLZ3:			equ (ptr_Pal_SSLZ3-PalPointers)/8
-palid_TTPZ:				equ (ptr_Pal_TTPZ-PalPointers)/8
+palid_TTPZ1:			equ (ptr_Pal_TTPZ1-PalPointers)/8
+palid_TTPZ2:			equ (ptr_Pal_TTPZ2-PalPointers)/8
 palid_CCZ:				equ (ptr_Pal_CCZ-PalPointers)/8
 palid_MMZ:				equ (ptr_Pal_MMZ-PalPointers)/8
 palid_DEZ:				equ (ptr_Pal_DEZ-PalPointers)/8

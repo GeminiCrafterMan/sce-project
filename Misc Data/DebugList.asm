@@ -144,7 +144,7 @@ DebugList: offsetTable
 	dbglistobj Obj_Spikes, Map_Spikes, 0, 0, make_art_tile(ArtTile_Spikes,0,0)
 	dbglistobj Obj_Spikes, Map_Spikes, $40, 4, make_art_tile(ArtTile_Spikes,0,0)
 	dbglistobj Obj_MechaBu, Map_MechaBu, 0, 5, make_art_tile(ArtTile_Crabmeat,0,0)
-	dbglistobj Obj_SpringShell, Map_Motobug, 0, 0, make_art_tile(ArtTile_Motobug,0,0)
+	dbglistobj Obj_SpringShell, Map_SpringShell, 0, 0, make_art_tile(ArtTile_Motobug,0,0)
 	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
 	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)

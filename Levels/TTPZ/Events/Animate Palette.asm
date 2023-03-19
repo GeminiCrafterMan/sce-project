@@ -11,7 +11,7 @@ AnPal_TTPZ:
 		subq.w	#1,(Palette_cycle_counters).w ; decrement timer
 		bpl.s	.skip	; if time remains, branch
 
-		move.w	#2,(Palette_cycle_counters).w ; reset timer to 5 frames
+		move.w	#5,(Palette_cycle_counters).w ; reset timer to 6 frames
 		jmp		PalRotRight_4
 
 	.skip:

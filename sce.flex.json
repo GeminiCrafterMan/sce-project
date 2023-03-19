@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "42fc7fcf-3b45-4c15-89d9-82bc89a51e19",
+    "node": "d86ce0ef-fa1d-49f8-afbe-58000e53dfb2",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -889,7 +889,7 @@
                                     "length": 1
                                 },
                                 {
-                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
                                     "length": 3
                                 }
                             ],
@@ -918,7 +918,7 @@
                                     "length": 1
                                 },
                                 {
-                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
                                     "length": 3
                                 }
                             ],
@@ -947,7 +947,7 @@
                                     "length": 1
                                 },
                                 {
-                                    "path": "Levels/GHZ/Palettes/Green Hill Zone 2.bin",
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
                                     "length": 3
                                 }
                             ],
@@ -976,7 +976,7 @@
                                     "length": 1
                                 },
                                 {
-                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
                                     "length": 3
                                 }
                             ],
@@ -1005,7 +1005,7 @@
                                     "length": 1
                                 },
                                 {
-                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
                                     "length": 3
                                 }
                             ],
@@ -1035,7 +1035,7 @@
                                     "length": 1
                                 },
                                 {
-                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
                                     "length": 3
                                 }
                             ],
@@ -1064,7 +1064,7 @@
                                     "length": 1
                                 },
                                 {
-                                    "path": "Levels/GHZ/Palettes/Green Hill Zone.bin",
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
                                     "length": 3
                                 }
                             ],
@@ -1090,7 +1090,7 @@
                             "name": "Floating Platform",
                             "palettes": [],
                             "art": {
-                                "path": "Levels/GHZ/Tiles/Primary.bin",
+                                "path": "Levels/Intro Stages/Green Hill/Tiles/Primary.bin",
                                 "compression": "Kosinski-M",
                                 "offset": 0
                             },
@@ -1232,7 +1232,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "8af1bc51-e997-4cff-9eec-eead682b2771"
         },
         {
@@ -1632,7 +1632,8 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false
+            "expanded": false,
+            "uuid": "08128b6f-4a80-4093-bb57-533245892dab"
         },
         {
             "name": "Death Egg",
