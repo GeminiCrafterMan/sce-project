@@ -77,9 +77,13 @@ ArtKosM_TitleCardRedAct:	binclude "Objects/Title Card/KosinskiM Art/Title Card R
 ; Stage title cards
 ArtKosM_GHZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/GHZ - Title Card.bin"
 	even
+ArtKosM_NHZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/NHZ - Title Card.bin"
+	even
 ArtKosM_SSLZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/SSLZ - Title Card.bin"
 	even
 ArtKosM_TTPZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/TTPZ - Title Card.bin"
+	even
+ArtKosM_CCZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/CCZ - Title Card.bin"
 	even
 ArtKosM_MMZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/MMZ - Title Card.bin"
 	even

@@ -523,6 +523,8 @@ loc_1036E:
 		move.b	#id_Death,anim(a0)
 		cmpa.w	#Player_1,a0
 		bne.s	.doneanim
+		tst.l	address(a2)
+		beq.s	.doneanim
 		btst	#Status_FireShield,shield_reaction(a2)
 		beq.s	.doneanim
 		move.b	#id_Burnt,anim(a0)

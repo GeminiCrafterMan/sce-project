@@ -166,6 +166,9 @@ Obj_TitleCardRedBanner:
 
 Obj_TitleCardName:
 		move.b	(Current_zone).w,d0
+		lsl.b	#2,d0
+		add.b	d0,mapping_frame(a0)
+		move.b	(Current_act).w,d0
 		add.b	d0,mapping_frame(a0)
 		move.l	#Obj_TitleCardElement,address(a0)
 
@@ -284,7 +287,7 @@ ObjArray_TtlCardBonus:
 
 TitleCard_LevelGfx:
 		dc.l ArtKosM_GHZTitleCard	; Green Hill
-		dc.l ArtKosM_GHZTitleCard	; Techno Tower
+		dc.l ArtKosM_NHZTitleCard	; Techno Tower / Newtrogic High
 		dc.l ArtKosM_GHZTitleCard	; ???
 		dc.l ArtKosM_GHZTitleCard	; GHZ EX
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
@@ -295,10 +298,10 @@ TitleCard_LevelGfx:
 		dc.l ArtKosM_TTPZTitleCard	; TTPZ
 		dc.l ArtKosM_TTPZTitleCard	; TTPZ
 		dc.l ArtKosM_TTPZTitleCard	; TTPZ
-		dc.l ArtKosM_GHZTitleCard	; CCZ
-		dc.l ArtKosM_GHZTitleCard	; CCZ
-		dc.l ArtKosM_GHZTitleCard	; CCZ
-		dc.l ArtKosM_GHZTitleCard	; CCZ
+		dc.l ArtKosM_CCZTitleCard	; CCZ
+		dc.l ArtKosM_CCZTitleCard	; CCZ
+		dc.l ArtKosM_CCZTitleCard	; CCZ
+		dc.l ArtKosM_CCZTitleCard	; CCZ
 		dc.l ArtKosM_MMZTitleCard	; MMZ
 		dc.l ArtKosM_MMZTitleCard	; MMZ
 		dc.l ArtKosM_MMZTitleCard	; MMZ

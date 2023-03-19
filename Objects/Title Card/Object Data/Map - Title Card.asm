@@ -4,19 +4,41 @@ Map_TitleCard:
 		dc.w TCard_ACT-Map_TitleCard	; ACT
 		dc.w TCard_ZONE-Map_TitleCard	; ZONE
 Map_TitleCard_Zones:
+	; ISZ
 		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
+		dc.w TCard_NHZ-Map_TitleCard	; NEWTROGIC HIGH
+		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
+		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
+	; SSLZ
+	rept 4
 		dc.w TCard_SSLZ-Map_TitleCard	; SEASIDE LAND
+	endr
+	; TTPZ
+	rept 4
 		dc.w TCard_TTPZ-Map_TitleCard	; TREE TOP
+	endr
+	; CCZ
+	rept 4
 		dc.w TCard_CCZ-Map_TitleCard	; CLOCKWORK CASTLE
-		dc.w TCard_MMZ-Map_TitleCard	; MECHA MUSHROOM
-		dc.w TCard_DEZ-Map_TitleCard	; DEATH EGG
+	endr
+	; MMZ
+	rept 4
+		dc.w TCard_MMZ-Map_TitleCard	; MECHA MUSHROOM (currently MUSHROOM HILL)
+	endr
+	; DEZ
+	rept 4
+		dc.w TCard_DEZ-Map_TitleCard	; DEATH EGG (to be removed when Silver Sonic works)
+	endr
+	; TTSZ
+	rept 4
 		dc.w TCard_TTSZ-Map_TitleCard	; TECHNO TEST
-	zonewarning	Map_TitleCard_Zones,2
+	endr
+	zonewarning	Map_TitleCard_Zones,(2*4)
 ; Some instructions for title card letters.
 ;
 ; First value: Always zero.
 ;
-; Second value: Letter size. 2 for short letters like I and L, 6 for medium letters like A, B, C, D, $A for long letters like W, O.
+; Second value: Letter size. 2 for short letters like I and L, 6 for medium letters like A, B, C, D, $A for long letters like W, O. $E for two medium letters like ST.
 ;
 ; Third value: Always $84.
 ;
@@ -78,25 +100,32 @@ TCard_SSLZ:
 		dc.b $0, $6, $84, $A2, $0, $70			; N
 		dc.b $0, $6, $84, $DC, $0, $80			; D
 TCard_TTPZ:
-		dc.w 4 ; four letters
-		dc.b $0, $A, $84, $CD, $0, $8			; W
-		dc.b $0, $A, $84, $A8, $0, $20			; O
-		dc.b $0, $A, $84, $A8, $0, $38			; O
-		dc.b $0, $6, $84, $D6, $0, $50			; D
+		dc.w 7 ; seven letters
+		dc.b $0, $6, $84, $CD, $FF,$F0			; T
+		dc.b $0, $6, $84, $D3, $0, $0			; R
+		dc.b $0, $6, $84, $9C, $0, $10			; E
+		dc.b $0, $6, $84, $9C, $0, $20			; E
+
+		dc.b $0, $6, $84, $CD, 0,  $38			; T
+		dc.b $0, $A, $84, $A8, 0,  $48			; O
+		dc.b $0, $6, $84, $D9, $0, $60			; P
 
 TCard_CCZ:
-		dc.w 10	; change later
-		dc.b	0, 6, $84, $CD, $FF, $E0		; T
-		dc.b	0, 6, $84, $9C, $FF, $F0		; E
-		dc.b	0, 6, $84, $D3, 0,     0		; C
-		dc.b	0, 6, $84, $D9, 0,   $10		; H
-		dc.b	0, 6, $84, $A2, 0,   $20		; N
-		dc.b    0,$A, $84, $A8, 0,   $30		; O
+		dc.w 14
+		dc.b	$0, $A, $84, $CD, $FF, $90		; CL
+		dc.b	$0, $A, $84, $A8, $FF, $A8		; O
+		dc.b	$0, $6, $84, $CD, $FF, $C0		; C
+		dc.b	$0, $6, $84, $D6, $FF, $D0		; K
+		dc.b	$0, $A, $84, $DC, $FF, $E0		; W
+		dc.b    $0, $A, $84, $A8, $FF, $F8		; O
+		dc.b	$0, $6, $84, $E5, 0,   $10		; R
+		dc.b	$0, $6, $84, $D6, 0,   $20		; K
 
-		dc.b	0, 6, $84, $CD, 0,   $50		; T
-		dc.b	0, 6, $84, $9C, 0,   $60		; E
-		dc.b	0, 6, $84, $DF, 0,   $70		; S
-		dc.b	0, 6, $84, $CD, 0,   $80		; T
+		dc.b	$0, $6, $84, $CD, 0,   $38		; C
+		dc.b	$0, $6, $84, $EB, 0,   $48		; A
+		dc.b	$0, $E, $84, $F1, 0,   $58		; ST
+		dc.b	$0, $2, $84, $D3, 0,   $78		; L
+		dc.b	$0, $6, $84, $9C, 0,   $80		; E
 
 TCard_MMZ:
 		dc.w 10
@@ -125,13 +154,27 @@ TCard_TTSZ:
 		dc.w 10
 		dc.b	0, 6, $84, $CD, $FF, $E0		; T
 		dc.b	0, 6, $84, $9C, $FF, $F0		; E
-		dc.b	0, 6, $84, $D3, 0,     0		; C
-		dc.b	0, 6, $84, $D9, 0,   $10		; H
-		dc.b	0, 6, $84, $A2, 0,   $20		; N
-		dc.b    0,$A, $84, $A8, 0,   $30		; O
+		dc.b	0, 6, $84, $D3,   0,   0		; C
+		dc.b	0, 6, $84, $D9,   0, $10		; H
+		dc.b	0, 6, $84, $A2,   0, $20		; N
+		dc.b    0,$A, $84, $A8,   0, $30		; O
 
-		dc.b	0, 6, $84, $CD, 0,   $50		; T
-		dc.b	0, 6, $84, $9C, 0,   $60		; E
-		dc.b	0, 6, $84, $DF, 0,   $70		; S
-		dc.b	0, 6, $84, $CD, 0,   $80		; T
+		dc.b	0, 6, $84, $CD,   0, $50		; T
+		dc.b	0, 6, $84, $9C,   0, $60		; E
+		dc.b	0, 6, $84, $DF,   0, $70		; S
+		dc.b	0, 6, $84, $CD,   0, $80		; T
+TCard_NHZ:
+		dc.w 11
+		dc.b	0,$6, $84, $A2, $FF, $A8		; N
+		dc.b	0,$6, $84, $9C, $FF, $B8		; E
+		dc.b	0,$A, $84, $CD, $FF, $C8		; W
+		dc.b	0,$E, $84, $D6, $FF, $E0		; TR
+		dc.b    0,$A, $84, $A8,   0,   0		; O
+		dc.b	0,$A, $84, $E2,   0, $18		; GI
+		dc.b	0,$6, $84, $EB,   0, $30		; C
+
+		dc.b	0, 6, $84, $F1,   0, $58		; H
+		dc.b	0, 2, $84, $E8,   0, $68		; I
+		dc.b	0, 6, $84, $E2,   0, $70		; G
+		dc.b	0, 6, $84, $F1,   0, $80		; H
 		even
