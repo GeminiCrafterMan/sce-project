@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "c0875026-5805-4b1e-b736-ab1f5296b2a7",
+    "node": "89ca6c7f-fbbf-424b-afb5-e37b75ef8c2d",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -1429,6 +1429,26 @@
                     },
                     "uuid": "3f81ae78-94fb-41b8-8a46-875c2a5790ae",
                     "expanded": true
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Wood Pointer",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Wood Pointer/KosinskiM Art/Wood Pointer.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Wood Pointer/Object Data/Map - Wood Pointer.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "89ca6c7f-fbbf-424b-afb5-e37b75ef8c2d"
                 },
                 {
                     "format": "Sonic 3&K Object.js",

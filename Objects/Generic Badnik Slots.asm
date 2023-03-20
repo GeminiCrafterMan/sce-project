@@ -76,7 +76,7 @@ Obj_BadnikSlot3:
 		dc.l	Obj_Chopper	; SSLZ
 	endr
 	rept 4
-		dc.l	Obj_Chopper	; TTPZ
+		dc.l	Obj_WoodPointer	; TTPZ
 	endr
 	rept 4
 		dc.l	Obj_Chopper	; CCZ

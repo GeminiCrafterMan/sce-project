@@ -53,7 +53,7 @@ sub_21D00:	; the actual vine
 		move.b	#8,height_pixels(a1)
 		move.w	#$200,priority(a1)
 		move.l	#Map_TTPZRideVine,mappings(a1)
-		move.w	#make_art_tile(ArtTile_Crabmeat,0,0),art_tile(a1)
+		move.w	#make_art_tile(ArtTile_Chopper,0,0),art_tile(a1)
 		rts
 ; End of function sub_21D00
 

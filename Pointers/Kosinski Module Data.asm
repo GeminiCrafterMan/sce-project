@@ -153,6 +153,8 @@ ArtKosM_MechaBu:			binclude "Objects/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin"
 	even
 ArtKosM_SpringShell:		binclude "Objects/Spring Shell/KosinskiM Art/Spring Shell.bin"
 	even
+ArtKosM_WoodPointer:		binclude "Objects/Wood Pointer/KosinskiM Art/Wood Pointer.bin"
+	even
 
 ; Misc
 ArtKosM_MonkeyBars:			binclude "Objects/Monkey Bars/KosinskiM Art/Monkey Bars.bin"

@@ -73,6 +73,7 @@
 	; TTPZ
 		include	"Objects/Mecha-Bu/Mecha-Bu.asm"
 		include	"Objects/Spring Shell/Spring Shell.asm"
+		include "Objects/Wood Pointer/Wood Pointer.asm"
 		include	"Objects/Monkey Bars/Monkey Bars.asm"
 		include	"Objects/Sideways Log/Sideways Log.asm"
 		include "Objects/Ride Vine/Ride Vine.asm"

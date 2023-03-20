@@ -132,7 +132,7 @@ PLC2_SSLZ2_Enemy_end
 PLC1_TTPZ_Misc: plrlistheader
 		plreq	ArtTile_PurpleRock, ArtKosM_MonkeyBars
 		plreq	ArtTile_PurpleRock+12, ArtKosM_Pylon
-		plreq	ArtTile_Crabmeat, ArtKosM_RideVine
+		plreq	ArtTile_Chopper, ArtKosM_RideVine
 PLC1_TTPZ_Misc_end
 
 ; ===========================================================================
@@ -142,6 +142,7 @@ PLC1_TTPZ_Misc_end
 PLC2_TTPZ_Enemy: plrlistheader
 		plreq	ArtTile_Crabmeat, ArtKosM_MechaBu
 		plreq	ArtTile_Motobug, ArtKosM_SpringShell
+		plreq	ArtTile_BuzzBomber, ArtKosM_WoodPointer
 PLC2_TTPZ_Enemy_end
 
 ; ===========================================================================

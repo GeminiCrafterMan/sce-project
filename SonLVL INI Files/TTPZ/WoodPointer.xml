@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ObjDef xmlns="http://www.sonicretro.org" Name="Wood Pointer" Image="lowmain" Depth="5">
+  <Images>
+    <ImageFromMappings id="lowmain">
+      <ArtFile filename="../Objects/Wood Pointer/KosinskiM Art/Wood Pointer.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Wood Pointer/Object Data/Map - Wood Pointer.bin" frame="0" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="highmain" priority="true">
+      <ArtFile filename="../Objects/Wood Pointer/KosinskiM Art/Wood Pointer.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Wood Pointer/Object Data/Map - Wood Pointer.bin" frame="0" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="lowspike">
+      <ArtFile filename="../Objects/Wood Pointer/KosinskiM Art/Wood Pointer.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Wood Pointer/Object Data/Map - Wood Pointer.bin" frame="1" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="highspike" priority="true">
+      <ArtFile filename="../Objects/Wood Pointer/KosinskiM Art/Wood Pointer.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Wood Pointer/Object Data/Map - Wood Pointer.bin" frame="1" startpal="0" />
+    </ImageFromMappings>
+  </Images>
+  <Display>
+    <DisplayOption>
+      <Condition property="YFlip" value="true" />
+      <ImageRef image="highmain" yflip="NeverFlip" />
+      <ImageRef image="highspike" yflip="NeverFlip">
+        <Offset X="16" />
+      </ImageRef>
+      <ImageRef image="highspike" yflip="NeverFlip">
+        <Offset Y="16" />
+      </ImageRef>
+      <ImageRef image="highspike" yflip="NeverFlip">
+        <Offset X="-16" />
+      </ImageRef>
+      <ImageRef image="highspike" yflip="NeverFlip">
+        <Offset Y="-16" />
+      </ImageRef>
+    </DisplayOption>
+    <DisplayOption>
+      <ImageRef image="lowmain" />
+      <ImageRef image="lowspike">
+        <Offset X="16" />
+      </ImageRef>
+      <ImageRef image="lowspike">
+        <Offset Y="16" />
+      </ImageRef>
+      <ImageRef image="lowspike">
+        <Offset X="-16" />
+      </ImageRef>
+      <ImageRef image="lowspike">
+        <Offset Y="-16" />
+      </ImageRef>
+    </DisplayOption>
+  </Display>
+</ObjDef>
