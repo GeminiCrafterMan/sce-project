@@ -1,11 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-<<<<<<< Updated upstream
     "node": "b019f790-7c9c-41c2-8b2c-a3129793d18e",
-=======
-    "node": "7b467e40-2019-44f8-b066-1da179eea748",
->>>>>>> Stashed changes
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
