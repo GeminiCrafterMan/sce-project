@@ -15,6 +15,7 @@
 ; Main objects data
 ; ===========================================================================
 
+		include "Objects/Animated Still Sprite/Animated Still Sprite.asm"
 		include "Objects/Rings/Rings.asm"
 		include "Objects/Coins/Coins.asm"
 		include "Objects/PathSwap/PathSwap.asm"
@@ -74,6 +75,7 @@
 		include	"Objects/Spring Shell/Spring Shell.asm"
 		include	"Objects/Monkey Bars/Monkey Bars.asm"
 		include	"Objects/Sideways Log/Sideways Log.asm"
+		include "Objects/Ride Vine/Ride Vine.asm"
 
 	; CCZ
 		include	"Objects/Rotating Platform/Rotating Platform.asm"

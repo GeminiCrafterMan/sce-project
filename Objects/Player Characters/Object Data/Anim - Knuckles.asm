@@ -136,6 +136,13 @@ frK_MonkeyBars3:	ds.b 1
 frK_MonkeyBars4:	ds.b 1
 frK_MonkeyBars5:	ds.b 1
 frK_MonkeyBars6:	ds.b 1
+frK_MGZHang:			ds.b 1
+frK_Hang1:				ds.b 1
+frK_Hang2:				ds.b 1
+frK_Hang3:				ds.b 1
+frK_HangPush:			ds.b 1
+frK_Shimmy1:			ds.b 1
+frK_Shimmy2:			ds.b 1
 frK_Spindash1:			ds.b 1
 frK_Spindash2:			ds.b 1
 frK_Spindash3:			ds.b 1
@@ -145,13 +152,6 @@ frK_Spindash6:			ds.b 1
 frK_Slide:				ds.b 1
 frK_Hurt:				ds.b 1
 frK_Spring:				ds.b 1
-frK_MGZHang:			ds.b 1
-frK_Hang1:				ds.b 1
-frK_Hang2:				ds.b 1
-frK_Hang3:				ds.b 1
-frK_HangPush:			ds.b 1
-frK_Shimmy1:			ds.b 1
-frK_Shimmy2:			ds.b 1
 frK_Roll1:				ds.b 1
 frK_Roll2:				ds.b 1
 frK_Roll3:				ds.b 1

@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "b019f790-7c9c-41c2-8b2c-a3129793d18e",
+    "node": "c0875026-5805-4b1e-b736-ab1f5296b2a7",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -275,7 +275,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
         },
         {
@@ -1458,6 +1458,26 @@
                         "label": ""
                     },
                     "uuid": "826c097f-1702-4745-86fe-671e006873c1"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Ride Vine",
+                    "palettes": [],
+                    "art": {
+                        "path": "Objects/Ride Vine/KosinskiM Art/Ride Vine.bin",
+                        "compression": "Kosinski-M",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Ride Vine/Object Data/Map - Ride Vine.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": false,
+                        "path": "",
+                        "label": ""
+                    },
+                    "uuid": "ba89dc20-6a4b-4a6b-b569-1760eb01dfe7"
                 },
                 {
                     "format": "Sonic 3&K Object.js",

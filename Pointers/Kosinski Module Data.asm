@@ -159,6 +159,8 @@ ArtKosM_MonkeyBars:			binclude "Objects/Monkey Bars/KosinskiM Art/Monkey Bars.bi
 	even
 ArtKosM_Pylon:				binclude "Objects/Decoration/KosinskiM Art/Pylon.bin"
 	even
+ArtKosM_RideVine:			binclude "Objects/Ride Vine/KosinskiM Art/Ride Vine.bin"
+	even
 
 ; ===========================================================================
 ; Kosinski Module compressed CCZ graphics

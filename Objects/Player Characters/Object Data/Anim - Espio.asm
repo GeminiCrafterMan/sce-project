@@ -126,6 +126,13 @@ frE_MonkeyBars3:	ds.b 1
 frE_MonkeyBars4:	ds.b 1
 frE_MonkeyBars5:	ds.b 1
 frE_MonkeyBars6:	ds.b 1
+frE_MGZHang:		ds.b 1
+frE_Hang1:			ds.b 1
+frE_Hang2:			ds.b 1
+frE_Hang3:			ds.b 1
+frE_HangPush:		ds.b 1
+frE_Shimmy1:		ds.b 1
+frE_Shimmy2:		ds.b 1
 frE_Spindash1:		ds.b 1
 frE_Spindash2:		ds.b 1
 frE_Spindash3:		ds.b 1
@@ -134,13 +141,6 @@ frE_Spindash5:		ds.b 1
 frE_Spindash6:		ds.b 1
 frE_Hurt:			ds.b 1
 frE_Spring:			ds.b 1
-frE_MGZHang:		ds.b 1
-frE_Hang1:			ds.b 1
-frE_Hang2:			ds.b 1
-frE_Hang3:			ds.b 1
-frE_HangPush:		ds.b 1
-frE_Shimmy1:		ds.b 1
-frE_Shimmy2:		ds.b 1
 frE_Spin11:			ds.b 1
 frE_Spin12:			ds.b 1
 frE_Spin13:			ds.b 1

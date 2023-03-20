@@ -13,7 +13,7 @@ Obj_Index:
 		dc.l Obj_Spring							; $07
 		dc.l Obj_Spikes							; $08
 		dc.l Obj_CCZRotatingPlatform			; $09
-		dc.l DeleteObject						; $0A
+		dc.l Obj_TTPZRideVine					; $0A
 		dc.l DeleteObject						; $0B
 		dc.l Obj_TensionBridge					; $0C
 		dc.l Obj_Signpost						; $0D

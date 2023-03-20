@@ -74,7 +74,7 @@ Obj_Waterfall:
 
 Obj_Pylon:
 		move.l	#Map_Pylon,mappings(a0)
-		move.w	#make_art_tile(ArtTile_PurpleRock+16,0,0),art_tile(a0)
+		move.w	#make_art_tile(ArtTile_PurpleRock+12,0,0),art_tile(a0)
 		move.w	#bytes_to_word($60,$10),height_pixels(a0)
 		move.l	#.display,address(a0)
 
