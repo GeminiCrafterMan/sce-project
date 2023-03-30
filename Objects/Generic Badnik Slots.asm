@@ -9,10 +9,10 @@ Obj_BadnikSlot1:
 	rept 4
 		dc.l	Obj_Motobug		; GHZ
 	endr
-		dc.l	Obj_Motobug		; SSLZ1
+		dc.l	Obj_Snailer		; SSLZ1
 		dc.l	Obj_Burrobot	; SSLZ2
-		dc.l	Obj_Motobug		; SSLZ3
-		dc.l	Obj_Motobug		; SSLZ4
+		dc.l	Obj_Snailer		; SSLZ3
+		dc.l	Obj_Snailer		; SSLZ4
 	rept 4
 		dc.l	Obj_MechaBu		; TTPZ
 	endr

@@ -474,10 +474,6 @@ loc_7B7D6:
 		rts
 ; ---------------------------------------------------------------------------
 Obj_MechaSonic_AttemptBlock:
-; Originally a copy of Obj_MechaSonic_AnimateAndWait,
-; this is broken: It repeats the animation and fake-damages Mecha,
-; while the object that hurts you if you hit the back of his head
-; becomes killable. He also gets frozen in place and can rarely escape.
 ;		move.b	#$20,routine(a0)
 		tst.b	mapping_frame(a0)	; standing still?
 		beq.s	.cont

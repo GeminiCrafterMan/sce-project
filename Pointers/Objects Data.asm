@@ -67,6 +67,7 @@
 		include	"Objects/Swinging Platform/Swinging Platform.asm"
 
 	; SSLZ
+		include "Objects/Snailer/Snailer.asm"
 		include	"Objects/Burrobot/Burrobot.asm"
 		include	"Objects/Spiral/Spiral.asm"
 

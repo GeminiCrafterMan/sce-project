@@ -30,7 +30,7 @@ SonAni_Drown_ptr:		offsetTableEntry.w SonAni_Drown
 SonAni_Death_ptr:		offsetTableEntry.w SonAni_Death
 SonAni_Slide_ptr:		offsetTableEntry.w SonAni_Slide
 SonAni_Hurt_ptr:		offsetTableEntry.w SonAni_Hurt
-SonAni_Zapped_ptr:		offsetTableEntry.w SonAni_Zapped
+SonAni_Spiked_ptr:		offsetTableEntry.w SonAni_Spiked
 SonAni_Null_ptr:		offsetTableEntry.w SonAni_Null
 SonAni_Mach_ptr:		offsetTableEntry.w SonAni_Mach
 SonAni_Transform_ptr:	offsetTableEntry.w SonAni_Transform
@@ -77,7 +77,7 @@ SonAni_Drown:		dc.b  $20, frS_Drown, afEnd
 SonAni_Death:		dc.b    5, frS_Death3, frS_Death1, frS_Death2, frS_Death2, frS_Death2, frS_Death3, afBack, 1	; Originally 7, but Sonic falls way faster in these games.
 SonAni_Slide:		dc.b	9, frS_Slide1, frS_Slide2, afBack, 1
 SonAni_Hurt:		dc.b	9, frS_Hurt1, frS_Hurt2, afBack, 1
-SonAni_Zapped:		dc.b	3, frS_Zapped1, frS_Zapped2, afEnd
+SonAni_Spiked:		dc.b	9, frS_Spiked1, frS_Spiked2, afEnd
 SonAni_Null:		dc.b  $77,   frS_Null, afEnd
 SonAni_Mach:		dc.b  $FF, frS_Mach11,	frS_Mach12,	frS_Mach13,	frS_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 SonAni_Transform:	dc.b	2, frS_Transform1, frS_Transform1, frS_Transform2, frS_Transform2, frS_Transform3, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, afChange,   id_Walk
@@ -114,7 +114,7 @@ AniSuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Death
 		offsetTableEntry.w SonAni_Slide
 		offsetTableEntry.w SonAni_Hurt
-		offsetTableEntry.w SonAni_Zapped
+		offsetTableEntry.w SonAni_Spiked
 		offsetTableEntry.w SonAni_Null
 		offsetTableEntry.w SonAni_Mach
 		offsetTableEntry.w SonAni_Transform
@@ -160,7 +160,7 @@ id_Drown:			equ	(SonAni_Drown_ptr-AniSonic)/2
 id_Death:			equ	(SonAni_Death_ptr-AniSonic)/2
 id_Slide:			equ	(SonAni_Slide_ptr-AniSonic)/2
 id_Hurt:			equ	(SonAni_Hurt_ptr-AniSonic)/2
-id_Zapped:			equ	(SonAni_Zapped_ptr-AniSonic)/2
+id_Spiked:			equ	(SonAni_Spiked_ptr-AniSonic)/2
 id_Null:			equ	(SonAni_Null_ptr-AniSonic)/2
 id_Mach:			equ	(SonAni_Mach_ptr-AniSonic)/2
 id_Transform:		equ	(SonAni_Transform_ptr-AniSonic)/2
@@ -245,8 +245,8 @@ frS_Spindash5:		ds.b 1
 frS_Spindash6:		ds.b 1
 frS_Hurt1:			ds.b 1
 frS_Hurt2:			ds.b 1
-frS_Zapped1:		ds.b 1
-frS_Zapped2:		ds.b 1
+frS_Spiked1:		ds.b 1
+frS_Spiked2:		ds.b 1
 frS_Spring1:		ds.b 1
 frS_Spring2:		ds.b 1
 frS_Roll1:			ds.b 1

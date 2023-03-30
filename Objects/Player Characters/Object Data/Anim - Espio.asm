@@ -30,7 +30,7 @@ AniEspio:				offsetTable
 		offsetTableEntry.w EspAni_Death
 		offsetTableEntry.w EspAni_Slide
 		offsetTableEntry.w EspAni_Hurt
-		offsetTableEntry.w EspAni_Zapped
+		offsetTableEntry.w EspAni_Spiked
 		offsetTableEntry.w EspAni_Null
 		offsetTableEntry.w EspAni_Mach
 		offsetTableEntry.w EspAni_Transform
@@ -76,7 +76,7 @@ EspAni_Drown:		dc.b  $20, frE_Drown, afEnd
 EspAni_Death:		dc.b   $D, frE_Death1, frE_Death2, afBack, 1
 EspAni_Slide:		dc.b	9, frE_Slide1, frE_Slide2, afBack, 1
 EspAni_Hurt:		dc.b	9, frE_Hurt, afEnd
-EspAni_Zapped:		dc.b	9, frE_Hurt, afEnd
+EspAni_Spiked:		dc.b	9, frE_Hurt, afEnd
 EspAni_Null:		dc.b  $77,   frE_Null, afEnd
 EspAni_Mach:		dc.b  $FF, frE_Mach11,	frE_Mach12,	frE_Mach13,	frE_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 EspAni_Transform:	dc.b	2, frE_Transform1, frE_Transform1, frE_Transform2, frE_Transform2, frE_Transform3, frE_Transform4, frE_Transform5, frE_Transform4, frE_Transform5, frE_Transform4, frE_Transform5, frE_Transform4, frE_Transform5, afChange,   id_Walk

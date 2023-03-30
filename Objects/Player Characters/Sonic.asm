@@ -949,7 +949,7 @@ loc_11306:
 ; Player_SettleRight:
 		sub.w	d5,d0
 		bcc.s	+
-		moveq	#0,d0
+		move.w	#0,d0
 +
 		move.w	d0,ground_vel(a0)
 		bra.s	Player_Traction
@@ -958,7 +958,7 @@ loc_11306:
 Player_SettleLeft:
 		add.w	d5,d0
 		bcc.s	+
-		moveq	#0,d0
+		move.w	#0,d0
 +
 		move.w	d0,ground_vel(a0)
 

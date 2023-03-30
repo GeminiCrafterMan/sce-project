@@ -137,6 +137,8 @@ ArtKosM_GHZWaterfall:		binclude "Objects/Decoration/KosinskiM Art/GHZ waterfall.
 ; ===========================================================================
 
 ; Enemies
+ArtKosM_Snailer:			binclude "Objects/Snailer/KosinskiM Art/Snailer.bin"
+	even
 ArtKosM_Burrobot:			binclude "Objects/Burrobot/KosinskiM Art/Burrobot.bin"
 	even
 

@@ -114,7 +114,7 @@ PLC2_SSLZ_Enemy: plrlistheader
 		plreq ArtTile_Crabmeat, ArtKosM_Crabmeat		; Crabmeat
 		plreq ArtTile_BuzzBomber, ArtKosM_BuzzBomber		; Buzz Bomber
 		plreq ArtTile_Chopper, ArtKosM_Chopper			; Chopper
-		plreq ArtTile_Motobug, ArtKosM_Motobug			; Motobug
+		plreq ArtTile_Motobug, ArtKosM_Snailer			; Snailer
 PLC2_SSLZ_Enemy_end
 
 ; ===========================================================================

@@ -166,7 +166,7 @@ Obj_SpringShellSpring_Up:
 		bsr.s	.hitSpring
 
 .animate:
-		lea	Ani_Spring(pc),a1
+		lea	(Ani_Spring).l,a1
 		jsr	(Animate_Sprite).w
 		jmp	Child_Draw_Sprite
 	.del:
