@@ -1257,7 +1257,7 @@ loc_7B888:
 		jsr	(CreateChild6_Simple).l
 		sfx		sfx_MechaLand
 		move.b	#4,routine(a0)
-		st	(_unkFAA8).w
+		st	(Level_end_flag).w
 		bset	#5,objoff_38(a0)
 		bclr	#3,objoff_38(a0)
 		move.w	#$77,wait(a0)
@@ -1303,8 +1303,8 @@ locret_7D076:
 
 loc_7D078:
 ;		jsr	(Check_TailsEndPose).l
-		tst.b	(_unkFAA8).w
-		bne.w	locret_7B448	; mate there's a locret right there why are you-
+		tst.b	(Level_end_flag).w
+		bne.s	locret_7D076
 		jsr	(Restore_PlayerControl).l
 		lea	(Player_2).w,a1
 		jsr	(Restore_PlayerControl2).l

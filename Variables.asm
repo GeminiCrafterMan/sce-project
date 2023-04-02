@@ -525,7 +525,7 @@ _unkFAB2:			ds.w 1
 _unkFAB4:			ds.w 1	; seems to be the left side of the screen
 _unkFAB6:			ds.w 1	; seems to be the right side of the screen
 _unkFAB8:			ds.b 1
-_unkFAA8:			ds.b 1
+					ds.b 1	; even
 
 System_stack_size					ds.b $100				; ~$100 bytes ; this is the top of the stack, it grows downwards
 System_stack:						= *

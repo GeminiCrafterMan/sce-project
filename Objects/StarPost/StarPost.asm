@@ -200,6 +200,7 @@ sub_2D3C8:
 		moveq	#4-1,d1
 		moveq	#0,d2
 
+		bra.s	+	; temporarily disabling starpost ring
 -		jsr	(Create_New_Sprite).w
 		bne.s	+
 		move.l	address(a0),address(a1)

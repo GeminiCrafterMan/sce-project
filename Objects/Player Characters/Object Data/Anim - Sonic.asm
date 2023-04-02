@@ -323,7 +323,6 @@ frS_Fly1:			ds.b 1
 frS_Fly2:			ds.b 1
 frS_Fly3:			ds.b 1
 frS_Fly4:			ds.b 1
-frS_FlyArmless:		ds.b 1
 frS_Squash1:		ds.b 1
 frS_Squash2:		ds.b 1
 frS_Squash3:		ds.b 1

@@ -33,7 +33,7 @@ DLE_GHZ1:
 
 DLE_GHZ1main:
 .cont:
-		cmpi.w	#$5B00,(v_screenposx).w
+		cmpi.w	#$3D00,(v_screenposx).w
 		bcc.s	.cont2
 
 .ret:
@@ -47,18 +47,18 @@ DLE_GHZ1main:
 ; ===========================================================================
 
 DLE_GHZ1boss:
-		cmpi.w	#$4D60,(v_screenposx).w
+		cmpi.w	#$2F60,(v_screenposx).w
 		bcc.s	.cont
 		subq.b	#2,(Screen_event_routine).w
 
 .cont:
-		cmpi.w	#$6D60,(v_screenposx).w
+		cmpi.w	#$4F60,(v_screenposx).w
 		bcs.s	.ret
 		jsr		FindFreeObj
 		bne.s	.cont2
 		move.l	#Obj_MechaSonic,address(a1) ; load Mecha Sonic
 		st		(Boss_flag).w
-		move.w	#$6E60,obX(a1)
+		move.w	#$5060,obX(a1)
 		move.w	#$480,obY(a1)
 
 .cont2:

@@ -136,7 +136,7 @@ Obj_EndSignAfter:
 		clr.w	y_vel(a0)					; clear vertical velocity
 		out_of_xrange.s	loc_83988			; check for whether signpost goes out of range
 		out_of_yrange.s	loc_83988
-		rts
+		jmp	(Check_TailsEndPose).l
 ; ---------------------------------------------------------------------------
 
 loc_83988:

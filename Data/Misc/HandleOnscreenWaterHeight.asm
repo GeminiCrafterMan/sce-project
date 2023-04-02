@@ -95,8 +95,9 @@ LoadWaterPalette:
 ; ---------------------------------------------------------------------------
 
 StartingWaterHeights:
-	rept 4
-		dc.w $1000	; GHZ 1-4
+		dc.w $A00
+	rept 3
+		dc.w $1000	; NHZ, Act 3, GHZEX
 	endr
 		dc.w $1000	; SSLZ 1
 		dc.w $C80	; SSLZ 2

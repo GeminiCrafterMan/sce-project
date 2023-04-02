@@ -86,7 +86,7 @@ loc_8661E:
 ; ---------------------------------------------------------------------------
 
 loc_86626:
-		rts
+		bra.w	Check_TailsEndPose
 ; ---------------------------------------------------------------------------
 
 loc_8662A:
@@ -147,6 +147,7 @@ loc_866BA:
 ; ---------------------------------------------------------------------------
 
 loc_866CC:
+		bsr.w	Check_TailsEndPose
 		bra.s	loc_86698
 ; ---------------------------------------------------------------------------
 
@@ -175,6 +176,7 @@ loc_8670C:
 ; ---------------------------------------------------------------------------
 
 loc_86716:
+		bsr.w	Check_TailsEndPose
 		bra.s	loc_866F4
 ; ---------------------------------------------------------------------------
 
@@ -413,8 +415,32 @@ sub_868F8:
 
 locret_86930:
 		rts
+; End of function sub_868F8
+
 
 ; =============== S U B R O U T I N E =======================================
+
+
+Check_TailsEndPose:
+;		tst.b	(Level_end_flag).w
+;		beq.w	locret_86930
+		btst	#7,$38(a0)
+		bne.w	locret_86930
+		lea	(Player_2).w,a1
+		btst	#7,status(a1)
+		bne.w	locret_86930
+		btst	#Status_InAir,status(a1)
+		bne.w	locret_86930
+		cmpi.b	#id_SonicDeath,routine(a1)
+		bhs.w	locret_86930
+		bset	#7,$38(a0)
+		clr.b	(Ctrl_2_locked).w
+		jmp	Set_PlayerEndingPose
+; End of function Check_TailsEndPose
+
+
+; =============== S U B R O U T I N E =======================================
+
 
 sub_86984:
 		subq.w	#1,$2E(a0)
