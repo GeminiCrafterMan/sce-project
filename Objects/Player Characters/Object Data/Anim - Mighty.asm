@@ -58,12 +58,12 @@ MtyAni_Wait:		dc.b	5, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM
 		dc.b frM_Idle4, frM_Idle4, frM_Idle4, frM_Idle4, frM_Idle3, frM_Idle3, frM_Idle3, frM_Idle3, frM_Idle4, frM_Idle4, frM_Idle4, frM_Idle4, frM_Idle3, frM_Idle3, frM_Idle3, frM_Idle3
 		dc.b frM_Idle5, frM_Idle6, frM_Idle6, frM_Idle6, frM_Idle6, frM_Idle7, frM_Idle7, frM_Idle7, frM_Idle7, frM_Idle6, frM_Idle6, frM_Idle6, frM_Idle6, frM_Idle7, frM_Idle7, frM_Idle7
 		dc.b frM_Idle7, frM_Idle6, frM_Idle6, frM_Idle6, frM_Idle6, frM_Idle6, frM_Idle5, frM_Idle8, frM_Idle9, frM_IdleA, frM_IdleA, frM_IdleA, frM_IdleA, frM_IdleA, frM_IdleB, afEnd
-MtyAni_Balance:		dc.b	7, frM_Balance21, frM_Balance22, frM_Balance23, afEnd
+MtyAni_Balance:		dc.b	7, frM_Balance21, frM_Balance22, frM_Balance23, frM_Balance22, afEnd
 MtyAni_LookUp:		dc.b	5, frM_LookUp1, frM_LookUp2, afBack, 1
 MtyAni_Duck:		dc.b	5, frM_Duck1, frM_Duck2, afBack, 1
 MtyAni_Spindash:	dc.b	0, frM_Spindash1, frM_Spindash2, frM_Spindash1, frM_Spindash3, frM_Spindash1, frM_Spindash4, frM_Spindash1, frM_Spindash5, frM_Spindash1,	frM_Spindash6, afEnd
 MtyAni_MGZHang:		dc.b   $F, frM_MGZHang, afEnd
-MtyAni_Balance2:	dc.b	5, frM_Balance11, frM_Balance12, frM_Balance13, afEnd
+MtyAni_Balance2:	dc.b	7, frM_Balance11, frM_Balance12, frM_Balance13, frM_Balance14, afEnd
 MtyAni_Stop:		dc.b	3, frM_Skid1, frM_Skid2, frM_Skid3, frM_SkidT, afChange, id_Walk
 MtyAni_Float1:		dc.b	7, frM_Float1, afEnd
 MtyAni_Float2:		dc.b	7, frM_Float1, frM_Float2, frM_Float3, frM_Float4, frM_Float5, frM_Float6, frM_Float7, frM_Float8, afEnd
@@ -160,6 +160,7 @@ frM_SkidT:				ds.b 1
 frM_Balance11:			ds.b 1
 frM_Balance12:			ds.b 1
 frM_Balance13:			ds.b 1
+frM_Balance14:			ds.b 1
 frM_Balance21:			ds.b 1
 frM_Balance22:			ds.b 1
 frM_Balance23:			ds.b 1
@@ -227,6 +228,16 @@ frM_Squash2:			ds.b 1
 frM_Squash3:			ds.b 1
 frM_Squash4:			ds.b 1
 frM_Squash5:			ds.b 1
+frM_WallCling1:			ds.b 1
+frM_WallCling2:			ds.b 1
+frM_HammerDropStart1:	ds.b 1
+frM_HammerDropStart2:	ds.b 1
+frM_HammerDropStart3:	ds.b 1
+frM_HammerDropStart4:	ds.b 1
+frM_HammerDrop1:		ds.b 1
+frM_HammerDrop2:		ds.b 1
+frM_HammerDrop3:		ds.b 1
+frM_HammerDrop4:		ds.b 1
 frM_Last:				ds.b 0
 	even
 	dephase
