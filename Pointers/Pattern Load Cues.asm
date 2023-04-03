@@ -38,10 +38,10 @@ Offs_PLC: offsetTable
 		offsetTableEntry.w PLC1_MMZ_Misc
 		offsetTableEntry.w PLC2_MMZ_Enemy
 	endr
-	; Death Egg Zone
+	; Secret stages
 	rept 4
-		offsetTableEntry.w PLC1_DEZ_Misc
-		offsetTableEntry.w PLC2_DEZ_Enemy
+		offsetTableEntry.w PLC1_SS_Misc
+		offsetTableEntry.w PLC2_SS_Enemy
 	endr
 	; Techno Test Zone
 	rept 4
@@ -178,18 +178,18 @@ PLC2_MMZ_Enemy_end
 ; Pattern load cues - Death Egg (Misc)
 ; ===========================================================================
 
-PLC1_DEZ_Misc: plrlistheader
+PLC1_SS_Misc: plrlistheader
 		plreq ArtTile_Bubbles, ArtKosM_Bubbles
-PLC1_DEZ_Misc_end
+PLC1_SS_Misc_end
 
 ; ===========================================================================
 ; Pattern load cues - Death Egg (Enemy)
 ; ===========================================================================
 
-PLC2_DEZ_Enemy: plrlistheader
+PLC2_SS_Enemy: plrlistheader
 		plreq $100, ArtKosM_Spikebonker					; Spikebonker badnik
 		plreq $438, ArtKosM_BataPyon
-PLC2_DEZ_Enemy_end
+PLC2_SS_Enemy_end
 
 ; ===========================================================================
 ; Pattern load cues - Techno Test (Misc)

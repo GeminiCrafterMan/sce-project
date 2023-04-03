@@ -60,15 +60,6 @@ ArtUnc_AniMMZ__2:			binclude "Levels/MMZ/Animated Tiles/Uncompressed Art/2.bin"
 	even
 ArtUnc_AniMMZ__3:			binclude "Levels/MMZ/Animated Tiles/Uncompressed Art/3.bin"
 	even
-; Death Egg
-ArtUnc_AniDEZ__3:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/3.bin"
-	even
-ArtUnc_AniDEZ__4:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/4.bin"
-	even
-ArtUnc_AniDEZ__5:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/5.bin"
-	even
-ArtUnc_AniDEZ__6:			binclude "Levels/DEZ/Animated Tiles/Uncompressed Art/6.bin"
-	even
 
 ; ===========================================================================
 ; Animated screen elements

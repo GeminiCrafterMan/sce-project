@@ -8,13 +8,13 @@ LevelSelect_VRAM:				= 480
 
 ; Variables
 LevelSelect_ZoneCount:			= ZoneCount
-LevelSelect_ActIntroCount:			= 4	; Intro Stages
-LevelSelect_ActSSLZCount:			= 3	; Seaside Land Zone
-LevelSelect_ActTTPZCount:			= 2	; Tree Top Zone
-LevelSelect_ActCCZCount:			= 1 ; Clockwork Castle Zone
-LevelSelect_ActMMZCount:			= 1 ; Mecha Mushroom Zone
-LevelSelect_ActDEZCount:			= 4	; Death Egg Zone
-LevelSelect_ActTTSZCount:			= 4	; Techno Test Zone
+LevelSelect_ActIntroCount:		= 4	; Intro Stages
+LevelSelect_ActSSLZCount:		= 3	; Seaside Land Zone
+LevelSelect_ActTTPZCount:		= 2	; Tree Top Zone
+LevelSelect_ActCCZCount:		= 1 ; Clockwork Castle Zone
+LevelSelect_ActMMZCount:		= 1 ; Mecha Mushroom Zone
+LevelSelect_ActSSCount:			= 4	; Secret Stages
+LevelSelect_ActTTSZCount:		= 4	; Techno Test Zone
 LevelSelect_MusicTestCount:		= 8
 LevelSelect_SoundTestCount:		= LevelSelect_MusicTestCount+1
 LevelSelect_SampleTestCount:		= LevelSelect_SoundTestCount+1
@@ -161,7 +161,7 @@ LevelSelect_LoadMaxActs:
 		dc.w LevelSelect_ActTTPZCount-1	; TTPZ
 		dc.w LevelSelect_ActCCZCount-1	; CCZ
 		dc.w LevelSelect_ActMMZCount-1	; MMZ
-		dc.w LevelSelect_ActDEZCount-1	; DEZ
+		dc.w LevelSelect_ActSSCount-1	; SS
 		dc.w LevelSelect_ActTTSZCount-1	; TTSZ
 
 		zonewarning LevelSelect_LoadMaxActs,2
@@ -631,7 +631,7 @@ LevelSelect_Text:
 		levselstr " TREE TOP           - ACT 1             "
 		levselstr " CLOCKWORK CASTLE   - ACT 1             "
 		levselstr " MECHA MUSHROOM     - ACT 1             "
-		levselstr " DEATH EGG          - ACT 1             "
+		levselstr " SECRET STAGES      - ACT 1             "
 		levselstr " TECHNO TEST        - ACT 1             "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
 		levselstr " MUSIC TEST:        - 000               "

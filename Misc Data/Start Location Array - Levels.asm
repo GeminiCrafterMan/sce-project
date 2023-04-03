@@ -29,10 +29,10 @@ StartLocArray:
 		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 3
 		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 4
 
-		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 1
-		binclude "Levels/DEZ/Start Location/2.bin"	; DEZ 2
-		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 3
-		binclude "Levels/DEZ/Start Location/1.bin"	; DEZ 4
+		binclude "Levels/Secret Stages/Start Location/1.bin"	; SS 1
+		binclude "Levels/Secret Stages/Start Location/2.bin"	; SS 2
+		binclude "Levels/Secret Stages/Start Location/3.bin"	; SS 3
+		binclude "Levels/Secret Stages/Start Location/4.bin"	; SS 4
 
 		binclude "Levels/TTSZ/Start Location/1.bin"	; TTSZ 1
 		binclude "Levels/TTSZ/Start Location/2.bin"	; TTSZ 2

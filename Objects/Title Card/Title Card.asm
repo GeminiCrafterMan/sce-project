@@ -290,31 +290,24 @@ TitleCard_LevelGfx:
 		dc.l ArtKosM_NHZTitleCard	; Techno Tower / Newtrogic High
 		dc.l ArtKosM_GHZTitleCard	; ???
 		dc.l ArtKosM_GHZTitleCard	; GHZ EX
+	rept 4
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
-		dc.l ArtKosM_SSLZTitleCard	; SSLZ
-		dc.l ArtKosM_SSLZTitleCard	; SSLZ
-		dc.l ArtKosM_SSLZTitleCard	; SSLZ
+	endr
+	rept 4
 		dc.l ArtKosM_TTPZTitleCard	; TTPZ
-		dc.l ArtKosM_TTPZTitleCard	; TTPZ
-		dc.l ArtKosM_TTPZTitleCard	; TTPZ
-		dc.l ArtKosM_TTPZTitleCard	; TTPZ
+	endr
+	rept 4
 		dc.l ArtKosM_CCZTitleCard	; CCZ
-		dc.l ArtKosM_CCZTitleCard	; CCZ
-		dc.l ArtKosM_CCZTitleCard	; CCZ
-		dc.l ArtKosM_CCZTitleCard	; CCZ
+	endr
+	rept 4
 		dc.l ArtKosM_MMZTitleCard	; MMZ
-		dc.l ArtKosM_MMZTitleCard	; MMZ
-		dc.l ArtKosM_MMZTitleCard	; MMZ
-		dc.l ArtKosM_MMZTitleCard	; MMZ
-		dc.l ArtKosM_DEZTitleCard	; DEZ
-		dc.l ArtKosM_DEZTitleCard	; DEZ
-		dc.l ArtKosM_DEZTitleCard	; DEZ
-		dc.l ArtKosM_DEZTitleCard	; DEZ
+	endr
+	rept 4
+		dc.l ArtKosM_SSTitleCard	; SS
+	endr
+	rept 4
 		dc.l ArtKosM_TTSZTitleCard	; TTSZ
-		dc.l ArtKosM_TTSZTitleCard	; TTSZ
-		dc.l ArtKosM_TTSZTitleCard	; TTSZ
-		dc.l ArtKosM_TTSZTitleCard	; TTSZ
-
+	endr
 		zonewarning TitleCard_LevelGfx,(4*4)
 ; ---------------------------------------------------------------------------
 ; Not using .bin because actual labels.

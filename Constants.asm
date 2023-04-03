@@ -125,7 +125,7 @@ z_SSLZ:	ds.b 1
 z_TTPZ:	ds.b 1
 z_CCZ:	ds.b 1
 z_MMZ:	ds.b 1
-z_DEZ:	ds.b 1
+z_SS:	ds.b 1
 z_Last:				= *
 z_TTSZ:	ds.b 1
 	dephase

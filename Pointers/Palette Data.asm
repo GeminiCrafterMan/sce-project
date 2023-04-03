@@ -35,7 +35,11 @@ Pal_CCZ:			binclude "Levels/CCZ/Palettes/Clockwork Castle Zone.bin"
 	even
 Pal_MMZ:			binclude "Levels/MMZ/Palettes/Mecha Mushroom Zone.bin"
 	even
-Pal_DEZ:			binclude "Levels/DEZ/Palettes/Death Egg Zone.bin"
+Pal_SS12:			binclude "Levels/Secret Stages/Palettes/Secret Stages 1 & 2.bin"
+	even
+Pal_SS34:			binclude "Levels/Secret Stages/Palettes/Secret Stages 3 & 4.bin"
+	even
+Pal_SS56:			binclude "Levels/Secret Stages/Palettes/Secret Stages 5 & 6.bin"
 	even
 Pal_TTSZ:			binclude "Levels/TTSZ/Palettes/Techno Test Zone.bin"
 	even
@@ -44,10 +48,6 @@ Pal_TTSZ:			binclude "Levels/TTSZ/Palettes/Techno Test Zone.bin"
 ; Dynamic palettes
 ; ===========================================================================
 
-AnPal_PalDEZ12_1:	binclude "Levels/DEZ/Palettes/Animate/1.bin"
-	even
-AnPal_PalDEZ12_2:	binclude "Levels/DEZ/Palettes/Animate/2.bin"
-	even
 
 ; ===========================================================================
 ; Boss palettes

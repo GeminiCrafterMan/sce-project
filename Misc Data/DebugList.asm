@@ -4,40 +4,33 @@
 
 DebugList: offsetTable
 	; Intro Stages
+	rept 4
 		offsetTableEntry.w .GHZ1
-		offsetTableEntry.w .GHZ1
-		offsetTableEntry.w .GHZ1
-		offsetTableEntry.w .GHZ1
+	endr
 	; Seaside Land
+	rept 4
 		offsetTableEntry.w .SSLZ1
-		offsetTableEntry.w .SSLZ1
-		offsetTableEntry.w .SSLZ1
-		offsetTableEntry.w .SSLZ1
+	endr
 	; Tree Top
+	rept 4
 		offsetTableEntry.w .TTPZ1
-		offsetTableEntry.w .TTPZ1
-		offsetTableEntry.w .TTPZ1
-		offsetTableEntry.w .TTPZ1
+	endr
 	; Clockwork Castle
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
+	rept 4
+		offsetTableEntry.w .Default
+	endr
 	; Mecha Mushroom
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
-	; Death Egg
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
+	rept 4
+		offsetTableEntry.w .Default
+	endr
+	; Secret stages
+	rept 4
+		offsetTableEntry.w .SS1
+	endr
 	; Techno Test
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
-		offsetTableEntry.w .DEZ1
+	rept 4
+		offsetTableEntry.w .Default
+	endr
 
 		zonewarning DebugList,(2*4)
 ; ---------------------------------------------------------------------------
@@ -150,7 +143,7 @@ DebugList: offsetTable
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
 .TTPZ1_End
 
-.DEZ1: dbglistheader
+.SS1: dbglistheader
 	dbglistobj Obj_Ring, Map_Ring, 0, 0, make_art_tile(ArtTile_Ring,1,1)
 	dbglistobj Obj_Coin, Map_Ring, 0, 0, make_art_tile(ArtTile_Coin,1,1)
 	dbglistobj Obj_Monitor, Map_Monitor, 1, 2, make_art_tile(ArtTile_Monitors,0,0)
@@ -182,4 +175,36 @@ DebugList: offsetTable
 	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
 	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
-.DEZ1_End
+.SS1_End
+
+.Default: dbglistheader
+	dbglistobj Obj_Ring, Map_Ring, 0, 0, make_art_tile(ArtTile_Ring,1,1)
+	dbglistobj Obj_Coin, Map_Ring, 0, 0, make_art_tile(ArtTile_Coin,1,1)
+	dbglistobj Obj_Monitor, Map_Monitor, 1, 2, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_Monitor, Map_Monitor, 2, 3, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_Monitor, Map_Monitor, 3, 4, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_Monitor, Map_Monitor, 4, 5, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_Monitor, Map_Monitor, 5, 6, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_Monitor, Map_Monitor, 6, 7, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_Monitor, Map_Monitor, 7, 8, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_Monitor, Map_Monitor, 8, 9, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_Monitor, Map_Monitor, 9, 10, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_Monitor, Map_Monitor, 10, 11, make_art_tile(ArtTile_Monitors,0,0)
+	dbglistobj Obj_PathSwap, Map_PathSwap, 9, 1, make_art_tile(ArtTile_Ring,1,0)
+	dbglistobj Obj_PathSwap, Map_PathSwap, $D, 5, make_art_tile(ArtTile_Ring,1,0)
+	dbglistobj Obj_Spring, Map_RedSpring, 0, 0, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spring, Map_YellowSpring, 2, 0, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spring, Map_RedSpring, $10, 3, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spring, Map_YellowSpring, $12, 3, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spring, Map_RedSpring, $20, 6, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spring, Map_YellowSpring, $22, 6, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spring, Map_RedSpring, $30, 7, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spring, Map_YellowSpring, $32, 7, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spring, Map_RedSpring, $40, $A, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spring, Map_YellowSpring, $42, $A, make_art_tile(ArtTile_Spring,0,0)
+	dbglistobj Obj_Spikes, Map_Spikes, 0, 0, make_art_tile(ArtTile_Spikes,0,0)
+	dbglistobj Obj_Spikes, Map_Spikes, $40, 4, make_art_tile(ArtTile_Spikes,0,0)
+	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
+	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
+	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
+.Default_End

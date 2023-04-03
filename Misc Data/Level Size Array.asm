@@ -29,10 +29,10 @@ LevelSizes:
 		dc.w 0, $4300, 0, $AA0				; MMZ 3
 		dc.w 0, $4300, 0, $AA0				; MMZ 4
 
-		dc.w 0, $A20, 0, $4A0				; DEZ 1
-		dc.w 0, $1000, $C8, $C8				; DEZ 2
-		dc.w 0, $A20, 0, $4A0				; DEZ 3
-		dc.w 0, $A20, 0, $4A0				; DEZ 4
+		dc.w 0, $3FFF, 0, $800				; SS 1
+		dc.w 0, $3FFF, 0, $800				; SS 2
+		dc.w 0, $3FFF, 0, $800				; SS 3
+		dc.w 0, $3FFF, 0, $800				; SS 4
 
 		dc.w 0, $3FFF, 0, $800				; TTSZ 1
 		dc.w 0, $19BF, 0, $530				; TTSZ 2

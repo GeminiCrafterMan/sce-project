@@ -24,10 +24,10 @@ LevelLoadBlock:
 		levartptrs MMZ_8x8_KosM, MMZ_16x16_Unc, MMZ_128x128_Kos, palid_MMZ			; MMZ2
 		levartptrs MMZ_8x8_KosM, MMZ_16x16_Unc, MMZ_128x128_Kos, palid_MMZ			; MMZ3
 		levartptrs MMZ_8x8_KosM, MMZ_16x16_Unc, MMZ_128x128_Kos, palid_MMZ			; MMZ4
-		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ			; DEZ1
-		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ			; DEZ2
-		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ			; DEZ3
-		levartptrs DEZ_8x8_KosM, DEZ_16x16_Unc, DEZ_128x128_Kos, palid_DEZ			; DEZ4
+		levartptrs SS_8x8_KosM, SS_16x16_Unc, SS_128x128_Kos, palid_SS12			; SS1
+		levartptrs SS_8x8_KosM, SS_16x16_Unc, SS_128x128_Kos, palid_SS12			; SS2
+		levartptrs SS_8x8_KosM, SS_16x16_Unc, SS_128x128_Kos, palid_SS34			; SS3
+		levartptrs SS_8x8_KosM, SS_16x16_Unc, SS_128x128_Kos, palid_SS34			; SS4
 		levartptrs TTSZ_8x8_KosM, TTSZ_16x16_Unc, TTSZ_128x128_Kos, palid_TTSZ		; TTSZ1
 		levartptrs TTSZ_8x8_KosM, TTSZ_16x16_Unc, TTSZ2_128x128_Kos, palid_TTSZ		; TTSZ2
 		levartptrs TTSZ_8x8_KosM, TTSZ_16x16_Unc, TTSZ2_128x128_Kos, palid_TTSZ		; TTSZ3
@@ -105,21 +105,11 @@ LevelLoadPointer:
 		dc.l AnimateTiles_MMZ, AniPLC_MMZ
 	endr
 
-; DEZ1
-		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
-
-; DEZ2
-		dc.l AnPal_DEZ, DLE_DEZ2, LevelPointer_Null, LevelPointer_Null
-		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
-
-; DEZ3-4
-	rept 2
-		dc.l AnPal_DEZ, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
-		dc.l DEZ1_ScreenInit, DEZ1_BackgroundInit, DEZ1_ScreenEvent, DEZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_DEZ
+; SS1-4
+	rept 4
+		dc.l LevelPointer_Null, LevelPointer_Null, LevelPointer_Null, LevelPointer_Null
+		dc.l SS1_ScreenInit, SS1_BackgroundInit, SS1_ScreenEvent, SS1_BackgroundEvent
+		dc.l LevelPointer_Null, LevelPointer_Null
 	endr
 
 ; TTSZ1
@@ -169,10 +159,10 @@ SolidIndexes:
 		dc.l MMZ1_Solid		; MMZ2
 		dc.l MMZ1_Solid		; MMZ3
 		dc.l MMZ1_Solid		; MMZ4
-		dc.l DEZ1_Solid		; DEZ1
-		dc.l DEZ1_Solid		; DEZ2
-		dc.l DEZ1_Solid		; DEZ3
-		dc.l DEZ1_Solid		; DEZ4
+		dc.l SS1_Solid		; SS1
+		dc.l SS1_Solid		; SS2
+		dc.l SS1_Solid		; SS3
+		dc.l SS1_Solid		; SS4
 		dc.l TTSZ1_Solid		; TTSZ1
 		dc.l TTSZ1_Solid		; TTSZ2
 		dc.l TTSZ1_Solid		; TTSZ3
@@ -205,10 +195,10 @@ LevelPtrs:
 		dc.l MMZ1_Layout		; MMZ2
 		dc.l MMZ1_Layout		; MMZ3
 		dc.l MMZ1_Layout		; MMZ4
-		dc.l DEZ1_Layout		; DEZ1
-		dc.l DEZ2_Layout		; DEZ2
-		dc.l DEZ1_Layout		; DEZ3
-		dc.l DEZ1_Layout		; DEZ4
+		dc.l SS1_Layout			; SS1
+		dc.l SS2_Layout			; SS2
+		dc.l SS3_Layout			; SS3
+		dc.l SS4_Layout			; SS4
 		dc.l TTSZ1_Layout		; TTSZ1
 		dc.l TTSZ2_Layout		; TTSZ2
 		dc.l TTSZ3_Layout		; TTSZ3
@@ -241,10 +231,10 @@ SpriteLocPtrs:
 		dc.l MMZ1_Sprites		; MMZ2
 		dc.l MMZ1_Sprites		; MMZ3
 		dc.l MMZ1_Sprites		; MMZ4
-		dc.l DEZ1_Sprites		; DEZ1
-		dc.l DEZ2_Sprites		; DEZ2
-		dc.l DEZ1_Sprites		; DEZ3
-		dc.l DEZ1_Sprites		; DEZ4
+		dc.l SS1_Sprites		; SS1
+		dc.l SS2_Sprites		; SS2
+		dc.l SS3_Sprites		; SS3
+		dc.l SS4_Sprites		; SS4
 		dc.l TTSZ1_Sprites		; TTSZ1
 		dc.l TTSZ2_Sprites		; TTSZ2
 		dc.l TTSZ3_Sprites		; TTSZ3
@@ -269,18 +259,18 @@ RingLocPtrs:
 		dc.l TTPZ2_Rings		; TTPZ2
 		dc.l TTPZ1_Rings		; TTPZ3
 		dc.l TTPZ1_Rings		; TTPZ4
-		dc.l CCZ1_Rings		; CCZ1
-		dc.l CCZ1_Rings		; CCZ2
-		dc.l CCZ1_Rings		; CCZ3
-		dc.l CCZ1_Rings		; CCZ4
-		dc.l MMZ1_Rings		; MMZ1
-		dc.l MMZ1_Rings		; MMZ2
-		dc.l MMZ1_Rings		; MMZ3
-		dc.l MMZ1_Rings		; MMZ4
-		dc.l DEZ1_Rings		; DEZ1
-		dc.l DEZ2_Rings		; DEZ2
-		dc.l DEZ1_Rings		; DEZ3
-		dc.l DEZ1_Rings		; DEZ4
+		dc.l CCZ1_Rings			; CCZ1
+		dc.l CCZ1_Rings			; CCZ2
+		dc.l CCZ1_Rings			; CCZ3
+		dc.l CCZ1_Rings			; CCZ4
+		dc.l MMZ1_Rings			; MMZ1
+		dc.l MMZ1_Rings			; MMZ2
+		dc.l MMZ1_Rings			; MMZ3
+		dc.l MMZ1_Rings			; MMZ4
+		dc.l SS1_Rings			; SS1
+		dc.l SS2_Rings			; SS2
+		dc.l SS3_Rings			; SS3
+		dc.l SS4_Rings			; SS4
 		dc.l TTSZ1_Rings		; TTSZ1
 		dc.l TTSZ2_Rings		; TTSZ2
 		dc.l TTSZ3_Rings		; TTSZ3
@@ -352,11 +342,11 @@ MMZ_16x16_Unc:		binclude "Levels/MMZ/Blocks/Primary.bin"
 MMZ_128x128_Kos:	binclude "Levels/MMZ/Chunks/Primary.bin"
 	even
 
-DEZ_8x8_KosM:		binclude "Levels/DEZ/Tiles/Primary.bin"
+SS_8x8_KosM:		binclude "Levels/Secret Stages/Tiles/Primary.bin"
 	even
-DEZ_16x16_Unc:		binclude "Levels/DEZ/Blocks/Primary.bin"
+SS_16x16_Unc:		binclude "Levels/Secret Stages/Blocks/Primary.bin"
 	even
-DEZ_128x128_Kos:	binclude "Levels/DEZ/Chunks/Primary.bin"
+SS_128x128_Kos:		binclude "Levels/Secret Stages/Chunks/Primary.bin"
 	even
 
 TTSZ_8x8_KosM:		binclude "Levels/TTSZ/Tiles/Primary.bin"
@@ -413,7 +403,7 @@ CCZ1_Solid:			binclude "Levels/CCZ/Collision/1.bin"
 	even
 MMZ1_Solid:			binclude "Levels/MMZ/Collision/1.bin"
 	even
-DEZ1_Solid:			binclude "Levels/DEZ/Collision/1.bin"
+SS1_Solid:			binclude "Levels/Secret Stages/Collision/1.bin"
 	even
 TTSZ1_Solid:			binclude "Levels/TTSZ/Collision/1.bin"
 	even
@@ -442,9 +432,13 @@ CCZ1_Layout:		binclude "Levels/CCZ/Layout/1.bin"
 	even
 MMZ1_Layout:		binclude "Levels/MMZ/Layout/1.bin"
 	even
-DEZ1_Layout:		binclude "Levels/DEZ/Layout/1.bin"
+SS1_Layout:			binclude "Levels/Secret Stages/Layout/1.bin"
 	even
-DEZ2_Layout:		binclude "Levels/DEZ/Layout/2.bin"
+SS2_Layout:			binclude "Levels/Secret Stages/Layout/2.bin"
+	even
+SS3_Layout:			binclude "Levels/Secret Stages/Layout/3.bin"
+	even
+SS4_Layout:			binclude "Levels/Secret Stages/Layout/4.bin"
 	even
 TTSZ1_Layout:		binclude "Levels/TTSZ/Layout/1.bin"
 	even
@@ -480,9 +474,13 @@ CCZ1_Sprites:		binclude "Levels/CCZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 MMZ1_Sprites:		binclude "Levels/MMZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
-DEZ1_Sprites:		binclude "Levels/DEZ/Object Pos/1.bin"
+SS1_Sprites:		binclude "Levels/Secret Stages/Object Pos/1.bin"
 	ObjectLayoutBoundary
-DEZ2_Sprites:		binclude "Levels/DEZ/Object Pos/2.bin"
+SS2_Sprites:		binclude "Levels/Secret Stages/Object Pos/2.bin"
+	ObjectLayoutBoundary
+SS3_Sprites:		binclude "Levels/Secret Stages/Object Pos/3.bin"
+	ObjectLayoutBoundary
+SS4_Sprites:		binclude "Levels/Secret Stages/Object Pos/4.bin"
 	ObjectLayoutBoundary
 TTSZ1_Sprites:		binclude "Levels/TTSZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
@@ -519,9 +517,13 @@ CCZ1_Rings:			binclude "Levels/CCZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 MMZ1_Rings:			binclude "Levels/MMZ/Ring Pos/1.bin"
 	RingLayoutBoundary
-DEZ1_Rings:			binclude "Levels/DEZ/Ring Pos/1.bin"
+SS1_Rings:			binclude "Levels/Secret Stages/Ring Pos/1.bin"
 	RingLayoutBoundary
-DEZ2_Rings:			binclude "Levels/DEZ/Ring Pos/2.bin"
+SS2_Rings:			binclude "Levels/Secret Stages/Ring Pos/2.bin"
+	RingLayoutBoundary
+SS3_Rings:			binclude "Levels/Secret Stages/Ring Pos/3.bin"
+	RingLayoutBoundary
+SS4_Rings:			binclude "Levels/Secret Stages/Ring Pos/4.bin"
 	RingLayoutBoundary
 TTSZ1_Rings:			binclude "Levels/TTSZ/Ring Pos/1.bin"
 	RingLayoutBoundary

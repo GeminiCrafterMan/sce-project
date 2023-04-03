@@ -21,7 +21,9 @@ ptr_Pal_TTPZ1:			palp	Pal_TTPZ1, Normal_palette_line_2, 48
 ptr_Pal_TTPZ2:			palp	Pal_TTPZ2, Normal_palette_line_2, 48
 ptr_Pal_CCZ:			palp	Pal_CCZ, Normal_palette_line_2, 48
 ptr_Pal_MMZ:			palp	Pal_MMZ, Normal_palette_line_2, 48
-ptr_Pal_DEZ:			palp	Pal_DEZ, Normal_palette_line_2, 48
+ptr_Pal_SS12:			palp	Pal_SS12, Normal_palette_line_2, 48
+ptr_Pal_SS34:			palp	Pal_SS34, Normal_palette_line_2, 48
+ptr_Pal_SS56:			palp	Pal_SS56, Normal_palette_line_2, 48
 ptr_Pal_TTSZ:			palp	Pal_TTSZ, Normal_palette_line_2, 48
 ; ---------------------------------------------------------------------------
 
@@ -42,5 +44,7 @@ palid_TTPZ1:			equ (ptr_Pal_TTPZ1-PalPointers)/8
 palid_TTPZ2:			equ (ptr_Pal_TTPZ2-PalPointers)/8
 palid_CCZ:				equ (ptr_Pal_CCZ-PalPointers)/8
 palid_MMZ:				equ (ptr_Pal_MMZ-PalPointers)/8
-palid_DEZ:				equ (ptr_Pal_DEZ-PalPointers)/8
+palid_SS12:				equ (ptr_Pal_SS12-PalPointers)/8
+palid_SS34:				equ (ptr_Pal_SS34-PalPointers)/8
+palid_SS56:				equ (ptr_Pal_SS56-PalPointers)/8
 palid_TTSZ:				equ (ptr_Pal_TTSZ-PalPointers)/8

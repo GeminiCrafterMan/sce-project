@@ -87,7 +87,7 @@ ArtKosM_CCZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/CCZ - T
 	even
 ArtKosM_MMZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/MMZ - Title Card.bin"
 	even
-ArtKosM_DEZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/DEZ - Title Card.bin"
+ArtKosM_SSTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/SS - Title Card.bin"
 	even
 ArtKosM_TTSZTitleCard:		binclude "Objects/Title Card/KosinskiM Art/Levels/TTSZ - Title Card.bin"
 	even
@@ -188,7 +188,7 @@ ArtKosM_RotatingPlatform:	binclude "Objects/Rotating Platform/KosinskiM Art/Rota
 
 
 ; ===========================================================================
-; Kosinski Module compressed DEZ graphics
+; Kosinski Module compressed SS graphics
 ; ===========================================================================
 
 ; Enemies

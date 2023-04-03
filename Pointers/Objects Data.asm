@@ -52,10 +52,6 @@
 ; Levels objects data
 ; ===========================================================================
 
-	; DEZ
-		include "Objects/Spikebonker/Spikebonker.asm"
-		include "Objects/Bata-pyon/Bata-pyon.asm"
-
 	; GHZ
 		include "Objects/Buzz Bomber/Buzz Bomber.asm"
 		include "Objects/Chopper/Chopper.asm"
@@ -81,6 +77,10 @@
 
 	; CCZ
 		include	"Objects/Rotating Platform/Rotating Platform.asm"
+
+	; Secret Stages
+		include "Objects/Spikebonker/Spikebonker.asm"
+		include "Objects/Bata-pyon/Bata-pyon.asm"
 
 ; ===========================================================================
 ; Bosses objects data

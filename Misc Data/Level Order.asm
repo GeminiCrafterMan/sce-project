@@ -33,11 +33,10 @@ LevelOrder:
 		dc.b 0, 0		; Act 3
 		dc.b 0, 0		; Act 4
 
-; Test Levels
-	; Death Egg Zone
-		dc.b z_DEZ, 1	; Act 1
-		dc.b z_DEZ, 2	; Act 2
-		dc.b z_DEZ, 3	; Act 3
+	; Secret Stages
+		dc.b z_SS, 1	; Act 1
+		dc.b z_SS, 2	; Act 2
+		dc.b z_SS, 3	; Act 3
 		dc.b z_TTSZ, 0	; Act 4
 
 	; Techno Test Zone
