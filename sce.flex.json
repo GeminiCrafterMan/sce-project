@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
+    "node": "002ae1d3-6fe4-43d6-9b48-70a7f363566a",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -105,7 +105,7 @@
                     "name": "Super Sonic",
                     "palettes": [
                         {
-                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                            "path": "Objects/Player Characters/Palettes/SuperSonic.bin",
                             "length": 1
                         },
                         {
