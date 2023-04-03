@@ -136,7 +136,7 @@ Obj_Index:
 		dc.l DeleteObject						; $82
 		dc.l DeleteObject						; $83
 		dc.l DeleteObject						; $84
-		dc.l DeleteObject						; $85
+		dc.l Obj_SSEntryRing					; $85	; same slot as S3K -- 133, or $85
 		dc.l DeleteObject						; $86
 		dc.l DeleteObject						; $87
 		dc.l DeleteObject						; $88

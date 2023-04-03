@@ -18,6 +18,10 @@ ArtUnc_WaterWave:	binclude "Objects/Water Wave/Uncompressed Art/Water Wave.bin"
 	even
 ArtUnc_SuperSonic_Stars:	binclude	"Objects/Player characters/Uncompressed Art/Super Sonic stars.bin"
 	even
+ArtUnc_SSEntryRing:		binclude "Objects/Giant Ring/Uncompressed Art/Entry Ring.bin"
+		even
+ArtUnc_SSEntryFlash:	binclude "Objects/Giant Ring/Uncompressed Art/Entry Flash.bin"
+		even
 
 ; ===========================================================================
 ; Animated uncompressed graphics

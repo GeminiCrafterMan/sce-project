@@ -315,7 +315,7 @@ Monitor_Give_Double_Shield:
 		andi.b	#$8E,status_secondary(a1)
 		bset	#Status_Shield,status_secondary(a1)
 		move.l	#Obj_Double_Shield,(v_Shield).w
-		sfx	sfx_NormalShield,1
+		sfx	sfx_DoubleShield,1
 ; ---------------------------------------------------------------------------
 
 Monitor_Give_Rings:

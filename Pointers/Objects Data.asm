@@ -35,8 +35,8 @@
 		include "Objects/Bubbler/Bubbler.asm"
 		include "Objects/Count Down/Count Down.asm"
 		include "Objects/Water Wave/Water Wave.asm"
-		include	"Objects/Oil/Oil.asm"
 		include "Objects/StarPost/StarPost.asm"
+		include	"Objects/Giant Ring/Giant Ring.asm"
 		include "Objects/Button/Button.asm"
 		include "Objects/Animals/Animals.asm"
 		include "Objects/Egg Capsule/EggCapsule.asm"
@@ -68,6 +68,7 @@
 		include	"Objects/Spiral/Spiral.asm"
 
 	; TTPZ
+		include	"Objects/Oil/Oil.asm"
 		include	"Objects/Mecha-Bu/Mecha-Bu.asm"
 		include	"Objects/Spring Shell/Spring Shell.asm"
 		include "Objects/Wood Pointer/Wood Pointer.asm"

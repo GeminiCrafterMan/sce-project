@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ObjDef xmlns="http://www.sonicretro.org" Name="Spring" Image="vertred">
+<ObjDef xmlns="http://www.sonicretro.org" Name="Spring" Image="upred">
   <Images>
-    <ImageFromMappings id="vertred">
+    <ImageFromMappings id="upred">
       <ArtFile filename="../Objects/Spring/KosinskiM Art/Spring.bin" compression="KosinskiM" />
       <MapFile type="Binary" filename="../Objects/Spring/Object Data/Map - Spring(Red).bin" frame="0" startpal="0" />
     </ImageFromMappings>
-    <ImageFromMappings id="vertyel">
+    <ImageFromMappings id="upyel">
       <ArtFile filename="../Objects/Spring/KosinskiM Art/Spring.bin" compression="KosinskiM" />
       <MapFile type="Binary" filename="../Objects/Spring/Object Data/Map - Spring(Yellow).bin" frame="0" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="downred">
+      <ArtFile filename="../Objects/Spring/KosinskiM Art/Spring.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Spring/Object Data/Map - Spring(Red).bin" frame="6" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="downyel">
+      <ArtFile filename="../Objects/Spring/KosinskiM Art/Spring.bin" compression="KosinskiM" />
+      <MapFile type="Binary" filename="../Objects/Spring/Object Data/Map - Spring(Yellow).bin" frame="6" startpal="0" />
     </ImageFromMappings>
     <ImageFromMappings id="horzred">
       <ArtFile filename="../Objects/Spring/KosinskiM Art/Spring.bin" compression="KosinskiM" />
@@ -27,12 +35,12 @@
     </ImageFromMappings>
   </Images>
   <Subtypes>
-    <Subtype id="00" name="Red Up" image="vertred" />
-    <Subtype id="02" name="Yellow Up" image="vertyel" />
+    <Subtype id="00" name="Red Up" image="upred" />
+    <Subtype id="02" name="Yellow Up" image="upyel" />
     <Subtype id="10" name="Red Horizontal" image="horzred" />
     <Subtype id="12" name="Yellow Horizontal" image="horzyel" />
-    <Subtype id="20" name="Red Down" image="vertred" />
-    <Subtype id="22" name="Yellow Down" image="vertyel" />
+    <Subtype id="20" name="Red Down" image="downred" />
+    <Subtype id="22" name="Yellow Down" image="downyel" />
     <Subtype id="30" name="Red Diagonal Up" image="diagred" />
     <Subtype id="32" name="Yellow Diagonal Up" image="diagyel" />
     <Subtype id="40" name="Red Diagonal Down" image="diagred" />
@@ -71,12 +79,12 @@
     <DisplayOption>
       <Condition property="Direction" value="Up" />
       <Condition property="Color" value="Red" />
-      <ImageRef image="vertred" />
+      <ImageRef image="upred" />
     </DisplayOption>
     <DisplayOption>
       <Condition property="Direction" value="Up" />
       <Condition property="Color" value="Yellow" />
-      <ImageRef image="vertyel" />
+      <ImageRef image="upyel" />
     </DisplayOption>
     <DisplayOption>
       <Condition property="Direction" value="Horizontal" />
@@ -91,12 +99,12 @@
     <DisplayOption>
       <Condition property="Direction" value="Down" />
       <Condition property="Color" value="Red" />
-      <ImageRef image="vertred" />
+      <ImageRef image="downred" />
     </DisplayOption>
     <DisplayOption>
       <Condition property="Direction" value="Down" />
       <Condition property="Color" value="Yellow" />
-      <ImageRef image="vertyel" />
+      <ImageRef image="downyel" />
     </DisplayOption>
     <DisplayOption>
       <Condition property="Direction" value="Diagonal Up" />

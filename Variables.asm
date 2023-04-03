@@ -419,7 +419,8 @@ Super_Sonic_flag:					= *
 Super_Tails_flag:					= *
 Super_Sonic_Knux_flag:				ds.b 1	; i'm pretty sure there won't be two players going Super at once..
 v_emeralds:							= *
-Emerald_count:						ds.b 1
+Emerald_count:						= *
+Chaos_emerald_count:				ds.b 1
 Super_emerald_count:				ds.b 1
 Emeralds_converted_flag:			ds.b 1
 Super_palette_status:				ds.b 1
@@ -439,7 +440,7 @@ f_jpad_6button:						= *
 Six_button_flag:					ds.b 1
 f_jpad2_6button:						= *
 Six_button_flag_2:					ds.b 1
-Current_emotion:					ds.b 1	; even
+Current_emotion:					ds.b 1
 Tails_interact_ID:					ds.w 1
 Tails_respawn_counter:				ds.w 1
 Tails_CPU_target_x:					ds.w 1
@@ -453,6 +454,7 @@ MTZCylinder_Angle_Sonic:			ds.b 1
 MTZCylinder_Angle_Tails:			ds.b 1
 Glide_screen_shake:					ds.l 1
 waterValues:						ds.l 1
+Collected_special_ring_array:		ds.l 1			; each bit indicates a special stage entry ring in the current zone
 
 f_timeover:							= *
 Time_over_flag:						ds.b 1
@@ -487,49 +489,49 @@ DecimalScoreRAM:					ds.l 1
 DecimalScoreRAM2:					ds.l 1
 
 Saved_zone_and_act:					ds.w 1
-Saved_apparent_zone_and_act:			ds.w 1
+Saved_apparent_zone_and_act:		ds.w 1
 Saved_X_pos:						ds.w 1
 Saved_Y_pos:						ds.w 1
 Saved_ring_count:					ds.w 1
-Saved_timer:							ds.l 1
+Saved_timer:						ds.l 1
 Saved_mappings:						ds.l 1
 Saved_art_tile:						ds.w 1	; used exclusively by debug mode now
 Saved_camera_X_pos:					ds.w 1
 Saved_camera_Y_pos:					ds.w 1
 Saved_mean_water_level:				ds.w 1
-Saved_camera_max_Y_pos:			ds.w 1
+Saved_camera_max_Y_pos:				ds.w 1
 Saved_dynamic_resize:				ds.l 1
-Saved_water_full_screen_flag:			ds.b 1
+Saved_water_full_screen_flag:		ds.b 1
 Saved_status_secondary:				ds.b 1
-Saved_last_star_post_hit:				ds.b 1
-									ds.b 1					; even
+Saved_last_star_post_hit:			ds.b 1
+Special_bonus_entry_flag:			ds.b 1			; 1 for entering a Special Stage, 2 for entering a Bonus Stage
 
-Oscillating_variables:					= *
-Oscillating_Numbers:					= *
-Oscillation_Control:					ds.w 1
-Oscillating_Data:						ds.b $40
+Oscillating_variables:				= *
+Oscillating_Numbers:				= *
+Oscillation_Control:				ds.w 1
+Oscillating_Data:					ds.b $40
 Anim_Counters:						ds.b $10					; Each word stores data on animated level art, including duration and current frame
-Level_trigger_array:					ds.b $10					; Used by buttons, etc
+Level_trigger_array:				ds.b $10					; Used by buttons, etc
 Level_trigger_array_end				= *
 Rings_frame_timer:					ds.b 1
-Rings_frame:							ds.b 1
-Ring_spill_anim_counter:				ds.b 1
+Rings_frame:						ds.b 1
+Ring_spill_anim_counter:			ds.b 1
 Ring_spill_anim_frame:				ds.b 1
 Ring_spill_anim_accum:				ds.b 1
 									ds.b 1					; even
-Oscillating_variables_end				= *
+Oscillating_variables_end			= *
 
 ; these are used by mecha sonic
-_unkFAB0:			ds.w 1
-_unkFAB2:			ds.w 1
-_unkFAB4:			ds.w 1	; seems to be the left side of the screen
-_unkFAB6:			ds.w 1	; seems to be the right side of the screen
-_unkFAB8:			ds.b 1
-					ds.b 1	; even
+_unkFAB0:							ds.w 1
+_unkFAB2:							ds.w 1
+_unkFAB4:							ds.w 1	; seems to be the left side of the screen
+_unkFAB6:							ds.w 1	; seems to be the right side of the screen
+_unkFAB8:							ds.b 1
+SK_special_stage_flag:				ds.b 1			; set if a Sonic & Knuckles special stage is being run
 
 System_stack_size					ds.b $100				; ~$100 bytes ; this is the top of the stack, it grows downwards
 System_stack:						= *
-Checksum_string:						ds.l 1					; set to 'INIT' once the checksum routine has run
+Checksum_string:					ds.l 1					; set to 'INIT' once the checksum routine has run
 V_int_jump:							ds.w 1					; contains an instruction to jump to the V-int handler
 V_int_addr:							ds.l 1
 H_int_jump:							ds.w 1					; contains an instruction to jump to the H-int handler

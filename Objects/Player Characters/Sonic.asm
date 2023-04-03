@@ -1645,7 +1645,7 @@ Player_JumpHeight:
 	.noP2:
 		cmpi.b	#7,(Super_emerald_count).w	; does Sonic have all 7 Super Emeralds?
 		bhs.s	.emeralds			; if yes, branch
-		cmpi.b	#7,(Emerald_count).w		; does Sonic have all 7 Chaos Emeralds?
+		cmpi.b	#7,(Chaos_emerald_count).w		; does Sonic have all 7 Chaos Emeralds?
 		blo.s	.abilities		; if not, branch
 		tst.b	(Emeralds_converted_flag).w
 		bne.s	.abilities
