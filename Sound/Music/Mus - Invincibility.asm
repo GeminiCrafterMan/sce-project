@@ -1,7 +1,7 @@
 Phantom_Ensemble_Header:
 	smpsHeaderStartSong 1
 	smpsHeaderVoice     Phantom_Ensemble_Voices
-	smpsHeaderChan      $05, $03
+	smpsHeaderChan      $06, $03
 	smpsHeaderTempo     $01, $05
 
 	smpsHeaderDAC       Phantom_Ensemble_DAC
@@ -19,28 +19,28 @@ Phantom_Ensemble_DAC:
 	smpsPan             panCenter, $00
 
 Phantom_Ensemble_Jump00:
-	dc.b	dKick
+	dc.b	dKickS3
 
 Phantom_Ensemble_Loop00:
-	dc.b	$10, dSnareS3, $08, dKick, $10, $08, dSnareS3, dKick
+	dc.b	$10, dSnareS3, $08, dKickS3, $10, $08, dSnareS3, dKickS3
 	smpsLoop            $00, $03, Phantom_Ensemble_Loop00
-	dc.b	$10, dSnareS3, $08, dKick, $10, $08, dSnareS3, dKick, $04, $04
+	dc.b	$10, dSnareS3, $08, dKickS3, $10, $08, dSnareS3, dKickS3, $04, $04
 
 Phantom_Ensemble_Loop01:
-	dc.b	$10, dSnareS3, $08, dKick, $10, $08, dSnareS3, dKick
+	dc.b	$10, dSnareS3, $08, dKickS3, $10, $08, dSnareS3, dKickS3
 	smpsLoop            $00, $03, Phantom_Ensemble_Loop01
-	dc.b	$10, dSnareS3, $08, dKick, dSnareS3, $04, $04, dKick, $08, dSnareS3, $04, $04
-	dc.b	$04, $04, dKick
+	dc.b	$10, dSnareS3, $08, dKickS3, dSnareS3, $04, $04, dKickS3, $08, dSnareS3, $04, $04
+	dc.b	$04, $04, dKickS3
 
 Phantom_Ensemble_Loop02:
-	dc.b	$10, dSnareS3, $08, dKick, $10, $08, dSnareS3, dKick
+	dc.b	$10, dSnareS3, $08, dKickS3, $10, $08, dSnareS3, dKickS3
 	smpsLoop            $00, $03, Phantom_Ensemble_Loop02
-	dc.b	$10, dSnareS3, $08, dKick, $10, $08, dSnareS3, dKick, $04, $04
+	dc.b	$10, dSnareS3, $08, dKickS3, $10, $08, dSnareS3, dKickS3, $04, $04
 
 Phantom_Ensemble_Loop03:
-	dc.b	$10, dSnareS3, $08, dKick, $10, $08, dSnareS3, dKick
+	dc.b	$10, dSnareS3, $08, dKickS3, $10, $08, dSnareS3, dKickS3
 	smpsLoop            $00, $03, Phantom_Ensemble_Loop03
-	dc.b	$10, dSnareS3, $08, dKick, dSnareS3, $04, $04, dKick, $08, dHiTimpani, $04, dMidTimpani
+	dc.b	$10, dSnareS3, $08, dKickS3, dSnareS3, $04, $04, dKickS3, $08, dHiTimpani, $04, dMidTimpani
 	dc.b	dLowTimpani, dLowTimpani
 	smpsJump            Phantom_Ensemble_Jump00
 
