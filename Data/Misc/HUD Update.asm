@@ -396,27 +396,41 @@ ResetEmotion:
 	.cont:
 		moveq	#emotion_neutral,d0
 		cmpi.b	#id_SonicDeath,(Player_1+routine).w
-		blt.s	.notSad
-	.sad:
-		moveq	#emotion_sad,d0
+		blt.s	.notDead
+	.dead:
+		moveq	#emotion_die,d0
 		bra.s	.done
-	.notSad:
+	.notDead:
+		cmpi.b	#9,(Timer_minute).w
+		bne.s	.notLowTime
+	.time:
+		moveq	#emotion_time,d0
+		bra.s	.done
+	.notLowTime:
+		cmpi.b	#12,(Player_1+air_left).w
+		bgt.s	.notDrowning
+	.drowning:
+		moveq	#emotion_drown,d0
+		bra.s	.done
+	.notDrowning:
 		tst.b	(Super_Sonic_Knux_flag).w
 		beq.s	.notSuper
 	.super:
 		moveq	#emotion_super,d0
 		bra.s	.done
 	.notSuper:
-	;	btst	#Status_Shrunk,(Player_1+status_secondary).w
-	;	bne.s	.angry
 		btst	#Status_Invincible,(Player_1+status_secondary).w	; Invincible?
 		bne.s	.happy	; I know it's out of order. Don't care, it probably works.
 		tst.b	(Player_1+invulnerability_timer).w
-		beq.s	.notAngry
-	.angry:
-		moveq	#emotion_angry,d0
+		beq.s	.notHurt
+	.hurt:
+		moveq	#emotion_hurt,d0
+		cmpi.b	#20,(Hurt_Counter).w	; has the player been hurt 20+ times in this life?
+		blt.s	.done
+	.mad:
+		moveq	#emotion_mad,d0
 		bra.s	.done
-	.notAngry:
+	.notHurt:
 		btst	#Status_SpeedShoes,(Player_1+status_secondary).w	; Speedy?
 		bne.s	.happy
 		tst.b	(LastAct_end_flag).w	; Did I win?

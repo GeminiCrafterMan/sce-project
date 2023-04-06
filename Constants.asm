@@ -235,9 +235,12 @@ bitMode:	equ bitR
 
 emotion_neutral =		0
 emotion_happy =			1
-emotion_angry =			2
-emotion_sad =			3
-emotion_super =			4
+emotion_hurt =			2
+emotion_mad =			3
+emotion_die =			4
+emotion_super =			5
+emotion_time =			6
+emotion_drown =			7
 
 ; ---------------------------------------------------------------------------
 ; property of all objects

@@ -3020,6 +3020,7 @@ loc_12410:	; respawn
 		move.b	#id_SonicRestart,routine(a0)
 		move.w	#1*60,restart_timer(a0)
 		clr.b	(Respawn_table_keep).w
+		clr.b	(Hurt_Counter).w
 
 locret_124C6:
 		rts

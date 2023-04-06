@@ -432,6 +432,7 @@ HurtCharacter:
 		move.w	(Ring_count).w,d0
 		cmpa.w	#Player_1,a0
 		bne.s	.bounce
+		addq.b	#1,(Hurt_Counter).w
 		btst	#Status_Shield,status_secondary(a0)		; does Sonic have shield?
 		bne.s	.hasshield							; if yes, branch
 		tst.b	status_tertiary(a0)
@@ -479,7 +480,7 @@ HurtCharacter:
 
 .sound:
 		jsr	(SMPS_QueueSound2).w
-		jsr		ResetEmotion.angry
+		jsr		ResetEmotion.hurt
 		moveq	#-1,d0
 		rts
 ; ---------------------------------------------------------------------------

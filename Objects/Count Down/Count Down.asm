@@ -274,7 +274,7 @@ loc_1850A:
 		bne.s	.p2
 		lea	(v_Dust_P1).w,a6
 		st	(Deform_lock).w
-		move.b	#emotion_sad,(Current_emotion).w
+		move.b	#emotion_die,(Current_emotion).w
 		jsr		UpdateEmotionWindow
 		bra.s	.cont
 	.p2:
