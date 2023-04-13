@@ -1,5 +1,5 @@
 Obj_SSEntryRing:
-		move.b	$2C(a0),d0
+		move.b	subtype(a0),d0
 		move.l	(Collected_special_ring_array).w,d1
 		btst	d0,d1
 		beq.s	loc_6167C				; only make the ring if it hasn't already been collected
@@ -9,7 +9,7 @@ Obj_SSEntryRing:
 loc_6167C:
 		jsr	(Obj_WaitOffscreen).l			; Don't start anything until the ring is explicitly onscreen
 		moveq	#0,d0
-		move.b	5(a0),d0
+		move.b	routine(a0),d0
 		move.w	SSEntryRing_Index(pc,d0.w),d1
 		jsr	SSEntryRing_Index(pc,d1.w)
 		bra.w	SSEntryRing_Display
@@ -23,8 +23,8 @@ SSEntryRing_Index:
 SSEntryRing_Init:
 		lea	ObjSlot_SSEntryRing(pc),a1
 		jsr	(SetUp_ObjAttributesSlotted).l		; Only one special stage ring can be loaded at one time, period
-		move.l	#AniRaw_SSEntryRing,$30(a0)
-		tst.b	$2C(a0)
+		move.l	#AniRaw_SSEntryRing,aniraw(a0)
+		tst.b	subtype(a0)
 		bmi.s	loc_616C6			; If negative, then ALWAYS make this a super emerald ring
 ;		tst.w	(SK_alone_flag).w		; Probably only used in MHZ for the first rings
 ;		bne.s	SSEntryRing_Main			; If only Sonic and Knuckles, skip ahead
@@ -39,16 +39,16 @@ loc_616C6:
 		lea	(Palette_rotation_data).w,a2
 		move.l	(a1)+,(a2)+
 		move.l	(a1)+,(a2)+
-		lea	(PalSPtr_SSEntry2).l,a1
-		move.l	(a1)+,(a2)+
-		move.l	(a1)+,(a2)+
+;		lea	(PalSPtr_SSEntry2).l,a1
+;		move.l	(a1)+,(a2)+
+;		move.l	(a1)+,(a2)+
 		clr.w	(a2)					; Set up the Palette script pointers
 
 SSEntryRing_Main:
 		jsr	(Animate_Raw).l
 		tst.w	(Debug_placement_mode).w
 		bne.s	locret_61708		; If in debug mode, don't allow collision
-		cmpi.b	#8,$22(a0)
+		cmpi.b	#8,mapping_frame(a0)
 		blo.s	locret_61708		; If ring hasn't finished forming, don't allow collision
 		lea	SSEntry_Range(pc),a1
 		jsr	(Check_PlayerInRange).l
@@ -61,7 +61,7 @@ locret_61708:
 
 loc_6170A:
 		lea	(Player_1).w,a1			; If collision was made
-		cmpi.b	#6,5(a1)
+		cmpi.b	#6,routine(a1)
 		bhs.s	locret_61708		; If player has died for whatever reason, don't do anything
 		sfx		sfx_BigRing		; Play the ring swish sound
 		cmpi.b	#7,(Chaos_emerald_count).w
@@ -74,24 +74,24 @@ loc_6170A:
 		beq.s	loc_61794			; Only collect rings in an SK level if the super emeralds are collected as well
 
 loc_6173A:
-		move.b	#4,5(a0)
+		move.b	#4,routine(a0)
 		lea	(Player_1).w,a1
 		move.b	#-1,previous_frame(a1)	; Make the player disappear and lock input
-		move.b	#0,$22(a1)
-		move.b	#$1C,$20(a1)
-		move.b	#$53,$2E(a1)
+		move.b	#0,mapping_frame(a1)
+		move.b	#id_Null,anim(a1)
+		move.b	#$53,wait(a1)
 		tst.b	(Flying_carrying_Sonic_flag).w
 		beq.s	loc_61778
 		lea	(Player_2).w,a1
-		move.b	#0,$22(a1)
-		move.b	#$1C,$20(a1)
-		move.b	#$53,$2E(a1)		; Lock both players, etc
+		move.b	#0,mapping_frame(a1)
+		move.b	#id_Null,anim(a1)
+		move.b	#$53,wait(a1)		; Lock both players, etc
 
 loc_61778:
 		jsr	(Create_New_Sprite).l
 		bne.s	locret_6178A
 		move.l	#Obj_SSEntryFlash,(a1)
-		move.w	a0,$46(a1)			; Set ring as parent
+		move.w	a0,parent3(a1)			; Set ring as parent
 
 locret_6178A:
 		rts
@@ -104,7 +104,7 @@ SSEntry_Range:	dc.w $FFE8
 
 loc_61794:
 		sfx		sfx_BigRing
-		move.b	$2C(a0),d0
+		move.b	subtype(a0),d0
 		move.l	(Collected_special_ring_array).w,d1
 		bset	d0,d1
 		move.l	d1,(Collected_special_ring_array).w	; Set the special stage ring as collected
@@ -119,7 +119,7 @@ SSEntryRing_Animate:
 
 Obj_SSEntryFlash:
 		moveq	#0,d0
-		move.b	5(a0),d0
+		move.b	routine(a0),d0
 		move.w	SSEntryFlash_Index(pc,d0.w),d1
 		jsr	SSEntryFlash_Index(pc,d1.w)
 		lea	DPLCPtr_SSEntryFlash(pc),a2
@@ -134,14 +134,14 @@ SSEntryFlash_Index:
 SSEntryFlash_Init:
 		lea	ObjSlot_SSEntryFlash(pc),a1
 		jsr	(SetUp_ObjAttributesSlotted).l
-		move.l	#AniRaw_SSEntryFlash,$30(a0)
-		move.l	#SSEntryFlash_Finished,$34(a0)
-		movea.w	$46(a0),a1
-		move.w	$10(a1),$10(a0)
-		move.w	$14(a1),$14(a0)
-		move.b	$2C(a1),$2C(a0)		; Copy positional data from parent ring
+		move.l	#AniRaw_SSEntryFlash,aniraw(a0)
+		move.l	#SSEntryFlash_Finished,jump(a0)
+		movea.w	parent3(a0),a1
+		move.w	x_pos(a1),x_pos(a0)
+		move.w	y_pos(a1),y_pos(a0)
+		move.b	subtype(a1),subtype(a0)		; Copy positional data from parent ring
 		move.w	(Player_1+x_pos).w,d0
-		cmp.w	$10(a0),d0
+		cmp.w	x_pos(a0),d0
 		blo.s	locret_61820
 		bset	#0,4(a1)			; Set direction based on where player approached
 
@@ -150,13 +150,13 @@ locret_61820:
 ; ---------------------------------------------------------------------------
 
 SSEntryFlash_Main:
-		move.b	$22(a0),d6
+		move.b	mapping_frame(a0),d6
 		jsr	(Animate_RawAdjustFlipX).l
-		cmp.b	$22(a0),d6
+		cmp.b	mapping_frame(a0),d6
 		beq.s	locret_61844
 		cmpi.b	#3,$23(a0)
 		bne.s	locret_61844
-		movea.w	$46(a0),a1			; Set parent to be deleted in the middle of the animation
+		movea.w	parent3(a0),a1			; Set parent to be deleted in the middle of the animation
 		bset	#5,$38(a1)
 
 locret_61844:
@@ -165,8 +165,8 @@ locret_61844:
 
 SSEntryFlash_Finished:
 		move.l	#Obj_Wait,(a0)		; This is performed when animation is finished
-		move.w	#$20,$2E(a0)
-		move.l	#SSEntryFlash_GoSS,$34(a0)
+		move.w	#$20,wait(a0)
+		move.l	#SSEntryFlash_GoSS,jump(a0)
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -174,7 +174,7 @@ SSEntryFlash_GoSS:
 		sfx		sfx_EnterSS		; Play the special stage entry sound (you know the one)
 		jsr	(Clear_SpriteRingMem).l
 ;		jsr	(Save_Level_Data2).l	; Not sure what this does yet
-		tst.b	$2C(a0)
+		tst.b	subtype(a0)
 		bmi.s	loc_618AC			; If negative, always go to HPZ
 		moveq	#0,d0
 ;		tst.w	(SK_alone_flag).w
@@ -204,7 +204,7 @@ loc_618AC:
 		move.b	#1,(Respawn_table_keep).w
 
 loc_618D0:
-		move.b	$2C(a0),d0
+		move.b	subtype(a0),d0
 		move.l	(Collected_special_ring_array).w,d1
 		bset	d0,d1
 		move.l	d1,(Collected_special_ring_array).w		; Set SS ring as collected
@@ -245,26 +245,26 @@ loc_61918:
 ; ---------------------------------------------------------------------------
 
 loc_61928:
-		move.w	$10(a0),d0					; If off-screen
+		move.w	x_pos(a0),d0					; If off-screen
 		andi.w	#-$80,d0
 		sub.w	(Camera_X_pos_coarse_back).w,d0
 		cmpi.w	#$280,d0
 		bhi.s	loc_6196A
-		move.w	$14(a0),d0
+		move.w	y_pos(a0),d0
 		move.w	(Camera_Y_pos).w,d1
-		move.w	$14(a0),d0
+		move.w	y_pos(a0),d0
 		sub.w	(Camera_Y_pos).w,d0
 		addi.w	#$80,d0
 		cmpi.w	#$200,d0
 		bhi.w	loc_6196A					; Jump below when far enough off-screen
-		move.l	#$EE0088,(Normal_palette_line_2+$A).w
-		move.w	#$44,(Normal_palette_line_2+$1E).w
+		move.l	#words_to_long($646,$48A),(Normal_palette_line_2+$A).w
+		move.w	#$2CE,(Normal_palette_line_2+$E).w
 		jmp	(Draw_Sprite).l
 ; ---------------------------------------------------------------------------
 
 loc_6196A:
-		move.l	#$EE0088,(Normal_palette_line_2+$A).w
-		move.w	#$44,(Normal_palette_line_2+$1E).w			; Restore the part of the palette that was changed
+		move.l	#words_to_long($646,$48A),(Normal_palette_line_2+$A).w
+		move.w	#$2CE,(Normal_palette_line_2+$E).w			; Restore the part of the palette that was changed
 		lea	(ArtKosM_Explosion).l,a1
 		move.w	#-$4C00,d2
 		jsr	(Queue_Kos_Module).l			; Restore the overwritten badnik explosion art
@@ -317,67 +317,33 @@ DPLC_SSEntryFlash:
 PalSPtr_SSEntry:
 		palscriptptr .header, .data
 .header
-	palscripthdr	Normal_palette_line_2+$A, 2, 0
+	palscripthdr	Normal_palette_line_2+$A, 3, 0
 .data
-	palscriptdata	3, $ECE, $A8A
-	palscriptdata	3, $AEE, $6EE
-	palscriptdata	3, $ECA, $A86
-	palscriptdata	3, $AEE, $6EE
-	palscriptdata	3, $8E8, $4C4
-	palscriptdata	3, $AEE, $6EE
-	palscriptdata	3, $6EC, $4CA
-	palscriptdata	3, $AEE, $6EE
-	palscriptdata	3, $6CE, $2AC
-	palscriptdata	3, $AEE, $6EE
-	palscriptrept
-	palscriptdata	2, $6EE, $0AA
-	palscriptdata	2, $8EE, $0CC
-	palscriptdata	2, $AEE, $6EE
-	palscriptdata	2, $CEE, $AEE
-	palscriptdata	2, $EEE, $EEE
-	palscriptdata	2, $CEE, $AEE
-	palscriptdata	2, $AEE, $6EE
-	palscriptdata	2, $8EE, $0CC
-	palscriptrept
-
-PalSPtr_SSEntry2:
-		palscriptptr .header, .data
-.header
-	palscripthdr	Normal_palette_line_2+$1E, 1, 0
-.data
-	palscriptdata	3, $868
-	palscriptdata	3, $0AA
-	palscriptdata	3, $864
-	palscriptdata	3, $0AA
-	palscriptdata	3, $2A2
-	palscriptdata	3, $0AA
-	palscriptdata	3, $4A8
-	palscriptdata	3, $0AA
-	palscriptdata	3, $28A
-	palscriptdata	3, $0AA
-	palscriptrept
-	palscriptdata	2, $066
-	palscriptdata	2, $088
-	palscriptdata	2, $0AA
-	palscriptdata	2, $0CC
-	palscriptdata	2, $EEE
-	palscriptdata	2, $0CC
-	palscriptdata	2, $0AA
-	palscriptdata	2, $088
-	palscriptrept
-	palscriptdata	2, $6EE, $0AA
-	palscriptdata	2, $8EE, $0CC
-	palscriptdata	2, $AEE, $6EE
-	palscriptdata	2, $CEE, $AEE
-	palscriptdata	2, $EEE, $EEE
-	palscriptdata	2, $CEE, $AEE
-	palscriptdata	2, $AEE, $6EE
-	palscriptdata	2, $8EE, $0CC
-	palscriptdata	1, $066
-	palscriptdata	1, $088
-	palscriptdata	1, $0AA
-	palscriptdata	1, $0CC
-	palscriptdata	1, $EEE
-	palscriptdata	1, $0CC
-	palscriptdata	1, $0AA
-	palscriptdata	1, $088
+	palscriptdata	3, $868, $A8A, $ECE
+	palscriptdata	3, $0AA, $6EE, $AEE
+	palscriptdata	3, $864, $A86, $ECA
+	palscriptdata	3, $0AA, $6EE, $AEE
+	palscriptdata	3, $2A2, $4C4, $8E8
+	palscriptdata	3, $0AA, $6EE, $AEE
+	palscriptdata	3, $4A8, $4CA, $6EC
+	palscriptdata	3, $0AA, $6EE, $AEE
+	palscriptdata	3, $28A, $2AC, $6CE
+	palscriptdata	3, $0AA, $6EE, $AEE
+	palscriptrept	; S&K ring...?
+	palscriptdata	2, $066, $0AA, $6EE
+	palscriptdata	2, $088, $0CC, $8EE
+	palscriptdata	2, $0AA, $6EE, $AEE
+	palscriptdata	2, $0CC, $AEE, $CEE
+	palscriptdata	2, $EEE, $EEE, $EEE
+	palscriptdata	2, $0CC, $AEE, $CEE
+	palscriptdata	2, $0AA, $6EE, $AEE
+	palscriptdata	2, $088, $0CC, $8EE
+	palscriptrept	; same as last one
+	palscriptdata	2, $066, $0AA, $6EE
+	palscriptdata	2, $088, $0CC, $8EE
+	palscriptdata	2, $0AA, $6EE, $AEE
+	palscriptdata	2, $0CC, $AEE, $CEE
+	palscriptdata	2, $EEE, $EEE, $EEE
+	palscriptdata	2, $0CC, $AEE, $CEE
+	palscriptdata	2, $0AA, $6EE, $AEE
+	palscriptdata	2, $088, $0CC, $8EE

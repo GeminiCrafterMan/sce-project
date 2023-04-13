@@ -267,6 +267,8 @@ Obj_Spiral_Cylinder:
 	blo.s	return_2188A
 	cmpi.b	#6,routine(a1)
 	bhs.s	return_2188A
+	tst.w	(Debug_placement_mode).w
+	bne.s	return_2188A
 	add.w	d0,d2
 	addq.w	#3,d2
 	move.w	d2,y_pos(a1)

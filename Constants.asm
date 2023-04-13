@@ -555,6 +555,7 @@ ArtTile_Bridge:				= $502
 ; Green Hill Zone
 ; ---------------------------------------------------------------------------
 
+ArtTile_GHZCollapsingLedge:	= $2DE
 ArtTile_EdgeWalls:			= $34C
 ArtTile_SmashableWalls:		= $3B0
 ArtTile_PurpleRock:			= $3CB

@@ -368,14 +368,16 @@ Monitor_Give_Invincibility:
 		bne.w	Monitor_Give_Rings
 		bset	#Status_Invincible,status_secondary(a1)
 		move.b	#150,invincibility_timer(a1)
+		cmpi.b	#12,air_left(a1)
+		bls.s	.skipmusic
+		move.b	#emotion_happy,(Current_emotion).w
+		jsr		UpdateEmotionWindow
 		tst.b	(Level_end_flag).w
 		bne.s	.skipmusic
 		tst.b	(Boss_flag).w
 		bne.s	.skipmusic
-		cmpi.b	#12,air_left(a1)
-		bls.s		.skipmusic
-		move.b	#emotion_happy,(Current_emotion).w
-		jsr		UpdateEmotionWindow
+		cmpi.l	#Obj_Invincibility.main,(v_Invincibility_stars).w
+		beq.s	.skipmusic	; player is already invincible, don't restart music
 		music	bgm_Invincible					; if invincible, play invincibility music
 
 .skipmusic:

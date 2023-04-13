@@ -131,6 +131,8 @@ ArtKosM_GHZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.b
 	even
 ArtKosM_GHZWaterfall:		binclude "Objects/Decoration/KosinskiM Art/GHZ waterfall.bin"
 	even
+ArtKosM_GHZCollapsingLedge:	binclude "Objects/Collapsing Platform/KosinskiM Art/GHZ Collapsing Platform.bin"
+	even
 
 ; ===========================================================================
 ; Kosinski Module compressed SSLZ graphics

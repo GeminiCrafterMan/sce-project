@@ -1,8 +1,28 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "c0875026-5805-4b1e-b736-ab1f5296b2a7",
+    "node": "d149e28e-23ed-494b-bae8-5770b1d78592",
     "objects": [
+        {
+            "format": "Sonic 3&K Object.js",
+            "name": "Collapsing Platform (AIZ)",
+            "palettes": [],
+            "art": {
+                "path": "",
+                "compression": "Uncompressed",
+                "offset": 0
+            },
+            "mappings": {
+                "path": "Objects/Collapsing Platform/Object Data/Map - Collapsing Platform (AIZ).bin",
+                "label": ""
+            },
+            "dplcs": {
+                "enabled": false,
+                "path": "",
+                "label": ""
+            },
+            "uuid": "49e28e23-eda9-4b7a-a857-70b1d785927a"
+        },
         {
             "format": "Sonic 3&K Object.js",
             "name": "Title Screen Sonic",
@@ -275,12 +295,62 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
         },
         {
             "name": "General Objects",
             "children": [
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Giant Ring",
+                    "palettes": [
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Giant Ring/Uncompressed Art/Entry Ring.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Giant Ring/Object Data/Map - Entry Ring.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Giant Ring/Object Data/DPLC - Special Stage Entry Ring.bin",
+                        "label": ""
+                    },
+                    "uuid": "1b294813-c3f6-4d6e-8499-781e529b8968"
+                },
+                {
+                    "format": "Sonic 3&K Object.js",
+                    "name": "Giant Ring Flash",
+                    "palettes": [
+                        {
+                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
+                            "length": 1
+                        }
+                    ],
+                    "art": {
+                        "path": "Objects/Giant Ring/Uncompressed Art/Entry Flash.bin",
+                        "compression": "Uncompressed",
+                        "offset": 0
+                    },
+                    "mappings": {
+                        "path": "Objects/Giant Ring/Object Data/Map - Entry Flash.bin",
+                        "label": ""
+                    },
+                    "dplcs": {
+                        "enabled": true,
+                        "path": "Objects/Giant Ring/Object Data/DPLC - Special Stage Entry Flash.bin",
+                        "label": ""
+                    },
+                    "uuid": "701b2948-13c3-467d-aec4-99781e529b89"
+                },
                 {
                     "format": "Sonic 3&K Object.js",
                     "name": "Starpost",
@@ -801,7 +871,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {
@@ -994,6 +1064,35 @@
                                 "path": "",
                                 "label": ""
                             }
+                        },
+                        {
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Collapsing Platform",
+                            "palettes": [
+                                {
+                                    "length": 1,
+                                    "blank": true
+                                },
+                                {
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone 1.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Collapsing Platform/KosinskiM Art/GHZ Collapsing Platform.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Collapsing Platform/Object Data/Map - Collapsing Platform (GHZ).bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "uuid": "d149e28e-23ed-494b-bae8-5770b1d78592"
                         },
                         {
                             "uuid": "bfc29ddb-730a-47d4-a789-03ade67e499c",
@@ -1462,7 +1561,16 @@
                 {
                     "format": "Sonic 3&K Object.js",
                     "name": "Wood Pointer",
-                    "palettes": [],
+                    "palettes": [
+                        {
+                            "path": "Objects/Player Characters/Palettes/Sonic.bin",
+                            "length": 1
+                        },
+                        {
+                            "path": "Levels/TTPZ/Palettes/Tree Top Zone 1.bin",
+                            "length": 3
+                        }
+                    ],
                     "art": {
                         "path": "Objects/Wood Pointer/KosinskiM Art/Wood Pointer.bin",
                         "compression": "Kosinski-M",

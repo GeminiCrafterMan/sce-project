@@ -61,6 +61,7 @@
 		include	"Objects/Smashable Walls/Smashable Walls.asm"
 		include	"Objects/Edge Walls/Edge Walls.asm"
 		include	"Objects/Swinging Platform/Swinging Platform.asm"
+		include	"Objects/Collapsing Platform/Collapsing Platform.asm"
 
 	; SSLZ
 		include "Objects/Snailer/Snailer.asm"

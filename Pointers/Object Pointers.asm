@@ -29,7 +29,7 @@ Obj_Index:
 		dc.l DeleteObject						; $17
 		dc.l Obj_FloatingPlatform				; $18
 		dc.l DeleteObject						; $19
-		dc.l DeleteObject						; $1A
+		dc.l Obj_CollapsingPlatform				; $1A
 		dc.l DeleteObject						; $1B
 		dc.l Obj_Decoration						; $1C
 		dc.l Obj_BackgroundCharacters			; $1D
