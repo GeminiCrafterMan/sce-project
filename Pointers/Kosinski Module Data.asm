@@ -121,6 +121,8 @@ ArtKosM_Motobug:			binclude "Objects/Motobug/KosinskiM Art/Motobug.bin"
 	even
 
 ; Misc
+ArtKosM_SwingingPlatform:	binclude "Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin"
+	even
 ArtKosM_PurpleRock:			binclude "Objects/Purple Rock/KosinskiM Art/Purple Rock.bin"
 	even
 ArtKosM_EdgeWalls:			binclude "Objects/Edge Walls/KosinskiM Art/GHZ Edge Wall.bin"

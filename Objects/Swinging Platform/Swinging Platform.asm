@@ -31,11 +31,11 @@ swing_pivot_x = objoff_3A
 Obj_SwingingPlatform_Init:
 	addq.b	#2,routine(a0)
 	move.l	#Map_SwingingPlatform,mappings(a0)
-	move.w	#make_art_tile(ArtTile_LevelArt,2,0),art_tile(a0)
+	move.w	#make_art_tile(ArtTile_SwingingPlatform,0,0),art_tile(a0)
 	move.b	#4,render_flags(a0)
 	move.w	#$180,priority(a0)
 	move.b	#$20,width_pixels(a0)
-	move.b	#$10,height_pixels(a0)
+	move.b	#8,height_pixels(a0)
 	move.w	y_pos(a0),swing_pivot_y(a0)
 	move.w	x_pos(a0),swing_pivot_x(a0)
 	moveq	#0,d1
@@ -104,7 +104,7 @@ Obj_SwingingPlatform_Init:
 	cmpi.b	#$40,d1
 	bne.s	Obj_SwingingPlatform_State2
 	move.l	#Map_Saw,mappings(a0)
-	move.w	#$43AA,art_tile(a0)
+	move.w	#$3AA,art_tile(a0)	; change this later, this'll be used in tree top
 	move.b	#1,mapping_frame(a0)
 	move.w	#$100,priority(a0)
 	move.b	#$81,collision_flags(a0)

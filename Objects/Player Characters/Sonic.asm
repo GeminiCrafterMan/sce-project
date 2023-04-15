@@ -1166,11 +1166,15 @@ loc_1151C:
 		tst.w	move_lock(a0)
 		bne.s	loc_1154E
 		jsr		GetCtrlHeldLogical
+		tst.w	ground_vel(a0)	; is the player moving right?
+		bmi.s	loc_11542	; if not, branch
 		btst	#button_left,d0
 		beq.s	loc_11542
 		bsr.w	sub_11608
 
 loc_11542:
+		tst.w	ground_vel(a0)	; is the player moving left?
+		bpl.s	loc_1154E	; if not, branch
 		btst	#button_right,d0
 		beq.s	loc_1154E
 		bsr.w	sub_1162C

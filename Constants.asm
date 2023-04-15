@@ -558,6 +558,7 @@ ArtTile_Bridge:				= $502
 ArtTile_GHZCollapsingLedge:	= $2DE
 ArtTile_EdgeWalls:			= $34C
 ArtTile_SmashableWalls:		= $3B0
+ArtTile_SwingingPlatform:	= $3BC
 ArtTile_PurpleRock:			= $3CB
 ArtTile_Crabmeat:			= $400
 ArtTile_BuzzBomber:			= $444
