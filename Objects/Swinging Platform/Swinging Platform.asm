@@ -79,16 +79,16 @@ Obj_SwingingPlatform_Init:
 .initLoop:
 	move.w	d2,(a2)+	; sub?_x_pos
 	move.w	d3,(a2)+	; sub?_y_pos
-	move.w	#1,(a2)+	; sub2_mapframe
+	move.w	#1,(a2)+	; sub2_mapframe	; link
 	addi.w	#$10,d3
 	dbf	d1,.initLoop
 
-	move.b	#2,sub2_mapframe(a1)
+	move.b	#2,sub2_mapframe(a1)	; ball
 	move.w	sub6_x_pos(a1),x_pos(a1)
 	move.w	sub6_y_pos(a1),y_pos(a1)
 	move.w	d2,sub6_x_pos(a1)
 	move.w	d3,sub6_y_pos(a1)
-	move.b	#1,mainspr_mapframe(a1)
+	move.b	#1,mainspr_mapframe(a1)	; link
 	addi.w	#8,d3
 	move.w	d3,y_pos(a0)
 	move.b	#$50,mainspr_height(a1)

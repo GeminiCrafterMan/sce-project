@@ -1786,8 +1786,15 @@ FireShield_ReleaseDropDash:
 	.notReversed:
 		mvabs.w	x_vel(a0),d2
 		mvabs.w	ground_vel(a0),d3
-		move.w	#$800,d0
+		tst.b	(Super_Sonic_Knux_flag).w	;  if ( v0->SuperMode == 2 )
+		beq.s	.notSuper
+		move.w	#$C00,d0	; dash and max to $C00 and $D00 respectively
+		move.w	#$D00,d1
+		bra.s	.doneSetSpd
+	.notSuper:
+		move.w	#$800,d0	; dash and max to $800 and $C00 respectively
 		move.w	#$C00,d1
+	.doneSetSpd:
 ; I think I can skip the button checks, since I can use mvabs.
 		tst.w	d2
 		bge.s	.gezero
