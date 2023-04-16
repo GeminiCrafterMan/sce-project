@@ -6,8 +6,8 @@
 LevelSizes:
 		dc.w 0, $4F60, 0, $B00				; Green Hill
 		dc.w 0, $0A00, 0, $F00				; Techno Tower
-		dc.w 0, $3FFF, 0, $300				; None
 		dc.w 0, $6D60, 0, $300				; GHZ EX
+		dc.w 0, $3CC0, 0, $F00				; Techno Tower EX
 
 		dc.w 0, $29A0, 0, $320				; SSLZ 1
 		dc.w 0, $29A0, 0, $C00				; SSLZ 2

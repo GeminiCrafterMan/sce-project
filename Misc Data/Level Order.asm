@@ -6,8 +6,8 @@ LevelOrder:
 	; Intro Stages
 		dc.b z_SSLZ, 0	; Green Hill
 		dc.b z_SSLZ, 0	; Techno Tower
-		dc.b 0, 0		; Act 3
 		dc.b 0, 0		; Green Hill EX
+		dc.b 0, 0		; Techno Tower EX
 
 	; Seaside Land Zone
 		dc.b z_SSLZ, 1	; Act 1

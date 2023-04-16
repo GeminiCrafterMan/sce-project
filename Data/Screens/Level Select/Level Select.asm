@@ -430,9 +430,9 @@ LevelSelect_LoadMainText:
 
 LevelSelect_ActTextIndex: offsetTable
 		offsetTableEntry.w LevelSelect_LoadGreenHill
-		offsetTableEntry.w LevelSelect_LoadTechnoTower
-		offsetTableEntry.w LevelSelect_LoadAct3
+		offsetTableEntry.w LevelSelect_LoadNewtrogicHigh
 		offsetTableEntry.w LevelSelect_LoadGreenHillEX
+		offsetTableEntry.w LevelSelect_LoadNewtrogicHighEX
 	rept ZoneCount-1
 		offsetTableEntry.w LevelSelect_LoadAct1
 		offsetTableEntry.w LevelSelect_LoadAct2
@@ -455,10 +455,12 @@ LevelSelect_MainText:
 		levselstr "SONIC TEST GAME - *** DEBUG MODE ***                            "
 LevelSelect_LoadGreenHill:
 		levselstr "GREEN HILL"
-LevelSelect_LoadTechnoTower:
-		levselstr "TECHNO TOWER"
+LevelSelect_LoadNewtrogicHigh:
+		levselstr "NEWTROGIC HIGH"
 LevelSelect_LoadGreenHillEX:
 		levselstr "GREEN HILL EX"
+LevelSelect_LoadNewtrogicHighEX:
+		levselstr "NEWTROGIC HIGH EX"
 	even
 
 ; ---------------------------------------------------------------------------

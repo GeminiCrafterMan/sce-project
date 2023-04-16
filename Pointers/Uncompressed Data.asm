@@ -39,8 +39,6 @@ Art_GhzFlower2:				binclude "Levels/Intro Stages/Green Hill/Animated Tiles/Uncom
 	; Techno Tower
 Art_TechnoTowerFans:		binclude "Levels/Intro Stages/Techno Tower/Animated Tiles/Uncompressed Art/FG Fans.bin"
 	even
-Art_TechnoTowerTurbine:		binclude "Levels/Intro Stages/Techno Tower/Animated Tiles/Uncompressed Art/BG Turbine.bin"
-	even
 ; Seaside Land
 Art_SslzWater:				binclude "Levels/SSLZ/Animated Tiles/Uncompressed Art/SSLZ Waterfall.bin"
 	even

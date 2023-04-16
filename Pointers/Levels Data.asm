@@ -6,8 +6,8 @@
 LevelLoadBlock:
 		levartptrs GHZ1_8x8_KosM, GHZ1_16x16_Unc, GHZ1_128x128_Kos, palid_GHZ1		; GHZ1
 		levartptrs TTZ1_8x8_KosM, TTZ1_16x16_Unc, TTZ1_128x128_Kos, palid_TTZ1		; Techno Tower
-		levartptrs GHZ1_8x8_KosM, GHZ1_16x16_Unc, GHZ1_128x128_Kos, palid_GHZ1		; ?
 		levartptrs GHZEX_8x8_KosM, GHZEX_16x16_Unc, GHZEX_128x128_Kos, palid_GHZEX	; Green Hill EX
+		levartptrs TTZ1_8x8_KosM, TTZ1_16x16_Unc, TTZ1_128x128_Kos, palid_TTZEX		; Techno Tower
 		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ1	; SSLZ1
 		levartptrs SSLZ2_8x8_KosM, SSLZ2_16x16_Unc, SSLZ2_128x128_Kos, palid_SSLZ2	; SSLZ2
 		levartptrs SSLZ1_8x8_KosM, SSLZ1_16x16_Unc, SSLZ1_128x128_Kos, palid_SSLZ3	; SSLZ3
@@ -50,14 +50,14 @@ LevelLoadPointer:
 		dc.l AnPal_TechnoTower, DLE_TechnoTower1, LevelPointer_Null, LevelPointer_Null
 		dc.l TechnoTower1_ScreenInit, TechnoTower1_BackgroundInit, TechnoTower1_ScreenEvent, TechnoTower1_BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_TechnoTower
-	; ?
-		dc.l AnPal_GHZ, DLE_GHZ1, LevelPointer_Null, LevelPointer_Null
-		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent
-		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ
 	; Green Hill EX
 		dc.l AnPal_GHZ, DLE_GHZEX, LevelPointer_Null, LevelPointer_Null					; Animate Palette, Resize, WaterResize, AfterBoss
 		dc.l GHZ1_ScreenInit, GHZ1_BackgroundInit, GHZ1_ScreenEvent, GHZ1_BackgroundEvent	; ScreenInit, BackgroundInit, ScreenEvent, BackgroundEvent
 		dc.l AnimateTiles_DoAniPLC, AniPLC_GHZ											; Animate tiles main code, Animate tiles PLC scripts
+	; Techno Tower EX
+		dc.l AnPal_TechnoTower, DLE_TechnoTowerEX, LevelPointer_Null, LevelPointer_Null
+		dc.l TechnoTower1_ScreenInit, TechnoTower1_BackgroundInit, TechnoTower1_ScreenEvent, TechnoTower1_BackgroundEvent
+		dc.l AnimateTiles_DoAniPLC, AniPLC_TechnoTower
 
 ; SSLZ1
 		dc.l LevelPointer_Null, DLE_SSLZ1, LevelPointer_Null, LevelPointer_Null
@@ -141,16 +141,16 @@ LevelLoadPointer:
 SolidIndexes:
 		dc.l GHZ1_Solid		; Green Hill
 		dc.l TTZ1_Solid		; Techno Tower
-		dc.l GHZ1_Solid		; ?
-		dc.l GHZEX_Solid		; Green Hill EX
-		dc.l SSLZ1_Solid		; SSLZ1
-		dc.l SSLZ2_Solid		; SSLZ2
-		dc.l SSLZ1_Solid		; SSLZ3
-		dc.l SSLZ1_Solid		; SSLZ4
-		dc.l TTPZ1_Solid		; TTPZ1
-		dc.l TTPZ2_Solid		; TTPZ2
-		dc.l TTPZ1_Solid		; TTPZ3
-		dc.l TTPZ1_Solid		; TTPZ4
+		dc.l GHZEX_Solid	; Green Hill EX
+		dc.l TTZ1_Solid		; Techno Tower EX
+		dc.l SSLZ1_Solid	; SSLZ1
+		dc.l SSLZ2_Solid	; SSLZ2
+		dc.l SSLZ1_Solid	; SSLZ3
+		dc.l SSLZ1_Solid	; SSLZ4
+		dc.l TTPZ1_Solid	; TTPZ1
+		dc.l TTPZ2_Solid	; TTPZ2
+		dc.l TTPZ1_Solid	; TTPZ3
+		dc.l TTPZ1_Solid	; TTPZ4
 		dc.l CCZ1_Solid		; CCZ1
 		dc.l CCZ1_Solid		; CCZ2
 		dc.l CCZ1_Solid		; CCZ3
@@ -163,10 +163,10 @@ SolidIndexes:
 		dc.l SS1_Solid		; SS2
 		dc.l SS1_Solid		; SS3
 		dc.l SS1_Solid		; SS4
-		dc.l TTSZ1_Solid		; TTSZ1
-		dc.l TTSZ1_Solid		; TTSZ2
-		dc.l TTSZ1_Solid		; TTSZ3
-		dc.l TTSZ1_Solid		; TTSZ4
+		dc.l TTSZ1_Solid	; TTSZ1
+		dc.l TTSZ1_Solid	; TTSZ2
+		dc.l TTSZ1_Solid	; TTSZ3
+		dc.l TTSZ1_Solid	; TTSZ4
 
 		zonewarning SolidIndexes,(4*4)
 
@@ -177,8 +177,8 @@ SolidIndexes:
 LevelPtrs:
 		dc.l GHZ1_Layout		; Green Hill
 		dc.l TTZ1_Layout		; Techno Tower
-		dc.l GHZ1_Layout		; ?
 		dc.l GHZEX_Layout		; Green Hill EX
+		dc.l TTZEX_Layout		; Techno Tower EX
 		dc.l SSLZ1_Layout		; SSLZ1
 		dc.l SSLZ2_Layout		; SSLZ2
 		dc.l SSLZ3_Layout		; SSLZ3
@@ -213,8 +213,8 @@ LevelPtrs:
 SpriteLocPtrs:
 		dc.l GHZ1_Sprites		; Green Hill
 		dc.l TTZ1_Sprites		; Techno Tower
-		dc.l GHZ1_Sprites		; ?
 		dc.l GHZEX_Sprites		; Green Hill EX
+		dc.l TTZEX_Sprites		; Techno Tower EX
 		dc.l SSLZ1_Sprites		; SSLZ1
 		dc.l SSLZ2_Sprites		; SSLZ2
 		dc.l SSLZ3_Sprites		; SSLZ3
@@ -249,32 +249,32 @@ SpriteLocPtrs:
 RingLocPtrs:
 		dc.l GHZ1_Rings		; Green Hill
 		dc.l TTZ1_Rings		; Techno Tower
-		dc.l GHZ1_Rings		; ?
-		dc.l GHZEX_Rings		; Green Hill EX
-		dc.l SSLZ1_Rings		; SSLZ1
-		dc.l SSLZ2_Rings		; SSLZ2
-		dc.l SSLZ3_Rings		; SSLZ3
-		dc.l SSLZ1_Rings		; SSLZ4
-		dc.l TTPZ1_Rings		; TTPZ1
-		dc.l TTPZ2_Rings		; TTPZ2
-		dc.l TTPZ1_Rings		; TTPZ3
-		dc.l TTPZ1_Rings		; TTPZ4
-		dc.l CCZ1_Rings			; CCZ1
-		dc.l CCZ1_Rings			; CCZ2
-		dc.l CCZ1_Rings			; CCZ3
-		dc.l CCZ1_Rings			; CCZ4
-		dc.l MMZ1_Rings			; MMZ1
-		dc.l MMZ1_Rings			; MMZ2
-		dc.l MMZ1_Rings			; MMZ3
-		dc.l MMZ1_Rings			; MMZ4
-		dc.l SS1_Rings			; SS1
-		dc.l SS2_Rings			; SS2
-		dc.l SS3_Rings			; SS3
-		dc.l SS4_Rings			; SS4
-		dc.l TTSZ1_Rings		; TTSZ1
-		dc.l TTSZ2_Rings		; TTSZ2
-		dc.l TTSZ3_Rings		; TTSZ3
-		dc.l TTSZ4_Rings		; TTSZ4
+		dc.l GHZEX_Rings	; Green Hill EX
+		dc.l TTZEX_Rings	; Techno Tower EX
+		dc.l SSLZ1_Rings	; SSLZ1
+		dc.l SSLZ2_Rings	; SSLZ2
+		dc.l SSLZ3_Rings	; SSLZ3
+		dc.l SSLZ1_Rings	; SSLZ4
+		dc.l TTPZ1_Rings	; TTPZ1
+		dc.l TTPZ2_Rings	; TTPZ2
+		dc.l TTPZ1_Rings	; TTPZ3
+		dc.l TTPZ1_Rings	; TTPZ4
+		dc.l CCZ1_Rings		; CCZ1
+		dc.l CCZ1_Rings		; CCZ2
+		dc.l CCZ1_Rings		; CCZ3
+		dc.l CCZ1_Rings		; CCZ4
+		dc.l MMZ1_Rings		; MMZ1
+		dc.l MMZ1_Rings		; MMZ2
+		dc.l MMZ1_Rings		; MMZ3
+		dc.l MMZ1_Rings		; MMZ4
+		dc.l SS1_Rings		; SS1
+		dc.l SS2_Rings		; SS2
+		dc.l SS3_Rings		; SS3
+		dc.l SS4_Rings		; SS4
+		dc.l TTSZ1_Rings	; TTSZ1
+		dc.l TTSZ2_Rings	; TTSZ2
+		dc.l TTSZ3_Rings	; TTSZ3
+		dc.l TTSZ4_Rings	; TTSZ4
 
 		zonewarning RingLocPtrs,(4*4)
 
@@ -296,14 +296,14 @@ TTZ1_128x128_Kos:	binclude "Levels/Intro Stages/Techno Tower/Chunks/Primary.bin"
 	even
 GHZEX_8x8_KosM:		binclude "Levels/Intro Stages/Green Hill/Tiles/Secondary.bin"
 	even
-GHZEX_16x16_Unc:		binclude "Levels/Intro Stages/Green Hill/Blocks/Secondary.bin"
+GHZEX_16x16_Unc:	binclude "Levels/Intro Stages/Green Hill/Blocks/Secondary.bin"
 	even
 GHZEX_128x128_Kos:	binclude "Levels/Intro Stages/Green Hill/Chunks/Secondary.bin"
 	even
 
 SSLZ1_8x8_KosM:		binclude "Levels/SSLZ/Tiles/Primary.bin"
 	even
-SSLZ1_16x16_Unc:		binclude "Levels/SSLZ/Blocks/Primary.bin"
+SSLZ1_16x16_Unc:	binclude "Levels/SSLZ/Blocks/Primary.bin"
 	even
 SSLZ1_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Primary.bin"
 	even
@@ -316,14 +316,14 @@ SSLZ2_128x128_Kos:	binclude "Levels/SSLZ/Chunks/Secondary.bin"
 
 TTPZ1_8x8_KosM:		binclude "Levels/TTPZ/Tiles/Primary.bin"
 	even
-TTPZ1_16x16_Unc:		binclude "Levels/TTPZ/Blocks/Primary.bin"
+TTPZ1_16x16_Unc:	binclude "Levels/TTPZ/Blocks/Primary.bin"
 	even
 TTPZ1_128x128_Kos:	binclude "Levels/TTPZ/Chunks/Primary.bin"
 	even
 
 TTPZ2_8x8_KosM:		binclude "Levels/TTPZ/Tiles/Secondary.bin"
 	even
-TTPZ2_16x16_Unc:		binclude "Levels/TTPZ/Blocks/Secondary.bin"
+TTPZ2_16x16_Unc:	binclude "Levels/TTPZ/Blocks/Secondary.bin"
 	even
 TTPZ2_128x128_Kos:	binclude "Levels/TTPZ/Chunks/Secondary.bin"
 	even
@@ -362,23 +362,23 @@ TTSZ2_128x128_Kos:	binclude "Levels/TTSZ/Chunks/Secondary.bin"
 ; Collision data
 ; ===========================================================================
 
-S1AngleArray:			binclude "Misc Data/Collision/S1 Angle Map.bin"
+S1AngleArray:		binclude "Misc Data/Collision/S1 Angle Map.bin"
 	even
-S1HeightMaps:			binclude "Misc Data/Collision/S1 Height Maps.bin"
+S1HeightMaps:		binclude "Misc Data/Collision/S1 Height Maps.bin"
 	even
-S1HeightMapsRot:		binclude "Misc Data/Collision/S1 Height Maps Rotated.bin"
+S1HeightMapsRot:	binclude "Misc Data/Collision/S1 Height Maps Rotated.bin"
 	even
-S2AngleArray:			binclude "Misc Data/Collision/S2 Angle Map.bin"
+S2AngleArray:		binclude "Misc Data/Collision/S2 Angle Map.bin"
 	even
-S2HeightMaps:			binclude "Misc Data/Collision/S2 Height Maps.bin"
+S2HeightMaps:		binclude "Misc Data/Collision/S2 Height Maps.bin"
 	even
-S2HeightMapsRot:		binclude "Misc Data/Collision/S2 Height Maps Rotated.bin"
+S2HeightMapsRot:	binclude "Misc Data/Collision/S2 Height Maps Rotated.bin"
 	even
-S3KAngleArray:			binclude "Misc Data/Collision/S3K Angle Map.bin"
+S3KAngleArray:		binclude "Misc Data/Collision/S3K Angle Map.bin"
 	even
-S3KHeightMaps:			binclude "Misc Data/Collision/S3K Height Maps.bin"
+S3KHeightMaps:		binclude "Misc Data/Collision/S3K Height Maps.bin"
 	even
-S3KHeightMapsRot:		binclude "Misc Data/Collision/S3K Height Maps Rotated.bin"
+S3KHeightMapsRot:	binclude "Misc Data/Collision/S3K Height Maps Rotated.bin"
 	even
 
 ; ===========================================================================
@@ -389,15 +389,15 @@ GHZ1_Solid:			binclude "Levels/Intro Stages/Green Hill/Collision/1.bin"
 	even
 TTZ1_Solid:			binclude "Levels/Intro Stages/Techno Tower/Collision/1.bin"
 	even
-GHZEX_Solid:			binclude "Levels/Intro Stages/Green Hill/Collision/EX.bin"
+GHZEX_Solid:		binclude "Levels/Intro Stages/Green Hill/Collision/EX.bin"
 	even
 SSLZ1_Solid:		binclude "Levels/SSLZ/Collision/1.bin"
 	even
 SSLZ2_Solid:		binclude "Levels/SSLZ/Collision/2.bin"
 	even
-TTPZ1_Solid:			binclude "Levels/TTPZ/Collision/1.bin"
+TTPZ1_Solid:		binclude "Levels/TTPZ/Collision/1.bin"
 	even
-TTPZ2_Solid:			binclude "Levels/TTPZ/Collision/2.bin"
+TTPZ2_Solid:		binclude "Levels/TTPZ/Collision/2.bin"
 	even
 CCZ1_Solid:			binclude "Levels/CCZ/Collision/1.bin"
 	even
@@ -405,7 +405,7 @@ MMZ1_Solid:			binclude "Levels/MMZ/Collision/1.bin"
 	even
 SS1_Solid:			binclude "Levels/Secret Stages/Collision/1.bin"
 	even
-TTSZ1_Solid:			binclude "Levels/TTSZ/Collision/1.bin"
+TTSZ1_Solid:		binclude "Levels/TTSZ/Collision/1.bin"
 	even
 
 ; ===========================================================================
@@ -417,6 +417,8 @@ GHZ1_Layout:		binclude "Levels/Intro Stages/Green Hill/Layout/1.bin"
 TTZ1_Layout:		binclude "Levels/Intro Stages/Techno Tower/Layout/1.bin"
 	even
 GHZEX_Layout:		binclude "Levels/Intro Stages/Green Hill/Layout/EX.bin"
+	even
+TTZEX_Layout:		binclude "Levels/Intro Stages/Techno Tower/Layout/EX.bin"
 	even
 SSLZ1_Layout:		binclude "Levels/SSLZ/Layout/1.bin"
 	even
@@ -460,6 +462,8 @@ TTZ1_Sprites:		binclude "Levels/Intro Stages/Techno Tower/Object Pos/1.bin"
 	ObjectLayoutBoundary
 GHZEX_Sprites:		binclude "Levels/Intro Stages/Green Hill/Object Pos/EX.bin"
 	ObjectLayoutBoundary
+TTZEX_Sprites:		binclude "Levels/Intro Stages/Techno Tower/Object Pos/EX.bin"
+	ObjectLayoutBoundary
 SSLZ1_Sprites:		binclude "Levels/SSLZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 SSLZ2_Sprites:		binclude "Levels/SSLZ/Object Pos/2.bin"
@@ -501,7 +505,9 @@ GHZ1_Rings:			binclude "Levels/Intro Stages/Green Hill/Ring Pos/1.bin"
 	RingLayoutBoundary
 TTZ1_Rings:			binclude "Levels/Intro Stages/Techno Tower/Ring Pos/1.bin"
 	RingLayoutBoundary
-GHZEX_Rings:			binclude "Levels/Intro Stages/Green Hill/Ring Pos/EX.bin"
+GHZEX_Rings:		binclude "Levels/Intro Stages/Green Hill/Ring Pos/EX.bin"
+	RingLayoutBoundary
+TTZEX_Rings:		binclude "Levels/Intro Stages/Techno Tower/Ring Pos/EX.bin"
 	RingLayoutBoundary
 SSLZ1_Rings:		binclude "Levels/SSLZ/Ring Pos/1.bin"
 	RingLayoutBoundary
@@ -509,9 +515,9 @@ SSLZ2_Rings:		binclude "Levels/SSLZ/Ring Pos/2.bin"
 	RingLayoutBoundary
 SSLZ3_Rings:		binclude "Levels/SSLZ/Ring Pos/3.bin"
 	RingLayoutBoundary
-TTPZ1_Rings:			binclude "Levels/TTPZ/Ring Pos/1.bin"
+TTPZ1_Rings:		binclude "Levels/TTPZ/Ring Pos/1.bin"
 	RingLayoutBoundary
-TTPZ2_Rings:			binclude "Levels/TTPZ/Ring Pos/2.bin"
+TTPZ2_Rings:		binclude "Levels/TTPZ/Ring Pos/2.bin"
 	RingLayoutBoundary
 CCZ1_Rings:			binclude "Levels/CCZ/Ring Pos/1.bin"
 	RingLayoutBoundary
@@ -525,12 +531,12 @@ SS3_Rings:			binclude "Levels/Secret Stages/Ring Pos/3.bin"
 	RingLayoutBoundary
 SS4_Rings:			binclude "Levels/Secret Stages/Ring Pos/4.bin"
 	RingLayoutBoundary
-TTSZ1_Rings:			binclude "Levels/TTSZ/Ring Pos/1.bin"
+TTSZ1_Rings:		binclude "Levels/TTSZ/Ring Pos/1.bin"
 	RingLayoutBoundary
-TTSZ2_Rings:			binclude "Levels/TTSZ/Ring Pos/2.bin"
+TTSZ2_Rings:		binclude "Levels/TTSZ/Ring Pos/2.bin"
 	RingLayoutBoundary
-TTSZ3_Rings:			binclude "Levels/TTSZ/Ring Pos/3.bin"
+TTSZ3_Rings:		binclude "Levels/TTSZ/Ring Pos/3.bin"
 	RingLayoutBoundary
-TTSZ4_Rings:			binclude "Levels/TTSZ/Ring Pos/4.bin"
+TTSZ4_Rings:		binclude "Levels/TTSZ/Ring Pos/4.bin"
 	RingLayoutBoundary
 	even

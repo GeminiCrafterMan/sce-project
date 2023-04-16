@@ -52,8 +52,8 @@ TitleCardAct_Index:
 	; Intro stages
 		dc.l ArtKosM_TitleCardNum0		; Green Hill
 		dc.l ArtKosM_TitleCardNum0		; Techno Tower
-		dc.l ArtKosM_TitleCardNum3
 		dc.l ArtKosM_TitleCardNumEX		; Green Hill EX
+		dc.l ArtKosM_TitleCardNumEX		; Techno Tower EX
 	rept ZoneCount-1
 		dc.l ArtKosM_TitleCardNum1
 		dc.l ArtKosM_TitleCardNum2
@@ -287,9 +287,9 @@ ObjArray_TtlCardBonus:
 
 TitleCard_LevelGfx:
 		dc.l ArtKosM_GHZTitleCard	; Green Hill
-		dc.l ArtKosM_NHZTitleCard	; Techno Tower / Newtrogic High
-		dc.l ArtKosM_GHZTitleCard	; ???
-		dc.l ArtKosM_GHZTitleCard	; GHZ EX
+		dc.l ArtKosM_NHZTitleCard	; Newtrogic High
+		dc.l ArtKosM_GHZTitleCard	; Green Hill EX
+		dc.l ArtKosM_NHZTitleCard	; Newtrogic High EX
 	rept 4
 		dc.l ArtKosM_SSLZTitleCard	; SSLZ
 	endr

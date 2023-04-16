@@ -1,6 +1,6 @@
 Map_TitleCard:
 		dc.w 0							; Null
-		dc.w word_2EE3C-Map_TitleCard	; Red ACT
+		dc.w TCard_Banner-Map_TitleCard	; Red SONIC 3 banner
 		dc.w TCard_ACT-Map_TitleCard	; ACT
 		dc.w TCard_ZONE-Map_TitleCard	; ZONE
 Map_TitleCard_Zones:
@@ -8,7 +8,7 @@ Map_TitleCard_Zones:
 		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
 		dc.w TCard_NHZ-Map_TitleCard	; NEWTROGIC HIGH
 		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
-		dc.w TCard_GHZ-Map_TitleCard	; GREEN HILL
+		dc.w TCard_NHZ-Map_TitleCard	; NEWTROGIC HIGH
 	; SSLZ
 	rept 4
 		dc.w TCard_SSLZ-Map_TitleCard	; SEASIDE LAND
@@ -45,7 +45,7 @@ Map_TitleCard_Zones:
 ; Fourth value: Tile. Start at $CD for the first letter, unless E, N, O, or Z,
 ; add tile counts for the next, i.e. if letter 1 is A, letter 2 would be $CD + 6.
 
-word_2EE3C:
+TCard_Banner:
 		dc.w $10
 		dc.b  $58, 9, $84, $90, $FF, $E8
 		dc.b  $58, 9, $84, $96, 0, 0
@@ -85,6 +85,20 @@ TCard_GHZ:
 		dc.b $0, $2, $84, $DF, $0, $60			; I
 		dc.b $0, $2, $84, $E2, $0, $68			; L
 		dc.b $0, $2, $84, $E2, $0, $70			; L
+TCard_NHZ:
+		dc.w 11
+		dc.b	0,$6, $84, $A2, $FF, $B0		; N
+		dc.b	0,$6, $84, $9C, $FF, $C0		; E
+		dc.b	0,$A, $84, $CD, $FF, $D0		; W
+		dc.b	0,$E, $84, $D6, $FF, $E8		; TR
+		dc.b    0,$A, $84, $A8,   0,   8		; O
+		dc.b	0,$A, $84, $E2,   0, $20		; GI
+		dc.b	0,$6, $84, $EB,   0, $38		; C
+
+		dc.b	0, 6, $84, $F1,   0, $58		; H
+		dc.b	0, 2, $84, $E8,   0, $68		; I
+		dc.b	0, 6, $84, $E2,   0, $70		; G
+		dc.b	0, 6, $84, $F1,   0, $80		; H
 TCard_SSLZ:
 		dc.w 11	; eleven letters
 		dc.b $0, $6, $84, $CD, $FF, $E8			; S
@@ -163,18 +177,4 @@ TCard_TTSZ:
 		dc.b	0, 6, $84, $9C,   0, $60		; E
 		dc.b	0, 6, $84, $DF,   0, $70		; S
 		dc.b	0, 6, $84, $CD,   0, $80		; T
-TCard_NHZ:
-		dc.w 11
-		dc.b	0,$6, $84, $A2, $FF, $A8		; N
-		dc.b	0,$6, $84, $9C, $FF, $B8		; E
-		dc.b	0,$A, $84, $CD, $FF, $C8		; W
-		dc.b	0,$E, $84, $D6, $FF, $E0		; TR
-		dc.b    0,$A, $84, $A8,   0,   0		; O
-		dc.b	0,$A, $84, $E2,   0, $18		; GI
-		dc.b	0,$6, $84, $EB,   0, $30		; C
-
-		dc.b	0, 6, $84, $F1,   0, $58		; H
-		dc.b	0, 2, $84, $E8,   0, $68		; I
-		dc.b	0, 6, $84, $E2,   0, $70		; G
-		dc.b	0, 6, $84, $F1,   0, $80		; H
 		even

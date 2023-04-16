@@ -25,11 +25,4 @@ AniPLC_TechnoTower:	zoneanimstart
 	dc.b	0
 	dc.b	4
 	even
-	; Background turbine
-	zoneanimdecl 1, (Art_TechnoTowerTurbine>>1), $26E, 4, 32
-	dc.b	0
-	dc.b	32
-	dc.b	64
-	dc.b	96
-	even
 	zoneanimend

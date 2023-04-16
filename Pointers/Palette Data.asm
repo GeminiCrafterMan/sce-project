@@ -21,6 +21,8 @@ Pal_TTZ1:			binclude "Levels/Intro Stages/Techno Tower/Palettes/Techno Tower Zon
 	even
 Pal_GHZEX:			binclude "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin"
 	even
+Pal_TTZEX:			binclude "Levels/Intro Stages/Techno Tower/Palettes/Techno Tower Zone EX.bin"
+	even
 Pal_SSLZ1:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone 1.bin"
 	even
 Pal_SSLZ2:			binclude "Levels/SSLZ/Palettes/Seaside Land Zone 2.bin"

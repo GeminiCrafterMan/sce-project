@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "aa7f8f47-351d-470e-9077-09028a3a4d80",
+    "node": "002ae1d3-6fe4-43d6-9b48-70a7f363566a",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -1335,7 +1335,7 @@
                         }
                     ],
                     "isDirectory": true,
-                    "expanded": false,
+                    "expanded": true,
                     "uuid": "f1bc51e9-971c-4fde-acee-ad682b27714e"
                 }
             ],
@@ -1755,8 +1755,8 @@
                         "label": ""
                     },
                     "dplcs": {
-                        "enabled": true,
-                        "path": "Objects/Swinging Platform/Object Data/PLC - Saw.bin",
+                        "enabled": false,
+                        "path": "",
                         "label": ""
                     },
                     "uuid": "7f8f4735-1d77-4e10-b709-028a3a4d80b4"
