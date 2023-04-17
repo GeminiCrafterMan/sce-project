@@ -19,6 +19,7 @@ loc_1919E:
 loc_191A4:
 		tst.b	(Super_Sonic_Knux_flag).w
 		jeq		Delete_Current_Sprite
+		jmi		Delete_Current_Sprite
 		btst	#Status_Invincible,(Player_1+status_secondary).w
 		jeq		Delete_Current_Sprite
 		tst.b	anim(a0)
@@ -193,9 +194,10 @@ Obj_HyperSonic_Stars_Main:
 
 	.child:
 		tst.b	(Super_Sonic_Knux_flag).w
-		beq.w	.delete
+		jeq		DeleteObject
+		jpl		DeleteObject
 		btst	#Status_Invincible,(Player_1+status_secondary).w
-		beq.w	.delete
+		jeq		DeleteObject
 		addq.b	#1,mapping_frame(a0)
 		cmpi.b	#6,mapping_frame(a0)
 		bcs.s	.noReset
@@ -240,10 +242,6 @@ Obj_HyperSonic_Stars_Main:
 
 	.display:
 		jmp	(DisplaySprite).l
-; ---------------------------------------------------------------------------
-
-	.delete:
-		jmp	(DeleteObject).l
 ; ---------------------------------------------------------------------------
 
 Obj_HyperSonicKnux_Trail:

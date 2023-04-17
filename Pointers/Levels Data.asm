@@ -192,7 +192,7 @@ LevelPtrs:
 		dc.l CCZ1_Layout		; CCZ3
 		dc.l CCZ1_Layout		; CCZ4
 		dc.l MMZ1_Layout		; MMZ1
-		dc.l MMZ1_Layout		; MMZ2
+		dc.l MMZ2_Layout		; MMZ2
 		dc.l MMZ1_Layout		; MMZ3
 		dc.l MMZ1_Layout		; MMZ4
 		dc.l SS1_Layout			; SS1
@@ -228,7 +228,7 @@ SpriteLocPtrs:
 		dc.l CCZ1_Sprites		; CCZ3
 		dc.l CCZ1_Sprites		; CCZ4
 		dc.l MMZ1_Sprites		; MMZ1
-		dc.l MMZ1_Sprites		; MMZ2
+		dc.l MMZ2_Sprites		; MMZ2
 		dc.l MMZ1_Sprites		; MMZ3
 		dc.l MMZ1_Sprites		; MMZ4
 		dc.l SS1_Sprites		; SS1
@@ -264,7 +264,7 @@ RingLocPtrs:
 		dc.l CCZ1_Rings		; CCZ3
 		dc.l CCZ1_Rings		; CCZ4
 		dc.l MMZ1_Rings		; MMZ1
-		dc.l MMZ1_Rings		; MMZ2
+		dc.l MMZ2_Rings		; MMZ2
 		dc.l MMZ1_Rings		; MMZ3
 		dc.l MMZ1_Rings		; MMZ4
 		dc.l SS1_Rings		; SS1
@@ -434,6 +434,8 @@ CCZ1_Layout:		binclude "Levels/CCZ/Layout/1.bin"
 	even
 MMZ1_Layout:		binclude "Levels/MMZ/Layout/1.bin"
 	even
+MMZ2_Layout:		binclude "Levels/MMZ/Layout/2.bin"
+	even
 SS1_Layout:			binclude "Levels/Secret Stages/Layout/1.bin"
 	even
 SS2_Layout:			binclude "Levels/Secret Stages/Layout/2.bin"
@@ -477,6 +479,8 @@ TTPZ2_Sprites:		binclude "Levels/TTPZ/Object Pos/2.bin"
 CCZ1_Sprites:		binclude "Levels/CCZ/Object Pos/1.bin"
 	ObjectLayoutBoundary
 MMZ1_Sprites:		binclude "Levels/MMZ/Object Pos/1.bin"
+	ObjectLayoutBoundary
+MMZ2_Sprites:		binclude "Levels/MMZ/Object Pos/2.bin"
 	ObjectLayoutBoundary
 SS1_Sprites:		binclude "Levels/Secret Stages/Object Pos/1.bin"
 	ObjectLayoutBoundary
@@ -522,6 +526,8 @@ TTPZ2_Rings:		binclude "Levels/TTPZ/Ring Pos/2.bin"
 CCZ1_Rings:			binclude "Levels/CCZ/Ring Pos/1.bin"
 	RingLayoutBoundary
 MMZ1_Rings:			binclude "Levels/MMZ/Ring Pos/1.bin"
+	RingLayoutBoundary
+MMZ2_Rings:			binclude "Levels/MMZ/Ring Pos/2.bin"
 	RingLayoutBoundary
 SS1_Rings:			binclude "Levels/Secret Stages/Ring Pos/1.bin"
 	RingLayoutBoundary

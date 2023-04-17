@@ -25,7 +25,7 @@ StartLocArray:
 		binclude "Levels/CCZ/Start Location/1.bin"	; CCZ 4
 
 		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 1
-		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 2
+		binclude "Levels/MMZ/Start Location/2.bin"	; MMZ 2
 		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 3
 		binclude "Levels/MMZ/Start Location/1.bin"	; MMZ 4
 
