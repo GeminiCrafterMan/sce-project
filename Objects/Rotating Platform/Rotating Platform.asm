@@ -59,6 +59,15 @@ loc_45E2E:
 
 
 sub_45E6E:
+		cmpa.w	#Player_1,a1				; player 1?
+		bne.s	.notP1
+		tst.w	(Debug_placement_mode).w	; debug mode?
+		beq.s	.notP1
+		bset	#Status_InAir,status(a1)
+		bclr	#Status_OnObj,status(a1)
+		clr.b	(a3)
+		bra.w	locret_45F0E				; skip to prevent a crash
+	.notP1:
 		tst.b	(a3)
 		bne.s	loc_45E82
 		btst	d6,status(a0)
@@ -82,18 +91,18 @@ loc_45E90:
 		clr.w	ground_vel(a1)
 		clr.b	spin_dash_flag(a1)
 		clr.b	anim(a1)
-		bclr	#2,status(a1)
+		bclr	#Status_Roll,status(a1)
 		move.b	#3,wait(a1)
 		move.w	(a2),d0
-		andi.w	#$70,d0
+		andi.w	#btnABC,d0
 		beq.s	loc_45EEE
 		clr.b	(a3)
 		move.w	#-$680,y_vel(a1)
 		clr.b	wait(a1)
-		bset	#2,status(a1)
-		bset	#1,status(a1)
+		bset	#Status_Roll,status(a1)
+		bset	#Status_InAir,status(a1)
 		move.b	#1,jumping(a1)
-		move.b	#2,anim(a1)
+		move.b	#id_Roll,anim(a1)
 		move.b	#$E,y_radius(a1)
 		move.b	#7,x_radius(a1)
 		sfx		sfx_Jump,1
@@ -157,6 +166,15 @@ loc_45F3A:
 		moveq	#4,d6
 
 loc_45F74:
+		cmpa.w	#Player_1,a1				; player 1?
+		bne.s	.notP1
+		tst.w	(Debug_placement_mode).w	; debug mode?
+		beq.s	.notP1
+		bset	#Status_InAir,status(a1)
+		bclr	#Status_OnObj,status(a1)
+		clr.b	(a3)
+		bra.s	locret_45FB6				; skip to prevent a crash
+	.notP1:
 		tst.b	(a3)
 		bne.s	loc_45FD6
 		btst	d6,status(a0)
@@ -215,18 +233,18 @@ loc_45FE4:
 		clr.w	ground_vel(a1)
 		clr.b	spin_dash_flag(a1)
 		clr.b	anim(a1)
-		bclr	#2,status(a1)
+		bclr	#Status_Roll,status(a1)
 		move.b	#3,wait(a1)
 		move.w	(a2),d0
-		andi.w	#$70,d0
+		andi.w	#btnABC,d0
 		beq.s	loc_46042
 		clr.b	(a3)
 		move.w	#-$680,y_vel(a1)
 		clr.b	wait(a1)
-		bset	#2,status(a1)
-		bset	#1,status(a1)
+		bset	#Status_Roll,status(a1)
+		bset	#Status_InAir,status(a1)
 		move.b	#1,jumping(a1)
-		move.b	#2,anim(a1)
+		move.b	#id_Roll,anim(a1)
 		move.b	#$E,y_radius(a1)
 		move.b	#7,x_radius(a1)
 		sfx		sfx_Jump,1
@@ -285,8 +303,6 @@ loc_460A6:
 		or.b	d0,render_flags(a1)
 		move.b	(a2),d0
 		move.b	d0,mapping_frame(a1)
-		tst.w	(Debug_placement_mode).w
-		bne.s	.ret
 		move.l	a0,-(sp)
 		move.l	a2,-(sp)
 		lea		(a1),a0
