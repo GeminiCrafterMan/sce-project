@@ -195,6 +195,7 @@ SpawnLevelMainSprites:
 		dc.l	Obj_Tails,		Obj_Tails	; T&T
 		dc.l	Obj_Sonic,		Obj_Sonic	; S&S
 		dc.l	Obj_Espio,		DeleteObject; EA
+		dc.l	Obj_Knuckles,	Obj_Knuckles; K&K
 
 .cont:
 		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3).w
@@ -235,7 +236,7 @@ LoadPlayerPal:
 		dc.w	palid_Sonic		; T&T
 		dc.w	palid_Sonic		; S&S
 		dc.w	palid_Espio		; EA
-		dc.w	palid_Sonic		; MS
+		dc.w	palid_Knuckles	; K&K
 		even
 
 ; =============== S U B R O U T I N E =======================================

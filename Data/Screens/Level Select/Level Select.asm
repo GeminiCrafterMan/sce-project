@@ -219,16 +219,17 @@ LevelSelect_LoadLevel_CharacterSwitcher:
 		lea	(Normal_palette_line_3).w,a2
 		jmp	(PalLoad_Line16).w
 .plrIDs:
-		dc.l	Obj_CabaretSonic,	Obj_CabaretTails,	Pal_Sonic	; S&T	; 0, 4, 8
-		dc.l	Obj_CabaretSonic,	DeleteObject,		Pal_Sonic	; SA	; 12, 16, 20
-		dc.l	Obj_CabaretTails,	DeleteObject,		Pal_Sonic	; TA	; 24, 28, 32
-		dc.l	Obj_CabaretKnuckles,DeleteObject,		Pal_Knuckles; KA	; 36, 40, 44
-		dc.l	Obj_CabaretKnuckles,Obj_CabaretTails,	Pal_Knuckles; K&T	; 48, 52, 56
-		dc.l	Obj_CabaretMighty,	DeleteObject,		Pal_Mighty	; MA	; 60, 64, 68
-		dc.l	Obj_CabaretMighty,	Obj_CabaretTails,	Pal_Mighty	; M&T	; 72, 76, 80
+		dc.l	Obj_CabaretSonic,	Obj_CabaretTails,	Pal_Sonic	; S&T
+		dc.l	Obj_CabaretSonic,	DeleteObject,		Pal_Sonic	; SA
+		dc.l	Obj_CabaretTails,	DeleteObject,		Pal_Sonic	; TA
+		dc.l	Obj_CabaretKnuckles,DeleteObject,		Pal_Knuckles; KA
+		dc.l	Obj_CabaretKnuckles,Obj_CabaretTails,	Pal_Knuckles; K&T
+		dc.l	Obj_CabaretMighty,	DeleteObject,		Pal_Mighty	; MA
+		dc.l	Obj_CabaretMighty,	Obj_CabaretTails,	Pal_Mighty	; M&T
 		dc.l	Obj_CabaretTails,	Obj_CabaretTails,	Pal_Sonic	; T&T
 		dc.l	Obj_CabaretSonic,	Obj_CabaretSonic,	Pal_Sonic	; S&S
 		dc.l	Obj_CabaretEspio,	DeleteObject,		Pal_Espio	; EA
+		dc.l	Obj_CabaretKnuckles,Obj_CabaretKnuckles,Pal_Knuckles; K&K
 	.ret:
 		rts
 

@@ -1136,6 +1136,8 @@ Knuckles_Move_Glide:
 ; ---------------------------------------------------------------------------
 
 Knux_Test_For_Glide:
+		cmpa.w	#Player_1,a0
+		bne.w	return_3165D2
 		tst.b	double_jump_flag(a0)
 		bne.w	return_3165D2
 

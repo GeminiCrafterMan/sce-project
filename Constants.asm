@@ -156,8 +156,9 @@ po_MightyAlone:			ds.b 1
 po_MightyAndTails:		ds.b 1
 po_TailsAndTails:		ds.b 1
 po_SonicAndSonic:		ds.b 1
-po_Last:				= *
 po_Espio:				ds.b 1
+po_Last:				= *
+po_KnucklesAndKnuckles:	ds.b 1
 	dephase
 
 ; ---------------------------------------------------------------------------
