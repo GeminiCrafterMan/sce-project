@@ -45,8 +45,8 @@ loc_414E6:
 loc_414FE:
 		move.w	x_pos(a0),-(sp)
 		bsr.w	sub_4154C
-		move.w	#$20,d1
-		move.w	#9,d3	; changed from $11 to $9 because smaller platform
+		move.w	#$20,d1	; width
+		move.w	#9,d3	; height, changed from $11 to $9 because smaller platform
 		move.w	(sp)+,d4
 		jsr		(SolidObjectTop).l
 		move.w	$44(a0),d0
@@ -107,12 +107,13 @@ loc_41586:
 		swap	d1
 		asr.l	#4,d0
 		asr.l	#4,d1
-		move.l	d0,d4
-		move.l	d1,d5
-		asr.l	#1,d4
-		asr.l	#1,d5
-		add.l	d0,d4
-		add.l	d1,d5
+	; extends the middle piece's length to 32x32
+;		move.l	d0,d4
+;		move.l	d1,d5
+;		asr.l	#1,d4
+;		asr.l	#1,d5
+;		add.l	d0,d4
+;		add.l	d1,d5
 		lea		$1E(a1),a2
 
 loc_415BC:

@@ -6,133 +6,166 @@ using SonicRetro.SonLVL.API;
 
 namespace S3KObjectDefinitions.GHZ
 {
-	class SwingingPlatform : Common.SwingingPlatform
-	{
-		public override void Init(ObjectData data)
-		{
-			imgsaw = ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Saw.bin"), 0, 0);
-			for (int i = 0; i < labels.Length; i++)
-				imgs.Add(ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin"), labels[i], 0));
-		}
-	}
-}
-
-namespace S3KObjectDefinitions.Common
-{
 	class SwingingPlatform : ObjectDefinition
 	{
-		public int[] labels = { 0, 1, 2 };
-		public Sprite imgsaw;
-		public List<Sprite> imgs = new List<Sprite>();
+		private PropertySpec[] properties;
+		private ReadOnlyCollection<byte> subtypes;
+		private Sprite[] sprites;
 
-		public override void Init(ObjectData data)
-		{
-			imgsaw = ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/Uncompressed Art/Saw.bin", CompressionType.Uncompressed), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Saw.bin"), 0, 0);
-			for (int i = 0; i < labels.Length; i++)
-				imgs.Add(ObjectHelper.MapToBmp(ObjectHelper.OpenArtFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM), System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin"), labels[i], 0));
-		}
-
-		public override ReadOnlyCollection<byte> Subtypes
-		{
-			get { return new ReadOnlyCollection<byte>(new byte[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31 }); }
-		}
+		private Sprite[] unknownSprite;
 
 		public override string Name
 		{
 			get { return "Swinging Platform"; }
 		}
 
-		public override bool RememberState
+		public override Sprite Image
 		{
-			get { return false; }
+			get { return sprites[0]; }
+		}
+
+		public override PropertySpec[] CustomProperties
+		{
+			get { return properties; }
+		}
+
+		public override ReadOnlyCollection<byte> Subtypes
+		{
+			get { return subtypes; }
 		}
 
 		public override string SubtypeName(byte subtype)
 		{
-			if ((subtype & 0x60) != 0)
-				return (subtype & 0x0F) + " links + saw";
-			else
-				return (subtype & 0x0F) + " links";
-		}
-
-		public override Sprite Image
-		{
-			get { return imgs[0]; }
+			return null;
 		}
 
 		public override Sprite SubtypeImage(byte subtype)
 		{
-			if ((subtype & 0x60) != 0)
-				return imgsaw;
-			else
-				return imgs[0];
+			return sprites[0];
 		}
 
 		public override Sprite GetSprite(ObjectEntry obj)
 		{
-			int chainLength = obj.SubType & 0x0F;
-			List<Sprite> sprs = new List<Sprite>() { imgs[2] };
-			int yoff = 16;
-			for (int i = 0; i < chainLength; i++)
+			var count = obj.SubType & 0x0F;
+			if (count > 8) return unknownSprite[(obj.XFlip ? 1 : 0) | (obj.YFlip ? 2 : 0)];
+
+			var sprite = new Sprite(sprites[0]);
+			var vertical = (obj.SubType & 0xF0) != 0;
+
+			if (vertical)
 			{
-				Sprite tmp = new Sprite(imgs[1]);
-				tmp.Offset(0, yoff);
-				sprs.Add(tmp);
-				yoff += 16;
+				var offset = obj.YFlip ? -16 : 16;
+				sprite.Offset(obj.XFlip ? 24 : -24, offset >> 1);
+
+				for (var index = 0; index < count; index++)
+				{
+					sprite = new Sprite(sprites[1], sprite);
+					sprite.Offset(0, offset);
+				}
+
+				sprite.Offset(0, 0);
 			}
-			yoff -= 8;
-			Sprite tm2 = new Sprite(SubtypeImage(obj.SubType));
-			tm2.Offset(0, yoff);
-			sprs.Add(tm2);
-			return new Sprite(sprs.ToArray());
+			else
+			{
+				var offset = obj.XFlip ? 16 : -16;
+				sprite.Offset(offset >> 1, 0);
+
+				for (var index = 0; index < count; index++)
+				{
+					sprite = new Sprite(sprites[1], sprite);
+					sprite.Offset(offset, 0);
+				}
+
+				sprite.Offset(0, 0);
+			}
+
+			return new Sprite(sprites[2], sprite);	// I think this might be the middle bit.
 		}
 
 		public override Sprite GetDebugOverlay(ObjectEntry obj)
 		{
-			int chainLength = obj.SubType & 0x0F;
-			int pixelsLength = ((chainLength) * 16);
-			var bitmap = new BitmapBits(pixelsLength * 2, pixelsLength);
+			var count = obj.SubType & 0x0F;
+			if (count > 8) return null;
 
-			bitmap.DrawCircle(LevelData.ColorWhite, bitmap.Width / 2 - 1, bitmap.Height - 1, pixelsLength - 1);
+			var radius = (count + 1) * 16 - 8;
+			var vertical = (obj.SubType & 0xF0) != 0;
 
-			var overlay = new Sprite(bitmap);
-			overlay.Offset(-bitmap.Width / 2 - 1, -pixelsLength/2 - bitmap.Height / 2 - 1);
-			overlay.Flip(obj.XFlip, true);
-			return overlay;
-		}
-
-		private PropertySpec[] customProperties = new PropertySpec[] {
-			new PropertySpec("Chainlinks", typeof(int), "Extended", null, null, GetChainlinks, SetChainlinks),
-			new PropertySpec("Saw", typeof(bool), "Extended", null, null, GetSaw, SetSaw)
-		};
-
-		public override PropertySpec[] CustomProperties
-		{
-			get
+			if (vertical)
 			{
-				return customProperties;
+				var bitmap = new BitmapBits(radius + 1, radius * 2 + 1);
+				bitmap.DrawCircle(LevelData.ColorWhite, obj.XFlip ? 0 : radius, radius, radius);
+				return new Sprite(bitmap, obj.XFlip ? 24 : -radius - 24, -radius);
+			}
+			else
+			{
+				var bitmap = new BitmapBits(radius * 2 + 1, radius + 1);
+				bitmap.DrawCircle(LevelData.ColorWhite, radius, obj.YFlip ? 0 : radius, radius);
+				return new Sprite(bitmap, -radius, obj.YFlip ? 0 : -radius);
 			}
 		}
 
-		private static object GetChainlinks(ObjectEntry obj)
+		public override Rectangle GetBounds(ObjectEntry obj)
 		{
-			return obj.SubType & 0x0F;
+			var count = obj.SubType & 0x0F;
+			if (count > 8) return new Rectangle(obj.X - 8, obj.Y - 7, 16, 14);
+
+			var radius = (count + 1) * 16 - 8;
+			var bounds = sprites[0].Bounds;
+			var vertical = (obj.SubType & 0xF0) != 0;
+
+			if (vertical)
+			{
+				var xoffset = obj.XFlip ? 24 : -24;
+				var yoffset = obj.YFlip ? -radius : radius;
+				bounds.Offset(obj.X + xoffset, obj.Y + yoffset);
+				return bounds;
+			}
+
+			bounds.Offset(obj.X + (obj.XFlip ? radius : -radius), obj.Y);
+			return bounds;
 		}
 
-		private static void SetChainlinks(ObjectEntry obj, object value)
+		public override int GetDepth(ObjectEntry obj)
 		{
-			value = Math.Max(0, (Math.Min(0x0D, (int)value)));
-			obj.SubType = (byte)((obj.SubType & ~0x0F) | (int)value);
+			return 5;
 		}
 
-		private static object GetSaw(ObjectEntry obj)
+		public override void Init(ObjectData data)
 		{
-			return (obj.SubType & 0x60) != 0 ? true : false;
+			var art = LevelData.ReadFile("../Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin", CompressionType.KosinskiM);
+			var map = System.IO.File.ReadAllBytes("../Objects/Swinging Platform/Object Data/Map - Swinging Platform.bin");
+
+			properties = new PropertySpec[2];
+			subtypes = new ReadOnlyCollection<byte>(new byte[0]);
+			sprites = new Sprite[3];
+
+			for (var index = 0; index < sprites.Length; index++)
+				sprites[index] = ObjectHelper.MapToBmp(art, map, index, 0);
+
+			unknownSprite = BuildFlippedSprites(ObjectHelper.UnknownObject);
+
+			properties[0] = new PropertySpec("Count", typeof(int), "Extended",
+				"The number of segments in the object.", null,
+				(obj) => obj.SubType & 0x0F,
+				(obj, value) => obj.SubType = (byte)((obj.SubType & 0xF0) | (int)value));
+
+			properties[1] = new PropertySpec("Direction", typeof(int), "Extended",
+				"The object's movement pattern.", null, new Dictionary<string, int>
+				{
+					{ "Horizontal", 0x00 },
+					{ "Vertical", 0x10 }
+				},
+				(obj) => (obj.SubType & 0xF0) == 0 ? 0x00 : 0x10,
+				(obj, value) => obj.SubType = (byte)((obj.SubType & 0x0F) | (int)value));
 		}
 
-		private static void SetSaw(ObjectEntry obj, object value)
+		private Sprite[] BuildFlippedSprites(Sprite sprite)
 		{
-			obj.SubType = (byte)((obj.SubType & ~0x60) | ((bool)value == true ? 0x60 : 0));
+			var flipX = new Sprite(sprite, true, false);
+			var flipY = new Sprite(sprite, false, true);
+			var flipXY = new Sprite(sprite, true, true);
+
+			return new[] { sprite, flipX, flipY, flipXY };
 		}
 	}
 }
