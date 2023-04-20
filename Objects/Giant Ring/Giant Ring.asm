@@ -301,7 +301,8 @@ DPLCPtr_SSEntryFlash:
 		dc.l ArtUnc_SSEntryFlash>>1
 		dc.l DPLC_SSEntryFlash
 AniRaw_SSEntryRing:
-		dc.b    3,   0,   0,   1,   2,   3,   4,   5,   6,   7, 8, 9, arfBack,  $F,   4, $A,  $B,   $C,   $D,  $E, $F, $10, $11, $12, $13, $14, arfEnd
+		dc.b    3,   0,   0,   1,   2,   3,   4,   5,   6,   7,   8,   9, $A, arfBack,  $10,   $D	; idk what these last two values actually do
+		dc.b	4,  $B,  $C,  $D,  $E,  $F, $10, $11, $12, $13, $14, arfEnd
 AniRaw_SSEntryFlash:
 		dc.b    0,   0,   0,   1,   2, $43,   3,   2,   1,   0, arfJump
 		even
