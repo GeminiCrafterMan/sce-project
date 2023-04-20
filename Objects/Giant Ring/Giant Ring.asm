@@ -301,9 +301,9 @@ DPLCPtr_SSEntryFlash:
 		dc.l ArtUnc_SSEntryFlash>>1
 		dc.l DPLC_SSEntryFlash
 AniRaw_SSEntryRing:
-		dc.b    4,   0,   0,   1,   2,   3,   4,   5,   6,   7, $F8,  $C,   6,  $A,   9,   8,  $B, $FC
+		dc.b    3,   0,   0,   1,   2,   3,   4,   5,   6,   7, 8, 9, arfBack,  $F,   4, $A,  $B,   $C,   $D,  $E, $F, $10, $11, $12, $13, $14, arfEnd
 AniRaw_SSEntryFlash:
-		dc.b    0,   0,   0,   1,   2, $43,   3,   2,   1,   0, $F4
+		dc.b    0,   0,   0,   1,   2, $43,   3,   2,   1,   0, arfJump
 		even
 Map_SSEntryRing:
 		binclude "Objects/Giant Ring/Object Data/Map - Entry Ring.bin"
@@ -313,7 +313,7 @@ Map_SSEntryFlash:
 		binclude "Objects/Giant Ring/Object Data/Map - Entry Flash.bin"
 DPLC_SSEntryFlash:
 		binclude "Objects/Giant Ring/Object Data/DPLC - Special Stage Entry Flash.bin"
-; Fix and combine these two. I'm leaving them be for now for the sake of testing.
+
 PalSPtr_SSEntry:
 		palscriptptr .header, .data
 .header
