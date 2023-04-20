@@ -4,7 +4,7 @@
     <ImageFromMappings id="img">
       <ArtFile filename="../Objects/Giant Ring/Uncompressed Art/Entry Ring.bin" compression="Uncompressed" />
       <MapFile type="Binary" filename="../Objects/Giant Ring/Object Data/Map - Entry Ring.bin"
-        dplcfile="../Objects/Giant Ring/Object Data/DPLC - Special Stage Entry Ring.bin" frame="8" startpal="1" />
+        dplcfile="../Objects/Giant Ring/Object Data/DPLC - Special Stage Entry Ring.bin" frame="16" startpal="1" />
     </ImageFromMappings>
   </Images>
   <Properties>
