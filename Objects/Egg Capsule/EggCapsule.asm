@@ -66,7 +66,7 @@ loc_865D0:
 
 sub_865DE:
 		move.b	#1,mapping_frame(a0)
-		move.w	#$40,$2E(a0)
+		move.w	#$40,wait(a0)
 		lea	ChildObjDat_86B7A(pc),a2
 		jsr	(CreateChild1_Normal).w
 		lea	ChildObjDat_86B9A(pc),a2
@@ -285,7 +285,7 @@ loc_86820:
 ; ---------------------------------------------------------------------------
 
 loc_8683E:
-		subq.w	#1,$2E(a0)
+		subq.w	#1,wait(a0)
 		bpl.s	loc_86850
 		move.l	#loc_86854,address(a0)
 		move.w	#$80,priority(a0)
@@ -301,7 +301,7 @@ loc_86854:
 		bpl.s	loc_86888
 		add.w	d1,y_pos(a0)
 		move.w	$3E(a0),y_vel(a0)
-		jsr	(Find_Sonic).w
+		jsr	(Find_SonicTails).w
 		move.w	#-$200,d1
 		tst.b	(Level_end_flag).w
 		beq.s	loc_86880
@@ -326,7 +326,7 @@ loc_86894:
 
 loc_8689C:
 		jsr	(Refresh_ChildPosition).w
-		subq.w	#1,$2E(a0)
+		subq.w	#1,wait(a0)
 		bpl.s	loc_868B2
 		move.l	#loc_868B6,address(a0)
 		move.w	#$80,priority(a0)
@@ -398,7 +398,7 @@ byte_86A74:
 ; =============== S U B R O U T I N E =======================================
 
 sub_868F8:
-		subq.w	#1,$2E(a0)
+		subq.w	#1,wait(a0)
 		bpl.s	locret_86930
 		lea	(Player_1).w,a1
 		btst	#7,status(a1)
@@ -443,7 +443,7 @@ Check_TailsEndPose:
 
 
 sub_86984:
-		subq.w	#1,$2E(a0)
+		subq.w	#1,wait(a0)
 		bpl.s	locret_869C4
 		lea	(Player_1).w,a1
 		cmpi.b	#id_SonicDeath,routine(a1)
@@ -541,7 +541,7 @@ loc_86AB0:
 		lea	word_2C7EA(pc),a2
 		move.l	4(a2,d0.w),mappings(a0)
 		lsl.w	#2,d1
-		move.w	d1,$2E(a0)
+		move.w	d1,wait(a0)
 		movea.w	$46(a0),a1
 		move.w	x_pos(a0),d0
 		move.w	#$200,d1

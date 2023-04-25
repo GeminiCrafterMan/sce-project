@@ -76,6 +76,7 @@ Obj_FallingEndSignInit:
 		subi.w	#$20,d0
 		move.w	d0,y_pos(a0)								; place vertical position at top of screen
 		sfx	sfx_SignpostFall
+		move.w	(Camera_max_X_pos).w,(Camera_min_X_pos).w ; lock screen position
 		rts
 ; ---------------------------------------------------------------------------
 
@@ -330,8 +331,9 @@ Obj_EndSignTouch:
 		addq.b	#2,routine(a0)	;increment routine
 		move.l	#AniRaw_EndSigns,aniraw(a0)
 		sfx		sfx_Signpost	; S2 signpost sound
+		move.w	(Camera_max_X_pos).w,(Camera_min_X_pos).w ; lock screen position
 
-		;The code below only gets to run once, so I'm just commenting it out so that it can run exactly one time ever time.
+		;The code below only gets to run once, so I'm just commenting it out so that it can run exactly one time every time.
 		;move.b	(V_int_run_count+3).w,d0
 		;andi.b	#3,d0
 		;bne.s	+
