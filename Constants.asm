@@ -33,7 +33,7 @@ Z80_reset =						$A11200
 HW_Version =					$A10001
 HW_Port_1_Data =				$A10003
 HW_Port_2_Data =				$A10005
-HW_Expansion_Data =			$A10007
+HW_Expansion_Data =				$A10007
 HW_Port_1_Control =				$A10009
 HW_Port_2_Control =				$A1000B
 HW_Expansion_Control =			$A1000D
@@ -564,7 +564,6 @@ ArtTile_PurpleRock:			= $3CB
 ArtTile_Crabmeat:			= $400
 ArtTile_BuzzBomber:			= $444
 ArtTile_Chopper:			= $50E
-ArtTile_Motobug:			= $52E
 
 ; ---------------------------------------------------------------------------
 ; Seaside Land Zone
