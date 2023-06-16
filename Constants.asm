@@ -2,7 +2,7 @@
 ; Constants
 ; ===========================================================================
 
-Ref_Checksum_String				= 'INIT'
+Ref_Checksum_String			= 'INIT'
 DEBUG = 0 ; enables extra debbuging code
 
 
@@ -10,62 +10,62 @@ DEBUG = 0 ; enables extra debbuging code
 ; VDP addresses
 ; ---------------------------------------------------------------------------
 
-VDP_data_port =					$C00000
-VDP_control_port =				$C00004
-VDP_counter =					$C00008
+VDP_data_port =				$C00000
+VDP_control_port =			$C00004
+VDP_counter =				$C00008
 
-PSG_input =						$C00011
+PSG_input =					$C00011
 
 ; ---------------------------------------------------------------------------
 ; Address equates
 ; ---------------------------------------------------------------------------
 
 ; Z80 addresses
-Z80_RAM =						$A00000	; start of Z80 RAM
-Z80_RAM_end =					$A02000	; end of non-reserved Z80 RAM
-Z80_bus_request =				$A11100
-Z80_reset =						$A11200
+Z80_RAM =					$A00000	; start of Z80 RAM
+Z80_RAM_end =				$A02000	; end of non-reserved Z80 RAM
+Z80_bus_request =			$A11100
+Z80_reset =					$A11200
 
 ; ---------------------------------------------------------------------------
 ; I/O Area
 ; ---------------------------------------------------------------------------
 
-HW_Version =					$A10001
-HW_Port_1_Data =				$A10003
-HW_Port_2_Data =				$A10005
-HW_Expansion_Data =				$A10007
-HW_Port_1_Control =				$A10009
-HW_Port_2_Control =				$A1000B
-HW_Expansion_Control =			$A1000D
-HW_Port_1_TxData =				$A1000F
-HW_Port_1_RxData =				$A10011
-HW_Port_1_SCtrl =				$A10013
-HW_Port_2_TxData =				$A10015
-HW_Port_2_RxData =				$A10017
-HW_Port_2_SCtrl =				$A10019
-HW_Expansion_TxData =			$A1001B
-HW_Expansion_RxData =			$A1001D
-HW_Expansion_SCtrl =			$A1001F
+HW_Version =				$A10001
+HW_Port_1_Data =			$A10003
+HW_Port_2_Data =			$A10005
+HW_Expansion_Data =			$A10007
+HW_Port_1_Control =			$A10009
+HW_Port_2_Control =			$A1000B
+HW_Expansion_Control =		$A1000D
+HW_Port_1_TxData =			$A1000F
+HW_Port_1_RxData =			$A10011
+HW_Port_1_SCtrl =			$A10013
+HW_Port_2_TxData =			$A10015
+HW_Port_2_RxData =			$A10017
+HW_Port_2_SCtrl =			$A10019
+HW_Expansion_TxData =		$A1001B
+HW_Expansion_RxData =		$A1001D
+HW_Expansion_SCtrl =		$A1001F
 
 ; ---------------------------------------------------------------------------
 ; SRAM addresses
 ; ---------------------------------------------------------------------------
 
-SRAM_access_flag =				$A130F1
-Security_addr =					$A14000
+SRAM_access_flag =			$A130F1
+Security_addr =				$A14000
 
 ; ---------------------------------------------------------------------------
 ; Level Misc
 ; ---------------------------------------------------------------------------
 
-RingTable_Count:					= 512	; The maximum rings on the level. Even addresses only
-ObjectTable_Count:				= 768	; The maximum objects on the level. Even addresses only
+RingTable_Count =			512	; The maximum rings on the level. Even addresses only
+ObjectTable_Count =			768	; The maximum objects on the level. Even addresses only
 
 ; ---------------------------------------------------------------------------
 ; PLC queues
 ; ---------------------------------------------------------------------------
 
-PLCKosM_Count:					= 32		; The greater the queues, the more RAM is used for the buffer
+PLCKosM_Count =				32		; The greater the queues, the more RAM is used for the buffer
 
 ; ---------------------------------------------------------------------------
 ; Game modes
@@ -75,12 +75,12 @@ offset :=	Game_Modes
 ptrsize :=	1
 idstart :=	0
 
-id_TitleScreen =					id(ptr_TitleScreen)			; 0
-id_LevelSelectScreen =				id(ptr_LevelSelect)			; 4
-id_LevelScreen =					id(ptr_Level)				; 8
+id_TitleScreen =			id(ptr_TitleScreen)			; 0
+id_LevelSelectScreen =		id(ptr_LevelSelect)			; 4
+id_LevelScreen =			id(ptr_Level)				; 8
 
-GameModeFlag_TitleCard =		7							; flag bit
-GameModeID_TitleCard =			1<<GameModeFlag_TitleCard	; flag mask
+GameModeFlag_TitleCard =	7							; flag bit
+GameModeID_TitleCard =		1<<GameModeFlag_TitleCard	; flag mask
 
 ; ---------------------------------------------------------------------------
 ; V-Int routines
@@ -90,12 +90,12 @@ offset :=	VInt_Table
 ptrsize :=	1
 idstart :=	0
 
-VintID_Lag =						id(ptr_VInt_Lag)			; 0
-VintID_Main =					id(ptr_VInt_Main)		; 2
-VintID_Sega =					id(ptr_VInt_Sega)			; 4
-VintID_Menu =					id(ptr_VInt_Menu)		; 6
-VintID_Level =					id(ptr_VInt_Level)		; 8
-VintID_Fade =					id(ptr_VInt_Fade)		; A
+VintID_Lag =				id(ptr_VInt_Lag)			; 0
+VintID_Main =				id(ptr_VInt_Main)		; 2
+VintID_Sega =				id(ptr_VInt_Sega)			; 4
+VintID_Menu =				id(ptr_VInt_Menu)		; 6
+VintID_Level =				id(ptr_VInt_Level)		; 8
+VintID_Fade =				id(ptr_VInt_Fade)		; A
 
 ; ---------------------------------------------------------------------------
 ; Sonic routines
@@ -105,13 +105,13 @@ offset :=	Sonic_Index
 ptrsize :=	1
 idstart :=	0
 
-id_SonicInit =					id(ptr_Sonic_Init)			; 0
-id_SonicControl =					id(ptr_Sonic_Control)		; 2
-id_SonicHurt =					id(ptr_Sonic_Hurt)		; 4
-id_SonicDeath =					id(ptr_Sonic_Death)		; 6
-id_SonicRestart =					id(ptr_Sonic_Restart)		; 8
+id_SonicInit =				id(ptr_Sonic_Init)			; 0
+id_SonicControl =			id(ptr_Sonic_Control)		; 2
+id_SonicHurt =				id(ptr_Sonic_Hurt)		; 4
+id_SonicDeath =				id(ptr_Sonic_Death)		; 6
+id_SonicRestart =			id(ptr_Sonic_Restart)		; 8
 
-id_SonicDrown =					id(ptr_Sonic_Drown)		; C
+id_SonicDrown =				id(ptr_Sonic_Drown)		; C
 
 ; ---------------------------------------------------------------------------
 ; Levels
@@ -120,14 +120,14 @@ id_SonicDrown =					id(ptr_Sonic_Drown)		; C
 ; zone IDs
 ZoneIDs:
 	phase 0 ; Reset ds.b value to 0
-z_Intro:ds.b 1
-z_SSLZ:	ds.b 1
-z_TTPZ:	ds.b 1
-z_CCZ:	ds.b 1
-z_MMZ:	ds.b 1
-z_SS:	ds.b 1
-z_Last:				= *
-z_TTSZ:	ds.b 1
+z_Intro:					ds.b 1
+z_SSLZ:						ds.b 1
+z_TTPZ:						ds.b 1
+z_CCZ:						ds.b 1
+z_MMZ:						ds.b 1
+z_SS:						ds.b 1
+z_Last =					*
+z_TTSZ:						ds.b 1
 	dephase
 	zonewarning	ZoneIDs,1
 
@@ -137,111 +137,111 @@ z_TTSZ:	ds.b 1
 
 ; character IDs
 	phase 0 ; Reset ds.b value to 0
-c_Sonic:	ds.b 1
-c_Tails:	ds.b 1
-c_Knuckles:	ds.b 1
-c_Mighty:	ds.b 1
-c_Last:				= *
-c_Espio:	ds.b 1
+c_Sonic:					ds.b 1
+c_Tails:					ds.b 1
+c_Knuckles:					ds.b 1
+c_Mighty:					ds.b 1
+c_Last =					*
+c_Espio:					ds.b 1
 	dephase
 
 ; player option IDs
 	phase 0 ; Reset ds.b value to 0
-po_SonicAndTails:		ds.b 1
-po_SonicAlone:			ds.b 1
-po_TailsAlone:			ds.b 1
-po_KnucklesAlone:		ds.b 1
-po_KnucklesAndTails:	ds.b 1
-po_MightyAlone:			ds.b 1
-po_MightyAndTails:		ds.b 1
-po_TailsAndTails:		ds.b 1
-po_SonicAndSonic:		ds.b 1
-po_Espio:				ds.b 1
-po_Last:				= *
-po_KnucklesAndKnuckles:	ds.b 1
+po_SonicAndTails:			ds.b 1
+po_SonicAlone:				ds.b 1
+po_TailsAlone:				ds.b 1
+po_KnucklesAlone:			ds.b 1
+po_KnucklesAndTails:		ds.b 1
+po_MightyAlone:				ds.b 1
+po_MightyAndTails:			ds.b 1
+po_TailsAndTails:			ds.b 1
+po_SonicAndSonic:			ds.b 1
+po_Espio:					ds.b 1
+po_Last =					*
+po_KnucklesAndKnuckles:		ds.b 1
 	dephase
 
 ; ---------------------------------------------------------------------------
 ; Buttons bit numbers
 ; ---------------------------------------------------------------------------
 
-button_up:						equ	0
-button_down:					equ	1
-button_left:					equ	2
-button_right:					equ	3
-button_B:						equ	4
-button_C:						equ	5
-button_A:						equ	6
-button_start:					equ	7
-button_Z:						equ button_up
-button_Y:						equ button_down
-button_X:						equ button_left
-button_mode:					equ button_right
+button_up =					0
+button_down =				1
+button_left =				2
+button_right =				3
+button_B =					4
+button_C =					5
+button_A =					6
+button_start =				7
+button_Z =					button_up
+button_Y =					button_down
+button_X =					button_left
+button_mode =				button_right
 ; Buttons masks (1 << x == pow(2, x))
-button_up_mask:					equ	1<<button_up	; $01
-button_down_mask:				equ	1<<button_down	; $02
-button_left_mask:				equ	1<<button_left	; $04
-button_right_mask:				equ	1<<button_right	; $08
-button_B_mask:					equ	1<<button_B		; $10
-button_C_mask:					equ	1<<button_C		; $20
-button_A_mask:					equ	1<<button_A		; $40
-button_start_mask:				equ	1<<button_start	; $80
-button_Z_mask:					equ button_up_mask
-button_Y_mask:					equ button_down_mask
-button_X_mask:					equ button_left_mask
-button_mode_mask:				equ button_right_mask
+button_up_mask =			1<<button_up	; $01
+button_down_mask =			1<<button_down	; $02
+button_left_mask =			1<<button_left	; $04
+button_right_mask =			1<<button_right	; $08
+button_B_mask =				1<<button_B		; $10
+button_C_mask =				1<<button_C		; $20
+button_A_mask =				1<<button_A		; $40
+button_start_mask =			1<<button_start	; $80
+button_Z_mask =				button_up_mask
+button_Y_mask =				button_down_mask
+button_X_mask =				button_left_mask
+button_mode_mask =			button_right_mask
 
 ; ---------------------------------------------------------------------------
 ; Joypad input (S1 nomenclature)
 ; ---------------------------------------------------------------------------
 
-btnR:		equ %00001000		; Right ($08)
-btnL:		equ %00000100		; Left ($04)
-btnUD:		equ %00000011		; Up or Down ($03)
-btnDn:		equ %00000010		; Down ($02)
-btnUp:		equ %00000001		; Up	($01)
-btnLR:		equ %00001100		; Left or Right ($0C)
-btnDir:		equ %00001111		; Any direction ($0F)
-btnABCS:	equ %11110000		; A, B, C or Start ($F0)
-btnStart:	equ %10000000		; Start button	($80)
-btnABC:		equ %01110000		; A, B or C ($70)
-btnAC:		equ %01100000		; A or C ($60)
-btnAB:		equ %01010000		; A or B ($50)
-btnA:		equ %01000000		; A ($40)
-btnBC:		equ %00110000		; B or C ($30)
-btnC:		equ %00100000		; C ($20)
-btnB:		equ %00010000		; B ($10)
-bitStart:	equ 7
-bitA:		equ 6
-bitC:		equ 5
-bitB:		equ 4
-bitR:		equ 3
-bitL:		equ 2
-bitDn:		equ 1
-bitUp:		equ 0
+btnR =						%00001000		; Right ($08)
+btnL =						%00000100		; Left ($04)
+btnUD =						%00000011		; Up or Down ($03)
+btnDn =						%00000010		; Down ($02)
+btnUp =						%00000001		; Up	($01)
+btnLR =						%00001100		; Left or Right ($0C)
+btnDir =					%00001111		; Any direction ($0F)
+btnABCS =					%11110000		; A, B, C or Start ($F0)
+btnStart =					%10000000		; Start button	($80)
+btnABC =					%01110000		; A, B or C ($70)
+btnAC =						%01100000		; A or C ($60)
+btnAB =						%01010000		; A or B ($50)
+btnA =						%01000000		; A ($40)
+btnBC =						%00110000		; B or C ($30)
+btnC =						%00100000		; C ($20)
+btnB =						%00010000		; B ($10)
+bitStart =					7
+bitA =						6
+bitC =						5
+bitB =						4
+bitR =						3
+bitL =						2
+bitDn =						1
+bitUp =						0
 ; holy shit six whole buttons
-btnZ:		equ btnUp
-btnY:		equ btnDn
-btnX:		equ btnL
-btnMode:	equ btnR
-bitZ:		equ bitUp
-bitY:		equ bitDn
-bitX:		equ bitL
-bitMode:	equ bitR
+btnZ =						btnUp
+btnY =						btnDn
+btnX =						btnL
+btnMode =					btnR
+bitZ =						bitUp
+bitY =						bitDn
+bitX =						bitL
+bitMode =					bitR
 
 ; ---------------------------------------------------------------------------
 ; Emotion Window emotions
 ; For use with Current_emotion
 ; ---------------------------------------------------------------------------
 
-emotion_neutral =		0
-emotion_happy =			1
-emotion_hurt =			2
-emotion_mad =			3
-emotion_die =			4
-emotion_super =			5
-emotion_time =			6
-emotion_drown =			7
+emotion_neutral =			0
+emotion_happy =				1
+emotion_hurt =				2
+emotion_mad =				3
+emotion_die =				4
+emotion_super =				5
+emotion_time =				6
+emotion_drown =				7
 
 ; ---------------------------------------------------------------------------
 ; property of all objects
@@ -359,77 +359,77 @@ boss_hitcount2 =			$29 ; byte ; usage varies, bosses use it as a hit counter
 ; Object variables
 ; ---------------------------------------------------------------------------
 
-obId =					id
-obRender =				render_flags	; bitfield for x/y flip, display mode
-obGfx =					art_tile	; palette line & VRAM setting (2 bytes)
-obMap =					mappings	; mappings address (4 bytes)
-obX =					x_pos	; x-axis position (2-4 bytes)
-obSubX =				x_sub
-obY =					y_pos	; y-axis position (2-4 bytes)
-obSubY =				y_sub
+obId =						id
+obRender =					render_flags	; bitfield for x/y flip, display mode
+obGfx =						art_tile	; palette line & VRAM setting (2 bytes)
+obMap =						mappings	; mappings address (4 bytes)
+obX =						x_pos	; x-axis position (2-4 bytes)
+obSubX =					x_sub
+obY =						y_pos	; y-axis position (2-4 bytes)
+obSubY =					y_sub
 obVelX =					x_vel	; x-axis velocity (2 bytes)
 obVelY =					y_vel	; y-axis velocity (2 bytes)
 obInertia	 =				ground_vel	; potential speed (2 bytes)
 obHeight	 =				y_radius	; height/2
-obWidth =				x_radius	; width/2
+obWidth =					x_radius	; width/2
 obPriority =				priority	; word ; sprite stack priority -- 0 is front
-obActWid =				width_pixels
-obFrame =				mapping_frame	; current frame displayed
-obAniFrame =			anim_frame ; byte
-obAnim =				anim	; current animation
-obNextAni =				next_anim	; next animation
-obTimeFrame =			anim_frame_timer ; byte
-;obDelayAni =			; nonexistent, i guess...?
-obColType =				collision_flags	; collision response type
-obColProp =				collision_property	; collision extra property
-obStatus =				status	; orientation or mode
-obRespawnNo =			respawn_addr ; word ; the address of this object's entry in the respawn table
-obRoutine =				routine	; routine number
-ob2ndRout =				routine_secondary ; byte
-obAngle =				angle	; angle
-obSubtype =				subtype	; object subtype
-;obSolid =				; nonexistent, i guess...?
-obTimer =				wait	; object timer
-obParent =				parent 	; word ; parent of child objects
-obParent4 =				parent4 	; word ; parent of child objects
-obParent3 =				parent3 	; word ; parent of child objects
-obParent2 =				parent2 	; word ; parent of child objects
+obActWid =					width_pixels
+obFrame =					mapping_frame	; current frame displayed
+obAniFrame =				anim_frame ; byte
+obAnim =					anim	; current animation
+obNextAni =					next_anim	; next animation
+obTimeFrame =				anim_frame_timer ; byte
+;obDelayAni =				; nonexistent, i guess...?
+obColType =					collision_flags	; collision response type
+obColProp =					collision_property	; collision extra property
+obStatus =					status	; orientation or mode
+obRespawnNo =				respawn_addr ; word ; the address of this object's entry in the respawn table
+obRoutine =					routine	; routine number
+ob2ndRout =					routine_secondary ; byte
+obAngle =					angle		; angle
+obSubtype =					subtype		; object subtype
+;obSolid =					; nonexistent, i guess...?
+obTimer =					wait		; object timer
+obParent =					parent 		; word ; parent of child objects
+obParent4 =					parent4 	; word ; parent of child objects
+obParent3 =					parent3 	; word ; parent of child objects
+obParent2 =					parent2 	; word ; parent of child objects
 
 ; ---------------------------------------------------------------------------
 ; When childsprites are activated (i.e. bit #6 of render_flags set)
 ; ---------------------------------------------------------------------------
 
-mainspr_mapframe	= mapping_frame
-mainspr_width		= width_pixels
-mainspr_height		= height_pixels
+mainspr_mapframe			= mapping_frame
+mainspr_width				= width_pixels
+mainspr_height				= height_pixels
 mainspr_childsprites 		= $16	; word ; amount of child sprites
 
-sub2_x_pos				= $18
-sub2_y_pos				= $1A
-sub2_mapframe			= $1D
-sub3_x_pos				= $1E
-sub3_y_pos				= $20
-sub3_mapframe			= $23
-sub4_x_pos				= $24
-sub4_y_pos				= $26
-sub4_mapframe			= $29
-sub5_x_pos				= $2A
-sub5_y_pos				= $2C
-sub5_mapframe			= $2F
-sub6_x_pos				= $30
-sub6_y_pos				= $32
-sub6_mapframe			= $35
-sub7_x_pos				= $36
-sub7_y_pos				= $38
-sub7_mapframe			= $3B
-sub8_x_pos				= $3C
-sub8_y_pos				= $3E
-sub8_mapframe			= $41
-sub9_x_pos				= $42
-sub9_y_pos				= $44
-sub9_mapframe			= $47
+sub2_x_pos					= $18
+sub2_y_pos					= $1A
+sub2_mapframe				= $1D
+sub3_x_pos					= $1E
+sub3_y_pos					= $20
+sub3_mapframe				= $23
+sub4_x_pos					= $24
+sub4_y_pos					= $26
+sub4_mapframe				= $29
+sub5_x_pos					= $2A
+sub5_y_pos					= $2C
+sub5_mapframe				= $2F
+sub6_x_pos					= $30
+sub6_y_pos					= $32
+sub6_mapframe				= $35
+sub7_x_pos					= $36
+sub7_y_pos					= $38
+sub7_mapframe				= $3B
+sub8_x_pos					= $3C
+sub8_y_pos					= $3E
+sub8_mapframe				= $41
+sub9_x_pos					= $42
+sub9_y_pos					= $44
+sub9_mapframe				= $47
 
-next_subspr				= 6		; size
+next_subspr					= 6		; size
 
 ; ---------------------------------------------------------------------------
 ; Unknown or inconsistently used offsets that are not applicable to Sonic:
@@ -452,50 +452,50 @@ next_subspr				= 6		; size
 ; bitfield with the following meaning:
 ; ---------------------------------------------------------------------------
 
-p1_standing_bit			= 3
-p2_standing_bit			= p1_standing_bit + 1
-p1_standing				= 1<<p1_standing_bit
-p2_standing				= 1<<p2_standing_bit
+p1_standing_bit				= 3
+p2_standing_bit				= p1_standing_bit + 1
+p1_standing					= 1<<p1_standing_bit
+p2_standing					= 1<<p2_standing_bit
 pushing_bit_delta			= 2
-p1_pushing_bit			= p1_standing_bit + pushing_bit_delta
-p2_pushing_bit			= p1_pushing_bit + 1
-p1_pushing				= 1<<p1_pushing_bit
-p2_pushing				= 1<<p2_pushing_bit
-standing_mask			= p1_standing|p2_standing
-pushing_mask			= p1_pushing|p2_pushing
+p1_pushing_bit				= p1_standing_bit + pushing_bit_delta
+p2_pushing_bit				= p1_pushing_bit + 1
+p1_pushing					= 1<<p1_pushing_bit
+p2_pushing					= 1<<p2_pushing_bit
+standing_mask				= p1_standing|p2_standing
+pushing_mask				= p1_pushing|p2_pushing
 
 ; ---------------------------------------------------------------------------
 ; The high word of d6 after a SolidObject call is a bitfield
 ; with the following meaning:
 ; ---------------------------------------------------------------------------
 
-p1_touch_side_bit		= 0
-p2_touch_side_bit		= p1_touch_side_bit + 1
-p1_touch_side			= 1<<p1_touch_side_bit
-p2_touch_side			= 1<<p2_touch_side_bit
-touch_side_mask			= p1_touch_side|p2_touch_side
-p1_touch_bottom_bit		= p1_touch_side_bit + pushing_bit_delta
-p2_touch_bottom_bit		= p1_touch_bottom_bit + 1
-p1_touch_bottom			= 1<<p1_touch_bottom_bit
-p2_touch_bottom			= 1<<p2_touch_bottom_bit
-touch_bottom_mask		= p1_touch_bottom|p2_touch_bottom
+p1_touch_side_bit			= 0
+p2_touch_side_bit			= p1_touch_side_bit + 1
+p1_touch_side				= 1<<p1_touch_side_bit
+p2_touch_side				= 1<<p2_touch_side_bit
+touch_side_mask				= p1_touch_side|p2_touch_side
+p1_touch_bottom_bit			= p1_touch_side_bit + pushing_bit_delta
+p2_touch_bottom_bit			= p1_touch_bottom_bit + 1
+p1_touch_bottom				= 1<<p1_touch_bottom_bit
+p2_touch_bottom				= 1<<p2_touch_bottom_bit
+touch_bottom_mask			= p1_touch_bottom|p2_touch_bottom
 p1_touch_top_bit			= p1_touch_bottom_bit + pushing_bit_delta
 p2_touch_top_bit			= p1_touch_top_bit + 1
 p1_touch_top				= 1<<p1_touch_top_bit
-p2_touch_top			= 1<<p2_touch_top_bit
-touch_top_mask			= p1_touch_top|p2_touch_top
+p2_touch_top				= 1<<p2_touch_top_bit
+touch_top_mask				= p1_touch_top|p2_touch_top
 
 ; ---------------------------------------------------------------------------
 ; Player status variables
 ; ---------------------------------------------------------------------------
 
-Status_Facing			= 0
-Status_InAir			= 1
-Status_Roll				= 2
-Status_OnObj			= 3
-Status_RollJump			= 4
-Status_Push				= 5
-Status_Underwater		= 6
+Status_Facing				= 0
+Status_InAir				= 1
+Status_Roll					= 2
+Status_OnObj				= 3
+Status_RollJump				= 4
+Status_Push					= 5
+Status_Underwater			= 6
 
 ; ---------------------------------------------------------------------------
 ; Player status secondary variables
@@ -550,49 +550,50 @@ ArtTile_DashDust_P2			= $7F0
 ; Common
 ; ---------------------------------------------------------------------------
 
-ArtTile_Bridge:				= $502
+ArtTile_Bridge				= $502
 
 ; ---------------------------------------------------------------------------
 ; Green Hill Zone
 ; ---------------------------------------------------------------------------
 
-ArtTile_GHZCollapsingLedge:	= $2DE
-ArtTile_EdgeWalls:			= $34C
-ArtTile_SmashableWalls:		= $3B0
-ArtTile_SwingingPlatform:	= $3BC
-ArtTile_PurpleRock:			= $3CB
-ArtTile_Crabmeat:			= $400
-ArtTile_BuzzBomber:			= $444
-ArtTile_Chopper:			= $50E
+ArtTile_GHZCollapsingLedge	= $2DE
+ArtTile_EdgeWalls			= $34C
+ArtTile_SmashableWalls		= $3B0
+ArtTile_SwingingPlatform	= $3BC
+ArtTile_PurpleRock			= $3CB
+ArtTile_Crabmeat			= $400
+ArtTile_BuzzBomber			= $444
+ArtTile_Chopper				= $50E
+ArtTile_Motobug				= $52E
 
 ; ---------------------------------------------------------------------------
 ; Seaside Land Zone
 ; ---------------------------------------------------------------------------
 
-ArtTile_SSLZWaterfall:		= ArtTile_PurpleRock+29
+ArtTile_SSLZWaterfall		= ArtTile_PurpleRock+29
 
 ; ---------------------------------------------------------------------------
 ; VRAM data
 ; ---------------------------------------------------------------------------
 
-vram_fg:					= $C000 ; foreground namespace
-vram_window:			= $C000 ; window namespace
-vram_bg:				= $E000 ; background namespace
-vram_sprites:				= $D400 ; sprite table
-vram_hscroll:				= $F000 ; horizontal scroll table
+vram_fg =					$C000 ; foreground namespace
+vram_window =				$C000 ; window namespace
+vram_bg =					$E000 ; background namespace
+vram_sprites =				$D400 ; sprite table
+vram_hscroll =				$F000 ; horizontal scroll table
 
 ; ---------------------------------------------------------------------------
 ; Colours
 ; ---------------------------------------------------------------------------
 
-cBlack:					equ $000			; colour black
-cWhite:					equ $EEE			; colour white
-cBlue:					equ $E00			; colour blue
-cGreen:					equ $0E0			; colour green
-cRed:					equ $00E			; colour red
-cYellow:					equ cGreen+cRed		; colour yellow
-cAqua:					equ cGreen+cBlue		; colour aqua
-cMagenta:				equ cBlue+cRed		; colour magenta
+cBlack =					$000			; colour black
+cWhite =					$EEE			; colour white
+cBlue =						$E00			; colour blue
+cGreen =					$0E0			; colour green
+cRed =						$00E			; colour red
+cYellow =					cGreen+cRed		; colour yellow
+cAqua =						cGreen+cBlue		; colour aqua
+cMagenta =					cBlue+cRed		; colour magenta
 
 palette_line_size			= 16*2				; 16 word entries
 
@@ -600,33 +601,33 @@ palette_line_size			= 16*2				; 16 word entries
 ; Art tile stuff
 ; ---------------------------------------------------------------------------
 
-flip_x					= (1<<11)
-flip_y					= (1<<12)
+flip_x						= (1<<11)
+flip_y						= (1<<12)
 palette_bit_0				= 5
 palette_bit_1				= 6
 palette_line0				= (0<<13)
-palette_line_0			= (0<<13)
+palette_line_0				= (0<<13)
 palette_line1				= (1<<13)
-palette_line_1			= (1<<13)
+palette_line_1				= (1<<13)
 palette_line2				= (2<<13)
-palette_line_2			= (2<<13)
+palette_line_2				= (2<<13)
 palette_line3				= (3<<13)
-palette_line_3			= (3<<13)
+palette_line_3				= (3<<13)
 high_priority_bit			= 7
 high_priority				= (1<<15)
 palette_mask				= $6000
 tile_size					= $20
-tile_mask				= $7FF
+tile_mask					= $7FF
 nontile_mask				= $F800
-drawing_mask			= $7FFF
+drawing_mask				= $7FFF
 
 ; ---------------------------------------------------------------------------
 ; VRAM and tile art base addresses.
 ; VRAM Reserved regions.
 ; ---------------------------------------------------------------------------
 
-VRAM_Plane_A_Name_Table	= $C000	; Extends until $CFFF
-VRAM_Plane_B_Name_Table	= $E000	; Extends until $EFFF
+VRAM_Plane_A_Name_Table		= $C000	; Extends until $CFFF
+VRAM_Plane_B_Name_Table		= $E000	; Extends until $EFFF
 VRAM_Plane_Table_Size		= $1000	; 64 cells x 32 cells x 2 bytes per cell
 
 ; ---------------------------------------------------------------------------
