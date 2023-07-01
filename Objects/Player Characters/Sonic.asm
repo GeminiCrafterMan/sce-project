@@ -3617,6 +3617,10 @@ PlayerArtToD6:
 
 		include "Objects/Player Characters/Object Data/Anim - Sonic.asm"
 Map_Sonic:		binclude "Objects/Player Characters/Object Data/Map - Sonic.bin"
+	even
 PLC_Sonic:		binclude "Objects/Player Characters/Object Data/PLC - Sonic.bin"
+	even
 Map_SuperSonic:		binclude "Objects/Player Characters/Object Data/Map - Super Sonic.bin"
+	even
 PLC_SuperSonic:		binclude "Objects/Player Characters/Object Data/PLC - Super Sonic.bin"
+	even

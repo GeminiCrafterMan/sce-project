@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "f60ea220-8e0f-4821-b110-1c3fe67a8f9f",
+    "node": "2ae1d36f-e4d3-465b-8870-a7f363566afa",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -261,35 +261,6 @@
                     "dplcs": {
                         "enabled": true,
                         "path": "Objects/Player Characters/Object Data/PLC - Mighty.bin",
-                        "label": ""
-                    }
-                },
-                {
-                    "uuid": "c0875026-5805-4b1e-b736-ab1f5296b2a7",
-                    "format": "Sonic 3&K Player.js",
-                    "name": "Espio",
-                    "palettes": [
-                        {
-                            "path": "Objects/Player Characters/Palettes/Espio.bin",
-                            "length": 1
-                        },
-                        {
-                            "path": "Levels/Pal_GuaranteedLevelColors.bin",
-                            "length": 1
-                        }
-                    ],
-                    "art": {
-                        "path": "Objects/Player Characters/Uncompressed Art/Espio.bin",
-                        "compression": "Uncompressed",
-                        "offset": 0
-                    },
-                    "mappings": {
-                        "path": "Objects/Player Characters/Object Data/Map - Espio.bin",
-                        "label": ""
-                    },
-                    "dplcs": {
-                        "enabled": true,
-                        "path": "Objects/Player Characters/Object Data/PLC - Espio.bin",
                         "label": ""
                     }
                 }

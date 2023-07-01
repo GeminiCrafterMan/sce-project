@@ -103,8 +103,6 @@ ArtKosM_ResultsKNUCKLES:	binclude "Objects/Results/KosinskiM Art/Results KNUCKLE
 	even
 ArtKosM_ResultsMIGHTY:		binclude "Objects/Results/KosinskiM Art/Results MIGHTY.bin"
 	even
-ArtKosM_ResultsESPIO:		binclude "Objects/Results/KosinskiM Art/Results ESPIO.bin"
-	even
 
 ; ===========================================================================
 ; Kosinski Module compressed GHZ graphics

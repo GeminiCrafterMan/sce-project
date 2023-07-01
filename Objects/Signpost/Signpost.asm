@@ -272,12 +272,12 @@ PLCPtr_EndSigns:
 		dc.l ArtUnc_EndSigns>>1, PLC_EndSigns
 AniRaw_EndSigns:
 		dc.b	1,   0
-		dc.b	6,   7
-		dc.b	8,   1
-		dc.b	6,   7
-		dc.b	8,   5
-		dc.b	6,   7
-		dc.b	8, arfEnd
+		dc.b	5,   6
+		dc.b	7,   1
+		dc.b	5,   6
+		dc.b	7,   4
+		dc.b	5,   6
+		dc.b	7, arfEnd
 AniRaw_SignpostSparkle:
 		dc.b	1,   1
 		dc.b	2,   3
@@ -310,7 +310,7 @@ Obj_EndSignInit:
 		btst	#7,(Player_1+art_tile).w
 		beq.s	.nothighpriority
 		bset	#7,art_tile(a0)								; signs have same priority as Sonic
-		move.b	#$5,mapping_frame(a0) ;Robotnik
+		move.b	#$4,mapping_frame(a0) ;Robotnik
 		move.b	#-1,previous_frame(a0)
 
 .nothighpriority
@@ -318,7 +318,7 @@ Obj_EndSignInit:
 		move.w	#bytes_to_word(60/2,48/2),y_radius(a0)	; set y_radius and x_radius
 
 Obj_EndSignTouch:
-		move.b	#$5,mapping_frame(a0) ;Robotnik
+		move.b	#$4,mapping_frame(a0) ;Robotnik
 		tst.b	objoff_20(a0)
 		bne.s	.reset
 		lea	EndSign_Range(pc),a1

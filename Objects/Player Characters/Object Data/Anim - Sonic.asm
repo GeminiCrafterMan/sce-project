@@ -48,8 +48,8 @@ SonAni_MonkeyBars_ptr:	offsetTableEntry.w SonAni_MonkeyBars
 
 SonAni_Walk:		dc.b  $FF, frS_Walk17,	frS_Walk18,   frS_Walk11,   frS_Walk12,	 frS_Walk13,   frS_Walk14,   frS_Walk15,	frS_Walk16, afEnd
 SonAni_Run:			dc.b  $FF, frS_Run11,	frS_Run12, frS_Run13, frS_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
-SonAni_Roll:		dc.b  $FE, frS_Roll1,	frS_Roll2, frS_Roll1, frS_Roll3, frS_Roll1, frS_Roll4, frS_Roll1, frS_Roll5, afEnd
-SonAni_Roll2:		dc.b  $FE, frS_Roll1,	frS_Roll2, frS_Roll1, frS_Roll3, frS_Roll1, frS_Roll4, frS_Roll1, frS_Roll5, afEnd
+SonAni_Roll:		dc.b  $FE, frS_Roll11,	frS_Roll12, frS_Roll11, frS_Roll13, frS_Roll11, frS_Roll14, frS_Roll11, frS_Roll15, afEnd
+SonAni_Roll2:		dc.b  $FE, frS_Roll21,	frS_Roll22, frS_Roll23, frS_Roll24,	afEnd,		afEnd,		afEnd,		afEnd,		afEnd
 SonAni_Push:		dc.b  $FD, frS_Push1,	frS_Push2, frS_Push3, frS_Push4, afEnd, afEnd, afEnd, afEnd, afEnd
 SonAni_Wait:		dc.b    5, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1
 					dc.b  frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1
@@ -249,11 +249,11 @@ frS_Spiked1:		ds.b 1
 frS_Spiked2:		ds.b 1
 frS_Spring1:		ds.b 1
 frS_Spring2:		ds.b 1
-frS_Roll1:			ds.b 1
-frS_Roll2:			ds.b 1
-frS_Roll3:			ds.b 1
-frs_Roll4:			ds.b 1
-frS_Roll5:			ds.b 1
+frS_Roll11:			ds.b 1
+frS_Roll12:			ds.b 1
+frS_Roll13:			ds.b 1
+frS_Roll14:			ds.b 1
+frS_Roll15:			ds.b 1
 frS_Duck1:			ds.b 1
 frS_Duck2:			ds.b 1
 frS_Skid1:			ds.b 1
@@ -326,6 +326,10 @@ frS_Fly4:			ds.b 1
 frS_Squash1:		ds.b 1
 frS_Squash2:		ds.b 1
 frS_Squash3:		ds.b 1
+frS_Roll21:			ds.b 1
+frS_Roll22:			ds.b 1
+frS_Roll23:			ds.b 1
+frS_Roll24:			ds.b 1
 frS_Last:			ds.b 0
 	even
 	dephase

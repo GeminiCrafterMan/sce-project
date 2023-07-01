@@ -44,7 +44,6 @@ Obj_LevelResultsInit:
 		dc.l	ArtKosM_ResultsTAILS
 		dc.l	ArtKosM_ResultsKNUCKLES
 		dc.l	ArtKosM_ResultsMIGHTY
-		dc.l	ArtKosM_ResultsESPIO
 
 	.cont:
 		move.w	#tiles_to_bytes($4D8),d2
