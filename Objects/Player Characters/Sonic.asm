@@ -266,7 +266,6 @@ loc_10C0C:
 		dc.l	Tails_Control
 		dc.l	Knuckles_Control
 		dc.l	Mighty_Control
-		dc.l	Espio_Control
 
 	.cont:
 		movem.l	a4-a6,-(sp)
@@ -1507,8 +1506,6 @@ loc_11790:
 loc_1179A:
 		bset	#Status_Roll,status(a0)
 		move.b	#id_Roll,anim(a0)
-		cmpi.b	#c_Espio,character_id(a0)
-		beq.s	.notReversed
 		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		addq.w	#5,y_pos(a0)
 	.gravchk:
@@ -1587,8 +1584,6 @@ loc_1182E:
 		bne.s	locret_118B2
 		move.b	#id_Roll,anim(a0)
 		bset	#Status_Roll,status(a0)
-		cmpi.b	#c_Espio,character_id(a0)
-		beq.s	locret_118B2
 		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		move.b	y_radius(a0),d0
 		sub.b	default_y_radius(a0),d0
@@ -2044,8 +2039,6 @@ Player_UpdateSpindash:
 
 	; unleash the charged spindash and start rolling quickly:
 		move.b	#id_Roll,anim(a0)
-		cmpi.b	#c_Espio,character_id(a0)
-		beq.s	.notReversed
 		move.w	#bytes_to_word(28/2,14/2),y_radius(a0)	; set y_radius and x_radius
 		addq.w	#5,y_pos(a0)
 	.gravchk:
@@ -2870,7 +2863,7 @@ Player_SquashBehaviors:
 		jmp	(Draw_Sprite).w
 
 	.squashRoutLUT:
-		dc.l	Squash_Sonic, Squash_Tails, .none, Squash_Mighty, Squash_Espio		
+		dc.l	Squash_Sonic, Squash_Tails, .none, Squash_Mighty
 
 	.none:
 		move.b	#id_Death,anim(a0)	; Should cancel this.
@@ -2973,18 +2966,6 @@ Squash_Mighty:
 		move.w	#$200,x_vel(a0)
 		subi.w	#$50,y_vel(a0)
 		jsr	(MoveSprite).w
-		rts
-
-Squash_Espio:
-		jsr		FindFreeObj
-		bne.s	.ret
-		move.w	x_pos(a0),x_pos(a1)
-		move.w	y_pos(a0),y_pos(a1)
-		move.l	#Obj_Explosion,address(a1)
-		move.b	#6,routine(a1)	; no sound effect, but runs the rest of the init stuff
-		sfx		sfx_Explode		; sound effect.
-	.ret:
-		move.b	#id_Null,anim(a0)
 		rts
 
 ; =============== S U B R O U T I N E =======================================
@@ -3100,7 +3081,7 @@ Animate_Player:
 		jmp		(a1)
 
 	.aniRoutLUT:
-		dc.l	Animate_Sonic, Animate_Tails, Animate_Knuckles, Animate_Mighty, Animate_Espio
+		dc.l	Animate_Sonic, Animate_Tails, Animate_Knuckles, Animate_Mighty
 
 Animate_Sonic:
 		lea	AniSonic(pc),a1
@@ -3585,9 +3566,9 @@ ReloadPlayerMaps:
 		rts
 
 	.mapLUT:
-		dc.l	Map_Sonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
+		dc.l	Map_Sonic, Map_Tails, Map_Knuckles, Map_Mighty
 	.superMapLUT:
-		dc.l	Map_SuperSonic, Map_Tails, Map_Knuckles, Map_Mighty, Map_Espio
+		dc.l	Map_SuperSonic, Map_Tails, Map_Knuckles, Map_Mighty
 
 PlayerDPLCToA2:
 		moveq	#0,d1
@@ -3605,9 +3586,9 @@ PlayerDPLCToA2:
 		rts
 
 	.plcLUT:
-		dc.l	PLC_Sonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
+		dc.l	PLC_Sonic, PLC_Tails, PLC_Knuckles, PLC_Mighty
 	.superplcLUT:
-		dc.l	PLC_SuperSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty, PLC_Espio
+		dc.l	PLC_SuperSonic, PLC_Tails, PLC_Knuckles, PLC_Mighty
 
 PlayerArtToD6:
 		moveq	#0,d6
@@ -3625,9 +3606,9 @@ PlayerArtToD6:
 		rts
 
 	.artLUT:
-		dc.l	ArtUnc_Sonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
+		dc.l	ArtUnc_Sonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1
 	.superartLUT:
-		dc.l	ArtUnc_SuperSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1, ArtUnc_Espio>>1
+		dc.l	ArtUnc_SuperSonic>>1, ArtUnc_Tails>>1, ArtUnc_Knuckles>>1, ArtUnc_Mighty>>1
 
 ; ===========================================================================
 ; ---------------------------------------------------------------------------

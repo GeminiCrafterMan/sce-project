@@ -86,11 +86,12 @@ Title_Screen:
 		dc.w	(z_Intro<<8)+0	; S&T
 		dc.w	(z_Intro<<8)+0	; SA
 		dc.w	(z_Intro<<8)+0	; TA
-		dc.w	(z_Intro<<8)+0	; KA
 		dc.w	(z_Intro<<8)+0	; K&T
-		dc.w	(z_Intro<<8)+1	; MA
+		dc.w	(z_Intro<<8)+0	; KA
 		dc.w	(z_Intro<<8)+1	; M&T
-		dc.w	(z_Intro<<8)+0	; T&T
+		dc.w	(z_Intro<<8)+1	; MA
 		dc.w	(z_Intro<<8)+0	; S&S
-		dc.w	(z_Intro<<8)+1	; EA
+		dc.w	(z_Intro<<8)+0	; T&T
+		dc.w	(z_Intro<<8)+0	; K&K
+		dc.w	(z_Intro<<8)+1	; M&M
 	even

@@ -222,8 +222,6 @@ ArtKosM_MechaSonicExtra:	binclude "Objects/Mecha Sonic/KosinskiM Art/Mecha Sonic
 	even
 ArtKosM_MechaTailsExtra:	binclude "Objects/Mecha Tails/KosinskiM Art/Mecha Tails Extra Art.bin"
 	even
-ArtKosM_SilverSonicMisc:	binclude "Objects/Silver Sonic/KosinskiM Art/Silver Sonic Misc.bin"
-	even
 ArtKosM_RobotnikShip:		binclude "Objects/Robotnik/KosinskiM Art/Robotnik Ship.bin"
 	even
 ArtKosM_BossExplosion:		binclude "Objects/Explosion/KosinskiM Art/Boss Explosion.bin"

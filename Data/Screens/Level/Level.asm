@@ -188,14 +188,14 @@ SpawnLevelMainSprites:
 		dc.l	Obj_Sonic,		Obj_Tails	; S&T
 		dc.l	Obj_Sonic,		DeleteObject; SA
 		dc.l	Obj_Tails,		DeleteObject; TA
-		dc.l	Obj_Knuckles,	DeleteObject; KA
 		dc.l	Obj_Knuckles,	Obj_Tails	; K&T
-		dc.l	Obj_Mighty,		DeleteObject; MA
+		dc.l	Obj_Knuckles,	DeleteObject; KA
 		dc.l	Obj_Mighty,		Obj_Tails	; M&T
-		dc.l	Obj_Tails,		Obj_Tails	; T&T
+		dc.l	Obj_Mighty,		DeleteObject; MA
 		dc.l	Obj_Sonic,		Obj_Sonic	; S&S
-		dc.l	Obj_Espio,		DeleteObject; EA
+		dc.l	Obj_Tails,		Obj_Tails	; T&T
 		dc.l	Obj_Knuckles,	Obj_Knuckles; K&K
+		dc.l	Obj_Mighty,		Obj_Mighty	; M&M
 
 .cont:
 		move.l	#Obj_ResetCollisionResponseList,(Reserved_object_3).w
@@ -229,14 +229,14 @@ LoadPlayerPal:
 		dc.w	palid_Sonic		; S&T
 		dc.w	palid_Sonic		; SA
 		dc.w	palid_Sonic		; TA
-		dc.w	palid_Knuckles	; KA
 		dc.w	palid_Knuckles	; K&T
-		dc.w	palid_Mighty	; MA
+		dc.w	palid_Knuckles	; KA
 		dc.w	palid_Mighty	; M&T
-		dc.w	palid_Sonic		; T&T
+		dc.w	palid_Mighty	; MA
 		dc.w	palid_Sonic		; S&S
-		dc.w	palid_Espio		; EA
+		dc.w	palid_Sonic		; T&T
 		dc.w	palid_Knuckles	; K&K
+		dc.w	palid_Mighty	; M&M
 		even
 
 ; =============== S U B R O U T I N E =======================================

@@ -14,8 +14,6 @@ ArtUnc_Knuckles:					binclude "Objects/Player Characters/Uncompressed Art/Knuckl
 	even
 ArtUnc_Mighty:						binclude "Objects/Player Characters/Uncompressed Art/Mighty.bin"
 	even
-ArtUnc_Espio:						binclude "Objects/Player Characters/Uncompressed Art/Espio.bin"
-	even
 ArtUnc_DashDust:					binclude "Objects/Spin Dust/Uncompressed Art/Dash Dust.bin"
 	even
 ArtUnc_AirCountDown:				binclude "Objects/Count Down/Uncompressed Art/Air Countdown.bin"

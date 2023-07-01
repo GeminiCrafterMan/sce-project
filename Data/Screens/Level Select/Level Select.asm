@@ -222,14 +222,14 @@ LevelSelect_LoadLevel_CharacterSwitcher:
 		dc.l	Obj_CabaretSonic,	Obj_CabaretTails,	Pal_Sonic	; S&T
 		dc.l	Obj_CabaretSonic,	DeleteObject,		Pal_Sonic	; SA
 		dc.l	Obj_CabaretTails,	DeleteObject,		Pal_Sonic	; TA
-		dc.l	Obj_CabaretKnuckles,DeleteObject,		Pal_Knuckles; KA
 		dc.l	Obj_CabaretKnuckles,Obj_CabaretTails,	Pal_Knuckles; K&T
-		dc.l	Obj_CabaretMighty,	DeleteObject,		Pal_Mighty	; MA
+		dc.l	Obj_CabaretKnuckles,DeleteObject,		Pal_Knuckles; KA
 		dc.l	Obj_CabaretMighty,	Obj_CabaretTails,	Pal_Mighty	; M&T
-		dc.l	Obj_CabaretTails,	Obj_CabaretTails,	Pal_Sonic	; T&T
+		dc.l	Obj_CabaretMighty,	DeleteObject,		Pal_Mighty	; MA
 		dc.l	Obj_CabaretSonic,	Obj_CabaretSonic,	Pal_Sonic	; S&S
-		dc.l	Obj_CabaretEspio,	DeleteObject,		Pal_Espio	; EA
+		dc.l	Obj_CabaretTails,	Obj_CabaretTails,	Pal_Sonic	; T&T
 		dc.l	Obj_CabaretKnuckles,Obj_CabaretKnuckles,Pal_Knuckles; K&K
+		dc.l	Obj_CabaretMighty,	Obj_CabaretMighty,	Pal_Mighty	; M&M
 	.ret:
 		rts
 

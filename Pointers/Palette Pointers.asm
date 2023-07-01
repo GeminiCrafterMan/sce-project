@@ -8,7 +8,6 @@ PalPointers:				; palette address, RAM address, colours
 ptr_Pal_Sonic:			palp	Pal_Sonic, Normal_palette_line_1, 16
 ptr_Pal_Knuckles:		palp	Pal_Knuckles, Normal_palette_line_1, 16
 ptr_Pal_Mighty:			palp	Pal_Mighty, Normal_palette_line_1, 16
-ptr_Pal_Espio:			palp	Pal_Espio, Normal_palette_line_1, 16
 
 ; Levels
 ptr_Pal_GHZ1:			palp	Pal_GHZ1, Normal_palette_line_2, 48
@@ -32,7 +31,6 @@ ptr_Pal_TTSZ:			palp	Pal_TTSZ, Normal_palette_line_2, 48
 palid_Sonic:			equ (ptr_Pal_Sonic-PalPointers)/8
 palid_Knuckles:			equ (ptr_Pal_Knuckles-PalPointers)/8
 palid_Mighty:			equ (ptr_Pal_Mighty-PalPointers)/8
-palid_Espio:			equ (ptr_Pal_Espio-PalPointers)/8
 
 ; Levels
 palid_GHZ1:				equ (ptr_Pal_GHZ1-PalPointers)/8

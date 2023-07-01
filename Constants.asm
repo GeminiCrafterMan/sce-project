@@ -140,9 +140,8 @@ z_TTSZ:						ds.b 1
 c_Sonic:					ds.b 1
 c_Tails:					ds.b 1
 c_Knuckles:					ds.b 1
-c_Mighty:					ds.b 1
 c_Last =					*
-c_Espio:					ds.b 1
+c_Mighty:					ds.b 1
 	dephase
 
 ; player option IDs
@@ -150,15 +149,15 @@ c_Espio:					ds.b 1
 po_SonicAndTails:			ds.b 1
 po_SonicAlone:				ds.b 1
 po_TailsAlone:				ds.b 1
-po_KnucklesAlone:			ds.b 1
 po_KnucklesAndTails:		ds.b 1
-po_MightyAlone:				ds.b 1
+po_KnucklesAlone:			ds.b 1
 po_MightyAndTails:			ds.b 1
-po_TailsAndTails:			ds.b 1
+po_MightyAlone:				ds.b 1
 po_SonicAndSonic:			ds.b 1
-po_Espio:					ds.b 1
-po_Last =					*
+po_TailsAndTails:			ds.b 1
 po_KnucklesAndKnuckles:		ds.b 1
+po_Last =					*
+po_MightyAndMighty:			ds.b 1
 	dephase
 
 ; ---------------------------------------------------------------------------

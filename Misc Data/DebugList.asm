@@ -174,7 +174,6 @@ DebugList: offsetTable
 	dbglistobj Obj_BataPyon, Map_BataPyon, 0, 0, make_art_tile($438,0,0)
 	dbglistobj Obj_Button,	Map_Button, 0, 2, make_art_tile(ArtTile_Button,0,0)
 	dbglistobj Obj_StarPost, Map_StarPost, 1, 0, make_art_tile(ArtTile_StarPost,0,0)
-	dbglistobj Obj_SilverSonic, Map_SilverSonic, 0, 0, make_art_tile($3F4,1,1)
 	dbglistobj Obj_EggCapsule, Map_EggCapsule, 1, 0, make_art_tile($43E,0,0)
 .SS1_End
 

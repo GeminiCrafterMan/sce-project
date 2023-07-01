@@ -8,8 +8,6 @@ Pal_Knuckles:		binclude "Objects/Player Characters/Palettes/Knuckles.bin"
 	even
 Pal_Mighty:			binclude "Objects/Player Characters/Palettes/Mighty.bin"
 	even
-Pal_Espio:			binclude "Objects/Player Characters/Palettes/Espio.bin"
-	even
 
 ; ===========================================================================
 ; Level palettes
@@ -58,8 +56,6 @@ Pal_TTSZ:			binclude "Levels/TTSZ/Palettes/Techno Test Zone.bin"
 Pal_MechaSonic:		binclude "Objects/Mecha Sonic/Palettes/Main.bin"
 	even
 Pal_MechaTails:		binclude "Objects/Mecha Tails/Palettes/Main.bin"
-	even
-Pal_SilverSonic:	binclude "Objects/Silver Sonic/Palettes/Main.bin"
 	even
 
 ; ===========================================================================
