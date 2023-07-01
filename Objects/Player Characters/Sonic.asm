@@ -3464,14 +3464,16 @@ loc_12A2A:
 		or.b	d1,render_flags(a0)
 		subq.b	#1,anim_frame_timer(a0)
 		bpl.w	SAnim_Delay
-		move.w	ground_vel(a0),d2
-		bpl.s	loc_12A4C
-		neg.w	d2
+		mvabs.w	x_vel(a0),d2 ; get Espio's speed
+		mvabs.w	ground_vel(a0),d3	; get his ground speed, too
+		cmp.w	d3,d2				; compare d2 to d3
+		bge.s	loc_12A4C			; if d2 <= d3...
+		move.w	d3,d2
 
 loc_12A4C:
 		add.w	(HScroll_Shift).w,d2
 		lea	SonAni_Roll2(pc),a1
-		cmpi.w	#$600,d2
+		cmpi.w	#$800,d2
 		bcc.s	loc_12A5E
 		lea	SonAni_Roll(pc),a1
 

@@ -197,7 +197,7 @@ Check_InMyRange_Fail:
 
 Check_PlayerInRange:
 		moveq	#0,d0
-		lea	(Player_1).w,a2
+		lea	(Player_2).w,a2
 		move.w	x_pos(a2),d1
 		move.w	y_pos(a2),d2
 		move.w	x_pos(a0),d3
@@ -208,19 +208,24 @@ Check_PlayerInRange:
 		add.w	(a1)+,d4
 		move.w	d4,d6
 		add.w	(a1)+,d6
-		cmp.w	d3,d1
-		blo.s		+
+		bsr.w	+
+		swap	d0
+		lea	(Player_1).w,a2
+		move.w	x_pos(a2),d1
+		move.w	y_pos(a2),d2
++		cmp.w	d3,d1
+		blo.s	+
 		cmp.w	d5,d1
 		bhs.s	+
 		cmp.w	d4,d2
-		blo.s		+
+		blo.s	+
 		cmp.w	d6,d2
 		bhs.s	+
 		move.w	a2,d0
 +		rts
 
 ; =============== S U B R O U T I N E =======================================
-
+; seems useless.
 Check_PlayerInRange2:
 		move.w	(Player_1+y_pos).w,d0
 		cmp.w	(a1)+,d0

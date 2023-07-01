@@ -79,10 +79,9 @@ Snailer_ActIndex:	dc.w .move-Snailer_ActIndex
 		move.w	parent3(a0),a1
 		btst	#3,status(a0)
 		bne.s	.wait
-		jsr		Find_SonicTails
-		move.w	d2,d4
-		move.w	d3,d5
-		bsr.w	Snailer_TestCharPos	; is the player close enough to attack?
+		lea		.range(pc),a1
+		jsr		(Check_PlayerInRange).l
+		tst.l	d0
 		beq.s	.done
 		move.w	x_vel(a0),d3
 		asl.w	#1,d3
@@ -95,6 +94,12 @@ Snailer_ActIndex:	dc.w .move-Snailer_ActIndex
 
 	.done:
 		rts
+	
+	.range:
+		dc.w	-128
+		dc.w	128*2
+		dc.w	-64
+		dc.w	64*2
 ; ===========================================================================
 
 .findfloor:
@@ -174,6 +179,8 @@ Snailer_Delete:	; Routine 6
 
 Snailer_Flame:
 		move.w	parent3(a0),a1
+		btst	#7,status(a1)
+		bne.s	.del
 		btst	#3,status(a1)
 		beq.s	.del
 		tst.b	wait(a1)

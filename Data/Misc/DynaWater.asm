@@ -59,6 +59,10 @@ waterValTable:	; Entry format: blue<<3, zero, red<<3, green<<3
 ; ---------------------------------------------------------------------------
 
 updateWaterShift:
+		tst.b	(Water_flag).w
+		bne.s	.continue
+		rts
+	.continue:
 		moveq	#$40/2-1,d3		; update all colors (loop iterates through 2 colors at once)
 		lea	(waterValues).w,a1	; get water values
 		move.w	(a1)+,d0		; get blue into d0

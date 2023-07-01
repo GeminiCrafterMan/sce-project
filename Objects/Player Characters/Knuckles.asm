@@ -1773,4 +1773,6 @@ Animate_Knuckles:
 
 		include "Objects/Player Characters/Object Data/Anim - Knuckles.asm"
 Map_Knuckles:		binclude "Objects/Player Characters/Object Data/Map - Knuckles.bin"
+		even
 PLC_Knuckles:		binclude "Objects/Player Characters/Object Data/PLC - Knuckles.bin"
+		even

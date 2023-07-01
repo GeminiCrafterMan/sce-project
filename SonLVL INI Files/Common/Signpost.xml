@@ -4,7 +4,7 @@
     <ImageFromMappings id="img">
       <ArtFile filename="../Objects/Signpost/Uncompressed Art/End Signs.bin" compression="Uncompressed" />
       <MapFile type="Binary" filename="../Objects/Signpost/Object Data/Map - End Signs.bin"
-        dplcfile="../Objects/Signpost/Object Data/PLC - End Signs.bin" frame="5" />
+        dplcfile="../Objects/Signpost/Object Data/PLC - End Signs.bin" frame="4" />
     </ImageFromMappings>
   </Images>
   <Properties>
