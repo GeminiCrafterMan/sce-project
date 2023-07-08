@@ -1453,7 +1453,7 @@ loc_11722:
 		blt.s		locret_11720
 
 Player_Boundary_Bottom:
-		jmp	Kill_Character(pc)
+		jmp	Kill_Character_Generic(pc)
 ; ---------------------------------------------------------------------------
 
 loc_11732:
@@ -2819,7 +2819,7 @@ locret_12388:
 ; ---------------------------------------------------------------------------
 
 loc_1238A:
-		jmp	Kill_Character(pc)
+		jmp	Kill_Character_Generic(pc)
 
 ; =============== S U B R O U T I N E =======================================
 
@@ -3464,7 +3464,7 @@ loc_12A2A:
 		or.b	d1,render_flags(a0)
 		subq.b	#1,anim_frame_timer(a0)
 		bpl.w	SAnim_Delay
-		mvabs.w	x_vel(a0),d2 ; get Espio's speed
+		mvabs.w	x_vel(a0),d2 		; get Sonic's speed
 		mvabs.w	ground_vel(a0),d3	; get his ground speed, too
 		cmp.w	d3,d2				; compare d2 to d3
 		bge.s	loc_12A4C			; if d2 <= d3...

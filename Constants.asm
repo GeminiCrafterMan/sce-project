@@ -527,10 +527,10 @@ ArtTile_Spring				= $48B
 ArtTile_Button				= $4BB
 ArtTile_Monitors			= $4C3
 ArtTile_Bubbles				= $54B
-ArtTile_Explosion			= $5A0
-ArtTile_Coin				= $5E4
-ArtTile_EnemyScore			= $5E8
-ArtTile_StarPost			= $5EC
+ArtTile_Explosion			= $5A6
+ArtTile_Coin				= $5EA
+ArtTile_EnemyScore			= $5EE
+ArtTile_StarPost			= $5F2
 ArtTile_Sonic				= $680
 ArtTile_FollowObject_P1		= $690
 ArtTile_WaterWave			= $6B4
@@ -544,6 +544,13 @@ ArtTile_Tails				= $7C7	; reeeeally not built for this...
 ArtTile_FollowObject_P2		= $7D7
 ArtTile_DashDust_P1			= $7E0
 ArtTile_DashDust_P2			= $7F0
+ArtTile_Animals1			= $559
+ArtTile_Animals2			= $56B
+ArtTile_Animals3			= $579
+ArtTile_Animals4			= $58B
+ArtTile_Animals5			= $599
+ArtTile_Animals6			= $5AB
+ArtTile_Animals7			= $5B9
 
 ; ---------------------------------------------------------------------------
 ; Common

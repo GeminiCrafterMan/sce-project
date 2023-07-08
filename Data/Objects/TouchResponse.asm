@@ -497,6 +497,25 @@ loc_10364:
 		bra.s	loc_1036E
 ; ---------------------------------------------------------------------------
 
+
+KillSonic_Generic:
+Kill_Character_Generic:
+		tst.w	(Debug_placement_mode).w			; is debug mode active?
+		bne.w	loc_1036E.dontdie						; if yes, branch
+		moveq	#signextendB(sfx_Death),d0			; play normal death sound
+		clr.b	status_secondary(a0)
+		clr.b	status_tertiary(a0)
+		move.b	#id_SonicDeath,routine(a0)
+		move.w	d0,-(sp)
+		bsr.w	Player_ResetOnFloor
+		move.w	(sp)+,d0
+		bset	#Status_InAir,status(a0)
+		move.w	#-$700,y_vel(a0)
+		clr.w	x_vel(a0)
+		clr.w	ground_vel(a0)
+		move.b	#id_Death,anim(a0)
+		bra.w	loc_1036E.doneanim
+
 KillSonic:
 Kill_Character:
 		tst.w	(Debug_placement_mode).w			; is debug mode active?
@@ -515,14 +534,15 @@ loc_1036E:
 		clr.w	x_vel(a0)
 		clr.w	ground_vel(a0)
 		move.b	#id_Death,anim(a0)
-		cmpa.w	#Player_1,a0
-		bne.s	.doneanim
-		tst.l	address(a2)
-		beq.s	.doneanim
+;		cmpa.w	#Player_1,a0
+;		bne.s	.doneanim
+;		tst.l	address(a2)
+;		beq.s	.doneanim
 		btst	#Status_FireShield,shield_reaction(a2)
 		beq.s	.doneanim
 		move.b	#id_Burnt,anim(a0)
 		bra.s	.noSpecial
+
 	.doneanim:
 		move.w	d0,-(sp)
 		bsr.s	Player_DeathBehaviors

@@ -104,7 +104,7 @@ UpdateHUD_TimeOver:
 		cmpi.b	#id_SonicDeath,routine(a0)
 		bhs.s	.finish
 		movea.w	a0,a2
-		bsr.w	Kill_Character
+		bsr.w	Kill_Character_Generic
 
 .finish
 		st	(Time_over_flag).w

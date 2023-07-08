@@ -35,7 +35,7 @@ SonAni_Null_ptr:		offsetTableEntry.w SonAni_Null
 SonAni_Mach_ptr:		offsetTableEntry.w SonAni_Mach
 SonAni_Transform_ptr:	offsetTableEntry.w SonAni_Transform
 SonAni_Fall_ptr:		offsetTableEntry.w SonAni_Fall
-SonAni_Ability1_ptr:	offsetTableEntry.w SonAni_Fly
+SonAni_Ability1_ptr:	offsetTableEntry.w SonAni_Float2
 SonAni_Ability2_ptr:	offsetTableEntry.w SonAni_Null
 SonAni_Ability3_ptr:	offsetTableEntry.w SonAni_Null
 SonAni_Ability4_ptr:	offsetTableEntry.w SonAni_Null
@@ -82,7 +82,6 @@ SonAni_Null:		dc.b  $77,   frS_Null, afEnd
 SonAni_Mach:		dc.b  $FF, frS_Mach11,	frS_Mach12,	frS_Mach13,	frS_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 SonAni_Transform:	dc.b	2, frS_Transform1, frS_Transform1, frS_Transform2, frS_Transform2, frS_Transform3, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, afChange,   id_Walk
 SonAni_Fall:		dc.b	3, frS_Fall1, frS_Fall2, afBack, 1
-SonAni_Fly:			dc.b	1, frS_Fly1, frS_Fly2, frS_Fly3, frS_Fly4, frS_Fly3, frS_Fly2, afEnd
 SonAni_MonkeyBars:	dc.b  $7F, frS_MonkeyBars6, frS_MonkeyBars4, afEnd
 	even
 
@@ -119,7 +118,7 @@ AniSuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Mach
 		offsetTableEntry.w SonAni_Transform
 		offsetTableEntry.w SonAni_Fall
-		offsetTableEntry.w SonAni_Fly
+		offsetTableEntry.w SonAni_Float2
 		offsetTableEntry.w SonAni_Null
 		offsetTableEntry.w SonAni_Null
 		offsetTableEntry.w SonAni_Null
@@ -319,10 +318,6 @@ frS_Mach14:			ds.b 1
 frS_Mach2X:			ds.b 4
 frS_Mach3X:			ds.b 4
 frS_Mach4X:			ds.b 4
-frS_Fly1:			ds.b 1
-frS_Fly2:			ds.b 1
-frS_Fly3:			ds.b 1
-frS_Fly4:			ds.b 1
 frS_Squash1:		ds.b 1
 frS_Squash2:		ds.b 1
 frS_Squash3:		ds.b 1

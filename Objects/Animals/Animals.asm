@@ -109,17 +109,17 @@ off_2C876:
 		dc.l Map_Animals1
 		dc.l Map_Animals2
 word_2C8A2:
-		dc.w $5A5
-		dc.w $5A5
-		dc.w $5A5
-		dc.w $553
-		dc.w $553
-		dc.w $573
-		dc.w $573
-		dc.w $585
-		dc.w $593
-		dc.w $565
-		dc.w $5B3
+		dc.w ArtTile_Animals6
+		dc.w ArtTile_Animals6
+		dc.w ArtTile_Animals6
+		dc.w ArtTile_Animals1
+		dc.w ArtTile_Animals1
+		dc.w ArtTile_Animals3
+		dc.w ArtTile_Animals3
+		dc.w ArtTile_Animals4
+		dc.w ArtTile_Animals5
+		dc.w ArtTile_Animals2
+		dc.w ArtTile_Animals7
 ; ---------------------------------------------------------------------------
 
 loc_2C8B8:
@@ -150,10 +150,12 @@ loc_2C8B8:
 loc_2C924:
 		addq.b	#2,routine(a0)
 		jsr	(Random_Number).w
-		move.w	#$580,d1
+		move.w	#ArtTile_Animals4,d1
+		subi.w	#5,d1
 		andi.w	#1,d0
 		beq.s	+
-		move.w	#$592,d1
+		move.w	#ArtTile_Animals5,d1
+		subi.w	#1,d1
 +		move.w	d1,art_tile(a0)
 		moveq	#0,d1
 		move.b	(Current_zone).w,d1

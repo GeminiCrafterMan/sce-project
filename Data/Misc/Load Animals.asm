@@ -54,36 +54,36 @@ Offs_PLCAnimals: offsetTable
 ; ---------------------------------------------------------------------------
 
 PLCAnimals_GHZ: plrlistheader
-		plreq $580, ArtKosM_BlueFlicky
-		plreq $592, ArtKosM_Chicken
+		plreq ArtTile_Animals4-5, ArtKosM_BlueFlicky
+		plreq ArtTile_Animals5-1, ArtKosM_Chicken
 PLCAnimals_GHZ_End
 
 PLCAnimals_SSLZ: plrlistheader
-		plreq $580, ArtKosM_BlueFlicky
-		plreq $592, ArtKosM_Chicken
+		plreq ArtTile_Animals4-5, ArtKosM_BlueFlicky
+		plreq ArtTile_Animals5-1, ArtKosM_Chicken
 PLCAnimals_SSLZ_End
 
 PLCAnimals_TTPZ: plrlistheader
-		plreq $580, ArtKosM_Squirrel
-		plreq $592, ArtKosM_BlueFlicky
+		plreq ArtTile_Animals4-5, ArtKosM_Squirrel
+		plreq ArtTile_Animals5-1, ArtKosM_BlueFlicky
 PLCAnimals_TTPZ_End
 
 PLCAnimals_CCZ: plrlistheader
-		plreq $580, ArtKosM_BlueFlicky
-		plreq $592, ArtKosM_Chicken
+		plreq ArtTile_Animals4-5, ArtKosM_BlueFlicky
+		plreq ArtTile_Animals5-1, ArtKosM_Chicken
 PLCAnimals_CCZ_End
 
 PLCAnimals_MMZ: plrlistheader
-		plreq $580, ArtKosM_Squirrel
-		plreq $592, ArtKosM_Chicken
+		plreq ArtTile_Animals4-5, ArtKosM_Squirrel
+		plreq ArtTile_Animals5-1, ArtKosM_Chicken
 PLCAnimals_MMZ_End
 
 PLCAnimals_DEZ: plrlistheader
-		plreq $580, ArtKosM_BlueFlicky
-		plreq $592, ArtKosM_Chicken
+		plreq ArtTile_Animals4-5, ArtKosM_BlueFlicky
+		plreq ArtTile_Animals5-1, ArtKosM_Chicken
 PLCAnimals_DEZ_End
 
 PLCAnimals_TTSZ: plrlistheader
-		plreq $580, ArtKosM_BlueFlicky
-		plreq $592, ArtKosM_Chicken
+		plreq ArtTile_Animals4-5, ArtKosM_BlueFlicky
+		plreq ArtTile_Animals5-1, ArtKosM_Chicken
 PLCAnimals_TTSZ_End

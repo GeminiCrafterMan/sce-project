@@ -223,8 +223,14 @@ GHZ1_BGDeformArray:
 GHZ_Deform:
 	; Vertical scrolling!!
 		move.w	(Camera_Y_pos_copy).w,d0
-		andi.w	#$7FF,d0
+		andi.w	#$7FFF,d0
+		tst.b	(Current_act).w
+		bne.s	.EX
+		lsr.w	#7,d0
+		bra.s	.doneActChk
+	.EX:
 		lsr.w	#5,d0
+	.doneActChk:
 		neg.w	d0
 		addi.w	#$20,d0
 		bpl.s	.limitY
