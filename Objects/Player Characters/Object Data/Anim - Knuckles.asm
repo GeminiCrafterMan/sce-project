@@ -7,7 +7,6 @@ AniKnuckles:	offsetTable
 		offsetTableEntry.w KnuxAni_Walk
 		offsetTableEntry.w KnuxAni_Run
 		offsetTableEntry.w KnuxAni_Roll
-		offsetTableEntry.w KnuxAni_Roll2
 		offsetTableEntry.w KnuxAni_Push
 		offsetTableEntry.w KnuxAni_Idle
 		offsetTableEntry.w KnuxAni_Balance
@@ -49,7 +48,6 @@ AniKnuckles:	offsetTable
 KnuxAni_Walk:	dc.b  $FF,   frK_Walk17,	  frK_Walk18,   frK_Walk11,   frK_Walk12,	 frK_Walk13,   frK_Walk14,   frK_Walk15,	frK_Walk16, afEnd
 KnuxAni_Run:	dc.b  $FF, frK_Run11,	frK_Run12, frK_Run13, frK_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
 KnuxAni_Roll:	dc.b  $FE, frK_Roll5,	frK_Roll1, frK_Roll5, frK_Roll2, frK_Roll5, frK_Roll3, frK_Roll5, frK_Roll4, afEnd
-KnuxAni_Roll2:	dc.b  $FE, frK_Roll5,	frK_Roll1, frK_Roll5, frK_Roll2, frK_Roll5, frK_Roll3, frK_Roll5, frK_Roll4, afEnd
 KnuxAni_Push:	dc.b  $FD, frK_Push1,	frK_Push2, frK_Push3, frK_Push4, afEnd, afEnd, afEnd, afEnd, afEnd
 KnuxAni_Idle:	dc.b    5, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1
 		dc.b  frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1, frK_Idle1

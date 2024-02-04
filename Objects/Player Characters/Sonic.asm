@@ -478,8 +478,6 @@ loc_10E82:
 		btst	#Status_Roll,status(a0)	; Spinning?
 		beq.s	.noSkim			; If not, return.
 		cmpi.b	#id_Roll,anim(a0)	; Are you SUUUUURE?
-		beq.s	.contSkim			; If so, get over there.
-		cmpi.b	#id_Roll2,anim(a0); ABSOLUTELY FUCKING POSITIVE?
 		bne.s	.noSkim			; If so, get over there. If not, gtfo.
 	.contSkim:
 		cmpi.w	#-$608,x_vel(a0)
@@ -3472,9 +3470,7 @@ loc_12A2A:
 
 loc_12A4C:
 		add.w	(HScroll_Shift).w,d2
-		lea	SonAni_Roll2(pc),a1
-		cmpi.w	#$800,d2
-		bcc.s	loc_12A5E
+; Removed Roll2 code
 		lea	SonAni_Roll(pc),a1
 
 loc_12A5E:

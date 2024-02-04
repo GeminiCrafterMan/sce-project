@@ -757,9 +757,7 @@ Animate_Tails_Part2:
 
 .loc_12A4C:
 		add.w	(HScroll_Shift).w,d2
-		lea	TailsAni_Roll2(pc),a1
-		cmpi.w	#$600,d2
-		bcc.s	.loc_12A5E
+; Removed Roll2 code
 		lea	TailsAni_Roll(pc),a1
 
 .loc_12A5E:
@@ -898,7 +896,7 @@ loc_1615A:
 
 Obj_Tails_Tail_AniSelection:
 		dc.b 0,0	; TailsAni_Walk,Run	->
-		dc.b 3,3	; TailsAni_Roll,Roll2	-> None,Directional
+		dc.b 3		; TailsAni_Roll		-> Directional
 		dc.b 9		; TailsAni_Push		-> Pushing
 		dc.b 1		; TailsAni_Wait		-> Swish
 		dc.b 0		; TailsAni_Balance	-> Blank

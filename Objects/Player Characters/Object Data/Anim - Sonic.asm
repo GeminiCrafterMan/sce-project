@@ -7,7 +7,6 @@ AniSonic: 				offsetTable
 SonAni_Walk_ptr:		offsetTableEntry.w SonAni_Walk
 SonAni_Run_ptr:			offsetTableEntry.w SonAni_Run
 SonAni_Roll_ptr:		offsetTableEntry.w SonAni_Roll
-SonAni_Roll2_ptr:		offsetTableEntry.w SonAni_Roll2
 SonAni_Push_ptr:		offsetTableEntry.w SonAni_Push
 SonAni_Wait_ptr:		offsetTableEntry.w SonAni_Wait
 SonAni_Balance_ptr:		offsetTableEntry.w SonAni_Balance
@@ -35,7 +34,7 @@ SonAni_Null_ptr:		offsetTableEntry.w SonAni_Null
 SonAni_Mach_ptr:		offsetTableEntry.w SonAni_Mach
 SonAni_Transform_ptr:	offsetTableEntry.w SonAni_Transform
 SonAni_Fall_ptr:		offsetTableEntry.w SonAni_Fall
-SonAni_Ability1_ptr:	offsetTableEntry.w SonAni_Float2
+SonAni_Ability1_ptr:	offsetTableEntry.w SonAni_Fly
 SonAni_Ability2_ptr:	offsetTableEntry.w SonAni_Null
 SonAni_Ability3_ptr:	offsetTableEntry.w SonAni_Null
 SonAni_Ability4_ptr:	offsetTableEntry.w SonAni_Null
@@ -48,8 +47,7 @@ SonAni_MonkeyBars_ptr:	offsetTableEntry.w SonAni_MonkeyBars
 
 SonAni_Walk:		dc.b  $FF, frS_Walk17,	frS_Walk18,   frS_Walk11,   frS_Walk12,	 frS_Walk13,   frS_Walk14,   frS_Walk15,	frS_Walk16, afEnd
 SonAni_Run:			dc.b  $FF, frS_Run11,	frS_Run12, frS_Run13, frS_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
-SonAni_Roll:		dc.b  $FE, frS_Roll11,	frS_Roll12, frS_Roll11, frS_Roll13, frS_Roll11, frS_Roll14, frS_Roll11, frS_Roll15, afEnd
-SonAni_Roll2:		dc.b  $FE, frS_Roll21,	frS_Roll22, frS_Roll23, frS_Roll24,	afEnd,		afEnd,		afEnd,		afEnd,		afEnd
+SonAni_Roll:		dc.b  $FE, frS_Roll1,	frS_Roll2, frS_Roll1, frS_Roll3, frS_Roll1, frS_Roll4, frS_Roll1, frS_Roll5, afEnd
 SonAni_Push:		dc.b  $FD, frS_Push1,	frS_Push2, frS_Push3, frS_Push4, afEnd, afEnd, afEnd, afEnd, afEnd
 SonAni_Wait:		dc.b    5, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1
 					dc.b  frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1, frS_Idle1
@@ -82,6 +80,7 @@ SonAni_Null:		dc.b  $77,   frS_Null, afEnd
 SonAni_Mach:		dc.b  $FF, frS_Mach11,	frS_Mach12,	frS_Mach13,	frS_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 SonAni_Transform:	dc.b	2, frS_Transform1, frS_Transform1, frS_Transform2, frS_Transform2, frS_Transform3, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, frS_Transform4, frS_Transform5, afChange,   id_Walk
 SonAni_Fall:		dc.b	3, frS_Fall1, frS_Fall2, afBack, 1
+SonAni_Fly:			dc.b	0, frS_Fly1, frS_Fly2, frS_Fly3, frS_Fly4, frS_Fly3, frS_Fly2, afEnd
 SonAni_MonkeyBars:	dc.b  $7F, frS_MonkeyBars6, frS_MonkeyBars4, afEnd
 	even
 
@@ -90,7 +89,6 @@ AniSuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Walk
 		offsetTableEntry.w SonAni_Run
 		offsetTableEntry.w SonAni_Roll
-		offsetTableEntry.w SonAni_Roll2
 		offsetTableEntry.w SonAni_Push
 		offsetTableEntry.w SupSonAni_Wait
 		offsetTableEntry.w SupSonAni_Balance
@@ -118,7 +116,7 @@ AniSuperSonic: offsetTable
 		offsetTableEntry.w SonAni_Mach
 		offsetTableEntry.w SonAni_Transform
 		offsetTableEntry.w SonAni_Fall
-		offsetTableEntry.w SonAni_Float2
+		offsetTableEntry.w SonAni_Fly
 		offsetTableEntry.w SonAni_Null
 		offsetTableEntry.w SonAni_Null
 		offsetTableEntry.w SonAni_Null
@@ -136,7 +134,6 @@ SupSonAni_Balance:	dc.b    9, frS_Balance11, frS_Balance12, frS_Balance13, frS_B
 id_Walk:			equ	(SonAni_Walk_ptr-AniSonic)/2
 id_Run:				equ	(SonAni_Run_ptr-AniSonic)/2
 id_Roll:			equ	(SonAni_Roll_ptr-AniSonic)/2
-id_Roll2:			equ	(SonAni_Roll2_ptr-AniSonic)/2
 id_Push:			equ	(SonAni_Push_ptr-AniSonic)/2
 id_Wait:			equ	(SonAni_Wait_ptr-AniSonic)/2
 id_Balance:			equ	(SonAni_Balance_ptr-AniSonic)/2
@@ -248,11 +245,11 @@ frS_Spiked1:		ds.b 1
 frS_Spiked2:		ds.b 1
 frS_Spring1:		ds.b 1
 frS_Spring2:		ds.b 1
-frS_Roll11:			ds.b 1
-frS_Roll12:			ds.b 1
-frS_Roll13:			ds.b 1
-frS_Roll14:			ds.b 1
-frS_Roll15:			ds.b 1
+frS_Roll1:			ds.b 1
+frS_Roll2:			ds.b 1
+frS_Roll3:			ds.b 1
+frs_Roll4:			ds.b 1
+frS_Roll5:			ds.b 1
 frS_Duck1:			ds.b 1
 frS_Duck2:			ds.b 1
 frS_Skid1:			ds.b 1
@@ -318,13 +315,13 @@ frS_Mach14:			ds.b 1
 frS_Mach2X:			ds.b 4
 frS_Mach3X:			ds.b 4
 frS_Mach4X:			ds.b 4
+frS_Fly1:			ds.b 1
+frS_Fly2:			ds.b 1
+frS_Fly3:			ds.b 1
+frS_Fly4:			ds.b 1
 frS_Squash1:		ds.b 1
 frS_Squash2:		ds.b 1
 frS_Squash3:		ds.b 1
-frS_Roll21:			ds.b 1
-frS_Roll22:			ds.b 1
-frS_Roll23:			ds.b 1
-frS_Roll24:			ds.b 1
 frS_Last:			ds.b 0
 	even
 	dephase

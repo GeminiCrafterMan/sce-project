@@ -1731,9 +1731,7 @@ Animate_Knuckles:
 
 .loc_12A4C:
 		add.w	(HScroll_Shift).w,d2
-		lea	KnuxAni_Roll2(pc),a1
-		cmpi.w	#$600,d2
-		bcc.s	.loc_12A5E
+; Removed Roll2 code
 		lea	KnuxAni_Roll(pc),a1
 
 .loc_12A5E:

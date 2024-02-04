@@ -7,7 +7,6 @@ AniMighty:				offsetTable
 		offsetTableEntry.w MtyAni_Walk
 		offsetTableEntry.w MtyAni_Run
 		offsetTableEntry.w MtyAni_Roll
-		offsetTableEntry.w MtyAni_Roll2
 		offsetTableEntry.w MtyAni_Push
 		offsetTableEntry.w MtyAni_Wait
 		offsetTableEntry.w MtyAni_Balance
@@ -49,7 +48,6 @@ AniMighty:				offsetTable
 MtyAni_Walk:		dc.b  $FF, frM_Walk17, frM_Walk18, frM_Walk11, frM_Walk12, frM_Walk13, frM_Walk14, frM_Walk15, frM_Walk16, afEnd
 MtyAni_Run:			dc.b  $FF, frM_Run11, frM_Run12, frM_Run13, frM_Run14, afEnd, afEnd, afEnd, afEnd, afEnd
 MtyAni_Roll:		dc.b  $FE, frM_Roll1, frM_Roll2, frM_Roll1, frM_Roll3, frM_Roll1, frM_Roll4, frM_Roll1, frM_Roll5, afEnd
-MtyAni_Roll2:		dc.b  $FE, frM_Roll1, frM_Roll2, frM_Roll1, frM_Roll3, frM_Roll1, frM_Roll4, frM_Roll1, frM_Roll5, afEnd
 MtyAni_Push:		dc.b  $FD, frM_Push1, frM_Push2, frM_Push3, frM_Push4, afEnd, afEnd, afEnd, afEnd, afEnd
 MtyAni_Wait:		dc.b	5, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1
 		dc.b frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1, frM_Idle1

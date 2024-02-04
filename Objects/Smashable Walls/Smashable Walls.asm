@@ -57,8 +57,6 @@ Smash_Solid:	; Routine 2
 		beq.s	.smashAnyway
 	.noFireShield:
 		cmpi.b	#id_Roll,obAnim(a1) ; is Sonic rolling?
-		beq.s	.rolling	; if not, branch
-		cmpi.b	#id_Roll2,obAnim(a1) ; is Sonic rolling?
 		bne.s	.donothing	; if not, branch
 	.rolling:
 		move.w	smash_speed(a0),d0
