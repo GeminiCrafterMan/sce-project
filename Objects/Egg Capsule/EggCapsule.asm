@@ -569,8 +569,10 @@ word_86B0E:
 		dc.w -$280
 		dc.w -$200
 word_86B16:
-		dc.w $8580
-		dc.w $8592
+		dc.w make_art_tile(ArtTile_Animals4-5, 0, 1)
+		dc.w make_art_tile(ArtTile_Animals5-1, 0, 1)
+;		dc.w $8580
+;		dc.w $8592
 		dc.w $842E
 		dc.w $8440
 ObjDat3_86B32:
@@ -677,7 +679,7 @@ AniRaw_86BF6:
 		dc.b arfEnd
 PLC_EggCapsule: plrlistheader
 		plreq $43E, ArtKosM_EggCapsule
-		plreq $5A0, ArtKosM_Explosion
+		plreq ArtTile_Explosion, ArtKosM_Explosion
 PLC_EggCapsule_End
 ; ---------------------------------------------------------------------------
 

@@ -453,7 +453,7 @@ LevelSelect_LoadAct3:
 LevelSelect_LoadAct4:
 		levselstr "ACT 4"
 LevelSelect_MainText:
-		levselstr "SONIC TEST GAME - *** DEBUG MODE ***                            "
+		levselstr "    SCE-PROJECT - *** DEBUG MODE ***                            "
 LevelSelect_LoadGreenHill:
 		levselstr "GREEN HILL"
 LevelSelect_LoadNewtrogicHigh:

@@ -10,7 +10,7 @@ Map_Results:
 		dc.w word_2F31A-Map_Results		; 8 (Number 7)
 		dc.w word_2F322-Map_Results		; 9 (Number 8)
 		dc.w word_2F32A-Map_Results		; A (Number 9)
-		dc.w word_2F332-Map_Results		; B
+		dc.w word_2F332-Map_Results		; B (Total?)
 		dc.w word_2F346-Map_Results		; C (Bonus)
 		dc.w word_2F35A-Map_Results		; D (Ring)
 		dc.w word_2F362-Map_Results		; E (Time)
@@ -26,42 +26,42 @@ word_2F2E0:
 		dc.w 0
 word_2F2E2:
 		dc.w 1
-		dc.b	0,   1,	$A4, $80,   0,	 0
+		dc.b	$FF,   1,	$A4, $80,   0,	 0
 word_2F2EA:
 		dc.w 1
-		dc.b	0,   1,	$A4, $82,   0,	 0
+		dc.b	$FF,   1,	$A4, $82,   0,	 0
 word_2F2F2:
 		dc.w 1
-		dc.b	0,   1,	$A4, $84,   0,	 0
+		dc.b	$FF,   1,	$A4, $84,   0,	 0
 word_2F2FA:
 		dc.w 1
-		dc.b	0,   1,	$A4, $86,   0,	 0
+		dc.b	$FF,   1,	$A4, $86,   0,	 0
 word_2F302:
 		dc.w 1
-		dc.b	0,   1,	$A4, $88,   0,	 0
+		dc.b	$FF,   1,	$A4, $88,   0,	 0
 word_2F30A:
 		dc.w 1
-		dc.b	0,   1,	$A4, $8A,   0,	 0
+		dc.b	$FF,   1,	$A4, $8A,   0,	 0
 word_2F312:
 		dc.w 1
-		dc.b	0,   1,	$A4, $8C,   0,	 0
+		dc.b	$FF,   1,	$A4, $8C,   0,	 0
 word_2F31A:
 		dc.w 1
-		dc.b	0,   1,	$A4, $8E,   0,	 0
+		dc.b	$FF,   1,	$A4, $8E,   0,	 0
 word_2F322:
 		dc.w 1
-		dc.b	0,   1,	$A4, $90,   0,	 0
+		dc.b	$FF,   1,	$A4, $90,   0,	 0
 word_2F32A:
 		dc.w 1
-		dc.b	0,   1,	$A4, $92,   0,	 0
-word_2F332:
+		dc.b	$FF,   1,	$A4, $92,   0,	 0
+word_2F332:		; Total?
 		dc.w 3
-		dc.b	0,   1,	$A4, $A4,   0,	 0
-		dc.b	0,  $D,	$A4, $A2,   0,	 8
+		dc.b  $FF,   1,	$A4, $A4,   0,	 0
+		dc.b  $FF,  $D,	$A4, $A2,   0,	 8
 		dc.b  $F6,   6,	$84, $94,   0, $24
 word_2F346:		; Bonus
 		dc.w 3
-		dc.b	0,  $D,	$A4, $9A,   $FF,	 $FF
+		dc.b  $FF,  $D,	$A4, $9A,	0,	 0
 		dc.b	0,   1,	$A6, $C4,   0, $20
 		dc.b  $F6,   6,	$84, $94,   0, $24
 word_2F35A:
