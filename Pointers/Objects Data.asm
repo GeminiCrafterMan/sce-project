@@ -44,7 +44,7 @@
 		include "Objects/Smooth Palette/Smooth Palette.asm"
 		include "Objects/Decoration/Decoration.asm"
 		include	"Objects/Floating Platform/Floating Platform.asm"
-		include	"Objects/Generic Badnik Slots.asm"
+		include	"Objects/Badniks/Generic Badnik Slots.asm"
 		include	"Objects/Background Characters/Background Characters.asm"
 
 ; ===========================================================================
@@ -52,10 +52,10 @@
 ; ===========================================================================
 
 	; GHZ
-		include "Objects/Buzz Bomber/Buzz Bomber.asm"
-		include "Objects/Chopper/Chopper.asm"
-		include "Objects/Crabmeat/Crabmeat.asm"
-		include "Objects/Motobug/Motobug.asm"
+		include "Objects/Badniks/Buzz Bomber/Buzz Bomber.asm"
+		include "Objects/Badniks/Chopper/Chopper.asm"
+		include "Objects/Badniks/Crabmeat/Crabmeat.asm"
+		include "Objects/Badniks/Motobug/Motobug.asm"
 		include	"Objects/Purple Rock/Purple Rock.asm"
 		include	"Objects/Smashable Walls/Smashable Walls.asm"
 		include	"Objects/Edge Walls/Edge Walls.asm"
@@ -63,15 +63,15 @@
 		include	"Objects/Collapsing Platform/Collapsing Platform.asm"
 
 	; SSLZ
-		include "Objects/Snailer/Snailer.asm"
-		include	"Objects/Burrobot/Burrobot.asm"
+		include "Objects/Badniks/Snailer/Snailer.asm"
+		include	"Objects/Badniks/Burrobot/Burrobot.asm"
 		include	"Objects/Spiral/Spiral.asm"
 
 	; TTPZ
 		include	"Objects/Oil/Oil.asm"
-		include	"Objects/Mecha-Bu/Mecha-Bu.asm"
-		include	"Objects/Spring Shell/Spring Shell.asm"
-		include "Objects/Wood Pointer/Wood Pointer.asm"
+		include	"Objects/Badniks/Mecha-Bu/Mecha-Bu.asm"
+		include	"Objects/Badniks/Spring Shell/Spring Shell.asm"
+		include "Objects/Badniks/Wood Pointer/Wood Pointer.asm"
 		include	"Objects/Monkey Bars/Monkey Bars.asm"
 		include	"Objects/Sideways Log/Sideways Log.asm"
 		include "Objects/Ride Vine/Ride Vine.asm"
@@ -80,8 +80,8 @@
 		include	"Objects/Rotating Platform/Rotating Platform.asm"
 
 	; Secret Stages
-		include "Objects/Spikebonker/Spikebonker.asm"
-		include "Objects/Bata-pyon/Bata-pyon.asm"
+		include "Objects/Badniks/Spikebonker/Spikebonker.asm"
+		include "Objects/Badniks/Bata-pyon/Bata-pyon.asm"
 
 ; ===========================================================================
 ; Bosses objects data

@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "a73f423b-ff73-4803-8c2d-1a3c06ba764a",
+    "node": "96cd2617-509e-42d0-acd2-d5a1a6146d96",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -262,7 +262,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
         },
         {
@@ -838,7 +838,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": true,
+            "expanded": false,
             "uuid": "8b489cf7-7ede-49af-8b8c-99a4a8b5e424"
         },
         {
@@ -911,12 +911,12 @@
                                 }
                             ],
                             "art": {
-                                "path": "Objects/Buzz Bomber/KosinskiM Art/Buzz Bomber.bin",
+                                "path": "Objects/Badniks/Buzz Bomber/KosinskiM Art/Buzz Bomber.bin",
                                 "compression": "Kosinski-M",
                                 "offset": 0
                             },
                             "mappings": {
-                                "path": "Objects/Buzz Bomber/Object Data/Map - Buzz Bomber.bin",
+                                "path": "Objects/Badniks/Buzz Bomber/Object Data/Map - Buzz Bomber.bin",
                                 "label": ""
                             },
                             "dplcs": {
@@ -940,12 +940,12 @@
                                 }
                             ],
                             "art": {
-                                "path": "Objects/Chopper/KosinskiM Art/Chopper.bin",
+                                "path": "Objects/Badniks/Chopper/KosinskiM Art/Chopper.bin",
                                 "compression": "Kosinski-M",
                                 "offset": 0
                             },
                             "mappings": {
-                                "path": "Objects/Chopper/Object Data/Map - Chopper.bin",
+                                "path": "Objects/Badniks/Chopper/Object Data/Map - Chopper.bin",
                                 "label": ""
                             },
                             "dplcs": {
@@ -969,12 +969,12 @@
                                 }
                             ],
                             "art": {
-                                "path": "Objects/Crabmeat/KosinskiM Art/Crabmeat.bin",
+                                "path": "Objects/Badniks/Crabmeat/KosinskiM Art/Crabmeat.bin",
                                 "compression": "Kosinski-M",
                                 "offset": 0
                             },
                             "mappings": {
-                                "path": "Objects/Crabmeat/Object Data/Map - Crabmeat.bin",
+                                "path": "Objects/Badniks/Crabmeat/Object Data/Map - Crabmeat.bin",
                                 "label": ""
                             },
                             "dplcs": {
@@ -998,12 +998,12 @@
                                 }
                             ],
                             "art": {
-                                "path": "Objects/Motobug/KosinskiM Art/Motobug.bin",
+                                "path": "Objects/Badniks/Motobug/KosinskiM Art/Motobug.bin",
                                 "compression": "Kosinski-M",
                                 "offset": 0
                             },
                             "mappings": {
-                                "path": "Objects/Motobug/Object Data/Map - Motobug.bin",
+                                "path": "Objects/Badniks/Motobug/Object Data/Map - Motobug.bin",
                                 "label": ""
                             },
                             "dplcs": {
@@ -1347,12 +1347,12 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Snailer/KosinskiM Art/Snailer.bin",
+                        "path": "Objects/Badniks/Snailer/KosinskiM Art/Snailer.bin",
                         "compression": "Kosinski-M",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Snailer/Object Data/Map - Snailer.bin",
+                        "path": "Objects/Badniks/Snailer/Object Data/Map - Snailer.bin",
                         "label": ""
                     },
                     "dplcs": {
@@ -1375,12 +1375,12 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Burrobot/KosinskiM Art/Burrobot.bin",
+                        "path": "Objects/Badniks/Burrobot/KosinskiM Art/Burrobot.bin",
                         "compression": "Kosinski-M",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Burrobot/Object Data/Map - Burrobot.bin",
+                        "path": "Objects/Badniks/Burrobot/Object Data/Map - Burrobot.bin",
                         "label": ""
                     },
                     "dplcs": {
@@ -1467,12 +1467,12 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin",
+                        "path": "Objects/Badniks/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin",
                         "compression": "Kosinski-M",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Mecha-Bu/Object Data/Map - Mecha-Bu.bin",
+                        "path": "Objects/Badniks/Mecha-Bu/Object Data/Map - Mecha-Bu.bin",
                         "label": ""
                     },
                     "dplcs": {
@@ -1497,12 +1497,12 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Wood Pointer/KosinskiM Art/Wood Pointer.bin",
+                        "path": "Objects/Badniks/Wood Pointer/KosinskiM Art/Wood Pointer.bin",
                         "compression": "Kosinski-M",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Wood Pointer/Object Data/Map - Wood Pointer.bin",
+                        "path": "Objects/Badniks/Wood Pointer/Object Data/Map - Wood Pointer.bin",
                         "label": ""
                     },
                     "dplcs": {
@@ -1634,12 +1634,12 @@
                         }
                     ],
                     "art": {
-                        "path": "Objects/Spring Shell/KosinskiM Art/Spring Shell.bin",
+                        "path": "Objects/Badniks/Spring Shell/KosinskiM Art/Spring Shell.bin",
                         "compression": "Kosinski-M",
                         "offset": 0
                     },
                     "mappings": {
-                        "path": "Objects/Spring Shell/Object Data/Map - Spring Shell.bin",
+                        "path": "Objects/Badniks/Spring Shell/Object Data/Map - Spring Shell.bin",
                         "label": ""
                     },
                     "dplcs": {
@@ -1790,7 +1790,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "08128b6f-4a80-4093-bb57-533245892dab"
         },
         {

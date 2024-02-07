@@ -78,7 +78,7 @@ loc_2DBA8:
 		mulu.w	#10,d0
 		move.w	d0,(Ring_bonus_countdown).w			; Get the ring bonus
 		clr.w	(Total_bonus_countup).w
-		move.w	#6*60,$2E(a0)						; Wait 6 seconds before starting score counting sequence
+		move.w	#6*60,wait(a0)						; Wait 6 seconds before starting score counting sequence
 		move.w	#$C,$30(a0)
 		addq.b	#2,routine(a0)
 		rts
@@ -118,13 +118,20 @@ locret_2DC34:
 ; ---------------------------------------------------------------------------
 
 Obj_LevelResultsWait:
-		tst.w	$2E(a0)
+		tst.w	wait(a0)
 		beq.s	loc_2DC5C
-		subq.w	#1,$2E(a0)
-		cmpi.w	#$121,$2E(a0)
-		bne.s	locret_2DC9E						; Play after eh, a second or so
+		subq.w	#1,wait(a0)
+		cmpi.w	#$121,wait(a0)
+		bne.w	locret_2DC9E						; Play after eh, a second or so
 		move.b	#30,(Player_1+air_left).w				; Reset air
 		clr.b	(Player_1+status_secondary).w		; reset secondary status
+	; really make sure that shield's gone (double shield was being a bitch)
+		lea		(v_Shield).w,a1
+		jsr		(Delete_Referenced_Sprite).l
+		lea		(v_Shield_Part2).w,a1
+		jsr		(Delete_Referenced_Sprite).l
+		lea		(v_Shield_Part3).w,a1
+		jsr		(Delete_Referenced_Sprite).l
 		music	bgm_GotThrough,1					; Play level complete theme
 ; ---------------------------------------------------------------------------
 
@@ -154,13 +161,13 @@ loc_2DC7E:
 
 loc_2DCA0:
 		sfx	sfx_Register								; Play the cash register sound
-		move.w	#3*60,$2E(a0)						; Set wait amount
+		move.w	#3*60,wait(a0)						; Set wait amount
 		addq.b	#2,routine(a0)
 
 Obj_LevelResultsWait2:
-		tst.w	$2E(a0)
+		tst.w	wait(a0)
 		beq.s	loc_2DCD6
-		subq.w	#1,$2E(a0)
+		subq.w	#1,wait(a0)
 
 locret_2DC9E:
 		rts

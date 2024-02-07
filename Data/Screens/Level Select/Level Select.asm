@@ -15,10 +15,10 @@ LevelSelect_ActCCZCount:		= 1 ; Clockwork Castle Zone
 LevelSelect_ActMMZCount:		= 2 ; Mecha Mushroom Zone
 LevelSelect_ActSSCount:			= 4	; Secret Stages
 LevelSelect_ActTTSZCount:		= 4	; Techno Test Zone
-LevelSelect_MusicTestCount:		= 8
+LevelSelect_MusicTestCount:		= 15
 LevelSelect_SoundTestCount:		= LevelSelect_MusicTestCount+1
 LevelSelect_SampleTestCount:	= LevelSelect_SoundTestCount+1
-LevelSelect_MaxCount:			= 11
+LevelSelect_MaxCount:			= LevelSelect_SampleTestCount+1
 LevelSelect_MaxMusicNumber:		= (bgm__Last-bgm__First)
 LevelSelect_MaxSoundNumber:		= (sfx__Last-sfx__First)
 LevelSelect_MaxSampleNumber:	= (dac__Last-dac__First)
@@ -393,7 +393,7 @@ LevelSelect_LoadAct:
 		subq.w	#1,d0
 
 .loop
-		addi.l	#vdpCommDelta(planeLocH40(0,2)),d2
+		addi.l	#vdpCommDelta(planeLocH40(0,1)),d2
 		dbf	d0,.loop
 
 .zero
@@ -606,25 +606,41 @@ LevelSelect_MarkTable:
 
 		; 2 bytes per level select entry (ypos, xpos)
 		dc.b 5, 0
+		dc.b 6, 0
 		dc.b 7, 0
+		dc.b 8, 0
 		dc.b 9, 0
+		dc.b 10, 0
 		dc.b 11, 0
+		dc.b 12, 0
 		dc.b 13, 0
+		dc.b 14, 0
 		dc.b 15, 0
+		dc.b 16, 0
 		dc.b 17, 0
+		dc.b 18, 0
 		dc.b 19, 0
+
 		dc.b 22, 0
 		dc.b 24, 0
 		dc.b 26, 0
 LevelSelect_MappingOffsets:
 		dc.w planeLocH28(0,5)
+		dc.w planeLocH28(0,6)
 		dc.w planeLocH28(0,7)
+		dc.w planeLocH28(0,8)
 		dc.w planeLocH28(0,9)
+		dc.w planeLocH28(0,10)
 		dc.w planeLocH28(0,11)
+		dc.w planeLocH28(0,12)
 		dc.w planeLocH28(0,13)
+		dc.w planeLocH28(0,14)
 		dc.w planeLocH28(0,15)
+		dc.w planeLocH28(0,16)
 		dc.w planeLocH28(0,17)
+		dc.w planeLocH28(0,18)
 		dc.w planeLocH28(0,19)
+
 		dc.w planeLocH28(0,22)
 		dc.w planeLocH28(0,24)
 		dc.w planeLocH28(0,26)
@@ -637,6 +653,14 @@ LevelSelect_Text:
 		levselstr " SECRET STAGES      - ACT 1             "
 		levselstr " TECHNO TEST        - ACT 1             "
 		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+		levselstr " UNKNOWN LEVEL      - UNKNOWN           "
+
 		levselstr " MUSIC TEST:        - 000               "
 		levselstr " SOUND TEST:        - 000               "
 		levselstr " SAMPLE TEST:       - 000               "

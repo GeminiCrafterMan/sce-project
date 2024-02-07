@@ -109,13 +109,13 @@ ArtKosM_ResultsMIGHTY:		binclude "Objects/Results/KosinskiM Art/Results MIGHTY.b
 ; ===========================================================================
 
 ; Enemies
-ArtKosM_BuzzBomber:			binclude "Objects/Buzz Bomber/KosinskiM Art/Buzz Bomber.bin"
+ArtKosM_BuzzBomber:			binclude "Objects/Badniks/Buzz Bomber/KosinskiM Art/Buzz Bomber.bin"
 	even
-ArtKosM_Chopper:			binclude "Objects/Chopper/KosinskiM Art/Chopper.bin"
+ArtKosM_Chopper:			binclude "Objects/Badniks/Chopper/KosinskiM Art/Chopper.bin"
 	even
-ArtKosM_Crabmeat:			binclude "Objects/Crabmeat/KosinskiM Art/Crabmeat.bin"
+ArtKosM_Crabmeat:			binclude "Objects/Badniks/Crabmeat/KosinskiM Art/Crabmeat.bin"
 	even
-ArtKosM_Motobug:			binclude "Objects/Motobug/KosinskiM Art/Motobug.bin"
+ArtKosM_Motobug:			binclude "Objects/Badniks/Motobug/KosinskiM Art/Motobug.bin"
 	even
 
 ; Misc
@@ -139,9 +139,9 @@ ArtKosM_GHZCollapsingLedge:	binclude "Objects/Collapsing Platform/KosinskiM Art/
 ; ===========================================================================
 
 ; Enemies
-ArtKosM_Snailer:			binclude "Objects/Snailer/KosinskiM Art/Snailer.bin"
+ArtKosM_Snailer:			binclude "Objects/Badniks/Snailer/KosinskiM Art/Snailer.bin"
 	even
-ArtKosM_Burrobot:			binclude "Objects/Burrobot/KosinskiM Art/Burrobot.bin"
+ArtKosM_Burrobot:			binclude "Objects/Badniks/Burrobot/KosinskiM Art/Burrobot.bin"
 	even
 
 ; Misc
@@ -153,11 +153,11 @@ ArtKosM_SSLZBridge:			binclude "Objects/Tension Bridge/KosinskiM Art/SSLZ Bridge
 ; ===========================================================================
 
 ; Enemies
-ArtKosM_MechaBu:			binclude "Objects/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin"
+ArtKosM_MechaBu:			binclude "Objects/Badniks/Mecha-Bu/KosinskiM Art/Mecha-Bu.bin"
 	even
-ArtKosM_SpringShell:		binclude "Objects/Spring Shell/KosinskiM Art/Spring Shell.bin"
+ArtKosM_SpringShell:		binclude "Objects/Badniks/Spring Shell/KosinskiM Art/Spring Shell.bin"
 	even
-ArtKosM_WoodPointer:		binclude "Objects/Wood Pointer/KosinskiM Art/Wood Pointer.bin"
+ArtKosM_WoodPointer:		binclude "Objects/Badniks/Wood Pointer/KosinskiM Art/Wood Pointer.bin"
 	even
 
 ; Misc
@@ -194,9 +194,9 @@ ArtKosM_RotatingPlatform:	binclude "Objects/Rotating Platform/KosinskiM Art/Rota
 ; ===========================================================================
 
 ; Enemies
-ArtKosM_Spikebonker:		binclude "Objects/Spikebonker/KosinskiM Art/Spikebonker.bin"
+ArtKosM_Spikebonker:		binclude "Objects/Badniks/Spikebonker/KosinskiM Art/Spikebonker.bin"
 	even
-ArtKosM_BataPyon:			binclude "Objects/Bata-pyon/KosinskiM Art/Bata-pyon.bin"
+ArtKosM_BataPyon:			binclude "Objects/Badniks/Bata-pyon/KosinskiM Art/Bata-pyon.bin"
 	even
 
 ; Misc
