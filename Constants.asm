@@ -571,6 +571,7 @@ ArtTile_Crabmeat			= $400
 ArtTile_BuzzBomber			= $444
 ArtTile_Chopper				= $50E
 ArtTile_Motobug				= $52E
+ArtTile_Mosqui				= $54B
 
 ; ---------------------------------------------------------------------------
 ; Seaside Land Zone

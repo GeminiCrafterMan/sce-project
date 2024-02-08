@@ -117,6 +117,8 @@ ArtKosM_Crabmeat:			binclude "Objects/Badniks/Crabmeat/KosinskiM Art/Crabmeat.bi
 	even
 ArtKosM_Motobug:			binclude "Objects/Badniks/Motobug/KosinskiM Art/Motobug.bin"
 	even
+ArtKosM_Mosqui:				binclude "Objects/Badniks/Mosqui/KosinskiM Art/Mosqui.bin"
+	even
 
 ; Misc
 ArtKosM_SwingingPlatform:	binclude "Objects/Swinging Platform/KosinskiM Art/Swinging Platform.bin"

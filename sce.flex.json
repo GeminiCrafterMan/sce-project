@@ -1,7 +1,7 @@
 {
     "Flex": 2,
     "name": "",
-    "node": "96cd2617-509e-42d0-acd2-d5a1a6146d96",
+    "node": "53438828-ca8b-48ce-96e4-05f0d0b39226",
     "objects": [
         {
             "format": "Sonic 3&K Object.js",
@@ -262,7 +262,7 @@
                 }
             ],
             "isDirectory": true,
-            "expanded": false,
+            "expanded": true,
             "uuid": "abc6a32f-d1d8-4a39-add2-09b3f48b49aa"
         },
         {
@@ -1011,6 +1011,35 @@
                                 "path": "",
                                 "label": ""
                             }
+                        },
+                        {
+                            "format": "Sonic 3&K Object.js",
+                            "name": "Mosqui",
+                            "palettes": [
+                                {
+                                    "length": 1,
+                                    "blank": true
+                                },
+                                {
+                                    "path": "Levels/Intro Stages/Green Hill/Palettes/Green Hill Zone EX.bin",
+                                    "length": 3
+                                }
+                            ],
+                            "art": {
+                                "path": "Objects/Badniks/Mosqui/KosinskiM Art/Mosqui.bin",
+                                "compression": "Kosinski-M",
+                                "offset": 0
+                            },
+                            "mappings": {
+                                "path": "Objects/Badniks/Mosqui/Object Data/Map - Mosqui.bin",
+                                "label": ""
+                            },
+                            "dplcs": {
+                                "enabled": false,
+                                "path": "",
+                                "label": ""
+                            },
+                            "uuid": "53438828-ca8b-48ce-96e4-05f0d0b39226"
                         },
                         {
                             "uuid": "5c74559b-85d7-4b3c-8e8e-66c8af8c6098",

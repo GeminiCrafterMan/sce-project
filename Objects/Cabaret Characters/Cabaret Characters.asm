@@ -112,10 +112,10 @@ Obj_CabaretMighty:
 		move.w	#$100,priority(a0)
 		tst.b	(Clone_Driver_RAM+SMPS_RAM.v_music_fm1_track).w
 		beq.s	.noMusic
-		move.b	#1,anim(a0)	; Snapping
+		move.b	#6,anim(a0)	; Snapping
 		bra.w	Obj_CabaretSonic.display
 	.noMusic:
-		move.b	#0,anim(a0)	; Waiting
+		move.b	#5,anim(a0)	; Waiting
 		bra.w	Obj_CabaretSonic.display
 
 ; ===========================================================================

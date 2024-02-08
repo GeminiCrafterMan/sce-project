@@ -132,7 +132,7 @@ Obj_BadnikSlot5:
 		jmp		(a1)
 .index:
 	rept 4
-		dc.l	DeleteObject	; GHZ
+		dc.l	Obj_Mosqui	; GHZ
 	endr
 	rept 4
 		dc.l	DeleteObject	; SSLZ

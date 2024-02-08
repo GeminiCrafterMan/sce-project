@@ -56,6 +56,7 @@
 		include "Objects/Badniks/Chopper/Chopper.asm"
 		include "Objects/Badniks/Crabmeat/Crabmeat.asm"
 		include "Objects/Badniks/Motobug/Motobug.asm"
+		include "Objects/Badniks/Mosqui/Mosqui.asm"
 		include	"Objects/Purple Rock/Purple Rock.asm"
 		include	"Objects/Smashable Walls/Smashable Walls.asm"
 		include	"Objects/Edge Walls/Edge Walls.asm"

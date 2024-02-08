@@ -97,6 +97,7 @@ PLC2_GHZ_Enemy: plrlistheader
 		plreq ArtTile_BuzzBomber, ArtKosM_BuzzBomber		; Buzz Bomber
 		plreq ArtTile_Chopper, ArtKosM_Chopper			; Chopper
 		plreq ArtTile_Motobug, ArtKosM_Motobug			; Motobug
+		plreq ArtTile_Mosqui, ArtKosM_Mosqui			; Mosqui
 PLC2_GHZ_Enemy_end
 
 ; ===========================================================================

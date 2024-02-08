@@ -156,6 +156,8 @@ Burro_ChkSonic2:
 .ret:
 		rts	
 ; End of function Burro_ChkSonic2
-
+; ===========================================================================
+; Object data
+; ===========================================================================
 	include	"Objects/Badniks/Burrobot/Object Data/Anim - Burrobot.asm"
 Map_Burrobot:		binclude	"Objects/Badniks/Burrobot/Object Data/Map - Burrobot.bin"
