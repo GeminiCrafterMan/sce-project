@@ -1263,11 +1263,15 @@ loc_7B888:
 		move.w	#$77,wait(a0)
 		jsr	(Create_New_Sprite).l
 		bne.s	locret_7B8E4
+; spawn falling signpost
+;		move.l	#Obj_Signpost,(a1)
+;		move.w	x_pos(a0),x_pos(a1)
+;		move.w	y_pos(a0),y_pos(a1)
 ; spawn instant level end object
-		move.l	#loc_7D056,(a1)
+;		move.l	#loc_7D056,(a1)
 ; spawn capsule
-;		move.l	#Obj_EggCapsule,(a1)
-;		bset	#1,render_flags(a1)
+		move.l	#Obj_EggCapsule,(a1)
+		bset	#1,render_flags(a1)
 
 locret_7B8E4:
 		rts
@@ -1316,18 +1320,18 @@ loc_7D078:
 word_7D842:	palscriptptr .header, .data
 		dc.w 0
 .header	palscripthdr	Normal_palette_line_2+$00, 16, 0
-.data	palscriptfile	50,"Objects/Mecha Sonic/Palettes/Main.bin"
-	palscriptfile	2, "Objects/Mecha Sonic/Palettes/Flash 2.bin"
-	palscriptfile	1, "Objects/Mecha Sonic/Palettes/Flash 1.bin"
-	palscriptfile	5, "Objects/Mecha Sonic/Palettes/Main.bin"
-	palscriptfile	2, "Objects/Mecha Sonic/Palettes/Flash 2.bin"
-	palscriptfile	1, "Objects/Mecha Sonic/Palettes/Flash 1.bin"
-	palscriptfile	50,"Objects/Mecha Sonic/Palettes/Main.bin"
-	palscriptfile	2, "Objects/Mecha Sonic/Palettes/Flash 2.bin"
-	palscriptfile	1, "Objects/Mecha Sonic/Palettes/Flash 1.bin"
-	palscriptfile	20,"Objects/Mecha Sonic/Palettes/Main.bin"
-	palscriptfile	2, "Objects/Mecha Sonic/Palettes/Flash 2.bin"
-	palscriptfile	1, "Objects/Mecha Sonic/Palettes/Flash 1.bin"
+.data	palscriptfile	50,"Objects/Enemies/Bosses/Mecha Sonic/Palettes/Main.bin"
+	palscriptfile	2, "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Flash 2.bin"
+	palscriptfile	1, "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Flash 1.bin"
+	palscriptfile	5, "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Main.bin"
+	palscriptfile	2, "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Flash 2.bin"
+	palscriptfile	1, "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Flash 1.bin"
+	palscriptfile	50,"Objects/Enemies/Bosses/Mecha Sonic/Palettes/Main.bin"
+	palscriptfile	2, "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Flash 2.bin"
+	palscriptfile	1, "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Flash 1.bin"
+	palscriptfile	20,"Objects/Enemies/Bosses/Mecha Sonic/Palettes/Main.bin"
+	palscriptfile	2, "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Flash 2.bin"
+	palscriptfile	1, "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Flash 1.bin"
 	palscriptrept
 
 PLC_BossExplosion:
@@ -1338,6 +1342,6 @@ PLC_BossExplosion:
 ; ===========================================================================
 ; Maps/PLCs
 ; ===========================================================================
-Map_MechaSonic:			binclude	"Objects/Mecha Sonic/Object Data/Map - Mecha Sonic.bin"
-Map_MechaSonicExtra:	binclude	"Objects/Mecha Sonic/Object Data/Map - Mecha Sonic Extra.bin"
-PLC_MechaSonic:			binclude	"Objects/Mecha Sonic/Object Data/PLC - Mecha Sonic.bin"
+Map_MechaSonic:			binclude	"Objects/Enemies/Bosses/Mecha Sonic/Object Data/Map - Mecha Sonic.bin"
+Map_MechaSonicExtra:	binclude	"Objects/Enemies/Bosses/Mecha Sonic/Object Data/Map - Mecha Sonic Extra.bin"
+PLC_MechaSonic:			binclude	"Objects/Enemies/Bosses/Mecha Sonic/Object Data/PLC - Mecha Sonic.bin"

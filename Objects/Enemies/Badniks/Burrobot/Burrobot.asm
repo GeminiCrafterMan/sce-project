@@ -159,5 +159,5 @@ Burro_ChkSonic2:
 ; ===========================================================================
 ; Object data
 ; ===========================================================================
-	include	"Objects/Badniks/Burrobot/Object Data/Anim - Burrobot.asm"
-Map_Burrobot:		binclude	"Objects/Badniks/Burrobot/Object Data/Map - Burrobot.bin"
+	include	"Objects/Enemies/Badniks/Burrobot/Object Data/Anim - Burrobot.asm"
+Map_Burrobot:		binclude	"Objects/Enemies/Badniks/Burrobot/Object Data/Map - Burrobot.bin"

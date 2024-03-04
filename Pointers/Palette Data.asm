@@ -53,9 +53,9 @@ Pal_TTSZ:			binclude "Levels/TTSZ/Palettes/Techno Test Zone.bin"
 ; Boss palettes
 ; ===========================================================================
 
-Pal_MechaSonic:		binclude "Objects/Mecha Sonic/Palettes/Main.bin"
+Pal_MechaSonic:		binclude "Objects/Enemies/Bosses/Mecha Sonic/Palettes/Main.bin"
 	even
-Pal_MechaTails:		binclude "Objects/Mecha Tails/Palettes/Main.bin"
+Pal_MechaTails:		binclude "Objects/Enemies/Bosses/Mecha Tails/Palettes/Main.bin"
 	even
 
 ; ===========================================================================

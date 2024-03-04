@@ -210,4 +210,4 @@ Ani_Snailer:
 .flame:		dc.b 1,	4, 5, 6, 7, afEnd
 		even
 
-Map_Snailer:		binclude "Objects/Badniks/Snailer/Object Data/Map - Snailer.bin"
+Map_Snailer:		binclude "Objects/Enemies/Badniks/Snailer/Object Data/Map - Snailer.bin"

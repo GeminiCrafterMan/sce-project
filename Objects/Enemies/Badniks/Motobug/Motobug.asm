@@ -129,4 +129,4 @@ Ani_Motobug:
 .smoke:		dc.b 1,	3, 6, 3, 6, 4, 6, 4, 6,	4, 6, 5, afRoutine
 		even
 
-Map_Motobug:		binclude "Objects/Badniks/Motobug/Object Data/Map - Motobug.bin"
+Map_Motobug:		binclude "Objects/Enemies/Badniks/Motobug/Object Data/Map - Motobug.bin"

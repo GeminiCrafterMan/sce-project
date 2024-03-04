@@ -134,4 +134,4 @@ Ani_Mosqui:
 .fly:	dc.b	0,	0, 1, 2, 1, afEnd
 .stab:	dc.b	6,	3, 4, 4, afRoutine, 0
 
-Map_Mosqui:		binclude	"Objects/Badniks/Mosqui/Object Data/Map - Mosqui.bin"
+Map_Mosqui:		binclude	"Objects/Enemies/Badniks/Mosqui/Object Data/Map - Mosqui.bin"

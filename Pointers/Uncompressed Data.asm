@@ -88,9 +88,9 @@ ArtUnc_MightyEmotions:		binclude "Objects/HUD/Uncompressed Art/Mighty Emotions.b
 ; Bosses
 ; ===========================================================================
 
-ArtUnc_MechaSonic:			binclude "Objects/Mecha Sonic/Uncompressed Art/Mecha Sonic.bin"
+ArtUnc_MechaSonic:			binclude "Objects/Enemies/Bosses/Mecha Sonic/Uncompressed Art/Mecha Sonic.bin"
 	even
-ArtUnc_MechaTails:			binclude "Objects/Mecha Tails/Uncompressed Art/Mecha Tails.bin"
+ArtUnc_MechaTails:			binclude "Objects/Enemies/Bosses/Mecha Tails/Uncompressed Art/Mecha Tails.bin"
 	even
 
 ; ===========================================================================

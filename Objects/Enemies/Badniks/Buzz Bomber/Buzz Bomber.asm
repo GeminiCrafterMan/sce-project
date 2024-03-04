@@ -214,5 +214,5 @@ Msl_Animate2:
 		jmp		DisplaySprite
 ;		jmp		Child_DrawTouch_Sprite
 
-		include "Objects/Badniks/Buzz Bomber/Object Data/Anim - Buzz Bomber.asm"
-Map_BuzzBomber:		binclude "Objects/Badniks/Buzz Bomber/Object Data/Map - Buzz Bomber.bin"
+		include "Objects/Enemies/Badniks/Buzz Bomber/Object Data/Anim - Buzz Bomber.asm"
+Map_BuzzBomber:		binclude "Objects/Enemies/Badniks/Buzz Bomber/Object Data/Map - Buzz Bomber.bin"

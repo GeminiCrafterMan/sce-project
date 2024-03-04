@@ -44,7 +44,7 @@
 		include "Objects/Smooth Palette/Smooth Palette.asm"
 		include "Objects/Decoration/Decoration.asm"
 		include	"Objects/Floating Platform/Floating Platform.asm"
-		include	"Objects/Badniks/Generic Badnik Slots.asm"
+		include	"Objects/Enemies/Badniks/Generic Badnik Slots.asm"
 		include	"Objects/Background Characters/Background Characters.asm"
 
 ; ===========================================================================
@@ -52,11 +52,11 @@
 ; ===========================================================================
 
 	; GHZ
-		include "Objects/Badniks/Buzz Bomber/Buzz Bomber.asm"
-		include "Objects/Badniks/Chopper/Chopper.asm"
-		include "Objects/Badniks/Crabmeat/Crabmeat.asm"
-		include "Objects/Badniks/Motobug/Motobug.asm"
-		include "Objects/Badniks/Mosqui/Mosqui.asm"
+		include "Objects/Enemies/Badniks/Buzz Bomber/Buzz Bomber.asm"
+		include "Objects/Enemies/Badniks/Chopper/Chopper.asm"
+		include "Objects/Enemies/Badniks/Crabmeat/Crabmeat.asm"
+		include "Objects/Enemies/Badniks/Motobug/Motobug.asm"
+		include "Objects/Enemies/Badniks/Mosqui/Mosqui.asm"
 		include	"Objects/Purple Rock/Purple Rock.asm"
 		include	"Objects/Smashable Walls/Smashable Walls.asm"
 		include	"Objects/Edge Walls/Edge Walls.asm"
@@ -64,15 +64,15 @@
 		include	"Objects/Collapsing Platform/Collapsing Platform.asm"
 
 	; SSLZ
-		include "Objects/Badniks/Snailer/Snailer.asm"
-		include	"Objects/Badniks/Burrobot/Burrobot.asm"
+		include "Objects/Enemies/Badniks/Snailer/Snailer.asm"
+		include	"Objects/Enemies/Badniks/Burrobot/Burrobot.asm"
 		include	"Objects/Spiral/Spiral.asm"
 
 	; TTPZ
 		include	"Objects/Oil/Oil.asm"
-		include	"Objects/Badniks/Mecha-Bu/Mecha-Bu.asm"
-		include	"Objects/Badniks/Spring Shell/Spring Shell.asm"
-		include "Objects/Badniks/Wood Pointer/Wood Pointer.asm"
+		include	"Objects/Enemies/Badniks/Mecha-Bu/Mecha-Bu.asm"
+		include	"Objects/Enemies/Badniks/Spring Shell/Spring Shell.asm"
+		include "Objects/Enemies/Badniks/Wood Pointer/Wood Pointer.asm"
 		include	"Objects/Monkey Bars/Monkey Bars.asm"
 		include	"Objects/Sideways Log/Sideways Log.asm"
 		include "Objects/Ride Vine/Ride Vine.asm"
@@ -81,15 +81,15 @@
 		include	"Objects/Rotating Platform/Rotating Platform.asm"
 
 	; Secret Stages
-		include "Objects/Badniks/Spikebonker/Spikebonker.asm"
-		include "Objects/Badniks/Bata-pyon/Bata-pyon.asm"
+		include "Objects/Enemies/Badniks/Spikebonker/Spikebonker.asm"
+		include "Objects/Enemies/Badniks/Bata-pyon/Bata-pyon.asm"
 
 ; ===========================================================================
 ; Bosses objects data
 ; ===========================================================================
 
-		include	"Objects/Mecha Sonic/Mecha Sonic.asm"
-		include "Objects/Robotnik/Robotnik.asm"
+		include	"Objects/Enemies/Bosses/Mecha Sonic/Mecha Sonic.asm"
+		include "Objects/Enemies/Bosses/Robotnik/Robotnik.asm"
 
 ; ===========================================================================
 ; Screen objects data

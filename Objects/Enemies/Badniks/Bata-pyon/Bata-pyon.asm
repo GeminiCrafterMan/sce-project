@@ -191,4 +191,4 @@ ObjBataPyon_SwapFrames:
 
 ; -------------------------------------------------------------------------
 
-Map_BataPyon:		binclude	"Objects/Badniks/Bata-pyon/Object Data/Map - Bata-pyon.bin"
+Map_BataPyon:		binclude	"Objects/Enemies/Badniks/Bata-pyon/Object Data/Map - Bata-pyon.bin"

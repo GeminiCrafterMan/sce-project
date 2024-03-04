@@ -154,4 +154,4 @@ ChildObjDat_8BFA0:
 		dc.w 0
 byte_8BFA8:	dc.b    3,   1,   2,   3, $F4,   0
 
-Map_WoodPointer:	binclude "Objects/Badniks/Wood Pointer/Object Data/Map - Wood Pointer.bin"
+Map_WoodPointer:	binclude "Objects/Enemies/Badniks/Wood Pointer/Object Data/Map - Wood Pointer.bin"

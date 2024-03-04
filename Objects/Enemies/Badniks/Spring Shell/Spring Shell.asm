@@ -225,4 +225,4 @@ Obj_SpringShellSpring_Up:
 ; -------------------------------------------------------------------------
 ; Object data
 ; -------------------------------------------------------------------------
-Map_SpringShell:	binclude "Objects/Badniks/Spring Shell/Object Data/Map - Spring Shell.bin"
+Map_SpringShell:	binclude "Objects/Enemies/Badniks/Spring Shell/Object Data/Map - Spring Shell.bin"

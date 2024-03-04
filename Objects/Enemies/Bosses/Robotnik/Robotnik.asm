@@ -143,4 +143,4 @@ Child1_MakeRoboShipFlame:
 		dc.b 30, 0
 ; ---------------------------------------------------------------------------
 
-Map_RobotnikShip:		binclude "Objects/Robotnik/Object Data/Map - Robotnik Ship.bin"
+Map_RobotnikShip:		binclude "Objects/Enemies/Bosses/Robotnik/Object Data/Map - Robotnik Ship.bin"

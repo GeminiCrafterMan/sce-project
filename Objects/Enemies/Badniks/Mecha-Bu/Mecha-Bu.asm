@@ -105,5 +105,5 @@ ChildObjDat_MechaBuPartTwo:
 		dc.l	Obj_MechaBuPartTwo	; object pointer
 		dc.b	-20, -13 ;-13, -20	; X/Y offsets
 
-Map_MechaBu:		binclude	"Objects/Badniks/Mecha-Bu/Object Data/Map - Mecha-Bu.bin"
+Map_MechaBu:		binclude	"Objects/Enemies/Badniks/Mecha-Bu/Object Data/Map - Mecha-Bu.bin"
 	even

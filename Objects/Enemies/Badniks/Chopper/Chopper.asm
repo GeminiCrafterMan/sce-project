@@ -52,5 +52,5 @@ Chop_ChgSpeed:	; Routine 2
 .nochg:
 		rts
 
-		include "Objects/Badniks/Chopper/Object Data/Anim - Chopper.asm"
-Map_Chopper:		binclude "Objects/Badniks/Chopper/Object Data/Map - Chopper.bin"
+		include "Objects/Enemies/Badniks/Chopper/Object Data/Anim - Chopper.asm"
+Map_Chopper:		binclude "Objects/Enemies/Badniks/Chopper/Object Data/Map - Chopper.bin"

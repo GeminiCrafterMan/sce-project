@@ -230,4 +230,4 @@ ChildObjDat_Spikebonker_Spike:
 		dc.l Obj_Spikebonker_SpikeBall
 ; ---------------------------------------------------------------------------
 
-Map_Spikebonker:		binclude "Objects/Badniks/Spikebonker/Object Data/Map - Spikebonker.bin"
+Map_Spikebonker:		binclude "Objects/Enemies/Badniks/Spikebonker/Object Data/Map - Spikebonker.bin"
