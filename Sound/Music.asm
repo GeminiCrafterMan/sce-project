@@ -26,6 +26,13 @@ ptr_mus_through:	SMPS_MUSIC_METADATA	Music_Through, s3TempotoS1($FF), 0	; End of
 ptr_mus_drowning:	SMPS_MUSIC_METADATA	Music_Drowning, s3TempotoS1($02), SMPS_MUSIC_METADATA_FORCE_PAL_SPEED	; Drowning
 ptr_mus_title:		SMPS_MUSIC_METADATA Music_Title, 8, 0					; Title Screen
 
+; Songs I grabbed from sce-minihack
+ptr_mus_brokenmoon:	SMPS_MUSIC_METADATA Music_BrokenMoon, 8, 0				; Broken Moon
+ptr_mus_deepcode:	SMPS_MUSIC_METADATA	Music_DeepCode, 8, 0				; Deep Into the Code
+ptr_mus_saweddemon:	SMPS_MUSIC_METADATA	Music_SawedDemon, 8, 0				; I Sawed the Demons
+ptr_mus_interdoom:	SMPS_MUSIC_METADATA	Music_InterDoom, 8, 0				; Intermission from Doom
+ptr_mus_untitled:	SMPS_MUSIC_METADATA	Music_Untitled, 8, 0				; Untitled
+
 ptr_musend
 
 ; ---------------------------------------------------------------------------
@@ -67,4 +74,15 @@ Music_Through: 		include "Sound/Music/Mus - Sonic Got Through.asm"
 Music_Drowning:		include "Sound/Music/Mus - Drowning.asm"
 	even
 Music_Title:		include	"Sound/Music/Mus - Title Screen.asm"
+	even
+
+Music_BrokenMoon:	include "Sound/Music/Mus - Broken Moon.asm"
+	even
+Music_DeepCode:	include "Sound/Music/Mus - Deep Into the Code.asm"
+	even
+Music_SawedDemon:	include "Sound/Music/Mus - I Sawed the Demons.asm"
+	even
+Music_InterDoom:	include "Sound/Music/Mus - Intermission from Doom.asm"
+	even
+Music_Untitled:	include "Sound/Music/Mus - Untitled.asm"
 	even

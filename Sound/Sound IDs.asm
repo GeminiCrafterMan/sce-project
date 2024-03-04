@@ -32,6 +32,12 @@ bgm_GotThrough =	SMPS_id(ptr_mus_through)
 bgm_Drowning =		SMPS_id(ptr_mus_drowning)
 bgm_Title =			SMPS_id(ptr_mus_title)
 
+bgm_BrokenMoon =	SMPS_id(ptr_mus_brokenmoon)
+bgm_DeepCode =	SMPS_id(ptr_mus_deepcode)
+bgm_SawedDemon =	SMPS_id(ptr_mus_saweddemon)
+bgm_InterDoom =	SMPS_id(ptr_mus_interdoom)
+bgm_Untitled =	SMPS_id(ptr_mus_untitled)
+
 bgm__Last =			SMPS_id(ptr_musend)-1
 
 ; Sound effects

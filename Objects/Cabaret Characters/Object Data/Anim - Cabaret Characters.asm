@@ -15,5 +15,5 @@ Ani_CabaretChars:	offsetTable
 .knuxWait:		dc.b 23, 9, 10, afEnd
 .knuxBoxing:	dc.b 5, 11, 12, 13, 14, 15, afBack, 4
 .mightyWait:	dc.b 8, 16, 17, 18, 17, afEnd
-.mightyTapping:	dc.b 4, 19, 20, 21, 20, afEnd
+.mightyTapping:	dc.b 5, 19, 20, 21, 20, afEnd
 		even

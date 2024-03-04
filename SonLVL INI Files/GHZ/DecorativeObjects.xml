@@ -5,8 +5,18 @@
       <ArtFile filename="../Objects/Tension Bridge/KosinskiM Art/GHZ Bridge.bin" compression="KosinskiM" />
       <MapFile type="Binary" filename="../Objects/Tension Bridge/Object Data/Map - Tension Bridge.bin" frame="1" startpal="2" />
     </ImageFromMappings>
+    <ImageFromMappings id="fire1">
+      <ArtFile filename="../Levels/Intro Stages/Green Hill/Animated Tiles/Uncompressed Art/GHZ flames.bin" compression="Uncompressed" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - GHZ flames.bin" frame="0" startpal="0" />
+    </ImageFromMappings>
+    <ImageFromMappings id="fire2">
+      <ArtFile filename="../Levels/Intro Stages/Green Hill/Animated Tiles/Uncompressed Art/GHZ flames.bin" compression="Uncompressed" />
+      <MapFile type="Binary" filename="../Objects/Decoration/Object Data/Map - GHZ flames.bin" frame="1" startpal="0" />
+    </ImageFromMappings>
   </Images>
   <Subtypes>
     <Subtype id="00" image="stake" />
+    <Subtype id="02" image="fire1" />
+    <Subtype id="03" image="fire2" />
   </Subtypes>
 </ObjDef>

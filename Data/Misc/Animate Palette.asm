@@ -45,7 +45,14 @@ SuperHyper_PalCycle:
 
 SuperHyper_PalCycle_FadeIn:
 		; increment palette frame and update Sonic's palette
+		cmpi.b	#c_Mighty,(Player_1+character_id).w		; ...or Knuckles, branch, making this code Sonic-specific
+		bne.s	.sonic
+	.mighty:
+		lea	(PalCycle_SuperMighty).l,a0
+		bra.s	.cont
+	.sonic:
 		lea	(PalCycle_SuperSonic).l,a0
+	.cont:
 		move.w	(Palette_frame).w,d0
 		addq.w	#6,(Palette_frame).w			; 1 palette entry = 1 word, Sonic uses 3 shades of blue
 		cmpi.w	#$24,(Palette_frame).w			; has palette cycle reached the 6th frame?
@@ -64,7 +71,9 @@ locret_37EC:
 
 SuperHyper_PalCycle_Revert:	; runs the fade in transition backwards
 		cmpi.b	#c_Tails,(Player_1+character_id).w	; If Tails or Knuckles, branch, making this code Sonic-specific
-		bhs.s	SuperHyper_PalCycle_RevertNotSonic
+		beq.s	SuperHyper_PalCycle_RevertNotSonic
+		cmpi.b	#c_Knuckles,(Player_1+character_id).w	; If Tails or Knuckles, branch, making this code Sonic-specific
+		beq.s	SuperHyper_PalCycle_RevertNotSonic
 
 		; run frame timer
 		subq.b	#1,(Palette_timer).w
@@ -72,7 +81,14 @@ SuperHyper_PalCycle_Revert:	; runs the fade in transition backwards
 		move.b	#3,(Palette_timer).w
 
 		; decrement palette frame and update Sonic's palette
+		cmpi.b	#c_Mighty,(Player_1+character_id).w		; ...or Knuckles, branch, making this code Sonic-specific
+		bne.s	.sonic
+	.mighty:
+		lea	(PalCycle_SuperHyperMightyRevert).l,a0
+		bra.s	.cont
+	.sonic:
 		lea	(PalCycle_SuperSonic).l,a0
+	.cont:
 		move.w	(Palette_frame).w,d0
 		subq.w	#6,(Palette_frame).w	; previous frame
 		bhs.s	loc_381E		; branch, if it isn't the first frame
@@ -89,7 +105,7 @@ SuperHyper_PalCycle_RevertNotSonic:
 		move.b	d0,(Super_palette_status).w	; 0 = off
 		move.b	d0,(Palette_frame_Tails).w
 		cmpi.b	#c_Knuckles,(Player_1+character_id).w			; If Knuckles, branch, making this code Tails-specific
-		bhs.s	SuperHyper_PalCycle_RevertKnuckles
+		beq.s	SuperHyper_PalCycle_RevertKnuckles
 
 		lea	(PalCycle_SuperTails).l,a0		; Used here because the first set of colours is Tails' normal palette
 		bsr.w	SuperHyper_PalCycle_ApplyTails
@@ -117,7 +133,14 @@ SuperHyper_PalCycle_SuperSonic:	; Tails' code falls back here so the Super Flick
 		move.b	#6,(Palette_timer).w
 
 		; increment palette frame and update Sonic's palette
+		cmpi.b	#c_Mighty,(Player_1+character_id).w		; ...or Knuckles, branch, making this code Sonic-specific
+		bne.s	.sonic
+	.mighty:
+		lea	(PalCycle_SuperMighty).l,a0
+		bra.s	.cont
+	.sonic:
 		lea	(PalCycle_SuperSonic).l,a0
+	.cont:
 		move.w	(Palette_frame).w,d0
 		addq.w	#6,(Palette_frame).w	; next frame
 		cmpi.w	#$3C,(Palette_frame).w	; is it the last frame?
@@ -135,7 +158,14 @@ SuperHyper_PalCycle_HyperSonic:
 		move.b	#4,(Palette_timer).w
 
 		; increment palette frame and update Sonic's palette
+		cmpi.b	#c_Mighty,(Player_1+character_id).w		; ...or Knuckles, branch, making this code Sonic-specific
+		bne.s	.sonic
+	.mighty:
+		lea	(PalCycle_HyperMighty).l,a0
+		bra.s	.cont
+	.sonic:
 		lea	(PalCycle_HyperSonic).l,a0
+	.cont:
 		move.w	(Palette_frame).w,d0
 		addq.w	#6,(Palette_frame).w			; next frame
 		cmpi.w	#$48,(Palette_frame).w			; is it the last frame?
@@ -251,6 +281,33 @@ PalCycle_SuperHyperKnuckles:
 
 PalCycle_SuperHyperKnucklesRevert:
 		dc.w $64E,$20C,$206
+
+PalCycle_SuperMighty:
+        dc.w $66E,$44E,$20A
+        dc.w $88E,$66E,$22A
+        dc.w $AAE,$88E,$44A
+        dc.w $AAE,$88E,$64C
+        dc.w $CCE,$AAE,$68E
+        dc.w $CCE,$AAE,$68E
+        dc.w $AAE,$88E,$64C
+        dc.w $AAE,$88E,$44A
+        dc.w $88E,$66E,$22A
+        dc.w $66E,$44E,$20A
+PalCycle_HyperMighty:
+        dc.w $4CE,$2AC,$268
+        dc.w $4EE,$4CE,$28A
+        dc.w $AEE,$4EE,$2AA
+        dc.w $CEE,$8EE,$4CC
+        dc.w $EEE,$AEE,$6EE
+        dc.w $CEE,$8EE,$4CC
+        dc.w $AEE,$4EE,$2AA
+        dc.w $4EE,$4CE,$28A
+        dc.w $4CE,$2AC,$268
+        dc.w $2CE,$08A,$068
+        dc.w $0AC,$068,$046
+        dc.w $2CE,$08A,$068
+PalCycle_SuperHyperMightyRevert:
+        dc.w $44E,$22A,$226
 
 ; by Naoto, for SHIMA, yoinked by Gem
 PalRotLeft_4:

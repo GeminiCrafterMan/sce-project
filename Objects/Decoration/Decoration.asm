@@ -106,8 +106,20 @@ Obj_TTPZBottom_Common:
 		move.w	#bytes_to_word(8,32),height_pixels(a0)
 		ori.b	#4,render_flags(a0)
 		jmp		DisplaySprite	; Do I really have to?
-
 ; ---------------------------------------------------------------------------
+
+Obj_GHZFire2:
+		move.b	#1,mapping_frame(a0)
+Obj_GHZFire1:
+		move.w	#$80,priority(a0)
+Obj_GHZFire_Common:
+		move.l	#Map_GHZFire,mappings(a0)
+		move.w	#$3A0,art_tile(a0)
+		move.w	#bytes_to_word(24,16),height_pixels(a0)
+		ori.b	#4,render_flags(a0)
+		jmp		DisplaySprite
+; ---------------------------------------------------------------------------
+
 Obj_ZoneSpecificDecoration1:
 		moveq	#0,d0
 		move.w	(Current_zone_and_act).w,d0
@@ -117,7 +129,7 @@ Obj_ZoneSpecificDecoration1:
 		jmp		(a1)
 .index:
 	rept 4
-		dc.l	DeleteObject		; GHZ
+		dc.l	Obj_GHZFire1		; GHZ
 	endr
 	rept 4
 		dc.l	DeleteObject		; SSLZ
@@ -148,7 +160,7 @@ Obj_ZoneSpecificDecoration2:
 		jmp		(a1)
 .index:
 	rept 4
-		dc.l	DeleteObject		; GHZ
+		dc.l	Obj_GHZFire2		; GHZ
 	endr
 	rept 4
 		dc.l	DeleteObject		; SSLZ
@@ -297,6 +309,7 @@ Obj_ZoneSpecificDecoration6:
 ; ---------------------------------------------------------------------------
 ; Mappings for foreground objects
 ; ---------------------------------------------------------------------------
+Map_GHZFire:			binclude	"Objects/Decoration/Object Data/Map - GHZ flames.bin"
 Map_GHZWaterfall:		binclude	"Objects/Decoration/Object Data/Map - GHZ Waterfall.bin"
 Map_SSLZWaterfall:		binclude	"Objects/Decoration/Object Data/Map - SSLZ Waterfall.bin"
 Map_TTPZDecor:			binclude	"Objects/Decoration/Object Data/Map - TTPZ Decorations.bin"

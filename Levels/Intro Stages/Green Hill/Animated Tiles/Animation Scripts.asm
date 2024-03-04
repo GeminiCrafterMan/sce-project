@@ -40,4 +40,10 @@ AniPLC_GHZ:	zoneanimstart
 	dc.b	12, 7
 	dc.b	24, $7F
 	dc.b	12, 7
+	; flame 1
+	zoneanimdecl 5, (Art_GhzFlames>>1), $3A0, 4, 14
+	dc.b	0
+	dc.b	14
+	dc.b	28
+	dc.b	42
 	zoneanimend

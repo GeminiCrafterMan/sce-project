@@ -266,7 +266,7 @@ loc_6196A:
 		move.l	#words_to_long($646,$48A),(Normal_palette_line_2+$A).w
 		move.w	#$2CE,(Normal_palette_line_2+$E).w			; Restore the part of the palette that was changed
 		lea	(ArtKosM_Explosion).l,a1
-		move.w	#-$4C00,d2
+		move.w	#tiles_to_bytes(ArtTile_Explosion),d2
 		jsr	(Queue_Kos_Module).l			; Restore the overwritten badnik explosion art
 		jmp	(Go_Delete_SpriteSlotted).l
 ; ---------------------------------------------------------------------------
