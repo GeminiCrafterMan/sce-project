@@ -111,7 +111,7 @@ Obj_TTPZBottom_Common:
 Obj_GHZFire2:
 		move.b	#1,mapping_frame(a0)
 Obj_GHZFire1:
-		move.w	#$80,priority(a0)
+		move.w	#$200,priority(a0)
 Obj_GHZFire_Common:
 		move.l	#Map_GHZFire,mappings(a0)
 		move.w	#$3A0,art_tile(a0)
