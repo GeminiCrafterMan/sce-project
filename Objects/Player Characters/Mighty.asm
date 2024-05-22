@@ -216,7 +216,7 @@ Mighty_WallJump:
 		beq.s	.return			; fail if not pressed
 		move.b	d0,double_jump_property(a0)	; remember them
 		move.w	#0,y_vel(a0)
-		move.b	#$18,double_jump_flag(a0)	;Mercury Constants
+		move.b	#48,double_jump_flag(a0)	;Mercury Constants
 		clr.b	jumping(a0)
 		move.b	#id_Ability1,anim(a0)
 		sfx		sfx_Grab

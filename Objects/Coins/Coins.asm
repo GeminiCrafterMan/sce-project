@@ -36,9 +36,7 @@ Obj_CoinCollect:
 		addq.b	#2,routine(a0)
 		clr.b	collision_flags(a0)
 		move.w	#$80,priority(a0)
-		jsr	(GiveRing).w
-		move.b	#emotion_happy,(Current_emotion).w
-		jsr		UpdateEmotionWindow
+		bsr.s	GiveCoin
 
 Obj_CoinSparkle:
 		move.w	#make_art_tile(ArtTile_Ring,1,1),art_tile(a0)
@@ -49,3 +47,7 @@ Obj_CoinSparkle:
 
 Obj_CoinDelete:
 		jmp	(Delete_Current_Sprite).w
+
+GiveCoin:
+		addq.l	#1,(Coin_count).w		; Add 1 to coin count (longword)
+		sfx		sfx_RingRight,1			; Play ring sound (change later to a new sound)

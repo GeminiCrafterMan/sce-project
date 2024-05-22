@@ -533,6 +533,8 @@ SK_special_stage_flag:				ds.b 1			; set if a Sonic & Knuckles special stage is 
 Hurt_Counter:						ds.b 1			; how many times the player has been hurt in this life
 									ds.b 1			; even
 
+Coin_count:							ds.l 1			; amount of coins the player has collected on their file
+
 System_stack_size					ds.b $100				; ~$100 bytes ; this is the top of the stack, it grows downwards
 System_stack:						= *
 Checksum_string:					ds.l 1					; set to 'INIT' once the checksum routine has run
