@@ -1664,7 +1664,7 @@ Player_JumpHeight:
 		jmp		(a1)
 
 	.playerLUT:
-		dc.l	Sonic_InstaAndShieldMoves, Tails_Test_For_Flight, Knux_Test_For_Glide, locret_118E8, locret_118E8
+		dc.l	Sonic_InstaAndShieldMoves, Tails_Test_For_Flight, Knux_Test_For_Glide, locret_118E8 ; Mighty's Wall Jump is handled in his own code... Couldn't I have done this better, though?
 
 locret_118E8:
 		rts
@@ -2370,12 +2370,22 @@ Player_DoLevelCollision:
 		sub.w	d1,x_pos(a0)
 		clr.w	x_vel(a0)	; stop Sonic since he hit a wall
 
+; Mercury Wall Jump
+		move.b	#btnL,d1
+		jsr		Mighty_WallJump
+; end Wall Jump
+
 loc_11F44:
 		bsr.w	CheckRightWallDist
 		tst.w	d1
 		bpl.s	loc_11F56
 		add.w	d1,x_pos(a0)
 		clr.w	x_vel(a0)	; stop Sonic since he hit a wall
+
+; Mercury Wall Jump
+		move.b	#btnR,d1
+		jsr		Mighty_WallJump
+; end Wall Jump
 
 loc_11F56:
 		bsr.w	sub_11FD6
@@ -2471,6 +2481,11 @@ Player_HitLeftWall:
 		clr.w	x_vel(a0)		; stop Sonic since he hit a wall
 		move.w	y_vel(a0),ground_vel(a0)
 
+; Mercury Wall Jump
+		move.b	#btnL,d1
+		jsr		Mighty_WallJump
+; end Wall Jump
+
 Player_HitCeiling:
 		bsr.w	sub_11FEE
 		tst.w	d1
@@ -2498,6 +2513,11 @@ loc_12054:
 		bpl.s	locret_12066
 		add.w	d1,x_pos(a0)
 		clr.w	x_vel(a0)
+
+; Mercury Wall Jump
+		move.b	#btnR,d1
+		jsr		Mighty_WallJump
+; end Wall Jump
 
 locret_12066:
 		rts

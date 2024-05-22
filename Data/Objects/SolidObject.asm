@@ -467,6 +467,10 @@ loc_1E034:
 		cmpi.w	#4,d1
 		bls.w	SolidObject_TopBottom
 
+; Mercury Wall Jump
+		moveq	#0,d1
+; end Wall Jump
+
 SolidObject_LeftRight:
 		tst.w	d0
 		beq.s	SolidObject_AtEdge
@@ -475,12 +479,21 @@ SolidObject_LeftRight:
 ; SolidObject_InsideLeft:
 		tst.w	x_vel(a1)
 		bmi.s	SolidObject_AtEdge
+
+; Mercury Wall Jump
+		move.b	#btnR,d1
+; end Wall Jump
+
 		bra.s	SolidObject_StopCharacter
 ; ---------------------------------------------------------------------------
 
 SolidObject_InsideRight:
 		tst.w	x_vel(a1)
 		bpl.s	SolidObject_AtEdge
+
+; Mercury Wall Jump
+		move.b	#btnL,d1
+; end Wall Jump
 
 SolidObject_StopCharacter:
 		clr.w	ground_vel(a1)
@@ -505,6 +518,12 @@ SolidObject_AtEdge:
 ; ---------------------------------------------------------------------------
 
 SolidObject_SideAir:
+; Mercury Wall Jump
+		move.l	a0,-(sp)
+		movea.l	a1,a0
+		jsr	Mighty_WallJump
+		movea.l	(sp)+,a0
+; end Wall Jump
 		bsr.s	Solid_NotPushing
 		move.w	d6,d4
 		addi.b	#$D,d4

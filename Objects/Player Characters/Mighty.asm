@@ -70,6 +70,25 @@ Mighty_Init:	; Routine 0
 		jmp		Sonic_Init.branchPoint
 
 Mighty_Control:
+; Mercury Wall Jump
+		tst.b	double_jump_flag(a0)
+		beq.s	.nodec
+		subq.b	#1,double_jump_flag(a0)
+		bne.s	.chkLR
+		move.b	#id_Roll,anim(a0) ; use "jumping" animation
+		
+	.chkLR:
+		jsr		GetCtrlHeldLogical
+		and.b	double_jump_property(a0),d0	; compare jpad to stored L,R button states
+		bne.s	.skip		; if still held, branch
+		clr.b	double_jump_flag(a0)	; clear wall jump flag and button states
+		clr.b	double_jump_property(a0)	; clear wall jump flag and button states
+		move.b	#id_Roll,anim(a0) ; use "jumping" animation
+	
+	.skip:
+		; port smoke here if you wanna make that work
+	.nodec:
+; end wall jump
 		movem.l	a4-a6,-(sp)
 		moveq	#0,d0
 		move.b	status(a0),d0
@@ -88,10 +107,123 @@ Mighty_Modes: offsetTable
 		offsetTableEntry.w Mighty_MdJump		; 6
 ; ---------------------------------------------------------------------------
 Mighty_MdNormal:	jmp	Sonic_MdNormal
-Mighty_MdAir:		jmp	Sonic_MdAir
+; ---------------------------------------------------------------------------
+; Start of subroutine Mighty_MdAir
+; Called if Mighty is airborne, but not in a ball (thus, probably not jumping)
+; Mighty_Stand_Freespace:
+Mighty_MdAir:
+		jsr		Player_SetFallingAnimation
+	if RollInAir
+		jsr	Player_AirRoll
+	endif
+	.cont:
+		jsr		Mighty_JumpHeight
+		jsr		Player_ChgJumpDir
+		jsr		Player_LevelBound
+		jsr	(MoveSprite_TestGravity).w
+; Mercury Wall Jump
+		tst.b	double_jump_flag(a0)
+		beq.s	.nowalljump
+		subi.w	#$30,y_vel(a0)
+		bra.s	.notUnderwater
+	
+	.nowalljump:
+		btst	#Status_Underwater,status(a0)	; is Mighty underwater?
+		beq.s	.notUnderwater				; if not, branch
+		subi.w	#$28,y_vel(a0)			; reduce gravity by $28 ($38-$28=$10)
+; end Wall Jump
+.notUnderwater:
+		jsr		Player_JumpAngle
+		jmp		Player_DoLevelCollision
+; ---------------------------------------------------------------------------
 Mighty_MdRoll:		jmp	Sonic_MdRoll
-Mighty_MdJump:		jmp	Sonic_MdJump
-
+; ---------------------------------------------------------------------------
+; Start of subroutine Mighty_MdJump
+; Called if Mighty is in a ball and airborne (he could be jumping but not necessarily)
+; Notes: This is identical to Mighty_MdAir, at least at this outer level.
+; Why they gave it a separate copy of the code, I don't know.
+; Mighty_Spin_Freespace:
+Mighty_MdJump:
+		jsr		Player_SetFallingAnimation
+		jsr		Mighty_JumpHeight
+		jsr		Player_ChgJumpDir
+		jsr		Player_LevelBound
+		jsr	(MoveSprite_TestGravity).w
+; Mercury Wall Jump
+		tst.b	double_jump_flag(a0)
+		beq.s	.nowalljump
+		subi.w	#$30,y_vel(a0)
+		bra.s	.notUnderwater
+	
+	.nowalljump:
+		btst	#Status_Underwater,status(a0)	; is Mighty underwater?
+		beq.s	.notUnderwater				; if not, branch
+		subi.w	#$28,y_vel(a0)			; reduce gravity by $28 ($38-$28=$10)
+; end Wall Jump
+.notUnderwater:
+		jsr		Player_JumpAngle
+		jmp		Player_DoLevelCollision
+;		jmp		FireShield_ReleaseDropDash	; He can't do that
+; ---------------------------------------------------------------------------
+Mighty_JumpHeight:
+; Mercury Wall Jump
+		tst.b	double_jump_flag(a0)	; on wall?
+		beq.s	.skip
+		jsr		GetCtrlHeldLogical
+		andi.b	#btnABC,d0	; is A, B or C pressed?
+		beq.s	.skip	; if yes, branch
+		clr.b	double_jump_flag(a0)	; clear Wall Jump data
+		clr.b	double_jump_property(a0)	; clear Wall Jump data
+		move.b	#1,jumping(a0)	;Mercury Constants
+		move.b	#id_Roll,anim(a0) ; use "jumping" animation
+		move.w	#-$600,d2
+		btst	#bitUp,d0
+		bne.s	.uponly
+		move.w	#-$580,d2
+		move.w	#-$400,x_vel(a0)
+		btst	#Status_Facing,status(a0)	;Mercury Constants
+		beq.s	.uponly
+		neg.w	x_vel(a0)
+		
+	.uponly:
+		btst	#Status_Underwater,status(a0)	;Mercury Constants
+		beq.s	.nowtr
+		addi.w	#$280,d2
+		
+	.nowtr:
+		move.w	d2,y_vel(a0)
+		sfx	sfx_Jump	; play jumping sound
+		
+	.skip:
+		jmp		Player_JumpHeight
+; End Wall Jump
+; ---------------------------------------------------------------------------
+Mighty_WallJump:
+		cmpi.b	#c_Mighty,character_id(a0)
+		bne.s	.return
+;		btst	#Status_Push,status(a0) ; this one's a test, redo solidobject changes if it fails
+;		bne.s	.return
+		tst.b	jumping(a0)	;Mercury Constants
+		beq.s	.return
+		tst.b	y_vel(a0)
+		bmi.s	.return
+		jsr		GetCtrlHeldLogical	; get jpad
+		andi.b	#(btnL|btnR),d0	; keep just L and R state
+		beq.s	.return			; fail if neither are pressed
+		cmpi.b	#(btnL|btnR),d0	; fail if both are pressed
+		beq.s	.return
+		and.b	d1,d0			; keep only L or R depending on d1
+		beq.s	.return			; fail if not pressed
+		move.b	d0,double_jump_property(a0)	; remember them
+		move.w	#0,y_vel(a0)
+		move.b	#$18,double_jump_flag(a0)	;Mercury Constants
+		clr.b	jumping(a0)
+		move.b	#id_Ability1,anim(a0)
+		sfx		sfx_Grab
+		
+	.return:
+		rts
+; ---------------------------------------------------------------------------
 Animate_Mighty:
 		lea	AniMighty(pc),a1
 ;		tst.b	(Super_Sonic_Knux_flag).w

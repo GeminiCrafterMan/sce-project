@@ -34,7 +34,7 @@ AniMighty:				offsetTable
 		offsetTableEntry.w MtyAni_Mach
 		offsetTableEntry.w MtyAni_Transform
 		offsetTableEntry.w MtyAni_Fall
-		offsetTableEntry.w MtyAni_Null
+		offsetTableEntry.w MtyAni_WallCling
 		offsetTableEntry.w MtyAni_Null
 		offsetTableEntry.w MtyAni_Null
 		offsetTableEntry.w MtyAni_Null
@@ -81,6 +81,7 @@ MtyAni_Null:		dc.b  $77, frM_Null, afEnd
 MtyAni_Mach:		dc.b  $FF, frM_Mach11, frM_Mach12, frM_Mach13, frM_Mach14, afEnd, afEnd, afEnd, afEnd, afEnd
 MtyAni_Transform:	dc.b	2, frM_Transform1, frM_Transform1, frM_Transform2, frM_Transform2, frM_Transform3, frM_Transform4, frM_Transform5, frM_Transform4, frM_Transform5, frM_Transform4, frM_Transform5, frM_Transform4, frM_Transform5, afChange,   id_Walk
 MtyAni_Fall:		dc.b	3, frM_Fall1, frM_Fall2, afEnd
+MtyAni_WallCling:	dc.b	9, frM_WallCling1, frM_WallCling2, afEnd
 MtyAni_Uncurl:		dc.b	3, frM_Uncurl1, frM_Uncurl2, afChange, id_Fall
 MtyAni_MonkeyBars:	dc.b  $7F, frM_MonkeyBars6, frM_MonkeyBars4, afEnd
 	even
